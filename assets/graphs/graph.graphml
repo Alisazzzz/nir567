@@ -1,0 +1,593 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d3" for="edge" attr.name="properties" attr.type="string" />
+  <key id="d2" for="edge" attr.name="type" attr.type="string" />
+  <key id="d1" for="node" attr.name="properties" attr.type="string" />
+  <key id="d0" for="node" attr.name="type" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="The Forty Thieves">
+      <data key="d0">Story</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="J. Wrigley">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="New York">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="All kinds of colored toy books">
+      <data key="d0">Publication</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="394 Grand Street">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="Ali Baba">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="Cassim">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="family of Ali Baba">
+      <data key="d0">Group</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="Persia">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="wife of Cassim">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="woodcutter">
+      <data key="d0">Occupation</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="troop of horsemen">
+      <data key="d0">Group</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="his horse">
+      <data key="d0">Object</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="the door">
+      <data key="d0">Object</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="the rock">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="Sesame">
+      <data key="d0">Word</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="of itself">
+      <data key="d0">Phrase</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="forty of them">
+      <data key="d0">Quantity</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="the robbers">
+      <data key="d0">Group</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="bags of gold coin">
+      <data key="d0">Object</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="He">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="him">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="horses' feet">
+      <data key="d0">Sound</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="the cave">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="more treasures than he expected">
+      <data key="d0">Object</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="his brother">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="ten mules loaded with great chests">
+      <data key="d0">Object</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="the word that caused the door to open">
+      <data key="d0">Word</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="the forest">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="Open Sesame">
+      <data key="d0">Word</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="next morning">
+      <data key="d0">Time</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="two pieces of gold">
+      <data key="d0">Object</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="a poor cobbler">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="he">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="the mangled limbs together">
+      <data key="d0">Body</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="body of his brother">
+      <data key="d0">Body</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="Morgiana">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="Cassim's wife">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="him/her">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="the same way back">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="house of his deceased brother">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="the cobbler">
+      <data key="d0">Occupation</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="the captain">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="cobbler">
+      <data key="d0">Occupation</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="house of Cassim">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="six pieces of gold">
+      <data key="d0">Currency</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="one full of oil">
+      <data key="d0">Product</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="nineteen mules">
+      <data key="d0">Animal</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="thirty-nine large jars">
+      <data key="d0">Container</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="pretended oil merchant">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="the robber">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="boiling oil">
+      <data key="d0">Substance</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="oil pot">
+      <data key="d0">Object</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="kettle">
+      <data key="d0">Object</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="lamp">
+      <data key="d0">Object</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="forced the lock of the door">
+      <data key="d0">Action</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="steam of the boiled oil">
+      <data key="d0">Event</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="his men">
+      <data key="d0">Group</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="made his escape over the walls">
+      <data key="d0">Action</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="every one of his troop put to death">
+      <data key="d0">Event</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="captain">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="shop">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="garden">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="thirty-nine thieves">
+      <data key="d0">Group</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="house">
+      <data key="d0">Location</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="Ali Baba's son">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="Cogia Hassan">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="himself">
+      <data key="d0">Object</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="dancing-girl">
+      <data key="d0">Object</data>
+      <data key="d1">{}</data>
+    </node>
+    <node id="guest">
+      <data key="d0">Person</data>
+      <data key="d1">{}</data>
+    </node>
+    <edge source="J. Wrigley" target="All kinds of colored toy books">
+      <data key="d2">PUBLISHER_OF</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="J. Wrigley" target="New York">
+      <data key="d2">PUBLISHER_AT</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="J. Wrigley" target="394 Grand Street">
+      <data key="d2">PUBLISHER_AT</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="The Forty Thieves">
+      <data key="d2">TITLE_OF</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="Persia">
+      <data key="d2">LIVES_IN</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="family of Ali Baba">
+      <data key="d2">MAINTAINS_LIVING</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="woodcutter">
+      <data key="d2">WORKS_AS</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="troop of horsemen">
+      <data key="d2">OBSERVES</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="forty of them">
+      <data key="d2">COUNTED</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="his horse">
+      <data key="d2">TOOK_PORTMANTEAU</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="Sesame">
+      <data key="d2">SAID_OPEN_SESAM</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="the rock">
+      <data key="d2">VENTURED_DOWN</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="his brother">
+      <data key="d2">TOLD_SECRET</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="the forest">
+      <data key="d2">DROVE_TO_FOREST</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="the cave">
+      <data key="d2">ENTERED_CAVE</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="house of his deceased brother">
+      <data key="d2">TOOK_POSSESSION_OF</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="pretended oil merchant">
+      <data key="d2">INVITED_TO_SUPER</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="thirty-nine thieves">
+      <data key="d2">OWNS</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="house">
+      <data key="d2">LIVES_IN</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="Ali Baba's son">
+      <data key="d2">PARENT_OF</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="Cogia Hassan">
+      <data key="d2">INVITED</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba" target="Morgiana">
+      <data key="d2">TRANSFERRED_WEALTH_TO</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="wife of Cassim">
+      <data key="d2">MARRIED_TO</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="next morning">
+      <data key="d2">ROSE_EARLY</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="ten mules loaded with great chests">
+      <data key="d2">SET_OUT_WITH</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="the rock">
+      <data key="d2">FOUND_ROCK</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="Open Sesame">
+      <data key="d2">SAID_OPEN_SESAME</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="the cave">
+      <data key="d2">GAINED_ADMISSION</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="more treasures than he expected">
+      <data key="d2">FOUND_TREASURES</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="the word that caused the door to open">
+      <data key="d2">FORGOT_WORD</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="horses' feet">
+      <data key="d2">HEARD_SOUND_OF_HORSES_FEET</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="the robbers">
+      <data key="d2">CONCLUDED_TO_BE_ROBBERS</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="him">
+      <data key="d2">PUT_TO_DEATH</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="Ali Baba">
+      <data key="d2">BURIED_WITH</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cassim" target="house of Cassim">
+      <data key="d2">LIVES_IN</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the door" target="of itself">
+      <data key="d2">INSTANTLY_CLOSED</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the robbers" target="the rock">
+      <data key="d2">CAME_OUT</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="He" target="bags of gold coin">
+      <data key="d2">CARRIED</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="two pieces of gold" target="him/her">
+      <data key="d2">POSSESSED_BY</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="a poor cobbler" target="the mangled limbs together">
+      <data key="d2">SEWED_BODY</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="he" target="body of his brother">
+      <data key="d2">FOUND_BODY</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="he" target="Cassim's wife">
+      <data key="d2">DELIVERED_BODY</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Morgiana" target="a poor cobbler">
+      <data key="d2">SENT_TO_Cobbler</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Morgiana" target="two pieces of gold">
+      <data key="d2">GAVE_GOLD</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Morgiana" target="the robber">
+      <data key="d2">KILLS</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Morgiana" target="lamp">
+      <data key="d2">USES</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Morgiana" target="boiling oil">
+      <data key="d2">POURS</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Morgiana" target="oil pot">
+      <data key="d2">HAS_OBJECT</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Morgiana" target="kettle">
+      <data key="d2">USES</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Morgiana" target="Ali Baba">
+      <data key="d2">ASSOCIATED_WITH</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Morgiana" target="Cogia Hassan">
+      <data key="d2">DANCED_FOR</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Morgiana" target="dancing-girl">
+      <data key="d2">CHANGED_CLOTHES</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Morgiana" target="guest">
+      <data key="d2">ENTERTAINED</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="him/her" target="the same way back">
+      <data key="d2">LED</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the cobbler" target="the captain">
+      <data key="d2">TOLD_INFO_TO</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the captain" target="cobbler">
+      <data key="d2">PAID_FOR_SERVICE</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the captain" target="Cassim">
+      <data key="d2">MARKED_LOCATION_OF</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the captain" target="one full of oil">
+      <data key="d2">PUT_MEN_IN_CONTAINER</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the captain" target="his men">
+      <data key="d2">COMMANDS</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the captain" target="steam of the boiled oil">
+      <data key="d2">EXPERIENCES</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the captain" target="every one of his troop put to death">
+      <data key="d2">FINDS</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the captain" target="forced the lock of the door">
+      <data key="d2">PERFORMS_ACTION</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the captain" target="made his escape over the walls">
+      <data key="d2">PERFORMS_ACTION</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="six pieces of gold" target="the captain">
+      <data key="d2">USED_TO_PAY</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="one full of oil" target="thirty-nine large jars">
+      <data key="d2">CONTAINED_IN</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="nineteen mules" target="the captain">
+      <data key="d2">BOUGHT_BY</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="thirty-nine large jars" target="the captain">
+      <data key="d2">BOUGHT_BY</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="pretended oil merchant" target="Ali Baba">
+      <data key="d2">REQUESTED_SHELTER</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="the robber" target="boiling oil">
+      <data key="d2">IS_KILLED_BY</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="captain" target="Ali Baba">
+      <data key="d2">PLOTS_AGAINST</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="thirty-nine thieves" target="garden">
+      <data key="d2">BURIED_AT</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba's son" target="shop">
+      <data key="d2">VISITS</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Ali Baba's son" target="Ali Baba">
+      <data key="d2">IS_DETAINED_BY</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cogia Hassan" target="Ali Baba's son">
+      <data key="d2">FRIEND_OF</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cogia Hassan" target="Ali Baba">
+      <data key="d2">ACCEPTED_INVITATION</data>
+      <data key="d3">{}</data>
+    </edge>
+    <edge source="Cogia Hassan" target="himself">
+      <data key="d2">HID_DAGGER</data>
+      <data key="d3">{}</data>
+    </edge>
+  </graph>
+</graphml>

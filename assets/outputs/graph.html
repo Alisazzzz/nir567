@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "font": {"color": "white"}, "id": "J. Wrigley", "label": "J. Wrigley", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "All kinds of colored toy books", "label": "All kinds of colored toy books", "properties": "{}", "shape": "dot", "size": 10, "type": "Publication"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "New York", "label": "New York", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "394 Grand Street", "label": "394 Grand Street", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Ali Baba", "label": "Ali Baba", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "The Forty Thieves", "label": "The Forty Thieves", "properties": "{}", "shape": "dot", "size": 10, "type": "Story"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Persia", "label": "Persia", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "family of Ali Baba", "label": "family of Ali Baba", "properties": "{}", "shape": "dot", "size": 10, "type": "Group"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "woodcutter", "label": "woodcutter", "properties": "{}", "shape": "dot", "size": 10, "type": "Occupation"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "troop of horsemen", "label": "troop of horsemen", "properties": "{}", "shape": "dot", "size": 10, "type": "Group"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "forty of them", "label": "forty of them", "properties": "{}", "shape": "dot", "size": 10, "type": "Quantity"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "his horse", "label": "his horse", "properties": "{}", "shape": "dot", "size": 10, "type": "Object"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sesame", "label": "Sesame", "properties": "{}", "shape": "dot", "size": 10, "type": "Word"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "the rock", "label": "the rock", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "his brother", "label": "his brother", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "the forest", "label": "the forest", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "the cave", "label": "the cave", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "house of his deceased brother", "label": "house of his deceased brother", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "pretended oil merchant", "label": "pretended oil merchant", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "thirty-nine thieves", "label": "thirty-nine thieves", "properties": "{}", "shape": "dot", "size": 10, "type": "Group"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "house", "label": "house", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Ali Baba\u0027s son", "label": "Ali Baba\u0027s son", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Cogia Hassan", "label": "Cogia Hassan", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Morgiana", "label": "Morgiana", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Cassim", "label": "Cassim", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "wife of Cassim", "label": "wife of Cassim", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "next morning", "label": "next morning", "properties": "{}", "shape": "dot", "size": 10, "type": "Time"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "ten mules loaded with great chests", "label": "ten mules loaded with great chests", "properties": "{}", "shape": "dot", "size": 10, "type": "Object"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Open Sesame", "label": "Open Sesame", "properties": "{}", "shape": "dot", "size": 10, "type": "Word"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "more treasures than he expected", "label": "more treasures than he expected", "properties": "{}", "shape": "dot", "size": 10, "type": "Object"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "the word that caused the door to open", "label": "the word that caused the door to open", "properties": "{}", "shape": "dot", "size": 10, "type": "Word"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "horses\u0027 feet", "label": "horses\u0027 feet", "properties": "{}", "shape": "dot", "size": 10, "type": "Sound"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "the robbers", "label": "the robbers", "properties": "{}", "shape": "dot", "size": 10, "type": "Group"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "him", "label": "him", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "house of Cassim", "label": "house of Cassim", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "the door", "label": "the door", "properties": "{}", "shape": "dot", "size": 10, "type": "Object"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "of itself", "label": "of itself", "properties": "{}", "shape": "dot", "size": 10, "type": "Phrase"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "He", "label": "He", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "bags of gold coin", "label": "bags of gold coin", "properties": "{}", "shape": "dot", "size": 10, "type": "Object"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "two pieces of gold", "label": "two pieces of gold", "properties": "{}", "shape": "dot", "size": 10, "type": "Object"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "him/her", "label": "him/her", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "a poor cobbler", "label": "a poor cobbler", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "the mangled limbs together", "label": "the mangled limbs together", "properties": "{}", "shape": "dot", "size": 10, "type": "Body"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "he", "label": "he", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "body of his brother", "label": "body of his brother", "properties": "{}", "shape": "dot", "size": 10, "type": "Body"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Cassim\u0027s wife", "label": "Cassim\u0027s wife", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "the robber", "label": "the robber", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "lamp", "label": "lamp", "properties": "{}", "shape": "dot", "size": 10, "type": "Object"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "boiling oil", "label": "boiling oil", "properties": "{}", "shape": "dot", "size": 10, "type": "Substance"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "oil pot", "label": "oil pot", "properties": "{}", "shape": "dot", "size": 10, "type": "Object"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "kettle", "label": "kettle", "properties": "{}", "shape": "dot", "size": 10, "type": "Object"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "dancing-girl", "label": "dancing-girl", "properties": "{}", "shape": "dot", "size": 10, "type": "Object"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "guest", "label": "guest", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "the same way back", "label": "the same way back", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "the cobbler", "label": "the cobbler", "properties": "{}", "shape": "dot", "size": 10, "type": "Occupation"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "the captain", "label": "the captain", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "cobbler", "label": "cobbler", "properties": "{}", "shape": "dot", "size": 10, "type": "Occupation"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "one full of oil", "label": "one full of oil", "properties": "{}", "shape": "dot", "size": 10, "type": "Product"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "his men", "label": "his men", "properties": "{}", "shape": "dot", "size": 10, "type": "Group"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "steam of the boiled oil", "label": "steam of the boiled oil", "properties": "{}", "shape": "dot", "size": 10, "type": "Event"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "every one of his troop put to death", "label": "every one of his troop put to death", "properties": "{}", "shape": "dot", "size": 10, "type": "Event"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "forced the lock of the door", "label": "forced the lock of the door", "properties": "{}", "shape": "dot", "size": 10, "type": "Action"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "made his escape over the walls", "label": "made his escape over the walls", "properties": "{}", "shape": "dot", "size": 10, "type": "Action"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "six pieces of gold", "label": "six pieces of gold", "properties": "{}", "shape": "dot", "size": 10, "type": "Currency"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "thirty-nine large jars", "label": "thirty-nine large jars", "properties": "{}", "shape": "dot", "size": 10, "type": "Container"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "nineteen mules", "label": "nineteen mules", "properties": "{}", "shape": "dot", "size": 10, "type": "Animal"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "captain", "label": "captain", "properties": "{}", "shape": "dot", "size": 10, "type": "Person"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "garden", "label": "garden", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "shop", "label": "shop", "properties": "{}", "shape": "dot", "size": 10, "type": "Location"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "himself", "label": "himself", "properties": "{}", "shape": "dot", "size": 10, "type": "Object"}]);
+                  edges = new vis.DataSet([{"from": "J. Wrigley", "properties": "{}", "to": "All kinds of colored toy books", "type": "PUBLISHER_OF", "width": 1}, {"from": "J. Wrigley", "properties": "{}", "to": "New York", "type": "PUBLISHER_AT", "width": 1}, {"from": "J. Wrigley", "properties": "{}", "to": "394 Grand Street", "type": "PUBLISHER_AT", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "The Forty Thieves", "type": "TITLE_OF", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "Persia", "type": "LIVES_IN", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "family of Ali Baba", "type": "MAINTAINS_LIVING", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "woodcutter", "type": "WORKS_AS", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "troop of horsemen", "type": "OBSERVES", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "forty of them", "type": "COUNTED", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "his horse", "type": "TOOK_PORTMANTEAU", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "Sesame", "type": "SAID_OPEN_SESAM", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "the rock", "type": "VENTURED_DOWN", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "his brother", "type": "TOLD_SECRET", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "the forest", "type": "DROVE_TO_FOREST", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "the cave", "type": "ENTERED_CAVE", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "house of his deceased brother", "type": "TOOK_POSSESSION_OF", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "pretended oil merchant", "type": "INVITED_TO_SUPER", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "thirty-nine thieves", "type": "OWNS", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "house", "type": "LIVES_IN", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "Ali Baba\u0027s son", "type": "PARENT_OF", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "Cogia Hassan", "type": "INVITED", "width": 1}, {"from": "Ali Baba", "properties": "{}", "to": "Morgiana", "type": "TRANSFERRED_WEALTH_TO", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "wife of Cassim", "type": "MARRIED_TO", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "next morning", "type": "ROSE_EARLY", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "ten mules loaded with great chests", "type": "SET_OUT_WITH", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "the rock", "type": "FOUND_ROCK", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "Open Sesame", "type": "SAID_OPEN_SESAME", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "the cave", "type": "GAINED_ADMISSION", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "more treasures than he expected", "type": "FOUND_TREASURES", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "the word that caused the door to open", "type": "FORGOT_WORD", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "horses\u0027 feet", "type": "HEARD_SOUND_OF_HORSES_FEET", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "the robbers", "type": "CONCLUDED_TO_BE_ROBBERS", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "him", "type": "PUT_TO_DEATH", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "Ali Baba", "type": "BURIED_WITH", "width": 1}, {"from": "Cassim", "properties": "{}", "to": "house of Cassim", "type": "LIVES_IN", "width": 1}, {"from": "the door", "properties": "{}", "to": "of itself", "type": "INSTANTLY_CLOSED", "width": 1}, {"from": "the robbers", "properties": "{}", "to": "the rock", "type": "CAME_OUT", "width": 1}, {"from": "He", "properties": "{}", "to": "bags of gold coin", "type": "CARRIED", "width": 1}, {"from": "two pieces of gold", "properties": "{}", "to": "him/her", "type": "POSSESSED_BY", "width": 1}, {"from": "a poor cobbler", "properties": "{}", "to": "the mangled limbs together", "type": "SEWED_BODY", "width": 1}, {"from": "he", "properties": "{}", "to": "body of his brother", "type": "FOUND_BODY", "width": 1}, {"from": "he", "properties": "{}", "to": "Cassim\u0027s wife", "type": "DELIVERED_BODY", "width": 1}, {"from": "Morgiana", "properties": "{}", "to": "a poor cobbler", "type": "SENT_TO_Cobbler", "width": 1}, {"from": "Morgiana", "properties": "{}", "to": "two pieces of gold", "type": "GAVE_GOLD", "width": 1}, {"from": "Morgiana", "properties": "{}", "to": "the robber", "type": "KILLS", "width": 1}, {"from": "Morgiana", "properties": "{}", "to": "lamp", "type": "USES", "width": 1}, {"from": "Morgiana", "properties": "{}", "to": "boiling oil", "type": "POURS", "width": 1}, {"from": "Morgiana", "properties": "{}", "to": "oil pot", "type": "HAS_OBJECT", "width": 1}, {"from": "Morgiana", "properties": "{}", "to": "kettle", "type": "USES", "width": 1}, {"from": "Morgiana", "properties": "{}", "to": "Cogia Hassan", "type": "DANCED_FOR", "width": 1}, {"from": "Morgiana", "properties": "{}", "to": "dancing-girl", "type": "CHANGED_CLOTHES", "width": 1}, {"from": "Morgiana", "properties": "{}", "to": "guest", "type": "ENTERTAINED", "width": 1}, {"from": "him/her", "properties": "{}", "to": "the same way back", "type": "LED", "width": 1}, {"from": "the cobbler", "properties": "{}", "to": "the captain", "type": "TOLD_INFO_TO", "width": 1}, {"from": "the captain", "properties": "{}", "to": "cobbler", "type": "PAID_FOR_SERVICE", "width": 1}, {"from": "the captain", "properties": "{}", "to": "Cassim", "type": "MARKED_LOCATION_OF", "width": 1}, {"from": "the captain", "properties": "{}", "to": "one full of oil", "type": "PUT_MEN_IN_CONTAINER", "width": 1}, {"from": "the captain", "properties": "{}", "to": "his men", "type": "COMMANDS", "width": 1}, {"from": "the captain", "properties": "{}", "to": "steam of the boiled oil", "type": "EXPERIENCES", "width": 1}, {"from": "the captain", "properties": "{}", "to": "every one of his troop put to death", "type": "FINDS", "width": 1}, {"from": "the captain", "properties": "{}", "to": "forced the lock of the door", "type": "PERFORMS_ACTION", "width": 1}, {"from": "the captain", "properties": "{}", "to": "made his escape over the walls", "type": "PERFORMS_ACTION", "width": 1}, {"from": "six pieces of gold", "properties": "{}", "to": "the captain", "type": "USED_TO_PAY", "width": 1}, {"from": "one full of oil", "properties": "{}", "to": "thirty-nine large jars", "type": "CONTAINED_IN", "width": 1}, {"from": "nineteen mules", "properties": "{}", "to": "the captain", "type": "BOUGHT_BY", "width": 1}, {"from": "thirty-nine large jars", "properties": "{}", "to": "the captain", "type": "BOUGHT_BY", "width": 1}, {"from": "the robber", "properties": "{}", "to": "boiling oil", "type": "IS_KILLED_BY", "width": 1}, {"from": "captain", "properties": "{}", "to": "Ali Baba", "type": "PLOTS_AGAINST", "width": 1}, {"from": "thirty-nine thieves", "properties": "{}", "to": "garden", "type": "BURIED_AT", "width": 1}, {"from": "Ali Baba\u0027s son", "properties": "{}", "to": "shop", "type": "VISITS", "width": 1}, {"from": "Cogia Hassan", "properties": "{}", "to": "Ali Baba\u0027s son", "type": "FRIEND_OF", "width": 1}, {"from": "Cogia Hassan", "properties": "{}", "to": "himself", "type": "HID_DAGGER", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"font": {"size": 14}}, "edges": {"color": {"inherit": true}, "smooth": false}, "physics": {"enabled": true, "stabilization": {"iterations": 100}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
