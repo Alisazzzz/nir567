@@ -10,3 +10,7 @@ matplotlib
 json-repair
 pyvis
 jupiter
+langchain-huggingface
+langchain-openai
+transformers
+torch

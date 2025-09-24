@@ -1,22 +1,27 @@
 #This is working chat
 
-from langchain_ollama.llms import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 import networkx as nx
-
-from langchain_ollama import OllamaEmbeddings
 
 from nir.graph import knowledge_graph
 from nir.core import context_searcher
 
-model = OllamaLLM(model="llama3.2:latest")
-embeddings = OllamaEmbeddings(model="nomic-embed-text:v1.5")
+from nir.llm.providers import ModelConfig
+from nir.llm.manager import ModelManager
+
+manager = ModelManager()
+model_config = ModelConfig("llama3.2:latest")
+manager.create_chat_model("basic", "ollama", model_config)
+manager.create_embedding_model("basic", "ollama", "nomic-embed-text:v1.5")
 
 template = """
     You are a professional narrative designer, working in game industry. Answer a question.
     Here is some relevant information: {reviews}
     Here is the question to answer: {question}
 """
+
+model = manager.get_chat_model("basic")
+embeddings = manager.get_embedding_model("basic")
 
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
