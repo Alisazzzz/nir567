@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "J. WRIGLEY", "name": "J. Wrigley", "states": [], "type": "location"}, "font": {"color": "white"}, "id": "J. WRIGLEY", "label": "J. WRIGLEY", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "ALI BABA, OR THE FORTY THIEVES.", "name": "Ali Baba, or the Forty Thieves", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "ALI BABA, OR THE FORTY THIEVES.", "label": "ALI BABA, OR THE FORTY THIEVES.", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "Sesame", "name": "Open Sesame", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "Sesame", "label": "Sesame", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "Door", "name": "The door", "states": [], "type": "environment_element"}, "font": {"color": "white"}, "id": "Door", "label": "Door", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "Gold Coin", "name": "Bags of gold coin", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "Gold Coin", "label": "Gold Coin", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "Ali_Baba", "name": "Ali Baba", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "Ali_Baba", "label": "Ali_Baba", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "cave", "name": "The cave", "states": [], "type": "location"}, "font": {"color": "white"}, "id": "cave", "label": "cave", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "Cassim", "name": "Cassim", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "Cassim", "label": "Cassim", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u0441\u043e\u0437\u0434\u0430\u043d\u043d\u0430\u044f \u0432\u0435\u0440\u0448\u0438\u043d\u0430 \u0438\u0437 \u0440\u0435\u0431\u0440\u0430", "id": "robbers", "name": "robbers", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "robbers", "label": "robbers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "A human being involved in the story", "id": "person", "name": "Person", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "person", "label": "person", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u0441\u043e\u0437\u0434\u0430\u043d\u043d\u0430\u044f \u0432\u0435\u0440\u0448\u0438\u043d\u0430 \u0438\u0437 \u0440\u0435\u0431\u0440\u0430", "id": "location", "name": "location", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "location", "label": "location", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {"role": "captain"}, "description": "The protagonist of the story.", "id": "morgiana", "name": "Morgiana", "states": [{"attributes": {"action": "pouring_oil", "location": "kitchen"}, "sid": "morgiana-state", "time_end": null, "time_start": "night"}], "type": "character"}, "font": {"color": "white"}, "id": "morgiana", "label": "morgiana", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "A person who is hiding in one of the jars.", "id": "robber", "name": "The Robber", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "robber", "label": "robber", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "A container where the robber is hiding.", "id": "jar", "name": "The Jar", "states": [], "type": "environment_element"}, "font": {"color": "white"}, "id": "jar", "label": "jar", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "the_captain", "name": "The Captain", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "the_captain", "label": "the_captain", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u0441\u043e\u0437\u0434\u0430\u043d\u043d\u0430\u044f \u0432\u0435\u0440\u0448\u0438\u043d\u0430 \u0438\u0437 \u0440\u0435\u0431\u0440\u0430", "id": "shop", "name": "shop", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "shop", "label": "shop", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "cogia_hassan", "name": "Cogia Hassan", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "cogia_hassan", "label": "cogia_hassan", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "ali_baba_son", "name": "Ali Baba\u0027s Son", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "ali_baba_son", "label": "ali_baba_son", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u0441\u043e\u0437\u0434\u0430\u043d\u043d\u0430\u044f \u0432\u0435\u0440\u0448\u0438\u043d\u0430 \u0438\u0437 \u0440\u0435\u0431\u0440\u0430", "id": "ali_baba_s_house", "name": "ali_baba_s_house", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "ali_baba_s_house", "label": "ali_baba_s_house", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "", "id": "brother", "name": "Ali Baba\u0027s brother", "states": [], "type": "group"}, "font": {"color": "white"}, "id": "brother", "label": "brother", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "A type of valuable metal", "id": "gold", "name": "Gold", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "gold", "label": "gold", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "A room in the house where Morgiana prepares food.", "id": "kitchen", "name": "The Kitchen", "states": [], "type": "location"}, "font": {"color": "white"}, "id": "kitchen", "label": "kitchen", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "A container used to store oil.", "id": "oil_pot", "name": "The Oil Pot", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "oil_pot", "label": "oil_pot", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "A device that provides light.", "id": "lamp", "name": "The Lamp", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "lamp", "label": "lamp", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"attributes": {}, "description": "\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u0441\u043e\u0437\u0434\u0430\u043d\u043d\u0430\u044f \u0432\u0435\u0440\u0448\u0438\u043d\u0430 \u0438\u0437 \u0440\u0435\u0431\u0440\u0430", "id": "ali_baba_s_cave", "name": "ali_baba_s_cave", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "ali_baba_s_cave", "label": "ali_baba_s_cave", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"data": {"description": "", "id": "edge-1", "relation": "published", "source": "J. WRIGLEY", "target": "ALI BABA, OR THE FORTY THIEVES.", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "J. WRIGLEY", "label": {"description": "", "id": "edge-1", "relation": "published", "source": "J. WRIGLEY", "target": "ALI BABA, OR THE FORTY THIEVES.", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "ALI BABA, OR THE FORTY THIEVES.", "width": 1}, {"data": {"description": "", "id": "edge1", "relation": "opens", "source": "Sesame", "target": "Door", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "Sesame", "label": {"description": "", "id": "edge1", "relation": "opens", "source": "Sesame", "target": "Door", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "Door", "width": 1}, {"data": {"description": "", "id": "edge2", "relation": "carries", "source": "Sesame", "target": "Gold Coin", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "Sesame", "label": {"description": "", "id": "edge2", "relation": "carries", "source": "Sesame", "target": "Gold Coin", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "Gold Coin", "width": 1}, {"data": {"description": "", "id": "edge5", "relation": "visited_location", "source": "Ali_Baba", "target": "cave", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "Ali_Baba", "label": {"description": "", "id": "edge5", "relation": "visited_location", "source": "Ali_Baba", "target": "cave", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "cave", "width": 1}, {"data": {"description": "", "id": "edge3", "relation": "found_treasures", "source": "Cassim", "target": "Ali_Baba", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "Cassim", "label": {"description": "", "id": "edge3", "relation": "found_treasures", "source": "Cassim", "target": "Ali_Baba", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "Ali_Baba", "width": 1}, {"data": {"description": "", "id": "edge4", "relation": "killed_character", "source": "robbers", "target": "Cassim", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "robbers", "label": {"description": "", "id": "edge4", "relation": "killed_character", "source": "robbers", "target": "Cassim", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "Cassim", "width": 1}, {"data": {"description": "", "id": "edge-2", "relation": "led", "source": "person", "target": "location", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "person", "label": {"description": "", "id": "edge-2", "relation": "led", "source": "person", "target": "location", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "location", "width": 1}, {"data": {"description": "", "id": "morgiana-talks-to-robber", "relation": "speaks_to", "source": "morgiana", "target": "robber", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "morgiana", "label": {"description": "", "id": "morgiana-talks-to-robber", "relation": "speaks_to", "source": "morgiana", "target": "robber", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "robber", "width": 1}, {"data": {"description": "", "id": "morgiana-pours-oil-into-jar", "relation": "pours_into", "source": "morgiana", "target": "jar", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "morgiana", "label": {"description": "", "id": "morgiana-pours-oil-into-jar", "relation": "pours_into", "source": "morgiana", "target": "jar", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "jar", "width": 1}, {"data": {"description": "", "id": "edge_3", "relation": "took", "source": "the_captain", "target": "shop", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "the_captain", "label": {"description": "", "id": "edge_3", "relation": "took", "source": "the_captain", "target": "shop", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "shop", "width": 1}, {"data": {"description": "", "id": "edge_4", "relation": "offered", "source": "cogia_hassan", "target": "ali_baba_son", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "cogia_hassan", "label": {"description": "", "id": "edge_4", "relation": "offered", "source": "cogia_hassan", "target": "ali_baba_son", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "ali_baba_son", "width": 1}, {"data": {"description": "", "id": "edge_5", "relation": "appeared", "source": "cogia_hassan", "target": "ali_baba_s_house", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "cogia_hassan", "label": {"description": "", "id": "edge_5", "relation": "appeared", "source": "cogia_hassan", "target": "ali_baba_s_house", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "ali_baba_s_house", "width": 1}, {"data": {"description": "", "id": "edge_6", "relation": "went", "source": "ali_baba_son", "target": "shop", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "ali_baba_son", "label": {"description": "", "id": "edge_6", "relation": "went", "source": "ali_baba_son", "target": "shop", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "to": "shop", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"font": {"size": 14}}, "edges": {"color": {"inherit": true}, "smooth": false, "font": {"size": 12, "color": "#ffffff"}}, "physics": {"enabled": true, "stabilization": {"iterations": 100}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

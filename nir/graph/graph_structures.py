@@ -1,9 +1,19 @@
 #All data structures needed for graph are here
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional, Dict, Any
 from enum import Enum
 
+TYPE_CORRECTIONS = {
+    "location_element": "location",
+    "place": "location",
+    "person": "character",
+    "human": "character",
+    "object": "item",
+    "thing": "item",
+    "env_element": "environment_element",
+    "natural_feature": "environment_element",
+}
 
 class NodeType(str, Enum):
     character = "character"
@@ -26,6 +36,17 @@ class Node(BaseModel):
     description: str = ""
     attributes: Dict[str, Any] = Field(default_factory=dict)
     states: List[State] = Field(default_factory=list)
+
+    @field_validator('type')
+    @classmethod
+    def validate_and_correct_type(cls, v: str) -> str:
+        v_clean = v.strip().lower()        
+        if v_clean in [item.value for item in NodeType]:
+            return v_clean
+        if v_clean in TYPE_CORRECTIONS:
+            corrected = TYPE_CORRECTIONS[v_clean]
+            return corrected
+        return "item"
 
 class Edge(BaseModel):
     id: str

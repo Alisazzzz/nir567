@@ -1,0 +1,448 @@
+{
+  "nodes": [
+    {
+      "id": "alice_cooper",
+      "name": "Alice Cooper",
+      "type": "character",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "dark_forest",
+      "name": "Dark Forest",
+      "type": "location",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "magic_lamp",
+      "name": "Magic Lamp",
+      "type": "item",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "captain_of_troop",
+      "name": "Captain of Troop",
+      "type": "character",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "city",
+      "name": "City",
+      "type": "location",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "cassim_house",
+      "name": "Cassim's House",
+      "type": "location",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "robbers_mark",
+      "name": "Robber's Mark",
+      "type": "environment_element",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "mules",
+      "name": "Mules",
+      "type": "item",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "jars",
+      "name": "Jars",
+      "type": "item",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "put_man_into_each_jar",
+      "name": "Put man into each jar",
+      "type": "environment_element",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "Ali_Baba_dwelt",
+      "name": "Ali Baba dwelt",
+      "type": "location",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "oil_merchant",
+      "name": "Oil merchant",
+      "type": "character",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "Morgiana",
+      "name": "Morgiana",
+      "type": "character",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "lamp",
+      "name": "lamp",
+      "type": "item",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "jar",
+      "name": "jar",
+      "type": "environment_element",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "kettle",
+      "name": "kettle",
+      "type": "item",
+      "description": "Automatically created node",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "ali_baba",
+      "name": "Ali Baba",
+      "type": "character",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "cogia_hassan",
+      "name": "Cogia Hassan",
+      "type": "character",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "alibaba_son",
+      "name": "Alibaba's Son",
+      "type": "character",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "garden",
+      "name": "Garden",
+      "type": "location",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "shop",
+      "name": "shop",
+      "type": "item",
+      "description": "Automatically created node",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "parlor",
+      "name": "Parlor",
+      "type": "location",
+      "description": "",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "Ali Baba dwelt",
+      "name": "Ali Baba dwelt",
+      "type": "item",
+      "description": "Auto-created missing node",
+      "attributes": {},
+      "states": []
+    },
+    {
+      "id": "morgiana",
+      "name": "morgiana",
+      "type": "item",
+      "description": "Auto-created missing node",
+      "attributes": {},
+      "states": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "alice_cooper_lives_in_dark_forest",
+      "source": "alice_cooper",
+      "target": "dark_forest",
+      "relation": "lives_in",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "alice_cooper_owns_magic_lamp",
+      "source": "alice_cooper",
+      "target": "magic_lamp",
+      "relation": "owns",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "captain_of_troop_went_to_city",
+      "source": "captain_of_troop",
+      "target": "city",
+      "relation": "went_to",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "captain_of_troop_acosted_cobbler",
+      "source": "captain_of_troop",
+      "target": "city",
+      "relation": "acosted",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "captain_of_troop_put_man_into_jar",
+      "source": "captain_of_troop",
+      "target": "jars",
+      "relation": "put_man_into",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "captain_of_troop_found_cassim_house",
+      "source": "captain_of_troop",
+      "target": "cassim_house",
+      "relation": "found",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "captain_of_troop_marked_with_chalk",
+      "source": "captain_of_troop",
+      "target": "robbers_mark",
+      "relation": "marked_with",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "captain_of_troop_bought_jars",
+      "source": "city",
+      "target": "captain_of_troop",
+      "relation": "bought",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "put_man_into_each_jar_proceeded_to_Ali_Baba_dwelt",
+      "source": "put_man_into_each_jar",
+      "target": "Ali Baba dwelt",
+      "relation": "proceeded_to",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "oil_merchant_put_mules_into_courtyard",
+      "source": "oil_merchant",
+      "target": "Ali Baba dwelt",
+      "relation": "put_mules_into",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "oil_merchant_invited_guest_to_supper",
+      "source": "oil_merchant",
+      "target": "Ali Baba dwelt",
+      "relation": "invited_guest_to_supper",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "Morgiana_sits_up_later_that_night",
+      "source": "Morgiana",
+      "target": "lamp",
+      "relation": "sits_on",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "Morgiana_takes_oil_pot_approaching_jar",
+      "source": "Morgiana",
+      "target": "jar",
+      "relation": "approaches",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "Morgiana_fills_kettle_with_oil_sets_it_on_wood_fire",
+      "source": "Morgiana",
+      "target": "kettle",
+      "relation": "fills",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "Robber_within_says_is_it_time_captain",
+      "source": "jar",
+      "target": "Morgiana",
+      "relation": "says",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "Morgiana_runs_back_to_kitchen_brings_out_kettle",
+      "source": "jar",
+      "target": "Morgiana",
+      "relation": "runs_back",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "Morgiana_pours_oil_into_jars_kills_every_man",
+      "source": "kettle",
+      "target": "jar",
+      "relation": "pours",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "ali_baba_buries_thieves",
+      "source": "ali_baba",
+      "target": "garden",
+      "relation": "buries",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "ali_baba_adopts_new_scheme",
+      "source": "ali_baba",
+      "target": "city",
+      "relation": "adopts",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "ali_baba_gives_morgiana_in_marriage",
+      "source": "ali_baba",
+      "target": "morgiana",
+      "relation": "gives_in_marriage",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "ali_baba_gives_morgiana_wealth",
+      "source": "ali_baba",
+      "target": "morgiana",
+      "relation": "gives_wealth",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "cogia_hassan_appears_to_alibaba_son",
+      "source": "cogia_hassan",
+      "target": "alibaba_son",
+      "relation": "appears",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "alibaba_son_goes_to_shop",
+      "source": "alibaba_son",
+      "target": "shop",
+      "relation": "goes",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "morgiana_entertains_cogia_hassan",
+      "source": "morgiana",
+      "target": "cogia_hassan",
+      "relation": "entertains",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    },
+    {
+      "id": "morgiana_kills_cogia_hassan",
+      "source": "morgiana",
+      "target": "cogia_hassan",
+      "relation": "kills",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null
+    }
+  ]
+}

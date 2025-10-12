@@ -1,6 +1,6 @@
 #Abstract class for knowledge graph
 
-from typing import Iterable, List
+from typing import Iterable, List, Optional
 from langchain_core.vectorstores.base import VectorStoreRetriever
 from langchain_chroma import Chroma
 import chromadb
@@ -18,15 +18,35 @@ class KnowledgeGraph(ABC):
         pass
 
     @abstractmethod
-    def get_node(self, node_id: str) -> Node:
+    def get_node_by_name(self, node_name: str) -> Node:
         pass
 
     @abstractmethod
-    def get_edges(self, source: str, target: str) -> List[Edge]:
+    def get_node_by_id(self, node_id: str) -> Node:
+        pass
+    
+    @abstractmethod
+    def get_all_nodes(self) -> List[Node]:
         pass
 
     @abstractmethod
-    def update_node_state(self, node_id: str, new_state: State) -> None:
+    def get_edges_between_nodes(self, source: str, target: str) -> List[Edge]: #between one pair of nodes
+        pass
+
+    @abstractmethod
+    def get_edge_by_id(self, edge_id: str) -> Edge:
+        pass
+
+    @abstractmethod
+    def get_all_edges(self) -> List[Edge]:
+        pass
+
+    @abstractmethod
+    def update_node_state(self, node_id: str, new_desctiption: str, new_state: State) -> None:
+        pass
+
+    @abstractmethod
+    def update_edge_times(self,  edge_id: str, time_start_event: Optional[str] = None, time_end_event: Optional[str] = None) -> None:
         pass
     
     @abstractmethod
@@ -34,7 +54,7 @@ class KnowledgeGraph(ABC):
         pass
 
     @abstractmethod
-    def remove_edge(self, ebde_id: str) -> None:
+    def remove_edge(self, edge_id: str) -> None:
         pass
 
     @abstractmethod
@@ -45,26 +65,6 @@ class KnowledgeGraph(ABC):
     def load(self, path: str) -> None:
         pass
 
-
-
-
-def create_embeddings(texts: Iterable[str], embeddings) -> VectorStoreRetriever:
-    client = chromadb.PersistentClient(path="./chroma_langchain_db")
-
-    vector_store = Chroma(
-        collection_name="test_collection",
-        embedding_function=embeddings,
-        persist_directory="../../assets/databases/chroma_langchain_db",
-    )
-
-    vector_store.add_texts(
-        texts=texts,
-        ids=[f"id_{i}" for i in range(len(texts))],
-    )
-
-    retriever = vector_store.as_retriever(
-        search_type="similarity",
-        search_kwargs={"k": 3}
-    )
-
-    return retriever
+    @abstractmethod
+    def visualize(self) -> None:
+        pass
