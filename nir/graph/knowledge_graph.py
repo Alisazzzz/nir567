@@ -1,9 +1,6 @@
 #Abstract class for knowledge graph
 
-from typing import Iterable, List, Optional
-from langchain_core.vectorstores.base import VectorStoreRetriever
-from langchain_chroma import Chroma
-import chromadb
+from typing import List, Optional
 
 from nir.graph.graph_structures import Node, Edge, State
 from abc import ABC, abstractmethod

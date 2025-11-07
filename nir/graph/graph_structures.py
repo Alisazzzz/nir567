@@ -26,16 +26,18 @@ class NodeType(str, Enum):
 class State(BaseModel):
     sid: str
     attributes: Dict[str, Any]
-    time_start: str
+    time_start: Optional[str] = None
     time_end: Optional[str] = None
 
 class Node(BaseModel):
     id: str
     name: str
     type: NodeType
+    synonyms: List[str] = Field(default_factory=list)
     description: str = ""
     attributes: Dict[str, Any] = Field(default_factory=dict)
     states: List[State] = Field(default_factory=list)
+    chunk_id: str
 
     @field_validator('type')
     @classmethod
@@ -57,3 +59,30 @@ class Edge(BaseModel):
     weight: float = 1.0
     time_start_event: Optional[str] = None
     time_end_event: Optional[str] = None
+    chunk_id: str
+
+
+class AffectedNode(BaseModel):
+    id: str
+    name: str
+    description: str
+    attributes: Dict[str, Any] = Field(default_factory=dict)
+
+class AffectedEdge(BaseModel):
+    id: str
+    description: str
+    time_start_event: Optional[str] = None
+    time_end_event: Optional[str] = None
+
+class EventImpact(BaseModel):
+    event_id: str
+    description: str
+    affected_nodes: List[AffectedNode]
+    affected_edges: List[AffectedEdge]
+    time_start: Optional[str] = None
+    time_end: Optional[str] = None
+
+class EventsSubgraph(BaseModel):
+    nodes: List[Node] = Field(default_factory=list)
+    edges: List[Edge] = Field(default_factory=list)
+    events_with_impact: List[EventImpact] = Field(default_factory=list)

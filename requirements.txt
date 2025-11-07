@@ -9,9 +9,11 @@ networkx
 matplotlib
 json-repair
 pyvis
-jupiter
+jupyter
 langchain-huggingface
 langchain-openai
 transformers
 torch
 pydantic
+scikit-learn
+sentence-transformers

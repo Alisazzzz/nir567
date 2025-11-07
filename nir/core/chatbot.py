@@ -4,7 +4,7 @@ from langchain_core.prompts import ChatPromptTemplate
 import networkx as nx
 
 from nir.graph import knowledge_graph
-from nir.core import context_searcher
+from nir.core import context_retriever
 
 from nir.llm.providers import ModelConfig
 from nir.llm.manager import ModelManager
@@ -36,7 +36,7 @@ while True:
     if question == "q":
         break
 
-    precontext = context_searcher.get_context_networkX(question, retriever, graph)
-    context = context_searcher.prepare_context(precontext)
+    precontext = context_retriever.get_context_networkX(question, retriever, graph)
+    context = context_retriever.prepare_context(precontext)
     result = chain.invoke({"reviews": context, "question": question})
     print(result)
