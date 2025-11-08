@@ -8,14 +8,16 @@ SYSTEM_PROMPT_HYBRID = """
     Your task is NOT to detect new entities, but to:\n
     - Enrich each provided entity with missing or incomplete structured information.\n
     - Infer and extract relationships (edges) between these entities ONLY, using their given IDs.\n\n
+    
     ENTITY TYPES (use EXACTLY these values for the 'type' field):\n
     - character\n
     - group\n
     - location\n
     - environment_element\n
     - item\n\n
+    
     RULES:\n
-    - NEVER introduce new entities. Use ONLY the entities provided in the input list.\n
+    - Try not to introduce new entities. Use the entities provided in the input list. HOWEVER, if there is an entity which is source or target for the edge, YOU MUST ADD it as an entity.\n
     - Every entity must be represented as a node with the following fields:\n
       - `id`: the exact ID from the input (do not modify it).\n
       - `name`: the canonical name (prefer the main form over synonyms).\n
@@ -25,8 +27,8 @@ SYSTEM_PROMPT_HYBRID = """
       - `states`: a list of relevant states or conditions (use [] if none).\n\n
     - For edges (relationships):\n
       - `id`: a unique, normalized lowercase ID using underscores (e.g., \"alice_cooper_owns_magic_lamp\").\n
-      - `source`: the exact `id` of the source node (from the provided list).\n
-      - `target`: the exact `id` of the target node (from the provided list).\n
+      - `source`: the exact `id` of the source node (from the provided list). MUST NOT be null. \n
+      - `target`: the exact `id` of the target node (from the provided list). MUST NOT be null. \n
       - `relation`: a concise, lowercase verb or phrase describing the relationship (e.g., \"owns\", \"located_in\", \"leads\").\n
       - `description`: optional explanatory text (\"\" if none).\n
       - `weight`: float (default 1.0).\n
@@ -34,6 +36,7 @@ SYSTEM_PROMPT_HYBRID = """
     - Relationships must be grounded in the text. Do not invent speculative connections.\n
     - If no relationships can be confidently inferred, output an empty `edges` list.\n
     - If an entity’s type cannot be determined from the text or context, assign the most plausible type based on its name and usage — but never create a new type.\n\n
+    
     OUTPUT FORMAT REQUIREMENTS:\n
     - Output ONLY a valid JSON object with two top-level keys: \"nodes\" and \"edges\".\n
     - \"nodes\" is a list of node objects (one per provided entity).\n

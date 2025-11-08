@@ -3,14 +3,17 @@
 import numpy as np
 from typing import List, Dict
 from pydantic import BaseModel, Field
-from langchain_text_splitters import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 from langchain.output_parsers import PydanticOutputParser
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 
-from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import util
 import spacy
+from rapidfuzz import fuzz
+import nltk
+from nltk.corpus import wordnet
 
 from nir.graph.graph_structures import NodeType, Node, Edge, EventImpact, State, EventsSubgraph
 from nir.graph.knowledge_graph import KnowledgeGraph
@@ -18,6 +21,11 @@ from nir.graph.graph_storages.networkx_graph import NetworkXGraph
 
 from nir.prompts import extraction_prompts
 
+try:
+    nltk.data.find("corpora/wordnet")
+except LookupError:
+    nltk.download("wordnet")
+    nltk.download("omw-1.4")
 
 def normalize_id(text: str) -> str:
     return text.lower().replace(" ", "_").strip()
@@ -77,30 +85,44 @@ class GraphExtractor:
         self.similarity_threshold = similarity_threshold
         self.mode = mode
         self.embedder = embedder
-        self.spacy_nlp = spacy.load("en_coreference_web_trf") if mode == "hybrid" else None
+        self.spacy_nlp = spacy.load("en_core_web_sm") if mode == "hybrid" else None
         self.chain_hybrid = prompt_hybrid | llm | entities_parser
         self.chain_simple = prompt_simple | llm | entities_parser
         self.chain_event = prompt_events | llm | events_parser
 
 
-    def _extract_entities_and_synonyms(self, text: str) -> List[Node]:
+    def _are_synonyms(self, a: str, b: str, threshold: float = 0.85) -> bool:
+        if not a or not b:
+            return False
+        a, b = a.strip().lower(), b.strip().lower()
+        if a == b:
+            return True
+
+        if fuzz.token_sort_ratio(a, b) >= 90:
+            return True
+
+        if len(a.split()) == 1 and len(b.split()) == 1:
+            synsets_a = wordnet.synsets(a)
+            synsets_b = wordnet.synsets(b)
+            if synsets_a and synsets_b:
+                for sa in synsets_a:
+                    for sb in synsets_b:
+                        if sa == sb:
+                            return True
+
+        try:
+            emb_a = np.array(self.embedder.embed_query(a))
+            emb_b = np.array(self.embedder.embed_query(b))
+            sim = float(np.dot(emb_a, emb_b) / (np.linalg.norm(emb_a) * np.linalg.norm(emb_b)))
+            return sim >= threshold
+        except Exception:
+            return False
+
+
+    def _extract_entities_and_synonyms(self, text: str, chunk_id: str) -> List[Node]:
 
         doc = self.spacy_nlp(text)
         entities: Dict[str, Node] = {}
-
-        for cluster in doc.spans.get("coref_clusters", []):
-            main = cluster[0].text
-            synonyms = [span.text for span in cluster[1:] if span.text.lower() not in ("he", "she", "it", "they")]
-            node_id = normalize_id(main)
-            entities[node_id] = Node(
-                id=node_id,
-                name=main,
-                type=NodeType.item,
-                description="",
-                synonyms=synonyms,
-                attributes={},
-                states=[]
-            )
 
         for ent in doc.ents:
             node_id = normalize_id(ent.text)
@@ -110,11 +132,11 @@ class GraphExtractor:
                     name=ent.text,
                     type=NodeType.item,
                     description="",
-                    synonyms = [],
+                    synonyms=[],
                     attributes={},
                     states=[],
+                    chunk_id=chunk_id,
                 )
-
         return list(entities.values())
 
 
@@ -125,8 +147,6 @@ class GraphExtractor:
             return []
         merged = []
         used = set()
-        names = [n.name for n in nodes]
-        embeddings = np.array(self.embedder.embed_documents(names))
 
         for i, node_i in enumerate(nodes):
             if i in used:
@@ -136,26 +156,27 @@ class GraphExtractor:
             for j, node_j in enumerate(nodes):
                 if j in used:
                     continue
-                emb_i, emb_j = embeddings[i], embeddings[j]
-                sim = float(np.dot(emb_i, emb_j) / (np.linalg.norm(emb_i) * np.linalg.norm(emb_j)))
-                if sim >= self.similarity_threshold:
+                if self._are_synonyms(node_i.name, node_j.name, threshold=self.similarity_threshold):
                     cluster.append(node_j)
                     used.add(j)
+
             if len(cluster) > 1:
                 merged_name = "/".join(sorted(set(n.name for n in cluster)))
-                merged_synonyms = list(set(sum([n.synonyms for n in cluster], [])))
+                merged_synonyms = list(set(sum([n.synonyms for n in cluster], []))) + [n.name for n in cluster if n.name != merged_name]
                 merged_node = Node(
                     id=normalize_id(merged_name),
                     name=merged_name,
                     type=NodeType.item,
-                    description="Merged node",
+                    description="Merged from: " + ", ".join(n.name for n in cluster),
                     synonyms=merged_synonyms,
                     attributes={},
-                    states=[]            
+                    states=[],
+                    chunk_id=node_i.chunk_id,
                 )
                 merged.append(merged_node)
             else:
                 merged.append(cluster[0])
+
         return merged
 
 
@@ -207,8 +228,8 @@ class GraphExtractor:
             print(f"[Chunk {idx+1}/{len(chunks)}] Processing...")
 
             if self.mode == "hybrid":
-                entities = self._extract_entities_and_synonyms(chunk.page_content)
-                entities = self._merge_similar_nodes(entities)
+                entities = self._extract_entities_and_synonyms(chunk.page_content, str(idx))
+                #entities = self._merge_similar_nodes(entities)
                 entities_json = [e.model_dump() for e in entities]
 
                 result: GraphExtractionResult = self.chain_hybrid.invoke({
@@ -221,14 +242,14 @@ class GraphExtractor:
             for node in result.nodes:
                 norm_id = normalize_id(node.id)
                 if norm_id not in all_nodes:
-                    all_nodes[norm_id] = Node(**node.model_dump(), synonyms=[])
-                    all_nodes[norm_id].chunk_id = idx
+                    all_nodes[norm_id] = Node(**node.model_dump())
+                    all_nodes[norm_id].chunk_id = str(idx)
             
             for edge in result.edges:
                 norm_id = normalize_id(edge.id)
                 if norm_id not in all_edges:
                     all_edges[norm_id] = edge
-                    all_edges[norm_id].chunk_id = idx
+                    all_edges[norm_id].chunk_id = str(idx)
 
         for n in all_nodes.values():
             graph.add_node(n)

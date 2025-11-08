@@ -39,16 +39,29 @@ from nir.embedding.vector_storages.chroma_db import ChromaVectorStore
 #     embedding_model=embedding_model
 # )
 
-manager = ModelManager()
-model_config = ModelConfig(model_name="mistral:7b-instruct-q2_K", temperature=0)
-manager.create_chat_model("graph_extraction", "ollama", model_config)
-llm = manager.get_chat_model("graph_extraction")
+# manager = ModelManager()
+# model_config = ModelConfig(model_name="mistral:7b-instruct-q2_K", temperature=0)
+# manager.create_chat_model("graph_extraction", "ollama", model_config)
+# llm = manager.get_chat_model("graph_extraction")
 
-graph_extractor = GraphExtractor(llm=llm, graph_class=NetworkXGraph)
+# graph_extractor = GraphExtractor(llm=llm, graph_class=NetworkXGraph, embedder=embedding_model)
 
-data = loader.loadTXT("assets/documents/ali baba, or the forty thieves.txt")
-chunks = loader.to_chunk(data)
+# data = loader.loadTXT("assets/documents/ali baba, or the forty thieves.txt")
+# chunks = loader.to_chunk(data)
 
-graph = graph_extractor.extract_graph(chunks)
-graph.save("assets/graphs/graph.json")
-graph.visualize()
+# graph = graph_extractor.extract_graph(chunks)
+# graph.save("assets/graphs/graph.json")
+# graph.visualize()
+
+import requests, subprocess, time
+
+def ensure_coref_server():
+    try:
+        requests.get("http://127.0.0.1:8008/resolve", timeout=2)
+        print("coref_server уже запущен.")
+    except:
+        print("Запускаю coref_server...")
+        subprocess.Popen(["python", "../python3.8-server/setup.py"])
+        time.sleep(10)  # подождать инициализацию
+
+ensure_coref_server()

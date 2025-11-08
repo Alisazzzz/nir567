@@ -52,8 +52,8 @@ class Node(BaseModel):
 
 class Edge(BaseModel):
     id: str
-    source: str
-    target: str
+    source: Optional[str] = None
+    target: Optional[str] = None
     relation: str
     description: str = ""
     weight: float = 1.0
