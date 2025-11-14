@@ -37,7 +37,7 @@ class Node(BaseModel):
     description: str = ""
     attributes: Dict[str, Any] = Field(default_factory=dict)
     states: List[State] = Field(default_factory=list)
-    chunk_id: str
+    chunk_id: List[int]
 
     @field_validator('type')
     @classmethod
@@ -59,7 +59,7 @@ class Edge(BaseModel):
     weight: float = 1.0
     time_start_event: Optional[str] = None
     time_end_event: Optional[str] = None
-    chunk_id: str
+    chunk_id: int
 
 
 class AffectedNode(BaseModel):
@@ -77,8 +77,8 @@ class AffectedEdge(BaseModel):
 class EventImpact(BaseModel):
     event_id: str
     description: str
-    affected_nodes: List[AffectedNode]
-    affected_edges: List[AffectedEdge]
+    affected_nodes: Optional[List[AffectedNode]]
+    affected_edges: Optional[List[AffectedEdge]]
     time_start: Optional[str] = None
     time_end: Optional[str] = None
 

@@ -1,0 +1,409 @@
+{
+  "nodes": [
+    {
+      "id": "captain_mira_stone",
+      "name": "Captain Mira",
+      "type": "character",
+      "synonyms": [],
+      "description": "A brave explorer from Northport who meets Elias Thorn at the village inn in Arendale.",
+      "attributes": {
+        "arrival_location": "Northport"
+      },
+      "states": [],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "arendale",
+      "name": "Arendale (The Lost Map)",
+      "type": "location",
+      "synonyms": [],
+      "description": "The quiet village where Captain Mira Stone arrived, carrying a map that leads to the Crystal Caves. The map was discovered by Mira and Elias in the abandoned watchtower.",
+      "attributes": {
+        "material": null,
+        "age": null
+      },
+      "states": [],
+      "chunk_id": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "elias",
+      "name": "Elias Thorn",
+      "type": "character",
+      "synonyms": [],
+      "description": "A young scholar who studies ancient symbols and offers to help Mira decode the map.",
+      "attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "lord_darrin_vale",
+      "name": "Lord Darrin Vale",
+      "type": "character",
+      "synonyms": [],
+      "description": "The ruler of Arendale who sends his loyal guard to follow Mira and Elias. He is also the leader of the group demanding the map.",
+      "attributes": {
+        "group_leader": true,
+        "ruler": true
+      },
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "sergeant_lorne",
+      "name": "Sergeant Lorne",
+      "type": "character",
+      "synonyms": [],
+      "description": "Lord Darrin Vale's loyal guard who is sent to follow Mira and Elias. Also, a character who demands the map in the name of Lord Vale.",
+      "attributes": {
+        "loyalty": "to Lord Darrin Vale",
+        "mission": [
+          "follow Mira and Elias",
+          "demand the map"
+        ]
+      },
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "village_inn",
+      "name": "Village Inn",
+      "type": "location",
+      "synonyms": [],
+      "description": "The location where Mira meets Elias Thorn.",
+      "attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "forest",
+      "name": "Blackwood Forest",
+      "type": "location",
+      "synonyms": [],
+      "description": "The location where Mira and Elias travel before sunset, and where they escape through a hidden tunnel.",
+      "attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "abandoned_watchtower",
+      "name": "Abandoned Watchtower",
+      "type": "location",
+      "synonyms": [],
+      "description": "A location where Mira and Elias took shelter.",
+      "attributes": {},
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "crystal_caves",
+      "name": "Crystal Caves",
+      "type": "location",
+      "synonyms": [],
+      "description": "A location where Elias found an inscription.",
+      "attributes": {},
+      "states": [
+        {
+          "sid": "lord_vale_finds_silence_crystal_caves",
+          "attributes": {},
+          "time_start": "lord_vale_finds_silence",
+          "time_end": null
+        },
+        {
+          "sid": "crystal_caves_contains_crystal_caves",
+          "attributes": {},
+          "time_start": "crystal_caves_contains",
+          "time_end": null
+        },
+        {
+          "sid": "inscription_reveals_crystal_caves",
+          "attributes": {},
+          "time_start": "inscription_reveals",
+          "time_end": null
+        }
+      ],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "glowing_blue_stones",
+      "name": "Glowing Blue Stones",
+      "type": "environment_element",
+      "synonyms": [],
+      "description": "Environment elements that lit the walls of Crystal Caves.",
+      "attributes": {},
+      "states": [
+        {
+          "sid": "crystal_caves_contains_glowing_blue_stones",
+          "attributes": {},
+          "time_start": "crystal_caves_contains",
+          "time_end": null
+        }
+      ],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "arendale_first_settlers_history",
+      "name": "History of Arendale's first settlers",
+      "type": "item",
+      "synonyms": [],
+      "description": "A record of the lost history found in Crystal Caves.",
+      "attributes": {},
+      "states": [
+        {
+          "sid": "inscription_reveals_arendale_first_settlers_history",
+          "attributes": {},
+          "time_start": "inscription_reveals",
+          "time_end": null
+        }
+      ],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "the_past",
+      "name": "The Past",
+      "type": "item",
+      "synonyms": [],
+      "description": "An item that belongs to everyone who seeks it with courage.",
+      "attributes": {},
+      "states": [
+        {
+          "sid": "lord_vale_finds_note_the_past",
+          "attributes": {},
+          "time_start": "lord_vale_finds_note",
+          "time_end": null
+        }
+      ],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "captain_mira_stone_arrives_at_arendale",
+      "name": "Captain Mira Stone arrives at Arendale",
+      "type": "event",
+      "synonyms": [],
+      "description": "Captain Mira Stone, a brave explorer from Northport, arrives at the quiet village of Arendale.",
+      "attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "captain_mira_stone_carries_the_lost_map",
+      "name": "Captain Mira Stone carries the lost map",
+      "type": "event",
+      "synonyms": [],
+      "description": "Captain Mira Stone carries The Lost Map of Arendale.",
+      "attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "captain_mira_stone_arrives_at_arendale",
+      "source": "captain_mira_stone",
+      "target": "arendale",
+      "relation": "arrives",
+      "description": "Captain Mira Stone arrives at Arendale.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "captain_mira_stone_carries_the_lost_map",
+      "source": "captain_mira_stone",
+      "target": "arendale",
+      "relation": "carries",
+      "description": "Captain Mira Stone carries The Lost Map of Arendale.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "mira_meets_elias",
+      "source": "captain_mira_stone",
+      "target": "elias",
+      "relation": "meets",
+      "description": "Mira meets Elias Thorn at the village inn.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mira_decides_to_travel",
+      "source": "captain_mira_stone",
+      "target": "forest",
+      "relation": "decides_to_travel",
+      "description": "Mira and Elias decide to travel through the forest before sunset.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mira_escapes",
+      "source": "captain_mira_stone",
+      "target": "forest",
+      "relation": "escapes_into",
+      "description": "Mira escapes into the Blackwood Forest.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "mira_takes_shelter",
+      "source": "captain_mira_stone",
+      "target": "abandoned_watchtower",
+      "relation": "takes_shelter_in",
+      "description": "Mira takes shelter in the abandoned watchtower.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "elias_offers_help",
+      "source": "elias",
+      "target": "captain_mira_stone",
+      "relation": "offers_help",
+      "description": "Elias offers to help Mira decode the map.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "elias_takes_shelter",
+      "source": "elias",
+      "target": "abandoned_watchtower",
+      "relation": "takes_shelter_in",
+      "description": "Elias takes shelter in the abandoned watchtower.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "elias_discovers_history",
+      "source": "elias",
+      "target": "arendale_first_settlers_history",
+      "relation": "discovers",
+      "description": "Elias discovers the history of Arendale's first settlers.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "lord_darrin_vale_sends",
+      "source": "lord_darrin_vale",
+      "target": "sergeant_lorne",
+      "relation": "sends",
+      "description": "Lord Darrin Vale sends his loyal guard to follow Mira and Elias.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "lord_vale_finds_silence",
+      "source": "lord_darrin_vale",
+      "target": "crystal_caves",
+      "relation": "finds",
+      "description": "Lord Vale finds silence in Crystal Caves.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "lord_vale_finds_note",
+      "source": "lord_darrin_vale",
+      "target": "the_past",
+      "relation": "finds",
+      "description": "Lord Vale finds the single note.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "crystal_caves_contains",
+      "source": "crystal_caves",
+      "target": "glowing_blue_stones",
+      "relation": "contains",
+      "description": "Crystal Caves contains glowing blue stones.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "inscription_reveals",
+      "source": "arendale_first_settlers_history",
+      "target": "crystal_caves",
+      "relation": "reveals",
+      "description": "The inscription reveals the truth about Crystal Caves.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "captain_mira_stone_arrives_at_arendale_affects_arendale",
+      "source": "captain_mira_stone_arrives_at_arendale",
+      "target": "arendale",
+      "relation": "affects",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "captain_mira_stone_carries_the_lost_map_affects_arendale",
+      "source": "captain_mira_stone_carries_the_lost_map",
+      "target": "arendale",
+      "relation": "affected by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    }
+  ]
+}

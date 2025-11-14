@@ -72,7 +72,7 @@ class NetworkXGraph(KnowledgeGraph):
         return edges
     
     def update_node_state(self, node_id: str, new_desctiption: str, new_state: State) -> None:
-        node = self.get_node(node_id)
+        node = self.get_node_by_id(node_id)
         node.description = new_desctiption
         node.states.append(new_state)
         self.graph.nodes[node_id]["data"] = node.model_dump()
