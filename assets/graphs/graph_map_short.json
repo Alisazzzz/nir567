@@ -5,9 +5,15 @@
       "name": "Mira Stone",
       "type": "character",
       "synonyms": [],
-      "description": "A character who enters Ariendale Village with an old compass and a half-burned map.",
+      "description": "A person who enters Ariendale Village with an old compass and a half-burned map.",
       "attributes": {},
       "states": [
+        {
+          "sid": "event_mira_enters_village_mira_stone",
+          "attributes": {},
+          "time_start": "event_mira_enters_village",
+          "time_end": null
+        },
         {
           "sid": "event_mira_enters_village_mira_stone",
           "attributes": {},
@@ -32,6 +38,12 @@
           "attributes": {},
           "time_start": "event_mira_enters_village",
           "time_end": null
+        },
+        {
+          "sid": "event_mira_enters_village_ariendale_village",
+          "attributes": {},
+          "time_start": "event_mira_enters_village",
+          "time_end": null
         }
       ],
       "chunk_id": [
@@ -43,7 +55,7 @@
       "name": "Old Compass",
       "type": "item",
       "synonyms": [],
-      "description": "An item possessed by Mira Stone.",
+      "description": "An item carried by Mira Stone.",
       "attributes": {},
       "states": [],
       "chunk_id": [
@@ -55,7 +67,7 @@
       "name": "Half-Burned Map",
       "type": "item",
       "synonyms": [],
-      "description": "An item possessed by Mira Stone.",
+      "description": "A map that leads to the Crystal Caves and is half-burned.",
       "attributes": {},
       "states": [],
       "chunk_id": [
@@ -113,39 +125,6 @@
   ],
   "edges": [
     {
-      "id": "mira_possesses_compass",
-      "source": "mira_stone",
-      "target": "old_compass",
-      "relation": "possesses",
-      "description": "Mira Stone possesses the old compass.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "mira_possesses_map",
-      "source": "mira_stone",
-      "target": "half_burned_map",
-      "relation": "possesses",
-      "description": "Mira Stone possesses the half-burned map.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "mira_shows_the_map",
-      "source": "mira_stone",
-      "target": "half_burned_map",
-      "relation": "shows",
-      "description": "Mira shows the map to Elias Thorn.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
       "id": "mira_meets_elias",
       "source": "mira_stone",
       "target": "elias_thorn",
@@ -162,6 +141,17 @@
       "target": "ancient_symbols",
       "relation": "needs",
       "description": "Mira requests help with ancient symbols.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mira_shows_the_map",
+      "source": "mira_stone",
+      "target": "half_burned_map",
+      "relation": "shows",
+      "description": "Mira shows the map to Elias Thorn.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
@@ -195,6 +185,28 @@
       "target": "ancient_symbols",
       "relation": "agrees_to_help",
       "description": "Elias Thorn agrees to help with ancient symbols.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "elias_examines_the_map",
+      "source": "elias_thorn",
+      "target": "half_burned_map",
+      "relation": "examines",
+      "description": "Elias Thorn examines the map.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "elias_gives_advice",
+      "source": "elias_thorn",
+      "target": "mira_stone",
+      "relation": "gives_advice",
+      "description": "Elias Thorn gives advice about the map.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,

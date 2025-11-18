@@ -47,6 +47,14 @@ class KnowledgeGraph(ABC):
         pass
     
     @abstractmethod
+    def update_node_full(self, node_id: str, new_info: Node) -> None:
+        pass
+
+    @abstractmethod
+    def update_edge_full(self, edge_id: str, new_info: Edge) -> None:
+        pass
+
+    @abstractmethod
     def remove_node(self, node_id: str) -> None:
         pass
 

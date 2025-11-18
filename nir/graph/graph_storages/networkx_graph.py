@@ -61,8 +61,9 @@ class NetworkXGraph(KnowledgeGraph):
         return edges
 
     def get_edge_by_id(self, edge_id: str) -> Edge:
-        data = self.graph.edges[edge_id]["data"]
-        return Edge(**data)
+        for u, v, k, data in self.graph.edges(data=True, keys=True):
+            if data.get("id") == edge_id:
+                return Edge(**data)
 
     def get_all_edges(self) -> List[Edge]:
         edges = []
@@ -86,6 +87,27 @@ class NetworkXGraph(KnowledgeGraph):
         self.graph.edges[edge_id]["data"] = edge
         return
 
+    def update_node_full(self, node_id: str, new_info: Node) -> None:
+        node = self.get_node_by_id(node_id)
+        node.name = new_info.name
+        node.description = new_info.description
+        node.attributes = new_info.attributes
+        node.states = new_info.states
+        node.chunk_id = new_info.chunk_id
+        return
+    
+    def update_edge_full(self, edge_id: str, new_info: Edge) -> None:
+        edge = self.get_edge_by_id(edge_id)
+        edge.source = new_info.source
+        edge.target = new_info.target
+        edge.relation = new_info.relation
+        edge.description = edge.description
+        edge.weight = new_info.weight
+        edge.time_start_event = new_info.time_start_event
+        edge.time_end_event = new_info.time_end_event
+        edge.chunk_id = new_info.chunk_id
+        return
+    
     def remove_node(self, node_id: str) -> None:
         return
 

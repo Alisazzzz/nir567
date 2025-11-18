@@ -25,7 +25,7 @@ class NodeType(str, Enum):
 
 class State(BaseModel):
     sid: str
-    attributes: Dict[str, Any]
+    attributes: Optional[Dict[str, Any]] = None
     time_start: Optional[str] = None
     time_end: Optional[str] = None
 
@@ -75,14 +75,13 @@ class AffectedEdge(BaseModel):
     time_end_event: Optional[str] = None
 
 class EventImpact(BaseModel):
-    event_id: str
-    description: str
+    event_name: str
     affected_nodes: Optional[List[AffectedNode]]
     affected_edges: Optional[List[AffectedEdge]]
-    time_start: Optional[str] = None
-    time_end: Optional[str] = None
 
 class EventsSubgraph(BaseModel):
+    events_with_impact: List[EventImpact] = Field(default_factory=list)
+
+class GraphExtractionResult(BaseModel):
     nodes: List[Node] = Field(default_factory=list)
     edges: List[Edge] = Field(default_factory=list)
-    events_with_impact: List[EventImpact] = Field(default_factory=list)

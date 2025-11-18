@@ -1,11 +1,10 @@
 #All prompts for graph extraction are here
 
-SYSTEM_PROMPT_HYBRID = """
-    You are an expert in knowledge extraction for narrative knowledge graphs. 
-    Be very careful about coreference when extracting entities: some helpful information is provided to you.
+SYSTEM_PROMPT_ENTITIES = """
+    You are an expert in knowledge extraction for narrative knowledge graphs. Be very careful about coreference when extracting entities: some helpful information is provided to you.
     You are given two inputs:
       1. A text fragment, from which you should extract entities and relations for a graph.
-      2. Array of arrays with resolved coreferences for some nouns, that are used in text fragment. Each inner array contains all surface forms (mentions) that refer to the same real-world entity.
+      2. A list of coreference clusters.
     Example:
       [
         ["Alice", "she", "the girl"],
@@ -16,7 +15,7 @@ SYSTEM_PROMPT_HYBRID = """
       1. Identify and extract entities from the text using the provided coreference groups (these represent merged mentions).
       2. Extarct as mush information about entities and relations as possible (in accordance to structures of entities and relations)
       3. Determine the type of each entity based on context.
-      4. Extract relationships (edges) only between identified entities (no event-type nodes).
+      4. Extract relationships (edges) between identified entities.
 
     ENTITY TYPES. Use exactly the following types for the "type" field:
       1. "character" — a sentient being or individual acting within the narrative (e.g., hero, NPC, animal with agency).
@@ -24,9 +23,8 @@ SYSTEM_PROMPT_HYBRID = """
       3. "location" — a geographical or spatial setting where actions occur (e.g., city, forest, castle).
       4. "environment_element" — a part or feature of a location (e.g., tree, river, gate, altar).
       5. "item" — a physical object that can be possessed, used, or interacted with (e.g., sword, key, artifact).
-    Important:
-    Do not extract entities or relationships of type "event". An event is an action, occurrence, or change of state that happens over time and affects other entities (characters, locations, items, or groups).
-    Events may appear in text but they must not be represented as nodes or edges in the output graph.
+      6. "event" — an action, occurrence, or change of state that happens over time and affects other entities (characters, locations, items, or groups). 
+      Event nodes represent the sequential chain of happenings and actions that form the fabula — the underlying chronological and causal structure of the story.
 
     STRUCTURES AND RULES.
       1. Entities (nodes). For each entity identified from a coreference cluster, output an object with the following fields:
@@ -47,11 +45,9 @@ SYSTEM_PROMPT_HYBRID = """
          - "time_start_event": use null if temporal data is unavailable (can be string explaining time).
          - "time_end_event": use null if temporal data is unavailable (can be string explaining time).
          - "chunk_id": integer (default 0). Be careful, this is NOT an array, this is a SINGLE INTEGER.
-    Relationships must have both source and target filled in.
-    If either is missing or cannot be confidently linked, omit that edge entirely.
-    Do not invent speculative or ungrounded relations.
-    All edges must be supported by textual evidence.
-    Pay attention to the correct value types: DO NOT use arrays where it is not defined. IF there are two sources or two targets for a relation, add two relations.
+    Relationships must have both source and target filled in. If either is missing or cannot be confidently linked, omit that edge entirely.
+    Do not invent speculative or ungrounded relations. All edges must be supported by textual evidence.
+    Pay attention to the correct value types: DO NOT use arrays where it is not defined. For edges ONLY ONE target and ONLY ONE source. IF there are several sources or several targets for a relation, add SEVERAL relations.
 
     OUTPUT FORMAT.
     Output only a valid JSON object with two top-level keys: "nodes" and "edges".
@@ -96,26 +92,77 @@ SYSTEM_PROMPT_HYBRID = """
             "attributes": {{}},
             "states": [],
             "chunk_id": [0]
+          }},
+          {{
+            "id": "event_alice_enters_forest",
+            "name": "Alice enters the dark forest",
+            "type": "event",
+            "description": "The moment when Alice enters the dark forest.",
+            "attributes": {{}},
+            "states": [],
+            "chunk_id": [0]
+          }},
+          {{
+            "id": "event_alice_carries_lamp",
+            "name": "Alice carries the magic lamp",
+            "type": "event",
+            "description": "Alice carries a magic lamp while moving through the forest.",
+            "attributes": {{}},
+            "states": [],
+            "chunk_id": [0]
           }}
         ],
         "edges": [
           {{
-            "id": "alice_enters_dark_forest",
-            "source": "alice",
-            "target": "dark_forest",
-            "relation": "enters",
-            "description": "Alice enters the dark forest.",
+            "id": "event_alice_enters_forest_participant_alice",
+            "source": "event_alice_enters_forest",
+            "target": "alice",
+            "relation": "involves",
+            "description": "Alice is the participant of the event: entering the dark forest.",
             "weight": 1.0,
             "time_start_event": null,
             "time_end_event": null,
-            "chunk_id": 0 
+            "chunk_id": 0
           }},
           {{
-            "id": "alice_carries_magic_lamp",
-            "source": "alice",
+            "id": "event_alice_enters_forest_location",
+            "source": "event_alice_enters_forest",
+            "target": "dark_forest",
+            "relation": "occurs_in",
+            "description": "The event takes place in the dark forest.",
+            "weight": 1.0,
+            "time_start_event": null,
+            "time_end_event": null,
+            "chunk_id": 0
+          }},
+          {{
+            "id": "event_alice_carries_lamp_participant_alice",
+            "source": "event_alice_carries_lamp",
+            "target": "alice",
+            "relation": "involves",
+            "description": "Alice is the participant of the event: carrying the lamp.",
+            "weight": 1.0,
+            "time_start_event": null,
+            "time_end_event": null,
+            "chunk_id": 0
+          }},
+          {{
+            "id": "event_alice_carries_lamp_item",
+            "source": "event_alice_carries_lamp",
             "target": "magic_lamp",
-            "relation": "carries",
-            "description": "Alice carries a magic lamp while entering the forest.",
+            "relation": "involves_item",
+            "description": "The magic lamp is involved in the event where Alice carries it.",
+            "weight": 1.0,
+            "time_start_event": null,
+            "time_end_event": null,
+            "chunk_id": 0
+          }},
+          {{
+            "id": "event_sequence_enters_then_carries",
+            "source": "event_alice_enters_forest",
+            "target": "event_alice_carries_lamp",
+            "relation": "precedes",
+            "description": "The carrying of the lamp follows the entering of the forest.",
             "weight": 1.0,
             "time_start_event": null,
             "time_end_event": null,
@@ -132,7 +179,7 @@ SYSTEM_PROMPT_MERGING = """
     "id", "name", "type", "description", "attributes", "states", "synonyms", and "chunk_id".
 
     Your task is to:
-      1. Analyze both nodes and determine how they represent the same or closely related entity. If the asnwer is yes, than proceed; otherwise, return an answer with empty fields.
+      1. Analyze both nodes and determine how they represent the same entity. If the asnwer is yes, than proceed; otherwise, return an answer with empty fields.
       2. Create a single new node that combines the most relevant and non-conflicting information from both.
       3. DO NOT add to answer any comments, texts and markdowns.
       
@@ -209,150 +256,108 @@ SYSTEM_PROMPT_MERGING = """
 """
 
 SYSTEM_PROMPT_EVENTS = """
-  You are an expert in extracting events from narrative text to build structured event subgraphs for knowledge graphs.
-
-  Your goal is to identify all events in a text fragment, including explicit, implicit, or emotionally referenced events, and represent them in a JSON EventsSubgraph.  
-  Be precise about causal, temporal, and hierarchical relationships between events, and about which entities or relations are affected.  
+  You are an expert in extracting events impacts from narrative text to build structured subgraph for knowledge graphs.
+  Your goal is to identify, how events impact on other entities and relations: if an event is a time, when relation started or finished, or if an event causes changes in some entities and their attributes.
 
   INPUTS:
   1. Text fragment — a short portion of narrative text with a chunk_id.
+  2. A list of events name.
   2. Entities — a list of fully specified entity objects from the fragment:
-  {{
-    "id": "unique_lowercase_id",
-    "name": "Canonical name",
-    "type": "character" | "group" | "location" | "environment_element" | "item",
-    "description": "Short factual summary",
-    "attributes": {{}},
-    "states": [],
-    "chunk_id": [integer]
-  }}
   3. Relations (edges) — a list of relationships between these entities:
-  {{
-    "id": "unique_lowercase_id",
-    "source": "source_entity_id",
-    "target": "target_entity_id",
-    "relation": "lowercase verb or phrase",
-    "description": "",
-    "weight": 1.0,
-    "time_start_event": null,
-    "time_end_event": null,
-    "chunk_id": integer
-  }}
+ 
+  Your task is to:
+    1. Identify the impact of each event on entities and relationships: for entities identify the change of attributes and description, for relationships identify if an event marks the start of the relationship or the end.
+    2. Extract a JSON containing two lists: affected nodes and affected edges for each event:
 
-  EVENT DEFINITION:
-  - An event is an action, occurrence, or change of state affecting entities or relations over time.
-  - It may be explicit, implied, hierarchical, or emotionally referenced.
-  - Represent the event name as a concise noun phrase if possible; otherwise construct a phrase from the verb and arguments.
-
-  TASK:
-  - Extract a JSON EventsSubgraph containing:
-    1. Nodes — only events detected in the fragment.
-    2. Edges — relations between events and entities or between events.
-    3. Events with impact — describe how events modify nodes or edges.
-
-  STRUCTURES:
-
-  1. Event Node (nodes):
-  {{
-    "id": "unique_lowercase_event_id",
-    "name": "Human-readable event name",
-    "type": "event",
-    "description": "Short summary of the event",
-    "attributes": {{}},
-    "states": [],
-    "chunk_id": [0]  # always a list
-  }}
   Rules:
-  - Do not duplicate existing entities.
-  - Include all events present, implied, or referenced.
-  - Use normalized lowercase IDs (e.g., "alice_drops_lamp").
-  - Each event must have a chunk_id as a list of integers.
-
-  2. Edge (edges):
-  {{
-    "id": "unique_lowercase_id",
-    "source": "event_or_entity_id",
-    "target": "entity_or_event_id",
-    "relation": "concise lowercase verb/phrase ('affects','causes','involves','precedes','part_of','hates','loves','participates_in')",
-    "description": "",
-    "weight": 1.0,
-    "time_start_event": null,
-    "time_end_event": null,
-    "chunk_id": 0  # always an integer
-  }}
-  Rules:
-  - Connect events to affected entities or other events.
-  - Use correct relation type: causal, temporal, hierarchical, or emotional.
-  - Do not invent nodes or edges not present in the input.
-  - If source or target cannot be confidently linked, omit the edge.
-
-  3. Events with impact (events_with_impact):
-  {{
-    "event_id": "unique_event_id",
-    "description": "Short summary",
-    "affected_nodes": [
-      {{
-        "id": "entity_or_node_id",
-        "name": "Canonical name",
-        "description": "Updated description after the event",
-        "attributes": {{}}
-      }}
-    ],
-    "affected_edges": [
-      {{
-        "id": "relation_id",
-        "description": "Updated explanation",
-        "time_start_event": "event_id_if_edge_appeared",
-        "time_end_event": "event_id_if_edge_disappeared"
-      }}
-    ],
-    "time_start": "preceding_event_id_or_null",
-    "time_end": "following_event_id_or_null"
-  }}
-  Rules:
-  - Include only if the event changes the state of nodes or edges.
-  - Update descriptions and attributes accordingly.
-  - Use time_start/time_end to link sequential events.
+    1. Include only if the event changes the state of nodes or edges:
+        - If an event has an impact on node, then description and attributes must be filled with this changes.
+        - If an event has an impact on edge, then time start event or time end event must be filled out: it is impossible if both of fields are empty.
+    2. Update descriptions and attributes accordingly.
+    3. Use time_start/time_end to link sequential events.
 
   OUTPUT FORMAT:
-  - Output only valid JSON:
-  {{
-    "nodes": [...],
-    "edges": [...],
-    "events_with_impact": [...]
-  }}
-  - Do not include commentary, markdown, or explanations.
-  - If no events are found, return:
-  {{
-    "nodes": [],
-    "edges": [],
-    "events_with_impact": []
-  }}
+  - Output only valid JSON.
+  - ABOLUTELY DO NOT include commentary, markdown, or explanations.
+  - If no events' impacts are found, return empty list in json: {{ [] }}
 
   EXAMPLE (reference):
-  Input text: "Alice drops the lamp. The lamp breaks."
-  Entities:
-  [
-    {{"id":"alice","name":"Alice","type":"character","description":"A person who holds a lamp.","attributes":{{}},"states":[],"chunk_id":[0]}},
-    {{"id":"lamp","name":"Lamp","type":"item","description":"A small handheld lamp.","attributes":{{}},"states":[],"chunk_id":[0]}}
-  ]
-  Relations:
-  [
-    {{"id":"alice_holds_lamp","source":"alice","target":"lamp","relation":"holds","description":"","weight":1.0,"time_start_event":null,"time_end_event":null,"chunk_id":0}}
-  ]
-  Output:
-  {{
-    "nodes":[
-      {{"id":"alice_drops_lamp","name":"Alice drops lamp","type":"event","description":"Alice accidentally drops the lamp.","attributes":{{}},"states":[],"chunk_id":[0]}},
-      {{"id":"lamp_breaks","name":"Lamp breaks","type":"event","description":"The lamp shatters as a result of being dropped.","attributes":{{}},"states":[],"chunk_id":[0]}}
-    ],
-    "edges":[
-      {{"id":"alice_drops_lamp_affects_lamp","source":"alice_drops_lamp","target":"lamp","relation":"affects","description":"","weight":1.0,"time_start_event":null,"time_end_event":"lamp_breaks","chunk_id":0}},
-      {{"id":"alice_drops_lamp_causes_lamp_breaks","source":"alice_drops_lamp","target":"lamp_breaks","relation":"causes","description":"","weight":1.0,"time_start_event":null,"time_end_event":null,"chunk_id":0}}
-    ],
-    "events_with_impact":[
-      {{"event_id":"alice_drops_lamp","description":"Alice drops the lamp, initiating damage.","affected_nodes":[{{"id":"lamp","name":"Lamp","description":"The lamp falls to the ground.","attributes":{{}}}}],"affected_edges":[{{"id":"alice_holds_lamp","description":"The holding relation ends as the lamp is dropped.","time_start_event":null,"time_end_event":"alice_drops_lamp"}}],"time_start":null,"time_end":"lamp_breaks"}},
-      {{"event_id":"lamp_breaks","description":"The lamp breaks completely.","affected_nodes":[{{"id":"lamp","name":"Lamp","description":"Lamp is broken and no longer usable.","attributes":{{}}}}],"affected_edges":[],"time_start":"alice_drops_lamp","time_end":null}}
-    ]
-  }}
+    INPUT
+      Text: "Alice drops the lamp. The lamp breaks."
+      Events: ["Alice drops lamp", "Lamp breaks"],
+      Entities: 
+        [
+          {{
+            "id": "alice",
+            "name": "Alice",
+            "type": "character",
+            "description": "A person who holds a lamp.",
+            "attributes": {{}},
+            "states": [],
+            "chunk_id": [0]
+          }},
+          {{
+            "id": "lamp",
+            "name": "Lamp",
+            "type": "item",
+            "description": "A small handheld lamp.",
+            "attributes": {{}},
+            "states": [],
+            "chunk_id": [0]
+          }}
+        ]
+      Relations:
+        [
+          {{
+            "id": "alice_holds_lamp",
+            "source": "alice",
+            "target": "lamp",
+            "relation": "holds",
+            "description": "",
+            "weight": 1.0,
+            "time_start_event": null,
+            "time_end_event": null,
+            "chunk_id": 0
+          }}
+        ]
+    OUTPUT
+    {{
+      [
+        {{
+          "event_name": "Alice drops lamp",
+          "affected_nodes": [
+            {{
+              "id": "lamp",
+              "name": "Lamp",
+              "description": "The lamp has been dropped and is now damaged.",
+              "attributes": {{}}
+            }}
+          ],
+          "affected_edges": [
+            {{
+              "id": "alice_holds_lamp",
+              "description": "The holding relation ends when Alice drops the lamp.",
+              "time_start_event": null,
+              "time_end_event": "alice_drops_lamp"
+            }}
+          ],
+          "time_start": null,
+          "time_end": "lamp_breaks"
+        }},
+        {{
+          "event_name": "Lamp breaks",
+          "affected_nodes": [
+            {{
+              "id": "lamp",
+              "name": "Lamp",
+              "description": "The lamp is broken and no longer functional.",
+              "attributes": {{}}
+            }}
+          ],
+          "affected_edges": [],
+          "time_start": "alice_drops_lamp",
+          "time_end": null
+        }}
+      ]
+    }}
 """
