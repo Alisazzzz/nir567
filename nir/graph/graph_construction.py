@@ -9,7 +9,6 @@
 import re, json
 import numpy as np
 from typing import List, Dict, Tuple
-from pydantic import BaseModel, Field
 from copy import deepcopy
 
 from langchain_core.prompts import ChatPromptTemplate

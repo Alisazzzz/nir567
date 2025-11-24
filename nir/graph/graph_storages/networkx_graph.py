@@ -72,6 +72,10 @@ class NetworkXGraph(KnowledgeGraph):
                 edges.append(Edge(**attrs["data"]))
         return edges
     
+    def get_neighbours_of_node(self, node_id: str) -> List[Node]:
+        connected_ids = set(self.graph.successors(node_id)) | set(self.graph.predecessors(node_id))
+        return [self.get_node_by_id(n) for n in connected_ids]
+
     def update_node_state(self, node_id: str, new_desctiption: str, new_state: State) -> None:
         node = self.get_node_by_id(node_id)
         node.description = new_desctiption

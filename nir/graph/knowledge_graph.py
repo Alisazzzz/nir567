@@ -39,6 +39,10 @@ class KnowledgeGraph(ABC):
         pass
 
     @abstractmethod
+    def get_neighbours_of_node(self, node_id: str) -> List[Node]:
+        pass
+
+    @abstractmethod
     def update_node_state(self, node_id: str, new_desctiption: str, new_state: State) -> None:
         pass
 
