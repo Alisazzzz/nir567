@@ -61,9 +61,10 @@ class NetworkXGraph(KnowledgeGraph):
         return edges
 
     def get_edge_by_id(self, edge_id: str) -> Edge:
-        for u, v, k, data in self.graph.edges(data=True, keys=True):
-            if data.get("id") == edge_id:
-                return Edge(**data)
+        for u, v, attrs in self.graph.edges(data=True):
+            if "data" in attrs:
+                if attrs["data"]["id"] == edge_id:
+                    return Edge(**attrs["data"])
 
     def get_all_edges(self) -> List[Edge]:
         edges = []

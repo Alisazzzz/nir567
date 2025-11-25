@@ -10,6 +10,10 @@ from itertools import combinations
 from nir.graph.knowledge_graph import KnowledgeGraph
 from nir.graph.graph_structures import Node, Edge
 
+NODE_RATIO = 0.5
+EDGE_RATIO = 0.3
+PATH_RATIO = 0.2
+
 def estimate_tokens(text: str) -> int:
     if not text:
         return 0
@@ -134,18 +138,55 @@ def form_context_without_llm(
             pretty_parts.append(node.name)
             if i < len(path_edges):
                 edge_id = path_edges[i]
-                print(edge_id)
                 edge = graph.get_edge_by_id(edge_id)
                 pretty_parts.append(f" - {edge.relation} - ")
         pretty_string = "".join(pretty_parts)
         result_paths_dict[(source_id, target_id, index)] = (pretty_string, score)
-    print(result_paths_dict)
+
     result_nodes.sort(key=lambda x: x[1])
+    for node, weight in result_nodes:
+        text = f"{node.name}. {node.description}"
+        tokens = estimate_tokens(text)
+        result_nodes_dict[node.id] = (text, tokens)
     
-    result = ""
-    nodes = [node for node, resource in result_nodes]
-    for node in nodes:
-        result += f"{node.name}. {node.description}\n"
+    node_budget = int(max_tokens * NODE_RATIO)
+    edge_budget = int(max_tokens * EDGE_RATIO)
+    path_budget = int(max_tokens * PATH_RATIO)
+
+    selected_nodes = set()
+    used_tokens = 0
+    for node_id, (text, tokens) in result_nodes_dict.items():
+        if used_tokens + tokens <= node_budget:
+            selected_nodes.add(node_id)
+            used_tokens += tokens
+    
+    filtered_edges = [(pair, (text, tokens)) for pair, (text, tokens) in result_edges_dict.items() if pair[0] in selected_nodes and pair[1] in selected_nodes]
+    selected_edges = []
+    edge_tokens = 0
+    for pair, (text, tokens) in filtered_edges:
+        if edge_tokens + tokens <= edge_budget:
+            selected_edges.append((pair, text))
+            edge_tokens += tokens
+
+    filtered_paths = [(key, result_paths_dict[key]) for key in result_paths_dict.keys() if key[0] in selected_nodes and key[1] in selected_nodes]
+    selected_paths = []
+    path_tokens = 0
+    for key, (text, tokens) in filtered_paths:
+        if path_tokens + tokens <= path_budget:
+            selected_paths.append((key, text))
+            path_tokens += tokens
+    
+    result = "NODES:\n\n"
+    for node_id in selected_nodes:
+        text = result_nodes_dict[node_id][0]
+        result += text + "\n"
+    result += "\nEDGES:\n\n"
+    for (_, text) in selected_edges:
+        result += text + "\n"
+    result += "\nPATHS:\n\n"
+    for (_, text) in selected_paths:
+        result += text + "\n"
+
     return result 
 
 from nir.graph.graph_storages.networkx_graph import NetworkXGraph
