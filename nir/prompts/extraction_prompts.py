@@ -25,6 +25,7 @@ SYSTEM_PROMPT_ENTITIES = """
       5. "item" — a physical object that can be possessed, used, or interacted with (e.g., sword, key, artifact).
       6. "event" — an action, occurrence, or change of state that happens over time and affects other entities (characters, locations, items, or groups). 
       Event nodes represent the sequential chain of happenings and actions that form the fabula — the underlying chronological and causal structure of the story.
+      Between two nodes, if both of them has type "event", there can be only two relations: "follows" or "precedes". 
 
     STRUCTURES AND RULES.
       1. Entities (nodes). For each entity identified from a coreference cluster, output an object with the following fields:

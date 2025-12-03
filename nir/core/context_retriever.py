@@ -4,15 +4,50 @@ import numpy as np
 import re
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-from typing import List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional
 from itertools import combinations
+from collections import defaultdict, deque
 
 from nir.graph.knowledge_graph import KnowledgeGraph
-from nir.graph.graph_structures import Node, Edge
+from nir.graph.graph_structures import Node, Edge, NodeType
+
 
 NODE_RATIO = 0.5
 EDGE_RATIO = 0.3
 PATH_RATIO = 0.2
+
+
+def extract_event_sequence(graph) -> Dict[str, int]:
+    events = {n.id: n for n in graph.get_all_nodes() if n.type == NodeType.event}
+    edges_and_followers = defaultdict(list)
+    amount_of_precedors = {eid: 0 for eid in events}
+
+    for edge in graph.get_all_edges():
+        if edge.source in events and edge.target in events:
+            if edge.relation == "precedes":
+                edges_and_followers[edge.source].append(edge.target)
+                amount_of_precedors[edge.target] += 1
+            elif edge.relation == "follows":
+                edges_and_followers[edge.target].append(edge.source)
+                amount_of_precedors[edge.source] += 1
+    queue = deque([eid for eid in events if amount_of_precedors[eid] == 0])
+    stage = 0
+    event_stage = {}
+
+    while queue:
+        next_queue = deque()
+        for eid in queue:
+            event_stage[eid] = stage
+            for nxt in edges_and_followers[eid]:
+                amount_of_precedors[nxt] -= 1
+                if amount_of_precedors[nxt] == 0:
+                    next_queue.append(nxt)
+        queue = next_queue
+        stage += 1
+    if len(event_stage) != len(events):
+        return {}
+    return event_stage
+
 
 def estimate_tokens(text: str) -> int:
     if not text:
@@ -83,6 +118,43 @@ def find_paths(
             queue.append((next_node, new_path, new_edges, S_next))
     results.sort(key=lambda x: x[1], reverse=True)
     return results
+
+
+def filter_graph_by_events(
+        nodes: List[Node],
+        edges: List[Edge],
+        event_sequence: Dict[str, int],
+        start_event_id: Optional[str] = None,
+        end_event_id: Optional[str] = None
+    ) -> Tuple[List[Node], List[Edge]]:
+
+    min_time = 0
+    max_time = max(event_sequence.values()) if event_sequence else 0
+    left = event_sequence.get(start_event_id, min_time) if start_event_id else min_time
+    right = event_sequence.get(end_event_id, max_time) if end_event_id else max_time
+    if left > right:
+        left, right = right, left
+
+    def overlaps(start_eid, end_eid):
+        start_level = event_sequence.get(start_eid, min_time) if start_eid else min_time
+        end_level = event_sequence.get(end_eid, max_time) if end_eid else max_time
+        return not (end_level < left or start_level > right)
+
+    filtered_nodes = []
+    for node in nodes:
+        new_states = []
+        for st in node.states:
+            if overlaps(st.time_start, st.time_end):
+                new_states.append(st)
+        new_node = node.model_copy(deep=True)
+        new_node.states = new_states
+        filtered_nodes.append(new_node)
+
+    filtered_edges = []
+    for edge in edges:
+        if overlaps(edge.time_start_event, edge.time_end_event):
+            filtered_edges.append(edge)
+    return filtered_nodes, filtered_edges
 
 
 def form_context_without_llm(
