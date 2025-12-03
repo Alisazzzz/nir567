@@ -19,7 +19,7 @@ from langchain_core.embeddings import Embeddings
 
 from fastcoref import FCoref
 
-from nir.graph.graph_structures import Node, NodeType, Edge, EventImpact, State, EventsSubgraph, GraphExtractionResult
+from nir.graph.graph_structures import Node, Edge, EventImpact, State, EventsSubgraph, GraphExtractionResult
 from nir.graph.knowledge_graph import KnowledgeGraph
 from nir.graph.graph_storages.networkx_graph import NetworkXGraph
 from nir.prompts import extraction_prompts
@@ -205,7 +205,7 @@ def resolve_coreference(chunk_text: str) -> List[List[str]]:
 entities_parser = PydanticOutputParser(pydantic_object=GraphExtractionResult)
 
 prompt_entities = ChatPromptTemplate.from_messages([
-    ("system", extraction_prompts.SYSTEM_PROMPT_ENTITIES),
+    ("system", extraction_prompts.SYSTEM_PROMPT_ENTITIES_2),
     ("human",
         "Text fragment:\n{chunk_text}\n\n"
         "Coreference clusters:\n{coreference_array}\n\n"
@@ -219,7 +219,7 @@ prompt_entities = ChatPromptTemplate.from_messages([
 events_parser = PydanticOutputParser(pydantic_object=EventsSubgraph)
 
 prompt_events = ChatPromptTemplate.from_messages([
-    ("system", extraction_prompts.SYSTEM_PROMPT_EVENTS),
+    ("system", extraction_prompts.SYSTEM_PROMPT_EVENTS_2),
     ("human",
         "Text:\n{chunk_text}\n\n"
         "Events:\n{events_list}\n\n"
@@ -236,7 +236,7 @@ prompt_events = ChatPromptTemplate.from_messages([
 merged_nodes_parser = PydanticOutputParser(pydantic_object=Node)
 
 prompt_merging = ChatPromptTemplate.from_messages([
-    ("system", extraction_prompts.SYSTEM_PROMPT_MERGING),
+    ("system", extraction_prompts.SYSTEM_PROMPT_MERGING_2),
     ("human",
         "Node A:\n{node_a_json}\n\n"
         "Node B:\n{node_b_json}\n\n"
@@ -343,28 +343,27 @@ def apply_event_impact_on_graph(
     eid = event.id
     if (impact.affected_nodes):
         for node in impact.affected_nodes:
-            node = graph.get_node_by_id(node.id)
-            if (node):
-                new_description = node.description
+            existing = graph.get_node_by_id(node.id)
+            if (existing):
                 new_state = State(
                     sid=f"{eid}_{node.id}",
-                    attributes=node.attributes,
-                    time_start=eid,
-                    time_end=None
+                    current_description=node.new_current_description,
+                    current_attributes=node.new_current_attributes,
+                    event_start=node.time_start_event,
+                    event_end=node.time_end_event
                 )
-                graph.update_node_state(node.id, new_description, new_state)
+                graph.update_node_state(node.id, new_state)
         
     if (impact.affected_edges):
         for edge in impact.affected_edges:
             edge = graph.get_edge_by_id(edge.id)
             if (edge):
-                new_description = edge.description
                 if (edge.time_start_event and edge.time_end_event):
-                    graph.update_edge_times(edge.id, time_start_event=edge.time_start_event, time_end_event=edge.time_end_event)
+                    graph.update_edge_times(edge.id, edge.description, time_start_event=edge.time_start_event, time_end_event=edge.time_end_event)
                 elif (edge.time_start_event):
-                    graph.update_edge_times(edge.id, time_start_event=edge.time_start_event)
+                    graph.update_edge_times(edge.id, edge.description, time_start_event=edge.time_start_event)
                 elif (edge.time_end_event):
-                    graph.update_edge_times(edge.id, time_end_event=edge.time_end_event)
+                    graph.update_edge_times(edge.id, edge.description, time_end_event=edge.time_end_event)
 
 def extract_events_impact(
         chunks: List[Document],
@@ -380,8 +379,8 @@ def extract_events_impact(
 
         chunk_nodes = [node for node in nodes if idx in node.chunk_id]
         chunk_edges = [edge for edge in edges if idx == edge.chunk_id]
-        event_names = [node.name for node in chunk_nodes if node.type == NodeType.event]
-        entities_nodes = [node for node in chunk_nodes if node.type != NodeType.event]
+        event_names = [node.name for node in chunk_nodes if node.type == "event"]
+        entities_nodes = [node for node in chunk_nodes if node.type != "event"]
         
         events_impacts: EventsSubgraph = chain_event.invoke({
             "chunk_text": chunk.page_content,
@@ -416,7 +415,7 @@ def extract_graph(
     edges_in_graph = graph.get_all_edges()
     events_impacts = extract_events_impact(chunks, nodes_in_graph, edges_in_graph, llm)
     
-    events_only = [node for node in nodes_in_graph if node.type == NodeType.event]
+    events_only = [node for node in nodes_in_graph if node.type == "event"]
     for event in events_impacts:
         for event_in_graph in events_only:
             if event_in_graph.name == event.event_name:
@@ -463,7 +462,7 @@ def update_graph(
     edges_in_graph = graph.get_all_edges()
     events_impacts = extract_events_impact(chunks, nodes_in_graph, edges_in_graph, llm)
     
-    events_only = [node for node in nodes_in_graph if node.type == NodeType.event]
+    events_only = [node for node in nodes_in_graph if node.type == "event"]
     for event in events_impacts:
         for event_in_graph in events_only:
             if event_in_graph.name == event.event_name:

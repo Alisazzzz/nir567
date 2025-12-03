@@ -1,0 +1,279 @@
+{
+  "nodes": [
+    {
+      "id": "lira",
+      "name": "LIRA",
+      "type": "character",
+      "base_description": "A map-keeper who runs her fingers over a copper compass.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "event_lira_remembers_garden_hall_lira",
+          "current_description": "LIRA is remembering the Garden Hall.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "kael",
+      "name": "KAEL",
+      "type": "character",
+      "base_description": "A former border guard who watches the shadows.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "ruined_fortress_harron",
+      "name": "Ruined Fortress Harron",
+      "type": "location",
+      "base_description": "A location where dust drifts through collapsed archways, which turned into a grave of its own history after the turmoil following the war.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "state1",
+          "current_description": "A location where dust drifts through collapsed archways.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        },
+        {
+          "sid": "state2",
+          "current_description": "A location that turned into a grave of its own history after the turmoil following the war.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        },
+        {
+          "sid": "event_lira_remembers_garden_hall_ruined_fortress_harron",
+          "current_description": "The Ruined Fortress Harron is being remembered by LIRA as it was once the Garden Hall.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "event_lira_remembers_garden_hall",
+      "name": "LIRA remembers the Garden Hall",
+      "type": "event",
+      "base_description": "LIRA recalls that the walls of the fortress were once covered in ivy and lantern glass.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "compass",
+      "name": "The compass",
+      "type": "item",
+      "base_description": "An item that flickers with a dim, pulsing glow.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "war",
+      "name": "The War",
+      "type": "event",
+      "base_description": "A war that tore the continents apart.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "eastern_ridge",
+      "name": "The Eastern Ridge",
+      "type": "location",
+      "base_description": "A location that was a trading terrace before the war and became a sinkhole after.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "lira_involved_in_remembers",
+      "source": "lira",
+      "target": "event_lira_remembers_garden_hall",
+      "relation": "involved_in",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "harron_contains_compass",
+      "source": "ruined_fortress_harron",
+      "target": "compass",
+      "relation": "contains_item",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "fortress_affects_compass",
+      "source": "ruined_fortress_harron",
+      "target": "compass",
+      "relation": "affects_item",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "fortress_causes_different_reaction",
+      "source": "ruined_fortress_harron",
+      "target": "compass",
+      "relation": "causes_different_reaction",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "harron_affects_compass_through_smuta",
+      "source": "ruined_fortress_harron",
+      "target": "compass",
+      "relation": "affects_item_through_smuta",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "artifacts_stay_dormant_before_smuta",
+      "source": "ruined_fortress_harron",
+      "target": "compass",
+      "relation": "artifacts_stay_dormant",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "smuta_causes_change",
+      "source": "ruined_fortress_harron",
+      "target": "compass",
+      "relation": "causes_change",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "remembers_involves_lira",
+      "source": "event_lira_remembers_garden_hall",
+      "target": "lira",
+      "relation": "involves",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "compass_involves_harron",
+      "source": "compass",
+      "target": "ruined_fortress_harron",
+      "relation": "involves",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "compass_reacts_to_fortress",
+      "source": "compass",
+      "target": "ruined_fortress_harron",
+      "relation": "reacts_to",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "compass_reacts_differently",
+      "source": "compass",
+      "target": "ruined_fortress_harron",
+      "relation": "reacts_differently",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "compass_reacts_to_smuta",
+      "source": "compass",
+      "target": "ruined_fortress_harron",
+      "relation": "reacts_to_smuta",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "compass_reacts_normally_before_smuta",
+      "source": "compass",
+      "target": "ruined_fortress_harron",
+      "relation": "reacts_normally",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "compass_reacts_to_change",
+      "source": "compass",
+      "target": "ruined_fortress_harron",
+      "relation": "reacts_to_change",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "war_affects_ridge",
+      "source": "war",
+      "target": "eastern_ridge",
+      "relation": "affects",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    }
+  ]
+}

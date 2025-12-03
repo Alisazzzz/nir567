@@ -77,26 +77,32 @@ class NetworkXGraph(KnowledgeGraph):
         connected_ids = set(self.graph.successors(node_id)) | set(self.graph.predecessors(node_id))
         return [self.get_node_by_id(n) for n in connected_ids]
 
-    def update_node_state(self, node_id: str, new_desctiption: str, new_state: State) -> None:
+    def update_node_state(self, node_id: str, new_state: State) -> None:
         node = self.get_node_by_id(node_id)
-        node.description = new_desctiption
-        node.states.append(new_state)
+        changed = False
+        for i, state in enumerate(node.states):
+            if state.current_description == new_state.current_description:
+                node.states[i] = new_state
+                changed = False
+        if not changed:
+            node.states.append(new_state)
         self.graph.nodes[node_id]["data"] = node.model_dump()
 
-    def update_edge_times(self, edge_id: str, time_start_event: Optional[str] = None, time_end_event: Optional[str] = None) -> None:
+    def update_edge_times(self, edge_id: str, new_description: str, time_start_event: Optional[str] = None, time_end_event: Optional[str] = None) -> None:
         edge = self.get_edge_by_id(edge_id)
         if time_start_event:
             edge["data"]["time_start_event"] = time_start_event
         if time_end_event:
             edge["data"]["time_end_event"] = time_end_event
+        edge.description = new_description
         self.graph.edges[edge_id]["data"] = edge
         return
 
     def update_node_full(self, node_id: str, new_info: Node) -> None:
         node = self.get_node_by_id(node_id)
         node.name = new_info.name
-        node.description = new_info.description
-        node.attributes = new_info.attributes
+        node.base_description = new_info.base_description
+        node.base_attributes = new_info.base_attributes
         node.states = new_info.states
         node.chunk_id = new_info.chunk_id
         return

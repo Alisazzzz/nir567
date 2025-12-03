@@ -23,30 +23,30 @@ def get_next_chunk_id(graph: KnowledgeGraph) -> int:
     max_edge_id = max([e.chunk_id if isinstance(e.chunk_id, int) else max(e.chunk_id, default=0) for e in all_edges], default=-1)
     return max(max_node_id, max_edge_id) + 1
 
-vector_store = ChromaVectorStore(collection_name="lost_map_short", persist_directory="assets/databases/chroma_db")
+vector_store = ChromaVectorStore(collection_name="script_short", persist_directory="assets/databases/chroma_db")
 
-# data = loader.loadTXT("assets/documents/very short.txt")
+# data = loader.loadTXT("assets/documents/script with events.txt")
 # chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
 # graph = extract_graph(
 #     chunks=chunks,
 #     llm=llm,
 #     embedding_model=embedding_model,
 #     graph_class=NetworkXGraph)
-# graph.save("assets/graphs/graph_map_short.json")
+# graph.save("assets/graphs/graph_script_short.json")
 # create_embeddings(graph, vector_store, embedding_model)
-# embed_query = embedding_model.embed_query("Who is Mira Stone?")
+# embed_query = embedding_model.embed_query("Who is Lira?")
 # print(vector_store.search(embed_query))
 # graph.visualize()
 
 graph_loaded = NetworkXGraph()
-graph_loaded.load("assets/graphs/graph_map_short.json")
+graph_loaded.load("assets/graphs/graph_script_short.json")
 greatest_id = get_next_chunk_id(graph_loaded)
-data = loader.loadTXT("assets/documents/very short update.txt")
+data = loader.loadTXT("assets/documents/script with events update.txt")
 chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=greatest_id)
 update_graph(chunks, llm, embedding_model, graph_loaded)
-graph_loaded.save("assets/graphs/graph_map_short.json")
+graph_loaded.save("assets/graphs/graph_script_short.json")
 update_embeddings(graph_loaded, vector_store, embedding_model)
-embed_query = embedding_model.embed_query("Who is Elias?")
+embed_query = embedding_model.embed_query("Who is Kael?")
 print(vector_store.search(embed_query))
 graph_loaded.visualize()
 

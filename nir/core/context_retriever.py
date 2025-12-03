@@ -4,13 +4,16 @@ import numpy as np
 import re
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
+from langchain_core.prompts import ChatPromptTemplate
+from langchain.output_parsers import PydanticOutputParser
 from typing import Dict, List, Tuple, Optional
 from itertools import combinations
 from collections import defaultdict, deque
+from pydantic import BaseModel
 
 from nir.graph.knowledge_graph import KnowledgeGraph
 from nir.graph.graph_structures import Node, Edge, NodeType
-
+from nir.prompts import retrieval_prompts
 
 NODE_RATIO = 0.5
 EDGE_RATIO = 0.3
@@ -120,7 +123,7 @@ def find_paths(
     return results
 
 
-def filter_graph_by_events(
+def filter_context_by_time(
         nodes: List[Node],
         edges: List[Edge],
         event_sequence: Dict[str, int],
@@ -144,7 +147,7 @@ def filter_graph_by_events(
     for node in nodes:
         new_states = []
         for st in node.states:
-            if overlaps(st.time_start, st.time_end):
+            if overlaps(st.event_start, st.event_end):
                 new_states.append(st)
         new_node = node.model_copy(deep=True)
         new_node.states = new_states
@@ -217,7 +220,7 @@ def form_context_without_llm(
 
     result_nodes.sort(key=lambda x: x[1])
     for node, weight in result_nodes:
-        text = f"{node.name}. {node.description}"
+        text = f"{node.name}. {node.base_description}"
         tokens = estimate_tokens(text)
         result_nodes_dict[node.id] = (text, tokens)
     
@@ -261,13 +264,147 @@ def form_context_without_llm(
 
     return result 
 
+class TimestampExtractionResult(BaseModel):
+    time_start_event_name: Optional[str]
+    time_end_event_name: Optional[str]
+
+timestamps_parser = PydanticOutputParser(pydantic_object=TimestampExtractionResult)
+
+prompt_timestamps = ChatPromptTemplate.from_messages([
+    ("system", retrieval_prompts.SYSTEM_PROMPT_TIMESPAMPS),
+    ("human",
+        "Text:\n{query_text}\n\n"
+        "List of event names:\n{event_names}\n\n"
+        "{format_instructions}")
+]).partial(format_instructions=timestamps_parser.get_format_instructions())
+
+
+def form_context_with_llm(
+        query: str,
+        graph: KnowledgeGraph,
+        llm: BaseLanguageModel,
+        embedding_model: Embeddings,
+        max_tokens: int = 1024
+    ) -> str:
+
+    chain_timestamps = prompt_timestamps | llm | timestamps_parser
+
+    events_dict = extract_event_sequence(graph)
+    events_nodes = []
+    for event in events_dict.keys():
+        events_nodes.append(graph.get_node_by_id(event))
+    events_names = [event.name for event in events_nodes]
+    timestamps = chain_timestamps.invoke({ "query_text": query, "event_names": events_names })
+
+    result_nodes_dict = {} # { node_id : ("node_name. node_description", token_amount) }
+    result_edges_dict = {} # { (source_id, target_id) : ("name_source - relation - name_target", token_amount) }
+    result_paths_dict = {} # { (source_id, target_id, number) : ("name_node_start - relation - ... - relation - name_node_target", token_amount) }
+
+    entry_nodes = retrieve_similar_nodes(graph, query, embedding_model)
+    result_nodes = entry_nodes.copy() 
+    for entry_node, resource in entry_nodes:
+        neighbours = graph.get_neighbours_of_node(entry_node.id)
+        for neighbour in neighbours:
+            if not any(node[0] == neighbour for node in result_nodes):
+                edges = [edge for edge in graph.get_all_edges() if edge.source == neighbour.id or edge.target == neighbour.id]
+                edges = [edge for edge in edges if edge.source == entry_node.id or edge.target == entry_node.id]
+                edges.sort(key=lambda x: x.weight)
+                weight = edges[0].weight
+                result_nodes.append((neighbour, weight))
+                for edge in edges:
+                    text = graph.get_node_by_id(edge.source).name + " - " + graph.get_node_by_id(edge.target).name + ". " + edge.description
+                    tokens = estimate_tokens(text)
+                    result_edges_dict[(edge.source, edge.target)] = (text, tokens)
+
+    paths_nodes = []
+    if len(entry_nodes) > 1:
+        for a, b in combinations(entry_nodes, 2):
+            paths_nodes.append(find_paths(graph, a[0].id, b[0].id))
+    all_paths = [p for paths in paths_nodes for p in paths]
+    for path in all_paths:
+        i = 0
+        for node_id in path[0]:
+            node_in_path = graph.get_node_by_id(node_id)
+            if not any(node[0] == node_in_path for node in result_nodes):
+                result_nodes.append((node_in_path, path[2]))
+    
+    pair_counters = {}
+    for path_nodes, path_edges, score in all_paths:
+        source_id = path_nodes[0]
+        target_id = path_nodes[-1]
+        pair_key = (source_id, target_id)
+        index = pair_counters.get(pair_key, 0)
+        pair_counters[pair_key] = index + 1
+
+        pretty_parts = []
+        for i, node_id in enumerate(path_nodes):
+            node = graph.get_node_by_id(node_id)
+            pretty_parts.append(node.name)
+            if i < len(path_edges):
+                edge_id = path_edges[i]
+                edge = graph.get_edge_by_id(edge_id)
+                pretty_parts.append(f" - {edge.relation} - ")
+        pretty_string = "".join(pretty_parts)
+        result_paths_dict[(source_id, target_id, index)] = (pretty_string, score)
+
+    result_nodes.sort(key=lambda x: x[1])
+    for node, weight in result_nodes:
+        text = f"{node.name}. {node.base_description}"
+        tokens = estimate_tokens(text)
+        result_nodes_dict[node.id] = (text, tokens)
+    
+    node_budget = int(max_tokens * NODE_RATIO)
+    edge_budget = int(max_tokens * EDGE_RATIO)
+    path_budget = int(max_tokens * PATH_RATIO)
+
+    selected_nodes = set()
+    used_tokens = 0
+    for node_id, (text, tokens) in result_nodes_dict.items():
+        if used_tokens + tokens <= node_budget:
+            selected_nodes.add(node_id)
+            used_tokens += tokens
+    
+    filtered_edges = [(pair, (text, tokens)) for pair, (text, tokens) in result_edges_dict.items() if pair[0] in selected_nodes and pair[1] in selected_nodes]
+    selected_edges = []
+    edge_tokens = 0
+    for pair, (text, tokens) in filtered_edges:
+        if edge_tokens + tokens <= edge_budget:
+            selected_edges.append((pair, text))
+            edge_tokens += tokens
+
+    filtered_paths = [(key, result_paths_dict[key]) for key in result_paths_dict.keys() if key[0] in selected_nodes and key[1] in selected_nodes]
+    selected_paths = []
+    path_tokens = 0
+    for key, (text, tokens) in filtered_paths:
+        if path_tokens + tokens <= path_budget:
+            selected_paths.append((key, text))
+            path_tokens += tokens
+    
+    result = "NODES:\n\n"
+    for node_id in selected_nodes:
+        text = result_nodes_dict[node_id][0]
+        result += text + "\n"
+    result += "\nEDGES:\n\n"
+    for (_, text) in selected_edges:
+        result += text + "\n"
+    result += "\nPATHS:\n\n"
+    for (_, text) in selected_paths:
+        result += text + "\n"
+
+    return result 
+
+
 from nir.graph.graph_storages.networkx_graph import NetworkXGraph
 from nir.llm.manager import ModelManager
+from nir.llm.providers import ModelConfig
 
 graph_loaded = NetworkXGraph()
 graph_loaded.load("assets/graphs/graph_map_short.json")
 
 manager = ModelManager()
 embedding_model = manager.create_embedding_model(name="embeddings", option="ollama", model_name="nomic-embed-text:v1.5")
+model_config = ModelConfig(model_name="mistral:7b-instruct", temperature=0)
+manager.create_chat_model("graph_extraction", "ollama", model_config)
+llm = manager.get_chat_model("graph_extraction")
 
-print(form_context_without_llm("Who is Elias Thorn and what he do in Ariendale village?", graph_loaded, embedding_model))
+print(form_context_with_llm("Who is Elias Thorn and what he do in Ariendale village? It was after Mira enters Ariendale Village", graph_loaded, llm, embedding_model))

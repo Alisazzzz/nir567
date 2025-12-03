@@ -43,7 +43,7 @@ class KnowledgeGraph(ABC):
         pass
 
     @abstractmethod
-    def update_node_state(self, node_id: str, new_desctiption: str, new_state: State) -> None:
+    def update_node_state(self, node_id: str, new_state: State) -> None:
         pass
 
     @abstractmethod

@@ -1,8 +1,18 @@
 #All data structures needed for graph are here
 
+
+
+#--------------------------
+#---------imports----------
+#--------------------------
+
 from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional, Dict, Any
-from enum import Enum
+
+
+#--------------------------------------------------
+#-----------information about node types-----------
+#--------------------------------------------------
 
 TYPE_CORRECTIONS = {
     "location_element": "location",
@@ -15,27 +25,33 @@ TYPE_CORRECTIONS = {
     "natural_feature": "environment_element",
 }
 
-class NodeType(str, Enum):
-    character = "character"
-    group = "group"
-    location = "location"
-    environment_element = "environment_element"
-    item = "item"
-    event = "event"
+POSSIBLE_TYPES = [
+    "character",
+    "group",
+    "location",
+    "environment_element",
+    "item",
+    "event"
+]
+
+
+#-----------------------------------------
+#-----------structures for graph----------
+#-----------------------------------------
 
 class State(BaseModel):
     sid: str
-    attributes: Optional[Dict[str, Any]] = None
-    time_start: Optional[str] = None
-    time_end: Optional[str] = None
+    current_description: str = ""
+    current_attributes: Dict[str, Any] = Field(default_factory=dict)
+    time_start_event: Optional[str] = None
+    time_end_event: Optional[str] = None
 
 class Node(BaseModel):
     id: str
     name: str
-    type: NodeType
-    synonyms: List[str] = Field(default_factory=list)
-    description: str = ""
-    attributes: Dict[str, Any] = Field(default_factory=dict)
+    type: str
+    base_description: str = ""
+    base_attributes: Dict[str, Any] = Field(default_factory=dict) # time_start, time_end for events are required
     states: List[State] = Field(default_factory=list)
     chunk_id: List[int]
 
@@ -43,7 +59,7 @@ class Node(BaseModel):
     @classmethod
     def validate_and_correct_type(cls, v: str) -> str:
         v_clean = v.strip().lower()        
-        if v_clean in [item.value for item in NodeType]:
+        if v_clean in [item for item in POSSIBLE_TYPES]:
             return v_clean
         if v_clean in TYPE_CORRECTIONS:
             corrected = TYPE_CORRECTIONS[v_clean]
@@ -62,22 +78,29 @@ class Edge(BaseModel):
     chunk_id: int
 
 
+#-----------------------------------------------------
+#-----------additional extraction structures----------
+#-----------------------------------------------------
+
 class AffectedNode(BaseModel):
     id: str
     name: str
-    description: str
-    attributes: Dict[str, Any] = Field(default_factory=dict)
+    new_current_description: str
+    new_current_attributes: Dict[str, Any] = Field(default_factory=dict)
+    time_start_event: Optional[str] = None
+    time_end_event: Optional[str] = None
 
 class AffectedEdge(BaseModel):
     id: str
-    description: str
+    new_description: str
     time_start_event: Optional[str] = None
     time_end_event: Optional[str] = None
 
 class EventImpact(BaseModel):
     event_name: str
-    affected_nodes: Optional[List[AffectedNode]]
-    affected_edges: Optional[List[AffectedEdge]]
+    affected_nodes: List[AffectedNode] = Field(default_factory=list)
+    affected_edges: List[AffectedEdge] = Field(default_factory=list)
+
 
 class EventsSubgraph(BaseModel):
     events_with_impact: List[EventImpact] = Field(default_factory=list)
