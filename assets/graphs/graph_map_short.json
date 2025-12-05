@@ -4,21 +4,29 @@
       "id": "mira_stone",
       "name": "Mira Stone",
       "type": "character",
-      "synonyms": [],
-      "description": "A person who enters Ariendale Village with an old compass and a half-burned map.",
-      "attributes": {},
+      "base_description": "",
+      "base_attributes": {},
       "states": [
         {
           "sid": "event_mira_enters_village_mira_stone",
-          "attributes": {},
-          "time_start": "event_mira_enters_village",
-          "time_end": null
+          "current_description": "",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
         },
         {
           "sid": "event_mira_enters_village_mira_stone",
-          "attributes": {},
-          "time_start": "event_mira_enters_village",
-          "time_end": null
+          "current_description": "",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        },
+        {
+          "sid": "event_mira_enters_village_mira_stone",
+          "current_description": "Mira Stone is now in Ariendale Village.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
         }
       ],
       "chunk_id": [
@@ -29,21 +37,29 @@
       "id": "ariendale_village",
       "name": "Ariendale Village",
       "type": "location",
-      "synonyms": [],
-      "description": "The quiet village where Mira Stone enters.",
-      "attributes": {},
+      "base_description": "",
+      "base_attributes": {},
       "states": [
         {
           "sid": "event_mira_enters_village_ariendale_village",
-          "attributes": {},
-          "time_start": "event_mira_enters_village",
-          "time_end": null
+          "current_description": "",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
         },
         {
           "sid": "event_mira_enters_village_ariendale_village",
-          "attributes": {},
-          "time_start": "event_mira_enters_village",
-          "time_end": null
+          "current_description": "",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        },
+        {
+          "sid": "event_mira_enters_village_ariendale_village",
+          "current_description": "Ariendale Village now has Mira Stone present.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
         }
       ],
       "chunk_id": [
@@ -54,9 +70,8 @@
       "id": "old_compass",
       "name": "Old Compass",
       "type": "item",
-      "synonyms": [],
-      "description": "An item carried by Mira Stone.",
-      "attributes": {},
+      "base_description": "",
+      "base_attributes": {},
       "states": [],
       "chunk_id": [
         0
@@ -66,9 +81,8 @@
       "id": "half_burned_map",
       "name": "Half-Burned Map",
       "type": "item",
-      "synonyms": [],
-      "description": "A map that leads to the Crystal Caves and is half-burned.",
-      "attributes": {},
+      "base_description": "",
+      "base_attributes": {},
       "states": [],
       "chunk_id": [
         0
@@ -78,9 +92,8 @@
       "id": "event_mira_enters_village",
       "name": "Mira enters Ariendale Village",
       "type": "event",
-      "synonyms": [],
-      "description": "The moment when Mira Stone enters the quiet village.",
-      "attributes": {},
+      "base_description": "",
+      "base_attributes": {},
       "states": [],
       "chunk_id": [
         0
@@ -90,9 +103,8 @@
       "id": "elias_thorn",
       "name": "Elias Thorn",
       "type": "character",
-      "synonyms": [],
-      "description": "A young scholar surrounded by scrolls.",
-      "attributes": {},
+      "base_description": "",
+      "base_attributes": {},
       "states": [],
       "chunk_id": [
         1
@@ -102,9 +114,8 @@
       "id": "ancient_symbols",
       "name": "Ancient symbols",
       "type": "environment_element",
-      "synonyms": [],
-      "description": "Symbols that Mira needs someone to read.",
-      "attributes": {},
+      "base_description": "",
+      "base_attributes": {},
       "states": [],
       "chunk_id": [
         1
@@ -114,12 +125,33 @@
       "id": "village_inn",
       "name": "Village Inn",
       "type": "location",
-      "synonyms": [],
-      "description": "The location where Mira meets Elias Thorn.",
-      "attributes": {},
+      "base_description": "",
+      "base_attributes": {},
       "states": [],
       "chunk_id": [
         1
+      ]
+    },
+    {
+      "id": "crystal",
+      "name": "The crystal",
+      "type": "item",
+      "base_description": "An item that Mira Stone uses for guidance and clarity.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        6
+      ]
+    },
+    {
+      "id": "mentors_guides",
+      "name": "Mentors and Guides",
+      "type": "group",
+      "base_description": "A group of respected individuals that Mira Stone seeks guidance from.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        7
       ]
     }
   ],
@@ -156,6 +188,127 @@
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 1
+    },
+    {
+      "id": "mira_involved_in_reflection_crystal",
+      "source": "mira_stone",
+      "target": "old_compass",
+      "relation": "involved_in",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "represents_involves_mira_stone",
+      "source": "mira_stone",
+      "target": "old_compass",
+      "relation": "represents",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "mira_stone_involves_reflection_crystal",
+      "source": "mira_stone",
+      "target": "old_compass",
+      "relation": "involves",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "mira_stone_seeks_guidance_ariente_village",
+      "source": "mira_stone",
+      "target": "ariendale_village",
+      "relation": "seeks_guidance_from",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "mira_stone_becomes_part_of_ariendale_village_cultural_heritage",
+      "source": "mira_stone",
+      "target": "ariendale_village",
+      "relation": "becomes_part_of",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 9
+    },
+    {
+      "id": "airendale_contains_reflection_crystal_mineral",
+      "source": "ariendale_village",
+      "target": "old_compass",
+      "relation": "contains_mineral_for",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "ariente_village_provides_guidance_mentors_guides",
+      "source": "ariendale_village",
+      "target": "mentors_guides",
+      "relation": "provides_guidance",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "reflection_crystal_involves_mira",
+      "source": "old_compass",
+      "target": "mira_stone",
+      "relation": "involves",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "reflection_crystal_involved_in_mira_stone",
+      "source": "old_compass",
+      "target": "mira_stone",
+      "relation": "involved_in",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "reflection_crystal_composed_of_airendale_mineral",
+      "source": "old_compass",
+      "target": "ariendale_village",
+      "relation": "composed_of_mineral_from",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "reflection_crystal_strengthens_ties_to_ariendale_village",
+      "source": "old_compass",
+      "target": "ariendale_village",
+      "relation": "strengthens_ties",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 9
     },
     {
       "id": "event_mira_enters_village_participant_mira",

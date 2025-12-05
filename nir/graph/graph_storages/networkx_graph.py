@@ -31,8 +31,8 @@ class NetworkXGraph(KnowledgeGraph):
     def get_node_by_name(self, node_name: str) -> Node:
         for node_id, node_attrs in self.graph.nodes(data=True):
             data = node_attrs.get("data")
-        if data and data.get("name") == node_name:
-            return Node(**data)
+            if data and data.get("name") == node_name:
+                return Node(**data)
         return
     
     def get_node_by_id(self, node_id: str) -> Node:
@@ -74,7 +74,7 @@ class NetworkXGraph(KnowledgeGraph):
         return edges
     
     def get_neighbours_of_node(self, node_id: str) -> List[Node]:
-        connected_ids = set(self.graph.successors(node_id)) | set(self.graph.predecessors(node_id))
+        connected_ids = set(self.graph.neighbors(node_id)) 
         return [self.get_node_by_id(n) for n in connected_ids]
 
     def update_node_state(self, node_id: str, new_state: State) -> None:
