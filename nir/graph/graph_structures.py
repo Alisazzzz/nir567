@@ -55,17 +55,6 @@ class Node(BaseModel):
     states: List[State] = Field(default_factory=list)
     chunk_id: List[int]
 
-    @field_validator('type')
-    @classmethod
-    def validate_and_correct_type(cls, v: str) -> str:
-        v_clean = v.strip().lower()        
-        if v_clean in [item for item in POSSIBLE_TYPES]:
-            return v_clean
-        if v_clean in TYPE_CORRECTIONS:
-            corrected = TYPE_CORRECTIONS[v_clean]
-            return corrected
-        return "item"
-
 class Edge(BaseModel):
     id: str
     source: Optional[str] = None
@@ -77,6 +66,41 @@ class Edge(BaseModel):
     time_end_event: Optional[str] = None
     chunk_id: int
 
+
+#--------------------------------------------------------
+#-----structures for first stage of graph extraction-----
+#--------------------------------------------------------
+
+class ExtractedNode(BaseModel):
+    name: str
+    type: str
+    base_description: str = ""
+    base_attributes: Dict[str, Any] = Field(default_factory=dict) # time_start, time_end for events are required
+
+    @field_validator('type')
+    @classmethod
+    def validate_and_correct_type(cls, v: str) -> str:
+        v_clean = v.strip().lower()        
+        if v_clean in [item for item in POSSIBLE_TYPES]:
+            return v_clean
+        if v_clean in TYPE_CORRECTIONS:
+            corrected = TYPE_CORRECTIONS[v_clean]
+            return corrected
+        return "item"
+
+class ExtractedEdge(BaseModel):
+    source: Optional[str] = None
+    target: Optional[str] = None
+    relation: str
+    description: str = ""
+    weight: float = 1.0
+
+class MergedNode(BaseModel):
+    id: str
+    name: str
+    base_description: str = ""
+    base_attributes: Dict[str, Any] = Field(default_factory=dict) # time_start, time_end for events are required
+    
 
 #-----------------------------------------------------
 #-----------additional extraction structures----------

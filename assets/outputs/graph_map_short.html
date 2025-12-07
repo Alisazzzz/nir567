@@ -1,0 +1,222 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#ff6b6b", "data": {"base_attributes": {}, "base_description": "", "chunk_id": [0], "id": "mira_stone", "name": "Mira Stone", "states": [{"current_attributes": {}, "current_description": "", "sid": "event_mira_enters_village_mira_stone", "time_end_event": null, "time_start_event": null}, {"current_attributes": {}, "current_description": "", "sid": "event_mira_enters_village_mira_stone", "time_end_event": null, "time_start_event": null}, {"current_attributes": {}, "current_description": "Mira Stone is now in Ariendale Village.", "sid": "event_mira_enters_village_mira_stone", "time_end_event": null, "time_start_event": null}], "type": "character"}, "font": {"color": "white"}, "id": "mira_stone", "label": "mira_stone", "shape": "dot"}, {"color": "#4dabf7", "data": {"base_attributes": {}, "base_description": "", "chunk_id": [0], "id": "ariendale_village", "name": "Ariendale Village", "states": [{"current_attributes": {}, "current_description": "", "sid": "event_mira_enters_village_ariendale_village", "time_end_event": null, "time_start_event": null}, {"current_attributes": {}, "current_description": "", "sid": "event_mira_enters_village_ariendale_village", "time_end_event": null, "time_start_event": null}, {"current_attributes": {}, "current_description": "Ariendale Village now has Mira Stone present.", "sid": "event_mira_enters_village_ariendale_village", "time_end_event": null, "time_start_event": null}], "type": "location"}, "font": {"color": "white"}, "id": "ariendale_village", "label": "ariendale_village", "shape": "dot"}, {"color": "#f783ac", "data": {"base_attributes": {}, "base_description": "", "chunk_id": [0], "id": "old_compass", "name": "Old Compass", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "old_compass", "label": "old_compass", "shape": "dot"}, {"color": "#f783ac", "data": {"base_attributes": {}, "base_description": "", "chunk_id": [0], "id": "half_burned_map", "name": "Half-Burned Map", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "half_burned_map", "label": "half_burned_map", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {}, "base_description": "", "chunk_id": [0], "id": "event_mira_enters_village", "name": "Mira enters Ariendale Village", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "event_mira_enters_village", "label": "event_mira_enters_village", "shape": "dot"}, {"color": "#ff6b6b", "data": {"base_attributes": {}, "base_description": "", "chunk_id": [1], "id": "elias_thorn", "name": "Elias Thorn", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "elias_thorn", "label": "elias_thorn", "shape": "dot"}, {"color": "#69db7c", "data": {"base_attributes": {}, "base_description": "", "chunk_id": [1], "id": "ancient_symbols", "name": "Ancient symbols", "states": [], "type": "environment_element"}, "font": {"color": "white"}, "id": "ancient_symbols", "label": "ancient_symbols", "shape": "dot"}, {"color": "#4dabf7", "data": {"base_attributes": {}, "base_description": "", "chunk_id": [1], "id": "village_inn", "name": "Village Inn", "states": [], "type": "location"}, "font": {"color": "white"}, "id": "village_inn", "label": "village_inn", "shape": "dot"}, {"color": "#f783ac", "data": {"base_attributes": {}, "base_description": "An item that Mira Stone uses for guidance and clarity.", "chunk_id": [6], "id": "crystal", "name": "The crystal", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "crystal", "label": "crystal", "shape": "dot"}, {"color": "#ffa94d", "data": {"base_attributes": {}, "base_description": "A group of respected individuals that Mira Stone seeks guidance from.", "chunk_id": [7], "id": "mentors_guides", "name": "Mentors and Guides", "states": [], "type": "group"}, "font": {"color": "white"}, "id": "mentors_guides", "label": "mentors_guides", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "Mira meets Elias Thorn in the village inn.", "id": "mira_meets_elias", "relation": "meets", "source": "mira_stone", "target": "elias_thorn", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "elias_thorn"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "Mira requests help with ancient symbols.", "id": "mira_requests_help", "relation": "needs", "source": "mira_stone", "target": "ancient_symbols", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "ancient_symbols"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "Mira shows the map to Elias Thorn.", "id": "mira_shows_the_map", "relation": "shows", "source": "mira_stone", "target": "half_burned_map", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "half_burned_map"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "mira_involved_in_reflection_crystal", "relation": "involved_in", "source": "mira_stone", "target": "old_compass", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "old_compass"}, {"arrows": "to", "data": {"data": {"chunk_id": 5, "description": "", "id": "represents_involves_mira_stone", "relation": "represents", "source": "mira_stone", "target": "old_compass", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "old_compass"}, {"arrows": "to", "data": {"data": {"chunk_id": 7, "description": "", "id": "mira_stone_involves_reflection_crystal", "relation": "involves", "source": "mira_stone", "target": "old_compass", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "old_compass"}, {"arrows": "to", "data": {"data": {"chunk_id": 7, "description": "", "id": "mira_stone_seeks_guidance_ariente_village", "relation": "seeks_guidance_from", "source": "mira_stone", "target": "ariendale_village", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "ariendale_village"}, {"arrows": "to", "data": {"data": {"chunk_id": 9, "description": "", "id": "mira_stone_becomes_part_of_ariendale_village_cultural_heritage", "relation": "becomes_part_of", "source": "mira_stone", "target": "ariendale_village", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "ariendale_village"}, {"arrows": "to", "data": {"data": {"chunk_id": 3, "description": "", "id": "airendale_contains_reflection_crystal_mineral", "relation": "contains_mineral_for", "source": "ariendale_village", "target": "old_compass", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "ariendale_village", "to": "old_compass"}, {"arrows": "to", "data": {"data": {"chunk_id": 7, "description": "", "id": "ariente_village_provides_guidance_mentors_guides", "relation": "provides_guidance", "source": "ariendale_village", "target": "mentors_guides", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "ariendale_village", "to": "mentors_guides"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "reflection_crystal_involves_mira", "relation": "involves", "source": "old_compass", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "old_compass", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 7, "description": "", "id": "reflection_crystal_involved_in_mira_stone", "relation": "involved_in", "source": "old_compass", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "old_compass", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 3, "description": "", "id": "reflection_crystal_composed_of_airendale_mineral", "relation": "composed_of_mineral_from", "source": "old_compass", "target": "ariendale_village", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "old_compass", "to": "ariendale_village"}, {"arrows": "to", "data": {"data": {"chunk_id": 9, "description": "", "id": "reflection_crystal_strengthens_ties_to_ariendale_village", "relation": "strengthens_ties", "source": "old_compass", "target": "ariendale_village", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "old_compass", "to": "ariendale_village"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "Mira Stone is the participant of the event: entering Ariendale Village.", "id": "event_mira_enters_village_participant_mira", "relation": "involves", "source": "event_mira_enters_village", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "event_mira_enters_village", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The event takes place in Ariendale Village.", "id": "event_mira_enters_village_location", "relation": "occurs_in", "source": "event_mira_enters_village", "target": "ariendale_village", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "event_mira_enters_village", "to": "ariendale_village"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "Elias Thorn agrees to help with ancient symbols.", "id": "elias_agrees_to_help", "relation": "agrees_to_help", "source": "elias_thorn", "target": "ancient_symbols", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "elias_thorn", "to": "ancient_symbols"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "Elias Thorn examines the map.", "id": "elias_examines_the_map", "relation": "examines", "source": "elias_thorn", "target": "half_burned_map", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "elias_thorn", "to": "half_burned_map"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "Elias Thorn gives advice about the map.", "id": "elias_gives_advice", "relation": "gives_advice", "source": "elias_thorn", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "elias_thorn", "to": "mira_stone"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.9,
+            "gravitationalConstant": -30000,
+            "springConstant": 0.002,
+            "springLength": 150
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    
+            <style>
+            #infoPanel {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                max-width: 500px;ы
+                background: #1e1e1e;
+                color: white;
+                padding: 16px;
+                border-radius: 8px;
+                border: 1px solid #444;
+                font-family: Consolas, monospace;
+                font-size: 13px;
+                display: none;
+                z-index: 9999;
+                white-space: pre-wrap;
+            }
+            #infoPanel h3 {
+                margin: 0 0 10px 0;
+                font-size: 15px;
+            }
+            </style>
+            <div id="infoPanel"></div>
+            <script>
+            function showPanel(title, data) {
+                const panel = document.getElementById("infoPanel");
+                panel.style.display = "block";
+                panel.innerHTML = "<h3>" + title + "</h3>" +
+                                "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+            }
+
+            function hidePanel() {
+                document.getElementById("infoPanel").style.display = "none";
+            }
+            setTimeout(() => {
+                if (!window.network) return;
+                network.on("click", function (params) {
+                    if (params.nodes.length === 0 && params.edges.length === 0) {
+                        hidePanel();
+                        return;
+                    }
+                    if (params.nodes.length === 1) {
+                        const nodeId = params.nodes[0];
+                        const node = network.body.data.nodes.get(nodeId);
+                        showPanel("Node: " + nodeId, node.data || {});
+                        return;
+                    }
+                    if (params.edges.length === 1) {
+                        const edgeId = params.edges[0];
+                        const edge = network.body.data.edges.get(edgeId);
+                        showPanel("Edge: " + edge.from + " → " + edge.to, edge.data || {});
+                        return;
+                    }
+                });
+
+            }, 300);
+            </script>
+        
+</body>
+</html>

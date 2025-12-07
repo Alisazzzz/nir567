@@ -30,8 +30,8 @@ from nir.embedding.vector_store import VectorStore
 #-----additional stuff-----
 #--------------------------
 
-def normalize_id(text: str) -> str:
-    return text.lower().replace(" ", "_").strip()
+def create_id(name: str) -> str:
+    return name.lower().replace(" ", "_").strip()
 
 def cosine_sim(text1: str, text2: str, embedding_model: Embeddings) -> float:
     embedding1 = np.array(embedding_model.embed_query(text1))
@@ -319,12 +319,12 @@ def extract_entities(
             "coreference_array": coreference_array
         })
         for node in result.nodes:
-            norm_id = normalize_id(node.id)
+            norm_id = create_id(node.id)
             if norm_id not in all_nodes:
                 all_nodes[norm_id] = Node(**node.model_dump())
                 all_nodes[norm_id].chunk_id = [chunk.metadata["chunk_id"]]
         for edge in result.edges:
-            norm_id = normalize_id(edge.id)
+            norm_id = create_id(edge.id)
             if norm_id not in all_edges:
                 if edge.target:
                     all_edges[norm_id] = edge

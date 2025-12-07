@@ -159,37 +159,111 @@ class NetworkXGraph(KnowledgeGraph):
             edge = Edge(**edge_dict)
             self.add_edge(edge)
 
-    def visualize(self) -> None:
-        graph_vis = self.graph.copy()
-        for u, v, data in graph_vis.edges(data=True):
-            edge_label = data['data']['relation']
-            data['label'] = edge_label
-        net = Network(height='750px', width='100%', bgcolor='#222222', font_color='white')
-        net.from_nx(graph_vis)
-        net.set_options("""
-            var options = {
-            "nodes": {
-                "font": {
-                "size": 14
-                }
-            },
-            "edges": {
-                "color": {
-                "inherit": true
-                },
-                "smooth": false,
-                "font": {
-                "size": 12,
-                "color": "#ffffff"
-                }
-            },
-            "physics": {
-                "enabled": true,
-                "stabilization": {
-                "iterations": 100
-                }
+    def visualize(self, filepath: str):
+
+        TYPE_COLORS = {
+            "character": "#ff6b6b",
+            "group": "#ffa94d",
+            "location": "#4dabf7",
+            "environment_element": "#69db7c",
+            "item": "#f783ac",
+            "event": "#9775fa",
+        }
+        net = Network(
+            height="800px",
+            width="100%",
+            bgcolor="#222222",
+            font_color="white",
+            directed=self.graph.is_directed()
+        )
+        net.barnes_hut(
+            gravity=-30000,
+            central_gravity=0.3,
+            spring_length=150,
+            spring_strength=0.002,
+            damping=0.9
+        )
+        for node, attr in self.graph.nodes(data=True):
+            data = attr["data"]
+            node_type = data.get("type", "unknown")
+            color = TYPE_COLORS.get(node_type, "#ced4da")
+            net.add_node(
+                n_id=str(node),
+                label=str(node),
+                color=color,
+                data=data 
+            )
+        for u, v, data in self.graph.edges(data=True):
+            net.add_edge(
+                str(u),
+                str(v),
+                data=data
+            )
+        net.write_html(filepath)
+        with open(filepath, "r", encoding="utf8") as f:
+            html = f.read()
+
+        custom_js = r"""
+            <style>
+            #infoPanel {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                max-width: 600px;
+                background: #1e1e1e;
+                color: white;
+                padding: 16px;
+                border-radius: 8px;
+                border: 1px solid #444;
+                font-family: Consolas, monospace;
+                font-size: 13px;
+                display: none;
+                z-index: 9999;
+                white-space: pre-wrap;
             }
+            #infoPanel h3 {
+                margin: 0 0 10px 0;
+                font-size: 15px;
             }
-        """)
-        net.show("assets/outputs/graph.html", notebook=False)
+            </style>
+            <div id="infoPanel"></div>
+            <script>
+            function showPanel(title, data) {
+                const panel = document.getElementById("infoPanel");
+                panel.style.display = "block";
+                panel.innerHTML = "<h3>" + title + "</h3>" +
+                                "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+            }
+
+            function hidePanel() {
+                document.getElementById("infoPanel").style.display = "none";
+            }
+            setTimeout(() => {
+                if (!window.network) return;
+                network.on("click", function (params) {
+                    if (params.nodes.length === 0 && params.edges.length === 0) {
+                        hidePanel();
+                        return;
+                    }
+                    if (params.nodes.length === 1) {
+                        const nodeId = params.nodes[0];
+                        const node = network.body.data.nodes.get(nodeId);
+                        showPanel("Node: " + nodeId, node.data || {});
+                        return;
+                    }
+                    if (params.edges.length === 1) {
+                        const edgeId = params.edges[0];
+                        const edge = network.body.data.edges.get(edgeId);
+                        showPanel("Edge: " + edge.from + " → " + edge.to, edge.data || {});
+                        return;
+                    }
+                });
+
+            }, 300);
+            </script>
+        """
+        html = html.replace("</body>", custom_js + "\n</body>")
+        with open(filepath, "w", encoding="utf8") as f:
+            f.write(html)
         return
+
