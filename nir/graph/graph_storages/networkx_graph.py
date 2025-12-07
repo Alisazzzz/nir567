@@ -45,6 +45,7 @@ class NetworkXGraph(KnowledgeGraph):
         nodes = []
         for node_id in self.graph.nodes:
             attrs = self.graph.nodes[node_id]
+            print(attrs)
             if "data" in attrs:
                 nodes.append(Node(**attrs["data"]))
             else:

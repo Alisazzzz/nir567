@@ -95,16 +95,40 @@ class ExtractedEdge(BaseModel):
     description: str = ""
     weight: float = 1.0
 
+class GraphExtractionResult(BaseModel):
+    nodes: List[ExtractedNode] = Field(default_factory=list)
+    edges: List[ExtractedEdge] = Field(default_factory=list)
+
+
+#-----------------------------------------------------------------
+#-----structures for semi stage of graph extraction (merging)-----
+#-----------------------------------------------------------------
+
 class MergedNode(BaseModel):
+    name: str
+    base_description: str = ""
+    base_attributes: Dict[str, Any] = Field(default_factory=dict) # time_start, time_end for events are required
+
+
+#---------------------------------------------------------
+#-----structures for second stage of graph extraction-----
+#---------------------------------------------------------
+
+class InputNode(BaseModel):
     id: str
     name: str
     base_description: str = ""
     base_attributes: Dict[str, Any] = Field(default_factory=dict) # time_start, time_end for events are required
-    
+    states: List[State] = Field(default_factory=list)
 
-#-----------------------------------------------------
-#-----------additional extraction structures----------
-#-----------------------------------------------------
+class InputEdge(BaseModel):
+    id: str
+    source: Optional[str] = None
+    target: Optional[str] = None
+    relation: str
+    description: str = ""
+    time_start_event: Optional[str] = None
+    time_end_event: Optional[str] = None
 
 class AffectedNode(BaseModel):
     id: str
@@ -125,10 +149,6 @@ class EventImpact(BaseModel):
     affected_nodes: List[AffectedNode] = Field(default_factory=list)
     affected_edges: List[AffectedEdge] = Field(default_factory=list)
 
-
 class EventsSubgraph(BaseModel):
     events_with_impact: List[EventImpact] = Field(default_factory=list)
 
-class GraphExtractionResult(BaseModel):
-    nodes: List[Node] = Field(default_factory=list)
-    edges: List[Edge] = Field(default_factory=list)

@@ -33,7 +33,7 @@
 
              #mynetwork {
                  width: 100%;
-                 height: 750px;
+                 height: 800px;
                  background-color: #222222;
                  border: 1px solid lightgray;
                  position: relative;
@@ -88,8 +88,8 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#97c2fc", "data": {"base_attributes": {}, "base_description": "A map-keeper who runs her fingers over a copper compass.", "chunk_id": [0], "id": "lira", "name": "LIRA", "states": [{"current_attributes": {}, "current_description": "LIRA is remembering the Garden Hall.", "sid": "event_lira_remembers_garden_hall_lira", "time_end_event": null, "time_start_event": null}], "type": "character"}, "font": {"color": "white"}, "id": "lira", "label": "lira", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"base_attributes": {}, "base_description": "LIRA recalls that the walls of the fortress were once covered in ivy and lantern glass.", "chunk_id": [0], "id": "event_lira_remembers_garden_hall", "name": "LIRA remembers the Garden Hall", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "event_lira_remembers_garden_hall", "label": "event_lira_remembers_garden_hall", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"base_attributes": {}, "base_description": "A location where dust drifts through collapsed archways, which turned into a grave of its own history after the turmoil following the war.", "chunk_id": [0, 1], "id": "ruined_fortress_harron", "name": "Ruined Fortress Harron", "states": [{"current_attributes": {}, "current_description": "A location where dust drifts through collapsed archways.", "sid": "state1", "time_end_event": null, "time_start_event": null}, {"current_attributes": {}, "current_description": "A location that turned into a grave of its own history after the turmoil following the war.", "sid": "state2", "time_end_event": null, "time_start_event": null}, {"current_attributes": {}, "current_description": "The Ruined Fortress Harron is being remembered by LIRA as it was once the Garden Hall.", "sid": "event_lira_remembers_garden_hall_ruined_fortress_harron", "time_end_event": null, "time_start_event": null}], "type": "location"}, "font": {"color": "white"}, "id": "ruined_fortress_harron", "label": "ruined_fortress_harron", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"base_attributes": {}, "base_description": "An item that flickers with a dim, pulsing glow.", "chunk_id": [1], "id": "compass", "name": "The compass", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "compass", "label": "compass", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"base_attributes": {}, "base_description": "A war that tore the continents apart.", "chunk_id": [2], "id": "war", "name": "The War", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "war", "label": "war", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"base_attributes": {}, "base_description": "A location that was a trading terrace before the war and became a sinkhole after.", "chunk_id": [2], "id": "eastern_ridge", "name": "The Eastern Ridge", "states": [], "type": "location"}, "font": {"color": "white"}, "id": "eastern_ridge", "label": "eastern_ridge", "shape": "dot", "size": 10}, {"color": "#97c2fc", "data": {"base_attributes": {}, "base_description": "A former border guard who watches the shadows.", "chunk_id": [0], "id": "kael", "name": "KAEL", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "kael", "label": "kael", "shape": "dot", "size": 10}]);
-                  edges = new vis.DataSet([{"data": {"chunk_id": 0, "description": "", "id": "lira_involved_in_remembers", "relation": "involved_in", "source": "lira", "target": "event_lira_remembers_garden_hall", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "lira", "label": "involved_in", "to": "event_lira_remembers_garden_hall", "width": 1}, {"data": {"chunk_id": 1, "description": "", "id": "harron_contains_compass", "relation": "contains_item", "source": "ruined_fortress_harron", "target": "compass", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "ruined_fortress_harron", "label": "contains_item", "to": "compass", "width": 1}, {"data": {"chunk_id": 2, "description": "", "id": "war_affects_ridge", "relation": "affects", "source": "war", "target": "eastern_ridge", "time_end_event": null, "time_start_event": null, "weight": 1.0}, "from": "war", "label": "affects", "to": "eastern_ridge", "width": 1}]);
+                  nodes = new vis.DataSet([{"color": "#ff6b6b", "data": {"base_attributes": {}, "base_description": "A character who runs her fingers over a copper compass in the Ruined Fortress Harron.", "chunk_id": [0], "id": "lira_a_mapkeeper", "name": "LIRA, a map-keeper", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "lira_a_mapkeeper", "label": "lira_a_mapkeeper", "shape": "dot"}, {"color": "#4dabf7", "data": {"base_attributes": {}, "base_description": "A location that was a trading terrace before the war and became a sinkhole after it.", "chunk_id": [0, 1, 2], "id": "ruined_fortress_harron", "name": "The Eastern Ridge", "states": [], "type": "location"}, "font": {"color": "white"}, "id": "ruined_fortress_harron", "label": "ruined_fortress_harron", "shape": "dot"}, {"color": "#ff6b6b", "data": {"base_attributes": {}, "base_description": "A character who watches the shadows in the Ruined Fortress Harron.", "chunk_id": [0], "id": "kael_a_former_border_guard", "name": "KAEL, a former border guard", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "kael_a_former_border_guard", "label": "kael_a_former_border_guard", "shape": "dot"}, {"color": "#f783ac", "data": {"base_attributes": {}, "base_description": "An item that flickers with a dim, pulsing glow.", "chunk_id": [1], "id": "the_compass", "name": "The compass", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "the_compass", "label": "the_compass", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {}, "base_description": "A war that tore the continents apart.", "chunk_id": [2], "id": "the_war", "name": "the war", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "the_war", "label": "the_war", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "lira_a_mapkeeper_occursin_ruined_fortress_harron", "relation": "occurs_in", "source": "lira_a_mapkeeper", "target": "ruined_fortress_harron", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "lira_a_mapkeeper", "to": "ruined_fortress_harron"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The war affects The Eastern Ridge.", "id": "the_eastern_ridge_affects_the_war", "relation": "affects", "source": "ruined_fortress_harron", "target": "the_war", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "ruined_fortress_harron", "to": "the_war"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "kael_a_former_border_guard_occursin_ruined_fortress_harron", "relation": "occurs_in", "source": "kael_a_former_border_guard", "target": "ruined_fortress_harron", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "kael_a_former_border_guard", "to": "ruined_fortress_harron"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "the_war_affectedby_the_eastern_ridge", "relation": "affected_by", "source": "the_war", "target": "ruined_fortress_harron", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "the_war", "to": "ruined_fortress_harron"}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });
@@ -100,7 +100,43 @@
                   // adding nodes and edges to the graph
                   data = {nodes: nodes, edges: edges};
 
-                  var options = {"nodes": {"font": {"size": 14}}, "edges": {"color": {"inherit": true}, "smooth": false, "font": {"size": 12, "color": "#ffffff"}}, "physics": {"enabled": true, "stabilization": {"iterations": 100}}};
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.9,
+            "gravitationalConstant": -30000,
+            "springConstant": 0.002,
+            "springLength": 150
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
 
                   
 
@@ -123,5 +159,64 @@
               }
               drawGraph();
         </script>
-    </body>
+    
+            <style>
+            #infoPanel {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                max-width: 600px;
+                background: #1e1e1e;
+                color: white;
+                padding: 16px;
+                border-radius: 8px;
+                border: 1px solid #444;
+                font-family: Consolas, monospace;
+                font-size: 13px;
+                display: none;
+                z-index: 9999;
+                white-space: pre-wrap;
+            }
+            #infoPanel h3 {
+                margin: 0 0 10px 0;
+                font-size: 15px;
+            }
+            </style>
+            <div id="infoPanel"></div>
+            <script>
+            function showPanel(title, data) {
+                const panel = document.getElementById("infoPanel");
+                panel.style.display = "block";
+                panel.innerHTML = "<h3>" + title + "</h3>" +
+                                "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+            }
+
+            function hidePanel() {
+                document.getElementById("infoPanel").style.display = "none";
+            }
+            setTimeout(() => {
+                if (!window.network) return;
+                network.on("click", function (params) {
+                    if (params.nodes.length === 0 && params.edges.length === 0) {
+                        hidePanel();
+                        return;
+                    }
+                    if (params.nodes.length === 1) {
+                        const nodeId = params.nodes[0];
+                        const node = network.body.data.nodes.get(nodeId);
+                        showPanel("Node: " + nodeId, node.data || {});
+                        return;
+                    }
+                    if (params.edges.length === 1) {
+                        const edgeId = params.edges[0];
+                        const edge = network.body.data.edges.get(edgeId);
+                        showPanel("Edge: " + edge.from + " → " + edge.to, edge.data || {});
+                        return;
+                    }
+                });
+
+            }, 300);
+            </script>
+        
+</body>
 </html>

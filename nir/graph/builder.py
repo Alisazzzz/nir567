@@ -13,11 +13,11 @@ from nir.llm.manager import ModelManager
 
 from nir.embedding.vector_storages.chroma_db import ChromaVectorStore
 
-# manager = ModelManager()
-# embedding_model = manager.create_embedding_model(name="embeddings", option="ollama", model_name="nomic-embed-text:v1.5")
-# model_config = ModelConfig(model_name="mistral:7b-instruct", temperature=0)
-# manager.create_chat_model("graph_extraction", "ollama", model_config)
-# llm = manager.get_chat_model("graph_extraction")
+manager = ModelManager()
+embedding_model = manager.create_embedding_model(name="embeddings", option="ollama", model_name="nomic-embed-text:v1.5")
+model_config = ModelConfig(model_name="mistral:7b-instruct", temperature=0)
+manager.create_chat_model("graph_extraction", "ollama", model_config)
+llm = manager.get_chat_model("graph_extraction")
 
 def get_next_chunk_id(graph: KnowledgeGraph) -> int:
     all_nodes = graph.get_all_nodes()
@@ -37,19 +37,18 @@ def update_graph_overall(graph: KnowledgeGraph, text: str, embedding_model: Embe
     update_embeddings(graph, vector_store, embedding_model)
 
 
-
-# data = loader.loadTXT("assets/documents/script with events.txt")
-# chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
-# graph = extract_graph(
-#     chunks=chunks,
-#     llm=llm,
-#     embedding_model=embedding_model,
-#     graph_class=NetworkXGraph)
-# graph.save("assets/graphs/graph_script_short.json")
-# create_embeddings(graph, vector_store, embedding_model)
-# embed_query = embedding_model.embed_query("Who is Lira?")
-# print(vector_store.search(embed_query))
-# graph.visualize()
+data = loader.loadTXT("assets/documents/script with events.txt")
+chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
+graph = extract_graph(
+    chunks=chunks,
+    llm=llm,
+    embedding_model=embedding_model,
+    graph_class=NetworkXGraph)
+graph.save("assets/graphs/graph_script_short.json")
+create_embeddings(graph, vector_store, embedding_model)
+embed_query = embedding_model.embed_query("Who is Lira?")
+print(vector_store.search(embed_query))
+graph.visualize("assets/outputs/graph.html")
 
 # graph_loaded = NetworkXGraph()
 # graph_loaded.load("assets/graphs/graph_script_short.json")
