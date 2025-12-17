@@ -1,22 +1,22 @@
 {
   "vector_store": {
-    "type" : "chromadb",
+    "type": "chromadb",
     "info": {
       "name": "very_short",
-      "path": "assets\\databases\\chroma_db"
+      "path": "assets/databases/chroma_db"
     }
   },
   "nodes": [
     {
       "id": "mira_stone",
-      "name": "VILLAGER (whispering)",
+      "name": "Mira Stone",
       "type": "character",
-      "base_description": "A person who whispers about the Crystal Caves beneath Blackwood Forest.",
+      "base_description": "A person who enters Ariendale Village with an old compass and a half-burned map.",
       "base_attributes": {},
       "states": [
         {
           "sid": "mira_enters_ariendale_village_mira_stone",
-          "current_description": "Mira Stone enters Ariendale Village.",
+          "current_description": "Mira Stone enters Ariendale Village with an old compass and a half-burned map.",
           "current_attributes": {},
           "time_start_event": null,
           "time_end_event": null
@@ -28,9 +28,9 @@
     },
     {
       "id": "ariendale_village",
-      "name": "Blackwood Forest",
+      "name": "ARIENDALE VILLAGE",
       "type": "location",
-      "base_description": "The forest mentioned in the villager's whispering.",
+      "base_description": "The quiet village where Mira Stone enters.",
       "base_attributes": {},
       "states": [
         {
@@ -46,43 +46,10 @@
       ]
     },
     {
-      "id": "old_compass",
-      "name": "old compass",
+      "id": "a_halfburned_map",
+      "name": "a half-burned map",
       "type": "item",
-      "base_description": "An old compass held by Mira Stone.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        0
-      ]
-    },
-    {
-      "id": "halfburned_map",
-      "name": "half-burned map",
-      "type": "item",
-      "base_description": "A half-burned map held by Mira Stone.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        0
-      ]
-    },
-    {
-      "id": "crystal_caves",
-      "name": "Crystal Caves",
-      "type": "environment_element",
-      "base_description": "The Crystal Caves beneath Blackwood Forest, mentioned in the villager's whispering.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        0
-      ]
-    },
-    {
-      "id": "ashen_concords_forbidden_paths",
-      "name": "Ashen Concord’s forbidden paths",
-      "type": "environment_element",
-      "base_description": "The forbidden paths of the Ashen Concord mentioned in the villager's whispering.",
+      "base_description": "An item held by Mira Stone when she enters Ariendale Village.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -91,20 +58,9 @@
     },
     {
       "id": "mira_enters_ariendale_village",
-      "name": "Mira enters Ariendale Village",
+      "name": "Mira enters ARIENDALE VILLAGE",
       "type": "event",
-      "base_description": "Mira Stone enters Ariendale Village.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        0
-      ]
-    },
-    {
-      "id": "villager_whispers_about_crystal_caves",
-      "name": "Villager whispers about Crystal Caves",
-      "type": "event",
-      "base_description": "The villager whispers about the Crystal Caves beneath Blackwood Forest.",
+      "base_description": "Mira enters the village.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -114,20 +70,9 @@
   ],
   "edges": [
     {
-      "id": "mira_stone_involvedin_mira_enters_ariendale_village",
-      "source": "mira_stone",
-      "target": "mira_enters_ariendale_village",
-      "relation": "involved_in",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "ariendale_village_containsevent_mira_stone",
+      "id": "ariendale_village_containsevent_mira_enters_ariendale_village",
       "source": "ariendale_village",
-      "target": "mira_stone",
+      "target": "mira_enters_ariendale_village",
       "relation": "contains_event",
       "description": "",
       "weight": 1.0,
@@ -136,10 +81,10 @@
       "chunk_id": 0
     },
     {
-      "id": "ariendale_village_isspokenaboutby_villager_whispering",
-      "source": "ariendale_village",
-      "target": "mira_stone",
-      "relation": "is_spoken_about_by",
+      "id": "a_halfburned_map_accompanies_mira_enters_ariendale_village",
+      "source": "a_halfburned_map",
+      "target": "mira_enters_ariendale_village",
+      "relation": "accompanies",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -147,54 +92,10 @@
       "chunk_id": 0
     },
     {
-      "id": "blackwood_forest_ismentionedby_villager_whispering",
-      "source": "ariendale_village",
+      "id": "mira_enters_ariendale_village_involvedin_mira_stone",
+      "source": "mira_enters_ariendale_village",
       "target": "mira_stone",
-      "relation": "is_mentioned_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "old_compass_ispossessedby_mira_stone",
-      "source": "old_compass",
-      "target": "mira_stone",
-      "relation": "is_possessed_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "halfburned_map_ispossessedby_mira_stone",
-      "source": "halfburned_map",
-      "target": "mira_stone",
-      "relation": "is_possessed_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "crystal_caves_ismentionedby_villager_whispering",
-      "source": "crystal_caves",
-      "target": "mira_stone",
-      "relation": "is_mentioned_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "ashen_concords_forbidden_paths_ismentionedby_villager_whispering",
-      "source": "ashen_concords_forbidden_paths",
-      "target": "mira_stone",
-      "relation": "is_mentioned_by",
+      "relation": "involved_in",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,

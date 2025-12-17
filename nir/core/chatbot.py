@@ -15,8 +15,7 @@ from nir.llm.providers import ModelConfig
 
 def update_graph_overall(graph: KnowledgeGraph, text: str, embedding_model: Embeddings, llm: BaseLanguageModel) -> None:
     greatest_id = get_next_chunk_id(graph)
-    data = loader.convertFromString(text)
-    chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=greatest_id)
+    chunks = loader.to_chunk_unique_id(docs=text, start_chunk_id=greatest_id)
     update_graph(chunks, llm, embedding_model, graph)
     graph.save("assets/graphs/graph_map_short.json")
     update_embeddings(graph, graph.get_vector_db(), embedding_model)
@@ -43,7 +42,7 @@ class Chat():
         while True:
             query = input("Ask your question (q to quit): ")
             if query == "q":
-                graph.save()
+                graph.save(filepath="assets/graphs/graph_map_short.json")
                 return 0
             context = form_context_with_llm(query, self.graph, self.instruct_model, self.embedding_model, self.add_history)
             answer_plan = generate_plan(query, context, self.chat_model)
@@ -87,27 +86,33 @@ instruct_model = manager.create_chat_model(
 #GRAPH CHOICE
 
 #this is for graph creation
+data = loader.loadTXT(
+    path="assets/documents/very short.txt"
+)
+chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
+graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph)
+vector_db_info = VectorStoreInfo(
+    type="chromadb",
+    info={ 
+        "name" : "very_short",
+        "path" : "assets/databases/chroma_db"
+    }
+)
+graph.create_vector_db(vector_db_info)
+create_embeddings(graph, graph.get_vector_db(), embedding_model)
+graph.save(filepath="assets/graphs/graph_very_short.json")
+graph.visualize(filepath="assets/outputs/very_short_graph.html")
+
+#this is for graph loading
+# graph = NetworkXGraph()
+# graph.load(
+#     filepath="assets/graphs/graph_map_short.json"
+# )
+# print(graph.get_vector_db())
 # data = loader.loadTXT(
 #     path="assets/documents/very short.txt"
 # )
-# chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
-# graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph)
-# vector_db_info = VectorStoreInfo(
-#     type="chromadb",
-#     info={ 
-#         "name" : "very_short",
-#         "path" : "assets/databases/chroma_db"
-#     }
-# )
-# graph.create_vector_db(vector_db_info)
-# create_embeddings(graph, graph.get_vector_db(), embedding_model)
-# graph.save("assets/graphs/graph_map_short.json")
+# update_graph_overall(graph, data, embedding_model, instruct_model)
 
-#this is for graph loading
-graph = NetworkXGraph()
-graph.load(
-    filepath="assets/graphs/graph_map_short.json"
-)
-
-chat = Chat(chat_model, instruct_model, embedding_model, graph)
-chat.start_chat()
+# chat = Chat(chat_model, instruct_model, embedding_model, graph)
+# chat.start_chat()

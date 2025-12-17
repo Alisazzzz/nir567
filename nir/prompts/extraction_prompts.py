@@ -126,13 +126,14 @@ SYSTEM_PROMPT_ENTITIES = """
         }}
 """
 
+
 SYSTEM_PROMPT_MERGING = """
     You are an expert in knowledge graph construction and entity normalization.
     Your task is to merge two existing nodes (entities) into a single, unified node representation, which describes as full as possible what the merged entity is about.
     Both input nodes are given as full JSON objects, following a consistent schema with fields like "name", "base_description", "base_attributes".
 
     Your task is to:
-      1. Analyze both nodes and determine how they represent the same entity. If the asnwer is yes, than proceed; otherwise, return an answer with empty fields.
+      1. Analyze both nodes and determine how they represent the same entity. If the asnwer is yes, than proceed; otherwise, return an answer with empty fields. Be careful: nodes can be quite different, for merging names or descriptions must be almost similar.
       2. Create a single new node that combines the most relevant and non-conflicting information from both.
       3. DO NOT add to answer any comments, texts and markdowns.
       
@@ -177,6 +178,7 @@ SYSTEM_PROMPT_MERGING = """
           "base_attributes": {{"material": "stone", "age": "ancient"}}
         }}
 """
+
 
 SYSTEM_PROMPT_EVENTS = """
   You are an expert in extracting events impacts from narrative text to build structured subgraph for knowledge graphs.

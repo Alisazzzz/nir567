@@ -6,9 +6,9 @@
 #---------imports----------
 #--------------------------
 
-import json
 from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional, Dict, Any
+
 
 
 #--------------------------------------------------
@@ -34,6 +34,7 @@ POSSIBLE_TYPES = [
     "item",
     "event"
 ]
+
 
 
 #-----------------------------------------
@@ -66,6 +67,7 @@ class Edge(BaseModel):
     time_start_event: Optional[str] = None
     time_end_event: Optional[str] = None
     chunk_id: int
+
 
 
 #--------------------------------------------------------
@@ -102,6 +104,7 @@ class GraphExtractionResult(BaseModel):
     edges: List[ExtractedEdge] = Field(default_factory=list)
 
 
+
 #-----------------------------------------------------------------
 #-----structures for semi stage of graph extraction (merging)-----
 #-----------------------------------------------------------------
@@ -110,6 +113,7 @@ class MergedNode(BaseModel):
     name: str
     base_description: str = ""
     base_attributes: Dict[str, Any] = Field(default_factory=dict) # time_start, time_end for events are required
+
 
 
 #---------------------------------------------------------
@@ -140,39 +144,11 @@ class AffectedNode(BaseModel):
     time_start_event: Optional[str] = None
     time_end_event: Optional[str] = None
 
-    @field_validator('new_current_description')
-    @classmethod
-    def ensure_string_field(cls, v):
-        if v is None:
-            return ""
-        if isinstance(v, (dict, list)):
-            try:
-                return json.dumps(v, ensure_ascii=False, separators=(',', ':'))
-            except:
-                return str(v)
-        if isinstance(v, (int, float, bool)):
-            return str(v)
-        return str(v)
-
 class AffectedEdge(BaseModel):
     id: str
     new_description: str
     time_start_event: Optional[str] = None
     time_end_event: Optional[str] = None
-
-    @field_validator('new_description')
-    @classmethod
-    def ensure_string_field(cls, v):
-        if v is None:
-            return ""
-        if isinstance(v, (dict, list)):
-            try:
-                return json.dumps(v, ensure_ascii=False, separators=(',', ':'))
-            except:
-                return str(v)
-        if isinstance(v, (int, float, bool)):
-            return str(v)
-        return str(v)
 
 class EventImpact(BaseModel):
     event_name: str

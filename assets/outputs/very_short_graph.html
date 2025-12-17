@@ -1,0 +1,222 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#ff6b6b", "data": {"base_attributes": {}, "base_description": "The lord who receives news of Mira\u0027s arrival.", "chunk_id": [0, 1, 2], "id": "mira_stone", "name": "Lord Darrin Vale", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "mira_stone", "label": "mira_stone", "shape": "dot"}, {"color": "#4dabf7", "data": {"base_attributes": {}, "base_description": "The location where Mira meets Elias Thorn.", "chunk_id": [0, 1], "id": "arendale_village", "name": "Village Inn", "states": [], "type": "location"}, "font": {"color": "white"}, "id": "arendale_village", "label": "arendale_village", "shape": "dot"}, {"color": "#f783ac", "data": {"base_attributes": {}, "base_description": "An old compass held by Mira Stone.", "chunk_id": [0], "id": "old_compass", "name": "Old Compass", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "old_compass", "label": "old_compass", "shape": "dot"}, {"color": "#f783ac", "data": {"base_attributes": {}, "base_description": "A half-burned map held by Mira Stone.", "chunk_id": [0], "id": "halfburned_map", "name": "Half-burned Map", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "halfburned_map", "label": "halfburned_map", "shape": "dot"}, {"color": "#69db7c", "data": {"base_attributes": {}, "base_description": "The Crystal Caves beneath Blackwood Forest.", "chunk_id": [0], "id": "crystal_caves", "name": "Crystal Caves", "states": [], "type": "environment_element"}, "font": {"color": "white"}, "id": "crystal_caves", "label": "crystal_caves", "shape": "dot"}, {"color": "#f783ac", "data": {"base_attributes": {}, "base_description": "The forbidden paths mentioned in connection with the Crystal Caves.", "chunk_id": [0], "id": "ashen_concords_forbidden_paths", "name": "Ashen Concord\u2019s forbidden paths", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "ashen_concords_forbidden_paths", "label": "ashen_concords_forbidden_paths", "shape": "dot"}, {"color": "#69db7c", "data": {"base_attributes": {}, "base_description": "Symbols that Mira needs someone to read.", "chunk_id": [1], "id": "ancient_symbols", "name": "Ancient symbols", "states": [], "type": "environment_element"}, "font": {"color": "white"}, "id": "ancient_symbols", "label": "ancient_symbols", "shape": "dot"}, {"color": "#f783ac", "data": {"base_attributes": {}, "base_description": "The map that Lord Darrin Vale wants to prevent from reaching the caves.", "chunk_id": [1, 2], "id": "the_map", "name": "That map", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "the_map", "label": "the_map", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {}, "base_description": "An event that cost Lord Darrin Vale\u0027s family something significant (implied).", "chunk_id": [2], "id": "the_ashen_concord", "name": "The Ashen Concord", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "the_ashen_concord", "label": "the_ashen_concord", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {}, "base_description": "The event where Lord Darrin Vale receives news about Mira\u0027s arrival.", "chunk_id": [2], "id": "lord_darrin_vale_receives_news_of_miras_arrival", "name": "Lord Darrin Vale receives news of Mira\u2019s arrival", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "lord_darrin_vale_receives_news_of_miras_arrival", "label": "lord_darrin_vale_receives_news_of_miras_arrival", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {}, "base_description": "The event where Lord Darrin Vale signals to Sergeant Lorne.", "chunk_id": [2], "id": "lord_darrin_vale_signals_to_sergeant_lorne", "name": "Lord Darrin Vale signals to Sergeant Lorne", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "lord_darrin_vale_signals_to_sergeant_lorne", "label": "lord_darrin_vale_signals_to_sergeant_lorne", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {}, "base_description": "The event where Lord Darrin Vale gives orders to Sergeant Lorne.", "chunk_id": [2], "id": "lord_darrin_vale_gives_orders_to_sergeant_lorne", "name": "Lord Darrin Vale gives orders to Sergeant Lorne", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "lord_darrin_vale_gives_orders_to_sergeant_lorne", "label": "lord_darrin_vale_gives_orders_to_sergeant_lorne", "shape": "dot"}, {"color": "#4dabf7", "data": {"base_attributes": {}, "base_description": "The location where the events take place.", "chunk_id": [2], "id": "lord_darrin_vales_manor", "name": "Lord Darrin Vale\u2019s manor", "states": [], "type": "location"}, "font": {"color": "white"}, "id": "lord_darrin_vales_manor", "label": "lord_darrin_vales_manor", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "mira_stone_enters_arendale_village", "relation": "enters", "source": "mira_stone", "target": "arendale_village", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "arendale_village"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "mira_stone_walksinto_inn", "relation": "walks_into", "source": "mira_stone", "target": "arendale_village", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "arendale_village"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "mira_stone_holds_old_compass", "relation": "holds", "source": "mira_stone", "target": "old_compass", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "old_compass"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "mira_stone_holds_halfburned_map", "relation": "holds", "source": "mira_stone", "target": "halfburned_map", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "halfburned_map"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "villager_whispersabout_mira_stone", "relation": "whispers_about", "source": "mira_stone", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "mira_stone_iswhisperedabout_villager", "relation": "is_whispered_about", "source": "mira_stone", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "", "id": "mira_meets_elias_thorn", "relation": "meets", "source": "mira_stone", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "", "id": "elias_thorn_metby_mira", "relation": "met_by", "source": "mira_stone", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "", "id": "mira_needs_ancient_symbols", "relation": "needs", "source": "mira_stone", "target": "ancient_symbols", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "ancient_symbols"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "", "id": "elias_thorn_hasstudied_ancient_symbols", "relation": "has_studied", "source": "mira_stone", "target": "ancient_symbols", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "ancient_symbols"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "", "id": "elias_thorn_examines_the_map", "relation": "examines", "source": "mira_stone", "target": "the_map", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "the_map"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "mira_involvedin_lord_darrin_vale_receives_news_of_miras_arrival", "relation": "involved_in", "source": "mira_stone", "target": "lord_darrin_vale_receives_news_of_miras_arrival", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "lord_darrin_vale_receives_news_of_miras_arrival"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "lord_darrin_vale_signaledby_lord_darrin_vale_signals_to_sergeant_lorne", "relation": "signaled_by", "source": "mira_stone", "target": "lord_darrin_vale_signals_to_sergeant_lorne", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "lord_darrin_vale_signals_to_sergeant_lorne"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "lord_darrin_vale_receivesorders_lord_darrin_vale_gives_orders_to_sergeant_lorne", "relation": "receives_orders", "source": "mira_stone", "target": "lord_darrin_vale_gives_orders_to_sergeant_lorne", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mira_stone", "to": "lord_darrin_vale_gives_orders_to_sergeant_lorne"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "arendale_village_enteredby_mira_stone", "relation": "entered_by", "source": "arendale_village", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "arendale_village", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "inn_wasin_mira_stone", "relation": "was_in", "source": "arendale_village", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "arendale_village", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "blackwood_forest_locatedunderneath_crystal_caves", "relation": "located_underneath", "source": "arendale_village", "target": "crystal_caves", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "arendale_village", "to": "crystal_caves"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "old_compass_heldby_mira_stone", "relation": "held_by", "source": "old_compass", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "old_compass", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "halfburned_map_heldby_mira_stone", "relation": "held_by", "source": "halfburned_map", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "halfburned_map", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "crystal_caves_islocatedunderneath_blackwood_forest", "relation": "is_located_underneath", "source": "crystal_caves", "target": "arendale_village", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "crystal_caves", "to": "arendale_village"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "crystal_caves_isconnectedwith_ashen_concords_forbidden_paths", "relation": "is_connected_with", "source": "crystal_caves", "target": "ashen_concords_forbidden_paths", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "crystal_caves", "to": "ashen_concords_forbidden_paths"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "", "id": "ashen_concords_forbidden_paths_connectedwith_crystal_caves", "relation": "connected_with", "source": "ashen_concords_forbidden_paths", "target": "crystal_caves", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "ashen_concords_forbidden_paths", "to": "crystal_caves"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "", "id": "ancient_symbols_neededby_mira", "relation": "needed_by", "source": "ancient_symbols", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "ancient_symbols", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "", "id": "ancient_symbols_hasbeenstudiedby_elias_thorn", "relation": "has_been_studied_by", "source": "ancient_symbols", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "ancient_symbols", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "", "id": "the_map_wasexaminedby_elias_thorn", "relation": "was_examined_by", "source": "the_map", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "the_map", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "the_ashen_concord_affects_lord_darrin_vale_receives_news_of_miras_arrival", "relation": "affects", "source": "the_ashen_concord", "target": "lord_darrin_vale_receives_news_of_miras_arrival", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "the_ashen_concord", "to": "lord_darrin_vale_receives_news_of_miras_arrival"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "lord_darrin_vale_receives_news_of_miras_arrival_involves_mira", "relation": "involves", "source": "lord_darrin_vale_receives_news_of_miras_arrival", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "lord_darrin_vale_receives_news_of_miras_arrival", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "lord_darrin_vale_receives_news_of_miras_arrival_affectedby_the_ashen_concord", "relation": "affected_by", "source": "lord_darrin_vale_receives_news_of_miras_arrival", "target": "the_ashen_concord", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "lord_darrin_vale_receives_news_of_miras_arrival", "to": "the_ashen_concord"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "lord_darrin_vale_receives_news_of_miras_arrival_occursin_lord_darrin_vales_manor", "relation": "occurs_in", "source": "lord_darrin_vale_receives_news_of_miras_arrival", "target": "lord_darrin_vales_manor", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "lord_darrin_vale_receives_news_of_miras_arrival", "to": "lord_darrin_vales_manor"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "lord_darrin_vale_signals_to_sergeant_lorne_signals_lord_darrin_vale", "relation": "signals", "source": "lord_darrin_vale_signals_to_sergeant_lorne", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "lord_darrin_vale_signals_to_sergeant_lorne", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "lord_darrin_vale_gives_orders_to_sergeant_lorne_givesorders_lord_darrin_vale", "relation": "gives_orders", "source": "lord_darrin_vale_gives_orders_to_sergeant_lorne", "target": "mira_stone", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "lord_darrin_vale_gives_orders_to_sergeant_lorne", "to": "mira_stone"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "", "id": "lord_darrin_vales_manor_containsevent_lord_darrin_vale_receives_news_of_miras_arrival", "relation": "contains_event", "source": "lord_darrin_vales_manor", "target": "lord_darrin_vale_receives_news_of_miras_arrival", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "lord_darrin_vales_manor", "to": "lord_darrin_vale_receives_news_of_miras_arrival"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.9,
+            "gravitationalConstant": -30000,
+            "springConstant": 0.002,
+            "springLength": 150
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    
+            <style>
+            #infoPanel {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                max-width: 600px;
+                background: #1e1e1e;
+                color: white;
+                padding: 16px;
+                border-radius: 8px;
+                border: 1px solid #444;
+                font-family: Consolas, monospace;
+                font-size: 13px;
+                display: none;
+                z-index: 9999;
+                white-space: pre-wrap;
+            }
+            #infoPanel h3 {
+                margin: 0 0 10px 0;
+                font-size: 15px;
+            }
+            </style>
+            <div id="infoPanel"></div>
+            <script>
+            function showPanel(title, data) {
+                const panel = document.getElementById("infoPanel");
+                panel.style.display = "block";
+                panel.innerHTML = "<h3>" + title + "</h3>" +
+                                "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+            }
+
+            function hidePanel() {
+                document.getElementById("infoPanel").style.display = "none";
+            }
+            setTimeout(() => {
+                if (!window.network) return;
+                network.on("click", function (params) {
+                    if (params.nodes.length === 0 && params.edges.length === 0) {
+                        hidePanel();
+                        return;
+                    }
+                    if (params.nodes.length === 1) {
+                        const nodeId = params.nodes[0];
+                        const node = network.body.data.nodes.get(nodeId);
+                        showPanel("Node: " + nodeId, node.data || {});
+                        return;
+                    }
+                    if (params.edges.length === 1) {
+                        const edgeId = params.edges[0];
+                        const edge = network.body.data.edges.get(edgeId);
+                        showPanel("Edge: " + edge.from + " → " + edge.to, edge.data || {});
+                        return;
+                    }
+                });
+
+            }, 300);
+            </script>
+        
+</body>
+</html>

@@ -49,7 +49,6 @@ class NetworkXGraph(KnowledgeGraph):
         nodes = []
         for node_id in self.graph.nodes:
             attrs = self.graph.nodes[node_id]
-            print(attrs)
             if "data" in attrs:
                 nodes.append(Node(**attrs["data"]))
             else:
@@ -144,13 +143,14 @@ class NetworkXGraph(KnowledgeGraph):
                     "states": []
                 }
             nodes_data.append(node_attrs["data"])
+        
         edges_data = []
         for u, v, attrs in self.graph.edges(data=True):
             if "data" not in attrs:            
                 continue
             edges_data.append(attrs["data"])
-        vector_store_data = self.vector_db_info.model_dump_json()
-        data = {"vector_store": vector_store_data, "nodes": nodes_data, "edges": edges_data}
+        
+        data = {"vector_store": self.vector_db_info.model_dump(), "nodes": nodes_data, "edges": edges_data}
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
