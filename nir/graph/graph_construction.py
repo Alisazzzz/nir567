@@ -12,7 +12,7 @@ from typing import List, Dict, Tuple
 from copy import deepcopy
 
 from langchain_core.prompts import ChatPromptTemplate
-from langchain.output_parsers import PydanticOutputParser
+from langchain.output_parsers import PydanticOutputParser, OutputFixingParser
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
@@ -29,6 +29,15 @@ from nir.embedding.vector_store import VectorStore
 #--------------------------
 #-----additional stuff-----
 #--------------------------
+
+def get_next_chunk_id(graph: KnowledgeGraph = None) -> int:
+    if graph == None:
+        return 0
+    all_nodes = graph.get_all_nodes()
+    all_edges = graph.get_all_edges()
+    max_node_id = max([max(n.chunk_id) if n.chunk_id else 0 for n in all_nodes], default=-1)
+    max_edge_id = max([e.chunk_id if isinstance(e.chunk_id, int) else max(e.chunk_id, default=0) for e in all_edges], default=-1)
+    return max(max_node_id, max_edge_id) + 1
 
 def create_id(name: str) -> str:
     cleaned = re.sub(r"[^a-zA-Zа-яА-Я\s]", "", name)
@@ -258,20 +267,24 @@ def merge_similar_nodes(
             if node.type == existing.type:
                 sim = cosine_sim(node_i_description, node_j_description, embedding_model)                
                 if sim >= similarity_threshold:
+                    
                     node_for_llm = MergedNode(
                         name=node.name,
                         base_description=node.base_description,
                         base_attributes=node.base_attributes
                     )
+
                     existing_for_llm = MergedNode(
                         name=node.name,
                         base_description=node.base_description,
                         base_attributes=node.base_attributes
                     )
+
                     merged_node = chain_merging.invoke({
                         "node_a_json": existing_for_llm.model_dump_json(),
                         "node_b_json": node_for_llm.model_dump_json()
                     })
+                    
                     if (merged_node.name != ""):
                         merged_node_to_graph = Node(
                             id=existing.id,
@@ -282,11 +295,13 @@ def merge_similar_nodes(
                             states=existing.states + node.states,
                             chunk_id=list(set(existing.chunk_id + node.chunk_id))
                         )
+
                         merged_nodes[idx] = merged_node_to_graph
                         id_map[node.id] = merged_node_to_graph.id
                         print(f"{node.id} : {id_map[node.id]}")
                         is_node_merged = True
                         break
+
         if not is_node_merged:
             merged_nodes.append(deepcopy(node))
             id_map[node.id] = node.id
@@ -313,13 +328,14 @@ def extract_entities(
     
     for idx, chunk in enumerate(chunks):
         
-        print(f"[Chunk {idx+1}/{len(chunks)}] Processing...") #DEBUGGING
+        print(f"[Chunk {idx+1}/{len(chunks)}] Extracting nodes and edges.") #DEBUGGING
         
         coreference_array = resolve_coreference(chunk.page_content)
         result: GraphExtractionResult = chain_entities.invoke({
             "chunk_text": chunk.page_content,
             "coreference_array": coreference_array
         })
+
         names_to_ids: Dict[str, str] = {}
         for extracted_node in result.nodes:
             node_id = create_id(extracted_node.name)
@@ -335,25 +351,41 @@ def extract_entities(
                     chunk_id = [chunk.metadata["chunk_id"]]
                 )
                 all_nodes[node_id] = node
+        
         for extracted_edge in result.edges:
-            edge_id = create_id(f"{extracted_edge.source} {extracted_edge.relation} {extracted_edge.target}")
-            if edge_id not in all_edges:
-                if extracted_edge.target != None and extracted_edge.source != None:
-                    if extracted_edge.target in names_to_ids.keys() and extracted_edge.source in names_to_ids.keys():
-                        edge = Edge (
-                            id=edge_id,
-                            source=names_to_ids[extracted_edge.source],
-                            target=names_to_ids[extracted_edge.target],
-                            relation=extracted_edge.relation,
+            edge_id_from1to2 = create_id(f"{extracted_edge.node1} {extracted_edge.relation_from1to2} {extracted_edge.node2}")
+            edge_id_from2to1 = create_id(f"{extracted_edge.node2} {extracted_edge.relation_from2to1} {extracted_edge.node1}")
+            if edge_id_from1to2 not in all_edges:
+                if extracted_edge.node1 != None and extracted_edge.node2 != None:
+                    if extracted_edge.node1 in names_to_ids.keys() and extracted_edge.node2 in names_to_ids.keys():
+                        
+                        edge_1to2 = Edge (
+                            id=edge_id_from1to2,
+                            source=names_to_ids[extracted_edge.node1],
+                            target=names_to_ids[extracted_edge.node2],
+                            relation=extracted_edge.relation_from1to2,
                             description=extracted_edge.description,
                             weight=extracted_edge.weight,
                             time_start_event=None,
                             time_end_event=None,
                             chunk_id=chunk.metadata["chunk_id"]
                         )
-                        all_edges[edge_id] = edge
+                        all_edges[edge_id_from1to2] = edge_1to2
+                        
+                        edge_2to1 = Edge (
+                            id=edge_id_from2to1,
+                            source=names_to_ids[extracted_edge.node2],
+                            target=names_to_ids[extracted_edge.node1],
+                            relation=extracted_edge.relation_from2to1,
+                            description=extracted_edge.description,
+                            weight=extracted_edge.weight,
+                            time_start_event=None,
+                            time_end_event=None,
+                            chunk_id=chunk.metadata["chunk_id"]
+                        )
+                        all_edges[edge_id_from1to2] = edge_2to1
 
-    print(f"Graph built with {len(all_nodes)} nodes and {len(all_edges)} edges.") #DEBUGGING
+    print(f"Extracted {len(all_nodes)} nodes and {len(all_edges)} edges.") #DEBUGGING
 
     return all_nodes, all_edges
 
@@ -375,7 +407,7 @@ def apply_event_impact_on_graph(
                     event_start=node.time_start_event,
                     event_end=node.time_end_event
                 )
-                graph.update_node_state(node.id, new_state)
+                graph.update_node_states(node.id, new_state)
         
     if (impact.affected_edges):
         for edge in impact.affected_edges:
@@ -395,10 +427,12 @@ def extract_events_impact(
         llm: BaseLanguageModel
     ) -> List[EventImpact]:
     
-    chain_event = prompt_events | llm | clean_json | events_parser
+    result_event_parser = OutputFixingParser.from_llm(parser=events_parser, llm=llm)
+    event_impacts_all = []
+    chain_event = prompt_events | llm | clean_json | result_event_parser
     for idx, chunk in enumerate(chunks):
 
-        print(f"[Chunk {idx+1}/{len(chunks)}] Extracting events impact...") #DEBUGGING
+        print(f"[Chunk {idx+1}/{len(chunks)}] Extracting events impact.") #DEBUGGING
 
         chunk_nodes = [node for node in nodes if idx in node.chunk_id]
         chunk_edges = [edge for edge in edges if idx == edge.chunk_id]
@@ -413,8 +447,10 @@ def extract_events_impact(
             "entities_list": entities_input_nodes,
             "edges_list": chunk_input_edges
         })
+        print(events_impacts.events_with_impact)
+        event_impacts_all.append(events_impacts.events_with_impact[0])
 
-        return events_impacts.events_with_impact
+    return event_impacts_all
     
 def extract_graph(
         chunks: List[Document],       
@@ -439,10 +475,12 @@ def extract_graph(
     nodes_in_graph = graph.get_all_nodes()
     edges_in_graph = graph.get_all_edges()
     events_impacts = extract_events_impact(chunks, nodes_in_graph, edges_in_graph, llm)
+    print(events_impacts)
     
     events_only = [node for node in nodes_in_graph if node.type == "event"]
     for event in events_impacts:
         for event_in_graph in events_only:
+            print(event_in_graph)
             if event_in_graph.name == event.event_name:
                 apply_event_impact_on_graph(graph, event, event_in_graph)
 
@@ -457,15 +495,13 @@ def update_graph(
     
     nodes, edges = extract_entities(chunks, llm)    
     
-    all_nodes = { (n.id, n.chunk_id[0] if isinstance(n.chunk_id, list) else n.chunk_id): n for n in graph.get_all_nodes() }
+    all_nodes = graph.get_all_nodes()
     for n in nodes.values():
-        key = (n.id, n.chunk_id[0] if isinstance(n.chunk_id, list) else n.chunk_id)
-        all_nodes[key] = n
+        all_nodes.append(n)
     
-    all_edges = { (e.id, e.chunk_id if isinstance(e.chunk_id, int) else e.chunk_id[0]): e for e in graph.get_all_edges() }
+    all_edges = graph.get_all_edges()
     for e in edges.values():
-        key = (e.id, e.chunk_id if isinstance(e.chunk_id, int) else e.chunk_id[0])
-        all_edges[key] = e
+        all_edges.append(e)
 
     merged_result = merge_similar_nodes(all_nodes, all_edges, llm, embedding_model)
     

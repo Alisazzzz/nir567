@@ -2,6 +2,8 @@
 
 from typing import List, Optional
 
+from nir.embedding.vector_store import VectorStore
+from nir.embedding.vector_store_loader import VectorStoreInfo
 from nir.graph.graph_structures import Node, Edge, State
 from abc import ABC, abstractmethod
 
@@ -43,7 +45,7 @@ class KnowledgeGraph(ABC):
         pass
 
     @abstractmethod
-    def update_node_state(self, node_id: str, new_state: State) -> None:
+    def update_node_states(self, node_id: str, new_state: State) -> None:
         pass
 
     @abstractmethod
@@ -75,5 +77,15 @@ class KnowledgeGraph(ABC):
         pass
 
     @abstractmethod
+    def get_vector_db(self) -> VectorStore:
+        pass
+
+    @abstractmethod
+    def create_vector_db(self, config: VectorStoreInfo) -> None:
+        pass
+
+    @abstractmethod
     def visualize(self) -> None:
         pass
+
+    

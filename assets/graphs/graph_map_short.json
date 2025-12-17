@@ -1,29 +1,22 @@
 {
+  "vector_store": {
+    "type" : "chromadb",
+    "info": {
+      "name": "very_short",
+      "path": "assets\\databases\\chroma_db"
+    }
+  },
   "nodes": [
     {
       "id": "mira_stone",
-      "name": "Mira Stone",
+      "name": "VILLAGER (whispering)",
       "type": "character",
-      "base_description": "",
+      "base_description": "A person who whispers about the Crystal Caves beneath Blackwood Forest.",
       "base_attributes": {},
       "states": [
         {
-          "sid": "event_mira_enters_village_mira_stone",
-          "current_description": "",
-          "current_attributes": {},
-          "time_start_event": null,
-          "time_end_event": null
-        },
-        {
-          "sid": "event_mira_enters_village_mira_stone",
-          "current_description": "",
-          "current_attributes": {},
-          "time_start_event": null,
-          "time_end_event": null
-        },
-        {
-          "sid": "event_mira_enters_village_mira_stone",
-          "current_description": "Mira Stone is now in Ariendale Village.",
+          "sid": "mira_enters_ariendale_village_mira_stone",
+          "current_description": "Mira Stone enters Ariendale Village.",
           "current_attributes": {},
           "time_start_event": null,
           "time_end_event": null
@@ -35,28 +28,14 @@
     },
     {
       "id": "ariendale_village",
-      "name": "Ariendale Village",
+      "name": "Blackwood Forest",
       "type": "location",
-      "base_description": "",
+      "base_description": "The forest mentioned in the villager's whispering.",
       "base_attributes": {},
       "states": [
         {
-          "sid": "event_mira_enters_village_ariendale_village",
-          "current_description": "",
-          "current_attributes": {},
-          "time_start_event": null,
-          "time_end_event": null
-        },
-        {
-          "sid": "event_mira_enters_village_ariendale_village",
-          "current_description": "",
-          "current_attributes": {},
-          "time_start_event": null,
-          "time_end_event": null
-        },
-        {
-          "sid": "event_mira_enters_village_ariendale_village",
-          "current_description": "Ariendale Village now has Mira Stone present.",
+          "sid": "mira_enters_ariendale_village_ariendale_village",
+          "current_description": "Ariendale Village is entered by Mira Stone.",
           "current_attributes": {},
           "time_start_event": null,
           "time_end_event": null
@@ -68,9 +47,9 @@
     },
     {
       "id": "old_compass",
-      "name": "Old Compass",
+      "name": "old compass",
       "type": "item",
-      "base_description": "",
+      "base_description": "An old compass held by Mira Stone.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -78,10 +57,10 @@
       ]
     },
     {
-      "id": "half_burned_map",
-      "name": "Half-Burned Map",
+      "id": "halfburned_map",
+      "name": "half-burned map",
       "type": "item",
-      "base_description": "",
+      "base_description": "A half-burned map held by Mira Stone.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -89,10 +68,32 @@
       ]
     },
     {
-      "id": "event_mira_enters_village",
+      "id": "crystal_caves",
+      "name": "Crystal Caves",
+      "type": "environment_element",
+      "base_description": "The Crystal Caves beneath Blackwood Forest, mentioned in the villager's whispering.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "ashen_concords_forbidden_paths",
+      "name": "Ashen Concord’s forbidden paths",
+      "type": "environment_element",
+      "base_description": "The forbidden paths of the Ashen Concord mentioned in the villager's whispering.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "mira_enters_ariendale_village",
       "name": "Mira enters Ariendale Village",
       "type": "event",
-      "base_description": "",
+      "base_description": "Mira Stone enters Ariendale Village.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -100,270 +101,105 @@
       ]
     },
     {
-      "id": "elias_thorn",
-      "name": "Elias Thorn",
-      "type": "character",
-      "base_description": "",
+      "id": "villager_whispers_about_crystal_caves",
+      "name": "Villager whispers about Crystal Caves",
+      "type": "event",
+      "base_description": "The villager whispers about the Crystal Caves beneath Blackwood Forest.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
-        1
-      ]
-    },
-    {
-      "id": "ancient_symbols",
-      "name": "Ancient symbols",
-      "type": "environment_element",
-      "base_description": "",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        1
-      ]
-    },
-    {
-      "id": "village_inn",
-      "name": "Village Inn",
-      "type": "location",
-      "base_description": "",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        1
-      ]
-    },
-    {
-      "id": "crystal",
-      "name": "The crystal",
-      "type": "item",
-      "base_description": "An item that Mira Stone uses for guidance and clarity.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        6
-      ]
-    },
-    {
-      "id": "mentors_guides",
-      "name": "Mentors and Guides",
-      "type": "group",
-      "base_description": "A group of respected individuals that Mira Stone seeks guidance from.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        7
+        0
       ]
     }
   ],
   "edges": [
     {
-      "id": "mira_meets_elias",
+      "id": "mira_stone_involvedin_mira_enters_ariendale_village",
       "source": "mira_stone",
-      "target": "elias_thorn",
-      "relation": "meets",
-      "description": "Mira meets Elias Thorn in the village inn.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "mira_requests_help",
-      "source": "mira_stone",
-      "target": "ancient_symbols",
-      "relation": "needs",
-      "description": "Mira requests help with ancient symbols.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "mira_shows_the_map",
-      "source": "mira_stone",
-      "target": "half_burned_map",
-      "relation": "shows",
-      "description": "Mira shows the map to Elias Thorn.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "mira_involved_in_reflection_crystal",
-      "source": "mira_stone",
-      "target": "old_compass",
+      "target": "mira_enters_ariendale_village",
       "relation": "involved_in",
       "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 2
-    },
-    {
-      "id": "represents_involves_mira_stone",
-      "source": "mira_stone",
-      "target": "old_compass",
-      "relation": "represents",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "mira_stone_involves_reflection_crystal",
-      "source": "mira_stone",
-      "target": "old_compass",
-      "relation": "involves",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 7
-    },
-    {
-      "id": "mira_stone_seeks_guidance_ariente_village",
-      "source": "mira_stone",
-      "target": "ariendale_village",
-      "relation": "seeks_guidance_from",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 7
-    },
-    {
-      "id": "mira_stone_becomes_part_of_ariendale_village_cultural_heritage",
-      "source": "mira_stone",
-      "target": "ariendale_village",
-      "relation": "becomes_part_of",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 9
-    },
-    {
-      "id": "airendale_contains_reflection_crystal_mineral",
-      "source": "ariendale_village",
-      "target": "old_compass",
-      "relation": "contains_mineral_for",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 3
-    },
-    {
-      "id": "ariente_village_provides_guidance_mentors_guides",
-      "source": "ariendale_village",
-      "target": "mentors_guides",
-      "relation": "provides_guidance",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 7
-    },
-    {
-      "id": "reflection_crystal_involves_mira",
-      "source": "old_compass",
-      "target": "mira_stone",
-      "relation": "involves",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 2
-    },
-    {
-      "id": "reflection_crystal_involved_in_mira_stone",
-      "source": "old_compass",
-      "target": "mira_stone",
-      "relation": "involved_in",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 7
-    },
-    {
-      "id": "reflection_crystal_composed_of_airendale_mineral",
-      "source": "old_compass",
-      "target": "ariendale_village",
-      "relation": "composed_of_mineral_from",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 3
-    },
-    {
-      "id": "reflection_crystal_strengthens_ties_to_ariendale_village",
-      "source": "old_compass",
-      "target": "ariendale_village",
-      "relation": "strengthens_ties",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 9
-    },
-    {
-      "id": "event_mira_enters_village_participant_mira",
-      "source": "event_mira_enters_village",
-      "target": "mira_stone",
-      "relation": "involves",
-      "description": "Mira Stone is the participant of the event: entering Ariendale Village.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 0
     },
     {
-      "id": "event_mira_enters_village_location",
-      "source": "event_mira_enters_village",
-      "target": "ariendale_village",
-      "relation": "occurs_in",
-      "description": "The event takes place in Ariendale Village.",
+      "id": "ariendale_village_containsevent_mira_stone",
+      "source": "ariendale_village",
+      "target": "mira_stone",
+      "relation": "contains_event",
+      "description": "",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 0
     },
     {
-      "id": "elias_agrees_to_help",
-      "source": "elias_thorn",
-      "target": "ancient_symbols",
-      "relation": "agrees_to_help",
-      "description": "Elias Thorn agrees to help with ancient symbols.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "elias_examines_the_map",
-      "source": "elias_thorn",
-      "target": "half_burned_map",
-      "relation": "examines",
-      "description": "Elias Thorn examines the map.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "elias_gives_advice",
-      "source": "elias_thorn",
+      "id": "ariendale_village_isspokenaboutby_villager_whispering",
+      "source": "ariendale_village",
       "target": "mira_stone",
-      "relation": "gives_advice",
-      "description": "Elias Thorn gives advice about the map.",
+      "relation": "is_spoken_about_by",
+      "description": "",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
-      "chunk_id": 1
+      "chunk_id": 0
+    },
+    {
+      "id": "blackwood_forest_ismentionedby_villager_whispering",
+      "source": "ariendale_village",
+      "target": "mira_stone",
+      "relation": "is_mentioned_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "old_compass_ispossessedby_mira_stone",
+      "source": "old_compass",
+      "target": "mira_stone",
+      "relation": "is_possessed_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "halfburned_map_ispossessedby_mira_stone",
+      "source": "halfburned_map",
+      "target": "mira_stone",
+      "relation": "is_possessed_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "crystal_caves_ismentionedby_villager_whispering",
+      "source": "crystal_caves",
+      "target": "mira_stone",
+      "relation": "is_mentioned_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "ashen_concords_forbidden_paths_ismentionedby_villager_whispering",
+      "source": "ashen_concords_forbidden_paths",
+      "target": "mira_stone",
+      "relation": "is_mentioned_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
     }
   ]
 }

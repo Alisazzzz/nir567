@@ -6,6 +6,8 @@ from langchain_community.graphs.graph_document import GraphDocument
 import json
 from pyvis.network import Network
 
+from nir.embedding.vector_store import VectorStore
+from nir.embedding.vector_store_loader import VectorStoreInfo, create_vector_store
 from nir.graph.knowledge_graph import KnowledgeGraph
 from nir.graph.graph_structures import Node, Edge, State
 
@@ -13,6 +15,8 @@ from nir.graph.graph_structures import Node, Edge, State
 class NetworkXGraph(KnowledgeGraph):
     def __init__(self):
         self.graph = nx.MultiDiGraph()
+        self.vectore_db = None
+        self.vector_db_info = None
 
     def add_node(self, node: Node) -> None:
         self.graph.add_node(
@@ -78,13 +82,13 @@ class NetworkXGraph(KnowledgeGraph):
         connected_ids = set(self.graph.neighbors(node_id)) 
         return [self.get_node_by_id(n) for n in connected_ids]
 
-    def update_node_state(self, node_id: str, new_state: State) -> None:
+    def update_node_states(self, node_id: str, new_state: State) -> None:
         node = self.get_node_by_id(node_id)
         changed = False
         for i, state in enumerate(node.states):
             if state.current_description == new_state.current_description:
                 node.states[i] = new_state
-                changed = False
+                changed = True
         if not changed:
             node.states.append(new_state)
         self.graph.nodes[node_id]["data"] = node.model_dump()
@@ -145,7 +149,8 @@ class NetworkXGraph(KnowledgeGraph):
             if "data" not in attrs:            
                 continue
             edges_data.append(attrs["data"])
-        data = {"nodes": nodes_data, "edges": edges_data}
+        vector_store_data = self.vector_db_info.model_dump_json()
+        data = {"vector_store": vector_store_data, "nodes": nodes_data, "edges": edges_data}
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
@@ -153,12 +158,21 @@ class NetworkXGraph(KnowledgeGraph):
         self.graph.clear()
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
+        self.create_vector_db(VectorStoreInfo.model_validate(data["vector_store"]))
         for node_dict in data["nodes"]:
             node = Node(**node_dict)
             self.add_node(node)
         for edge_dict in data["edges"]:
             edge = Edge(**edge_dict)
             self.add_edge(edge)
+
+    def get_vector_db(self) -> VectorStore:
+        return self.vectore_db
+
+    def create_vector_db(self, config: VectorStoreInfo) -> None:
+        self.vector_db_info = config
+        self.vectore_db = create_vector_store(config)
+
 
     def visualize(self, filepath: str):
 

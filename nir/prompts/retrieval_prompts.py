@@ -26,7 +26,7 @@ SYSTEM_PROMPT_TIMESPAMPS = """
             - You may select any individual event from that parenthesized group if needed.
         5. If no temporal references can be confidently extracted, return:
                 {{ "downer_border_event_name": null, "upper_border_event_name": null }}
-        6. Do not invent events. Use only the provided event names (or names inside parenthesized groups).
+        6. Do not invent events. Use only the provided event names (or names inside parenthesized groups). In your answer NEVER add brackets to events, write ONLY plain text according to structure.
         7. Output **only JSON**, no explanations, no markdown.
 
     OUTPUT FORMAT:

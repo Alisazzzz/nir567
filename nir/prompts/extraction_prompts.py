@@ -36,25 +36,25 @@ SYSTEM_PROMPT_ENTITIES = """
         - "base_description": short, factual summary (empty string if unknown).
         - "base_attributes": dictionary of attributes; for events, include temporal attributes if available (“time”: "...”).
       2. Relationships (edges). For every relationship or event participation found:
-        - "source": name of the source entity. Be careful: DO NOT produce None in this fields, add an entity if it is needed here.
-        - "target": name of the target entity. Be careful: DO NOT produce None in this fields, add an entity if it is needed here.
-        - "relation": lowercase verb or short phrase.
+        - "node1": name of the first entity. Be careful: DO NOT produce None in this fields, add an entity if it is needed here.
+        - "node2": name of the second entity. Be careful: DO NOT produce None in this fields, add an entity if it is needed here.
+        - "relation_from1to2": lowercase verb or short phrase, describing relation between nodes. MUST NOT be null or None or Empty.
+        - "relation_from2to1": lowercase verb or short phrase, describing inverted relation between nodes: rules are described below. MUST NOT be null or None or Empty.
         - "description": more detailed description for relation.
         - "weight": float (default 1.0).
-        Relationships must always have one source and one target. If multiple sources/targets are implied, create multiple edges.
+        Relationships must always have one node1 and one node2. If multiple node1/node2 are implied, create multiple edges.
 
     IMPORTANT RULES FOR EVENTS AND RELATIONS:
       - Every event should produce at least:
           - one edge linking the event to its participant(s);
           - one edge linking the event to its location, item, etc., if mentioned.
-      - For each edge, ALWAYS also generate a reversed edge:
+      - For each edge, ALWAYS generate a relation (from 1 to 2) and reversed relation (from 2 to 1):
           A → B : "involves"
           B → A : "involved_in"
-        If no natural reverse exists, use the same label in both directions.
+        If no natural reverse exists, use the same label in both directions. NEVER leave one of these fields empty.
       - If the text clearly expresses sequence between two events ("later", "after", "then", "before"):
-          create two edges:
-            E1 → E2 with relation "precedes"
-            E2 → E1 with relation "follows"
+          create edge:
+            E1 → E2 with relation "precedes" and inversed relation "follows"
       - Do not invent unsupported relations.
 
     OUTPUT FORMAT.
@@ -107,30 +107,18 @@ SYSTEM_PROMPT_ENTITIES = """
           ],
           "edges": [
             {{
-              "source": "Alice enters the dark forest",
-              "target": "Alice",
-              "relation": "involves",
+              "node1": "Alice enters the dark forest",
+              "node2": "Alice",
+              "relation_from1to2": "involves",
+              "relation_from2to1": "involved_in",
               "description": "",
               "weight": 1.0,
             }},
             {{
-              "source": "Alice",
-              "target": "Alice enters the dark forest",
-              "relation": "involved_in",
-              "description": "",
-              "weight": 1.0,
-            }},
-            {{
-              "source": "Alice enters the dark forest",
-              "target": "Dark Forest",
-              "relation": "occurs_in",
-              "description": "",
-              "weight": 1.0,
-            }},
-            {{
-              "source": "Dark Forest",
-              "target": "Alice enters the dark forest",
-              "relation": "contains_event",
+              "node1": "Alice enters the dark forest",
+              "node2": "Dark Forest",
+              "relation_from1to2": "occurs_in",
+              "relation_from2to1": "contains_event",
               "description": "",
               "weight": 1.0,
             }}

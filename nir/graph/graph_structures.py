@@ -6,6 +6,7 @@
 #---------imports----------
 #--------------------------
 
+import json
 from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional, Dict, Any
 
@@ -89,9 +90,10 @@ class ExtractedNode(BaseModel):
         return "item"
 
 class ExtractedEdge(BaseModel):
-    source: Optional[str] = None
-    target: Optional[str] = None
-    relation: str
+    node1: Optional[str] = None
+    node2: Optional[str] = None
+    relation_from1to2: str
+    relation_from2to1: str
     description: str = ""
     weight: float = 1.0
 
@@ -138,11 +140,39 @@ class AffectedNode(BaseModel):
     time_start_event: Optional[str] = None
     time_end_event: Optional[str] = None
 
+    @field_validator('new_current_description')
+    @classmethod
+    def ensure_string_field(cls, v):
+        if v is None:
+            return ""
+        if isinstance(v, (dict, list)):
+            try:
+                return json.dumps(v, ensure_ascii=False, separators=(',', ':'))
+            except:
+                return str(v)
+        if isinstance(v, (int, float, bool)):
+            return str(v)
+        return str(v)
+
 class AffectedEdge(BaseModel):
     id: str
     new_description: str
     time_start_event: Optional[str] = None
     time_end_event: Optional[str] = None
+
+    @field_validator('new_description')
+    @classmethod
+    def ensure_string_field(cls, v):
+        if v is None:
+            return ""
+        if isinstance(v, (dict, list)):
+            try:
+                return json.dumps(v, ensure_ascii=False, separators=(',', ':'))
+            except:
+                return str(v)
+        if isinstance(v, (int, float, bool)):
+            return str(v)
+        return str(v)
 
 class EventImpact(BaseModel):
     event_name: str

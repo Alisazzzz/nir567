@@ -1,5 +1,6 @@
 #All functions for context search are here
 
+import json
 import random
 import numpy as np
 import re
@@ -115,16 +116,25 @@ def retrieve_similar_nodes(
         graph: KnowledgeGraph,
         text: str,
         embedding_model: Embeddings,
-        threshold: float = 0.65
+        amount: int = 10,
+        threshold: float = 0.55,
     ) -> List[Tuple[Node, float]]:
     
+    vector_db = graph.get_vector_db()
     query_emb = np.array(embedding_model.embed_query(text))
+    results = vector_db.search(query_emb, amount)
+
     candidates = []
-    for node in graph.get_all_nodes():
-        node_emb = np.array(embedding_model.embed_query(node.name))
-        sim = float(np.dot(node_emb, query_emb) / (np.linalg.norm(node_emb) * np.linalg.norm(query_emb)))
-        if sim >= threshold:
-            candidates.append((node, sim))
+    for result in results:
+        if result.get("distance", 0.0) >= threshold:
+            if(result.get("metadata").get("type") == "edge"):
+                node1 = graph.get_node_by_id(result.get("metadata").get("source"))
+                node2 = graph.get_node_by_id(result.get("metadata").get("target"))
+                candidates.append((node1, result.get("distance", 0.0)))
+                candidates.append((node2, result.get("distance", 0.0)))
+            else:
+                node = graph.get_node_by_id(result.get("id", ""))
+                candidates.append((node, result.get("distance", 0.0)))
     candidates.sort(key=lambda x: x[1], reverse=True)
     return candidates
 
@@ -167,8 +177,7 @@ def find_paths(
         
         out_degree = len(outgoing_edges)
         for edge in outgoing_edges:
-            if edge.target == current:
-                next_node = edge.source
+            next_node = edge.target
             if any(n == next_node for n in path):
                 continue
             S_next = alpha * (S_current / max(out_degree, 1))
@@ -325,6 +334,126 @@ def form_context_without_llm(
         result += history
     return result 
 
+def remove_comments(s: str) -> str:
+    out_chars = []
+    i = 0
+    n = len(s)
+    in_string = False
+    string_quote = ""
+    in_single_line_comment = False
+    in_multi_line_comment = False
+    while i < n:
+        c = s[i]
+
+        if in_single_line_comment:
+            if c == "\n":
+                in_single_line_comment = False
+                out_chars.append(c)
+            i += 1
+            continue
+        
+        if in_multi_line_comment:
+            if c == "*" and i + 1 < n and s[i + 1] == "/":
+                in_multi_line_comment = False
+                i += 2
+            else:
+                i += 1
+            continue
+        
+        if in_string:
+            if c == "\\":
+                if i + 1 < n:
+                    out_chars.append(c)
+                    out_chars.append(s[i + 1])
+                    i += 2
+                else:
+                    out_chars.append(c)
+                    i += 1
+                continue
+            elif c == string_quote:
+                out_chars.append(c)
+                in_string = False
+                string_quote = ""
+                i += 1
+                continue
+            else:
+                out_chars.append(c)
+                i += 1
+                continue
+
+        if c == '"' or c == "'":
+            in_string = True
+            string_quote = c
+            out_chars.append(c)
+            i += 1
+            continue
+
+        if c == "/" and i + 1 < n and s[i + 1] == "/":
+            in_single_line_comment = True
+            i += 2
+            continue
+
+        if c == "/" and i + 1 < n and s[i + 1] == "*":
+            in_multi_line_comment = True
+            i += 2
+            continue
+
+        if c == "#":
+            prev = s[i - 1] if i - 1 >= 0 else "\n"
+            if prev in {"\n", "\r", "\t", " ", ""}:
+                in_single_line_comment = True
+                i += 1
+                continue
+            else:
+                out_chars.append(c)
+                i += 1
+                continue
+
+        out_chars.append(c)
+        i += 1
+    return "".join(out_chars)
+
+def extract_last_json(text: str) -> str:
+    stack = 0
+    start = None
+    last = None
+    for i, ch in enumerate(text):
+        if ch == '{':
+            if stack == 0:
+                start = i
+            stack += 1
+        elif ch == '}':
+            if stack > 0:
+                stack -= 1
+                if stack == 0 and start is not None:
+                    last = text[start:i+1]
+    return last
+
+def clean_json(text: str) -> str:
+    codeblock_match = re.search(r"```json(.*?)```", text, re.DOTALL)
+    if codeblock_match:
+        possible_json = codeblock_match.group(1).strip()
+        cleaned = remove_comments(possible_json)
+        return cleaned
+
+    balanced = extract_last_json(text)
+    if balanced:
+        try:
+            json.loads(balanced)
+            cleaned = remove_comments(balanced)
+            return cleaned
+        except json.JSONDecodeError:
+            pass
+
+    cleaned = re.sub(r"^[^{]+", "", text)
+    cleaned = re.sub(r"[^}]+$", "", cleaned)
+    cleaned = remove_comments(cleaned)
+    cleaned = re.sub(r'(":\s*"[^"]*")\s*\([^)]*\)', r'\1', cleaned)
+    return cleaned
+
+def clean_string(text: str) -> str:
+    return re.sub(r'[^a-zA-Zа-яА-Я\s]', '', text)
+
 class TimestampExtractionResult(BaseModel):
     downer_border_event_name: Optional[str]
     upper_border_event_name: Optional[str]
@@ -349,7 +478,7 @@ def form_context_with_llm(
         max_tokens: int = 1024
     ) -> str:
 
-    chain_timestamps = prompt_timestamps | llm | timestamps_parser
+    chain_timestamps = prompt_timestamps | llm | clean_json | timestamps_parser
 
     events_sequence = extract_event_sequence(graph) #event_id: number in sequence
     events_nodes = []
@@ -357,7 +486,12 @@ def form_context_with_llm(
         events_nodes.append(graph.get_node_by_id(event))
     events_names = [event.name for event in events_nodes]
     timestamps_names = chain_timestamps.invoke({ "query_text": query, "event_names": events_names })
+
+    timestamps_names.downer_border_event_name = clean_string(timestamps_names.downer_border_event_name)
+    timestamps_names.upper_border_event_name = clean_string(timestamps_names.upper_border_event_name)
+
     print(timestamps_names)
+    
     downer_border_event_id = (graph.get_node_by_name(timestamps_names.downer_border_event_name)).id if timestamps_names.downer_border_event_name else None
     upper_border_event_id = (graph.get_node_by_name(timestamps_names.upper_border_event_name)).id if timestamps_names.upper_border_event_name else None
 
@@ -392,10 +526,10 @@ def form_context_with_llm(
                     reference_time = reference_time = events_sequence.get(downer_border_event_id, min_time) if downer_border_event_id else min_time
                     for edge in edges:
                         edge_last_appearance = events_sequence.get(edge.time_end_event, max_time) if edge.time_end_event else max_time
-                        if (edge_last_appearance <= reference_time):
-                            text = graph.get_node_by_id(edge.source).name + " - " + graph.get_node_by_id(edge.target).name + " (before " + timestamps_names.downer_border_event_name + ")" + ". " + edge.description
+                        if (edge_last_appearance < reference_time):
+                            text = graph.get_node_by_id(edge.source).name + " " + edge.relation + " " + graph.get_node_by_id(edge.target).name + " (before " + timestamps_names.downer_border_event_name + ")" + ". " + edge.description
                         else:
-                            text = graph.get_node_by_id(edge.source).name + " - " + graph.get_node_by_id(edge.target).name + ". " + edge.description
+                            text = graph.get_node_by_id(edge.source).name + " " + edge.relation + " " + graph.get_node_by_id(edge.target).name + ". " + edge.description
                         tokens = estimate_tokens(text)
                         result_edges_dict[(edge.source, edge.target)] = (text, tokens)
 
@@ -428,8 +562,10 @@ def form_context_with_llm(
                 edge = graph.get_edge_by_id(edge_id)
 
                 reference_time = reference_time = events_sequence.get(downer_border_event_id, 0) if downer_border_event_id else 0
+                max_time = max(events_sequence.values()) if events_sequence else 0
+
                 edge_last_appearance = events_sequence.get(edge.time_end_event, max_time) if edge.time_end_event else max_time
-                if (edge_last_appearance <= reference_time):
+                if (edge_last_appearance < reference_time):
                     pretty_parts.append(f" - {edge.relation} (before {timestamps_names.downer_border_event_name}) - ")
                 else:
                     pretty_parts.append(f" - {edge.relation} - ")
