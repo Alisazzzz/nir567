@@ -185,7 +185,7 @@ class NetworkXGraph(KnowledgeGraph):
             "event": "#9775fa",
         }
         net = Network(
-            height="800px",
+            height="900",
             width="100%",
             bgcolor="#222222",
             font_color="white",
@@ -194,8 +194,8 @@ class NetworkXGraph(KnowledgeGraph):
         net.barnes_hut(
             gravity=-30000,
             central_gravity=0.3,
-            spring_length=150,
-            spring_strength=0.002,
+            spring_length=60,
+            spring_strength=0.02,
             damping=0.9
         )
         for node, attr in self.graph.nodes(data=True):
@@ -204,7 +204,7 @@ class NetworkXGraph(KnowledgeGraph):
             color = TYPE_COLORS.get(node_type, "#ced4da")
             net.add_node(
                 n_id=str(node),
-                label=str(node),
+                label=str(data.get("name", "Node")),
                 color=color,
                 data=data 
             )

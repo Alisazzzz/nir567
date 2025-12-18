@@ -232,7 +232,8 @@ def form_context_without_llm(
     result_edges_dict = {} # { (source_id, target_id) : ("name_source - relation - name_target", token_amount) }
     result_paths_dict = {} # { (source_id, target_id, number) : ("name_node_start - relation - ... - relation - name_node_target", token_amount) }
 
-    entry_nodes = retrieve_similar_nodes(graph, query, embedding_model)
+    entry_nodes = retrieve_similar_nodes(graph, query, embedding_model, 10, 0.0)
+    print(entry_nodes)
     result_nodes = entry_nodes.copy() 
     for entry_node, resource in entry_nodes:
         neighbours = graph.get_neighbours_of_node(entry_node.id)
@@ -244,7 +245,7 @@ def form_context_without_llm(
                 weight = edges[0].weight
                 result_nodes.append((neighbour, weight))
                 for edge in edges:
-                    text = graph.get_node_by_id(edge.source).name + " - " + graph.get_node_by_id(edge.target).name + ". " + edge.description
+                    text = graph.get_node_by_id(edge.source).name + " " + edge.relation + " " + graph.get_node_by_id(edge.target).name + ". " + edge.description
                     tokens = estimate_tokens(text)
                     result_edges_dict[(edge.source, edge.target)] = (text, tokens)
 
@@ -332,6 +333,8 @@ def form_context_without_llm(
         history_max_tokens = int(max_tokens * HISTORY_RATIO_WITH_HISTORY)
         history = extract_world_history(events_sequence, graph, history_max_tokens)
         result += history
+
+    print(result)
     return result 
 
 def remove_comments(s: str) -> str:
@@ -633,19 +636,3 @@ def form_context_with_llm(
         result += history
 
     return result 
-
-
-# from nir.graph.graph_storages.networkx_graph import NetworkXGraph
-# from nir.llm.manager import ModelManager
-# from nir.llm.providers import ModelConfig
-
-# graph_loaded = NetworkXGraph()
-# graph_loaded.load("assets/graphs/graph_script_short.json")
-
-# manager = ModelManager()
-# embedding_model = manager.create_embedding_model(name="embeddings", option="ollama", model_name="nomic-embed-text:v1.5")
-# model_config = ModelConfig(model_name="mistral:7b-instruct", temperature=0)
-# manager.create_chat_model("graph_extraction", "ollama", model_config)
-# llm = manager.get_chat_model("graph_extraction")
-
-# print(form_context_with_llm("Who is Elias Thorn and what he do in Ariendale village? It was after Mira enters Ariendale Village", graph_loaded, llm, embedding_model))

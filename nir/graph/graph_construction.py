@@ -285,9 +285,9 @@ def merge_similar_nodes(
     id_map = {}
     for node in nodes:
         is_node_merged = False
-        node_i_description = f"{node.name}"
+        node_i_description = f"{node.name}. {node.base_description}"
         for idx, existing in enumerate(merged_nodes):
-            node_j_description = f"{existing.name}"
+            node_j_description = f"{existing.name}. {existing.base_description}"
             if node.type == existing.type:
                 sim = cosine_sim(node_i_description, node_j_description, embedding_model)                
                 if sim >= similarity_threshold:

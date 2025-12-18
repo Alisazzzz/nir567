@@ -2,25 +2,20 @@
   "vector_store": {
     "type": "chromadb",
     "info": {
-      "name": "ali_baba",
+      "name": "ali_baba_new",
       "path": "assets/databases/chroma_db"
     }
   },
   "nodes": [
     {
       "id": "ali_baba",
-      "name": "Cogia Hassan",
+      "name": "Ali Baba",
       "type": "character",
-      "base_description": "The pretended oil merchant.",
+      "base_description": "The protagonist of the story.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
-        0,
-        1,
-        5,
-        10,
-        12,
-        14
+        0
       ]
     },
     {
@@ -35,14 +30,35 @@
       ]
     },
     {
-      "id": "a_town_of_persia",
-      "name": "The city",
-      "type": "location",
-      "base_description": "The location where the captain goes early one morning.",
+      "id": "cassim",
+      "name": "Cassim",
+      "type": "character",
+      "base_description": "The elder brother of Ali Baba who married a woman with a considerable fortune.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
-        8,
+        1
+      ]
+    },
+    {
+      "id": "the_wife_of_ali_baba",
+      "name": "the wife of Ali Baba",
+      "type": "character",
+      "base_description": "Ali Baba's poor wife.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "a_town_of_persia",
+      "name": "a town of Persia",
+      "type": "location",
+      "base_description": "The location where Cassim and Ali Baba live.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
         1
       ]
     },
@@ -125,9 +141,9 @@
     },
     {
       "id": "the_robbers_say_open_sesame",
-      "name": "Ali Baba says 'Open, Sesame'",
+      "name": "The robbers say 'Shut, Sesame'",
       "type": "event",
-      "base_description": "Ali Baba uses the magic phrase to open the door.",
+      "base_description": "The robbers use the magic phrase to close the door.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -135,10 +151,10 @@
       ]
     },
     {
-      "id": "the_door_opens",
-      "name": "The door opens again",
+      "id": "the_robbers_pass_in",
+      "name": "The robbers pass in",
       "type": "event",
-      "base_description": "The door opens again to let the robbers out.",
+      "base_description": "The robbers enter the cave.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -168,7 +184,7 @@
       ]
     },
     {
-      "id": "the_door_flies",
+      "id": "ali_baba_says_open_sesame",
       "name": "The door flies",
       "type": "event",
       "base_description": "The door opens quickly when Ali Baba says 'Open, Sesame'.",
@@ -182,7 +198,7 @@
       "id": "sesame",
       "name": "Sesame",
       "type": "environment_element",
-      "base_description": "A magical word that opens a door.",
+      "base_description": "The object that was said to open.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -193,7 +209,37 @@
       "id": "he",
       "name": "He",
       "type": "character",
-      "base_description": "The person who says 'Open, Sesame' and brings asses.",
+      "base_description": "The person who opened the door with 'Open, Sesame.'",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "he_brought_his_asses_he",
+          "current_description": "He brings his asses.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "the_door",
+      "name": "the door",
+      "type": "environment_element",
+      "base_description": "The door that flew open.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "he_brought_his_asses",
+      "name": "He brought his asses",
+      "type": "event",
+      "base_description": "The action of bringing the asses.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -204,7 +250,26 @@
       "id": "his_asses",
       "name": "his asses",
       "type": "group",
-      "base_description": "A group of animals brought by the character.",
+      "base_description": "The group that was brought by 'He'.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "he_brought_his_asses_his_asses",
+          "current_description": "His asses are being brought.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "took_as_many_bags_of_gold_coin_as_they_could_carry",
+      "name": "took as many bags of gold coin as they could carry",
+      "type": "event",
+      "base_description": "The action of taking the bags of gold coins.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -215,7 +280,7 @@
       "id": "the_cave",
       "name": "the cave",
       "type": "location",
-      "base_description": "The cave that Cassim finds and enters using the secret word 'Open Sesame'.",
+      "base_description": "The cave that Cassim finds and gains admission to.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -224,17 +289,6 @@
     },
     {
       "id": "quarters",
-      "name": "quarters",
-      "type": "item",
-      "base_description": "The body of his brother cut into four pieces.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        5
-      ]
-    },
-    {
-      "id": "the_body_of_his_brother",
       "name": "the body of his brother",
       "type": "item",
       "base_description": "The body of the person's brother that was found cut into quarters.",
@@ -259,7 +313,7 @@
       "id": "a_poor_cobbler",
       "name": "a poor cobbler",
       "type": "group",
-      "base_description": "A group that includes a poor cobbler who was led to sew the mangled limbs together.",
+      "base_description": "A group that includes a poor cobbler.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -270,7 +324,7 @@
       "id": "morgiana_a_female_slave_in_his_brothers_house",
       "name": "Morgiana, a female slave in his brother's house",
       "type": "character",
-      "base_description": "A female slave who sent the poor cobbler to sew the mangled limbs together.",
+      "base_description": "A female slave who was sent to the poor cobbler.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -286,7 +340,7 @@
       "states": [
         {
           "sid": "was_led_blindfolded_the_same_way_back_two_pieces_of_gold",
-          "current_description": "The state or ownership of the two pieces of gold changes after being led blindfolded.",
+          "current_description": "The two pieces of gold are no longer being used in the event.",
           "current_attributes": {},
           "time_start_event": null,
           "time_end_event": null
@@ -320,35 +374,9 @@
     },
     {
       "id": "the_captain_of_the_troop",
-      "name": "The captain",
+      "name": "The captain of the troop",
       "type": "character",
-      "base_description": "",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        8,
-        11,
-        12
-      ]
-    },
-    {
-      "id": "cassims_house",
-      "name": "a shop opposite to Ali Baba's house",
-      "type": "location",
-      "base_description": "A shop located opposite to Ali Baba's house.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        8,
-        9,
-        12
-      ]
-    },
-    {
-      "id": "the_cobbler",
-      "name": "The cobbler",
-      "type": "character",
-      "base_description": "A person who tells the captain about the job he had.",
+      "base_description": "The leader of the troop who disguises himself and goes to the city.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -356,10 +384,32 @@
       ]
     },
     {
-      "id": "the_robber",
-      "name": "The robber",
+      "id": "cassims_house",
+      "name": "Cassim's house",
+      "type": "location",
+      "base_description": "The house of Cassim that is marked with chalk by the captain.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        8
+      ]
+    },
+    {
+      "id": "the_cobbler",
+      "name": "The cobbler",
       "type": "character",
-      "base_description": "A person who marks Cassim's house with chalk.",
+      "base_description": "A character who tells the captain about the job he had.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        8
+      ]
+    },
+    {
+      "id": "the_city",
+      "name": "The city",
+      "type": "location",
+      "base_description": "The location where the captain goes early one morning.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -370,7 +420,7 @@
       "id": "the_troop",
       "name": "The troop",
       "type": "group",
-      "base_description": "A group led by the captain who is trying to find out the secret of entrance into his cave.",
+      "base_description": "A group led by the captain who is on a mission.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -378,10 +428,10 @@
       ]
     },
     {
-      "id": "the_job_he_had",
-      "name": "The cobbler telling the captain about his unspecified job",
-      "type": "event",
-      "base_description": "",
+      "id": "six_pieces_of_gold",
+      "name": "Six pieces of gold",
+      "type": "item",
+      "base_description": "The amount of money paid to the cobbler for information.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -389,10 +439,10 @@
       ]
     },
     {
-      "id": "buying_nineteen_mules_and_thirtynine_large_jars",
-      "name": "Buying nineteen mules and thirty-nine large jars",
-      "type": "event",
-      "base_description": "The captain buying nineteen mules and thirty-nine large jars.",
+      "id": "nineteen_mules",
+      "name": "Nineteen mules",
+      "type": "item",
+      "base_description": "A number of mules bought by the captain.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -400,10 +450,10 @@
       ]
     },
     {
-      "id": "putting_a_man_into_each_jar",
-      "name": "Putting a man into each jar",
-      "type": "event",
-      "base_description": "The captain putting armed men into the jars.",
+      "id": "thirtynine_large_jars",
+      "name": "Thirty-nine large jars",
+      "type": "item",
+      "base_description": "A collection of large jars bought by the captain.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -411,87 +461,10 @@
       ]
     },
     {
-      "id": "finding_out_who_possessed_the_secret_of_entrance_into_his_cave",
-      "name": "Finding out who possessed the secret of entrance into his cave",
-      "type": "event",
-      "base_description": "The captain's intention to find out the secret of entrance into his cave.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        8
-      ]
-    },
-    {
-      "id": "disguising_himself",
-      "name": "Disguising himself",
-      "type": "event",
-      "base_description": "The captain disguising himself before going to the city.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        8
-      ]
-    },
-    {
-      "id": "going_to_the_city_early_one_morning",
-      "name": "Going to the city early one morning",
-      "type": "event",
-      "base_description": "The captain going to the city early one morning.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        8
-      ]
-    },
-    {
-      "id": "accosting_the_cobbler",
-      "name": "Accosting the cobbler",
-      "type": "event",
-      "base_description": "The captain accosting the cobbler in the city.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        8
-      ]
-    },
-    {
-      "id": "allowing_himself_to_be_blindfolded",
-      "name": "Allowing himself to be blindfolded",
-      "type": "event",
-      "base_description": "The cobbler allowing himself to be blindfolded for six pieces of gold.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        8
-      ]
-    },
-    {
-      "id": "tracing_out_the_house_of_cassim",
-      "name": "Tracing out the house of Cassim",
-      "type": "event",
-      "base_description": "The cobbler tracing out the house of Cassim.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        8
-      ]
-    },
-    {
-      "id": "who_for_six_pieces_of_gold",
-      "name": "Who for six pieces of gold",
-      "type": "event",
-      "base_description": "An event related to the cobbler being paid six pieces of gold.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        8
-      ]
-    },
-    {
-      "id": "marking_with_chalk",
-      "name": "Marking with chalk",
-      "type": "event",
-      "base_description": "The robber marking Cassim's house with chalk.",
+      "id": "one_full_of_oil",
+      "name": "One full of oil",
+      "type": "environment_element",
+      "base_description": "An environment element inside one of the large jars.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -500,13 +473,14 @@
     },
     {
       "id": "the_pretended_oil_merchant",
-      "name": "the pretended oil merchant",
+      "name": "Cogia Hassan",
       "type": "character",
-      "base_description": "A stranger who offered oil to sell and asked for lodging.",
+      "base_description": "The pretended oil merchant.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
-        9
+        9,
+        14
       ]
     },
     {
@@ -521,10 +495,10 @@
       ]
     },
     {
-      "id": "mules",
-      "name": "mules",
-      "type": "item",
-      "base_description": "Animals belonging to the pretended oil merchant.",
+      "id": "proceeded_to_the_street_where_ali_baba_dwelt",
+      "name": "proceeded to the street where Ali Baba dwelt",
+      "type": "event",
+      "base_description": "The action of going to Ali Baba's street.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -532,10 +506,10 @@
       ]
     },
     {
-      "id": "ali_babas_courtyard",
-      "name": "Ali Baba's courtyard",
-      "type": "location",
-      "base_description": "The location where the mules were placed.",
+      "id": "sir",
+      "name": "your",
+      "type": "group",
+      "base_description": "A group that includes Ali Baba.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -543,14 +517,45 @@
       ]
     },
     {
-      "id": "a_large_kettle",
-      "name": "a large kettle",
-      "type": "item",
-      "base_description": "An item used by Morgiana to pour boiling oil.",
+      "id": "morgiana",
+      "name": "Morgiana",
+      "type": "character",
+      "base_description": "A character who acts in the narrative.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
         10
+      ]
+    },
+    {
+      "id": "a_large_kettle_which_she_filled_with_oil",
+      "name": "a large kettle, which she filled with oil",
+      "type": "item",
+      "base_description": "An item used by Morgiana.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        10
+      ]
+    },
+    {
+      "id": "the_captain_of_the_robbers",
+      "name": "The captain",
+      "type": "character",
+      "base_description": "",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "he_ran_hastily_to_the_rest_the_captain_of_the_robbers",
+          "current_description": "The captain ran hastily to the rest.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        11,
+        12
       ]
     },
     {
@@ -559,7 +564,15 @@
       "type": "group",
       "base_description": "The group of robbers led by the captain.",
       "base_attributes": {},
-      "states": [],
+      "states": [
+        {
+          "sid": "he_ran_hastily_to_the_rest_his_men",
+          "current_description": "All his men were put to death.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        }
+      ],
       "chunk_id": [
         11
       ]
@@ -612,7 +625,7 @@
       "id": "the_lock_of_the_door",
       "name": "the lock of the door",
       "type": "item",
-      "base_description": "The lock on the door that the captain forced open.",
+      "base_description": "The lock on the door.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -623,11 +636,33 @@
       "id": "he_made_his_escape_over_the_walls",
       "name": "he made his escape over the walls",
       "type": "event",
-      "base_description": "The captain escaped from the location over the walls.",
+      "base_description": "The captain escaped from the location.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
         11
+      ]
+    },
+    {
+      "id": "ali_babas_son",
+      "name": "Ali Baba's son",
+      "type": "character",
+      "base_description": "Son of Ali Baba.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        12
+      ]
+    },
+    {
+      "id": "a_shop_exactly_opposite_to_ali_babas_house",
+      "name": "a shop exactly opposite to Ali Baba's house",
+      "type": "location",
+      "base_description": "A shop located opposite to Ali Baba's house.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        12
       ]
     },
     {
@@ -645,7 +680,7 @@
       "id": "first_dish",
       "name": "First dish",
       "type": "item",
-      "base_description": "The dish carried in by Morgiana.",
+      "base_description": "The dish carried by Morgiana.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -658,15 +693,7 @@
       "type": "event",
       "base_description": "Morgiana dances before the assembled company.",
       "base_attributes": {},
-      "states": [
-        {
-          "sid": "morgianas_dancing_morgianas_dancing",
-          "current_description": "Performed at the parlor for Ali Baba and his guests.",
-          "current_attributes": {},
-          "time_start_event": null,
-          "time_end_event": null
-        }
-      ],
+      "states": [],
       "chunk_id": [
         15
       ]
@@ -729,43 +756,10 @@
       "chunk_id": 0
     },
     {
-      "id": "cassim_ismarriedto_the_wife_of_ali_baba",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "is_married_to",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "the_wife_of_ali_baba_married_cassim",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "married",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
       "id": "ali_baba_youngerbrotherof_cassim",
       "source": "ali_baba",
-      "target": "ali_baba",
+      "target": "cassim",
       "relation": "younger_brother_of",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "cassim_olderbrotherof_ali_baba",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "older_brother_of",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -775,7 +769,7 @@
     {
       "id": "ali_baba_told_cassim",
       "source": "ali_baba",
-      "target": "ali_baba",
+      "target": "cassim",
       "relation": "told",
       "description": "Ali Baba tells his brother the secret of the cave.",
       "weight": 1.0,
@@ -784,169 +778,26 @@
       "chunk_id": 4
     },
     {
-      "id": "cassim_wastold_ali_baba",
+      "id": "ali_baba_kills_cassim",
       "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "was_told",
-      "description": "Ali Baba tells his brother the secret of the cave.",
+      "target": "cassim",
+      "relation": "kills",
+      "description": "The robbers put Cassim to death.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 4
     },
     {
-      "id": "cassim_is_buried_by_ali_baba",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "is buried by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 7
-    },
-    {
       "id": "ali_baba_was_buried_cassim",
       "source": "ali_baba",
-      "target": "ali_baba",
+      "target": "cassim",
       "relation": "was buried",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 7
-    },
-    {
-      "id": "ali_baba_serves_morgiana",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "serves",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 12
-    },
-    {
-      "id": "morgiana_isservedby_ali_baba",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "is_served_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 12
-    },
-    {
-      "id": "ali_babas_son_is_fond_of_ali_baba",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "is fond of",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 13
-    },
-    {
-      "id": "ali_baba_is_beloved_by_ali_babas_son",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "is beloved by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 13
-    },
-    {
-      "id": "ali_babas_son_receives_presents_from_ali_baba",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "receives presents from",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 13
-    },
-    {
-      "id": "ali_baba_gives_presents_to_ali_babas_son",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "gives presents to",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 13
-    },
-    {
-      "id": "ali_babas_son_is_detained_by_for_dinner_ali_baba",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "is detained by for dinner",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 13
-    },
-    {
-      "id": "ali_baba_detains_for_dinner_ali_babas_son",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "detains for dinner",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 13
-    },
-    {
-      "id": "ali_baba_invites_cogia_hassan",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "invites",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 14
-    },
-    {
-      "id": "cogia_hassan_isinvitedby_ali_baba",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "is_invited_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 14
-    },
-    {
-      "id": "morgiana_perceives_cogia_hassan",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "perceives",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 14
-    },
-    {
-      "id": "cogia_hassan_isperceivedby_morgiana",
-      "source": "ali_baba",
-      "target": "ali_baba",
-      "relation": "is_perceived_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 14
     },
     {
       "id": "ali_baba_livesin_a_town_of_persia",
@@ -973,7 +824,7 @@
     {
       "id": "ali_baba_entersthrough_the_door_flies",
       "source": "ali_baba",
-      "target": "the_door_flies",
+      "target": "ali_baba_says_open_sesame",
       "relation": "enters_through",
       "description": "",
       "weight": 1.0,
@@ -982,70 +833,15 @@
       "chunk_id": 2
     },
     {
-      "id": "cassim_enters_the_cave",
+      "id": "ali_baba_enters_the_cave",
       "source": "ali_baba",
       "target": "the_cave",
       "relation": "enters",
-      "description": "Cassim enters the cave.",
+      "description": "Ali Baba enters the cave.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 4
-    },
-    {
-      "id": "cassim_forgetstheword_the_cave",
-      "source": "ali_baba",
-      "target": "the_cave",
-      "relation": "forgets_the_word",
-      "description": "Cassim forgets the word that causes the door to open.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "ali_baba_makessound_the_cave",
-      "source": "ali_baba",
-      "target": "the_cave",
-      "relation": "makes_sound",
-      "description": "Ali Baba hears the sound of horses' feet, which he concludes to be the robbers.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "cassim_iskilled_the_cave",
-      "source": "ali_baba",
-      "target": "the_cave",
-      "relation": "is_killed",
-      "description": "The robbers put Cassim to death.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "ali_baba_findsonentering_the_cave",
-      "source": "ali_baba",
-      "target": "the_cave",
-      "relation": "finds_on_entering",
-      "description": "Ali Baba finds more treasures than he expected, which makes him forget the word that caused the door to open.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "cassims_wife_receivedfrom_he",
-      "source": "ali_baba",
-      "target": "he",
-      "relation": "received_from",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 5
     },
     {
       "id": "ali_baba_takes_possession_of_house_of_deceased_brother",
@@ -1070,87 +866,10 @@
       "chunk_id": 9
     },
     {
-      "id": "ali_baba_put_jar",
+      "id": "ali_baba_invites_cogia_hassan",
       "source": "ali_baba",
-      "target": "jar",
-      "relation": "put",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 9
-    },
-    {
-      "id": "ali_baba_allowed_to_place_mules",
-      "source": "ali_baba",
-      "target": "mules",
-      "relation": "allowed to place",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 9
-    },
-    {
-      "id": "ali_baba_offered_a_bed_in_ali_babas_house",
-      "source": "ali_baba",
-      "target": "cassims_house",
-      "relation": "offered a bed in",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 9
-    },
-    {
-      "id": "ali_baba_invited_to_supper_ali_babas_house",
-      "source": "ali_baba",
-      "target": "cassims_house",
-      "relation": "invited to supper",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 9
-    },
-    {
-      "id": "ali_babas_son_goeseverydayto_a_shop_exactly_opposite_to_ali_babas_house",
-      "source": "ali_baba",
-      "target": "cassims_house",
-      "relation": "goes_every_day_to",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 12
-    },
-    {
-      "id": "morgiana_uses_a_large_kettle",
-      "source": "ali_baba",
-      "target": "a_large_kettle",
-      "relation": "uses",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 10
-    },
-    {
-      "id": "ali_babas_son_issubjectedtoanewschemefordestruction_the_captain",
-      "source": "ali_baba",
-      "target": "the_captain_of_the_troop",
-      "relation": "is_subjected_to_a_new_scheme_for_destruction",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 12
-    },
-    {
-      "id": "morgiana_carries_first_dish",
-      "source": "ali_baba",
-      "target": "first_dish",
-      "relation": "carries",
+      "target": "the_pretended_oil_merchant",
+      "relation": "invites",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1158,37 +877,81 @@
       "chunk_id": 14
     },
     {
-      "id": "morgiana_performs_morgianas_dancing",
+      "id": "ali_baba_put_into_jar",
       "source": "ali_baba",
-      "target": "morgianas_dancing",
-      "relation": "performs",
+      "target": "jar",
+      "relation": "put into",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
-      "chunk_id": 15
+      "chunk_id": 9
     },
     {
-      "id": "cogia_hassan_killedby_morgiana_kills_cogia_hassan",
+      "id": "ali_baba_proceeded_proceeded_to_the_street_where_ali_baba_dwelt",
       "source": "ali_baba",
-      "target": "morgiana_kills_cogia_hassan",
-      "relation": "killed_by",
+      "target": "proceeded_to_the_street_where_ali_baba_dwelt",
+      "relation": "proceeded",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
-      "chunk_id": 15
+      "chunk_id": 9
     },
     {
-      "id": "morgiana_rewardedby_ali_baba_rewards_morgiana",
+      "id": "ali_baba_serves_morgiana",
       "source": "ali_baba",
-      "target": "ali_baba_rewards_morgiana",
-      "relation": "rewarded_by",
+      "target": "morgiana",
+      "relation": "is_served_by",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
-      "chunk_id": 15
+      "chunk_id": 12
+    },
+    {
+      "id": "ali_baba_is_beloved_by_ali_babas_son",
+      "source": "ali_baba",
+      "target": "ali_babas_son",
+      "relation": "is beloved by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 13
+    },
+    {
+      "id": "ali_baba_gives_presents_to_ali_babas_son",
+      "source": "ali_baba",
+      "target": "ali_babas_son",
+      "relation": "gives presents to",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 13
+    },
+    {
+      "id": "ali_baba_detains_ali_babas_son",
+      "source": "ali_baba",
+      "target": "ali_babas_son",
+      "relation": "detains",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 13
+    },
+    {
+      "id": "ali_baba_often_detains_for_dinner_ali_babas_son",
+      "source": "ali_baba",
+      "target": "ali_babas_son",
+      "relation": "often detains for dinner",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 13
     },
     {
       "id": "the_forty_thieves_opposedby_ali_baba",
@@ -1202,6 +965,105 @@
       "chunk_id": 0
     },
     {
+      "id": "cassim_ismarriedto_the_wife_of_ali_baba",
+      "source": "cassim",
+      "target": "the_wife_of_ali_baba",
+      "relation": "is_married_to",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "cassim_olderbrotherof_ali_baba",
+      "source": "cassim",
+      "target": "ali_baba",
+      "relation": "older_brother_of",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "cassim_toldto_ali_baba",
+      "source": "cassim",
+      "target": "ali_baba",
+      "relation": "told_to",
+      "description": "Ali Baba tells his brother the secret of the cave.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "cassim_dies_ali_baba",
+      "source": "cassim",
+      "target": "ali_baba",
+      "relation": "dies",
+      "description": "The robbers put Cassim to death.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "cassim_is_buried_by_ali_baba",
+      "source": "cassim",
+      "target": "ali_baba",
+      "relation": "is buried by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "cassim_enters_the_cave",
+      "source": "cassim",
+      "target": "the_cave",
+      "relation": "enters",
+      "description": "Cassim enters the cave.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "cassim_gainsadmission_the_cave",
+      "source": "cassim",
+      "target": "the_cave",
+      "relation": "gains_admission",
+      "description": "Cassim gains admission to the cave by saying 'Open Sesame'.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "cassim_possessestreasures_the_cave",
+      "source": "cassim",
+      "target": "the_cave",
+      "relation": "possesses_treasures",
+      "description": "The cave contains more treasures than Cassim expected.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "the_wife_of_ali_baba_married_cassim",
+      "source": "the_wife_of_ali_baba",
+      "target": "cassim",
+      "relation": "married",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
       "id": "a_town_of_persia_residesin_ali_baba",
       "source": "a_town_of_persia",
       "target": "ali_baba",
@@ -1213,20 +1075,9 @@
       "chunk_id": 1
     },
     {
-      "id": "the_city_goesfrom_the_captain_of_the_troop",
-      "source": "a_town_of_persia",
-      "target": "the_captain_of_the_troop",
-      "relation": "goes_from",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 8
-    },
-    {
       "id": "the_robbers_entersthrough_the_door_opens",
       "source": "the_robbers",
-      "target": "the_door_opens",
+      "target": "the_robbers_say_open_sesame",
       "relation": "enters_through",
       "description": "",
       "weight": 1.0,
@@ -1237,7 +1088,7 @@
     {
       "id": "the_robbers_exitsthrough_the_door_opens_again",
       "source": "the_robbers",
-      "target": "the_door_opens",
+      "target": "the_robbers_say_open_sesame",
       "relation": "exits_through",
       "description": "",
       "weight": 1.0,
@@ -1257,9 +1108,20 @@
       "chunk_id": 2
     },
     {
-      "id": "the_rock_respondstomagicphrase_ali_baba_says_open_sesame",
+      "id": "the_rock_respondstomagicphrase_the_robbers_say_shut_sesame",
       "source": "the_rock",
       "target": "the_robbers_say_open_sesame",
+      "relation": "responds_to_magic_phrase",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "the_rock_respondstomagicphrase_ali_baba_says_open_sesame",
+      "source": "the_rock",
+      "target": "ali_baba_says_open_sesame",
       "relation": "responds_to_magic_phrase",
       "description": "",
       "weight": 1.0,
@@ -1290,7 +1152,7 @@
       "chunk_id": 2
     },
     {
-      "id": "ali_baba_says_open_sesame_usesmagicphraseon_the_rock",
+      "id": "the_robbers_say_shut_sesame_usesmagicphraseon_the_rock",
       "source": "the_robbers_say_open_sesame",
       "target": "the_rock",
       "relation": "uses_magic_phrase_on",
@@ -1302,7 +1164,7 @@
     },
     {
       "id": "the_door_opens_opensfor_the_robbers",
-      "source": "the_door_opens",
+      "source": "the_robbers_say_open_sesame",
       "target": "the_robbers",
       "relation": "opens_for",
       "description": "",
@@ -1313,7 +1175,7 @@
     },
     {
       "id": "the_door_opens_again_opens_the_robbers",
-      "source": "the_door_opens",
+      "source": "the_robbers_say_open_sesame",
       "target": "the_robbers",
       "relation": "opens",
       "description": "",
@@ -1323,8 +1185,19 @@
       "chunk_id": 2
     },
     {
+      "id": "ali_baba_says_open_sesame_usesmagicphraseon_the_rock",
+      "source": "ali_baba_says_open_sesame",
+      "target": "the_rock",
+      "relation": "uses_magic_phrase_on",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
       "id": "the_door_flies_opensfor_ali_baba",
-      "source": "the_door_flies",
+      "source": "ali_baba_says_open_sesame",
       "target": "ali_baba",
       "relation": "opens_for",
       "description": "",
@@ -1334,42 +1207,9 @@
       "chunk_id": 2
     },
     {
-      "id": "sesame_isactivatedby_he",
-      "source": "sesame",
-      "target": "he",
-      "relation": "is_activated_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 3
-    },
-    {
-      "id": "he_activates_sesame",
-      "source": "he",
-      "target": "sesame",
-      "relation": "activates",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 3
-    },
-    {
-      "id": "he_brings_his_asses",
-      "source": "he",
-      "target": "his_asses",
-      "relation": "brings",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 3
-    },
-    {
       "id": "he_finds_the_body_of_his_brother",
       "source": "he",
-      "target": "the_body_of_his_brother",
+      "target": "quarters",
       "relation": "finds",
       "description": "",
       "weight": 1.0,
@@ -1389,21 +1229,43 @@
       "chunk_id": 5
     },
     {
-      "id": "he_delivers_cassims_wife",
-      "source": "he",
-      "target": "ali_baba",
-      "relation": "delivers",
+      "id": "he_brought_his_asses_carries_his_asses",
+      "source": "he_brought_his_asses",
+      "target": "his_asses",
+      "relation": "carries",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
-      "chunk_id": 5
+      "chunk_id": 3
     },
     {
-      "id": "his_asses_isbroughtby_he",
+      "id": "he_brought_his_asses_precedes_took_as_many_bags_of_gold_coin_as_they_could_carry",
+      "source": "he_brought_his_asses",
+      "target": "took_as_many_bags_of_gold_coin_as_they_could_carry",
+      "relation": "precedes",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "his_asses_carriedby_he_brought_his_asses",
       "source": "his_asses",
-      "target": "he",
-      "relation": "is_brought_by",
+      "target": "he_brought_his_asses",
+      "relation": "carried_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "took_as_many_bags_of_gold_coin_as_they_could_carry_follows_he_brought_his_asses",
+      "source": "took_as_many_bags_of_gold_coin_as_they_could_carry",
+      "target": "he_brought_his_asses",
+      "relation": "follows",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1413,7 +1275,7 @@
     {
       "id": "the_cave_containsentity_cassim",
       "source": "the_cave",
-      "target": "ali_baba",
+      "target": "cassim",
       "relation": "contains_entity",
       "description": "Cassim enters the cave.",
       "weight": 1.0,
@@ -1422,74 +1284,41 @@
       "chunk_id": 4
     },
     {
-      "id": "the_cave_requirestheword_cassim",
+      "id": "the_cave_grantsaccess_cassim",
       "source": "the_cave",
-      "target": "ali_baba",
-      "relation": "requires_the_word",
-      "description": "Cassim forgets the word that causes the door to open.",
+      "target": "cassim",
+      "relation": "grants_access",
+      "description": "Cassim gains admission to the cave by saying 'Open Sesame'.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 4
     },
     {
-      "id": "the_cave_hearssound_ali_baba",
+      "id": "the_cave_containstreasures_cassim",
       "source": "the_cave",
-      "target": "ali_baba",
-      "relation": "hears_sound",
-      "description": "Ali Baba hears the sound of horses' feet, which he concludes to be the robbers.",
+      "target": "cassim",
+      "relation": "contains_treasures",
+      "description": "The cave contains more treasures than Cassim expected.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 4
     },
     {
-      "id": "the_cave_kills_cassim",
+      "id": "the_cave_containsentity_ali_baba",
       "source": "the_cave",
       "target": "ali_baba",
-      "relation": "kills",
-      "description": "The robbers put Cassim to death.",
+      "relation": "contains_entity",
+      "description": "Ali Baba enters the cave.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 4
-    },
-    {
-      "id": "the_cave_contains_ali_baba",
-      "source": "the_cave",
-      "target": "ali_baba",
-      "relation": "contains",
-      "description": "Ali Baba finds more treasures than he expected, which makes him forget the word that caused the door to open.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "quarters_takenby_he",
-      "source": "quarters",
-      "target": "he",
-      "relation": "taken_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "quarters_received_morgiana_a_female_slave_in_his_brothers_house",
-      "source": "quarters",
-      "target": "morgiana_a_female_slave_in_his_brothers_house",
-      "relation": "received",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 5
     },
     {
       "id": "the_body_of_his_brother_foundby_he",
-      "source": "the_body_of_his_brother",
+      "source": "quarters",
       "target": "he",
       "relation": "found_by",
       "description": "",
@@ -1499,8 +1328,30 @@
       "chunk_id": 5
     },
     {
-      "id": "the_body_of_his_brother_sewnby_a_poor_cobbler",
-      "source": "the_body_of_his_brother",
+      "id": "quarters_possessedby_he",
+      "source": "quarters",
+      "target": "he",
+      "relation": "possessed_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "quarters_receivedby_morgiana_a_female_slave_in_his_brothers_house",
+      "source": "quarters",
+      "target": "morgiana_a_female_slave_in_his_brothers_house",
+      "relation": "received_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "quarters_sewnby_a_poor_cobbler",
+      "source": "quarters",
       "target": "a_poor_cobbler",
       "relation": "sewn_by",
       "description": "",
@@ -1521,9 +1372,9 @@
       "chunk_id": 5
     },
     {
-      "id": "a_poor_cobbler_sews_the_body_of_his_brother",
+      "id": "a_poor_cobbler_sews_quarters",
       "source": "a_poor_cobbler",
-      "target": "the_body_of_his_brother",
+      "target": "quarters",
       "relation": "sews",
       "description": "",
       "weight": 1.0,
@@ -1554,10 +1405,10 @@
       "chunk_id": 5
     },
     {
-      "id": "two_pieces_of_gold_involves_was_led_blindfolded_the_same_way_back",
+      "id": "two_pieces_of_gold_usedin_was_led_blindfolded_the_same_way_back",
       "source": "two_pieces_of_gold",
       "target": "was_led_blindfolded_the_same_way_back",
-      "relation": "involves",
+      "relation": "used_in",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1565,10 +1416,10 @@
       "chunk_id": 6
     },
     {
-      "id": "was_led_blindfolded_the_same_way_back_involvedin_two_pieces_of_gold",
+      "id": "was_led_blindfolded_the_same_way_back_used_two_pieces_of_gold",
       "source": "was_led_blindfolded_the_same_way_back",
       "target": "two_pieces_of_gold",
-      "relation": "involved_in",
+      "relation": "used",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1587,21 +1438,10 @@
       "chunk_id": 7
     },
     {
-      "id": "the_captain_of_the_troop_goesto_the_city",
-      "source": "the_captain_of_the_troop",
-      "target": "a_town_of_persia",
-      "relation": "goes_to",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 8
-    },
-    {
-      "id": "the_captain_of_the_troop_accosts_the_cobbler",
+      "id": "the_captain_of_the_troop_informs_the_cobbler",
       "source": "the_captain_of_the_troop",
       "target": "the_cobbler",
-      "relation": "accosts",
+      "relation": "informs",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1609,10 +1449,10 @@
       "chunk_id": 8
     },
     {
-      "id": "the_captain_of_the_troop_findsout_cassims_house",
+      "id": "the_captain_of_the_troop_marks_cassims_house",
       "source": "the_captain_of_the_troop",
       "target": "cassims_house",
-      "relation": "finds_out",
+      "relation": "marks",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1620,10 +1460,10 @@
       "chunk_id": 8
     },
     {
-      "id": "the_captain_of_the_troop_does_disguising_himself",
+      "id": "the_captain_of_the_troop_discovers_cassims_house",
       "source": "the_captain_of_the_troop",
-      "target": "disguising_himself",
-      "relation": "does",
+      "target": "cassims_house",
+      "relation": "discovers",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1631,21 +1471,10 @@
       "chunk_id": 8
     },
     {
-      "id": "the_captain_of_the_troop_does_buying_nineteen_mules_and_thirtynine_large_jars",
+      "id": "the_captain_of_the_troop_goesto_the_city",
       "source": "the_captain_of_the_troop",
-      "target": "buying_nineteen_mules_and_thirtynine_large_jars",
-      "relation": "does",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 8
-    },
-    {
-      "id": "the_captain_of_the_troop_does_putting_a_man_into_each_jar",
-      "source": "the_captain_of_the_troop",
-      "target": "putting_a_man_into_each_jar",
-      "relation": "does",
+      "target": "the_city",
+      "relation": "goes_to",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1664,87 +1493,10 @@
       "chunk_id": 8
     },
     {
-      "id": "the_captain_of_the_robbers_leads_his_men",
+      "id": "the_captain_of_the_troop_buys_nineteen_mules",
       "source": "the_captain_of_the_troop",
-      "target": "his_men",
-      "relation": "leads",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 11
-    },
-    {
-      "id": "the_captain_of_the_robbers_approaches_the_first_jar",
-      "source": "the_captain_of_the_troop",
-      "target": "the_first_jar",
-      "relation": "approaches",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 11
-    },
-    {
-      "id": "the_captain_of_the_robbers_feelssteamof_boiled_oil",
-      "source": "the_captain_of_the_troop",
-      "target": "boiled_oil",
-      "relation": "feels_steam_of",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 11
-    },
-    {
-      "id": "the_captain_of_the_robbers_performedby_he_ran_hastily_to_the_rest",
-      "source": "the_captain_of_the_troop",
-      "target": "he_ran_hastily_to_the_rest",
-      "relation": "performed_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 11
-    },
-    {
-      "id": "the_captain_of_the_robbers_performedby_he_made_his_escape_over_the_walls",
-      "source": "the_captain_of_the_troop",
-      "target": "he_made_his_escape_over_the_walls",
-      "relation": "performed_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 11
-    },
-    {
-      "id": "the_captain_adoptsanewschemeforthedestruction_ali_babas_son",
-      "source": "the_captain_of_the_troop",
-      "target": "ali_baba",
-      "relation": "adopts_a_new_scheme_for_the_destruction",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 12
-    },
-    {
-      "id": "the_captain_buriesthethievesat_the_garden",
-      "source": "the_captain_of_the_troop",
-      "target": "the_garden",
-      "relation": "buries_the_thieves_at",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 12
-    },
-    {
-      "id": "cassims_house_wastracedoutby_the_cobbler",
-      "source": "cassims_house",
-      "target": "the_cobbler",
-      "relation": "was_traced_out_by",
+      "target": "nineteen_mules",
+      "relation": "buys",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1752,10 +1504,10 @@
       "chunk_id": 8
     },
     {
-      "id": "cassims_house_wasmarkedwithchalkby_the_robber",
-      "source": "cassims_house",
-      "target": "the_robber",
-      "relation": "was_marked_with_chalk_by",
+      "id": "the_captain_of_the_troop_buys_thirtynine_large_jars",
+      "source": "the_captain_of_the_troop",
+      "target": "thirtynine_large_jars",
+      "relation": "buys",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1763,10 +1515,21 @@
       "chunk_id": 8
     },
     {
-      "id": "cassims_house_wasfoundoutby_the_captain_of_the_troop",
+      "id": "the_captain_of_the_troop_buys_one_full_of_oil",
+      "source": "the_captain_of_the_troop",
+      "target": "one_full_of_oil",
+      "relation": "buys",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 8
+    },
+    {
+      "id": "cassims_house_marked_the_captain_of_the_troop",
       "source": "cassims_house",
       "target": "the_captain_of_the_troop",
-      "relation": "was_found_out_by",
+      "relation": "marked",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1774,43 +1537,21 @@
       "chunk_id": 8
     },
     {
-      "id": "ali_babas_house_was_offered_a_bed_in_ali_baba",
+      "id": "cassims_house_discovered_the_captain_of_the_troop",
       "source": "cassims_house",
-      "target": "ali_baba",
-      "relation": "was offered a bed in",
+      "target": "the_captain_of_the_troop",
+      "relation": "discovered",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
-      "chunk_id": 9
+      "chunk_id": 8
     },
     {
-      "id": "ali_babas_house_was_invited_to_supper_ali_baba",
-      "source": "cassims_house",
-      "target": "ali_baba",
-      "relation": "was invited to supper",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 9
-    },
-    {
-      "id": "a_shop_exactly_opposite_to_ali_babas_house_isvisitedby_ali_babas_son",
-      "source": "cassims_house",
-      "target": "ali_baba",
-      "relation": "is_visited_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 12
-    },
-    {
-      "id": "the_cobbler_wasaccostedby_the_captain_of_the_troop",
+      "id": "the_cobbler_informed_the_captain_of_the_troop",
       "source": "the_cobbler",
       "target": "the_captain_of_the_troop",
-      "relation": "was_accosted_by",
+      "relation": "informed",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1818,10 +1559,10 @@
       "chunk_id": 8
     },
     {
-      "id": "the_cobbler_tellsabout_the_job_he_had",
+      "id": "the_cobbler_receives_six_pieces_of_gold",
       "source": "the_cobbler",
-      "target": "the_job_he_had",
-      "relation": "tells_about",
+      "target": "six_pieces_of_gold",
+      "relation": "receives",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1829,10 +1570,10 @@
       "chunk_id": 8
     },
     {
-      "id": "the_cobbler_tracesout_cassims_house",
-      "source": "the_cobbler",
-      "target": "cassims_house",
-      "relation": "traces_out",
+      "id": "the_city_wentto_the_captain_of_the_troop",
+      "source": "the_city",
+      "target": "the_captain_of_the_troop",
+      "relation": "went_to",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1840,21 +1581,10 @@
       "chunk_id": 8
     },
     {
-      "id": "the_robber_markswithchalk_cassims_house",
-      "source": "the_robber",
-      "target": "cassims_house",
-      "relation": "marks_with_chalk",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 8
-    },
-    {
-      "id": "the_troop_isledby_the_captain_of_the_troop",
+      "id": "the_troop_led_the_captain_of_the_troop",
       "source": "the_troop",
       "target": "the_captain_of_the_troop",
-      "relation": "is_led_by",
+      "relation": "led",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1862,10 +1592,10 @@
       "chunk_id": 8
     },
     {
-      "id": "the_job_he_had_wastoldabout_the_cobbler",
-      "source": "the_job_he_had",
+      "id": "six_pieces_of_gold_received_the_cobbler",
+      "source": "six_pieces_of_gold",
       "target": "the_cobbler",
-      "relation": "was_told_about",
+      "relation": "received",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1873,10 +1603,10 @@
       "chunk_id": 8
     },
     {
-      "id": "buying_nineteen_mules_and_thirtynine_large_jars_wasdoneby_the_captain_of_the_troop",
-      "source": "buying_nineteen_mules_and_thirtynine_large_jars",
+      "id": "nineteen_mules_bought_the_captain_of_the_troop",
+      "source": "nineteen_mules",
       "target": "the_captain_of_the_troop",
-      "relation": "was_done_by",
+      "relation": "bought",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1884,10 +1614,10 @@
       "chunk_id": 8
     },
     {
-      "id": "putting_a_man_into_each_jar_wasdoneby_the_captain_of_the_troop",
-      "source": "putting_a_man_into_each_jar",
+      "id": "thirtynine_large_jars_bought_the_captain_of_the_troop",
+      "source": "thirtynine_large_jars",
       "target": "the_captain_of_the_troop",
-      "relation": "was_done_by",
+      "relation": "bought",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1895,10 +1625,10 @@
       "chunk_id": 8
     },
     {
-      "id": "disguising_himself_wasdoneby_the_captain_of_the_troop",
-      "source": "disguising_himself",
+      "id": "one_full_of_oil_bought_the_captain_of_the_troop",
+      "source": "one_full_of_oil",
       "target": "the_captain_of_the_troop",
-      "relation": "was_done_by",
+      "relation": "bought",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1917,6 +1647,72 @@
       "chunk_id": 9
     },
     {
+      "id": "cogia_hassan_isinvitedby_ali_baba",
+      "source": "the_pretended_oil_merchant",
+      "target": "ali_baba",
+      "relation": "is_invited_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 14
+    },
+    {
+      "id": "the_pretended_oil_merchant_called_sir",
+      "source": "the_pretended_oil_merchant",
+      "target": "sir",
+      "relation": "called",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 9
+    },
+    {
+      "id": "the_pretended_oil_merchant_spoke_to_you",
+      "source": "the_pretended_oil_merchant",
+      "target": "sir",
+      "relation": "spoke to",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 9
+    },
+    {
+      "id": "the_pretended_oil_merchant_addressed_your",
+      "source": "the_pretended_oil_merchant",
+      "target": "sir",
+      "relation": "addressed",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 9
+    },
+    {
+      "id": "cogia_hassan_isperceivedby_morgiana",
+      "source": "the_pretended_oil_merchant",
+      "target": "morgiana",
+      "relation": "is_perceived_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 14
+    },
+    {
+      "id": "cogia_hassan_killedby_morgiana_kills_cogia_hassan",
+      "source": "the_pretended_oil_merchant",
+      "target": "morgiana_kills_cogia_hassan",
+      "relation": "killed_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 15
+    },
+    {
       "id": "jar_was_put_into_ali_baba",
       "source": "jar",
       "target": "ali_baba",
@@ -1928,10 +1724,10 @@
       "chunk_id": 9
     },
     {
-      "id": "mules_was_allowed_to_be_placed_ali_baba",
-      "source": "mules",
+      "id": "proceeded_to_the_street_where_ali_baba_dwelt_was_proceeded_by_ali_baba",
+      "source": "proceeded_to_the_street_where_ali_baba_dwelt",
       "target": "ali_baba",
-      "relation": "was allowed to be placed",
+      "relation": "was proceeded by",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1939,10 +1735,10 @@
       "chunk_id": 9
     },
     {
-      "id": "mules_was_contained_in_ali_babas_courtyard",
-      "source": "mules",
-      "target": "ali_babas_courtyard",
-      "relation": "was contained in",
+      "id": "sir_was_called_by_the_pretended_oil_merchant",
+      "source": "sir",
+      "target": "the_pretended_oil_merchant",
+      "relation": "was called by",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1950,10 +1746,10 @@
       "chunk_id": 9
     },
     {
-      "id": "ali_babas_courtyard_contained_mules",
-      "source": "ali_babas_courtyard",
-      "target": "mules",
-      "relation": "contained",
+      "id": "you_was_spoken_to_by_the_pretended_oil_merchant",
+      "source": "sir",
+      "target": "the_pretended_oil_merchant",
+      "relation": "was spoken to by",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1961,9 +1757,86 @@
       "chunk_id": 9
     },
     {
-      "id": "a_large_kettle_usedby_morgiana",
-      "source": "a_large_kettle",
+      "id": "your_was_addressed_by_the_pretended_oil_merchant",
+      "source": "sir",
+      "target": "the_pretended_oil_merchant",
+      "relation": "was addressed by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 9
+    },
+    {
+      "id": "morgiana_uses_a_large_kettle_which_she_filled_with_oil",
+      "source": "morgiana",
+      "target": "a_large_kettle_which_she_filled_with_oil",
+      "relation": "uses",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 10
+    },
+    {
+      "id": "morgiana_isservedby_ali_baba",
+      "source": "morgiana",
       "target": "ali_baba",
+      "relation": "serves",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 12
+    },
+    {
+      "id": "morgiana_carries_first_dish",
+      "source": "morgiana",
+      "target": "first_dish",
+      "relation": "carries",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 14
+    },
+    {
+      "id": "morgiana_perceives_cogia_hassan",
+      "source": "morgiana",
+      "target": "the_pretended_oil_merchant",
+      "relation": "perceives",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 14
+    },
+    {
+      "id": "morgiana_performs_morgianas_dancing",
+      "source": "morgiana",
+      "target": "morgianas_dancing",
+      "relation": "performs",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 15
+    },
+    {
+      "id": "morgiana_rewardedby_ali_baba_rewards_morgiana",
+      "source": "morgiana",
+      "target": "ali_baba_rewards_morgiana",
+      "relation": "rewarded_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 15
+    },
+    {
+      "id": "a_large_kettle_which_she_filled_with_oil_usedby_morgiana",
+      "source": "a_large_kettle_which_she_filled_with_oil",
+      "target": "morgiana",
       "relation": "used_by",
       "description": "",
       "weight": 1.0,
@@ -1972,10 +1845,10 @@
       "chunk_id": 10
     },
     {
-      "id": "his_men_ledby_the_captain_of_the_robbers",
-      "source": "his_men",
-      "target": "the_captain_of_the_troop",
-      "relation": "led_by",
+      "id": "the_captain_of_the_robbers_leads_his_men",
+      "source": "the_captain_of_the_robbers",
+      "target": "his_men",
+      "relation": "leads",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1983,10 +1856,65 @@
       "chunk_id": 11
     },
     {
-      "id": "his_men_killedby_every_one_of_his_troop_put_to_death",
+      "id": "the_captain_of_the_robbers_approaches_the_first_jar",
+      "source": "the_captain_of_the_robbers",
+      "target": "the_first_jar",
+      "relation": "approaches",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 11
+    },
+    {
+      "id": "the_captain_of_the_robbers_isescapedby_he_made_his_escape_over_the_walls",
+      "source": "the_captain_of_the_robbers",
+      "target": "he_made_his_escape_over_the_walls",
+      "relation": "is_escaped_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 11
+    },
+    {
+      "id": "the_captain_adoptsanewschemeforthedestruction_ali_babas_son",
+      "source": "the_captain_of_the_robbers",
+      "target": "ali_babas_son",
+      "relation": "adopts_a_new_scheme_for_the_destruction",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 12
+    },
+    {
+      "id": "the_captain_buriesthethievesat_the_garden",
+      "source": "the_captain_of_the_robbers",
+      "target": "the_garden",
+      "relation": "buries_the_thieves_at",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 12
+    },
+    {
+      "id": "his_men_isledby_the_captain_of_the_robbers",
+      "source": "his_men",
+      "target": "the_captain_of_the_robbers",
+      "relation": "is_led_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 11
+    },
+    {
+      "id": "his_men_iskilledby_every_one_of_his_troop_put_to_death",
       "source": "his_men",
       "target": "every_one_of_his_troop_put_to_death",
-      "relation": "killed_by",
+      "relation": "is_killed_by",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -1994,10 +1922,10 @@
       "chunk_id": 11
     },
     {
-      "id": "the_first_jar_approachedby_the_captain_of_the_robbers",
+      "id": "the_first_jar_isapproachedby_the_captain_of_the_robbers",
       "source": "the_first_jar",
-      "target": "the_captain_of_the_troop",
-      "relation": "approached_by",
+      "target": "the_captain_of_the_robbers",
+      "relation": "is_approached_by",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -2005,10 +1933,32 @@
       "chunk_id": 11
     },
     {
-      "id": "boiled_oil_emitssteamto_the_captain_of_the_robbers",
+      "id": "the_first_jar_contains_boiled_oil",
+      "source": "the_first_jar",
+      "target": "boiled_oil",
+      "relation": "contains",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 11
+    },
+    {
+      "id": "the_first_jar_isleftbehindby_he_ran_hastily_to_the_rest",
+      "source": "the_first_jar",
+      "target": "he_ran_hastily_to_the_rest",
+      "relation": "is_left_behind_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 11
+    },
+    {
+      "id": "boiled_oil_isin_the_first_jar",
       "source": "boiled_oil",
-      "target": "the_captain_of_the_troop",
-      "relation": "emits_steam_to",
+      "target": "the_first_jar",
+      "relation": "is_in",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -2016,10 +1966,10 @@
       "chunk_id": 11
     },
     {
-      "id": "he_ran_hastily_to_the_rest_performed_the_captain_of_the_robbers",
+      "id": "he_ran_hastily_to_the_rest_leavesbehind_the_first_jar",
       "source": "he_ran_hastily_to_the_rest",
-      "target": "the_captain_of_the_troop",
-      "relation": "performed",
+      "target": "the_first_jar",
+      "relation": "leaves_behind",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -2038,10 +1988,10 @@
       "chunk_id": 11
     },
     {
-      "id": "he_made_his_escape_over_the_walls_performed_the_captain_of_the_robbers",
+      "id": "he_made_his_escape_over_the_walls_escapes_the_captain_of_the_robbers",
       "source": "he_made_his_escape_over_the_walls",
-      "target": "the_captain_of_the_troop",
-      "relation": "performed",
+      "target": "the_captain_of_the_robbers",
+      "relation": "escapes",
       "description": "",
       "weight": 1.0,
       "time_start_event": null,
@@ -2049,9 +1999,86 @@
       "chunk_id": 11
     },
     {
+      "id": "ali_babas_son_goeseverydayto_a_shop_exactly_opposite_to_ali_babas_house",
+      "source": "ali_babas_son",
+      "target": "a_shop_exactly_opposite_to_ali_babas_house",
+      "relation": "goes_every_day_to",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 12
+    },
+    {
+      "id": "ali_babas_son_issubjectedtoanewschemefordestruction_the_captain",
+      "source": "ali_babas_son",
+      "target": "the_captain_of_the_robbers",
+      "relation": "is_subjected_to_a_new_scheme_for_destruction",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 12
+    },
+    {
+      "id": "ali_babas_son_is_fond_of_ali_baba",
+      "source": "ali_babas_son",
+      "target": "ali_baba",
+      "relation": "is fond of",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 13
+    },
+    {
+      "id": "ali_babas_son_receives_presents_from_ali_baba",
+      "source": "ali_babas_son",
+      "target": "ali_baba",
+      "relation": "receives presents from",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 13
+    },
+    {
+      "id": "ali_babas_son_is_detained_by_ali_baba",
+      "source": "ali_babas_son",
+      "target": "ali_baba",
+      "relation": "is detained by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 13
+    },
+    {
+      "id": "ali_babas_son_is_often_detained_for_dinner_ali_baba",
+      "source": "ali_babas_son",
+      "target": "ali_baba",
+      "relation": "is often detained for dinner",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 13
+    },
+    {
+      "id": "a_shop_exactly_opposite_to_ali_babas_house_isvisitedby_ali_babas_son",
+      "source": "a_shop_exactly_opposite_to_ali_babas_house",
+      "target": "ali_babas_son",
+      "relation": "is_visited_by",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 12
+    },
+    {
       "id": "the_garden_containsburiedthieves_the_captain",
       "source": "the_garden",
-      "target": "the_captain_of_the_troop",
+      "target": "the_captain_of_the_robbers",
       "relation": "contains_buried_thieves",
       "description": "",
       "weight": 1.0,
@@ -2062,7 +2089,7 @@
     {
       "id": "first_dish_iscarriedby_morgiana",
       "source": "first_dish",
-      "target": "ali_baba",
+      "target": "morgiana",
       "relation": "is_carried_by",
       "description": "",
       "weight": 1.0,
@@ -2073,7 +2100,7 @@
     {
       "id": "morgianas_dancing_performsas_morgiana",
       "source": "morgianas_dancing",
-      "target": "ali_baba",
+      "target": "morgiana",
       "relation": "performs_as",
       "description": "",
       "weight": 1.0,
@@ -2084,7 +2111,7 @@
     {
       "id": "morgiana_kills_cogia_hassan_kills_cogia_hassan",
       "source": "morgiana_kills_cogia_hassan",
-      "target": "ali_baba",
+      "target": "the_pretended_oil_merchant",
       "relation": "kills",
       "description": "",
       "weight": 1.0,
@@ -2106,7 +2133,7 @@
     {
       "id": "ali_baba_rewards_morgiana_rewards_morgiana",
       "source": "ali_baba_rewards_morgiana",
-      "target": "ali_baba",
+      "target": "morgiana",
       "relation": "rewards",
       "description": "",
       "weight": 1.0,

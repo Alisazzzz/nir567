@@ -20,7 +20,7 @@ SYSTEM_PROMPT_PLAN = """
                 name list → stylistic rules, cultural logic of the world
             - What constraints the user implicitly sets: number of results, level of detail, style, time period, narrative function.
         This must be reflected directly in your plan.
-        2. Select and interpret the most relevant world context: using the provided context identify which entities, relationships, states, events, and historical facts are essential for fulfilling the request. Add them to output.
+        2. Select the most relevant world context: using the provided context identify which entities, relationships, states, events, and historical facts are essential for fulfilling the request. Copy them to output.
         Your plan must connect the final answer to the world’s history and logic, ensuring full world consistency.
         3. Apply narrative theory to construct a dramaturgical backbone. The plan must make use of established narrative frameworks, such as:
             - Fabula models (causal/temporal event networks)
@@ -72,7 +72,7 @@ SYSTEM_PROMPT_PLAN = """
         which pieces of context must be included
         where creative enhancements should appear
         how to satisfy the user’s expected final structure
-    F. Extracted essential context. A concise list of the most relevant pieces of provided context that the final generator must use.
+    F. Copy from input of the most essential context. IT IS THE MOST IMPORTANT PART, absolutely DO NOT skip it.
 
     RULES
          - Do not produce the final answer. Only produce the plan.
@@ -118,47 +118,8 @@ SYSTEM_PROMPT_FINAL_ANSWER = """
          - include meta explanations
 
     STRUCTURAL REQUIREMENTS
-    Your output must be clean and structured, with sections appropriate to the requested content. Choose the structure depending on the user’s goal. Examples:
-    If the user requests a character, include sections such as:
-        Name (if requested)
-        Role / Function
-        Appearance
-        Personality
-        Motivations
-        Backstory connected to world context
-        Key relationships
-        Conflicts
-        Current involvement in the narrative
-        Unique or symbolic elements
-    If the user requests a location:
-        Name
-        Visual description
-        Atmosphere
-        History linked to the world
-        Important features
-        Notable inhabitants or factions
-        Conflicts or narrative hooks
-        Symbolic or thematic notes
-    If the user requests a quest, event, or storyline:
-        Title
-        Premise
-        Objective
-        Conflict / Stakes
-        Key beats or stages
-        Consequences
-        Links to world context
-    If the user requests a list or multiple options: output exactly the number of items requested
-    Each item must be:
-         - concise
-         - distinct
-         - thematically grounded
-         - consistent with the world and plan
-    If the user requests names or terminology, provide a clean list of names (or names + ultra-short annotations), ensure the style matches cultural/linguistic patterns of the world (as inferred from context)
-    If the request is unconventional:
-         - Infer the structure from the plan
-         - Provide a clean, logically organized output
-         - Do not default to story prose
-
+    Your output must be clean and structured, with sections appropriate to the requested content. Choose the structure depending on the user’s goal. 
+    
     STYLE REQUIREMENTS
     Your final answer must be:
         Structured

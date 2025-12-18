@@ -4,7 +4,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.embeddings import Embeddings
 
 from nir.core.answers_generator import generate_answer_based_on_plan, generate_plan
-from nir.core.context_retriever import form_context_with_llm
+from nir.core.context_retriever import form_context_with_llm, form_context_without_llm
 from nir.data import loader
 from nir.embedding.vector_store_loader import VectorStoreInfo
 from nir.graph.graph_construction import create_embeddings, extract_graph, get_next_chunk_id, update_embeddings, update_graph
@@ -44,8 +44,14 @@ class Chat():
             if query == "q":
                 graph.save(filepath="assets/graphs/graph_map_short.json")
                 return 0
-            context = form_context_with_llm(query, self.graph, self.instruct_model, self.embedding_model, self.add_history)
+            context = form_context_without_llm(
+                query=query, 
+                graph=self.graph, 
+                embedding_model=self.embedding_model, 
+                add_history=self.add_history
+            )
             answer_plan = generate_plan(query, context, self.chat_model)
+            print(answer_plan)
             answer_final = generate_answer_based_on_plan(query, answer_plan, self.chat_model)
             print(answer_final)
 
@@ -86,33 +92,34 @@ instruct_model = manager.create_chat_model(
 #GRAPH CHOICE
 
 #this is for graph creation
-data = loader.loadTXT(
-    path="assets/documents/very short.txt"
-)
-chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
-graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph)
-vector_db_info = VectorStoreInfo(
-    type="chromadb",
-    info={ 
-        "name" : "very_short",
-        "path" : "assets/databases/chroma_db"
-    }
-)
-graph.create_vector_db(vector_db_info)
-create_embeddings(graph, graph.get_vector_db(), embedding_model)
-graph.save(filepath="assets/graphs/graph_very_short.json")
-graph.visualize(filepath="assets/outputs/very_short_graph.html")
+# data = loader.loadTXT(
+#     path="assets/documents/ali baba, or the forty thieves.txt"
+# )
+# chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
+# graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph)
+# vector_db_info = VectorStoreInfo(
+#     type="chromadb",
+#     info={ 
+#         "name" : "ali_baba_new",
+#         "path" : "assets/databases/chroma_db"
+#     }
+# )
+# graph.create_vector_db(vector_db_info)
+# create_embeddings(graph, graph.get_vector_db(), embedding_model)
+# graph.save(filepath="assets/graphs/graph_ali_baba.json")
+# graph.visualize(filepath="assets/outputs/ali_baba_graph.html")
 
 #this is for graph loading
-# graph = NetworkXGraph()
-# graph.load(
-#     filepath="assets/graphs/graph_map_short.json"
-# )
-# print(graph.get_vector_db())
-# data = loader.loadTXT(
-#     path="assets/documents/very short.txt"
-# )
-# update_graph_overall(graph, data, embedding_model, instruct_model)
+graph = NetworkXGraph()
+graph.load(
+    filepath="assets/graphs/graph_ali_baba.json"
+)
 
-# chat = Chat(chat_model, instruct_model, embedding_model, graph)
-# chat.start_chat()
+chat = Chat(
+    chat_model=chat_model, 
+    instruct_model=instruct_model, 
+    embedding_model=embedding_model, 
+    graph=graph,
+)
+chat.set_add_history(False)
+chat.start_chat()
