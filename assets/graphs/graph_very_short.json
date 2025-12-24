@@ -2,86 +2,68 @@
   "vector_store": {
     "type": "chromadb",
     "info": {
-      "name": "very_short",
+      "name": "very_short_new",
       "path": "assets/databases/chroma_db"
     }
   },
   "nodes": [
     {
       "id": "mira_stone",
-      "name": "Lord Darrin Vale",
+      "name": "Mira Stone",
       "type": "character",
-      "base_description": "The lord who receives news of Mira's arrival.",
-      "base_attributes": {},
+      "base_description": "A person who enters Arendale village holding an old compass and a half-burned map.",
+      "base_attributes": {
+        "possession": [
+          "old compass",
+          "half-burned map"
+        ]
+      },
       "states": [],
       "chunk_id": [
-        0,
-        1,
-        2
+        0
       ]
     },
     {
       "id": "arendale_village",
-      "name": "Village Inn",
+      "name": "Arendale Village",
       "type": "location",
-      "base_description": "The location where Mira meets Elias Thorn.",
+      "base_description": "The quiet village where Mira Stone enters.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
-        0,
+        0
+      ]
+    },
+    {
+      "id": "mira",
+      "name": "Mira",
+      "type": "character",
+      "base_description": "A person who meets Elias Thorn in a village inn and needs someone to read ancient symbols.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
         1
       ]
     },
     {
-      "id": "old_compass",
-      "name": "Old Compass",
-      "type": "item",
-      "base_description": "An old compass held by Mira Stone.",
+      "id": "elias_thorn",
+      "name": "Elias Thorn",
+      "type": "character",
+      "base_description": "A young scholar surrounded by scrolls who offers help to Mira.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
-        0
-      ]
-    },
-    {
-      "id": "halfburned_map",
-      "name": "Half-burned Map",
-      "type": "item",
-      "base_description": "A half-burned map held by Mira Stone.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        0
-      ]
-    },
-    {
-      "id": "crystal_caves",
-      "name": "Crystal Caves",
-      "type": "environment_element",
-      "base_description": "The Crystal Caves beneath Blackwood Forest.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        0
-      ]
-    },
-    {
-      "id": "ashen_concords_forbidden_paths",
-      "name": "Ashen Concord’s forbidden paths",
-      "type": "item",
-      "base_description": "The forbidden paths mentioned in connection with the Crystal Caves.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        0
+        1
       ]
     },
     {
       "id": "ancient_symbols",
       "name": "Ancient symbols",
-      "type": "environment_element",
-      "base_description": "Symbols that Mira needs someone to read.",
-      "base_attributes": {},
+      "type": "item",
+      "base_description": "The ancient symbols that Mira needs someone to read.",
+      "base_attributes": {
+        "category": "symbols"
+      },
       "states": [],
       "chunk_id": [
         1
@@ -89,54 +71,31 @@
     },
     {
       "id": "the_map",
-      "name": "That map",
+      "name": "The map",
       "type": "item",
-      "base_description": "The map that Lord Darrin Vale wants to prevent from reaching the caves.",
+      "base_description": "The map that Elias examines.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
-        1,
-        2
+        1
       ]
     },
     {
-      "id": "the_ashen_concord",
-      "name": "The Ashen Concord",
-      "type": "event",
-      "base_description": "An event that cost Lord Darrin Vale's family something significant (implied).",
+      "id": "village_inn",
+      "name": "Village Inn",
+      "type": "location",
+      "base_description": "The location where Mira meets Elias Thorn.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
-        2
+        1
       ]
     },
     {
-      "id": "lord_darrin_vale_receives_news_of_miras_arrival",
-      "name": "Lord Darrin Vale receives news of Mira’s arrival",
-      "type": "event",
-      "base_description": "The event where Lord Darrin Vale receives news about Mira's arrival.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        2
-      ]
-    },
-    {
-      "id": "lord_darrin_vale_signals_to_sergeant_lorne",
-      "name": "Lord Darrin Vale signals to Sergeant Lorne",
-      "type": "event",
-      "base_description": "The event where Lord Darrin Vale signals to Sergeant Lorne.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        2
-      ]
-    },
-    {
-      "id": "lord_darrin_vale_gives_orders_to_sergeant_lorne",
-      "name": "Lord Darrin Vale gives orders to Sergeant Lorne",
-      "type": "event",
-      "base_description": "The event where Lord Darrin Vale gives orders to Sergeant Lorne.",
+      "id": "lord_darrin_vale",
+      "name": "Sergeant Lorne",
+      "type": "character",
+      "base_description": "A character who is sent by Lord Darrin Vale to recover the map.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -145,9 +104,9 @@
     },
     {
       "id": "lord_darrin_vales_manor",
-      "name": "Lord Darrin Vale’s manor",
+      "name": "Lord Darrin Vale's manor",
       "type": "location",
-      "base_description": "The location where the events take place.",
+      "base_description": "The location where the scene takes place.",
       "base_attributes": {},
       "states": [],
       "chunk_id": [
@@ -157,66 +116,22 @@
   ],
   "edges": [
     {
-      "id": "mira_stone_enters_arendale_village",
+      "id": "mira_stone_is_located_in_arendale_village",
       "source": "mira_stone",
       "target": "arendale_village",
-      "relation": "enters",
-      "description": "",
+      "relation": "is located in",
+      "description": "Mira Stone is located in Arendale Village.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 0
     },
     {
-      "id": "mira_stone_walksinto_inn",
-      "source": "mira_stone",
-      "target": "arendale_village",
-      "relation": "walks_into",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "mira_stone_holds_old_compass",
-      "source": "mira_stone",
-      "target": "old_compass",
-      "relation": "holds",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "mira_stone_holds_halfburned_map",
-      "source": "mira_stone",
-      "target": "halfburned_map",
-      "relation": "holds",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "villager_whispersabout_mira_stone",
-      "source": "mira_stone",
+      "id": "arendale_village_contains_character_mira_stone",
+      "source": "arendale_village",
       "target": "mira_stone",
-      "relation": "whispers_about",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "mira_stone_iswhisperedabout_villager",
-      "source": "mira_stone",
-      "target": "mira_stone",
-      "relation": "is_whispered_about",
-      "description": "",
+      "relation": "contains character",
+      "description": "Mira Stone is located in Arendale Village.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
@@ -224,21 +139,10 @@
     },
     {
       "id": "mira_meets_elias_thorn",
-      "source": "mira_stone",
-      "target": "mira_stone",
+      "source": "mira",
+      "target": "elias_thorn",
       "relation": "meets",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "elias_thorn_metby_mira",
-      "source": "mira_stone",
-      "target": "mira_stone",
-      "relation": "met_by",
-      "description": "",
+      "description": "Mira meets Elias Thorn in the Village Inn.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
@@ -246,21 +150,54 @@
     },
     {
       "id": "mira_needs_ancient_symbols",
-      "source": "mira_stone",
+      "source": "mira",
       "target": "ancient_symbols",
       "relation": "needs",
-      "description": "",
+      "description": "Mira needs someone to read the ancient symbols.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 1
     },
     {
-      "id": "elias_thorn_hasstudied_ancient_symbols",
-      "source": "mira_stone",
+      "id": "mira_shows_the_map",
+      "source": "mira",
+      "target": "the_map",
+      "relation": "shows",
+      "description": "Mira shows the map to Elias.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mira_is_the_subject_of_news_lord_darrin_vale",
+      "source": "mira",
+      "target": "lord_darrin_vale",
+      "relation": "is the subject of news",
+      "description": "Lord Darrin Vale receives news about Mira's arrival.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "elias_thorn_is_met_by_mira",
+      "source": "elias_thorn",
+      "target": "mira",
+      "relation": "is met by",
+      "description": "Mira meets Elias Thorn in the Village Inn.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "elias_thorn_offers_help_with_ancient_symbols",
+      "source": "elias_thorn",
       "target": "ancient_symbols",
-      "relation": "has_studied",
-      "description": "",
+      "relation": "offers help with",
+      "description": "Elias offers help to Mira with the ancient symbols.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
@@ -268,241 +205,153 @@
     },
     {
       "id": "elias_thorn_examines_the_map",
-      "source": "mira_stone",
+      "source": "elias_thorn",
       "target": "the_map",
       "relation": "examines",
-      "description": "",
+      "description": "Elias examines the map.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 1
     },
     {
-      "id": "mira_involvedin_lord_darrin_vale_receives_news_of_miras_arrival",
-      "source": "mira_stone",
-      "target": "lord_darrin_vale_receives_news_of_miras_arrival",
-      "relation": "involved_in",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 2
-    },
-    {
-      "id": "lord_darrin_vale_signaledby_lord_darrin_vale_signals_to_sergeant_lorne",
-      "source": "mira_stone",
-      "target": "lord_darrin_vale_signals_to_sergeant_lorne",
-      "relation": "signaled_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 2
-    },
-    {
-      "id": "lord_darrin_vale_receivesorders_lord_darrin_vale_gives_orders_to_sergeant_lorne",
-      "source": "mira_stone",
-      "target": "lord_darrin_vale_gives_orders_to_sergeant_lorne",
-      "relation": "receives_orders",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 2
-    },
-    {
-      "id": "arendale_village_enteredby_mira_stone",
-      "source": "arendale_village",
-      "target": "mira_stone",
-      "relation": "entered_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "inn_wasin_mira_stone",
-      "source": "arendale_village",
-      "target": "mira_stone",
-      "relation": "was_in",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "blackwood_forest_locatedunderneath_crystal_caves",
-      "source": "arendale_village",
-      "target": "crystal_caves",
-      "relation": "located_underneath",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "old_compass_heldby_mira_stone",
-      "source": "old_compass",
-      "target": "mira_stone",
-      "relation": "held_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "halfburned_map_heldby_mira_stone",
-      "source": "halfburned_map",
-      "target": "mira_stone",
-      "relation": "held_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "crystal_caves_islocatedunderneath_blackwood_forest",
-      "source": "crystal_caves",
-      "target": "arendale_village",
-      "relation": "is_located_underneath",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "crystal_caves_isconnectedwith_ashen_concords_forbidden_paths",
-      "source": "crystal_caves",
-      "target": "ashen_concords_forbidden_paths",
-      "relation": "is_connected_with",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "ashen_concords_forbidden_paths_connectedwith_crystal_caves",
-      "source": "ashen_concords_forbidden_paths",
-      "target": "crystal_caves",
-      "relation": "connected_with",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "ancient_symbols_neededby_mira",
+      "id": "ancient_symbols_is_needed_by_mira",
       "source": "ancient_symbols",
-      "target": "mira_stone",
-      "relation": "needed_by",
-      "description": "",
+      "target": "mira",
+      "relation": "is needed by",
+      "description": "Mira needs someone to read the ancient symbols.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 1
     },
     {
-      "id": "ancient_symbols_hasbeenstudiedby_elias_thorn",
+      "id": "ancient_symbols_receives_help_from_elias_thorn",
       "source": "ancient_symbols",
-      "target": "mira_stone",
-      "relation": "has_been_studied_by",
-      "description": "",
+      "target": "elias_thorn",
+      "relation": "receives help from",
+      "description": "Elias offers help to Mira with the ancient symbols.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 1
     },
     {
-      "id": "the_map_wasexaminedby_elias_thorn",
+      "id": "the_map_is_shown_by_mira",
       "source": "the_map",
-      "target": "mira_stone",
-      "relation": "was_examined_by",
-      "description": "",
+      "target": "mira",
+      "relation": "is shown by",
+      "description": "Mira shows the map to Elias.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 1
     },
     {
-      "id": "the_ashen_concord_affects_lord_darrin_vale_receives_news_of_miras_arrival",
-      "source": "the_ashen_concord",
-      "target": "lord_darrin_vale_receives_news_of_miras_arrival",
-      "relation": "affects",
-      "description": "",
+      "id": "the_map_is_examined_by_elias_thorn",
+      "source": "the_map",
+      "target": "elias_thorn",
+      "relation": "is examined by",
+      "description": "Elias examines the map.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "the_map_is_the_subject_of_recovery_order_sergeant_lorne",
+      "source": "the_map",
+      "target": "lord_darrin_vale",
+      "relation": "is the subject of recovery order",
+      "description": "Sergeant Lorne is ordered to recover the map.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 2
     },
     {
-      "id": "lord_darrin_vale_receives_news_of_miras_arrival_involves_mira",
-      "source": "lord_darrin_vale_receives_news_of_miras_arrival",
-      "target": "mira_stone",
-      "relation": "involves",
-      "description": "",
+      "id": "lord_darrin_vale_receives_news_of_arrival_mira",
+      "source": "lord_darrin_vale",
+      "target": "mira",
+      "relation": "receives news of arrival",
+      "description": "Lord Darrin Vale receives news about Mira's arrival.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 2
     },
     {
-      "id": "lord_darrin_vale_receives_news_of_miras_arrival_affectedby_the_ashen_concord",
-      "source": "lord_darrin_vale_receives_news_of_miras_arrival",
-      "target": "the_ashen_concord",
-      "relation": "affected_by",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 2
-    },
-    {
-      "id": "lord_darrin_vale_receives_news_of_miras_arrival_occursin_lord_darrin_vales_manor",
-      "source": "lord_darrin_vale_receives_news_of_miras_arrival",
-      "target": "lord_darrin_vales_manor",
-      "relation": "occurs_in",
-      "description": "",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 2
-    },
-    {
-      "id": "lord_darrin_vale_signals_to_sergeant_lorne_signals_lord_darrin_vale",
-      "source": "lord_darrin_vale_signals_to_sergeant_lorne",
-      "target": "mira_stone",
+      "id": "lord_darrin_vale_signals_sergeant_lorne",
+      "source": "lord_darrin_vale",
+      "target": "lord_darrin_vale",
       "relation": "signals",
-      "description": "",
+      "description": "Lord Darrin Vale signals to Sergeant Lorne.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 2
     },
     {
-      "id": "lord_darrin_vale_gives_orders_to_sergeant_lorne_givesorders_lord_darrin_vale",
-      "source": "lord_darrin_vale_gives_orders_to_sergeant_lorne",
-      "target": "mira_stone",
-      "relation": "gives_orders",
-      "description": "",
+      "id": "sergeant_lorne_receives_signal_lord_darrin_vale",
+      "source": "lord_darrin_vale",
+      "target": "lord_darrin_vale",
+      "relation": "receives signal",
+      "description": "Lord Darrin Vale signals to Sergeant Lorne.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 2
     },
     {
-      "id": "lord_darrin_vales_manor_containsevent_lord_darrin_vale_receives_news_of_miras_arrival",
+      "id": "lord_darrin_vale_sends_sergeant_lorne",
+      "source": "lord_darrin_vale",
+      "target": "lord_darrin_vale",
+      "relation": "sends",
+      "description": "Lord Darrin Vale sends Sergeant Lorne on a mission.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "sergeant_lorne_receives_order_lord_darrin_vale",
+      "source": "lord_darrin_vale",
+      "target": "lord_darrin_vale",
+      "relation": "receives order",
+      "description": "Lord Darrin Vale sends Sergeant Lorne on a mission.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "sergeant_lorne_is_ordered_to_recover_the_map",
+      "source": "lord_darrin_vale",
+      "target": "the_map",
+      "relation": "is ordered to recover",
+      "description": "Sergeant Lorne is ordered to recover the map.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "lord_darrin_vale_is_located_at_lord_darrin_vales_manor",
+      "source": "lord_darrin_vale",
+      "target": "lord_darrin_vales_manor",
+      "relation": "is located at",
+      "description": "Lord Darrin Vale's manor is the location of Lord Darrin Vale.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "lord_darrin_vales_manor_located_in_lord_darrin_vale",
       "source": "lord_darrin_vales_manor",
-      "target": "lord_darrin_vale_receives_news_of_miras_arrival",
-      "relation": "contains_event",
-      "description": "",
+      "target": "lord_darrin_vale",
+      "relation": "located in",
+      "description": "Lord Darrin Vale's manor is the location of Lord Darrin Vale.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,

@@ -52,7 +52,7 @@ class Chat():
             )
             answer_plan = generate_plan(query, context, self.chat_model)
             print(answer_plan)
-            answer_final = generate_answer_based_on_plan(query, answer_plan, self.chat_model)
+            answer_final = generate_answer_based_on_plan(query, answer_plan, context, self.chat_model)
             print(answer_final)
 
             if_update = input("Update graph? (yes or no): ")
@@ -92,34 +92,34 @@ instruct_model = manager.create_chat_model(
 #GRAPH CHOICE
 
 #this is for graph creation
-# data = loader.loadTXT(
-#     path="assets/documents/ali baba, or the forty thieves.txt"
-# )
-# chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
-# graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph)
-# vector_db_info = VectorStoreInfo(
-#     type="chromadb",
-#     info={ 
-#         "name" : "ali_baba_new",
-#         "path" : "assets/databases/chroma_db"
-#     }
-# )
-# graph.create_vector_db(vector_db_info)
-# create_embeddings(graph, graph.get_vector_db(), embedding_model)
-# graph.save(filepath="assets/graphs/graph_ali_baba.json")
-# graph.visualize(filepath="assets/outputs/ali_baba_graph.html")
+data = loader.loadTXT(
+    path="assets/documents/very short.txt"
+)
+chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
+graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph)
+vector_db_info = VectorStoreInfo(
+    type="chromadb",
+    info={ 
+        "name" : "very_short_new",
+        "path" : "assets/databases/chroma_db"
+    }
+)
+graph.create_vector_db(vector_db_info)
+create_embeddings(graph, graph.get_vector_db(), embedding_model)
+graph.save(filepath="assets/graphs/graph_very_short.json")
+graph.visualize(filepath="assets/outputs/very_short_graph.html")
 
 #this is for graph loading
-graph = NetworkXGraph()
-graph.load(
-    filepath="assets/graphs/graph_ali_baba.json"
-)
+# graph = NetworkXGraph()
+# graph.load(
+#     filepath="assets/graphs/graph_ali_baba.json"
+# )
 
-chat = Chat(
-    chat_model=chat_model, 
-    instruct_model=instruct_model, 
-    embedding_model=embedding_model, 
-    graph=graph,
-)
-chat.set_add_history(False)
-chat.start_chat()
+# chat = Chat(
+#     chat_model=chat_model, 
+#     instruct_model=instruct_model, 
+#     embedding_model=embedding_model, 
+#     graph=graph,
+# )
+# chat.set_add_history(False)
+# chat.start_chat()

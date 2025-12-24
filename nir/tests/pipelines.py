@@ -128,5 +128,5 @@ class ThisNIRPipeline(BasePipeline):
                 max_tokens=self.max_tokens
             )
         answer_plan = generate_plan(query, context, self.llm)
-        response = generate_answer_based_on_plan(query, answer_plan, self.llm)
+        response = generate_answer_based_on_plan(query, answer_plan, context, self.llm)
         return str(response)

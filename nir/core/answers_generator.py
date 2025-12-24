@@ -12,14 +12,15 @@ plan_template = ChatPromptTemplate.from_messages([
 
 answer_template = ChatPromptTemplate.from_messages([
     ("system", answer_prompts.SYSTEM_PROMPT_FINAL_ANSWER),
-    ("human", "User request:\n{query}\n\n" + "Narrative plan:\n{plan}\n\n")])
+    ("human", "User request:\n{query}\n\n" + "Narrative plan:\n{plan}\n\n" + "Context: \n{context}\n\n")])
 
 def generate_plan(query: str, context: str, llm: BaseLanguageModel) -> str:
     chain_plan = plan_template | llm
     result = chain_plan.invoke(({"query": query, "context": context}))
+    print(result)
     return str(result)
 
-def generate_answer_based_on_plan(query: str, plan: str, llm: BaseLanguageModel) -> str:
+def generate_answer_based_on_plan(query: str, plan: str, context: str, llm: BaseLanguageModel) -> str:
     chain_final = answer_template | llm
-    result = chain_final.invoke(({"query": query, "plan": plan}))
+    result = chain_final.invoke(({"query": query, "plan": plan, "context": context}))
     return str(result)

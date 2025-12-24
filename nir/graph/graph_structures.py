@@ -53,7 +53,7 @@ class Node(BaseModel):
     name: str
     type: str
     base_description: str = ""
-    base_attributes: Dict[str, Any] = Field(default_factory=dict) # time_start, time_end for events are required
+    base_attributes: Dict[str, Any] = Field(default_factory=dict) # time for events is required
     states: List[State] = Field(default_factory=list)
     chunk_id: List[int]
 

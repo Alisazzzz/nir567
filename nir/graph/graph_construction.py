@@ -443,6 +443,8 @@ def apply_event_impact_on_graph(
         event: Node
     ) -> None:
     
+    print("APPLYING EVENT IMPACTS")
+    print(impact)
     eid = event.id
     if (impact.affected_nodes):
         for node in impact.affected_nodes:
@@ -487,31 +489,32 @@ def extract_events_impact(
         chunk_nodes = [node for node in nodes if idx in node.chunk_id]
         chunk_edges = [edge for edge in edges if idx == edge.chunk_id]
         event_names = [node.name for node in chunk_nodes if node.type == "event"]
+        print(event_names)
         entities_nodes = [node for node in chunk_nodes if node.type != "event"]
         entities_input_nodes = [create_input_node(node) for node in entities_nodes]
         chunk_input_edges = [create_input_edge(edge) for edge in chunk_edges]
 
-        if preserve_all_data:
-            events_impacts: EventsSubgraph = safe_chain_event.invoke({
-                "chunk_text": chunk.page_content,
-                "events_list": event_names,
-                "entities_list": entities_input_nodes,
-                "edges_list": chunk_input_edges
-            })
-        else:
-            result: GraphExtractionResult = safe_invoke_chain(
-                chain=chain_event, 
-                inputs={
+        if len(event_names) > 0: 
+            if preserve_all_data:
+                events_impacts: EventsSubgraph = safe_chain_event.invoke({
                     "chunk_text": chunk.page_content,
                     "events_list": event_names,
                     "entities_list": entities_input_nodes,
                     "edges_list": chunk_input_edges
-            })
-            if result == None:
-                break
-        print(events_impacts.events_with_impact)
-        if len(events_impacts.events_with_impact) > 0:
-            event_impacts_all.append(events_impacts.events_with_impact[0])
+                })
+            else:
+                result: GraphExtractionResult = safe_invoke_chain(
+                    chain=chain_event, 
+                    inputs={
+                        "chunk_text": chunk.page_content,
+                        "events_list": event_names,
+                        "entities_list": entities_input_nodes,
+                        "edges_list": chunk_input_edges
+                })
+                if result == None:
+                    break
+            if len(events_impacts.events_with_impact) > 0:
+                event_impacts_all.append(events_impacts.events_with_impact[0])
 
     return event_impacts_all
     
@@ -556,9 +559,12 @@ def extract_graph(
         llm=llm,
         preserve_all_data=preserve_all_data
     )  
+
     events_only = [node for node in nodes_in_graph if node.type == "event"]
-    for event in events_impacts:
+    print(nodes_in_graph)
+    for event in events_impacts:     
         for event_in_graph in events_only:
+            print (event_in_graph.name, event.event_name)
             if event_in_graph.name == event.event_name:
                 apply_event_impact_on_graph(graph, event, event_in_graph)
 
