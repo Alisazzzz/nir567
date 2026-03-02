@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="eng">
+   
+<head>
+    <meta charset="UTF-8">
+    <title>nir567</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/chat_styles.css">
+    <link rel="stylesheet" href="/static/graph_styles.css">
+</head>
+
+<body>
+
+<section id="config-section">
+
+    <h2>Graph</h2>
+    <div id="graph" class="infobox">
+        <div>
+            <strong>Current graph:</strong>
+            <button id="current-graph-btn" onclick="openGraphSelectModal()">no graph selected</button>
+        </div>
+        <div>
+            <strong>Source document:</strong>
+            <span id="graph-document-name">not loaded</span>
+        </div>
+    </div>
+    <div>
+        <button id="create-graph-btn" onclick="openCreateGraphModal()">Create new graph</button>
+    </div>
+
+    <hr>
+
+    <h2>Language models</h2>
+    <div>
+        <strong>Model for chat:</strong>
+        <button id="chat-model-btn" onclick="openModelSelectModal('chat')">no chat model selected</button>
+    </div>
+
+    <div>
+        <strong>Instruct model for graph construction:</strong>
+        <button id="graph-model-btn" onclick="openModelSelectModal('graph')">no instruct model selected</button>
+    </div>
+
+    <hr>
+
+    <h2>Embedding model</h2>
+    <div>
+        <strong>Embedding model:</strong>
+        <button id="embedding-model-btn" onclick="openModelSelectModal('embedding')">no embedding model selected</button>
+    </div>
+
+</section>
+
+<hr>
+
+<section id="chat-section">
+
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="chat">Chat</button>
+        <button class="tab-btn" data-tab="graph">Graph Visualization</button>
+    </div>
+    
+    <div id="chat-tab" class="tab-content active">
+        <div id="chat-window">
+        </div>
+        <template id="chat-answer-template">
+            <div class="chat-answer">
+                <p>Chat model:</p>
+                <div class="chat-message">
+                    <p>Chat answer text</p>
+                </div>
+                <button id="update-graph-btn" onclick="updateGraphFromChat()">Update graph</button>
+            </div>        
+        </template>
+        <template id="human-question-template">
+            <div class="human-question">
+                <div class="chat-message">
+                    <p>Human question text</p>
+                </div>
+            </div>
+        </template>
+        <br>
+        <textarea id="chat-input" rows="3" cols="60"
+                  placeholder="Type your message..."></textarea>
+        <br>
+        <button id="send-message-btn" onclick="sendMessage()">Send</button>      
+    </div>
+    
+    <div id="graph-tab" class="tab-content">
+        <div id="graph-container"></div>
+    </div>
+
+</section>
+
+<section id="right-section">
+
+    <div id="info-panel">
+
+        <div id="element-info">
+            <h3>Element information</h3>
+            <div id="element-details"></div>
+        </div>
+        
+        <div id="legend-section">
+            <h3>Legend</h3>
+            <div id="legend-content" style="margin-top: 10px;">
+                <div class="legend-item" style="display: flex; align-items: center; margin-bottom: 8px;">
+                    <div class="legend-color" style="width: 20px; height: 20px; background: #666; border-radius: 50%; margin-right: 8px;"></div>
+                    <div>Locations/environmental elements</div>
+                </div>
+                <div class="legend-item" style="display: flex; align-items: center; margin-bottom: 8px;">
+                    <div class="legend-color" style="width: 20px; height: 20px; background: #5d5d5d; border-radius: 50%; margin-right: 8px;"></div>
+                    <div>Characters/groups of characters</div>
+                </div>
+                <div class="legend-item" style="display: flex; align-items: center; margin-bottom: 8px;">
+                    <div class="legend-color" style="width: 20px; height: 20px; background: #4a4a4a; border-radius: 50%; margin-right: 8px;"></div>
+                    <div>Items</div>
+                </div>
+                <div class="legend-item" style="display: flex; align-items: center;">
+                    <div class="legend-color" style="width: 20px; height: 20px; background: #333; border-radius: 50%; margin-right: 8px;"></div>
+                    <div>Events</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Graph selection -->
+<div id="graph-select-modal" class="modal">
+    <h3>Select existing graph</h3>
+    <div id="if-no-graph">No graphs available</div>
+    <button onclick="cancelGraphSelection()">Close without saving</button>
+    <div id="graph-list"></div>
+    <button onclick="saveGraphSelection()">Save and close</button>
+</div>
+<template id="graph-item-template">
+    <div class="graph-item" data-filepath="">
+        <div class="graph-info">
+            <div class="graph-name"></div>
+            <div class="graph-document"></div>
+        </div>
+        <button class="graph-select-btn" type="button"></button>
+    </div>
+</template>
+
+<!-- Graph creation -->
+<div id="graph-create-modal" class="modal">
+    <h3>Create New Graph</h3>
+    <div class="form-group">
+        <label>Document for Graph Extraction:</label>
+        <div class="file-input-wrapper">
+            <input type="file" id="graph-doc-input" accept=".txt,.pdf,.csv" onchange="handleGraphFileSelect(this)">
+            <span class="file-name" id="graph-doc-name">No file selected</span>
+            <small class="file-hint">Available formats: txt, pdf, csv</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Graph Name:</label>
+        <input type="text" id="graph-name-input" placeholder="Enter graph name" class="form-input">
+    </div>
+    <div class="form-group">
+        <label>Embedding Model:</label>
+        <select id="embedding-model-select" class="form-select">
+            <option value="">Select embedding model</option>
+        </select>
+        <button type="button" onclick="openCreateModelModal()" class="btn-small">Create New Model</button>
+    </div>
+    <div class="modal-buttons">
+        <button type="button" onclick="cancelGraphCreation()">Exit and Cancel Changes</button>
+        <button type="button" onclick="createGraph()">Create Graph</button>
+    </div>
+</div>
+
+<!-- Embedding model creation -->
+<div id="create-embedding-modal" class="modal modal-overlay-top">
+    <h3>Create Embedding Model</h3>
+    <div class="form-group">
+        <label>Connection Type:</label>
+        <select id="connection-type-select" class="form-select" onchange="handleConnectionTypeChange()">
+            <option value="">Select connection type</option>
+            <option value="ollama">ollama</option>
+            <option value="openai">openai</option>
+            <option value="hf_local">hf_local</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Model:</label>
+        <input type="text" id="model-path-input" placeholder="Model name or path" class="form-input">
+    </div>
+    
+    <div class="form-group">
+        <label>Model Name:</label>
+        <input type="text" id="model-name-input" placeholder="Enter model name" class="form-input">
+    </div>
+    <div class="modal-buttons">
+        <button type="button" onclick="cancelModelCreation()">Exit and Cancel Changes</button>
+        <button type="button" onclick="createModel()">Create Model</button>
+    </div>
+</div>
+
+<template id="embedding-model-option-template">
+    <option value=""></option>
+</template> 
+
+<!-- Model selection -->
+<div id="model-select-modal">
+    <h3 id="model-modal-title">Select or create model for <span id="model-type-placeholder">[type]</span></h3>
+    <button onclick="closeModelSelectModal()">Close without saving</button>
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="select">Choose from saved</button>
+        <button class="tab-btn" data-tab="create">Create new model</button>
+    </div>
+    
+    <div id="select-tab" class="tab-content active">
+        <div id="model-list"></div>
+        <p id="if-no-models">No models are available. Create a new one.</p>
+        <button id="select-model-btn">Save and close</button>
+    </div>
+    
+    <div id="create-tab" class="tab-content">
+        <div>
+            <div class="setting-info">
+                <label>Option:</label>
+                <select id="connection-type">
+                    <option value="ollama">ollama local</option>
+                    <option value="openai">openai api</option>
+                    <option value="hf_local">hugging face local</option>
+                    <option value="hf_api">hugging face api</option>
+                </select>
+            </div>
+            
+            <div class="setting-info">
+                <label>Model name:</label>
+                <input type="text" id="model-name" placeholder="model_name:latest">
+            </div>
+            
+            <div class="setting-info">
+                <label>Temperature:</label>
+                <input type="number" id="temperature" value="0.7" min="0" max="1" step="0.1">
+            </div>
+            
+            <div class="setting-info">
+                <label>Max token size:</label>
+                <input type="number" id="max-tokens" value="1024" min="1">
+            </div>
+            
+            <div class="setting-info">
+                <label>Your name for model:</label>
+                <input type="text" id="model-display-name" placeholder="New model for things">
+            </div>
+            
+            <div class="setting-info" id="api-key-div">
+                <label>API-key:</label>
+                <input type="text" id="api-key" placeholder="SKD-1234L-GDRT-2654">
+            </div>
+        </div>
+        <button id="create-model-btn" onclick="saveModelSelection()">Create model</button>
+    </div>
+</div>
+<template id="model-item-template">
+    <div class="model-item" data-model-name="">
+        <div>
+            <div class="model-name">Model title</div>
+            <div class="model-option">Option</div>
+        </div>
+        <div class="model-item-info">
+            <div>model: <span class="model-item-name">[model_name:latest]</span></div>
+            <div>temperature: <span class="model-item-temperature">[0.2]</span></div>
+            <div>max tokens: <span class="model-item-tokens">[1024]</span></div>
+        </div>
+        <button class="model-select-btn">Select</button>
+    </div>
+</template>
+
+
+<div id="modal-overlay"></div>
+
+<script src="/static/chat.js"></script>
+<!--script src="/static/models.js"></script -->
+<script src="/static/graphs.js"></script>
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
+</body>
+
+</html>
