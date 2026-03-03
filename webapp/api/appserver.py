@@ -168,11 +168,12 @@ def select_model(model: models.SelectedModel):
         current_chat_model_name = model.name
         current_chat_model = model_manager.get_chat_model(model.name)
         current_max_tokens = model_manager.get_max_tokens_for_model(model.name)
-    elif model.model_type == "instruct":
+        return models.SelectedModel(name=current_chat_model_name, model_type=model.model_type)
+    else:
         global current_instruct_model_name, current_instruct_model
         current_instruct_model_name = model.name
         current_instruct_model = model_manager.get_chat_model(model.name)
-    return models.SelectedModel(model.name, model.model_type)
+        return models.SelectedModel(name=current_instruct_model_name, model_type=model.model_type)
 
 
 @router.post("/models/create-and-select", response_model=models.SelectedModel)
@@ -286,7 +287,7 @@ def create_graph(graph_info: models.GraphInfo):
 
 
 # embedding model modal window
-@router.get("/embedding/load-all", response_model=models.ExistingEmbedding)
+@router.get("/embedding/load-all", response_model=List[models.ExistingEmbedding])
 def load_all_embeddings():
     embeddings_models = model_manager.list_embedding_models()
     result = []

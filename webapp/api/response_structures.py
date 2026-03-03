@@ -17,7 +17,7 @@ from pydantic import BaseModel
 
 class ExistingGraph(BaseModel):
     filename: str
-    document: str
+    document: Optional[str] = "doc"
     is_current: bool
 
 class SelectedGraph(BaseModel):

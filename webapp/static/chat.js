@@ -1,83 +1,192 @@
-// js-file with all frontend logic about chat
+/* =========================================
+   CHAT LOGIC
+========================================= */
+
+const chatWindow = document.getElementById("chat-window");
+const chatInput = document.getElementById("chat-input");
+const sendButton = document.getElementById("btn-send-message");
+
+const checkboxAddHistory = document.getElementById("checkbox-add-history");
+const checkboxUseLLM = document.getElementById("checkbox-use-llm-filter");
+
+const userTemplate = document.getElementById("template-user-message");
+const assistantTemplate = document.getElementById("template-assistant-message");
+
+let isSending = false;
 
 
+/* =========================================
+   AUTO-RESIZE TEXTAREA
+========================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
-    //bind some tricky events to buttons and elements
-    bindButtons();
-});
-
-
-function bindButtons() {
-    //two tabs in chat section
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));            
-            this.classList.add('active');
-            
-            const tabName = this.getAttribute('data-tab');
-            const tabContent = document.getElementById(`${tabName}-tab`);
-            tabContent.classList.add('active');
-
-            const rightSection = document.getElementById('right-section');
-            if (tabName === 'graph') {
-                rightSection.style.display = 'flex';
-                if (!isGraphLoaded) { loadAndRenderGraph(); }
-            } else { 
-                rightSection.style.display = 'none'; 
-            }
-        });
-    });
-    
-    const activeTab = document.querySelector('.tab-btn.active');
-    if (activeTab && activeTab.getAttribute('data-tab') === 'graph') { loadAndRenderGraph(); }
+function autoResizeTextarea() {
+    chatInput.style.height = "auto";
+    chatInput.style.height = chatInput.scrollHeight + "px";
 }
 
+chatInput.addEventListener("input", autoResizeTextarea);
+
+
+/* =========================================
+   ADD MESSAGE TO CHAT
+========================================= */
+
+function appendUserMessage(text) {
+    const clone = userTemplate.content.cloneNode(true);
+    clone.querySelector(".message-text").textContent = text;
+    chatWindow.appendChild(clone);
+    scrollToBottom();
+}
+
+function appendAssistantMessage(text, modelName) {
+    const clone = assistantTemplate.content.cloneNode(true);
+
+    clone.querySelector(".message-text").textContent = text;
+    clone.querySelector(".model-name").textContent = modelName;
+
+    const updateBtn = clone.querySelector(".btn-update-graph");
+
+    updateBtn.addEventListener("click", () => {
+        updateGraphWithLastAnswer(text);
+    });
+
+    chatWindow.appendChild(clone);
+    scrollToBottom();
+}
+
+function appendSystemMessage(text) {
+    const div = document.createElement("div");
+    div.className = "chat-message assistant-message";
+    div.textContent = text;
+    chatWindow.appendChild(div);
+    scrollToBottom();
+}
+
+function scrollToBottom() {
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+
+/* =========================================
+   SEND MESSAGE
+========================================= */
+
 async function sendMessage() {
-    const text = document.getElementById("chat-input").value.trim();
+    if (isSending) return;
+
+    const text = chatInput.value.trim();
     if (!text) return;
-    addChatMessage("user", text);
-    document.getElementById("chat-input").value = "";
+
+    isSending = true;
+    sendButton.disabled = true;
+
+    appendUserMessage(text);
+
+    chatInput.value = "";
+    autoResizeTextarea();
+
     try {
         const response = await fetch("/api/chat", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ text: text })
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                text: text,
+                use_timestamps: checkboxUseLLM.checked,
+                add_history: checkboxAddHistory.checked
+            })
         });
+
         const data = await response.json();
-        addChatMessage("assistant", data.answer);
+
+        appendAssistantMessage(data.answer, data.model);
+
     } catch (error) {
-        console.error("Chat error:", error);
-        addChatMessage("assistant", "Error communicating with server");
+        appendSystemMessage("Error connecting to server.");
+        console.error(error);
+    }
+
+    isSending = false;
+    sendButton.disabled = false;
+}
+
+
+/* =========================================
+   UPDATE GRAPH
+========================================= */
+
+async function updateGraphWithLastAnswer(answerText) {
+    try {
+        await fetch("/api/graph/update", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                text: answerText
+            })
+        });
+
+        // если у тебя есть функция перерисовки графа:
+        if (typeof reloadGraphVisualization === "function") {
+            reloadGraphVisualization();
+        }
+
+    } catch (error) {
+        console.error("Error updating graph:", error);
     }
 }
 
-function addChatMessage(role, text) {
-    const chatWindow = document.getElementById("chat-window");
-    let templateId;
-    if (role === "user" || role === "Human") {
-        templateId = "human-question-template";
-    } else {
-        templateId = "chat-answer-template";
-    }
-    const template = document.getElementById(templateId);
-    const clone = template.content.cloneNode(true);
-    const paragraphs = clone.querySelectorAll("p");
-    
-    if (role === "user" || role === "Human") {
-        if (paragraphs.length > 0) {
-            paragraphs[0].textContent = text;
+
+/* =========================================
+   LOAD CHAT HISTORY
+   (вызывается извне)
+========================================= */
+
+/*
+Ожидаемый формат history:
+
+[
+  { role: "user", content: "Hello" },
+  { role: "assistant", content: "Hi there!" }
+]
+*/
+
+function loadChatHistory(historyArray) {
+    clearChat();
+
+    historyArray.forEach(message => {
+        if (message.role === "user") {
+            appendUserMessage(message.content);
+        } else if (message.role === "assistant") {
+            appendAssistantMessage(message.content, "previous model");
         }
-    } else {
-        if (paragraphs.length > 0) {
-            paragraphs[0].textContent = `Chat model (${role}):`;
-        }
-        if (paragraphs.length > 1) {
-            paragraphs[1].textContent = text;
-        }
-    }
-    chatWindow.appendChild(clone);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
+    });
 }
+
+function clearChat() {
+    chatWindow.innerHTML = "";
+}
+
+
+/* =========================================
+   KEYBOARD HANDLING
+========================================= */
+
+chatInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage();
+    }
+});
+
+sendButton.addEventListener("click", sendMessage);
+
+
+/* =========================================
+   EXPORT FUNCTIONS (для других файлов)
+========================================= */
+
+window.loadChatHistory = loadChatHistory;
+window.clearChat = clearChat;
