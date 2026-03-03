@@ -17,7 +17,7 @@ from langchain_core.language_models import BaseLanguageModel
 
 from nir.core.answers_generator import generate_answer_based_on_plan, generate_plan
 from nir.core.chat_history import ChatHistory
-from nir.core.context_retriever import form_context_without_llm
+from nir.core.context_retriever import form_context_with_llm, form_context_without_llm
 from nir.data import loader
 from nir.embedding.vector_store_loader import VectorStoreInfo
 from nir.graph.graph_construction import create_embeddings, extract_graph, get_next_chunk_id, update_embeddings
@@ -36,21 +36,22 @@ model_manager = ModelManager()
 #----------------------------------------------------
 
 router = APIRouter(prefix="/api")
-graphs_folder_path = './assets/graphs'
-history_folder_path = './assets/chats'
+graphs_folder_path = "./assets/graphs"
+history_folder_path = "./assets/chats"
+databases_folder_path = "./assets/databases/chroma_db"
 
 current_graph = NetworkXGraph()
-current_graph_path = ""
+current_graph_path = "" #filename.json
 
-current_chat_history = ChatHistory()
+current_chat_history = ChatHistory("")
 
 current_embedding_model: Embeddings
 current_chat_model: BaseLanguageModel
-current_chat_model_name = ""
+current_chat_model_name = "" #name
 current_instruct_model: BaseLanguageModel
-current_instruct_model_name = ""
+current_instruct_model_name = "" #name
 
-
+current_max_tokens = 0
 
 #--------------------------
 #-----additional stuff-----
@@ -91,17 +92,35 @@ def chat(message: models.ChatMessage):
         return models.ChatResponse(answer=answers.NO_MODEL_CHAT_ANSWER, model=answers.NO_MODEL_MODEL_TITLE)
     
     query = message.text
-    context = form_context_without_llm(
-        query=query, 
-        graph=current_graph, 
-        embedding_model=current_embedding_model, 
-        add_history=True
-    )
-    answer_plan = generate_plan(query, context, current_chat_model)
-    answer_final = generate_answer_based_on_plan(query, answer_plan, context, current_chat_model)
+    context = ""
+    if message.use_timestamps:
+        try:
+            context = form_context_with_llm(
+                query=query, 
+                graph=current_graph, 
+                llm=current_chat_model,
+                embedding_model=current_embedding_model, 
+                add_history=message.add_history
+            )
+        except:
+            return models.ChatResponse(answer=answers.ERROR_RETRIEVING_CONTEXT_ANSWER, model=current_chat_model_name)
+    else:
+        context = form_context_without_llm(
+            query=query, 
+            graph=current_graph, 
+            embedding_model=current_embedding_model, 
+            add_history=message.add_history
+        )
+    try:
+        answer_plan = generate_plan(query, context, current_chat_model)
+        answer_final = generate_answer_based_on_plan(query, answer_plan, context, current_chat_model)
+    except:
+        return models.ChatResponse(answer=answers.ERROR_GENERATING_ANSWER_ANSWER, model=current_chat_model_name)
 
     current_chat_history.add_message_to_history("user", query)
     current_chat_history.add_message_to_history("assistant", answer_final)
+    if current_chat_history.file_path:
+        current_chat_history.save()
 
     return models.ChatResponse(answer=answer_final, model=current_chat_model_name)
 
@@ -111,22 +130,22 @@ def chat(message: models.ChatMessage):
 #---------work with chat or instruct model----------
 #---------------------------------------------------
 
-@router.get("/models/get-current", response_model=models.ExistingModelShort)
-def get_current_model(type: models.ChatOrInstruct):
-    if (type == "chat"):
+@router.get("/models/get-current", response_model=models.SelectedModel)
+def get_current_model(request: models.ChatOrInstruct):
+    if (request.model_type == "chat"):
         if not current_chat_model_name == "":
-            return models.ExistingModelShort(filename=current_chat_model_name)
+            return models.SelectedModel(filename=current_chat_model_name, model_type="chat")
         else:
-            return models.ExistingModelShort(filename=answers.NO_CHAT_MODEL_SELECTED)
+            return models.SelectedModel(filename=answers.NO_CHAT_MODEL_SELECTED, model_type="chat")
     else:
-        if current_instruct_model_name != "":
-            return models.ExistingModelShort(filename=current_instruct_model_name)
+        if not current_instruct_model_name == "":
+            return models.SelectedModel(filename=current_instruct_model_name, model_type="instruct")
         else:
-            return models.ExistingModelShort(filename=answers.NO_INSTRUCT_MODEL_SELECTED)
+            return models.SelectedModel(filename=answers.NO_INSTRUCT_MODEL_SELECTED, model_type="instruct")
     
   
 @router.post("/models/load-all", response_model=List[models.ExistingModel])
-def load_models(type: models.ChatOrInstruct):
+def load_models(request: models.ChatOrInstruct):
     all_models = model_manager.list_chat_models()
     result = []
     for model in all_models:
@@ -136,41 +155,49 @@ def load_models(type: models.ChatOrInstruct):
             model_name=model.get("model_name"), 
             max_tokens=model.get("max_tokens"), 
             temperature=model.get("temperature"), 
-            is_current=(model.get("name") == current_chat_model_name if type.model_type == "chat" else model.get("name") == current_instruct_model_name)
+            is_current=(model.get("name") == current_chat_model_name if request.model_type == "chat" else model.get("name") == current_instruct_model_name)
         )
         result.append(existing_model)
     return result
 
 
 @router.post("/models/select", response_model=models.SelectedModel)
-def select_model(message: models.SelectedModel):
-    if message.model_type == "chat":
-        global current_chat_model_name, current_chat_model
-        current_chat_model_name = message.model_name
-        current_chat_model = model_manager.get_chat_model(message.model_name)
-    elif message.model_type == "instruct":
+def select_model(model: models.SelectedModel):
+    if model.model_type == "chat":
+        global current_chat_model_name, current_chat_model, current_max_tokens
+        current_chat_model_name = model.name
+        current_chat_model = model_manager.get_chat_model(model.name)
+        current_max_tokens = model_manager.get_max_tokens_for_model(model.name)
+    elif model.model_type == "instruct":
         global current_instruct_model_name, current_instruct_model
-        current_instruct_model_name = message.model_name
-        current_instruct_model = model_manager.get_chat_model(message.model_name)
-    return models.SelectedModel(message.model_name, message.model_type)
+        current_instruct_model_name = model.name
+        current_instruct_model = model_manager.get_chat_model(model.name)
+    return models.SelectedModel(model.name, model.model_type)
 
 
 @router.post("/models/create-and-select", response_model=models.SelectedModel)
-def create_and_select_model(message: models.ModelToCreate):
-    global current_chat_model, current_chat_model_name
+def create_and_select_model(model_info: models.ModelToCreate):
     model_config = ModelConfig(
-        model_name=message.model_name,
-        temperature=message.temperature,
-        max_tokens=message.max_tokens
+        model_name=model_info.model_name,
+        temperature=model_info.temperature,
+        max_tokens=model_info.max_tokens
     )
-    current_chat_model = model_manager.create_chat_model(
-        name=message.name,
-        option=message.option,
-        config=model_config,
-        api_info=message.api,
+    created_model = model_manager.create_chat_model(
+            name=model_info.name,
+            option=model_info.option,
+            config=model_config,
+            api_info=model_info.api,
     )
-    current_chat_model_name=message.name
-    return models.SelectedModel(model_name=current_chat_model_name, model_type=message.model_type)
+    if model_info.model_type == "chat":
+        global current_chat_model, current_chat_model_name
+        current_chat_model = created_model
+        current_chat_model_name=model_info.name
+        return models.SelectedModel(name=current_chat_model_name, model_type=model_info.model_type)
+    else:
+        global current_instruct_model, current_instruct_model_name
+        current_instruct_model = created_model
+        current_instruct_model_name=model_info.name
+        return models.SelectedModel(name=current_instruct_model_name, model_type=model_info.model_type)
 
 
 
@@ -185,13 +212,13 @@ def update_graph(text: models.ChatMessage):
     update_graph(chunks, current_instruct_model, current_embedding_model, current_graph)
     current_graph.save(current_graph_path)
     update_embeddings(current_graph, current_graph.get_vector_db(), current_embedding_model)
-    return models.ExistingGraph(filename=current_graph_path, document="doc", is_current=True)
+    return models.ExistingGraph(filename=current_graph_path, document=current_graph.get_document_filename(), is_current=True)
 
-    
+
 @router.get("/graph/get-current", response_model=models.ExistingGraph)
 def get_current_graph():
-    if (current_graph_path != ""):
-        return models.ExistingGraph(filename=current_graph_path, document="doc", is_current=True)
+    if not current_graph_path == "":
+        return models.ExistingGraph(filename=current_graph_path, document=current_graph.get_document_filename(), is_current=True)
     else:
         return models.ExistingGraph(filename=answers.NO_GRAPH_SELECTED, document=answers.NO_DOCUMENT_LOADED, is_current=False)
 
@@ -203,7 +230,7 @@ def load_graphs():
     filenames = [entry for entry in all_entries if os.path.isfile(os.path.join(graphs_folder_path, entry))]
     graphs = []
     for name in filenames:
-        graph = models.ExistingGraph(filename=name, document="doc", is_current=(name == current_graph_path))
+        graph = models.ExistingGraph(filename=name, document=current_graph.get_document_filename(), is_current=(name == current_graph_path))
         graphs.append(graph)
     return graphs
 
@@ -213,15 +240,15 @@ def select_graph(message: models.SelectedGraph):
     global current_graph_path, current_chat_history
     current_graph.load(filepath=os.path.join(graphs_folder_path, message.filepath))
     current_graph_path = message.filepath
-    chat_filepath = find_chat_history_by_graph(current_graph_path)
+    chat_filepath = find_chat_history_by_graph(os.path.join(graphs_folder_path, current_graph_path))
     history = []
     if chat_filepath != None: 
         current_chat_history = ChatHistory.load(chat_filepath)
         history = current_chat_history.messages
     return { 
-        "existing_graph" : models.ExistingGraph(filename=message.filepath, document="doc", is_current=True),
+        "existing_graph" : models.ExistingGraph(filename=message.filepath, document=current_graph.get_document_filename(), is_current=True),
         "chat_history" : models.ChatHistory(history)
-    }     
+    }
 
 
 # create graph modal window
@@ -232,24 +259,29 @@ def create_graph(graph_info: models.GraphInfo):
     chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
 
     current_embedding_model = model_manager.get_embedding_model(graph_info.embedding_model_name)
-    graph = extract_graph(chunks=chunks, llm=current_instruct_model, embedding_model=current_embedding_model, graph_class=NetworkXGraph)
+    try:
+        graph = extract_graph(chunks=chunks, llm=current_instruct_model, embedding_model=current_embedding_model, graph_class=NetworkXGraph)
+    except:
+        return models.ExistingGraph(filename=answers.ERROR_CREATING_GRAPH, document=graph_info.document_filepath, is_current=False)
     vector_db_info = VectorStoreInfo(
         type="chromadb",
         info={ 
             "name" : graph_info.graph_filename,
-            "path" : "assets/databases/chroma_db"
+            "path" : databases_folder_path
         }
     )
     graph.create_vector_db(vector_db_info)
     create_embeddings(graph, graph.get_vector_db(), current_embedding_model)
 
-    graph.save(filepath=os.path.join(graphs_folder_path, graph_info.graph_filename, ".json"))
+    filename = graph_info.graph_filename + ".json"
+    graph.save(filepath=os.path.join(graphs_folder_path, filename))
+    history_filename = graph_info.graph_filename + "_chat_history.json"
     current_chat_history = ChatHistory(
-        graph_path=os.path.join(graphs_folder_path, graph_info.graph_filename, ".json"), 
-        file_path=os.path.join(history_folder_path, graph_info.graph_filename, "_chat_history.json")
+        graph_path=os.path.join(graphs_folder_path, filename), 
+        file_path = os.path.join(history_folder_path, history_filename)
     )
     current_graph = graph
-    current_graph_path = os.path.join(graphs_folder_path, graph_info.graph_filename, ".json")
+    current_graph_path = graph_info.graph_filename + ".json"
     return models.ExistingGraph(filename=current_graph_path, document=graph_info.document_filepath, is_current=True)
 
 

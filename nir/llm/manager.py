@@ -165,6 +165,9 @@ class ModelManager:
 
     def get_chat_model(self, name: str) -> BaseLanguageModel:
         return self._chat_models[name]["instance"]
+    
+    def get_max_tokens_for_model(self, name: str) -> int:
+        return self._chat_models[name]["config"]["max_tokens"]
 
     def get_embedding_model(self, name: str) -> Embeddings:
         return self._embedding_models[name]["instance"]

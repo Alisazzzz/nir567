@@ -42,11 +42,8 @@ class ExistingModel(BaseModel):
     temperature: float
     is_current: bool
 
-class ExistingModelShort(BaseModel):
-    name: str
-
 class SelectedModel(BaseModel):
-    model_name: str
+    name: str
     model_type: str
 
 class ChatOrInstruct(BaseModel):
@@ -91,6 +88,9 @@ class EmbeddingsInfo(BaseModel):
 
 class ChatMessage(BaseModel):
     text: str
+    use_timestamps: Optional[bool] = False
+    add_history: Optional[bool] = False
+
 
 class ChatResponse(BaseModel):
     answer: str
