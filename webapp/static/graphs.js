@@ -12,13 +12,11 @@ tabButtons.forEach(btn => {
         tabButtons.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
-        tabContents.forEach(content => content.classList.remove("active"));
+        tabContents.forEach(c => c.classList.remove("active"));
+        document.getElementById("tab-" + btn.dataset.tab)
+            .classList.add("active");
 
-        const target = btn.dataset.tab;
-        document.getElementById("tab-" + target).classList.add("active");
-
-        // показываем правую панель только на graph вкладке
-        if (target === "graph") {
+        if (btn.dataset.tab === "graph") {
             infoPanel.classList.remove("hidden");
         } else {
             infoPanel.classList.add("hidden");
@@ -28,23 +26,29 @@ tabButtons.forEach(btn => {
 
 
 /* =========================================================
-   MODAL HELPERS
+   MODAL STACK SYSTEM
 ========================================================= */
 
 const modalOverlay = document.getElementById("modal-overlay");
+let modalStack = [];
 
 function openModal(modal) {
     modal.classList.remove("hidden");
+    modalStack.push(modal);
     modalOverlay.classList.remove("hidden");
 }
 
-function closeAllModals() {
-    document.querySelectorAll(".modal").forEach(m => m.classList.add("hidden"));
-    modalOverlay.classList.add("hidden");
+function closeTopModal() {
+    const modal = modalStack.pop();
+    if (modal) modal.classList.add("hidden");
+
+    if (modalStack.length === 0) {
+        modalOverlay.classList.add("hidden");
+    }
 }
 
 document.querySelectorAll(".modal-close, .modal-cancel")
-    .forEach(btn => btn.addEventListener("click", closeAllModals));
+    .forEach(btn => btn.addEventListener("click", closeTopModal));
 
 
 /* =========================================================
@@ -59,7 +63,6 @@ const modalCreateGraph = document.getElementById("modal-create-graph");
 const modalLoading = document.getElementById("modal-loading");
 
 const graphListContainer = document.getElementById("graph-list-container");
-
 const confirmSelectGraphBtn = document.getElementById("confirm-select-graph");
 const confirmCreateGraphBtn = document.getElementById("btn-confirm-create-graph");
 
@@ -78,18 +81,14 @@ let selectedEmbeddingModelName = null;
 ========================================================= */
 
 async function loadCurrentGraph() {
-    try {
-        const response = await fetch("/api/graph/get-current");
-        const data = await response.json();
+    const res = await fetch("/api/graph/get-current");
+    const data = await res.json();
 
-        if (data.is_current) {
-            currentGraphName.textContent = data.filename;
-            currentGraphDocument.textContent = data.document;
-            reloadGraphVisualization();
-        }
+    currentGraphName.textContent = data.filename;
+    currentGraphDocument.textContent = data.document;
 
-    } catch (err) {
-        console.error(err);
+    if (data.is_current) {
+        reloadGraphVisualization();
     }
 }
 
@@ -97,7 +96,7 @@ document.addEventListener("DOMContentLoaded", loadCurrentGraph);
 
 
 /* =========================================================
-   SELECT GRAPH
+   SELECT GRAPH (FRONTEND SELECTION ONLY)
 ========================================================= */
 
 btnSelectGraph.addEventListener("click", async () => {
@@ -106,50 +105,86 @@ btnSelectGraph.addEventListener("click", async () => {
 });
 
 async function loadAllGraphs() {
-    graphListContainer.innerHTML = "";
 
-    const response = await fetch("/api/graph/load-all");
-    const graphs = await response.json();
+    graphListContainer.innerHTML = "";
+    selectedGraphTemp = null;
+
+    const res = await fetch("/api/graph/load-all");
+    const graphs = await res.json();
+
+    const template = document.getElementById("graph-model-info-template");
 
     graphs.forEach(graph => {
-        const item = document.createElement("div");
-        item.className = "select-item";
-        item.textContent = graph.filename;
 
-        item.addEventListener("click", () => {
-            document.querySelectorAll(".select-item")
-                .forEach(i => i.classList.remove("selected"));
+        const clone = template.content.cloneNode(true);
+        const item = clone.querySelector(".select-item");
 
+        const nameEl = clone.querySelector(".select-graph-name");
+        const docEl = clone.querySelector(".select-graph-document");
+        const selectBtn = clone.querySelector(".select-graph-btn");
+        const currentLabel = clone.querySelector(".selected-graph-btn");
+
+        nameEl.textContent = graph.filename;
+        docEl.textContent = graph.document;
+
+        // начальное состояние из backend
+        if (graph.is_current) {
+            selectBtn.classList.add("hidden");
+            currentLabel.classList.remove("hidden");
+        }
+
+        selectBtn.addEventListener("click", () => {
+
+            // сброс состояния у всех
+            document.querySelectorAll(
+                "#graph-list-container .select-item"
+            ).forEach(card => {
+
+                card.classList.remove("selected");
+
+                const btn = card.querySelector(".select-graph-btn");
+                const lbl = card.querySelector(".selected-graph-btn");
+
+                btn.classList.remove("hidden");
+                lbl.classList.add("hidden");
+            });
+
+            // активируем текущую карточку
             item.classList.add("selected");
+            selectBtn.classList.add("hidden");
+            currentLabel.classList.remove("hidden");
+
             selectedGraphTemp = graph.filename;
         });
 
-        graphListContainer.appendChild(item);
+        graphListContainer.appendChild(clone);
     });
 }
 
+
+/* ===== CONFIRM GRAPH SELECTION ===== */
+
 confirmSelectGraphBtn.addEventListener("click", async () => {
+
     if (!selectedGraphTemp) return;
 
-    const response = await fetch("/api/graph/select", {
+    const res = await fetch("/api/graph/select", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ filepath: selectedGraphTemp })
     });
 
-    const data = await response.json();
+    const data = await res.json();
 
     currentGraphName.textContent = data.existing_graph.filename;
     currentGraphDocument.textContent = data.existing_graph.document;
 
-    if (data.chat_history && data.chat_history.history) {
-        if (typeof loadChatHistory === "function") {
-            loadChatHistory(data.chat_history.history);
-        }
+    if (data.chat_history?.history && typeof loadChatHistory === "function") {
+        loadChatHistory(data.chat_history.history);
     }
 
     reloadGraphVisualization();
-    closeAllModals();
+    closeTopModal();
 });
 
 
@@ -167,14 +202,13 @@ confirmCreateGraphBtn.addEventListener("click", async () => {
     const graphName = inputGraphName.value.trim();
 
     if (!file || !graphName || !selectedEmbeddingModelName) {
-        alert("Please fill all fields.");
+        alert("Fill all fields.");
         return;
     }
 
-    closeAllModals();
     openModal(modalLoading);
 
-    const response = await fetch("/api/graph/create-and-select", {
+    const res = await fetch("/api/graph/create-and-select", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -184,13 +218,15 @@ confirmCreateGraphBtn.addEventListener("click", async () => {
         })
     });
 
-    const data = await response.json();
+    const data = await res.json();
 
     currentGraphName.textContent = data.filename;
     currentGraphDocument.textContent = data.document;
 
     reloadGraphVisualization();
-    closeAllModals();
+
+    closeTopModal(); // loading
+    closeTopModal(); // create modal
 });
 
 
@@ -205,8 +241,8 @@ async function reloadGraphVisualization() {
     if (!currentGraphName.textContent ||
         currentGraphName.textContent === "no graph selected") return;
 
-    const response = await fetch("/assets/graphs/" + currentGraphName.textContent);
-    const graphData = await response.json();
+    const res = await fetch("/assets/graphs/" + currentGraphName.textContent);
+    const graphData = await res.json();
 
     const nodes = new vis.DataSet(graphData.nodes);
     const edges = new vis.DataSet(graphData.edges);
@@ -217,39 +253,8 @@ async function reloadGraphVisualization() {
         physics: { stabilization: false }
     });
 
-    network.on("click", params => handleGraphClick(params, graphData));
-}
-
-
-/* =========================================================
-   GRAPH CLICK HANDLING
-========================================================= */
-
-function handleGraphClick(params, graphData) {
-
-    const container = document.getElementById("element-info-container");
-    container.innerHTML = "";
-
-    if (params.nodes.length > 0) {
-        const nodeId = params.nodes[0];
-        const node = graphData.nodes.find(n => n.id === nodeId);
-
-        container.innerHTML = `
-            <div><strong>${node.label}</strong></div>
-            <div>Type: ${node.type}</div>
-            <div>${node.description || ""}</div>
-        `;
-    }
-
-    if (params.edges.length > 0) {
-        const edgeId = params.edges[0];
-        const edge = graphData.edges.find(e => e.id === edgeId);
-
-        container.innerHTML = `
-            <div><strong>${edge.label}</strong></div>
-            <div>${edge.description || ""}</div>
-        `;
-    }
+    network.on("click", params =>
+        handleGraphClick(params, graphData));
 }
 
 
@@ -258,6 +263,8 @@ function handleGraphClick(params, graphData) {
 ========================================================= */
 
 const btnSelectEmbedding = document.getElementById("btn-select-embedding");
+const btnOpenCreateEmbedding = document.getElementById("btn-open-create-embedding");
+
 const modalSelectEmbedding = document.getElementById("modal-select-embedding");
 const modalCreateEmbedding = document.getElementById("modal-create-embedding");
 
@@ -271,7 +278,7 @@ const inputEmbeddingApi = document.getElementById("input-embedding-api");
 let selectedEmbeddingTemp = null;
 
 
-/* ===== OPEN SELECT EMBEDDING ===== */
+/* ===== OPEN EMBEDDING SELECT ===== */
 
 btnSelectEmbedding.addEventListener("click", async () => {
     await loadAllEmbeddings();
@@ -284,32 +291,51 @@ btnSelectEmbedding.addEventListener("click", async () => {
 async function loadAllEmbeddings() {
 
     embeddingListContainer.innerHTML = "";
+    selectedEmbeddingTemp = null;
 
-    const response = await fetch("/api/embedding/load-all");
-    const embeddings = await response.json();
+    const res = await fetch("/api/embedding/load-all");
+    const embeddings = await res.json();
+
+    const template = document.getElementById("embedding-model-info-template");
 
     embeddings.forEach(model => {
-        const item = document.createElement("div");
-        item.className = "select-item";
-        item.textContent = model.name;
 
-        item.addEventListener("click", () => {
-            document.querySelectorAll("#embedding-list-container .select-item")
-                .forEach(i => i.classList.remove("selected"));
+        const clone = template.content.cloneNode(true);
+        const item = clone.querySelector(".select-item");
 
-            item.classList.add("selected");
-            selectedEmbeddingTemp = model.name;
-        });
+        const nameEl = clone.querySelector(".select-embedding-name");
+        const infoEl = clone.querySelector(".select-embedding-info");
+        const selectBtn = clone.querySelector(".select-embedding-btn");
+        const currentLabel = clone.querySelector(".selected-embedding-btn");
 
-        embeddingListContainer.appendChild(item);
+        nameEl.textContent = model.name;
+        infoEl.textContent = `${model.option} | ${model.model_name || ""}`;
+
+        if (model.name === selectedEmbeddingModelName) {
+            selectBtn.classList.add("hidden");
+            currentLabel.classList.remove("hidden");
+        } else {
+
+            selectBtn.addEventListener("click", () => {
+
+                document.querySelectorAll(
+                    "#embedding-list-container .select-item"
+                ).forEach(i => i.classList.remove("selected"));
+
+                item.classList.add("selected");
+                selectedEmbeddingTemp = model.name;
+            });
+        }
+
+        embeddingListContainer.appendChild(clone);
     });
 }
 
 
-/* ===== CONFIRM SELECT EMBEDDING ===== */
+/* ===== CONFIRM EMBEDDING ===== */
 
 document.getElementById("confirm-select-embedding")
-    ?.addEventListener("click", async () => {
+    .addEventListener("click", async () => {
 
         if (!selectedEmbeddingTemp) return;
 
@@ -323,30 +349,25 @@ document.getElementById("confirm-select-embedding")
         });
 
         selectedEmbeddingModelName = selectedEmbeddingTemp;
-        document.getElementById("selected-embedding-model").textContent =
-            selectedEmbeddingModelName;
 
-        closeAllModals();
+        document.getElementById("current-embedding-name")
+            .textContent = selectedEmbeddingTemp;
+
+        document.getElementById("selected-embedding-model")
+            .textContent = selectedEmbeddingTemp;
+
+        closeTopModal();
     });
 
 
 /* ===== CREATE EMBEDDING ===== */
 
-document.getElementById("btn-create-embedding")
-    ?.addEventListener("click", () => {
-        openModal(modalCreateEmbedding);
-    });
-
-
-// открыть создание embedding из выбора
-document.getElementById("btn-open-create-embedding")
-    ?.addEventListener("click", () => {
-        document.getElementById("modal-select-embedding").classList.add("hidden");
-        openModal(document.getElementById("modal-create-embedding"));
+btnOpenCreateEmbedding.addEventListener("click", () => {
+    openModal(modalCreateEmbedding);
 });
 
 document.getElementById("confirm-create-embedding")
-    ?.addEventListener("click", async () => {
+    .addEventListener("click", async () => {
 
         const name = inputEmbeddingName.value.trim();
         const option = inputEmbeddingOption.value;
@@ -362,26 +383,28 @@ document.getElementById("confirm-create-embedding")
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                name: name,
-                option: option,
+                name,
+                option,
                 model_name: modelName,
                 api_info: api
             })
         });
 
         selectedEmbeddingModelName = name;
+
+        document.getElementById("current-embedding-name").textContent = name;
         document.getElementById("selected-embedding-model").textContent = name;
 
-        closeAllModals();
+        closeTopModal();
+        closeTopModal();
     });
 
 
-/* ===== SHOW/HIDE API FIELD ===== */
+/* ===== API FIELD VISIBILITY ===== */
 
 const embeddingApiGroup = document.getElementById("embedding-api-group");
 
-inputEmbeddingOption?.addEventListener("change", () => {
-
+inputEmbeddingOption.addEventListener("change", () => {
     if (inputEmbeddingOption.value === "openai") {
         embeddingApiGroup.classList.remove("hidden");
     } else {

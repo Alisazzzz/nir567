@@ -18,6 +18,7 @@ class NetworkXGraph(KnowledgeGraph):
         self.vectore_db = None
         self.vector_db_info = None
         self.document_filename = None
+        self.connected_embedding = None
 
     def add_node(self, node: Node) -> None:
         self.graph.add_node(
@@ -153,6 +154,7 @@ class NetworkXGraph(KnowledgeGraph):
         
         data = {
             "connected_document": self.document_filename,
+            "connected_embedding": self.connected_embedding,
             "vector_store": self.vector_db_info.model_dump(), 
             "nodes": nodes_data, 
             "edges": edges_data
@@ -166,6 +168,7 @@ class NetworkXGraph(KnowledgeGraph):
             data = json.load(f)
         self.create_vector_db(VectorStoreInfo.model_validate(data["vector_store"]))
         self.document_filename = data["connected_document"]
+        self.connected_embedding = data["connected_embedding"]
         for node_dict in data["nodes"]:
             node = Node(**node_dict)
             self.add_node(node)
@@ -182,6 +185,12 @@ class NetworkXGraph(KnowledgeGraph):
     def create_vector_db(self, config: VectorStoreInfo) -> None:
         self.vector_db_info = config
         self.vectore_db = create_vector_store(config)
+
+    def set_embedding_model(self, model_name: str) -> None:
+        self.connected_embedding=model_name
+
+    def get_embedding_model(self) -> str:
+        return self.connected_embedding
 
     def visualize(self, filepath: str):
 

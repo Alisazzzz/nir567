@@ -10,7 +10,24 @@
                 "extra": {}
             },
             "api_info": ""
+        },
+        "test_llama": {
+            "option": "ollama",
+            "model_name": "llama3.1:8b-instruct-q6_K",
+            "config": {
+                "model_name": "llama3.1:8b-instruct-q6_K",
+                "temperature": 0.7,
+                "max_tokens": 1024,
+                "extra": {}
+            },
+            "api_info": ""
         }
     },
-    "embedding_models": {}
+    "embedding_models": {
+        "stardard_embedding": {
+            "option": "ollama",
+            "model_name": "nomic-embed-text:v1.5",
+            "api_info": null
+        }
+    }
 }

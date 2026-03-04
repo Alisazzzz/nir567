@@ -89,6 +89,14 @@ class KnowledgeGraph(ABC):
         pass
 
     @abstractmethod
+    def set_embedding_model(self, model_name: str) -> None:
+        pass
+
+    @abstractmethod
+    def get_embedding_model(self) -> str:
+        pass
+
+    @abstractmethod
     def visualize(self) -> None:
         pass
 

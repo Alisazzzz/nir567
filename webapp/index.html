@@ -140,7 +140,7 @@
                 <div class="chat-options-vertical">
                     <label>
                         <input type="checkbox" id="checkbox-add-history">
-                        Add chat history to context
+                        Add world history to context
                     </label>
 
                     <label>
@@ -243,11 +243,11 @@
         <div id="graph-list-container"></div>
     </div>
 
-    <template>
+    <template id="graph-model-info-template">
         <div class="select-item">
             <div class="select-graph-name"></div>
             <div class="select-graph-document"></div>
-            <button class="btn btn-small btn-primary select-graph-btn"></button>
+            <button class="btn btn-small btn-primary select-graph-btn">Select</button>
             <div class="selected-graph-btn hidden">current</div>
         </div>
     </template>
@@ -290,6 +290,9 @@
                         id="btn-select-embedding">
                     Select
                 </button>
+                <button class="btn btn-secondary" id="btn-open-create-embedding">
+                    Create new
+                </button>
             </div>
         </div>
 
@@ -317,11 +320,11 @@
         <div id="embedding-list-container"></div>
     </div>
 
-    <template>
+    <template id="embedding-model-info-template">
         <div class="select-item">
             <div class="select-embedding-name"></div>
             <div class="select-embedding-info"></div>
-            <button class="btn btn-small btn-primary select-embedding-btn"></button>
+            <button class="btn btn-small btn-primary select-embedding-btn">Select</button>
             <div class="selected-embedding-btn hidden">current</div>
         </div>
     </template>
@@ -330,9 +333,6 @@
         <button class="btn btn-secondary modal-cancel">Cancel</button>
         <button class="btn btn-primary" id="confirm-select-embedding">
             Select
-        </button>
-        <button class="btn btn-secondary" id="btn-open-create-embedding">
-            Create new
         </button>
     </div>
 
@@ -360,7 +360,7 @@
                 <option value="">Select option</option>
                 <option value="ollama">ollama</option>
                 <option value="openai">openai</option>
-                <option value="hf_local">huggingface local</option>
+                <option value="hf_local">hugging face local</option>
             </select>
         </div>
 
@@ -397,7 +397,7 @@
         <div id="model-list-container"></div>
     </div>
 
-    <template>
+    <template id="chat-model-info-template">
         <div class="select-item">
             <div class="select-chat-name"></div>
             <div class="select-chat-info">
@@ -405,7 +405,7 @@
                 <div class="info-chat-model-temp"></div>
                 <div class="info-chat-model-tokens"></div>
             </div>
-            <button class="btn btn-small btn-primary select-chat-btn"></button>
+            <button class="btn btn-small btn-primary select-chat-btn">Select</button>
             <div class="selected-chat-btn hidden">current</div>
         </div>
     </template>

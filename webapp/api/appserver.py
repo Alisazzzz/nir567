@@ -130,18 +130,18 @@ def chat(message: models.ChatMessage):
 #---------work with chat or instruct model----------
 #---------------------------------------------------
 
-@router.get("/models/get-current", response_model=models.SelectedModel)
+@router.post("/models/get-current", response_model=models.SelectedModel)
 def get_current_model(request: models.ChatOrInstruct):
     if (request.model_type == "chat"):
         if not current_chat_model_name == "":
-            return models.SelectedModel(filename=current_chat_model_name, model_type="chat")
+            return models.SelectedModel(name=current_chat_model_name, model_type="chat")
         else:
-            return models.SelectedModel(filename=answers.NO_CHAT_MODEL_SELECTED, model_type="chat")
+            return models.SelectedModel(name=answers.NO_CHAT_MODEL_SELECTED, model_type="chat")
     else:
         if not current_instruct_model_name == "":
-            return models.SelectedModel(filename=current_instruct_model_name, model_type="instruct")
+            return models.SelectedModel(name=current_instruct_model_name, model_type="instruct")
         else:
-            return models.SelectedModel(filename=answers.NO_INSTRUCT_MODEL_SELECTED, model_type="instruct")
+            return models.SelectedModel(name=answers.NO_INSTRUCT_MODEL_SELECTED, model_type="instruct")
     
   
 @router.post("/models/load-all", response_model=List[models.ExistingModel])
@@ -238,7 +238,7 @@ def load_graphs():
 
 @router.post("/graph/select", response_model=Dict[str, Any])
 def select_graph(message: models.SelectedGraph):
-    global current_graph_path, current_chat_history
+    global current_graph_path, current_chat_history, current_embedding_model
     current_graph.load(filepath=os.path.join(graphs_folder_path, message.filepath))
     current_graph_path = message.filepath
     chat_filepath = find_chat_history_by_graph(os.path.join(graphs_folder_path, current_graph_path))
@@ -246,9 +246,11 @@ def select_graph(message: models.SelectedGraph):
     if chat_filepath != None: 
         current_chat_history = ChatHistory.load(chat_filepath)
         history = current_chat_history.messages
+    current_embedding_model = model_manager.get_embedding_model(current_graph.get_embedding_model())
     return { 
         "existing_graph" : models.ExistingGraph(filename=message.filepath, document=current_graph.get_document_filename(), is_current=True),
-        "chat_history" : models.ChatHistory(history)
+        "chat_history" : models.ChatHistory(history=history),
+        "embedding_model_name": current_graph.get_embedding_model()
     }
 
 
@@ -273,6 +275,7 @@ def create_graph(graph_info: models.GraphInfo):
     )
     graph.create_vector_db(vector_db_info)
     create_embeddings(graph, graph.get_vector_db(), current_embedding_model)
+    graph.set_embedding_model(graph_info.embedding_model_name)
 
     filename = graph_info.graph_filename + ".json"
     graph.save(filepath=os.path.join(graphs_folder_path, filename))

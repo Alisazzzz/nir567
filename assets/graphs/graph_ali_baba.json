@@ -1,4 +1,5 @@
 {
+  "connected_document": "ali baba, or the forty thieves.txt",
   "vector_store": {
     "type": "chromadb",
     "info": {
