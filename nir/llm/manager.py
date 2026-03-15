@@ -171,6 +171,12 @@ class ModelManager:
 
     def get_embedding_model(self, name: str) -> Embeddings:
         return self._embedding_models[name]["instance"]
+    
+    def get_embedding_model_info(self, name: str) -> Dict[str, str]:
+        return {
+            "option": self._embedding_models[name]["option"],
+            "model_name": self._embedding_models[name]["model_name"]
+        }
 
     def list_chat_models(self) -> List[Dict[str, Any]]:
         result = []

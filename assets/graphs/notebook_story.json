@@ -1,0 +1,280 @@
+{
+  "connected_document": null,
+  "connected_embedding": "stardard_embedding",
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "notebook_story",
+      "path": "./assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "little_girl",
+      "name": "Little girl",
+      "type": "character",
+      "base_description": "A little girl sitting on the bed in her bedroom who asks about their cat.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "world_recreation_little_girl",
+          "current_description": "A little girl sitting on the bed in her bedroom who asks about their cat.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "father",
+      "name": "Father",
+      "type": "character",
+      "base_description": "The father staying in doors who encourages the mother to tell the story.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "world_recreation_father",
+          "current_description": "The father staying in doors who encourages the mother to tell the story.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "mother",
+      "name": "Mother",
+      "type": "character",
+      "base_description": "The mother sitting on the bed next to her daughter who is looking for her notebook.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "world_recreation_mother",
+          "current_description": "The mother sitting on the bed next to her daughter who is looking for her notebook.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "cat",
+      "name": "Mother's notebook",
+      "type": "item",
+      "base_description": "The notebook that the mother needs to tell the story and that the cat finds.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "world_recreation_cat",
+          "current_description": "The notebook that the mother needs to tell the story and that the cat finds.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "little_girls_bedroom",
+      "name": "Little girl's bedroom",
+      "type": "location",
+      "base_description": "The bedroom where the little girl is sitting on the bed.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "world_recreation",
+      "name": "World Recreation",
+      "type": "event",
+      "base_description": "A historical event mentioned in the context of the story.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "rock",
+      "name": "Rock",
+      "type": "environment_element",
+      "base_description": "Not explicitly mentioned in the text, but implied as a comparison subject by the father's question.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "little_girl_is_located_mothers_notebook",
+      "source": "little_girl",
+      "target": "cat",
+      "relation": "is located",
+      "description": "The little girl's mother's notebook is located under the bed and found by the cat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "little_girl_interacts_with_cat",
+      "source": "little_girl",
+      "target": "cat",
+      "relation": "interacts with",
+      "description": "The little girl interacts with the cat, who finds her mother's notebook.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "father_encourages_mother",
+      "source": "father",
+      "target": "mother",
+      "relation": "encourages",
+      "description": "The father encourages the mother to tell the story.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "father_speaks_to_mother",
+      "source": "father",
+      "target": "mother",
+      "relation": "speaks to",
+      "description": "The mother says something to the father.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "father_is_looking_at_cat",
+      "source": "father",
+      "target": "cat",
+      "relation": "is looking at",
+      "description": "The father is looking at the cat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "father_compares_to_rock",
+      "source": "father",
+      "target": "rock",
+      "relation": "compares to",
+      "description": "The father compares the cat to a rock.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "mother_is_encouraged_by_father",
+      "source": "mother",
+      "target": "father",
+      "relation": "is encouraged by",
+      "description": "The father encourages the mother to tell the story.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mother_says_something_to_father",
+      "source": "mother",
+      "target": "father",
+      "relation": "says something to",
+      "description": "The mother says something to the father.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "mother_mentions_world_recreation",
+      "source": "mother",
+      "target": "world_recreation",
+      "relation": "mentions",
+      "description": "The mother mentions the World Recreation event during the story.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mothers_notebook_contains_little_girl",
+      "source": "cat",
+      "target": "little_girl",
+      "relation": "contains",
+      "description": "The little girl's mother's notebook is located under the bed and found by the cat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "cat_affects_little_girl",
+      "source": "cat",
+      "target": "little_girl",
+      "relation": "affects",
+      "description": "The little girl interacts with the cat, who finds her mother's notebook.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "cat_is_looked_at_by_father",
+      "source": "cat",
+      "target": "father",
+      "relation": "is looked at by",
+      "description": "The father is looking at the cat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "world_recreation_is_mentioned_in_mother",
+      "source": "world_recreation",
+      "target": "mother",
+      "relation": "is mentioned in",
+      "description": "The mother mentions the World Recreation event during the story.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "rock_is_compared_by_father",
+      "source": "rock",
+      "target": "father",
+      "relation": "is compared by",
+      "description": "The father compares the cat to a rock.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    }
+  ]
+}

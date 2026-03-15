@@ -197,7 +197,6 @@ btnCreateGraph.addEventListener("click", () => {
 });
 
 confirmCreateGraphBtn.addEventListener("click", async () => {
-
     const file = inputGraphDocument.files[0];
     const graphName = inputGraphName.value.trim();
 
@@ -208,14 +207,18 @@ confirmCreateGraphBtn.addEventListener("click", async () => {
 
     openModal(modalLoading);
 
+    // Создаем FormData для отправки файла
+    const formData = new FormData();
+    formData.append("document", file);
+    formData.append("graph_filename", graphName);
+    formData.append("embedding_model_name", selectedEmbeddingModelName);
+
+    console.log(selectedEmbeddingModelName);
+    // Важно: не устанавливаем Content-Type вручную для FormData, 
+    // браузер сам добавит boundary
     const res = await fetch("/api/graph/create-and-select", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            document_filepath: file.name,
-            graph_filename: graphName,
-            embedding_model_name: selectedEmbeddingModelName
-        })
+        body: formData 
     });
 
     const data = await res.json();

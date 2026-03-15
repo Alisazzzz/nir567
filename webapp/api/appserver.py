@@ -9,7 +9,8 @@
 
 import json
 import os
-from fastapi import APIRouter
+from fastapi import APIRouter, Form, UploadFile, File
+import shutil
 from typing import Any, Dict, List, Optional
 
 from langchain_core.embeddings import Embeddings
@@ -39,6 +40,8 @@ router = APIRouter(prefix="/api")
 graphs_folder_path = "./assets/graphs"
 history_folder_path = "./assets/chats"
 databases_folder_path = "./assets/databases/chroma_db"
+documents_folder_path = "./assets/documents"
+os.makedirs(documents_folder_path, exist_ok=True)
 
 current_graph = NetworkXGraph()
 current_graph_path = "" #filename.json
@@ -256,37 +259,75 @@ def select_graph(message: models.SelectedGraph):
 
 # create graph modal window
 @router.post("/graph/create-and-select", response_model=models.ExistingGraph)
-def create_graph(graph_info: models.GraphInfo):
+async def create_graph(document: UploadFile = File(...), graph_filename: str = Form(...), embedding_model_name: str = Form(...)):
     global current_graph, current_graph_path, current_chat_history
-    data = loader.loadTXT(path=graph_info.document_filepath)
-    chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
-
-    current_embedding_model = model_manager.get_embedding_model(graph_info.embedding_model_name)
+    print(embedding_model_name)
+    # 1. Сохраняем загруженный файл на диск
+    file_extension = os.path.splitext(document.filename)[1]
+    saved_filename = f"{graph_filename}{file_extension}"
+    file_path = os.path.join(documents_folder_path, saved_filename)
+    
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(document.file, buffer)
+    
+    # 2. Загружаем файл через loader (теперь путь валиден)
+    # Проверка расширения для выбора лоадера
+    if file_extension.lower() == ".txt":
+        data = loader.loadTXT(path=file_path)
+    elif file_extension.lower() == ".csv":
+        data = loader.loadCSV(path=file_path)
+    else:
+        # По умолчанию пытаемcя как текст
+        data = loader.loadTXT(path=file_path)
+    
+    chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0, chunk_size=1000, chunk_overlap=100)
+    
+    current_embedding_model = model_manager.get_embedding_model(embedding_model_name)
+    
     try:
-        graph = extract_graph(chunks=chunks, llm=current_instruct_model, embedding_model=current_embedding_model, graph_class=NetworkXGraph)
-    except:
-        return models.ExistingGraph(filename=answers.ERROR_CREATING_GRAPH, document=graph_info.document_filepath, is_current=False)
+        graph = extract_graph(
+            chunks=chunks, 
+            llm=current_instruct_model, 
+            embedding_model=current_embedding_model, 
+            graph_class=NetworkXGraph
+        )
+    except Exception as e:
+        print(f"Error creating graph: {e}")
+        return models.ExistingGraph(
+            filename=answers.ERROR_CREATING_GRAPH, 
+            document=saved_filename, 
+            is_current=False
+        )
+    
+    # ... остальной код создания графа без изменений ...
     vector_db_info = VectorStoreInfo(
         type="chromadb",
         info={ 
-            "name" : graph_info.graph_filename,
-            "path" : databases_folder_path
+            "name": graph_filename,
+            "path": databases_folder_path
         }
     )
     graph.create_vector_db(vector_db_info)
     create_embeddings(graph, graph.get_vector_db(), current_embedding_model)
-    graph.set_embedding_model(graph_info.embedding_model_name)
+    graph.set_embedding_model(embedding_model_name)
 
-    filename = graph_info.graph_filename + ".json"
-    graph.save(filepath=os.path.join(graphs_folder_path, filename))
-    history_filename = graph_info.graph_filename + "_chat_history.json"
+    json_filename = f"{graph_filename}.json"
+    graph.save(filepath=os.path.join(graphs_folder_path, json_filename))
+    
+    history_filename = f"{graph_filename}_chat_history.json"
     current_chat_history = ChatHistory(
-        graph_path=os.path.join(graphs_folder_path, filename), 
-        file_path = os.path.join(history_folder_path, history_filename)
+        graph_path=os.path.join(graphs_folder_path, json_filename), 
+        file_path=os.path.join(history_folder_path, history_filename)
     )
+    
     current_graph = graph
-    current_graph_path = graph_info.graph_filename + ".json"
-    return models.ExistingGraph(filename=current_graph_path, document=graph_info.document_filepath, is_current=True)
+    current_graph_path = json_filename
+    
+    return models.ExistingGraph(
+        filename=current_graph_path, 
+        document=saved_filename, 
+        is_current=True
+    )
 
 
 # embedding model modal window
@@ -308,7 +349,8 @@ def load_all_embeddings():
 def select_embedding(selected: models.SelectedEmbedding):
     global current_embedding_model
     current_embedding_model = model_manager.get_embedding_model(selected.name)
-    return models.ExistingEmbedding(name=selected.name, option=selected.model_type)
+    current_model_name = model_manager.get_embedding_model_info(selected.name)["model_name"]
+    return models.ExistingEmbedding(name=selected.name, model_name=current_model_name, option=selected.model_type)
 
 
 @router.post("/embedding/create-and-select", response_model=models.ExistingEmbedding)
@@ -320,4 +362,4 @@ def create_embedding_model(embeddings_info: models.EmbeddingsInfo):
         model_name=embeddings_info.model_name,
         api_info=embeddings_info.api_info
     )
-    return models.ExistingEmbedding(name=embeddings_info.name, option=embeddings_info.option)
+    return models.ExistingEmbedding(name=embeddings_info.name, model_name=embeddings_info.model_name, option=embeddings_info.option)
