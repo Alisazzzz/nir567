@@ -7,7 +7,7 @@
 #--------------------------
 
 from typing import Any, Dict, List, Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 
@@ -28,6 +28,54 @@ class GraphInfo(BaseModel):
     graph_filename: str
     embedding_model_name: str
 
+
+
+#-----------------------------------------------------
+#---------structures for graph visualization----------
+#-----------------------------------------------------
+
+class VisualizationNodeInfo(BaseModel):
+    id: str
+    name: str
+    type: str
+
+class VisualizationEdgeInfo(BaseModel):
+    id: str
+    relation: str
+    source: Optional[str]
+    target: Optional[str]
+    weight: float = 1.0
+
+class GraphVisualizationInfo(BaseModel):
+    nodes: List[VisualizationNodeInfo]
+    edges: List[VisualizationEdgeInfo]
+
+class State(BaseModel):
+    current_description: str = ""
+    current_attributes: Dict[str, Any]
+    time_start_event: Optional[str] = None
+    time_end_event: Optional[str] = None
+
+class DetailedNodeInfo(BaseModel): 
+    id: str
+    name: str
+    type: str
+    base_description: str = ""
+    base_attributes: Optional[Dict[str, Any]] = None
+    states: List[State] = Field(default_factory=list)
+
+class DetailedEdgeInfo(BaseModel):
+    id: str
+    source: Optional[str]
+    target: Optional[str]
+    relation: str
+    description: str = ""
+    weight: float = 1.0
+    time_start_event: Optional[str] = None
+    time_end_event: Optional[str] = None
+
+class ChosenElement(BaseModel):
+    id: str
 
 
 #----------------------------------------

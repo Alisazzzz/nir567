@@ -232,35 +232,6 @@ confirmCreateGraphBtn.addEventListener("click", async () => {
     closeTopModal(); // create modal
 });
 
-
-/* =========================================================
-   GRAPH VISUALIZATION
-========================================================= */
-
-let network = null;
-
-async function reloadGraphVisualization() {
-
-    if (!currentGraphName.textContent ||
-        currentGraphName.textContent === "no graph selected") return;
-
-    const res = await fetch("/assets/graphs/" + currentGraphName.textContent);
-    const graphData = await res.json();
-
-    const nodes = new vis.DataSet(graphData.nodes);
-    const edges = new vis.DataSet(graphData.edges);
-
-    const container = document.getElementById("graph-container");
-
-    network = new vis.Network(container, { nodes, edges }, {
-        physics: { stabilization: false }
-    });
-
-    network.on("click", params =>
-        handleGraphClick(params, graphData));
-}
-
-
 /* =========================================================
    EMBEDDING LOGIC
 ========================================================= */
@@ -413,4 +384,434 @@ inputEmbeddingOption.addEventListener("change", () => {
     } else {
         embeddingApiGroup.classList.add("hidden");
     }
+});
+
+/* =========================================================
+   GRAPH VISUALIZATION
+========================================================= */
+
+let network = null;
+let selectedElement = null;
+let selectedElementType = null; // 'node' or 'edge'
+
+// Цвета для разных типов вершин
+const nodeTypeColors = {
+    location: '#FF6B6B',      // красный
+    character: '#4ECDC4',     // бирюзовый
+    item: '#FFE66D',          // желтый
+    event: '#95E1D3',         // мятный
+    organization: '#A8E6CF',  // светло-зеленый
+    person: '#FF8B94',        // розовый
+    default: '#74B9FF'        // голубой
+};
+
+// Функция получения цвета для типа вершины
+function getNodeColor(nodeType) {
+    const type = nodeType ? nodeType.toLowerCase() : 'default';
+    return nodeTypeColors[type] || nodeTypeColors.default;
+}
+
+async function reloadGraphVisualization() {
+    if (!currentGraphName.textContent ||
+        currentGraphName.textContent === "no graph selected") return;
+
+    try {
+        // Получаем данные графа с бэкенда
+        const res = await fetch("/api/graph/visualize");
+        const graphData = await res.json();
+
+        // Преобразуем узлы для Vis.js
+        const visNodes = new vis.DataSet(
+            graphData.nodes.map(node => ({
+                id: node.id,
+                label: node.name,
+                title: node.type, // tooltip
+                color: {
+                    background: getNodeColor(node.type),
+                    border: '#2C3E50',
+                    highlight: {
+                        background: getNodeColor(node.type),
+                        border: '#E74C3C'
+                    }
+                },
+                shape: 'dot',
+                size: 25,
+                font: {
+                    size: 14,
+                    color: '#2C3E50',
+                    face: 'Arial'
+                },
+                borderWidth: 2,
+                shadow: true
+            }))
+        );
+
+        // Преобразуем рёбра для Vis.js
+        const visEdges = new vis.DataSet(
+            graphData.edges.map(edge => ({
+                id: edge.id,
+                from: edge.source,
+                to: edge.target,
+                label: edge.relation,
+                title: edge.relation, // tooltip
+                width: Math.max(1, edge.weight),
+                color: {
+                    color: '#95A5A6',
+                    highlight: '#E74C3C'
+                },
+                font: {
+                    size: 11,
+                    color: '#7F8C8D',
+                    align: 'middle'
+                },
+                smooth: {
+                    type: 'continuous',
+                    roundness: 0.2
+                },
+                arrows: {
+                    to: {
+                        enabled: true,
+                        scaleFactor: 0.5,
+                        type: 'arrow'
+                    }
+                }
+            }))
+        );
+
+        const container = document.getElementById("graph-container");
+
+        // Опции для сети
+        const options = {
+            physics: {
+                enabled: true,
+                stabilization: {
+                    enabled: true,
+                    iterations: 200
+                },
+                barnesHut: {
+                    gravitationalConstant: -3000,
+                    centralGravity: 0.3,
+                    springLength: 150,
+                    springConstant: 0.04,
+                    damping: 0.09
+                }
+            },
+            nodes: {
+                shape: 'dot',
+                size: 25,
+                font: {
+                    size: 14,
+                    face: 'Arial'
+                },
+                borderWidth: 2,
+                shadow: true
+            },
+            edges: {
+                width: 1,
+                font: {
+                    size: 11,
+                    align: 'middle'
+                },
+                smooth: {
+                    type: 'continuous'
+                },
+                arrows: {
+                    to: {
+                        enabled: true,
+                        scaleFactor: 0.5
+                    }
+                }
+            },
+            interaction: {
+                hover: true,
+                tooltipDelay: 200,
+                zoomView: true,
+                dragView: true,
+                dragNodes: true,
+                hideEdgesOnDrag: false,
+                selectConnectedEdges: false
+            }
+        };
+
+        // Создаём сеть
+        if (network) {
+            network.destroy();
+        }
+        
+        network = new vis.Network(container, { nodes: visNodes, edges: visEdges }, options);
+
+        // Обработчик клика
+        network.on("click", (params) => {
+            handleGraphClick(params);
+        });
+
+        // Обновляем легенду
+        updateLegend(graphData.nodes);
+
+    } catch (error) {
+        console.error("Error loading graph visualization:", error);
+    }
+}
+
+// Обработка клика по графу
+async function handleGraphClick(params) {
+    // Сбрасываем предыдущее выделение
+    if (network && selectedElement) {
+        network.unselectAll();
+    }
+
+    // Если кликнули на узел
+    if (params.nodes.length > 0) {
+        const nodeId = params.nodes[0];
+        selectedElement = nodeId;
+        selectedElementType = 'node';
+        
+        // Выделяем узел
+        network.selectNodes([nodeId]);
+        
+        // Получаем подробную информацию
+        await loadNodeInfo(nodeId);
+        return;
+    }
+
+    // Если кликнули на ребро
+    if (params.edges.length > 0) {
+        const edgeId = params.edges[0];
+        selectedElement = edgeId;
+        selectedElementType = 'edge';
+        
+        // Выделяем ребро
+        network.selectEdges([edgeId]);
+        
+        // Получаем подробную информацию
+        await loadEdgeInfo(edgeId);
+        return;
+    }
+
+    // Если кликнули на пустое место - снимаем выделение
+    selectedElement = null;
+    selectedElementType = null;
+    hideElementInfo();
+}
+
+// Загрузка информации о вершине
+async function loadNodeInfo(nodeId) {
+    try {
+        const response = await fetch("/api/graph/get-node-info", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ id: nodeId })
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to load node info");
+        }
+
+        const nodeInfo = await response.json();
+        displayNodeInfo(nodeInfo);
+        
+    } catch (error) {
+        console.error("Error loading node info:", error);
+    }
+}
+
+// Загрузка информации о ребре
+async function loadEdgeInfo(edgeId) {
+    try {
+        console.log(edgeId);
+        const response = await fetch("/api/graph/get-edge-info", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ id: edgeId })
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to load edge info");
+        }
+
+        const edgeInfo = await response.json();
+        displayEdgeInfo(edgeInfo);
+        
+    } catch (error) {
+        console.error("Error loading edge info:", error);
+    }
+}
+
+// Отображение информации о вершине
+function displayNodeInfo(nodeInfo) {
+    const container = document.getElementById("element-info-container");
+    const template = document.getElementById("template-node-info");
+    
+    // Очищаем контейнер
+    container.innerHTML = "";
+    
+    // Клонируем шаблон
+    const clone = template.content.cloneNode(true);
+    
+    // Заполняем данные
+    const entityType = clone.querySelector(".entity-type");
+    const entityName = clone.querySelector(".entity-name");
+    const entityDescription = clone.querySelector(".entity-description");
+    const entityAttributes = clone.querySelector(".entity-attributes");
+    const entityStates = clone.querySelector(".entity-states");
+    
+    // Тип и имя
+    entityType.textContent = nodeInfo.type || "Unknown Type";
+    entityType.style.color = getNodeColor(nodeInfo.type);
+    entityName.textContent = nodeInfo.name || "Unnamed";
+    
+    // Описание
+    if (nodeInfo.base_description) {
+        entityDescription.innerHTML = `<strong>Description:</strong><p>${nodeInfo.base_description}</p>`;
+    } else {
+        entityDescription.innerHTML = "";
+    }
+    
+    // Атрибуты
+    if (nodeInfo.base_attributes && Object.keys(nodeInfo.base_attributes).length > 0) {
+        let attrsHtml = "<strong>Attributes:</strong><ul>";
+        for (const [key, value] of Object.entries(nodeInfo.base_attributes)) {
+            attrsHtml += `<li><strong>${key}:</strong> ${value}</li>`;
+        }
+        attrsHtml += "</ul>";
+        entityAttributes.innerHTML = attrsHtml;
+    } else {
+        entityAttributes.innerHTML = "";
+    }
+    
+    // Состояния
+    if (nodeInfo.states && nodeInfo.states.length > 0) {
+        let statesHtml = "<strong>States:</strong><div class='states-list'>";
+        nodeInfo.states.forEach((state, index) => {
+            statesHtml += `
+                <div class='state-item'>
+                    <div class='state-header'>State ${index + 1}</div>
+                    ${state.current_description ? `<p>${state.current_description}</p>` : ''}
+                    ${state.time_start_event ? `<div><small>Start: ${state.time_start_event}</small></div>` : ''}
+                    ${state.time_end_event ? `<div><small>End: ${state.time_end_event}</small></div>` : ''}
+                </div>
+            `;
+        });
+        statesHtml += "</div>";
+        entityStates.innerHTML = statesHtml;
+    } else {
+        entityStates.innerHTML = "";
+    }
+    
+    // Добавляем в контейнер
+    container.appendChild(clone);
+    
+    // Показываем панель
+    document.getElementById("element-info-card").classList.remove("hidden");
+}
+
+// Отображение информации о ребре
+function displayEdgeInfo(edgeInfo) {
+    const container = document.getElementById("element-info-container");
+    const template = document.getElementById("template-edge-info");
+    
+    // Очищаем контейнер
+    container.innerHTML = "";
+    
+    // Клонируем шаблон
+    const clone = template.content.cloneNode(true);
+    
+    // Заполняем данные
+    const relationName = clone.querySelector(".relation-name");
+    const relationTimestamps = clone.querySelector(".relation-timestamps");
+    const relationDescription = clone.querySelector(".relation-description");
+    const relationWeight = clone.querySelector(".relation-weight");
+    
+    // Название отношения
+    relationName.innerHTML = `<strong>Relation:</strong> ${edgeInfo.relation || "Unknown"}`;
+    
+    // Временные метки
+    if (edgeInfo.time_start_event || edgeInfo.time_end_event) {
+        let timeHtml = "<strong>Timestamps:</strong><ul>";
+        if (edgeInfo.time_start_event) {
+            timeHtml += `<li>Start: ${edgeInfo.time_start_event}</li>`;
+        }
+        if (edgeInfo.time_end_event) {
+            timeHtml += `<li>End: ${edgeInfo.time_end_event}</li>`;
+        }
+        timeHtml += "</ul>";
+        relationTimestamps.innerHTML = timeHtml;
+    } else {
+        relationTimestamps.innerHTML = "";
+    }
+    
+    // Описание
+    if (edgeInfo.description) {
+        relationDescription.innerHTML = `<strong>Description:</strong><p>${edgeInfo.description}</p>`;
+    } else {
+        relationDescription.innerHTML = "";
+    }
+    
+    // Вес
+    relationWeight.innerHTML = `<strong>Weight:</strong> ${edgeInfo.weight || 1.0}`;
+    
+    // Добавляем в контейнер
+    container.appendChild(clone);
+    
+    // Показываем панель
+    document.getElementById("element-info-card").classList.remove("hidden");
+}
+
+// Скрыть информацию об элементе
+function hideElementInfo() {
+    const container = document.getElementById("element-info-container");
+    container.innerHTML = "";
+    document.getElementById("element-info-card").classList.add("hidden");
+}
+
+// Обновление легенды
+function updateLegend(nodes) {
+    const legendContainer = document.querySelector("#legend-card .legend");
+    if (!legendContainer) return;
+    
+    // Получаем уникальные типы
+    const types = [...new Set(nodes.map(node => node.type).filter(Boolean))];
+    
+    // Очищаем легенду (кроме статических элементов, если есть)
+    legendContainer.innerHTML = "";
+    
+    // Добавляем элементы легенды
+    types.forEach(type => {
+        const legendItem = document.createElement("div");
+        legendItem.className = "legend-item";
+        
+        const colorDiv = document.createElement("div");
+        colorDiv.className = "legend-color";
+        colorDiv.style.backgroundColor = getNodeColor(type);
+        
+        const span = document.createElement("span");
+        span.textContent = type.charAt(0).toUpperCase() + type.slice(1) + "s";
+        
+        legendItem.appendChild(colorDiv);
+        legendItem.appendChild(span);
+        legendContainer.appendChild(legendItem);
+    });
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener("DOMContentLoaded", () => {
+    // Дополнительные обработчики для переключения вкладок
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            if (btn.dataset.tab === "graph" && network) {
+                // Перерисовываем сеть при переключении на вкладку графа
+                setTimeout(() => {
+                    if (network) {
+                        network.fit();
+                        network.redraw();
+                    }
+                }, 100);
+            }
+        });
+    });
 });

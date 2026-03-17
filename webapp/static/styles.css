@@ -471,3 +471,96 @@ select:focus {
 ::-webkit-scrollbar-thumb:hover {
     background: #9ca3af;
 }
+
+/* =========================================================
+   GRAPH VISUALIZATION STYLES
+========================================================= */
+
+#graph-container {
+    width: 100%;
+    height: calc(100vh - 200px);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+/* Element Info Styles */
+.entity-info, .relation-info {
+    padding: 10px 0;
+}
+
+.entity-type, .relation-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.entity-name {
+    font-size: 24px;
+    color: #2C3E50;
+    margin: 10px 0;
+}
+
+.entity-description, .relation-description {
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.entity-attributes ul, .relation-timestamps ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.entity-attributes li, .relation-timestamps li {
+    padding: 5px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.states-list {
+    margin-top: 10px;
+}
+
+.state-item {
+    background: #f8f9fa;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border-left: 3px solid #4ECDC4;
+}
+
+.state-header {
+    font-weight: bold;
+    color: #2C3E50;
+    margin-bottom: 5px;
+}
+
+.state-item small {
+    color: #7F8C8D;
+}
+
+/* Legend Styles */
+.legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #2C3E50;
+}
+
+/* Card hidden state */
+.hidden {
+    display: none !important;
+}

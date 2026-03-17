@@ -329,6 +329,59 @@ async def create_graph(document: UploadFile = File(...), graph_filename: str = F
         is_current=True
     )
 
+# graph visualization
+@router.get("/graph/visualize", response_model=models.GraphVisualizationInfo)
+def visualize_graph():
+    result_nodes = []
+    nodes = current_graph.get_all_nodes()
+    for node in nodes:
+        result_node = models.VisualizationNodeInfo(
+            id=node.id,
+            name=node.name,
+            type=node.type
+        )
+        result_nodes.append(result_node)
+    result_edges = []
+    edges = current_graph.get_all_edges()
+    for edge in edges:
+        result_edge = models.VisualizationEdgeInfo(
+            id=edge.id,
+            relation=edge.relation,
+            source=edge.source,
+            target=edge.target,
+            weight=edge.weight
+        )
+        result_edges.append(result_edge)
+    return models.GraphVisualizationInfo(nodes=result_nodes, edges=result_edges)
+
+@router.post("/graph/get-node-info", response_model=models.DetailedNodeInfo)
+def get_node_info(element: models.ChosenElement):
+    node = current_graph.get_node_by_id(element.id)
+    result_info = models.DetailedNodeInfo(
+        id=node.id,
+        name=node.name,
+        type=node.type,
+        base_description=node.base_description,
+        base_attributes=node.base_attributes,
+        states=[s.model_dump() for s in node.states]
+    )
+    return result_info
+
+@router.post("/graph/get-edge-info", response_model=models.DetailedEdgeInfo)
+def get_edge_info(element: models.ChosenElement):
+    edge = current_graph.get_edge_by_id(element.id)
+    result_info = models.DetailedEdgeInfo(
+        id=edge.id,
+        source=edge.source,
+        target=edge.target,
+        relation=edge.relation,
+        description=edge.description,
+        weight=edge.weight,
+        time_start_event=edge.time_start_event,
+        time_end_event=edge.time_end_event
+    )
+    return result_info
+
 
 # embedding model modal window
 @router.get("/embedding/load-all", response_model=List[models.ExistingEmbedding])
