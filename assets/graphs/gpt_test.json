@@ -1,0 +1,351 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "notebook_story",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "little_girl",
+      "name": "Little girl",
+      "type": "character",
+      "base_description": "Little girl, daughter of the family, who sits on the bed, asks her mother to tell a story about their cat, and reacts with excitement saying WOW.",
+      "base_attributes": {
+        "age": "little",
+        "family_role": "daughter",
+        "role": "daughter"
+      },
+      "states": [
+        {
+          "sid": "story_about_cat_little_girl",
+          "current_description": "Little girl, daughter of the family, who sits on the bed, asks her mother to tell a story about their cat, reacts with excitement saying WOW, and is now listening to the story about the cat's origins and World Recreation.",
+          "current_attributes": {
+            "age": "little",
+            "family_role": "daughter",
+            "role": "daughter"
+          },
+          "time_start_event": "Story about cat",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [0]
+    },
+    {
+      "id": "father",
+      "name": "Father",
+      "type": "character",
+      "base_description": "Father of the little girl, staying indoors, looks at the cat and addresses it as a mister demon, asking whether it is more interesting to be a cat than a rock, and encourages Maria to tell the story.",
+      "base_attributes": {
+        "family_role": "father"
+      },
+      "states": [],
+      "chunk_id": [0]
+    },
+    {
+      "id": "mother",
+      "name": "Mother",
+      "type": "character",
+      "base_description": "Mother (Maria) who finds her notebook under the bed, thanks the cat, sits on the bed next to her daughter, is asked to tell a story about the cat, suggests proceeding with the story, and begins telling a story about their cat and World Recreation.",
+      "base_attributes": {
+        "family_role": "mother"
+      },
+      "states": [],
+      "chunk_id": [0]
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "type": "character",
+      "base_description": "The family cat, described as a cutie cat and very red, walks under the bed, meows, is addressed by the father as a mister demon, and is said to be an ancient demon who was a rock before World Recreation.",
+      "base_attributes": {
+        "nature": "ancient demon",
+        "past_form": "rock",
+        "color": "red"
+      },
+      "states": [
+        {
+          "sid": "conversation_about_cat_cat",
+          "current_description": "The family cat, described as a cutie cat and very red, walks under the bed, meows, is addressed by the father as a mister demon, and is said to be an ancient demon who was a rock before World Recreation. Its demon identity and past form are acknowledged during the conversation.",
+          "current_attributes": {
+            "nature": "ancient demon",
+            "past_form": "rock",
+            "color": "red"
+          },
+          "time_start_event": "Conversation about cat",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [0]
+    },
+    {
+      "id": "notebook",
+      "name": "Notebook",
+      "type": "item",
+      "base_description": "A notebook that was lost, then found under the bed by the cat and taken by the mother.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "cat_finds_notebook_notebook",
+          "current_description": "A notebook that was lost and then found under the bed by the cat.",
+          "current_attributes": {},
+          "time_start_event": "Cat finds notebook",
+          "time_end_event": null
+        },
+        {
+          "sid": "mother_takes_notebook_notebook",
+          "current_description": "A notebook that was found under the bed by the cat and taken by the mother.",
+          "current_attributes": {},
+          "time_start_event": "Mother takes notebook",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [0]
+    },
+    {
+      "id": "bed",
+      "name": "Bed",
+      "type": "environment_element",
+      "base_description": "The bed in the girl's bedroom under which the cat walks and where the notebook was found; the mother and daughter sit on it.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [0]
+    },
+    {
+      "id": "story_about_cat",
+      "name": "Story about cat",
+      "type": "event",
+      "base_description": "The story about the cat that the mother is asked to tell and eventually begins telling, referencing the cat's origins and World Recreation, and told to the little girl.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [1]
+    },
+    {
+      "id": "world_recreation",
+      "name": "World Recreation",
+      "type": "event",
+      "base_description": "World Recreation, described as the greatest event in history after which demons appeared.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [1]
+    },
+    {
+      "id": "cat_finds_notebook",
+      "name": "Cat finds notebook",
+      "type": "event",
+      "base_description": "The cat finds the notebook under the bed.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [1]
+    },
+    {
+      "id": "mother_takes_notebook",
+      "name": "Mother takes notebook",
+      "type": "event",
+      "base_description": "Mother takes the notebook from under the bed after it is found.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [1]
+    },
+    {
+      "id": "conversation_about_cat",
+      "name": "Conversation about cat",
+      "type": "event",
+      "base_description": "Family conversation where the father addresses the cat as a demon, the mother suggests proceeding, and the little girl reacts.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [1]
+    }
+  ],
+  "edges": [
+    {
+      "id": "little_girl_child_of_father",
+      "source": "little_girl",
+      "target": "father",
+      "relation": "is child of",
+      "description": "The girl is the daughter of the father in the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "little_girl_child_of_mother",
+      "source": "little_girl",
+      "target": "mother",
+      "relation": "is child of",
+      "description": "The girl is the daughter of the mother in the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "little_girl_sits_on_bed",
+      "source": "little_girl",
+      "target": "bed",
+      "relation": "sits on",
+      "description": "The little girl is sitting on the bed in her bedroom.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "mother_sits_on_bed",
+      "source": "mother",
+      "target": "bed",
+      "relation": "sits on",
+      "description": "Mother sits on the bed next to her daughter.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_walks_under_bed",
+      "source": "cat",
+      "target": "bed",
+      "relation": "walks under",
+      "description": "The cat walks under the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_finds_notebook_affects_notebook",
+      "source": "cat_finds_notebook",
+      "target": "notebook",
+      "relation": "affects",
+      "description": "The notebook is found by the cat.",
+      "weight": 1.0,
+      "time_start_event": "Cat finds notebook",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "cat_finds_notebook_occurs_under_bed",
+      "source": "cat_finds_notebook",
+      "target": "bed",
+      "relation": "occurs under",
+      "description": "The cat finds the notebook under the bed.",
+      "weight": 1.0,
+      "time_start_event": "Cat finds notebook",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mother_takes_notebook_takes_notebook",
+      "source": "mother_takes_notebook",
+      "target": "notebook",
+      "relation": "takes",
+      "description": "Mother takes the notebook after it is found.",
+      "weight": 1.0,
+      "time_start_event": "Mother takes notebook",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mother_takes_notebook_occurs_near_bed",
+      "source": "mother_takes_notebook",
+      "target": "bed",
+      "relation": "occurs near",
+      "description": "Mother takes the notebook from under the bed.",
+      "weight": 1.0,
+      "time_start_event": "Mother takes notebook",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "story_about_cat_about_cat",
+      "source": "story_about_cat",
+      "target": "cat",
+      "relation": "is about",
+      "description": "The story told by the mother is about the cat, including its origins and connection to World Recreation.",
+      "weight": 1.0,
+      "time_start_event": "Story about cat",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "story_about_cat_told_to_little_girl",
+      "source": "story_about_cat",
+      "target": "little_girl",
+      "relation": "is told to",
+      "description": "The story is now being told to the little girl.",
+      "weight": 1.0,
+      "time_start_event": "Story about cat",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "story_about_cat_references_world_recreation",
+      "source": "story_about_cat",
+      "target": "world_recreation",
+      "relation": "references",
+      "description": "The story references World Recreation and the cat's origins.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "conversation_about_cat_about_cat",
+      "source": "conversation_about_cat",
+      "target": "cat",
+      "relation": "is about",
+      "description": "The conversation centers around the cat being addressed as a demon who used to be a rock.",
+      "weight": 1.0,
+      "time_start_event": "Conversation about cat",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "father_speaks_to_cat",
+      "source": "father",
+      "target": "cat",
+      "relation": "speaks to",
+      "description": "The father looks at the cat and addresses it as a mister demon while asking a question.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_finds_precedes_mother_takes",
+      "source": "cat_finds_notebook",
+      "target": "mother_takes_notebook",
+      "relation": "precedes",
+      "description": "The cat finding the notebook happens before the mother takes it.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mother_takes_precedes_story",
+      "source": "mother_takes_notebook",
+      "target": "story_about_cat",
+      "relation": "precedes",
+      "description": "After taking the notebook, the mother begins telling the story.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    }
+  ]
+}

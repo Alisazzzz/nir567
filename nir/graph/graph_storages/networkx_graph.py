@@ -94,14 +94,34 @@ class NetworkXGraph(KnowledgeGraph):
             node.states.append(new_state)
         self.graph.nodes[node_id]["data"] = node.model_dump()
 
-    def update_edge_times(self, edge_id: str, new_description: str, time_start_event: Optional[str] = None, time_end_event: Optional[str] = None) -> None:
+    # def update_edge_times(self, edge_id: str, new_description: str, time_start_event: Optional[str] = None, time_end_event: Optional[str] = None) -> None:
+    #     edge = self.get_edge_by_id(edge_id)
+    #     if time_start_event:
+    #         edge["data"]["time_start_event"] = time_start_event
+    #         edge.data.time_start_event = time_start_event
+    #     if time_end_event:
+    #         edge["data"]["time_end_event"] = time_end_event
+    #         edge.data.time_end_event = time_end_event
+    #     edge.description = new_description
+    #     self.graph.edges[edge_id]["data"] = edge
+    #     return
+    
+    def update_edge_times(self, edge_id: str, new_description: str, 
+                      time_start_event: Optional[str] = None, 
+                      time_end_event: Optional[str] = None) -> None:
         edge = self.get_edge_by_id(edge_id)
-        if time_start_event:
-            edge["data"]["time_start_event"] = time_start_event
-        if time_end_event:
-            edge["data"]["time_end_event"] = time_end_event
-        edge.description = new_description
-        self.graph.edges[edge_id]["data"] = edge
+        if edge:
+            # Обновляем атрибуты объекта Pydantic
+            if time_start_event:
+                edge.time_start_event = time_start_event
+            if time_end_event:
+                edge.time_end_event = time_end_event
+            edge.description = new_description
+            
+            # Обновляем в графе (предполагая, что _edge_key_map хранит mapping id -> (u, v))
+            if hasattr(self, '_edge_key_map') and edge_id in self._edge_key_map:
+                u, v = self._edge_key_map[edge_id]
+                self.graph.edges[u, v]["data"] = edge
         return
 
     def update_node_full(self, node_id: str, new_info: Node) -> None:

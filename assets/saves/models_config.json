@@ -21,10 +21,37 @@
                 "extra": {}
             },
             "api_info": ""
+        },
+        "basic_chat": {
+            "option": "ollama",
+            "model_name": "llama3.2:latest",
+            "config": {
+                "model_name": "llama3.2:latest",
+                "temperature": 0.8,
+                "max_tokens": 1024,
+                "extra": {}
+            },
+            "api_info": null
+        },
+        "graph_extraction": {
+            "option": "ollama",
+            "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+            "config": {
+                "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+                "temperature": 0,
+                "max_tokens": null,
+                "extra": {}
+            },
+            "api_info": null
         }
     },
     "embedding_models": {
         "stardard_embedding": {
+            "option": "ollama",
+            "model_name": "nomic-embed-text:v1.5",
+            "api_info": null
+        },
+        "embeddings": {
             "option": "ollama",
             "model_name": "nomic-embed-text:v1.5",
             "api_info": null

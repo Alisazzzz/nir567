@@ -116,6 +116,34 @@ class MergedNode(BaseModel):
 
 
 
+#--------------------------------------------------------------------
+#-----structures for semi stage of graph extraction (completing)-----
+#--------------------------------------------------------------------
+
+class MissingEntity(BaseModel):
+    name: str
+    type: str
+    base_description: str
+    base_attributes: Dict[str, Any]
+    reason: str = ""
+    chunk_reference: str = ""
+
+class MissingRelation(BaseModel):
+    node1: str
+    node2: str
+    relation_from1to2: str
+    relation_from2to1: str
+    description: str
+    weight: float = 1.0
+    reason: str = ""
+    chunk_reference: str = ""
+
+class GraphCompletionResult(BaseModel):
+    missing_entities: List[MissingEntity] = Field(default_factory=list)
+    missing_relations: List[MissingRelation] = Field(default_factory=list)
+
+
+
 #---------------------------------------------------------
 #-----structures for second stage of graph extraction-----
 #---------------------------------------------------------
@@ -157,4 +185,3 @@ class EventImpact(BaseModel):
 
 class EventsSubgraph(BaseModel):
     events_with_impact: List[EventImpact] = Field(default_factory=list)
-

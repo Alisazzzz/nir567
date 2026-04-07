@@ -216,9 +216,45 @@ def normalize_graph_extraction_result(raw: dict) -> dict:
 
 def normalize_merged_node(raw: dict) -> dict:
     return {
-        "name": get_value(raw, "name", None),
+        "name": get_value(raw, "name", ""),
         "base_description": ensure_str(get_value(raw, "base_description", "")),
         "base_attributes": ensure_dict(get_value(raw, "base_attributes", {})),
+    }
+
+
+
+#-------------------------------------------------------
+#-----normalize output structures: graph completion-----
+#-------------------------------------------------------
+
+def normalize_missing_entity(raw: dict) -> dict:
+    return {
+        "name": ensure_str(get_value(raw, "name", "")),
+        "type": ensure_str(get_value(raw, "type", "unknown")),
+        "base_description": ensure_str(get_value(raw, "base_description", "")),
+        "base_attributes": ensure_dict(get_value(raw, "base_attributes", {})),
+        "reason": ensure_str(get_value(raw, "reason", "")),
+        "chunk_reference": ensure_str(get_value(raw, "chunk_reference", "")),
+    }
+
+def normalize_missing_relation(raw: dict) -> dict:
+    return {
+        "node1": ensure_str(get_value(raw, "node1", "")),
+        "node2": ensure_str(get_value(raw, "node2", "")),
+        "relation_from1to2": ensure_str(get_value(raw, "relation_from1to2", get_value(raw, "relation", "related_to"))),
+        "relation_from2to1": ensure_str(get_value(raw, "relation_from2to1", "related_to")),
+        "description": ensure_str(get_value(raw, "description", "")),
+        "weight": ensure_float(get_value(raw, "weight", 1.0)),
+        "reason": ensure_str(get_value(raw, "reason", "")),
+        "chunk_reference": ensure_str(get_value(raw, "chunk_reference", "")),
+    }
+
+def normalize_graph_completion_result(raw: dict) -> dict:
+    raw_entities = ensure_list(get_value(raw, "missing_entities", get_value(raw, "entities", [])))
+    raw_relations = ensure_list(get_value(raw, "missing_relations", get_value(raw, "relations", [])))
+    return {
+        "missing_entities": [ normalize_missing_entity(e) for e in raw_entities if isinstance(e, dict) ],
+        "missing_relations": [ normalize_missing_relation(r) for r in raw_relations if isinstance(r, dict) ],
     }
 
 
@@ -293,4 +329,4 @@ class SafePydanticParser:
         raw_json = clean_json(text)
         data = safe_json_loads(raw_json)
         normalized = self.normalizer(data)
-        return self.expected_structure.parse_obj(normalized)
+        return self.expected_structure.model_validate(normalized)

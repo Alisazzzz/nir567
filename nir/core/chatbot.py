@@ -68,10 +68,19 @@ embedding_model = manager.create_embedding_model(
     model_name="nomic-embed-text:v1.5"
 )
 
+# #EMBEDDING MODEL CHOICE
+# embedding_model = manager.create_embedding_model(
+#     name="embeddings", 
+#     option="hf_local", 
+#     model_name="ai-forever/ru-en-RoSBERTa"
+# )
+
+
 #CHAT MODEL CHOICE
 model_config = ModelConfig(
     model_name="llama3.2:latest",
-    temperature=0.8
+    temperature=0.8,
+    max_tokens=1024
 )
 chat_model = manager.create_chat_model(
     name="basic_chat", 
@@ -81,7 +90,7 @@ chat_model = manager.create_chat_model(
 
 #GRAPH EXTRACTION MODEL CHOICE
 model_config = ModelConfig(
-    model_name="mistral:7b-instruct", 
+    model_name="hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest", 
     temperature=0
 )
 instruct_model = manager.create_chat_model(
@@ -93,27 +102,28 @@ instruct_model = manager.create_chat_model(
 
 #this is for graph creation
 data = loader.loadTXT(
-    path="assets/documents/very short.txt"
+    path="assets/documents/NOTEBOOK STORY.txt"
 )
 chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
-graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph)
+graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph, preserve_all_data=True, language="en")
 vector_db_info = VectorStoreInfo(
     type="chromadb",
     info={ 
-        "name" : "very_short_new",
+        "name" : "notebook_story",
         "path" : "assets/databases/chroma_db"
     }
 )
 graph.create_vector_db(vector_db_info)
 create_embeddings(graph, graph.get_vector_db(), embedding_model)
-graph.save(filepath="assets/graphs/graph_very_short.json")
-graph.visualize(filepath="assets/outputs/very_short_graph.html")
+graph.save(filepath="assets/graphs/notebook_story.json")
+graph.visualize(filepath="assets/outputs/notebook_story.html")
 
 #this is for graph loading
 # graph = NetworkXGraph()
 # graph.load(
-#     filepath="assets/graphs/graph_ali_baba.json"
+#     filepath="assets/graphs/gpt_test.json"
 # )
+# graph.visualize(filepath="assets/outputs/gpt_test.html")
 
 # chat = Chat(
 #     chat_model=chat_model, 
