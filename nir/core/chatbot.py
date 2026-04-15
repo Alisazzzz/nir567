@@ -102,21 +102,21 @@ instruct_model = manager.create_chat_model(
 
 #this is for graph creation
 data = loader.loadTXT(
-    path="assets/documents/NOTEBOOK STORY.txt"
+    path="assets/documents/STORY IN RUSSIAN.txt"
 )
 chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
-graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph, preserve_all_data=True, language="en")
+graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph, preserve_all_data=True, language="ru")
 vector_db_info = VectorStoreInfo(
     type="chromadb",
     info={ 
-        "name" : "notebook_story",
+        "name" : "russian_story_2",
         "path" : "assets/databases/chroma_db"
     }
 )
 graph.create_vector_db(vector_db_info)
 create_embeddings(graph, graph.get_vector_db(), embedding_model)
-graph.save(filepath="assets/graphs/notebook_story.json")
-graph.visualize(filepath="assets/outputs/notebook_story.html")
+graph.save(filepath="assets/graphs/russian_story_2.json")
+graph.visualize(filepath="assets/outputs/russian_story_2.html")
 
 #this is for graph loading
 # graph = NetworkXGraph()

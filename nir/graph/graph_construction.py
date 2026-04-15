@@ -348,7 +348,7 @@ def merge_similar_nodes(
         llm: BaseLanguageModel, 
         embedding_model: Embeddings,
         preserve_all_data: bool = True,
-        similarity_threshold: float = 0.70,
+        similarity_threshold: float = 0.85,
         language: str = "en"
     ) -> Tuple[Dict[str, Node], Dict[str, Edge]]:  
     
