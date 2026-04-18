@@ -1,0 +1,222 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 900;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#ff6b6b", "data": {"base_attributes": {}, "base_description": "A young female child expressing surprise, daughter of a family with a father and a mother named Maria. She is part of a story where her mother is looking for a notebook to tell her a story about their cat, which was last seen walking under the bed. The little girl is often found sitting on a bed in her bedroom and expresses excitement when her mother finds the notebook under the bed after the cat walks by it. The story involves details about the cat being an ancient demon who was a rock before the World Recreation.", "chunk_id": [0, 1, 2, 3], "id": "little_girl", "name": "Little girl", "states": [{"current_attributes": {"emotional_state": "excited"}, "current_description": "A young female child expressing excitement over the cat finding the notebook", "sid": "excitement_little_girl_0", "time_end_event": null, "time_start_event": "Cat finds notebook"}], "type": "character"}, "font": {"color": "white"}, "id": "little_girl", "label": "Little girl", "shape": "dot"}, {"color": "#ff6b6b", "data": {"base_attributes": {}, "base_description": "The parent figure in the family, an adult male staying indoors, encouraging the mother to tell a story. He is involved in the household activities and interactions with other family members such as the little girl and mother. An adult male, looking at a cat and addressing it as \u0027mister demon\u0027.", "chunk_id": [0, 1, 2, 3], "id": "father", "name": "Father", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "father", "label": "Father", "shape": "dot"}, {"color": "#ff6b6b", "data": {"base_attributes": {}, "base_description": "The mother of the little girl, named Maria", "chunk_id": [0], "id": "mother_maria", "name": "Mother (Maria)", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "mother_maria", "label": "Mother (Maria)", "shape": "dot"}, {"color": "#f783ac", "data": {"base_attributes": {}, "base_description": "A feline pet being looked at by the father", "chunk_id": [0, 3], "id": "cat", "name": "Cat", "states": [], "type": "item"}, "font": {"color": "white"}, "id": "cat", "label": "Cat", "shape": "dot"}, {"color": "#f783ac", "data": {"base_attributes": {}, "base_description": "An item that was lost and found, a physical object used by Mother for writing or keeping notes, often associated with storytelling about their cat and events such as World Recreation.", "chunk_id": [0, 1, 2], "id": "notebook", "name": "Notebook", "states": [{"current_attributes": {"status": "found"}, "current_description": "A physical object used for writing or keeping notes, recently found under the bed after being lost.", "sid": "notebook_is_lost_and_found_notebook_0", "time_end_event": null, "time_start_event": "Notebook is lost and found"}], "type": "item"}, "font": {"color": "white"}, "id": "notebook", "label": "Notebook", "shape": "dot"}, {"color": "#4dabf7", "data": {"base_attributes": {}, "base_description": "A place where the notebook was found; a spatial setting where the notebook is discovered as part of a story involving a family, including a little girl, her father, mother (Maria), and a cat. The notebook is found by the cat and then retrieved by the mother who expresses gratitude to the cat.", "chunk_id": [0, 2], "id": "under_the_bed", "name": "Under the bed", "states": [], "type": "location"}, "font": {"color": "white"}, "id": "under_the_bed", "label": "Under the bed", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {"time": ""}, "base_description": "The action of losing and finding the notebook", "chunk_id": [0], "id": "notebook_is_lost_and_found", "name": "Notebook is lost and found", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "notebook_is_lost_and_found", "label": "Notebook is lost and found", "shape": "dot"}, {"color": "#ff6b6b", "data": {"base_attributes": {"role": "ancient demon"}, "base_description": "An adult female sitting on the bed next to her daughter, willing to tell a story about their cat after retrieving her notebook. She is referred to as \u0027my dear cat\u0027 within the context of the story she plans to share, which involves details about an ancient demon that was once a rock before the World Recreation event. The pet is also an ancient demon in this story, referred to as \u0027our cutie cat\u0027 and \u0027my dear cat\u0027 by Mother.", "chunk_id": [1, 2], "id": "mother", "name": "Cat", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "mother", "label": "Cat", "shape": "dot"}, {"color": "#ff6b6b", "data": {"base_attributes": {}, "base_description": "A feline pet walking under the bed and meowing.", "chunk_id": [1], "id": "cat_1", "name": "Cat", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "cat_1", "label": "Cat", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {}, "base_description": "The cat discovers the notebook under the bed. Mother retrieves her notebook from under the bed after the cat finds it.", "chunk_id": [2], "id": "cat_finds_notebook", "name": "Cat finds notebook", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "cat_finds_notebook", "label": "Cat finds notebook", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {"time": "in history"}, "base_description": "A greatest event in history related to the cat\u0027s origin story, involving demons", "chunk_id": [2], "id": "world_recreation", "name": "World Recreation", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "world_recreation", "label": "World Recreation", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {"time": ""}, "base_description": "The completion of a cutscene in a game", "chunk_id": [4], "id": "cutscene_ends", "name": "Cutscene ends", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "cutscene_ends", "label": "Cutscene ends", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {"time": ""}, "base_description": "The beginning of interactive gameplay in a game", "chunk_id": [4], "id": "gameplay_starts", "name": "Gameplay starts", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "gameplay_starts", "label": "Gameplay starts", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {}, "base_description": "An untold narrative about the red cat", "chunk_id": [1], "id": "story_about_cat", "name": "story about cat", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "story_about_cat", "label": "story about cat", "shape": "dot"}, {"color": "#9775fa", "data": {"base_attributes": {"source": "little girl"}, "base_description": "The emotional state expressed by the little girl in response to the cat finding the notebook", "chunk_id": [2], "id": "excitement", "name": "Excitement", "states": [], "type": "event"}, "font": {"color": "white"}, "id": "excitement", "label": "Excitement", "shape": "dot"}, {"color": "#ff6b6b", "data": {"base_attributes": {}, "base_description": "A female adult who is part of the family and speaks in the text", "chunk_id": [3], "id": "mother_2", "name": "mother", "states": [], "type": "character"}, "font": {"color": "white"}, "id": "mother_2", "label": "mother", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The little girl has a father", "id": "little_girl_has_father_edge", "relation": "has", "source": "little_girl", "target": "father", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "little_girl", "to": "father"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The little girl has a mother named Maria", "id": "little_girl_has_mother_maria_edge", "relation": "has", "source": "little_girl", "target": "mother_maria", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "little_girl", "to": "mother_maria"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The little girl has a cat as a pet", "id": "little_girl_has_as_pet_cat_edge", "relation": "has as pet", "source": "little_girl", "target": "cat", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "little_girl", "to": "cat"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The notebook belongs to the little girl", "id": "little_girl_owns_notebook_edge", "relation": "owns", "source": "little_girl", "target": "notebook", "time_end_event": null, "time_start_event": null, "weight": 0.8}}, "from": "little_girl", "to": "notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "The little girl asks her mother to tell her a story about their cat.", "id": "little_girl_asks_for_a_story_from_mother_edge", "relation": "asks for a story from", "source": "little_girl", "target": "mother", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "little_girl", "to": "mother"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "The mother is willing to tell the little girl a story.", "id": "little_girl_has_a_story_told_by_mother_edge", "relation": "has a story told by", "source": "little_girl", "target": "mother", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "little_girl", "to": "mother"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "The little girl is interested in hearing a story about their cat.", "id": "little_girl_is_interested_in_cat_edge", "relation": "is interested in", "source": "little_girl", "target": "cat_1", "time_end_event": null, "time_start_event": null, "weight": 0.5}}, "from": "little_girl", "to": "cat_1"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "Little girl asks for a story about the cat", "id": "little_girl_asks_for_story_about_cat_edge", "relation": "asks for", "source": "little_girl", "target": "story_about_cat", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "little_girl", "to": "story_about_cat"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The little girl has a father", "id": "father_is_a_parent_of_little_girl_edge", "relation": "is a parent of", "source": "father", "target": "little_girl", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "father", "to": "little_girl"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "The father encourages the mother to tell the story.", "id": "father_encourages_to_tell_a_story_mother_edge", "relation": "encourages to tell a story", "source": "father", "target": "mother", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "father", "to": "mother"}, {"arrows": "to", "data": {"data": {"chunk_id": 3, "description": "Father is looking at the cat while speaking to it.", "id": "father_looking_at_cat_edge", "relation": "looking at", "source": "father", "target": "cat", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "father", "to": "cat"}, {"arrows": "to", "data": {"data": {"chunk_id": 3, "description": "The father is addressing the cat", "id": "father_talks_to_cat_edge", "relation": "talks to", "source": "father", "target": "cat", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "father", "to": "cat"}, {"arrows": "to", "data": {"data": {"chunk_id": 3, "description": "The cat is being addressed by the father as \u0027mister demon\u0027", "id": "father_addresses_cat_edge", "relation": "addresses", "source": "father", "target": "cat", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "father", "to": "cat"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "Father and Mother (Maria) are a couple in the family", "id": "father_is_married_to_mother_maria_edge", "relation": "is married to", "source": "father", "target": "mother_maria", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "father", "to": "mother_maria"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The little girl has a mother named Maria", "id": "mother_maria_is_a_parent_of_little_girl_edge", "relation": "is a parent of", "source": "mother_maria", "target": "little_girl", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mother_maria", "to": "little_girl"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "Father and Mother (Maria) are a couple in the family", "id": "mother_maria_is_married_to_father_edge", "relation": "is married to", "source": "mother_maria", "target": "father", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mother_maria", "to": "father"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The little girl has a cat as a pet", "id": "cat_is_owned_by_little_girl_edge", "relation": "is owned by", "source": "cat", "target": "little_girl", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "cat", "to": "little_girl"}, {"arrows": "to", "data": {"data": {"chunk_id": 3, "description": "Father is looking at the cat while speaking to it.", "id": "cat_being_looked_at_father_edge", "relation": "being looked at", "source": "cat", "target": "father", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "cat", "to": "father"}, {"arrows": "to", "data": {"data": {"chunk_id": 3, "description": "The father is addressing the cat", "id": "cat_is_talked_to_by_father_edge", "relation": "is talked to by", "source": "cat", "target": "father", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "cat", "to": "father"}, {"arrows": "to", "data": {"data": {"chunk_id": 3, "description": "The cat is being addressed by the father as \u0027mister demon\u0027", "id": "cat_is_addressed_as_father_edge", "relation": "is addressed as", "source": "cat", "target": "father", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "cat", "to": "father"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The notebook belongs to the little girl", "id": "notebook_belongs_to_little_girl_edge", "relation": "belongs to", "source": "notebook", "target": "little_girl", "time_end_event": null, "time_start_event": null, "weight": 0.8}}, "from": "notebook", "to": "little_girl"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The notebook is part of the losing and finding event", "id": "notebook_is_involved_in_notebook_is_lost_and_found_edge", "relation": "is involved in", "source": "notebook", "target": "notebook_is_lost_and_found", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "notebook", "to": "notebook_is_lost_and_found"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The notebook was found under the bed", "id": "notebook_is_found_in_under_the_bed_edge", "relation": "is found in", "source": "notebook", "target": "under_the_bed", "time_end_event": null, "time_start_event": null, "weight": 0.9}}, "from": "notebook", "to": "under_the_bed"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The notebook is located under the bed before being taken by Mother", "id": "notebook_is_located_in_under_the_bed_edge", "relation": "is located in", "source": "notebook", "target": "under_the_bed", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "notebook", "to": "under_the_bed"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The notebook is located under the bed", "id": "notebook_is_under_under_the_bed_edge", "relation": "is under", "source": "notebook", "target": "under_the_bed", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "notebook", "to": "under_the_bed"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The notebook is taken by Mother from under the bed", "id": "notebook_is_taken_by_mother_takes_notebook_edge", "relation": "is taken by", "source": "notebook", "target": "cat_finds_notebook", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "notebook", "to": "cat_finds_notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "Mother needs her notebook to tell a story", "id": "notebook_is_needed_by_mother_edge", "relation": "is needed by", "source": "notebook", "target": "mother", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "notebook", "to": "mother"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "Mother owns the notebook", "id": "notebook_is_owned_by_mother_edge", "relation": "is owned by", "source": "notebook", "target": "mother", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "notebook", "to": "mother"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The event of finding occurs under the bed", "id": "under_the_bed_contains_event_notebook_is_lost_and_found_edge", "relation": "contains event", "source": "under_the_bed", "target": "notebook_is_lost_and_found", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "under_the_bed", "to": "notebook_is_lost_and_found"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The notebook was found under the bed", "id": "under_the_bed_contains_item_notebook_edge", "relation": "contains item", "source": "under_the_bed", "target": "notebook", "time_end_event": null, "time_start_event": null, "weight": 0.9}}, "from": "under_the_bed", "to": "notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The notebook is located under the bed before being taken by Mother", "id": "under_the_bed_contains_notebook_edge", "relation": "contains", "source": "under_the_bed", "target": "notebook", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "under_the_bed", "to": "notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The notebook is located under the bed", "id": "under_the_bed_has_on_it_notebook_edge", "relation": "has on it", "source": "under_the_bed", "target": "notebook", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "under_the_bed", "to": "notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The event of the cat finding the notebook occurs under the bed", "id": "under_the_bed_contains_event_cat_finds_notebook_edge", "relation": "contains event", "source": "under_the_bed", "target": "cat_finds_notebook", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "under_the_bed", "to": "cat_finds_notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The notebook is part of the losing and finding event", "id": "notebook_is_lost_and_found_involves_notebook_edge", "relation": "involves", "source": "notebook_is_lost_and_found", "target": "notebook", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "notebook_is_lost_and_found", "to": "notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 0, "description": "The event of finding occurs under the bed", "id": "notebook_is_lost_and_found_occurs_in_under_the_bed_edge", "relation": "occurs in", "source": "notebook_is_lost_and_found", "target": "under_the_bed", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "notebook_is_lost_and_found", "to": "under_the_bed"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "The little girl asks her mother to tell her a story about their cat.", "id": "mother_is_asked_to_tell_a_story_by_little_girl_edge", "relation": "is asked to tell a story by", "source": "mother", "target": "little_girl", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mother", "to": "little_girl"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "The mother is willing to tell the little girl a story.", "id": "mother_tells_a_story_to_little_girl_edge", "relation": "tells a story to", "source": "mother", "target": "little_girl", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mother", "to": "little_girl"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "The father encourages the mother to tell the story.", "id": "mother_is_encouraged_by_to_tell_a_story_father_edge", "relation": "is encouraged by to tell a story", "source": "mother", "target": "father", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mother", "to": "father"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The cat participates in the event of finding the notebook", "id": "cat_participates_in_cat_finds_notebook_edge", "relation": "participates in", "source": "mother", "target": "cat_finds_notebook", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mother", "to": "cat_finds_notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "Mother performs the action of taking her notebook", "id": "mother_is_performed_by_mother_takes_notebook_edge", "relation": "is performed by", "source": "mother", "target": "cat_finds_notebook", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mother", "to": "cat_finds_notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The cat\u0027s origin story is related to the World Recreation event", "id": "cat_is_related_to_world_recreation_edge", "relation": "is related to", "source": "mother", "target": "world_recreation", "time_end_event": null, "time_start_event": null, "weight": 0.5}}, "from": "mother", "to": "world_recreation"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "Mother needs her notebook to tell a story", "id": "mother_needs_notebook_edge", "relation": "needs", "source": "mother", "target": "notebook", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mother", "to": "notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "Mother owns the notebook", "id": "mother_owns_notebook_edge", "relation": "owns", "source": "mother", "target": "notebook", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "mother", "to": "notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "The little girl is interested in hearing a story about their cat.", "id": "cat_has_interest_from_little_girl_edge", "relation": "has interest from", "source": "cat_1", "target": "little_girl", "time_end_event": null, "time_start_event": null, "weight": 0.5}}, "from": "cat_1", "to": "little_girl"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The cat participates in the event of finding the notebook", "id": "cat_finds_notebook_involves_cat_edge", "relation": "involves", "source": "cat_finds_notebook", "target": "mother", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "cat_finds_notebook", "to": "mother"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "Mother performs the action of taking her notebook", "id": "mother_takes_notebook_performs_mother_edge", "relation": "performs", "source": "cat_finds_notebook", "target": "mother", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "cat_finds_notebook", "to": "mother"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The notebook is taken by Mother from under the bed", "id": "mother_takes_notebook_takes_notebook_edge", "relation": "takes", "source": "cat_finds_notebook", "target": "notebook", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "cat_finds_notebook", "to": "notebook"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The event of the cat finding the notebook occurs under the bed", "id": "cat_finds_notebook_occurs_in_under_the_bed_edge", "relation": "occurs in", "source": "cat_finds_notebook", "target": "under_the_bed", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "cat_finds_notebook", "to": "under_the_bed"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The little girl\u0027s excitement is caused by the cat finding the notebook", "id": "cat_finds_notebook_causes_excitement_edge", "relation": "causes", "source": "cat_finds_notebook", "target": "excitement", "time_end_event": null, "time_start_event": null, "weight": 0.9}}, "from": "cat_finds_notebook", "to": "excitement"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The cat\u0027s origin story is related to the World Recreation event", "id": "world_recreation_concerns_cat_edge", "relation": "concerns", "source": "world_recreation", "target": "mother", "time_end_event": null, "time_start_event": null, "weight": 0.5}}, "from": "world_recreation", "to": "mother"}, {"arrows": "to", "data": {"data": {"chunk_id": 4, "description": "The end of the cutscene leads to the start of gameplay", "id": "cutscene_ends_precedes_gameplay_starts_edge", "relation": "precedes", "source": "cutscene_ends", "target": "gameplay_starts", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "cutscene_ends", "to": "gameplay_starts"}, {"arrows": "to", "data": {"data": {"chunk_id": 4, "description": "The end of the cutscene leads to the start of gameplay", "id": "gameplay_starts_follows_cutscene_ends_edge", "relation": "follows", "source": "gameplay_starts", "target": "cutscene_ends", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "gameplay_starts", "to": "cutscene_ends"}, {"arrows": "to", "data": {"data": {"chunk_id": 1, "description": "Little girl asks for a story about the cat", "id": "story_about_cat_is_asked_for_by_little_girl_edge", "relation": "is asked for by", "source": "story_about_cat", "target": "little_girl", "time_end_event": null, "time_start_event": null, "weight": 1.0}}, "from": "story_about_cat", "to": "little_girl"}, {"arrows": "to", "data": {"data": {"chunk_id": 2, "description": "The little girl\u0027s excitement is caused by the cat finding the notebook", "id": "excitement_is_caused_by_cat_finds_notebook_edge", "relation": "is caused by", "source": "excitement", "target": "cat_finds_notebook", "time_end_event": null, "time_start_event": null, "weight": 0.9}}, "from": "excitement", "to": "cat_finds_notebook"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.9,
+            "gravitationalConstant": -30000,
+            "springConstant": 0.02,
+            "springLength": 60
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    
+            <style>
+            #infoPanel {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                max-width: 600px;
+                background: #1e1e1e;
+                color: white;
+                padding: 16px;
+                border-radius: 8px;
+                border: 1px solid #444;
+                font-family: Consolas, monospace;
+                font-size: 13px;
+                display: none;
+                z-index: 9999;
+                white-space: pre-wrap;
+            }
+            #infoPanel h3 {
+                margin: 0 0 10px 0;
+                font-size: 15px;
+            }
+            </style>
+            <div id="infoPanel"></div>
+            <script>
+            function showPanel(title, data) {
+                const panel = document.getElementById("infoPanel");
+                panel.style.display = "block";
+                panel.innerHTML = "<h3>" + title + "</h3>" +
+                                "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+            }
+
+            function hidePanel() {
+                document.getElementById("infoPanel").style.display = "none";
+            }
+            setTimeout(() => {
+                if (!window.network) return;
+                network.on("click", function (params) {
+                    if (params.nodes.length === 0 && params.edges.length === 0) {
+                        hidePanel();
+                        return;
+                    }
+                    if (params.nodes.length === 1) {
+                        const nodeId = params.nodes[0];
+                        const node = network.body.data.nodes.get(nodeId);
+                        showPanel("Node: " + nodeId, node.data || {});
+                        return;
+                    }
+                    if (params.edges.length === 1) {
+                        const edgeId = params.edges[0];
+                        const edge = network.body.data.edges.get(edgeId);
+                        showPanel("Edge: " + edge.from + " → " + edge.to, edge.data || {});
+                        return;
+                    }
+                });
+
+            }, 300);
+            </script>
+        
+</body>
+</html>

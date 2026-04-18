@@ -103,6 +103,24 @@ class GraphExtractionResult(BaseModel):
     nodes: List[ExtractedNode] = Field(default_factory=list)
     edges: List[ExtractedEdge] = Field(default_factory=list)
 
+class ExtractedNodeName(BaseModel):
+    name: str
+    type: str
+
+    @field_validator('type')
+    @classmethod
+    def validate_and_correct_type(cls, v: str) -> str:
+        v_clean = v.strip().lower()        
+        if v_clean in [item for item in POSSIBLE_TYPES]:
+            return v_clean
+        if v_clean in TYPE_CORRECTIONS:
+            corrected = TYPE_CORRECTIONS[v_clean]
+            return corrected
+        return "item"
+
+class NodeNamesExtractionResult(BaseModel):
+    nodes: List[ExtractedNodeName] = Field(defaul_factory=list)
+
 
 
 #-----------------------------------------------------------------
@@ -113,6 +131,9 @@ class MergedNode(BaseModel):
     name: str
     base_description: str = ""
     base_attributes: Dict[str, Any] = Field(default_factory=dict) # time_start, time_end for events are required
+
+class MergedNodeName(BaseModel):
+    name: str
 
 
 

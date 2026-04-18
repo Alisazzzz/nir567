@@ -208,6 +208,12 @@ def normalize_graph_extraction_result(raw: dict) -> dict:
         "edges": [normalize_extracted_edge(e) for e in raw_edges if isinstance(e, dict)],
     }
 
+def normalize_node_names_extraction_result(raw: dict) -> dict:
+    raw_nodes = ensure_list(get_value(raw, "nodes", []))
+    return {
+        "nodes": [normalize_extracted_node(n) for n in raw_nodes if isinstance(n, dict)],
+    }
+
 
 
 #---------------------------------------------------------------------
@@ -221,6 +227,10 @@ def normalize_merged_node(raw: dict) -> dict:
         "base_attributes": ensure_dict(get_value(raw, "base_attributes", {})),
     }
 
+def normalize_merged_node_name(raw: dict) -> dict:
+    return {
+        "name": get_value(raw, "name", ""),
+    }
 
 
 #-------------------------------------------------------

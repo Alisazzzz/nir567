@@ -1,0 +1,590 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "nuclear_crypt_csv_test_from_nodes_short",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "мастерская",
+      "name": "Мастерская",
+      "type": "location",
+      "base_description": "Пространство с рабочим инструментарием и оборудованием для оценки результатов работы. В ней расположена зона для тестов, предназначенная для проведения испытаний и демонстрации достигнутых результатов.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов_мастерская_0",
+          "current_description": "Активная зона проведения эксперимента",
+          "current_attributes": {},
+          "time_start_event": "ГГ смотрит в глаза и направляется к зоне для тестов",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "id": "зона_для_тестов",
+      "name": "Зона для тестов",
+      "type": "environment_element",
+      "base_description": "Место, предназначенное для проведения экспериментов с робо-телами.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0,
+        5
+      ]
+    },
+    {
+      "id": "главный_герой_оглядывается",
+      "name": "Главный Герой",
+      "type": "event",
+      "base_description": "Событие, в котором мастер оценивает работу, используя руку Главного Героя. В мастерской, где находится зона для тестов, Мастер стоит и ждет ГГ, его поза выражает нетерпение. Он завороженно говорит: 'Протестируем, протестируем, должно, должно работать! В конце концов, я же не просто так попал в эту элиту величайших ученых! Да, я тоже кое-что могу, хоть и не физики, которые здесь в таком почете, хехех.' Мастер входит в кадр справа и смотрит на правую руку Главного Героя, оценивающе оглядывая свою работу. Справа за кадром что-то делает с рукой ГГ. (себе под нос) Почти готово, да, почти готово!",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0,
+        1,
+        2,
+        6
+      ]
+    },
+    {
+      "id": "главный_герой",
+      "name": "Главный герой",
+      "type": "character",
+      "base_description": "Персонаж, с которым мастер выполняет действия, используя руку. Персонаж, который стоит почти неподвижно и немного оглядывается в мастерской. Персонаж, правая рука которого используется мастером для оценки работы. Персонаж, чья рука используется Мастером для оценки качества работы.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "мастер_в_действии_главный_герой_0",
+          "current_description": "Персонаж, с которым мастер выполняет активные действия, используя руку.",
+          "current_attributes": {
+            "статус": "активно участвует в действии"
+          },
+          "time_start_event": "Мастер в действии",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1,
+        2,
+        6
+      ]
+    },
+    {
+      "id": "мастер",
+      "name": "Мастер",
+      "type": "character",
+      "base_description": "Эксперт в своей области, оценивает качество выполненной работы, используя правую руку Главного Героя как критерий оценки. Мастер стоит и ждет ГГ, его поза выражает нетерпение. Он завороженно говорит о тестировании и уверен в успехе, так как является частью элиты величайших ученых. Персонаж участвует в эксперименте, опускает руку и направляется к зоне для тестов, возможно, используя руку-Атомайзер. Персонаж, на которого смотрит ГГ. Роль и функции не ясны из контекста.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов_мастер_0",
+          "current_description": "Активный участник эксперимента, зовет ГГ за собой",
+          "current_attributes": {
+            "статус": "активен"
+          },
+          "time_start_event": "ГГ смотрит в глаза и направляется к зоне для тестов",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "id": "гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов",
+      "name": "ГГ смотрит в глаза и направляется к зоне для тестов",
+      "type": "event",
+      "base_description": "Событие, происходящее в рамках эксперимента с робо-телами. ГГ взаимодействует с локацией.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "рукаатомайзер",
+      "name": "рука-Атомайзер",
+      "type": "item",
+      "base_description": "Инструмент, используемый ГГ для осмотра объекта и выполнения действий в мастерской. Устройство, используемое ГГ в эксперименте с робо-телами.",
+      "base_attributes": {
+        "предназначение": "взаимодействие"
+      },
+      "states": [
+        {
+          "sid": "гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов_рукаатомайзер_0",
+          "current_description": "Инструмент, готовый к использованию в эксперименте",
+          "current_attributes": {},
+          "time_start_event": "ГГ смотрит в глаза и направляется к зоне для тестов",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "мастер_в_действии",
+      "name": "Мастер в действии",
+      "type": "event",
+      "base_description": "Событие, где мастер что-то делает с рукой главного героя.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "мастерская_contains_зона_для_тестов_edge",
+      "source": "мастерская",
+      "target": "зона_для_тестов",
+      "relation": "contains",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "мастерская_has_event_главный_герой_стоит_edge",
+      "source": "мастерская",
+      "target": "главный_герой_оглядывается",
+      "relation": "has event",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "мастерская_contains_event_мастер_появляется_и_оценивает_работу_edge",
+      "source": "мастерская",
+      "target": "главный_герой_оглядывается",
+      "relation": "contains event",
+      "description": "Событие оценки происходит в мастерской.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "мастерская_provides_setting_for_мастер_появляется_и_оценивает_работу_edge",
+      "source": "мастерская",
+      "target": "главный_герой_оглядывается",
+      "relation": "provides setting for",
+      "description": "Событие оценки использует мастерскую как место действия.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "мастерская_contains_гг_edge",
+      "source": "мастерская",
+      "target": "мастер",
+      "relation": "contains",
+      "description": "Главный герой находится в мастерской.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "зона_для_тестов_is_contained_in_мастерская_edge",
+      "source": "зона_для_тестов",
+      "target": "мастерская",
+      "relation": "is contained in",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "зона_для_тестов_contains_event_гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов_edge",
+      "source": "зона_для_тестов",
+      "target": "гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов",
+      "relation": "contains event",
+      "description": "Событие происходит в зоне для тестов.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "зона_для_тестов_awaits_гг_edge",
+      "source": "зона_для_тестов",
+      "target": "мастер",
+      "relation": "awaits",
+      "description": "Главный герой направляется к зоне для тестов.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "зона_для_тестов_содержит_мастер_edge",
+      "source": "зона_для_тестов",
+      "target": "мастер",
+      "relation": "содержит",
+      "description": "Мастер находится в зоне для тестов.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "зона_для_тестов_имеет_целью_гг_edge",
+      "source": "зона_для_тестов",
+      "target": "мастер",
+      "relation": "имеет целью",
+      "description": "Персонаж направляется в зону для проведения эксперимента.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "мастер_появляется_и_оценивает_работу_occurs_in_мастерская_edge",
+      "source": "главный_герой_оглядывается",
+      "target": "мастерская",
+      "relation": "occurs in",
+      "description": "Событие оценки происходит в мастерской.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "мастер_появляется_и_оценивает_работу_is_the_setting_of_мастерская_edge",
+      "source": "главный_герой_оглядывается",
+      "target": "мастерская",
+      "relation": "is the setting of",
+      "description": "Событие оценки использует мастерскую как место действия.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "мастер_ожидает_гг_involves_мастер_edge",
+      "source": "главный_герой_оглядывается",
+      "target": "мастер",
+      "relation": "involves",
+      "description": "Мастер участвует в событии оценки работы.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "мастер_появляется_и_оценивает_работу_is_performed_by_мастер_edge",
+      "source": "главный_герой_оглядывается",
+      "target": "мастер",
+      "relation": "is performed by",
+      "description": "Мастер выполняет действие оценки.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "действие_включает_участие_мастер_edge",
+      "source": "главный_герой_оглядывается",
+      "target": "мастер",
+      "relation": "включает участие",
+      "description": "Мастер выполняет действие, используя руку.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "действие_влияет_на_главный_герой_edge",
+      "source": "главный_герой_оглядывается",
+      "target": "главный_герой",
+      "relation": "влияет на",
+      "description": "Действие мастера влияет на главного героя через его руку.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "главныйгерой_подвергается_влиянию_мастер_в_действии_edge",
+      "source": "главный_герой",
+      "target": "мастер_в_действии",
+      "relation": "подвергается влиянию",
+      "description": "Мастер выполняет действия с главным героем.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "главный_герой_подвергается_влиянию_действие_edge",
+      "source": "главный_герой",
+      "target": "главный_герой_оглядывается",
+      "relation": "подвергается влиянию",
+      "description": "Действие мастера влияет на главного героя через его руку.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "главный_герой_является_объектом_ожидания_для_мастер_edge",
+      "source": "главный_герой",
+      "target": "мастер",
+      "relation": "является объектом ожидания для",
+      "description": "Мастер ожидает Главного Героя, чтобы протестировать его руку.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "мастер_participates_in_мастер_ожидает_гг_edge",
+      "source": "мастер",
+      "target": "главный_герой_оглядывается",
+      "relation": "participates in",
+      "description": "Мастер участвует в событии оценки работы.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "мастер_performs_мастер_появляется_и_оценивает_работу_edge",
+      "source": "мастер",
+      "target": "главный_герой_оглядывается",
+      "relation": "performs",
+      "description": "Мастер выполняет действие оценки.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "мастер_выполняет_действие_edge",
+      "source": "мастер",
+      "target": "главный_герой_оглядывается",
+      "relation": "выполняет",
+      "description": "Мастер выполняет действие, используя руку.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "гг_participates_in_гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов_edge",
+      "source": "мастер",
+      "target": "гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов",
+      "relation": "participates in",
+      "description": "ГГ участвует в событии, смотря в глаза и двигаясь к зоне для тестов.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "гг_uses_рукаатомайзер_edge",
+      "source": "мастер",
+      "target": "рукаатомайзер",
+      "relation": "uses",
+      "description": "ГГ использует руку-Атомайзер для осмотра.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "гг_использует_рукаатомайзер_edge",
+      "source": "мастер",
+      "target": "рукаатомайзер",
+      "relation": "использует",
+      "description": "ГГ использует руку-Атомайзер для выполнения действий.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "гг_is_in_мастерская_edge",
+      "source": "мастер",
+      "target": "мастерская",
+      "relation": "is in",
+      "description": "Главный герой находится в мастерской.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "гг_is_directed_to_зона_для_тестов_edge",
+      "source": "мастер",
+      "target": "зона_для_тестов",
+      "relation": "is directed to",
+      "description": "Главный герой направляется к зоне для тестов.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "мастер_в_зона_для_тестов_edge",
+      "source": "мастер",
+      "target": "зона_для_тестов",
+      "relation": "в",
+      "description": "Мастер находится в зоне для тестов.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "гг_направляется_к_зона_для_тестов_edge",
+      "source": "мастер",
+      "target": "зона_для_тестов",
+      "relation": "направляется к",
+      "description": "Персонаж направляется в зону для проведения эксперимента.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "гг_смотрит_на_мастер_edge",
+      "source": "мастер",
+      "target": "мастер",
+      "relation": "смотрит на",
+      "description": "ГГ смотрит на Мастера, возможно, ожидая указаний или реакции",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "мастер_наблюдаем_за_гг_edge",
+      "source": "мастер",
+      "target": "мастер",
+      "relation": "наблюдаем за",
+      "description": "ГГ смотрит на Мастера, возможно, ожидая указаний или реакции",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "гг_направляется_к_мастер_edge",
+      "source": "мастер",
+      "target": "мастер",
+      "relation": "направляется к",
+      "description": "ГГ направляется к Мастеру, возможно для инструкций или взаимодействия.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "мастер_ожидает_гг_edge",
+      "source": "мастер",
+      "target": "мастер",
+      "relation": "ожидает",
+      "description": "ГГ направляется к Мастеру, возможно для инструкций или взаимодействия.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "мастер_ожидает_главный_герой_edge",
+      "source": "мастер",
+      "target": "главный_герой",
+      "relation": "ожидает",
+      "description": "Мастер ожидает Главного Героя, чтобы протестировать его руку.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов_involves_гг_edge",
+      "source": "гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов",
+      "target": "мастер",
+      "relation": "involves",
+      "description": "ГГ участвует в событии, смотря в глаза и двигаясь к зоне для тестов.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов_occurs_in_зона_для_тестов_edge",
+      "source": "гг_смотрит_в_глаза_и_направляется_к_зоне_для_тестов",
+      "target": "зона_для_тестов",
+      "relation": "occurs in",
+      "description": "Событие происходит в зоне для тестов.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "рукаатомайзер_used_by_гг_edge",
+      "source": "рукаатомайзер",
+      "target": "мастер",
+      "relation": "used by",
+      "description": "ГГ использует руку-Атомайзер для осмотра.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "рукаатомайзер_принадлежит_к_гг_edge",
+      "source": "рукаатомайзер",
+      "target": "мастер",
+      "relation": "принадлежит к",
+      "description": "ГГ использует руку-Атомайзер для выполнения действий.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "мастер_в_действии_влияет_на_главныйгерой_edge",
+      "source": "мастер_в_действии",
+      "target": "главный_герой",
+      "relation": "влияет на",
+      "description": "Мастер выполняет действия с главным героем.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    }
+  ]
+}

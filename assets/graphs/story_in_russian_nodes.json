@@ -1,0 +1,437 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "story_in_russian_nodes",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "владелец_дорогого_автомобиля",
+      "name": "дочь жены владельца дорогого автомобиля",
+      "type": "character",
+      "base_description": "Дочь жены владельца дорогого автомобиля, которая после аварии волшебным образом превратилась в Красную кошкодевочку и является источником шума (вопли). Сын персонажа, который после аварии превратился в Красную кошкодевочку.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "просьба_заткнуть_источник_шума_владелец_дорогого_автомобиля_0",
+          "current_description": "Дочь жены владельца дорогого автомобиля, которая после аварии волшебным образом превратилась в Красную кошкодевочку и является источником шума (вопли).",
+          "current_attributes": {},
+          "time_start_event": "источник шума",
+          "time_end_event": null
+        },
+        {
+          "sid": "просьба_заткнуть_источник_шума_владелец_дорогого_автомобиля_1",
+          "current_description": "Дочь, вызывающая беспокойство у матери из-за своих воплей после превращения в Красную кошкодевочку",
+          "current_attributes": {
+            "эмоциональное состояние матери": "беспокоится"
+          },
+          "time_start_event": "источник шума",
+          "time_end_event": null
+        },
+        {
+          "sid": "превращение_в_красную_кошкодевочку_после_аварии_владелец_дорогого_автомобиля_2",
+          "current_description": "Персонаж с красными элементами в образе, ассоциируется с кошкой. Результат превращения после аварии. Источник шума и объект комментариев.",
+          "current_attributes": {
+            "статус": "превращена",
+            "роль": "источник шума"
+          },
+          "time_start_event": "Превращение в Красную кошкодевочку после аварии",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "его_жена",
+      "name": "Его жена",
+      "type": "character",
+      "base_description": "Женский персонаж в контексте истории.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "красная_кошкодевочка",
+      "name": "Красная кошкодевочка",
+      "type": "character",
+      "base_description": "Персонаж с красными элементами в образе, ассоциируется с кошкой. Результат превращения после аварии.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "веселый_уродец",
+      "name": "Веселый уродец",
+      "type": "character",
+      "base_description": "Персонаж, характеризующийся весёлым нравом и нестандартной внешностью. Комментирует ситуацию.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "bmw",
+      "name": "BMW",
+      "type": "item",
+      "base_description": "Автомобиль марки BMW в вишнево-красном цвете, автоматическая коробка передач, климат-контроль и открывающаяся крыша.",
+      "base_attributes": {
+        "color": "вишнёво-красный",
+        "transmission": "автоматическая",
+        "features": [
+          "климат-контроль",
+          "открывающаяся крыша"
+        ]
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "просьба_заткнуть_источник_шума",
+      "name": "источник шума",
+      "type": "event",
+      "base_description": "Событие или объект, вызывающий шум, от которого жена владельца автомобиля хочет уехать. Сюжет включает в себя просьбу жены владельца дорогого автомобиля остановить шум и насмешки веселого уродца над её неспособностью выдержать шум воплей собственной дочери.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "превращение_в_красную_кошкодевочку_после_аварии",
+      "name": "Превращение в Красную кошкодевочку после аварии",
+      "type": "event",
+      "base_description": "Событие, в результате которого сын превратился в красную кошкодевочку.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "конец_сцены",
+      "name": "Конец сцены",
+      "type": "event",
+      "base_description": "Момент завершения сценарной части игры.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "начало_геймплея",
+      "name": "Начало геймплея",
+      "type": "event",
+      "base_description": "Начало игрового процесса, где игрок может взаимодействовать с игровым миром самостоятельно.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "дорогой_автомобиль",
+      "name": "дорогой автомобиль",
+      "type": "item",
+      "base_description": "Автомобиль, принадлежащий владельцу и его жене.",
+      "base_attributes": {
+        "класс": "дорогой"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "владелец_автомобиля_owns_bmw_edge",
+      "source": "владелец_дорогого_автомобиля",
+      "target": "bmw",
+      "relation": "owns",
+      "description": "Владелец владеет автомобилем BMW.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "жена_владельца_дорогого_автомобиля_made_by_просьба_заткнуть_источник_шума_edge",
+      "source": "владелец_дорогого_автомобиля",
+      "target": "просьба_заткнуть_источник_шума",
+      "relation": "made by",
+      "description": "Событие, в котором участвует жена, прося остановить шум.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "жена_владельца_дорогого_автомобиля_wants_to_avoid_красная_кошкодевочка_edge",
+      "source": "владелец_дорогого_автомобиля",
+      "target": "красная_кошкодевочка",
+      "relation": "wants to avoid",
+      "description": "Персонаж хочет избежать шума, создаваемого Красной кошкодевочкой.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "сын_is_transformed_into_красная_кошкодевочка_edge",
+      "source": "владелец_дорогого_автомобиля",
+      "target": "красная_кошкодевочка",
+      "relation": "is transformed into",
+      "description": "Сын превратился в Красную кошкодевочку после аварии.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "жена_владельца_дорогого_автомобиля_находится_в_дорогой_автомобиль_edge",
+      "source": "владелец_дорогого_автомобиля",
+      "target": "дорогой_автомобиль",
+      "relation": "находится в",
+      "description": "Жена является владелицей автомобиля вместе с мужем.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "жена_владельца_дорогого_автомобиля_wants_to_mute_веселый_уродец_edge",
+      "source": "владелец_дорогого_автомобиля",
+      "target": "веселый_уродец",
+      "relation": "wants to mute",
+      "description": "Хочет, чтобы муж закрыл рот Веселому Уродцу.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "красная_кошкодевочка_is_in_bmw_edge",
+      "source": "красная_кошкодевочка",
+      "target": "bmw",
+      "relation": "is in",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "красная_кошкодевочка_concerns_просьба_заткнуть_источник_шума_edge",
+      "source": "красная_кошкодевочка",
+      "target": "просьба_заткнуть_источник_шума",
+      "relation": "concerns",
+      "description": "Событие связано с действиями Красной кошкодевочки, как источником шума.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "красная_кошкодевочка_is_a_result_of_превращение_в_красную_кошкодевочку_после_аварии_edge",
+      "source": "красная_кошкодевочка",
+      "target": "превращение_в_красную_кошкодевочку_после_аварии",
+      "relation": "is a result of",
+      "description": "Событие является причиной появления персонажа Красная кошкодевочка.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "красная_кошкодевочка_is_commented_by_веселый_уродец_edge",
+      "source": "красная_кошкодевочка",
+      "target": "веселый_уродец",
+      "relation": "is commented by",
+      "description": "Персонаж комментирует ситуацию, связанную с Красной кошкодевочкой.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "красная_кошкодевочка_is_a_noise_source_for_жена_владельца_дорогого_автомобиля_edge",
+      "source": "красная_кошкодевочка",
+      "target": "владелец_дорогого_автомобиля",
+      "relation": "is a noise source for",
+      "description": "Персонаж хочет избежать шума, создаваемого Красной кошкодевочкой.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "красная_кошкодевочка_was_a_transformation_of_сын_edge",
+      "source": "красная_кошкодевочка",
+      "target": "владелец_дорогого_автомобиля",
+      "relation": "was a transformation of",
+      "description": "Сын превратился в Красную кошкодевочку после аварии.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "веселый_уродец_comments_on_просьба_заткнуть_источник_шума_edge",
+      "source": "веселый_уродец",
+      "target": "просьба_заткнуть_источник_шума",
+      "relation": "comments on",
+      "description": "Комментирует ситуацию, не участвуя в ней напрямую.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "веселый_уродец_comments_on_красная_кошкодевочка_edge",
+      "source": "веселый_уродец",
+      "target": "красная_кошкодевочка",
+      "relation": "comments on",
+      "description": "Персонаж комментирует ситуацию, связанную с Красной кошкодевочкой.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "веселый_уродец_is_a_noise_for_жена_владельца_дорогого_автомобиля_edge",
+      "source": "веселый_уродец",
+      "target": "владелец_дорогого_автомобиля",
+      "relation": "is a noise for",
+      "description": "Хочет, чтобы муж закрыл рот Веселому Уродцу.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "bmw_owned_by_владелец_автомобиля_edge",
+      "source": "bmw",
+      "target": "владелец_дорогого_автомобиля",
+      "relation": "owned by",
+      "description": "Владелец владеет автомобилем BMW.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "bmw_contains_красная_кошкодевочка_edge",
+      "source": "bmw",
+      "target": "красная_кошкодевочка",
+      "relation": "contains",
+      "description": "",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "просьба_заткнуть_источник_шума_involves_жена_владельца_дорогого_автомобиля_edge",
+      "source": "просьба_заткнуть_источник_шума",
+      "target": "владелец_дорогого_автомобиля",
+      "relation": "involves",
+      "description": "Событие, в котором участвует жена, прося остановить шум.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "просьба_заткнуть_источник_шума_about_красная_кошкодевочка_edge",
+      "source": "просьба_заткнуть_источник_шума",
+      "target": "красная_кошкодевочка",
+      "relation": "about",
+      "description": "Событие связано с действиями Красной кошкодевочки, как источником шума.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "просьба_заткнуть_источник_шума_commented_by_веселый_уродец_edge",
+      "source": "просьба_заткнуть_источник_шума",
+      "target": "веселый_уродец",
+      "relation": "commented by",
+      "description": "Комментирует ситуацию, не участвуя в ней напрямую.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "превращение_в_красную_кошкодевочку_после_аварии_results_in_красная_кошкодевочка_edge",
+      "source": "превращение_в_красную_кошкодевочку_после_аварии",
+      "target": "красная_кошкодевочка",
+      "relation": "results in",
+      "description": "Событие является причиной появления персонажа Красная кошкодевочка.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "конец_сцены_precedes_начало_геймплея_edge",
+      "source": "конец_сцены",
+      "target": "начало_геймплея",
+      "relation": "precedes",
+      "description": "Событие 'Конец сцены' предшествует событию 'Начало геймплея'.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "начало_геймплея_follows_конец_сцены_edge",
+      "source": "начало_геймплея",
+      "target": "конец_сцены",
+      "relation": "follows",
+      "description": "Событие 'Конец сцены' предшествует событию 'Начало геймплея'.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "дорогой_автомобиль_имеет_владелицу_жена_владельца_дорогого_автомобиля_edge",
+      "source": "дорогой_автомобиль",
+      "target": "владелец_дорогого_автомобиля",
+      "relation": "имеет владелицу",
+      "description": "Жена является владелицей автомобиля вместе с мужем.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    }
+  ]
+}

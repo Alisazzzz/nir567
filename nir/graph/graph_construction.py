@@ -7,6 +7,7 @@
 #--------------------------
 
 import re, json
+import string
 import numpy as np
 from typing import Any, List, Dict, Optional, Tuple
 from copy import deepcopy
@@ -22,8 +23,8 @@ from langchain_core.runnables import Runnable
 
 from fastcoref import FCoref
 
-from nir.graph.graph_parser import SafePydanticParser, normalize_events_subgraph, normalize_graph_completion_result, normalize_graph_extraction_result, normalize_merged_node
-from nir.graph.graph_structures import GraphCompletionResult, InputEdge, InputNode, MergedNode, Node, Edge, EventImpact, State, EventsSubgraph, GraphExtractionResult
+from nir.graph.graph_parser import SafePydanticParser, normalize_events_subgraph, normalize_graph_completion_result, normalize_graph_extraction_result, normalize_merged_node, normalize_merged_node_name, normalize_node_names_extraction_result
+from nir.graph.graph_structures import GraphCompletionResult, InputEdge, InputNode, MergedNode, MergedNodeName, Node, Edge, EventImpact, NodeNamesExtractionResult, State, EventsSubgraph, GraphExtractionResult
 from nir.graph.knowledge_graph import KnowledgeGraph
 from nir.graph.graph_storages.networkx_graph import NetworkXGraph
 from nir.prompts import extraction_prompts
@@ -49,8 +50,10 @@ def create_id(name: str) -> str:
     return re.sub(r"\s+", "_", cleaned.strip()).lower()
 
 def cosine_sim(text1: str, text2: str, embedding_model: Embeddings) -> float:
-    embedding1 = np.array(embedding_model.embed_query(text1))
-    embedding2 = np.array(embedding_model.embed_query(text2))
+    q1 = f"{text1}"
+    q2 = f"{text2}"
+    embedding1 = np.array(embedding_model.embed_query(q1))
+    embedding2 = np.array(embedding_model.embed_query(q2))
     return float(np.dot(embedding1, embedding2) / (np.linalg.norm(embedding1) * np.linalg.norm(embedding2)))
 
 def remove_comments(s: str) -> str:
@@ -226,6 +229,15 @@ def get_next_unique_node_id(base_id: str, all_nodes: dict) -> str:
                 continue
     return f"{base_id}_{max_num + 1}"
 
+def clean_entity_name(name: str) -> str:
+    name = " ".join(name.split())
+    name = name.strip('"\'')
+    name = re.sub(r'^(a|an|the)\s+', '', name, flags=re.IGNORECASE)
+    name = " ".join(name.split())
+    return name if name else ""
+
+
+
 #----------------------------------------------
 #-----first stage of extraction (entities)-----
 #----------------------------------------------
@@ -241,6 +253,16 @@ prompt_entities_en = ChatPromptTemplate.from_messages([
         "{format_instructions}")
 ]).partial(format_instructions=entities_parser.get_format_instructions())
 
+
+prompt_entities_with_names_en = ChatPromptTemplate.from_messages([
+    ("system", extraction_prompts.SYSTEM_PROMPT_ENTITIES_WITH_NAMES_EN),
+    ("human",
+        "Text fragment:\n{chunk_text}\n\n"
+        "Entities in chunk:\n{entities_array}\n\n"
+        "{format_instructions}")
+]).partial(format_instructions=entities_parser.get_format_instructions())
+
+
 prompt_entities_ru = ChatPromptTemplate.from_messages([
     ("system", extraction_prompts.SYSTEM_PROMPT_ENTITIES_RU),
     ("human",
@@ -248,6 +270,36 @@ prompt_entities_ru = ChatPromptTemplate.from_messages([
         "Coreference clusters:\n{coreference_array}\n\n"
         "{format_instructions}")
 ]).partial(format_instructions=entities_parser.get_format_instructions())
+
+prompt_entities_with_names_ru = ChatPromptTemplate.from_messages([
+    ("system", extraction_prompts.SYSTEM_PROMPT_ENTITIES_WITH_NAMES_RU),
+    ("human",
+        "Text fragment:\n{chunk_text}\n\n"
+        "Entities in chunk:\n{entities_array}\n\n"
+        "{format_instructions}")
+]).partial(format_instructions=entities_parser.get_format_instructions())
+
+
+entities_names_parser = PydanticOutputParser(pydantic_object=NodeNamesExtractionResult)
+safe_entities_names_parser = SafePydanticParser(expected_structure=NodeNamesExtractionResult, normalizer=normalize_node_names_extraction_result)
+
+prompt_entities_names_en = ChatPromptTemplate.from_messages([
+    ("system", extraction_prompts.SYSTEM_PROMPT_ENTITIES_NAMES_EN),
+    ("human",
+        "Text fragment:\n{chunk_text}\n\n"
+        "Coreference clusters:\n{coreference_array}\n\n"
+        "{format_instructions}")
+]).partial(format_instructions=entities_parser.get_format_instructions())
+
+prompt_entities_names_ru = ChatPromptTemplate.from_messages([
+    ("system", extraction_prompts.SYSTEM_PROMPT_ENTITIES_NAMES_RU),
+    ("human",
+        "Text fragment:\n{chunk_text}\n\n"
+        "Coreference clusters:\n{coreference_array}\n\n"
+        "{format_instructions}")
+]).partial(format_instructions=entities_parser.get_format_instructions())
+
+
 
 #-----------------------------------------------------
 #-----second stage of extraction (events' impact)-----
@@ -257,7 +309,7 @@ events_parser = PydanticOutputParser(pydantic_object=EventsSubgraph)
 safe_events_parser = SafePydanticParser(expected_structure=EventsSubgraph, normalizer=normalize_events_subgraph)
 
 prompt_events_en = ChatPromptTemplate.from_messages([
-    ("system", extraction_prompts.SYSTEM_PROMPT_EVENTS_EN),
+    ("system", extraction_prompts.SYSTEM_PROMPT_EVENTS_IMPACTS_EN),
     ("human",
         "Text:\n{chunk_text}\n\n"
         "Events:\n{events_list}\n\n"
@@ -287,7 +339,7 @@ prompt_events_ru = ChatPromptTemplate.from_messages([
 completing_graph_parser = PydanticOutputParser(pydantic_object=GraphCompletionResult)
 safe_completing_graph_parser = SafePydanticParser(expected_structure=GraphCompletionResult, normalizer=normalize_graph_completion_result)
 
-prompt_completing_en= ChatPromptTemplate.from_messages([
+prompt_completing_en = ChatPromptTemplate.from_messages([
     ("system", extraction_prompts.SYSTEM_PROMPT_GRAPH_COMPLETION_EN),
     ("human",
         "Text:\n{chunk_text}\n\n"
@@ -297,7 +349,7 @@ prompt_completing_en= ChatPromptTemplate.from_messages([
     )
 ]).partial(format_instructions=completing_graph_parser.get_format_instructions())
 
-prompt_completing_ru= ChatPromptTemplate.from_messages([
+prompt_completing_ru = ChatPromptTemplate.from_messages([
     ("system", extraction_prompts.SYSTEM_PROMPT_GRAPH_COMPLETION_RU),
     ("human",
         "Text:\n{chunk_text}\n\n"
@@ -306,6 +358,7 @@ prompt_completing_ru= ChatPromptTemplate.from_messages([
         "{format_instructions}"
     )
 ]).partial(format_instructions=completing_graph_parser.get_format_instructions())
+
 
 
 #--------------------------------------------------
@@ -319,7 +372,9 @@ prompt_merging_en = ChatPromptTemplate.from_messages([
     ("system", extraction_prompts.SYSTEM_PROMPT_MERGING_EN),
     ("human",
         "Node A:\n{node_a_json}\n\n"
+        "Node A context:\n{node_a_chunk}\n\n"
         "Node B:\n{node_b_json}\n\n"
+        "Node A context:\n{node_b_chunk}\n\n"
         "{format_instructions}"
     )
 ]).partial(format_instructions=merged_nodes_parser.get_format_instructions())
@@ -336,10 +391,276 @@ prompt_merging_ru = ChatPromptTemplate.from_messages([
 ]).partial(format_instructions=merged_nodes_parser.get_format_instructions())
 
 
+merged_nodes_names_parser = PydanticOutputParser(pydantic_object=MergedNodeName)
+safe_merged_nodes_names_parser = SafePydanticParser(expected_structure=MergedNodeName, normalizer=normalize_merged_node_name)
+
+prompt_merging_names_en = ChatPromptTemplate.from_messages([
+    ("system", extraction_prompts.SYSTEM_PROMPT_MERGING_NAMES_EN),
+    ("human",
+        "Node A name:\n{node_a_name}\n\n"
+        "Node A context:\n{node_a_context}\n\n"
+        "Node B name:\n{node_b_name}\n\n"
+        "Node B context:\n{node_b_context}\n\n"
+        "{format_instructions}"
+    )
+]).partial(format_instructions=merged_nodes_parser.get_format_instructions())
+
+prompt_merging_names_ru = ChatPromptTemplate.from_messages([
+    ("system", extraction_prompts.SYSTEM_PROMPT_MERGING_NAMES_RU),
+    ("human",
+        "Node A name:\n{node_a_name}\n\n"
+        "Node A context:\n{node_a_context}\n\n"
+        "Node B name:\n{node_b_name}\n\n"
+        "Node B context:\n{node_b_context}\n\n"
+        "{format_instructions}"
+    )
+]).partial(format_instructions=merged_nodes_parser.get_format_instructions())
+
 
 #--------------------------------------------------
 #---------extracting and updating functions--------
 #--------------------------------------------------
+
+def extract_entities_names(
+        chunks: List[Document],
+        llm: BaseLanguageModel,
+        preserve_all_data: bool = True,
+        language: str = "en"
+) -> Dict[str, Node]:
+    
+    all_nodes: Dict[str, Node] = {}
+
+    if language == "en":
+        chain_entities_names = prompt_entities_names_en | llm | clean_json | entities_names_parser
+        safe_chain_entities_names = prompt_entities_names_en | llm | safe_entities_names_parser.parse
+    else:
+        chain_entities_names = prompt_entities_names_ru | llm | clean_json | entities_names_parser
+        safe_chain_entities_names = prompt_entities_names_ru | llm | safe_entities_names_parser.parse
+    
+    for idx, chunk in enumerate(chunks):
+        
+        print(f"[Chunk {idx+1}/{len(chunks)}] Extracting nodes names.") #DEBUGGING
+        
+        coreference_array = resolve_coreference(chunk.page_content, language=language)
+        if preserve_all_data:
+            result: NodeNamesExtractionResult = safe_chain_entities_names.invoke({
+                "chunk_text": chunk.page_content,
+                "coreference_array": coreference_array
+            })
+        else:
+            result: NodeNamesExtractionResult = safe_invoke_chain(
+                chain=chain_entities_names, 
+                inputs={
+                    "chunk_text": chunk.page_content,
+                    "coreference_array": coreference_array
+            })
+            if result == None:
+                break
+
+        for extracted_node in result.nodes:
+            node_id = create_id(extracted_node.name)     
+            if node_id not in all_nodes:
+                node = Node(
+                    id=node_id,
+                    name=extracted_node.name,
+                    type=extracted_node.type,
+                    base_description="",
+                    base_attributes={},
+                    states = [],
+                    chunk_id = [chunk.metadata["chunk_id"]]
+                )
+                all_nodes[node_id] = node
+            else:
+                node_id = get_next_unique_node_id(node_id, all_nodes)
+                node = Node(
+                    id=node_id,
+                    name=extracted_node.name,
+                    type=extracted_node.type,
+                    base_description="",
+                    base_attributes={},
+                    states = [],
+                    chunk_id = [chunk.metadata["chunk_id"]]
+                )
+                all_nodes[node_id] = node
+
+    return all_nodes
+
+def merge_similar_entities_names(
+        chunks: List[Document],
+        nodes: List[Node],
+        llm: BaseLanguageModel, 
+        embedding_model: Embeddings,
+        preserve_all_data: bool = True,
+        similarity_threshold: float = 0.85,
+        language: str = "en"
+) -> List[Node]:
+        
+    merged_nodes = []
+    
+    if language == "en":
+        chain_merging_names = prompt_merging_names_en | llm | clean_json | merged_nodes_names_parser
+        safe_chain_merging_names = prompt_merging_names_en | llm | safe_merged_nodes_names_parser.parse
+    else:
+        chain_merging_names = prompt_merging_names_ru | llm | clean_json | merged_nodes_parser
+        safe_chain_merging_names = prompt_merging_names_ru | llm | safe_merged_nodes_parser.parse
+
+    if not nodes:
+        return merged_nodes
+    
+    for node in nodes:
+        is_node_merged = False
+        for idx, existing in enumerate(merged_nodes):
+            if node.type == existing.type:
+                if node.name.lower() == existing.name.lower():
+                    existing.chunk_id = list(set(existing.chunk_id + node.chunk_id))
+                    is_node_merged = True
+                    break
+                else:
+                    sim = cosine_sim(node.name, existing.name, embedding_model) 
+                    print(f"{node.name} SIMILAR WITH {existing.name} WITH SIMILARITY {sim}") #DEBUGGING
+                    if sim >= similarity_threshold:
+                        node_chunk = next((chunk.page_content for chunk in chunks if chunk.metadata["chunk_id"] == node.chunk_id[0]), "No context")
+                        existing_chunk = next((chunk.page_content for chunk in chunks if chunk.metadata["chunk_id"] == existing.chunk_id[-1]), "No context")
+                        if preserve_all_data:
+                            merged_node_name: MergedNodeName = safe_chain_merging_names.invoke({
+                                    "node_a_name": node.name,
+                                    "node_a_context": node_chunk,
+                                    "node_b_name": existing.name,
+                                    "node_b_context": existing_chunk,
+                            })
+                        else:
+                            merged_node_name: MergedNode = safe_invoke_chain(
+                                chain=chain_merging_names, 
+                                inputs={
+                                    "node_a_name": node.name,
+                                    "node_a_context": node_chunk,
+                                    "node_b_name": existing.name,
+                                    "node_b_context": existing_chunk,
+                            })
+                            if merged_node_name is None:
+                                break                      
+                        if (merged_node_name.name != ""):
+                            merged_node_to_graph = Node(
+                                id=existing.id,
+                                name=merged_node_name.name,
+                                type=existing.type,
+                                base_description=existing.base_description,
+                                base_attributes=existing.base_attributes,
+                                states=existing.states + node.states,
+                                chunk_id=list(set(existing.chunk_id + node.chunk_id))
+                            )
+                            merged_nodes[idx] = merged_node_to_graph
+                            is_node_merged = True
+                            break
+        if not is_node_merged:
+            merged_nodes.append(deepcopy(node))
+    return merged_nodes
+
+def extract_graph_info(
+        chunks: List[Document],
+        nodes: List[Node],
+        llm: BaseLanguageModel,
+        preserve_all_data: bool = True,
+        language: str = "en"
+    ) -> Tuple[Dict[str, Node], Dict[str, Edge]]:
+
+    all_nodes: Dict[str, Node] = {}
+    all_edges: Dict[str, Edge] = {}
+    nodes_in_work = {node.id : node for node in nodes}
+
+    if language == "en":
+        chain_entities = prompt_entities_with_names_en | llm | clean_json | entities_parser
+        safe_chain_entities = prompt_entities_with_names_en | llm | safe_entities_parser.parse
+    else:
+        chain_entities = prompt_entities_with_names_ru | llm | clean_json | entities_parser
+        safe_chain_entities = prompt_entities_with_names_ru | llm | safe_entities_parser.parse
+    
+    for idx, chunk in enumerate(chunks):
+        
+        print(f"[Chunk {idx+1}/{len(chunks)}] Extracting nodes and edges.") #DEBUGGING
+        
+        nodes_in_chunk = [node for node in nodes_in_work.values() if chunk.metadata["chunk_id"] in node.chunk_id]
+        print(f"CHUNK {chunk.page_content} WITH NODES {nodes_in_chunk}") #DEBUGGING
+        if preserve_all_data:
+            result: GraphExtractionResult = safe_chain_entities.invoke({
+                "chunk_text": chunk.page_content,
+                "entities_array": nodes_in_chunk
+            })
+        else:
+            result: GraphExtractionResult = safe_invoke_chain(
+                chain=chain_entities, 
+                inputs={
+                    "chunk_text": chunk.page_content,
+                    "entities_array": nodes_in_chunk
+            })
+            if result == None:
+                break
+
+        names_to_ids: Dict[str, str] = {}
+        for extracted_node in result.nodes:
+            node_id = create_id(extracted_node.name)
+            if node_id not in nodes_in_work:
+                node = Node(
+                    id=node_id,
+                    name=extracted_node.name,
+                    type=extracted_node.type,
+                    base_description=extracted_node.base_description,
+                    base_attributes=extracted_node.base_attributes,
+                    states = [],
+                    chunk_id = [chunk.metadata["chunk_id"]]
+                )
+                nodes_in_work[node_id] = node
+                names_to_ids[extracted_node.name] = node_id
+            else:
+                node = Node(
+                    id=node_id,
+                    name=nodes_in_work[node_id].name,
+                    type=nodes_in_work[node_id].type,
+                    base_description=extracted_node.base_description,
+                    base_attributes=extracted_node.base_attributes,
+                    states = [],
+                    chunk_id = nodes_in_work[node_id].chunk_id
+                )
+                nodes_in_work[node_id] = node
+                names_to_ids[extracted_node.name] = node_id
+        all_nodes = deepcopy(nodes_in_work)
+
+        for extracted_edge in result.edges:
+            edge_id_from1to2 = create_id(f"{extracted_edge.node1} {extracted_edge.relation_from1to2} {extracted_edge.node2} edge")
+            edge_id_from2to1 = create_id(f"{extracted_edge.node2} {extracted_edge.relation_from2to1} {extracted_edge.node1} edge")
+            if edge_id_from1to2 not in all_edges:
+                if extracted_edge.node1 != None and extracted_edge.node2 != None:
+                    if extracted_edge.node1 in names_to_ids.keys() and extracted_edge.node2 in names_to_ids.keys():
+                        
+                        edge_1to2 = Edge (
+                            id=edge_id_from1to2,
+                            source=names_to_ids[extracted_edge.node1],
+                            target=names_to_ids[extracted_edge.node2],
+                            relation=extracted_edge.relation_from1to2,
+                            description=extracted_edge.description,
+                            weight=extracted_edge.weight,
+                            time_start_event=None,
+                            time_end_event=None,
+                            chunk_id=chunk.metadata["chunk_id"]
+                        )
+                        all_edges[edge_id_from1to2] = edge_1to2
+                        
+                        edge_2to1 = Edge (
+                            id=edge_id_from2to1,
+                            source=names_to_ids[extracted_edge.node2],
+                            target=names_to_ids[extracted_edge.node1],
+                            relation=extracted_edge.relation_from2to1,
+                            description=extracted_edge.description,
+                            weight=extracted_edge.weight,
+                            time_start_event=None,
+                            time_end_event=None,
+                            chunk_id=chunk.metadata["chunk_id"]
+                        )
+                        all_edges[edge_id_from2to1] = edge_2to1
+
+    print(f"Extracted {len(all_nodes)} nodes and {len(all_edges)} edges.") #DEBUGGING
+
+    return all_nodes, all_edges
 
 def merge_similar_nodes(
         chunks: List[Document],
@@ -348,7 +669,7 @@ def merge_similar_nodes(
         llm: BaseLanguageModel, 
         embedding_model: Embeddings,
         preserve_all_data: bool = True,
-        similarity_threshold: float = 0.85,
+        similarity_threshold: float = 0.65,
         language: str = "en"
     ) -> Tuple[Dict[str, Node], Dict[str, Edge]]:  
     
@@ -371,28 +692,29 @@ def merge_similar_nodes(
             node_j_description = f"{existing.name}. {existing.base_description}"
             if node.type == existing.type:
                 sim = cosine_sim(node_i_description, node_j_description, embedding_model)
-                if sim >= similarity_threshold:
+                print(f"{node_i_description} SIMILAR WITH {node_j_description} WITH SIMILARITY {sim}") #DEBUGGING
+                if sim >= similarity_threshold or node.name.lower() == existing.name.lower():
                    
                     node_for_llm = MergedNode(
                         name=node.name,
                         base_description=node.base_description,
                         base_attributes=node.base_attributes
                     )
-                    node_chunk = chunks[node.chunk_id[0]]
+                    node_chunk = next((chunk.page_content for chunk in chunks if chunk.metadata["chunk_id"] == node.chunk_id[0]), "No context")
 
                     existing_for_llm = MergedNode(
-                        name=node.name,
-                        base_description=node.base_description,
-                        base_attributes=node.base_attributes
+                        name=existing.name,
+                        base_description=existing.base_description,
+                        base_attributes=existing.base_attributes
                     )
-                    existing_chunk = chunks[existing.chunk_id[-1]]
+                    existing_chunk = next((chunk.page_content for chunk in chunks if chunk.metadata["chunk_id"] == existing.chunk_id[-1]), "No context")
 
                     if preserve_all_data:
                         merged_node: MergedNode = safe_chain_merging.invoke({
                             "node_a_json": existing_for_llm.model_dump_json(),
-                            "node_a_chunk": node_chunk,
+                            "node_a_chunk": existing_chunk,
                             "node_b_json": node_for_llm.model_dump_json(),
-                            "node_b_chunk": existing_chunk,
+                            "node_b_chunk": node_chunk,
                         })
                         print(merged_node)
                     else:
@@ -400,9 +722,9 @@ def merge_similar_nodes(
                             chain=chain_merging, 
                             inputs={
                                 "node_a_json": existing_for_llm.model_dump_json(),
-                                "node_a_chunk": node_chunk,
+                                "node_a_chunk": existing_chunk,
                                 "node_b_json": node_for_llm.model_dump_json(),
-                                "node_b_chunk": existing_chunk,
+                                "node_b_chunk": node_chunk,
                         })
                         if merged_node is None:
                             break
@@ -506,8 +828,8 @@ def extract_entities(
                 names_to_ids[extracted_node.name] = node_id
       
         for extracted_edge in result.edges:
-            edge_id_from1to2 = create_id(f"{extracted_edge.node1} {extracted_edge.relation_from1to2} {extracted_edge.node2}")
-            edge_id_from2to1 = create_id(f"{extracted_edge.node2} {extracted_edge.relation_from2to1} {extracted_edge.node1}")
+            edge_id_from1to2 = create_id(f"{extracted_edge.node1} {extracted_edge.relation_from1to2} {extracted_edge.node2} edge")
+            edge_id_from2to1 = create_id(f"{extracted_edge.node2} {extracted_edge.relation_from2to1} {extracted_edge.node1} edge")
             if edge_id_from1to2 not in all_edges:
                 if extracted_edge.node1 != None and extracted_edge.node2 != None:
                     if extracted_edge.node1 in names_to_ids.keys() and extracted_edge.node2 in names_to_ids.keys():
@@ -571,8 +893,11 @@ def complete_graph(
 
         chunk_nodes = [node for node in nodes.values() if idx in node.chunk_id]
         chunk_edges = [edge for edge in edges.values() if edge.chunk_id == idx]
+        print(chunk_nodes)
+        print()
         
         entities_for_llm = [{"name": n.name, "description": n.base_description} for n in chunk_nodes]
+        print(entities_for_llm)
         relations_for_llm = [{"node1": e.source, "node2": e.target, "relation": e.relation} for e in chunk_edges]
 
         try:
@@ -592,7 +917,8 @@ def complete_graph(
                 })
                 if result == None:
                     break
-            
+
+            print(result)
             if result and result.missing_entities:
                 for missing_entity in result.missing_entities:
                     entity_id = create_id(missing_entity.name)  
@@ -604,7 +930,7 @@ def complete_graph(
                             base_description=missing_entity.base_description,
                             base_attributes=missing_entity.base_attributes,
                             states=[],
-                            chunk_id=[idx]
+                            chunk_id=[chunk.metadata["chunk_id"]]
                         )
                         new_nodes[entity_id] = new_node
                         names_to_ids[new_node.name] = entity_id
@@ -617,15 +943,15 @@ def complete_graph(
                             base_description=missing_entity.base_description,
                             base_attributes=missing_entity.base_attributes,
                             states=[],
-                            chunk_id=[idx]
+                            chunk_id=[chunk.metadata["chunk_id"]]
                         )
                         new_nodes[entity_id] = new_node
                         names_to_ids[new_node.name] = entity_id
             
             if result and result.missing_relations:
                 for missing in result.missing_relations:
-                    edge_id_1to2 = create_id(f"{missing.node1} {missing.relation_from1to2} {missing.node2}")
-                    edge_id_2to1 = create_id(f"{missing.node2} {missing.relation_from2to1} {missing.node1}")
+                    edge_id_1to2 = create_id(f"{missing.node1} {missing.relation_from1to2} {missing.node2} edge")
+                    edge_id_2to1 = create_id(f"{missing.node2} {missing.relation_from2to1} {missing.node1} edge")
 
                     if edge_id_1to2 in new_edges:
                         continue
@@ -644,7 +970,7 @@ def complete_graph(
                         relation=missing.relation_from1to2,
                         description=missing.description,
                         weight=missing.weight,
-                        chunk_id=idx
+                        chunk_id=chunk.metadata["chunk_id"]
                     )
                     new_edges[edge_id_2to1] = Edge(
                         id=edge_id_2to1,
@@ -653,7 +979,7 @@ def complete_graph(
                         relation=missing.relation_from2to1,
                         description=missing.description,
                         weight=missing.weight,
-                        chunk_id=idx
+                        chunk_id=chunk.metadata["chunk_id"]
                     )
             
         except Exception as e:
@@ -778,6 +1104,7 @@ def extract_graph(
         language=language
     )
 
+    print("--NODES--")
     for node in nodes.values():
         print(node)
 
@@ -790,6 +1117,7 @@ def extract_graph(
         language=language
     )
 
+    print("--COMPLETED NODES--")
     for node in completed_nodes.values():
         print(node)
 
@@ -805,6 +1133,11 @@ def extract_graph(
         preserve_all_data=preserve_all_data,
         language=language
     )
+
+    print("--MERGED NODES--")
+    for node in merged_result[0].values():
+        print(node)
+
     for n in merged_result[0].values():
         graph.add_node(n)
     for e in merged_result[1].values():
@@ -826,6 +1159,95 @@ def extract_graph(
 
     events_only = [node for node in nodes_in_graph if node.type == "event"]
     for event in events_impacts:     
+        for event_in_graph in events_only:
+            print (event_in_graph.name, event.event_name)
+            if event_in_graph.name == event.event_name:
+                apply_event_impact_on_graph(graph, event, event_in_graph)
+
+    return graph
+
+def extract_graph_from_nodes(
+        chunks: List[Document],       
+        llm: BaseLanguageModel,
+        embedding_model: Embeddings,
+        graph_class = NetworkXGraph,
+        preserve_all_data: bool = True,
+        language: str = "en"
+    ) -> KnowledgeGraph:
+    
+    graph = graph_class()
+
+    nodes_names = extract_entities_names(
+        chunks=chunks, 
+        llm=llm,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )
+    print("---NODES---")
+    for node in nodes_names.values():
+        print(node)
+
+    merged_nodes_names = merge_similar_entities_names(
+        chunks=chunks,
+        nodes=nodes_names.values(), 
+        llm=llm,
+        embedding_model=embedding_model,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )
+    print("---MERGED NODES---")
+    print(merged_nodes_names)
+
+    nodes, edges = extract_graph_info(
+        chunks=chunks,
+        nodes=merged_nodes_names,
+        llm=llm,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )
+
+    completed_nodes, completed_edges = complete_graph(
+        chunks=chunks,
+        nodes=nodes,
+        edges=edges,
+        llm=llm,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )
+
+    all_nodes = [n for n in completed_nodes.values()]
+    all_edges = [e for e in completed_edges.values()]
+
+    merged_result = merge_similar_nodes(
+        chunks=chunks,
+        nodes=all_nodes, 
+        edges=all_edges, 
+        llm=llm, 
+        embedding_model=embedding_model,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )
+    for n in merged_result[0].values():
+        graph.add_node(n)
+    for e in merged_result[1].values():
+        if e.source and e.target:
+            graph.add_edge(e)
+
+    print(f"Graph built with {len(all_nodes)} nodes and {len(all_edges)} edges.") #DEBUGGING
+    
+    nodes_in_graph = graph.get_all_nodes()
+    edges_in_graph = graph.get_all_edges()
+    events_impacts = extract_events_impact(
+        chunks=chunks, 
+        nodes=nodes_in_graph, 
+        edges=edges_in_graph, 
+        llm=llm,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )  
+
+    events_only = [node for node in nodes_in_graph if node.type == "event"]
+    for event in events_impacts:
         for event_in_graph in events_only:
             print (event_in_graph.name, event.event_name)
             if event_in_graph.name == event.event_name:
@@ -944,6 +1366,7 @@ def create_embeddings(
             "source": edge.source,
             "target": edge.target
         })
+    print(all_ids)
     embeddings = embedding_model.embed_documents(all_documents)
     vector_store.add_embeddings(
         ids=all_ids,

@@ -1,6 +1,7 @@
 #All stuff with loading documents is here
 
-from typing import List
+from typing import List, Optional
+import pandas as pd
 
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain_community.document_loaders.text import TextLoader
@@ -15,6 +16,23 @@ def loadCSV(path: str, encoding: str = "utf-8") -> List[Document]:
     loader = CSVLoader(file_path=path, encoding=encoding)
     data = loader.load()
     return data
+
+def loadCSV_withColumns(path: str, encoding: str = "utf-8", columns: Optional[List[str]] = None) -> List[Document]:
+    df = pd.read_csv(path, encoding=encoding)
+    if columns is not None:
+        missing = [col for col in columns if col not in df.columns]
+        if missing:
+            return
+        df = df[columns]
+    documents = []
+    for idx, row in df.iterrows():
+        values = [str(val) for val in row if pd.notna(val)]
+        content = "\n".join(values)
+        documents.append(Document(
+            page_content=content,
+            metadata={"source": path, "row_index": int(idx)}
+        ))
+    return documents
 
 def loadTXT(path: str, encoding: str = "utf-8") -> List[Document]:
     loader = TextLoader(file_path=path, encoding=encoding)

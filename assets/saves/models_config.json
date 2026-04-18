@@ -24,10 +24,10 @@
         },
         "basic_chat": {
             "option": "ollama",
-            "model_name": "llama3.2:latest",
+            "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
             "config": {
-                "model_name": "llama3.2:latest",
-                "temperature": 0.8,
+                "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+                "temperature": 0.7,
                 "max_tokens": 1024,
                 "extra": {}
             },
@@ -52,8 +52,8 @@
             "api_info": null
         },
         "embeddings": {
-            "option": "ollama",
-            "model_name": "nomic-embed-text:v1.5",
+            "option": "hf_local",
+            "model_name": "sentence-transformers/all-MiniLM-L6-v2",
             "api_info": null
         }
     }

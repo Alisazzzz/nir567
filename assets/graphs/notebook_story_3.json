@@ -1,0 +1,828 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "notebook_story_4",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "little_girl",
+      "name": "Little girl",
+      "type": "character",
+      "base_description": "A young female child expressing surprise, daughter of a family with a father and a mother named Maria. She is part of a story where her mother is looking for a notebook to tell her a story about their cat, which was last seen walking under the bed. The little girl is often found sitting on a bed in her bedroom and expresses excitement when her mother finds the notebook under the bed after the cat walks by it. The story involves details about the cat being an ancient demon who was a rock before the World Recreation.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "excitement_little_girl_0",
+          "current_description": "A young female child expressing excitement over the cat finding the notebook",
+          "current_attributes": {
+            "emotional_state": "excited"
+          },
+          "time_start_event": "Cat finds notebook",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "father",
+      "name": "Father",
+      "type": "character",
+      "base_description": "The parent figure in the family, an adult male staying indoors, encouraging the mother to tell a story. He is involved in the household activities and interactions with other family members such as the little girl and mother. An adult male, looking at a cat and addressing it as 'mister demon'.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "mother_maria",
+      "name": "Mother (Maria)",
+      "type": "character",
+      "base_description": "The mother of the little girl, named Maria",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "type": "item",
+      "base_description": "A feline pet being looked at by the father",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0,
+        3
+      ]
+    },
+    {
+      "id": "notebook",
+      "name": "Notebook",
+      "type": "item",
+      "base_description": "An item that was lost and found, a physical object used by Mother for writing or keeping notes, often associated with storytelling about their cat and events such as World Recreation.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "notebook_is_lost_and_found_notebook_0",
+          "current_description": "A physical object used for writing or keeping notes, recently found under the bed after being lost.",
+          "current_attributes": {
+            "status": "found"
+          },
+          "time_start_event": "Notebook is lost and found",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "under_the_bed",
+      "name": "Under the bed",
+      "type": "location",
+      "base_description": "A place where the notebook was found; a spatial setting where the notebook is discovered as part of a story involving a family, including a little girl, her father, mother (Maria), and a cat. The notebook is found by the cat and then retrieved by the mother who expresses gratitude to the cat.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "notebook_is_lost_and_found",
+      "name": "Notebook is lost and found",
+      "type": "event",
+      "base_description": "The action of losing and finding the notebook",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "mother",
+      "name": "Cat",
+      "type": "character",
+      "base_description": "An adult female sitting on the bed next to her daughter, willing to tell a story about their cat after retrieving her notebook. She is referred to as 'my dear cat' within the context of the story she plans to share, which involves details about an ancient demon that was once a rock before the World Recreation event. The pet is also an ancient demon in this story, referred to as 'our cutie cat' and 'my dear cat' by Mother.",
+      "base_attributes": {
+        "role": "ancient demon"
+      },
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "cat_1",
+      "name": "Cat",
+      "type": "character",
+      "base_description": "A feline pet walking under the bed and meowing.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "cat_finds_notebook",
+      "name": "Cat finds notebook",
+      "type": "event",
+      "base_description": "The cat discovers the notebook under the bed. Mother retrieves her notebook from under the bed after the cat finds it.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "world_recreation",
+      "name": "World Recreation",
+      "type": "event",
+      "base_description": "A greatest event in history related to the cat's origin story, involving demons",
+      "base_attributes": {
+        "time": "in history"
+      },
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "cutscene_ends",
+      "name": "Cutscene ends",
+      "type": "event",
+      "base_description": "The completion of a cutscene in a game",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "gameplay_starts",
+      "name": "Gameplay starts",
+      "type": "event",
+      "base_description": "The beginning of interactive gameplay in a game",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "story_about_cat",
+      "name": "story about cat",
+      "type": "event",
+      "base_description": "An untold narrative about the red cat",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "excitement",
+      "name": "Excitement",
+      "type": "event",
+      "base_description": "The emotional state expressed by the little girl in response to the cat finding the notebook",
+      "base_attributes": {
+        "source": "little girl"
+      },
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "mother_2",
+      "name": "mother",
+      "type": "character",
+      "base_description": "A female adult who is part of the family and speaks in the text",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "little_girl_has_father_edge",
+      "source": "little_girl",
+      "target": "father",
+      "relation": "has",
+      "description": "The little girl has a father",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "little_girl_has_mother_maria_edge",
+      "source": "little_girl",
+      "target": "mother_maria",
+      "relation": "has",
+      "description": "The little girl has a mother named Maria",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "little_girl_has_as_pet_cat_edge",
+      "source": "little_girl",
+      "target": "cat",
+      "relation": "has as pet",
+      "description": "The little girl has a cat as a pet",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "little_girl_owns_notebook_edge",
+      "source": "little_girl",
+      "target": "notebook",
+      "relation": "owns",
+      "description": "The notebook belongs to the little girl",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "little_girl_asks_for_a_story_from_mother_edge",
+      "source": "little_girl",
+      "target": "mother",
+      "relation": "asks for a story from",
+      "description": "The little girl asks her mother to tell her a story about their cat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "little_girl_has_a_story_told_by_mother_edge",
+      "source": "little_girl",
+      "target": "mother",
+      "relation": "has a story told by",
+      "description": "The mother is willing to tell the little girl a story.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "little_girl_is_interested_in_cat_edge",
+      "source": "little_girl",
+      "target": "cat_1",
+      "relation": "is interested in",
+      "description": "The little girl is interested in hearing a story about their cat.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "little_girl_asks_for_story_about_cat_edge",
+      "source": "little_girl",
+      "target": "story_about_cat",
+      "relation": "asks for",
+      "description": "Little girl asks for a story about the cat",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "father_is_a_parent_of_little_girl_edge",
+      "source": "father",
+      "target": "little_girl",
+      "relation": "is a parent of",
+      "description": "The little girl has a father",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "father_encourages_to_tell_a_story_mother_edge",
+      "source": "father",
+      "target": "mother",
+      "relation": "encourages to tell a story",
+      "description": "The father encourages the mother to tell the story.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "father_looking_at_cat_edge",
+      "source": "father",
+      "target": "cat",
+      "relation": "looking at",
+      "description": "Father is looking at the cat while speaking to it.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "father_talks_to_cat_edge",
+      "source": "father",
+      "target": "cat",
+      "relation": "talks to",
+      "description": "The father is addressing the cat",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "father_addresses_cat_edge",
+      "source": "father",
+      "target": "cat",
+      "relation": "addresses",
+      "description": "The cat is being addressed by the father as 'mister demon'",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "father_is_married_to_mother_maria_edge",
+      "source": "father",
+      "target": "mother_maria",
+      "relation": "is married to",
+      "description": "Father and Mother (Maria) are a couple in the family",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "mother_maria_is_a_parent_of_little_girl_edge",
+      "source": "mother_maria",
+      "target": "little_girl",
+      "relation": "is a parent of",
+      "description": "The little girl has a mother named Maria",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "mother_maria_is_married_to_father_edge",
+      "source": "mother_maria",
+      "target": "father",
+      "relation": "is married to",
+      "description": "Father and Mother (Maria) are a couple in the family",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_is_owned_by_little_girl_edge",
+      "source": "cat",
+      "target": "little_girl",
+      "relation": "is owned by",
+      "description": "The little girl has a cat as a pet",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_being_looked_at_father_edge",
+      "source": "cat",
+      "target": "father",
+      "relation": "being looked at",
+      "description": "Father is looking at the cat while speaking to it.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "cat_is_talked_to_by_father_edge",
+      "source": "cat",
+      "target": "father",
+      "relation": "is talked to by",
+      "description": "The father is addressing the cat",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "cat_is_addressed_as_father_edge",
+      "source": "cat",
+      "target": "father",
+      "relation": "is addressed as",
+      "description": "The cat is being addressed by the father as 'mister demon'",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "notebook_belongs_to_little_girl_edge",
+      "source": "notebook",
+      "target": "little_girl",
+      "relation": "belongs to",
+      "description": "The notebook belongs to the little girl",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_is_involved_in_notebook_is_lost_and_found_edge",
+      "source": "notebook",
+      "target": "notebook_is_lost_and_found",
+      "relation": "is involved in",
+      "description": "The notebook is part of the losing and finding event",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_is_found_in_under_the_bed_edge",
+      "source": "notebook",
+      "target": "under_the_bed",
+      "relation": "is found in",
+      "description": "The notebook was found under the bed",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_is_located_in_under_the_bed_edge",
+      "source": "notebook",
+      "target": "under_the_bed",
+      "relation": "is located in",
+      "description": "The notebook is located under the bed before being taken by Mother",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "notebook_is_under_under_the_bed_edge",
+      "source": "notebook",
+      "target": "under_the_bed",
+      "relation": "is under",
+      "description": "The notebook is located under the bed",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "notebook_is_taken_by_mother_takes_notebook_edge",
+      "source": "notebook",
+      "target": "cat_finds_notebook",
+      "relation": "is taken by",
+      "description": "The notebook is taken by Mother from under the bed",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "notebook_is_needed_by_mother_edge",
+      "source": "notebook",
+      "target": "mother",
+      "relation": "is needed by",
+      "description": "Mother needs her notebook to tell a story",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "notebook_is_owned_by_mother_edge",
+      "source": "notebook",
+      "target": "mother",
+      "relation": "is owned by",
+      "description": "Mother owns the notebook",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "under_the_bed_contains_event_notebook_is_lost_and_found_edge",
+      "source": "under_the_bed",
+      "target": "notebook_is_lost_and_found",
+      "relation": "contains event",
+      "description": "The event of finding occurs under the bed",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "under_the_bed_contains_item_notebook_edge",
+      "source": "under_the_bed",
+      "target": "notebook",
+      "relation": "contains item",
+      "description": "The notebook was found under the bed",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "under_the_bed_contains_notebook_edge",
+      "source": "under_the_bed",
+      "target": "notebook",
+      "relation": "contains",
+      "description": "The notebook is located under the bed before being taken by Mother",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "under_the_bed_has_on_it_notebook_edge",
+      "source": "under_the_bed",
+      "target": "notebook",
+      "relation": "has on it",
+      "description": "The notebook is located under the bed",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "under_the_bed_contains_event_cat_finds_notebook_edge",
+      "source": "under_the_bed",
+      "target": "cat_finds_notebook",
+      "relation": "contains event",
+      "description": "The event of the cat finding the notebook occurs under the bed",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "notebook_is_lost_and_found_involves_notebook_edge",
+      "source": "notebook_is_lost_and_found",
+      "target": "notebook",
+      "relation": "involves",
+      "description": "The notebook is part of the losing and finding event",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_is_lost_and_found_occurs_in_under_the_bed_edge",
+      "source": "notebook_is_lost_and_found",
+      "target": "under_the_bed",
+      "relation": "occurs in",
+      "description": "The event of finding occurs under the bed",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "mother_is_asked_to_tell_a_story_by_little_girl_edge",
+      "source": "mother",
+      "target": "little_girl",
+      "relation": "is asked to tell a story by",
+      "description": "The little girl asks her mother to tell her a story about their cat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mother_tells_a_story_to_little_girl_edge",
+      "source": "mother",
+      "target": "little_girl",
+      "relation": "tells a story to",
+      "description": "The mother is willing to tell the little girl a story.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mother_is_encouraged_by_to_tell_a_story_father_edge",
+      "source": "mother",
+      "target": "father",
+      "relation": "is encouraged by to tell a story",
+      "description": "The father encourages the mother to tell the story.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "cat_participates_in_cat_finds_notebook_edge",
+      "source": "mother",
+      "target": "cat_finds_notebook",
+      "relation": "participates in",
+      "description": "The cat participates in the event of finding the notebook",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "mother_is_performed_by_mother_takes_notebook_edge",
+      "source": "mother",
+      "target": "cat_finds_notebook",
+      "relation": "is performed by",
+      "description": "Mother performs the action of taking her notebook",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "cat_is_related_to_world_recreation_edge",
+      "source": "mother",
+      "target": "world_recreation",
+      "relation": "is related to",
+      "description": "The cat's origin story is related to the World Recreation event",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "mother_needs_notebook_edge",
+      "source": "mother",
+      "target": "notebook",
+      "relation": "needs",
+      "description": "Mother needs her notebook to tell a story",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mother_owns_notebook_edge",
+      "source": "mother",
+      "target": "notebook",
+      "relation": "owns",
+      "description": "Mother owns the notebook",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "cat_has_interest_from_little_girl_edge",
+      "source": "cat_1",
+      "target": "little_girl",
+      "relation": "has interest from",
+      "description": "The little girl is interested in hearing a story about their cat.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "cat_finds_notebook_involves_cat_edge",
+      "source": "cat_finds_notebook",
+      "target": "mother",
+      "relation": "involves",
+      "description": "The cat participates in the event of finding the notebook",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "mother_takes_notebook_performs_mother_edge",
+      "source": "cat_finds_notebook",
+      "target": "mother",
+      "relation": "performs",
+      "description": "Mother performs the action of taking her notebook",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "mother_takes_notebook_takes_notebook_edge",
+      "source": "cat_finds_notebook",
+      "target": "notebook",
+      "relation": "takes",
+      "description": "The notebook is taken by Mother from under the bed",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "cat_finds_notebook_occurs_in_under_the_bed_edge",
+      "source": "cat_finds_notebook",
+      "target": "under_the_bed",
+      "relation": "occurs in",
+      "description": "The event of the cat finding the notebook occurs under the bed",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "cat_finds_notebook_causes_excitement_edge",
+      "source": "cat_finds_notebook",
+      "target": "excitement",
+      "relation": "causes",
+      "description": "The little girl's excitement is caused by the cat finding the notebook",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "world_recreation_concerns_cat_edge",
+      "source": "world_recreation",
+      "target": "mother",
+      "relation": "concerns",
+      "description": "The cat's origin story is related to the World Recreation event",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "cutscene_ends_precedes_gameplay_starts_edge",
+      "source": "cutscene_ends",
+      "target": "gameplay_starts",
+      "relation": "precedes",
+      "description": "The end of the cutscene leads to the start of gameplay",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "gameplay_starts_follows_cutscene_ends_edge",
+      "source": "gameplay_starts",
+      "target": "cutscene_ends",
+      "relation": "follows",
+      "description": "The end of the cutscene leads to the start of gameplay",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "story_about_cat_is_asked_for_by_little_girl_edge",
+      "source": "story_about_cat",
+      "target": "little_girl",
+      "relation": "is asked for by",
+      "description": "Little girl asks for a story about the cat",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "excitement_is_caused_by_cat_finds_notebook_edge",
+      "source": "excitement",
+      "target": "cat_finds_notebook",
+      "relation": "is caused by",
+      "description": "The little girl's excitement is caused by the cat finding the notebook",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    }
+  ]
+}

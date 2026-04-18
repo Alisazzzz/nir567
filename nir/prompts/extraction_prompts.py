@@ -4,7 +4,7 @@
 SYSTEM_PROMPT_ENTITIES_EN = """
     You are an expert in knowledge graph extraction from narrative text.
 
-    TASK: Extract entities, relations, and events from the text fragment.
+    TASK: Extract entities and relations from the text fragment.
 
     INPUT:
     1. Text fragment to analyze
@@ -47,6 +47,8 @@ SYSTEM_PROMPT_ENTITIES_EN = """
       5. "item" — a physical object that can be possessed or interacted with. Can have different relations.
       6. "event" — an action, occurrence, or change of state. Events form the underlying chronological and causal structure (fabula), and they must have "time" field in "base_attributes".
       IMPORTANT FOR EVENTS: try to extract as much information as possible about chronological order of events: between entities of this type should be chronological relations like "precedes", "follows", "has an impact on", "cause" etc.
+      ALSO be very careful with events: extract them ONLY if they change something (like state of an item, for example), or if they mentioned by name (like "Great War"). ABSOLUTELY do not extract event from all verbs. For checking, answer the question: Does this event change somethin in the world or it is only an action without consequences? How big and important is this event: does it has impact on a world's history?
+      If answers for question means, that this event is not important and does not have consequences, do not extract this event.
 
     OUTPUT FORMAT:
     First write <reasoning> block explaining what you extracted and why.
@@ -106,7 +108,7 @@ SYSTEM_PROMPT_MERGING_EN = """
 
     DECISION RULES:
     1. MERGE if: Same name OR same description OR clearly referring to same object/person in context. Answer the question: 
-    are words in both descriptions or names are synonims and describe one entity? Are the names the same?
+    are words in both descriptions or names are similar, synonims or describe one entity? Are the names the same?
     2. DO NOT MERGE if: Similar type but different instances (e.g., "a sword" vs "the king's sword" without confirmation).
     3. When merging: Combine descriptions and attributes. Prefer more specific values. Save as much information as possible.
     4. NAME-IN-DESCRIPTION: If entity A's name appears in entity B's description (e.g., A.name="Maria", B.base_description="The mother, also known as Maria"), 
@@ -127,7 +129,7 @@ SYSTEM_PROMPT_MERGING_EN = """
 """
 
 
-SYSTEM_PROMPT_EVENTS_EN = """
+SYSTEM_PROMPT_EVENTS_IMPACTS_EN = """
     You are an expert in causal analysis for narrative knowledge graphs.
 
     TASK: Identify how EVENTS change ENTITIES and RELATIONS.
@@ -144,7 +146,7 @@ SYSTEM_PROMPT_EVENTS_EN = """
 
     IMPORTANT RULES:
     1. Focus on STATE CHANGES only. If nothing changes, return empty lists.
-    2. For affected nodes: Provide new_current_description and new_current_attributes AFTER the event.
+    2. For affected nodes: Provide new_current_description and new_current_attributes BEFORE and AFTER the event. Insert this new state into existing states, if any, adding time_start and time_end.
     3. For affected edges: Mark time_start_event (relation begins) or time_end_event (relation ends).
     4. IDs: Use EXACT entity/edge IDs from the input lists. Do NOT invent new IDs.
     5. REASONING: Explain the causal link before outputting JSON.
@@ -236,7 +238,8 @@ SYSTEM_PROMPT_GRAPH_COMPLETION_EN = """
         1. CHARACTERS: People, animals, sentient beings (even if mentioned briefly)
         2. ITEMS: Objects that are possessed, used, or interacted with
         3. LOCATIONS: Places where action happens (rooms, buildings, natural features)
-        4. EVENTS: Actions or occurrences that change the state of the world
+        4. EVENTS: Actions or occurrences that change the state of the world. Be very careful with events: extract them ONLY if they change something (like state of an item, for example), or if they mentioned by name (like "Great War"). ABSOLUTELY do not extract event from all verbs. For checking, answer the question: Does this event change somethin in the world or it is only an action without consequences? How big and important is this event: does it has impact on a world's history?
+        If answers for question means, that this event is not important and does not have consequences, do not extract this event.
 
     FOCUS ON THESE RELATIONS:
         1. SPATIAL: "in", "on", "under", "inside", "next to", "near", "located at"
@@ -377,6 +380,181 @@ SYSTEM_PROMPT_GRAPH_COMPLETION_EN = """
     CRITICAL: Output ONLY <reasoning> block followed by JSON. No other text.
 """
 
+
+SYSTEM_PROMPT_ENTITIES_NAMES_EN = """
+    You are an expert in entities recognition and graph construction.
+
+    TASK: Extract entities' names and types from the text fragment.
+
+    INPUT:
+    1. Text fragment to analyze
+    2. Coreference clusters (groups of mentions referring to the same entity)
+
+    IMPORTANT RULES:
+    1. ENTITIES: Extract all meaningful entities. Use coreference clusters to resolve pronouns (e.g., "she" -> "Alice").
+    2. EVENTS: Actions/occurrences are entities of type "event".
+    3. REASONING: First explain your extraction logic, then output JSON.
+    4. PARENTHETICAL NAMES: If text contains "Role (Name)" like "Princess (Alice)", extract entity with name="Name" (Alice), type based on role (character), 
+    and base_description including the role ("The princess, also known as Alice"). Treat "Role" and "Name" as coreferent — they are the SAME entity.
+
+    OTHER STRUCTURES AND RULES.
+      1. Find all entities mentioned in text. You may use coreference clusters, but also find entities by yourself, resolving coreference.
+      2. Entities (nodes). For each entity identified from a coreference cluster and found by you, output an object with the following fields:
+        - "name": entity name (designation). A name is a personal name, without any additional information and descriptions (even if it is included into coreference clusters: chose the one without additional info, as short as possible).
+        - "type": one of the allowed types described below. Be sure that living creatures are characters!
+    
+    ENTITY TYPES. Use exactly the following types for the "type" field:
+      1. "character" — a sentient being or individual acting within the narrative.
+      2. "group" — a collection of characters acting as a unit.
+      3. "location" — a geographical or spatial setting.
+      4. "environment_element" — a part or feature of a location.
+      5. "item" — a physical object that can be possessed or interacted with.
+      6. "event" — an action, occurrence, or change of state. Events form the underlying chronological and causal structure (fabula). Be very careful with events: extract them ONLY if they change something (like state of an item, for example), or if they mentioned by name (like "Great War"). ABSOLUTELY do not extract event from all verbs. For checking, answer the question: Does this event change somethin in the world or it is only an action without consequences? How big and important is this event: does it has impact on a world's history?
+      If answers for question means, that this event is not important and does not have consequences, do not extract this event.
+
+    OUTPUT FORMAT:
+    First write <reasoning> block explaining what you extracted and why.
+    Then output valid JSON with "nodes" keys.
+
+    JSON STRUCTURE:
+    {{
+        "nodes": [
+            {{
+                "name": "string (short canonical name)",
+                "type": "one of the 6 types above"
+            }}
+        ]
+    }}
+
+    EXAMPLE:
+    Input Text: "In summer 1670, Alice entered the dark forest."
+    Coreference: [["Alice", "she"], ["dark forest", "the forest"]]
+
+    <reasoning>
+    Found character Alice, location Dark Forest, and event of entering.
+    </reasoning>
+    {{
+        "nodes": [
+            {{"name": "Alice", "type": "character" }},
+            {{"name": "Dark Forest", "type": "location" }},
+            {{"name": "Alice enters forest", "type": "event" }}
+        ]
+    }}
+
+    CRITICAL: Output ONLY <reasoning> block followed by JSON. No other text.
+"""
+
+SYSTEM_PROMPT_MERGING_NAMES_EN = """
+    You are an expert in entity resolution.
+
+    TASK: Determine if two nodes represent the SAME real-world entity.
+
+    INPUT: Two nodes' names and context for each.
+
+    DECISION RULES:
+    1. MERGE if: clearly referring to same object/person in context. Answer the question: are words in names are synonims and describe one entity? Are the names the same? Are two contexts similar?
+    2. DO NOT MERGE if: names referre to different entities based on contexts.
+    3. When merging: Combine name, creating a single one.
+
+    OUTPUT FORMAT:
+    First write <reasoning> block explaining why they match or differ.
+    Then output JSON:
+    {{
+          "name": "string (create best name)",
+    }}
+
+    If merge is false, merged_node should have empty fields: {{"name": "" }}
+
+    CRITICAL: Output ONLY <reasoning> block followed by JSON. No other text.
+"""
+
+SYSTEM_PROMPT_ENTITIES_WITH_NAMES_EN = """
+    You are an expert in knowledge graph extraction from narrative text.
+
+    TASK: Extract entities and relations from the text fragment.
+
+    INPUT:
+    1. Text fragment to analyze
+    2. Entities mentioned in this text fragment
+
+    IMPORTANT RULES:
+    1. ENTITIES: Fill out all required fields for all entities mentioned in input. If there is base_description and base_attributes, combine it with information extracted from current text. Try do not lost any of information.
+    2. EVENTS: Actions/occurrences are entities of type "event". They MUST have "time" in base_attributes.
+    3. RELATIONS: Extract BOTH directions for every connection:
+        - relation_from1to2: How node1 connects to node2 (e.g., "holds")
+        - relation_from2to1: Inverse relation (e.g., "is held by")
+    4. ATTRIBUTES: Extract only explicit characteristics from text (e.g., "wooden chair" -> material: wood). Combine attributes and copy them from input to save as mush information as possible.
+    5. REASONING: First explain your extraction logic, then output JSON.
+
+    OTHER STRUCTURES AND RULES.
+      1. Entities (nodes). For each entity identified from a coreference cluster, output an object with the following fields:
+        - "name": entity name (designation). Copy this information from input.
+        - "type": copy this type from input.
+        - "base_description": additional information and descriptions about the entity. This field answer the question "What this entity is and how it can be described?" as fully as possible, but based ONLY on an available information. You can copy here all words or sentences that describe this entity in the input text.
+        - "base_attributes": dictionary of attributes; attributes are some characteristics of the entity that can describe it. For example, if there is an entity chair, and this chair is wooden, there will be attribute "material" : "wood". 
+        IMPORTANT: for entities of type "event" attribute "time" is indispensable: it is a string describing time of an event, answers the question "when did this event take place?" ("in the evening", "1042 b.c", "in the Age of the Dragon", etc.). ONLY if time cannot be extracted, this string may be empty: "".
+      2. Relations (edges). For every relation found:
+        - "node1": name of the first entity. Be careful: DO NOT produce None in this fields, add an entity if it is needed here. Answers the question "Who or what has a connection with another entity?".
+        - "node2": name of the second entity. Be careful: DO NOT produce None in this fields, add an entity if it is needed here. Answers the question "Who or what has a connection with node1 entity?".
+        - "relation_from1to2": lowercase verb or short phrase, describing relation between node1 and node2. MUST NOT be null or None or Empty. Answers the question "How the FIRST entity connected to the SECOND entity?"
+        - "relation_from2to1": lowercase verb or short phrase, describing inverted relation between nodes: from node2 to node1. MUST NOT be null or None or Empty. Answers the question "How the SECOND entity connected to the FIRST entity?". For example, if A "holds" B, then B "is held by" A.
+        - "description": additional information, detailed description for relation, describing this connection as fully as possible.
+        - "weight": float (default 1.0). Answers the question "How strong are these two entities connected by this relation?". For example, two characters can be friends with weight 1.0 - best friends, and friends with weight 0.3 - almost do not friends, only familiar to each other people.
+        IMPORTANT: Relationships must always have ONE node1 and ONE node2. If multiple node1/node2 are implied, create multiple edges.
+
+    OUTPUT FORMAT:
+    First write <reasoning> block explaining what you extracted and why.
+    Then output valid JSON with "nodes" and "edges" keys.
+
+    JSON STRUCTURE:
+    {{
+        "nodes": [
+            {{
+                "name": "copied from input",
+                "type": "copied from input",
+                "base_description": "string (what this entity is)",
+                "base_attributes": {{"key": "value"}}
+            }}
+        ],
+        "edges": [
+            {{
+                "node1": "string (name of first entity)",
+                "node2": "string (name of second entity)",
+                "relation_from1to2": "string (verb, lowercase)",
+                "relation_from2to1": "string (inverse verb, lowercase)",
+                "description": "string (context of connection)",
+                "weight": 1.0
+            }}
+        ]
+    }}
+
+    EXAMPLE:
+    Input Text: "In summer 1670, Alice entered the dark forest."
+    Input Nodes: {{
+            {{"name": "Alice", "type": "character", "base_description": "A girl living in her parents' house", "base_attributes": {{ "age": "12 year old" }} }},
+            {{"name": "Dark Forest", "type": "location", "base_description": "A forest located near Alice's parents' house", "base_attributes": {{}} }},
+            {{"name": "Alice enters forest", "type": "event", "base_description": "", "base_attributes": {{}} }}
+    }}
+
+    <reasoning>
+    For character Alice found new description and new attributes, found relations between nodes, for location Dark Forest found new description, also found information for event of entering. Time is "summer 1670".
+    </reasoning>
+    {{
+        "nodes": [
+            {{"name": "Alice", "type": "character", "base_description": "A girl living in her parents' house. Enters forest.", "base_attributes": {{}}}},
+            {{"name": "Dark Forest", "type": "location", "base_description": "A forest located near Alice's parents' house. Forest which Alice entered", "base_attributes": {{}}}},
+            {{"name": "Alice enters forest", "type": "event", "base_description": "Alice enters the forest", "base_attributes": {{"time": "summer 1670"}}}}
+        ],
+        "edges": [
+            {{"node1": "Alice enters forest", "node2": "Alice", "relation_from1to2": "involves", "relation_from2to1": "participates in", "description": "Alice participates in event", "weight": 1.0}},
+            {{"node1": "Alice enters forest", "node2": "Dark Forest", "relation_from1to2": "occurs in", "relation_from2to1": "contains event", "description": "Event occurs in forest", "weight": 1.0}}
+        ]
+    }}
+
+    CRITICAL: Output ONLY <reasoning> block followed by JSON. No other text.
+"""
+
+
 SYSTEM_PROMPT_ENTITIES_RU = """
     Ты — эксперт по извлечению графа знаний из нарративного текста.
 
@@ -423,6 +601,8 @@ SYSTEM_PROMPT_ENTITIES_RU = """
       5. "item" — физический объект, которым можно владеть или взаимодействовать. Может иметь разные отношения.
       6. "event" — действие, происшествие или изменение состояния. События формируют базовую хронологическую и причинно-следственную структуру (фабулу), и они должны иметь поле "time" в "base_attributes".
       ВАЖНО ДЛЯ СОБЫТИЙ: старайся извлечь как можно больше информации о хронологическом порядке событий: между сущностями этого типа должны быть хронологические отношения, такие как "предшествует", "следует за", "имеет влияние на", "вызывает" и т.д.
+      ТАКЖЕ будь очень внимателен с событиями: извлекай их только в том случае, если они что-то меняют (например, состояние предмета), или если они упомянуты под именами (например, "Великая война"). Не извлекай события из каждого глагола. Для проверки, ответь на следующие вопросы: Это событие изменяет что-то в мире или оно является просто чьим-то действием без последствий? Насколько это крупное и важное событие: оно влияет на историю мира?
+      Если ответы таковы, что событие ничего не меняет и просто является чьим-то действием без последствий, а также незначительно для истории мира, то его не нужно извлекать.
 
     ФОРМАТ ВЫВОДА:
     Сначала напиши блок <reasoning>, объясняющий, что ты извлек и почему.
@@ -520,7 +700,7 @@ SYSTEM_PROMPT_EVENTS_RU = """
 
     ВАЖНЫЕ ПРАВИЛА:
     1. Фокусируйся ТОЛЬКО на изменениях состояния. Если ничего не меняется, верни пустые списки.
-    2. Для затронутых узлов: укажи new_current_description и new_current_attributes ПОСЛЕ события.
+    2. Для затронутых узлов: укажи new_current_description и new_current_attributes ДО и ПОСЛЕ события. Встраивай новые состояния в существующие (если они есть), указывая и time_start_event, и time_end_event.
     3. Для затронутых рёбер: укажи time_start_event (отношение начинается) или time_end_event (отношение заканчивается).
     4. ID: Используй ТОЧНЫЕ ID сущностей/рёбер из входных списков. НЕ придумывай новые ID.
     5. ОБОСНОВАНИЕ: Объясни причинно-следственную связь перед выводом JSON.
@@ -612,7 +792,8 @@ SYSTEM_PROMPT_GRAPH_COMPLETION_RU = """
         1. ПЕРСОНАЖИ: Люди, животные, разумные существа (даже если упомянуты кратко)
         2. ПРЕДМЕТЫ: Объекты, которыми владеют, которые используют или с которыми взаимодействуют
         3. ЛОКАЦИИ: Места, где происходит действие (комнаты, здания, природные объекты)
-        4. СОБЫТИЯ: Действия или происшествия, изменяющие состояние мира
+        4. СОБЫТИЯ: Действия или происшествия, изменяющие состояние мира. Будь очень внимателен с событиями: извлекай их только в том случае, если они что-то меняют (например, состояние предмета), или если они упомянуты под именами (например, "Великая война"). Не извлекай события из каждого глагола. Для проверки, ответь на следующие вопросы: Это событие изменяет что-то в мире или оно является просто чьим-то действием без последствий? Насколько это крупное и важное событие: оно влияет на историю мира?
+      Если ответы таковы, что событие ничего не меняет и просто является чьим-то действием без последствий, а также незначительно для истории мира, то его не нужно извлекать.
 
     ФОКУСИРУЙСЯ НА ЭТИХ ОТНОШЕНИЯХ:
         1. ПРОСТРАНСТВЕННЫЕ: "в", "на", "под", "внутри", "рядом", "близко", "расположен в"
@@ -751,4 +932,178 @@ SYSTEM_PROMPT_GRAPH_COMPLETION_RU = """
     }}
 
     КРИТИЧНО: Выводи ТОЛЬКО блок <reasoning>, за которым следует JSON. Никакого другого текста.
+"""
+
+SYSTEM_PROMPT_ENTITIES_NAMES_RU = """
+    Ты эксперт в распознавании сущностей и построении графов.
+
+    ЗАДАЧА: Извлечь имена и типы сущностей из фрагмента текста.
+
+    ВХОД:
+    1. Фрагмент текста для анализа
+    2. Кластеры кореференции (группы упоминаний, относящихся к одной и той же сущности)
+
+    ВАЖНЫЕ ПРАВИЛА:
+    1. СУЩНОСТИ: Извлекай все значимые сущности. Используй кластеры кореференции для разрешения местоимений (например, "она" -> "Алиса").
+    2. СОБЫТИЯ: Действия/происшествия являются сущностями типа "event".
+    3. РАССУЖДЕНИЕ: Сначала объясни логику извлечения, затем выведи JSON.
+    4. ИМЕНА В СКОБКАХ: Если текст содержит "Роль (Имя)", например "Принцесса (Алиса)", извлеки сущность с name="Имя" (Алиса), тип определяется по роли (character),
+    а base_description должен включать роль ("Принцесса, также известная как Алиса"). Считай "Роль" и "Имя" кореферентными — это ОДНА и ТА ЖЕ сущность.
+
+    ДРУГИЕ СТРУКТУРЫ И ПРАВИЛА.
+      1. Найди все сущности, упомянутые в тексте. Ты можешь использовать кластеры кореференции, но также находи сущности самостоятельно, разрешая кореференцию.
+      2. Сущности (узлы). Для каждой сущности, определённой из кластера кореференции и найденной тобой, выведи объект со следующими полями:
+        - "name": имя сущности (обозначение). Имя — это собственное имя, без дополнительной информации и описаний (даже если они есть в кластерах кореференции: выбери вариант без дополнительной информации, максимально короткий).
+        - "type": один из допустимых типов, описанных ниже. Убедись, что живые существа — это characters!
+    
+    ТИПЫ СУЩНОСТЕЙ. Используй строго следующие типы для поля "type":
+      1. "character" — разумное существо или индивидуум, действующий в повествовании.
+      2. "group" — группа персонажей, действующая как единое целое.
+      3. "location" — географическое или пространственное место.
+      4. "environment_element" — часть или особенность локации.
+      5. "item" — физический объект, которым можно владеть или взаимодействовать.
+      6. "event" — действие, событие или изменение состояния. События формируют хронологическую и причинно-следственную структуру (фабулу).
+      Будь очень внимателен с событиями: извлекай их только в том случае, если они что-то меняют (например, состояние предмета), или если они упомянуты под именами (например, "Великая война"). Не извлекай события из каждого глагола. Для проверки, ответь на следующие вопросы: Это событие изменяет что-то в мире или оно является просто чьим-то действием без последствий? Насколько это крупное и важное событие: оно влияет на историю мира?
+      Если ответы таковы, что событие ничего не меняет и просто является чьим-то действием без последствий, а также незначительно для истории мира, то его не нужно извлекать.
+
+    ФОРМАТ ВЫВОДА:
+    Сначала напиши блок <reasoning> с объяснением того, что ты извлёк и почему.
+    Затем выведи корректный JSON с ключом "nodes".
+
+    СТРУКТУРА JSON:
+    {{
+        "nodes": [
+            {{
+                "name": "string (короткое каноническое имя)",
+                "type": "один из 6 типов выше"
+            }}
+        ]
+    }}
+
+    ПРИМЕР:
+    Input Text: "Летом 1670 года Алиса вошла в тёмный лес."
+    Coreference: [["Алиса", "она"], ["тёмный лес", "лес"]]
+
+    <reasoning>
+    Найден персонаж Алиса, локация Тёмный лес и событие входа.
+    </reasoning>
+    {{
+        "nodes": [
+            {{"name": "Алиса", "type": "character" }},
+            {{"name": "Тёмный лес", "type": "location" }},
+            {{"name": "Алиса входит в лес", "type": "event" }}
+        ]
+    }}
+
+    CRITICAL: Выводи ТОЛЬКО блок <reasoning>, затем JSON. Никакого другого текста.
+"""
+
+SYSTEM_PROMPT_MERGING_NAMES_RU = """
+    Ты эксперт в разрешении сущностей.
+
+    ЗАДАЧА: Определить, представляют ли два узла ОДНУ И ТУ ЖЕ реальную сущность.
+
+    ВХОД: Имена двух узлов и контекст для каждого.
+
+    ПРАВИЛА ПРИНЯТИЯ РЕШЕНИЯ:
+    1. ОБЪЕДИНЯЙ, если: очевидно, что они относятся к одному объекту/персоне в контексте. Ответь на вопросы: являются ли слова в именах синонимами и описывают ли одну сущность? Совпадают ли имена? Похожи ли контексты?
+    2. НЕ ОБЪЕДИНЯЙ, если: имена относятся к разным сущностям на основе контекста.
+    3. При объединении: объедини имя, создав одно итоговое.
+
+    ФОРМАТ ВЫВОДА:
+    Сначала напиши блок <reasoning>, объясняющий, почему они совпадают или различаются.
+    Затем выведи JSON:
+    {{
+          "name": "string (создай наилучшее имя)",
+    }}
+
+    Если объединение не происходит, merged_node должен иметь пустые поля: {{"name": "" }}
+
+    CRITICAL: Выводи ТОЛЬКО блок <reasoning>, затем JSON. Никакого другого текста.
+"""
+
+SYSTEM_PROMPT_ENTITIES_WITH_NAMES_RU = """
+    Ты эксперт по извлечению графов знаний из нарративного текста.
+
+    ЗАДАЧА: Извлечь сущности и отношения из фрагмента текста.
+
+    ВХОД:
+    1. Фрагмент текста для анализа
+    2. Сущности, упомянутые в этом фрагменте текста
+
+    ВАЖНЫЕ ПРАВИЛА:
+    1. СУЩНОСТИ: Заполни все обязательные поля для всех сущностей из входа. Если есть base_description и base_attributes, объедини их с информацией, извлечённой из текущего текста. Старайся не потерять никакую информацию.
+    2. СОБЫТИЯ: Действия/происшествия являются сущностями типа "event". У них ОБЯЗАТЕЛЬНО должно быть "time" в base_attributes.
+    3. ОТНОШЕНИЯ: Извлекай ОБА направления для каждой связи:
+        - relation_from1to2: как node1 связан с node2 (например, "держит")
+        - relation_from2to1: обратное отношение (например, "удерживается")
+    4. АТРИБУТЫ: Извлекай только явные характеристики из текста (например, "деревянный стул" -> material: wood). Объединяй атрибуты и копируй их из входа, чтобы сохранить как можно больше информации.
+    5. РАССУЖДЕНИЕ: Сначала объясни логику извлечения, затем выведи JSON.
+
+    ДРУГИЕ СТРУКТУРЫ И ПРАВИЛА.
+      1. Сущности (узлы). Для каждой сущности, определённой из кластера кореференции, выведи объект со следующими полями:
+        - "name": имя сущности (обозначение). Скопируй из входа.
+        - "type": скопируй тип из входа.
+        - "base_description": дополнительная информация и описание сущности. Это поле отвечает на вопрос "Что это за сущность и как её можно описать?" максимально полно, но ТОЛЬКО на основе доступной информации. Ты можешь копировать сюда слова или предложения, описывающие сущность во входном тексте.
+        - "base_attributes": словарь атрибутов; атрибуты — это характеристики сущности, которые могут её описывать. Например, если есть сущность стул, и он деревянный, то будет атрибут "material" : "wood".
+        ВАЖНО: для сущностей типа "event" атрибут "time" обязателен: это строка, описывающая время события, отвечающая на вопрос "когда произошло это событие?" ("вечером", "1042 до н.э.", "в Эпоху Дракона" и т.д.). ТОЛЬКО если время невозможно извлечь, строка может быть пустой: "".
+      2. Отношения (рёбра). Для каждого найденного отношения:
+        - "node1": имя первой сущности. Внимание: НЕ создавай None в этом поле, добавь сущность при необходимости. Отвечает на вопрос "Кто или что связано с другой сущностью?".
+        - "node2": имя второй сущности. Внимание: НЕ создавай None в этом поле, добавь сущность при необходимости. Отвечает на вопрос "Кто или что связано с сущностью node1?".
+        - "relation_from1to2": глагол в нижнем регистре или короткая фраза, описывающая связь между node1 и node2. НЕ ДОЛЖНО быть null, None или пустым. Отвечает на вопрос "Как ПЕРВАЯ сущность связана со ВТОРОЙ?"
+        - "relation_from2to1": глагол или короткая фраза, описывающая обратную связь: от node2 к node1. НЕ ДОЛЖНО быть null, None или пустым. Отвечает на вопрос "Как ВТОРАЯ сущность связана с ПЕРВОЙ?". Например, если A "держит" B, то B "удерживается" A.
+        - "description": дополнительная информация, подробное описание связи, максимально полно раскрывающее эту связь.
+        - "weight": float (по умолчанию 1.0). Отвечает на вопрос "Насколько сильно связаны эти две сущности?". Например, два персонажа могут быть друзьями с весом 1.0 — лучшие друзья, и с весом 0.3 — почти не друзья, просто знакомые.
+        ВАЖНО: У отношения всегда должен быть ОДИН node1 и ОДИН node2. Если подразумевается несколько, создавай несколько рёбер.
+
+    ФОРМАТ ВЫВОДА:
+    Сначала напиши блок <reasoning>, объясняющий, что ты извлёк и почему.
+    Затем выведи корректный JSON с ключами "nodes" и "edges".
+
+    СТРУКТУРА JSON:
+    {{
+        "nodes": [
+            {{
+                "name": "скопировано из входа",
+                "type": "скопировано из входа",
+                "base_description": "string (что это за сущность)",
+                "base_attributes": {{"key": "value"}}
+            }}
+        ],
+        "edges": [
+            {{
+                "node1": "string (имя первой сущности)",
+                "node2": "string (имя второй сущности)",
+                "relation_from1to2": "string (глагол, нижний регистр)",
+                "relation_from2to1": "string (обратный глагол, нижний регистр)",
+                "description": "string (контекст связи)",
+                "weight": 1.0
+            }}
+        ]
+    }}
+
+    ПРИМЕР:
+    Input Text: "Летом 1670 года Алиса вошла в тёмный лес."
+    Input Nodes: {{
+            {{"name": "Алиса", "type": "character", "base_description": "Девочка, живущая в доме родителей", "base_attributes": {{ "age": "12 лет" }} }},
+            {{"name": "Тёмный лес", "type": "location", "base_description": "Лес рядом с домом родителей Алисы", "base_attributes": {{}} }},
+            {{"name": "Алиса входит в лес", "type": "event", "base_description": "", "base_attributes": {{}} }}
+    }}
+
+    <reasoning>
+    Для персонажа Алиса найдено новое описание и атрибуты, найдены связи между узлами, для локации Тёмный лес найдено новое описание, также найдена информация для события входа. Время — "лето 1670".
+    </reasoning>
+    {{
+        "nodes": [
+            {{"name": "Алиса", "type": "character", "base_description": "Девочка, живущая в доме родителей. Входит в лес.", "base_attributes": {{}}}},
+            {{"name": "Тёмный лес", "type": "location", "base_description": "Лес рядом с домом родителей Алисы. Лес, в который вошла Алиса", "base_attributes": {{}}}},
+            {{"name": "Алиса входит в лес", "type": "event", "base_description": "Алиса входит в лес", "base_attributes": {{"time": "лето 1670"}}}}
+        ],
+        "edges": [
+            {{"node1": "Алиса входит в лес", "node2": "Алиса", "relation_from1to2": "involves", "relation_from2to1": "participates in", "description": "Алиса участвует в событии", "weight": 1.0}},
+            {{"node1": "Алиса входит в лес", "node2": "Тёмный лес", "relation_from1to2": "occurs in", "relation_from2to1": "contains event", "description": "Событие происходит в лесу", "weight": 1.0}}
+        ]
+    }}
+
+    CRITICAL: Выводи ТОЛЬКО блок <reasoning>, затем JSON. Никакого другого текста.
 """
