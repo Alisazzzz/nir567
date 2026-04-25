@@ -11,8 +11,6 @@ from nir.prompts import answer_prompts
 import re
 
 def parse_llm_answer(text: str, content_type: str) -> str:
-    print("--MODEL ANSWER--")
-    print(text)
     if not text or not text.strip():
         return ""
     text = text.strip()

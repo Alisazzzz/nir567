@@ -1,0 +1,1185 @@
+{
+  "connected_document": null,
+  "connected_embedding": "embeddings",
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "elden_ring_lore",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "greater_will",
+      "name": "The Greater Will",
+      "type": "character",
+      "base_description": "An Outer God whose power manifests through the Elden Ring and the Erdtree. Aiming to restore or redefine the world’s order.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "elden_ring_shattering_greater_will_0",
+          "current_description": "An Outer God whose power is now potentially altered due to the Elden Ring's state.",
+          "current_attributes": {},
+          "time_start_event": "Elden Ring Shattering",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": "queen_marika",
+      "name": "Queen Marika",
+      "type": "character",
+      "base_description": "A queen who becomes a vessel for the Greater Will's power and establishes the Golden Order.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "becoming_vessel_queen_marika_0",
+          "current_description": "The vessel for the Greater Will and the founder of the Golden Order",
+          "current_attributes": {
+            "role": "vessel",
+            "title": "Founder"
+          },
+          "time_start_event": "Becoming vessel",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "elden_ring",
+      "name": "Elden Ring",
+      "type": "location",
+      "base_description": "A geographical or spatial setting where the power of the Greater Will manifests. It is associated with the Outer God known as the Greater Will, whose influence is channeled through the Elden Ring and the Erdtree. Queen Marika becomes its vessel and establishes the Golden Order to enforce its will, engaging in conflicts including wars against entities such as the Fire Giants and forming alliances with figures like Hoarah Loux (Godfrey).",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0,
+        3
+      ]
+    },
+    {
+      "id": "erdtree",
+      "name": "Erdtree",
+      "type": "environment_element",
+      "base_description": "A tree that is also associated with the manifestation of the Greater Will's power.",
+      "base_attributes": {
+        "located in": "Elden Ring"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "becoming_vessel",
+      "name": "Becoming vessel",
+      "type": "event",
+      "base_description": "Queen Marika becomes a vessel for the Greater Will's power.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "establishment_of_golden_order",
+      "name": "Establishment of Golden Order",
+      "type": "event",
+      "base_description": "The establishment of the Golden Order to enforce the will of the Greater Will.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "golden_order",
+      "name": "Golden Order",
+      "type": "group",
+      "base_description": "An order established by Queen Marika to enforce the will of the Greater Will, an Outer God whose power manifests through the Elden Ring and the Erdtree. The Golden Order is associated with beings tied to the primordial 'crucible' and has become persecuted after its rise.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "establishment_of_golden_order_golden_order_0",
+          "current_description": "An order established by Queen Marika to enforce the will of the Greater Will, now active and in effect",
+          "current_attributes": {
+            "status": "active"
+          },
+          "time_start_event": "Establishment of Golden Order",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "dragons",
+      "name": "dragons",
+      "type": "group",
+      "base_description": "A group of creatures that once ruled the Lands Between.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "marika",
+      "name": "Marika",
+      "type": "character",
+      "base_description": "A character known for waging wars, including against the Fire Giants, and a demigod in the narrative who shatters the Elden Ring, triggering a war.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "elden_ring_shattering_marika_0",
+          "current_description": "A character known for triggering the Shattering war among demigods by shattering the Elden Ring.",
+          "current_attributes": {
+            "role_in_narrative": "trigger of the Shattering war"
+          },
+          "time_start_event": "Elden Ring Shattering",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        3,
+        7
+      ]
+    },
+    {
+      "id": "hoarah_loux_godfrey",
+      "name": "Hoarah Loux (Godfrey)",
+      "type": "character",
+      "base_description": "A figure allied with Marika.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "waging_wars",
+      "name": "Waging Wars",
+      "type": "event",
+      "base_description": "An action of going to war",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "allying_with_figures",
+      "name": "Allying with Figures",
+      "type": "event",
+      "base_description": "Forming an alliance with other entities",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "erdtree_1",
+      "name": "Erdtree",
+      "type": "location",
+      "base_description": "A significant location associated with The Greater Will's power. A natural feature or structure associated with The Greater Will's power. A significant place associated with the Greater Will's power manifestation.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        9,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "id": "fire_giants",
+      "name": "Fire Giants",
+      "type": "group",
+      "base_description": "A group against whom Marika wages war.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "radagon",
+      "name": "Radagon",
+      "type": "character",
+      "base_description": "An aspect of The Greater Will",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "elden_ring_2",
+      "name": "Elden Ring",
+      "type": "item",
+      "base_description": "A powerful ring that is central to the narrative, representing a source of power and being shattered by Marika, which triggers significant events such as the Shattering war among demigods. It is also a physical manifestation of The Greater Will's power. A powerful artifact or structure through which the Greater Will's power manifests.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "elden_ring_shattering_elden_ring_2_0",
+          "current_description": "A shattered artifact that is central to the narrative's current conflict, representing a source of power in disarray.",
+          "current_attributes": {
+            "status": "shattered"
+          },
+          "time_start_event": "Elden Ring Shattering",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": "erdtree_2",
+      "name": "Erdtree",
+      "type": "item",
+      "base_description": "Another physical object associated with power and influence in the narrative.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "malenia",
+      "name": "Malenia",
+      "type": "character",
+      "base_description": "A child of The Greater Will, cursed.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "miquella",
+      "name": "Miquella",
+      "type": "character",
+      "base_description": "Another child of The Greater Will, also cursed.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "outer_gods_influence_events",
+      "name": "Outer Gods influence events",
+      "type": "event",
+      "base_description": "An event where other Outer Gods exert their influence on occurrences.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "ranni",
+      "name": "Ranni",
+      "type": "character",
+      "base_description": "A character who rejects The Greater Will and orchestrates the Night of the Black Knives.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        6
+      ]
+    },
+    {
+      "id": "elden_ring_shattering",
+      "name": "Elden Ring Shattering",
+      "type": "event",
+      "base_description": "The event of Marika shattering the Elden Ring, leading to the Shattering war among demigods, each seeking power or change.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "lands_between",
+      "name": "Lands Between",
+      "type": "location",
+      "base_description": "The realm where the Tarnished return to as The Greater Will’s influence weakens.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        8
+      ]
+    },
+    {
+      "id": "beings_tied_to_the_primordial_crucible",
+      "name": "beings tied to the primordial “crucible”",
+      "type": "group",
+      "base_description": "A group of beings associated with the primordial crucible, becoming persecuted after the rise of the Golden Order",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "omens",
+      "name": "Omens",
+      "type": "character",
+      "base_description": "Beings that are examples of those tied to the primordial crucible and became persecuted after the rise of the Golden Order",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "wars",
+      "name": "wars",
+      "type": "event",
+      "base_description": "Conflicts waged by Marika, including against the Fire Giants.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "alliance",
+      "name": "alliance",
+      "type": "event",
+      "base_description": "Alliances formed by Marika with figures like Hoarah Loux (Godfrey).",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "other_outer_gods",
+      "name": "Other Outer Gods",
+      "type": "group",
+      "base_description": "A group of deities that influence events in the narrative",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "godwyn",
+      "name": "Godwyn",
+      "type": "character",
+      "base_description": "A character mentioned in relation to the Night of the Black Knives, presumably significant but with no further details provided in the given text.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        6
+      ]
+    },
+    {
+      "id": "tarnished",
+      "name": "Tarnished",
+      "type": "character",
+      "base_description": "Beings who return to the Lands Between as The Greater Will’s influence weakens.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        8
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "greater_will_has_as_vessel_queen_marika_edge",
+      "source": "greater_will",
+      "target": "queen_marika",
+      "relation": "has as vessel",
+      "description": "The Greater Will uses Queen Marika as its vessel.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "the_greater_will_manifests_power_in_elden_ring_edge",
+      "source": "greater_will",
+      "target": "elden_ring",
+      "relation": "manifests power in",
+      "description": "The Greater Will's power is manifest through the Elden Ring.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "greater_will_manifests_power_in_erdtree_edge",
+      "source": "greater_will",
+      "target": "erdtree",
+      "relation": "manifests power in",
+      "description": "The Greater Will's power is also associated with the Erdtree.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "the_greater_will_manifests_through_erdtree_edge",
+      "source": "greater_will",
+      "target": "erdtree",
+      "relation": "manifests through",
+      "description": "The Greater Will's power also manifests through the Erdtree.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "greater_will_will_enforced_through_establishment_of_golden_order_edge",
+      "source": "greater_will",
+      "target": "establishment_of_golden_order",
+      "relation": "will enforced through",
+      "description": "The Establishment of the Golden Order enforces the will of the Greater Will.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "the_greater_will_manifests_power_in_erdtree_edge",
+      "source": "greater_will",
+      "target": "erdtree_1",
+      "relation": "manifests power in",
+      "description": "The Greater Will's power is also manifest through the Erdtree.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "the_greater_will_associated_with_erdtree_edge",
+      "source": "greater_will",
+      "target": "erdtree_1",
+      "relation": "associated with",
+      "description": "The Erdtree is related to The Greater Will's power.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 9
+    },
+    {
+      "id": "the_greater_will_has_aspect_radagon_edge",
+      "source": "greater_will",
+      "target": "radagon",
+      "relation": "has aspect",
+      "description": "Radagon is an aspect of The Greater Will, representing a different manifestation of her power.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "the_greater_will_has_child_malenia_edge",
+      "source": "greater_will",
+      "target": "malenia",
+      "relation": "has child",
+      "description": "The Greater Will has Malenia as a child.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "the_greater_will_has_child_miquella_edge",
+      "source": "greater_will",
+      "target": "miquella",
+      "relation": "has child",
+      "description": "The Greater Will has Miquella as a child.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "the_greater_will_manifests_power_through_elden_ring_edge",
+      "source": "greater_will",
+      "target": "elden_ring_2",
+      "relation": "manifests power through",
+      "description": "The Greater Will's power manifests through the Elden Ring.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "the_greater_will_manifests_through_elden_ring_edge",
+      "source": "greater_will",
+      "target": "elden_ring_2",
+      "relation": "manifests through",
+      "description": "The Greater Will's power is manifested through the Elden Ring.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 8
+    },
+    {
+      "id": "the_greater_will_manifests_power_through_erdtree_edge",
+      "source": "greater_will",
+      "target": "erdtree_2",
+      "relation": "manifests power through",
+      "description": "The Greater Will's power also manifests through the Erdtree.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "the_greater_will_is_rejected_by_ranni_edge",
+      "source": "greater_will",
+      "target": "ranni",
+      "relation": "is rejected by",
+      "description": "Ranni's actions are against The Greater Will's influence.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "the_greater_will_influences_lands_between_edge",
+      "source": "greater_will",
+      "target": "lands_between",
+      "relation": "influences",
+      "description": "The influence of The Greater Will affects the Lands Between.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 8
+    },
+    {
+      "id": "queen_marika_is_a_vessel_for_greater_will_edge",
+      "source": "queen_marika",
+      "target": "greater_will",
+      "relation": "is a vessel for",
+      "description": "The Greater Will uses Queen Marika as its vessel.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "queen_marika_establishes_golden_order_edge",
+      "source": "queen_marika",
+      "target": "golden_order",
+      "relation": "establishes",
+      "description": "Queen Marika establishes the Golden Order.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "queen_marika_involves_becoming_vessel_edge",
+      "source": "queen_marika",
+      "target": "becoming_vessel",
+      "relation": "involves",
+      "description": "Queen Marika is involved in the event of becoming a vessel for the Greater Will.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "queen_marika_involves_in_establishment_of_golden_order_edge",
+      "source": "queen_marika",
+      "target": "establishment_of_golden_order",
+      "relation": "involves in",
+      "description": "Queen Marika participates in the establishment of the Golden Order.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "elden_ring_has_power_manifesting_greater_will_edge",
+      "source": "elden_ring",
+      "target": "greater_will",
+      "relation": "has power manifesting",
+      "description": "The Greater Will's power manifests through the Elden Ring.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "elden_ring_has_power_manifested_by_the_greater_will_edge",
+      "source": "elden_ring",
+      "target": "greater_will",
+      "relation": "has power manifested by",
+      "description": "The Greater Will's power is manifest through the Elden Ring.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "erdtree_has_power_manifesting_greater_will_edge",
+      "source": "erdtree",
+      "target": "greater_will",
+      "relation": "has power manifesting",
+      "description": "The Greater Will's power is also associated with the Erdtree.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "erdtree_is_a_manifestation_of_the_greater_will_edge",
+      "source": "erdtree",
+      "target": "greater_will",
+      "relation": "is a manifestation of",
+      "description": "The Greater Will's power also manifests through the Erdtree.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "becoming_vessel_has_participant_queen_marika_edge",
+      "source": "becoming_vessel",
+      "target": "queen_marika",
+      "relation": "has participant",
+      "description": "Queen Marika is involved in the event of becoming a vessel for the Greater Will.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "establishment_of_golden_order_has_participant_queen_marika_edge",
+      "source": "establishment_of_golden_order",
+      "target": "queen_marika",
+      "relation": "has participant",
+      "description": "Queen Marika participates in the establishment of the Golden Order.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "establishment_of_golden_order_enforces_will_of_greater_will_edge",
+      "source": "establishment_of_golden_order",
+      "target": "greater_will",
+      "relation": "enforces will of",
+      "description": "The Establishment of the Golden Order enforces the will of the Greater Will.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "golden_order_is_established_by_queen_marika_edge",
+      "source": "golden_order",
+      "target": "queen_marika",
+      "relation": "is established by",
+      "description": "Queen Marika establishes the Golden Order.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "golden_order_is_associated_with_persecution_of_beings_tied_to_the_primordial_crucible_edge",
+      "source": "golden_order",
+      "target": "beings_tied_to_the_primordial_crucible",
+      "relation": "is associated with persecution of",
+      "description": "The Golden Order is associated with the persecution of beings tied to the primordial crucible after its rise",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "dragons_ruled_over_lands_between_edge",
+      "source": "dragons",
+      "target": "lands_between",
+      "relation": "ruled over",
+      "description": "Dragons once had dominion over the Lands Between.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "marika_performs_waging_wars_edge",
+      "source": "marika",
+      "target": "waging_wars",
+      "relation": "performs",
+      "description": "Marika is involved in the action of waging wars.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "marika_wages_war_against_fire_giants_edge",
+      "source": "marika",
+      "target": "fire_giants",
+      "relation": "wages war against",
+      "description": "Marika wages wars including against the Fire Giants.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "marika_performs_allying_with_figures_edge",
+      "source": "marika",
+      "target": "allying_with_figures",
+      "relation": "performs",
+      "description": "Marika is involved in the action of allying with figures.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "marika_allies_with_hoarah_loux_godfrey_edge",
+      "source": "marika",
+      "target": "hoarah_loux_godfrey",
+      "relation": "allies with",
+      "description": "Marika allies with Hoarah Loux, also known as Godfrey.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "marika_triggers_elden_ring_shattering_edge",
+      "source": "marika",
+      "target": "elden_ring_shattering",
+      "relation": "triggers",
+      "description": "Marika's action of shattering the Elden Ring triggers the event.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "marika_causes_shattering_war_edge",
+      "source": "marika",
+      "target": "elden_ring_shattering",
+      "relation": "causes",
+      "description": "The action of Marika shattering the Elden Ring leads to the Shattering war among demigods.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "marika_wages_wars_edge",
+      "source": "marika",
+      "target": "wars",
+      "relation": "wages",
+      "description": "Marika wages wars against various entities.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "marika_forms_alliance_edge",
+      "source": "marika",
+      "target": "alliance",
+      "relation": "forms",
+      "description": "Marika forms alliances with other figures.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "hoarah_loux_godfrey_is_allied_by_marika_edge",
+      "source": "hoarah_loux_godfrey",
+      "target": "marika",
+      "relation": "is allied by",
+      "description": "Marika allies with Hoarah Loux, also known as Godfrey.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "waging_wars_involves_marika_edge",
+      "source": "waging_wars",
+      "target": "marika",
+      "relation": "involves",
+      "description": "Marika is involved in the action of waging wars.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "allying_with_figures_involves_marika_edge",
+      "source": "allying_with_figures",
+      "target": "marika",
+      "relation": "involves",
+      "description": "Marika is involved in the action of allying with figures.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "erdtree_has_power_manifested_by_the_greater_will_edge",
+      "source": "erdtree_1",
+      "target": "greater_will",
+      "relation": "has power manifested by",
+      "description": "The Greater Will's power is also manifest through the Erdtree.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "erdtree_is_associated_by_the_greater_will_edge",
+      "source": "erdtree_1",
+      "target": "greater_will",
+      "relation": "is associated by",
+      "description": "The Erdtree is related to The Greater Will's power.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 9
+    },
+    {
+      "id": "fire_giants_has_a_war_waged_by_marika_edge",
+      "source": "fire_giants",
+      "target": "marika",
+      "relation": "has a war waged by",
+      "description": "Marika wages wars including against the Fire Giants.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "radagon_is_aspect_of_the_greater_will_edge",
+      "source": "radagon",
+      "target": "greater_will",
+      "relation": "is aspect of",
+      "description": "Radagon is an aspect of The Greater Will, representing a different manifestation of her power.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "elden_ring_powered_by_the_greater_will_edge",
+      "source": "elden_ring_2",
+      "target": "greater_will",
+      "relation": "powered by",
+      "description": "The Greater Will's power manifests through the Elden Ring.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "elden_ring_is_a_manifestation_of_the_greater_will_edge",
+      "source": "elden_ring_2",
+      "target": "greater_will",
+      "relation": "is a manifestation of",
+      "description": "The Greater Will's power is manifested through the Elden Ring.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 8
+    },
+    {
+      "id": "elden_ring_related_to_event_of_outer_gods_influence_events_edge",
+      "source": "elden_ring_2",
+      "target": "outer_gods_influence_events",
+      "relation": "related to event of",
+      "description": "The influence event is related to the Elden Ring's power dynamics.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "elden_ring_has_event_occur_elden_ring_shattering_edge",
+      "source": "elden_ring_2",
+      "target": "elden_ring_shattering",
+      "relation": "has event occur",
+      "description": "The event of shattering occurs to the Elden Ring.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "elden_ring_is_central_to_shattering_war_edge",
+      "source": "elden_ring_2",
+      "target": "elden_ring_shattering",
+      "relation": "is central to",
+      "description": "The Elden Ring is a central element in the Shattering war's narrative.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "erdtree_powered_by_the_greater_will_edge",
+      "source": "erdtree_2",
+      "target": "greater_will",
+      "relation": "powered by",
+      "description": "The Greater Will's power also manifests through the Erdtree.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "erdtree_related_to_event_of_outer_gods_influence_events_edge",
+      "source": "erdtree_2",
+      "target": "outer_gods_influence_events",
+      "relation": "related to event of",
+      "description": "The influence event is related to the Erdtree's significance.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "malenia_is_parent_of_the_greater_will_edge",
+      "source": "malenia",
+      "target": "greater_will",
+      "relation": "is parent of",
+      "description": "The Greater Will has Malenia as a child.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "miquella_is_parent_of_the_greater_will_edge",
+      "source": "miquella",
+      "target": "greater_will",
+      "relation": "is parent of",
+      "description": "The Greater Will has Miquella as a child.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "outer_gods_influence_events_occurs_in_context_of_elden_ring_edge",
+      "source": "outer_gods_influence_events",
+      "target": "elden_ring_2",
+      "relation": "occurs in context of",
+      "description": "The influence event is related to the Elden Ring's power dynamics.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "outer_gods_influence_events_occurs_in_context_of_erdtree_edge",
+      "source": "outer_gods_influence_events",
+      "target": "erdtree_2",
+      "relation": "occurs in context of",
+      "description": "The influence event is related to the Erdtree's significance.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "ranni_rejects_the_greater_will_edge",
+      "source": "ranni",
+      "target": "greater_will",
+      "relation": "rejects",
+      "description": "Ranni's actions are against The Greater Will's influence.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "elden_ring_shattering_is_triggered_by_marika_edge",
+      "source": "elden_ring_shattering",
+      "target": "marika",
+      "relation": "is triggered by",
+      "description": "Marika's action of shattering the Elden Ring triggers the event.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "shattering_war_is_caused_by_marika_edge",
+      "source": "elden_ring_shattering",
+      "target": "marika",
+      "relation": "is caused by",
+      "description": "The action of Marika shattering the Elden Ring leads to the Shattering war among demigods.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "elden_ring_shattering_causes_shattering_war_edge",
+      "source": "elden_ring_shattering",
+      "target": "elden_ring_shattering",
+      "relation": "causes",
+      "description": "The shattering of the Elden Ring causes the Shattering war among demigods.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "shattering_war_is_caused_by_elden_ring_shattering_edge",
+      "source": "elden_ring_shattering",
+      "target": "elden_ring_shattering",
+      "relation": "is caused by",
+      "description": "The shattering of the Elden Ring causes the Shattering war among demigods.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "elden_ring_shattering_occurs_to_elden_ring_edge",
+      "source": "elden_ring_shattering",
+      "target": "elden_ring_2",
+      "relation": "occurs to",
+      "description": "The event of shattering occurs to the Elden Ring.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "shattering_war_revolves_around_elden_ring_edge",
+      "source": "elden_ring_shattering",
+      "target": "elden_ring_2",
+      "relation": "revolves around",
+      "description": "The Elden Ring is a central element in the Shattering war's narrative.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "lands_between_is_influenced_by_the_greater_will_edge",
+      "source": "lands_between",
+      "target": "greater_will",
+      "relation": "is influenced by",
+      "description": "The influence of The Greater Will affects the Lands Between.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 8
+    },
+    {
+      "id": "lands_between_were_ruled_by_dragons_edge",
+      "source": "lands_between",
+      "target": "dragons",
+      "relation": "were ruled by",
+      "description": "Dragons once had dominion over the Lands Between.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "lands_between_is_returned_to_by_tarnished_edge",
+      "source": "lands_between",
+      "target": "tarnished",
+      "relation": "is returned to by",
+      "description": "The Tarnished return to the Lands Between as The Greater Will’s influence weakens.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 8
+    },
+    {
+      "id": "beings_tied_to_the_primordial_crucible_are_persecuted_by_the_rise_of_golden_order_edge",
+      "source": "beings_tied_to_the_primordial_crucible",
+      "target": "golden_order",
+      "relation": "are persecuted by the rise of",
+      "description": "The Golden Order is associated with the persecution of beings tied to the primordial crucible after its rise",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "wars_is_waged_by_marika_edge",
+      "source": "wars",
+      "target": "marika",
+      "relation": "is waged by",
+      "description": "Marika wages wars against various entities.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "alliance_is_formed_by_marika_edge",
+      "source": "alliance",
+      "target": "marika",
+      "relation": "is formed by",
+      "description": "Marika forms alliances with other figures.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "tarnished_returns_to_lands_between_edge",
+      "source": "tarnished",
+      "target": "lands_between",
+      "relation": "returns to",
+      "description": "The Tarnished return to the Lands Between as The Greater Will’s influence weakens.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 8
+    }
+  ]
+}

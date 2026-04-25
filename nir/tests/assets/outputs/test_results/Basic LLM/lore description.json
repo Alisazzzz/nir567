@@ -1,0 +1,97 @@
+[
+  {
+    "category": "quest",
+    "query": "Create a new Elden Ring-style side quest involving a Tarnished helping a minor faction or individual affected by the Shattering. The quest should involve moral ambiguity, hidden truth, and a choice between loyalty to the Golden Order or defiance of it. Do not reuse known canonical events.",
+    "generation": "### Side Quest: Whispers of Defiance\n\n#### Background\nIn the aftermath of the Elden Ring's shattering, the Tarnished have returned to the Lands Between, each with their own motivations and goals. Among them is a small faction known as the Seekers of Truth, who believe that the true history of the Greater Will and the Golden Order has been obscured by time and deceit.\n\n#### Quest Introduction\nThe player character, a Tarnished, encounters a member of the Seekers of Truth in a hidden sanctuary nestled within an ancient forest. The seeker appears troubled and explains that their leader has gone missing while investigating a rumored ancient artifact that could shed light on the true nature of the Greater Will.\n\n#### Quest Steps\n\n1. **The Lost Leader**\n   - Speak to the seeker, who reveals that their leader, Eolande, vanished while searching for the ancient artifact known as the Whispering Crest.\n   - Accept the task to find Eolande and retrieve any information they may have discovered.\n\n2. **Ruins of Echoes**\n   - Journey to the Ruins of Echoes, where the last message from Eolande was sent.\n   - Discover signs of a struggle and evidence that something unnatural has been present at the site.\n\n3. **The Whispering Crest**\n   - Locate the Whispering Crest amidst an overgrowth of twisted roots and vines that seem to pulse with life.\n   - Activate the crest, revealing visions of the past where beings not aligned with the Golden Order are shown in a different light, suggesting cooperation rather than persecution.\n\n4. **The Hidden Truth**\n   - Find Eolande, who is injured but alive, near an ancient text detailing the true history of the Greater Will's arrival and its original intentions.\n   - Learn that Marika's actions were not solely driven by the Greater Will; she also sought power for her own purposes.\n\n5. **Moral Ambiguity**\n   - Eolande confesses to manipulating evidence to support their defiance against the Golden Order, challenging your loyalty to the truth or to the faction you joined.\n   - Realize that the quest for knowledge often involves moral compromises and hidden truths within hidden truths.\n\n6. **The Choice of Allies**\n   - Choose whether to side with Eolande's plan to further undermine the Golden Order by spreading false information about their enemies, or to maintain integrity by reporting only what you can verify.\n   - Understand that your choice will determine how the Seekers perceive other factions and may provoke a new conflict or alliance.\n\n7. **Consequences**\n   - Complete the quest with either Eolande or return to the seeker back at the sanctuary with your findings, making a decision that could affect your standing with both the Golden Order and its dissenters.\n   - Live with the consequences of your choice as it will shape the outcome for the Seekers of Truth and their potential role in reshaping the order of the Lands Between.\n\n#### Quest Conclusion\nRegardless of the player's choice, the quest concludes by deepening the lore and adding layers to the moral complexity of the world created by Elden Ring. The Tarnished is left with the knowledge that even as they seek answers, they are part of a larger narrative where their actions contribute to the ever-changing order or chaos in the Lands Between.",
+    "metrics": {
+      "category": "quest",
+      "faithfulness": NaN,
+      "answer_relevancy": NaN,
+      "context_precision": 0.0,
+      "context_recall": NaN,
+      "answer_correctness": NaN,
+      "bert_score_source": 0.8283140659332275,
+      "bert_score_reference": 0.8262811899185181,
+      "mauve": 0.0040720962619612555,
+      "distinct_2": 0.8505747126436781,
+      "repetition_2": 0.08237547892720307,
+      "world_consistency": 0.83
+    }
+  },
+  {
+    "category": "dialogue",
+    "query": "Write a short in-game style dialogue where a guide-like spirit offers the player a pact and explains their role in the Lands Between.",
+    "generation": "**In-Game Style Dialogue: The Spirit Guide's Offer**\n\n*You find yourself wandering through a dense, mystical forest, the air thick with ancient magic. A soft glow catches your eye, leading you to an otherworldly figure, a guide-like spirit.*\n\nSpirit Guide: (in a voice that resonates in your mind) \"Traveler of distant realms, I have awaited your arrival. You are one of the Tarnished, seekers of truth and redemption. The Lands Between call for a new order, and you may be their harbinger.\"\n\n**Player:** (nods, curious)\n\nSpirit Guide: \"In times long past, the Greater Will's power was unchallenged. Queen Marika, now its vessel, brought forth the Golden Order. Yet even she could not halt the Shattering that rent our world asunder.\"\n\n**Player:** (whispers) \"The Shattering?\"\n\nSpirit Guide: \"Aye, when the Elden Ring was sundered, so too did the balance of power crumble. Marika's actions unleashed a war among demigods, each vying for dominion over what remains of our fractured world.\"\n\n**Player:** (eyes narrow with determination)\n\nSpirit Guide: \"Now, as the Greater Will's influence wanes, new hope arises in your kind—the Tarnished. I offer you a pact, one that binds you to the will of the Lands Between and grants you knowledge beyond mortal comprehension.\"\n\n**Player:** (hesitant) \"What would this pact entail?\"\n\nSpirit Guide: \"You shall become an avatar of change, able to wield powers once reserved for gods alone. Walk the paths of the ancient dragons, delve into the secrets of the Elden Ring, and unravel the enigma of the Erdtree.\"\n\n**Player:** (breaths deeply) \"And what role am I to play?\"\n\nSpirit Guide: \"Restore balance, or redefine it as you see fit. The choice is yours, for the future of this realm rests upon your shoulders. Will you accept this pact and become a force for renewal in these hallowed lands?\"\n\n**Player:** (nods resolutely) \"I will.\"\n\n*As you utter your acceptance, a surge of power courses through your being. You feel a connection to the very soul of the Lands Between, and with it, a new purpose ignites within.*\n\nSpirit Guide: \"Rise now, child of fate. The path before you is fraught with peril, but it is also paved with glory. Go forth, and let the will of the Tarnished be known.\"\n\n*The spirit fades, leaving behind only its ethereal glow, guiding your first steps into the unknown.*",
+    "metrics": {
+      "category": "dialogue",
+      "faithfulness": NaN,
+      "answer_relevancy": NaN,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": NaN,
+      "bert_score_source": 0.8069879412651062,
+      "bert_score_reference": 0.7994433045387268,
+      "mauve": 0.0040720962619612555,
+      "distinct_2": 0.8979591836734694,
+      "repetition_2": 0.0663265306122449,
+      "world_consistency": 0.8
+    }
+  },
+  {
+    "category": "character description",
+    "query": "Create a new Elden Ring character connected to existing factions or figures, but not mentioned in the source text. The character should be linked to known entities like Ranni or the Golden Order, but must be original. Something about hald-wolves will be interesting, I suppose.",
+    "generation": "### New Elden Ring Character: Eolande, the Wolf-Blooded Seer\n\n**Background:**\nEolande is an enigmatic figure in the Lands Between, with a unique connection to both Ranni and the Golden Order. Born of a human mother and a mysterious hald-wolf spirit, Eolande possesses the ability to communicate with these ancient creatures and understand their wisdom. Her lineage ties her to the primordial forces that once roamed the lands before the rise of the Golden Order.\n\n**Connection to Factions:**\n- **Ranni:** Eolande shares Ranni's disdain for the rigid enforcement of the Greater Will by the Golden Order. She secretly aids Ranni in undermining the Order, providing crucial information about ancient sites and forgotten knowledge that could disrupt Marika's rule.\n- **The Golden Order:** Despite her opposition to the Order's methods, Eolande has a complex relationship with them due to her ability to sense the will of the Elden Ring. She believes there is a deeper truth to the power that lies beyond Queen Marika's interpretation.\n\n**Character Development:**\n\n1. **Early Life:**\n   - Eolande was raised on the outskirts of a small village, where she discovered her unique connection with hald-wolves at an early age.\n   - Her mother, a local healer, recognized the signs and taught her about the old ways, warning her that her gifts would be seen as dangerous by those in power.\n\n2. **Encounter with Ranni:**\n   - A fateful meeting with Ranni reveals to Eolande the larger world beyond her village.\n   - Ranni sees potential in Eolande's abilities and offers her a choice: embrace the path of rebellion against the Golden Order or remain hidden from the world's conflicts.\n\n3. **Role During the Shattering:**\n   - As the Elden Ring shatters, Eolande uses her connection with hald-wolves to navigate the chaos.\n   - She acts as a messenger between Ranni and other rebels, using her knowledge of secret routes known only to the wolf-spirits.\n\n4. **Current Status:**\n   - Eolande becomes a key figure in the Shattering war, acting as both a scout and an advisor to those who seek to reshape the world.\n   - Her presence is often heralded by the howling of hald-wolves, signaling her arrival or departure from a given battle.\n\n5. **Abilities and Powers:**\n   - **Wolf-Speech:** Eolande can communicate with hald-wolves, gaining insights into ancient lore and hidden paths.\n   - **Spirit Walk:** She has the ability to traverse the spirit realm, allowing her to move unseen by enemies and gather information from other planes of existence.\n   - **Ancient Runes:** Eolande wields an artifact infused with runes that grant her visions of past events involving both the dragons and the early days of the Golden Order.\n\n**Impact on the Lore:**\nEolande's character adds a new layer to the existing lore, connecting the ancient hald-wolf spirits to the current state of the Lands Between. Her story can delve into the forgotten history of the world before the Golden Order, potentially revealing secrets about the dragons and the true nature of the Elden Ring's power.\n\n**Potential Story Arcs:**\n- **The Prophecy Revealed:** Eolande discovers an ancient prophecy that foretells the rise and fall of the Greater Will. She must decide whether to share this knowledge with Ranni or keep it hidden, fearing its consequences.\n- **The Wolf's Vengeance:** As the war between demigods escalates, Eolande learns that the hald-wolves have a stake in the outcome. They were once betrayed by an aspect of the Golden Order, and now seek retribution through her actions.\n\nEolande's character offers a fresh perspective on the conflict in the Lands Between while also tying into existing factions and entities, providing a rich narrative tapestry that can be woven into the broader lore of Elden Ring.",
+    "metrics": {
+      "category": "character description",
+      "faithfulness": NaN,
+      "answer_relevancy": NaN,
+      "context_precision": NaN,
+      "context_recall": 0.25,
+      "answer_correctness": NaN,
+      "bert_score_source": 0.8336330652236938,
+      "bert_score_reference": 0.827127993106842,
+      "mauve": 0.0040720962619612555,
+      "distinct_2": 0.8557377049180328,
+      "repetition_2": 0.07377049180327869,
+      "world_consistency": 0.85
+    }
+  },
+  {
+    "category": "location description",
+    "query": "Create a description for a major capital city in Elden Ring associated with the Golden Order and royal rule.",
+    "generation": "### Description of the Capital City: Leyndell, Royal Capital\n\nLeyndell, Royal Capital, is the heartland of the Golden Order and serves as a shining beacon of Queen Marika's rule. This grand metropolis stands as an architectural marvel, showcasing the pinnacle of human achievement under the guidance of the Elden Ring and the Erdtree.\n\n#### Overview\nThe city is encircled by towering white walls adorned with golden filigree, symbolizing the purity and power of the Golden Order. At its core lies the magnificent Royal Palace, a structure that defies gravity with its soaring spires and ethereal design, built to honor Queen Marika as her vessel for the Greater Will.\n\n#### The Elden Ring's Influence\nThe very air within Leyndell is said to hum with the power of the Elden Ring. The city's most revered sites are where this power manifests most strongly, with grand cathedrals and sanctuaries where the faithful can bask in its divine glow and seek blessings from the Greater Will.\n\n#### Royal Residence\nThe Royal Palace is not merely a residence but a fortress of knowledge and might. It houses the elite warriors known as the Lion Guard, who protect the city and uphold the will of Queen Marika. The palace's libraries are vast repositories of ancient lore and the secrets of sorcery, which have been harnessed to further the goals of the Golden Order.\n\n#### Economic Hub\nLeyndell serves as a central hub for trade within the Lands Between. Its markets teem with life, as merchants from all corners come to sell their wares or barter knowledge in exchange for rare treasures and artifacts imbued with the power of the Erdtree.\n\n#### The War Against Persecution\nThough Leyndell stands as a symbol of strength, its history is marked by conflict. The city has seen many battles against those who would defy Queen Marika's rule, including the Fire Giants and other enemies of the Order. These conflicts have shaped the capital into a city that is not only majestic but also militaristically prepared.\n\n#### Cultural Significance\nThe inhabitants of Leyndell are deeply devoted to the Golden Order and its teachings. The arts flourish in the shadow of the Erdtree, with music, poetry, and sculpture all reflecting themes of divine order and royal might.\n\n#### Conclusion: A City of Divine Rule\nLeyndell, Royal Capital, is more than just a city; it is a testament to Queen Marika's legacy and the unyielding spirit of the Golden Order. It stands as a bastion against chaos and a beacon for those who seek guidance from the Greater Will. Despite the turmoil that has plagued the Lands Between, Leyndell remains steadfast in its commitment to uphold the will of the Elden Ring and the Erdtree, embodying the essence of royal rule under the Golden Order's reign.",
+    "metrics": {
+      "category": "location description",
+      "faithfulness": NaN,
+      "answer_relevancy": NaN,
+      "context_precision": NaN,
+      "context_recall": NaN,
+      "answer_correctness": NaN,
+      "bert_score_source": 0.7974128127098083,
+      "bert_score_reference": 0.8002520799636841,
+      "mauve": 0.0040720962619612555,
+      "distinct_2": 0.8264642082429501,
+      "repetition_2": 0.08459869848156182,
+      "world_consistency": 0.9
+    }
+  },
+  {
+    "category": "item description",
+    "query": "Create a new mystical item tied to divine or forbidden power in the Elden Ring world. It should feel like a fragment of a larger cosmic truth or broken order, but must not directly reference existing Great Runes or known artifacts.",
+    "generation": "### New Mystical Item: Whispering Shard of the Primordial Crucible\n\n**Background:**\nIn the world of Elden Ring, where divine powers and ancient entities intertwine, a new mystical item has been discovered that encapsulates a fragment of the primordial crucible's essence. This item is not aligned with the Great Runes or existing artifacts but holds its own cosmic truth, reflecting the complexities of the broken order.\n\n**Item Description:**\nThe Whispering Shard of the Primordial Crucible is a rare and enigmatic artifact that resonates with the primal energy of creation itself. It appears as a small, crystalline fragment, pulsating with an inner light that seems to shift in color and intensity as if it holds conversations with the very fabric of reality.\n\n**Properties:**\n- **Appearance:** A fist-sized crystal with swirling patterns that seem to depict abstract scenes of celestial bodies and ancient battles.\n- **Origin:** Forged from the remnants of the primordial crucible, a source of immense power that predates even the Outer Gods.\n- **Purpose:** It serves as a vessel for those who seek to understand the deeper truths of the Lands Between, beyond the influence of the Greater Will and the Golden Order.\n\n**Mechanics:**\n1. **Divination:** When meditated upon, the Whispering Shard can reveal glimpses into past events or future possibilities, providing users with cryptic visions that may guide their path.\n2. **Protection:** It offers limited protection against forces tied to the Greater Will, creating a subtle barrier that distorts the perception of its wielder by otherworldly entities.\n3. **Cursed Bond:** Those who wield it are bound in a tenuous relationship with the crucible's will. Over time, they may gain insights into forbidden knowledge but risk becoming a target for those seeking to control or destroy this power.\n\n**Uses in Gameplay:**\n- As an item that can be used during meditation to gain visions of past events.\n- A talisman that grants resistance against specific magical effects.\n- An ingredient for crafting advanced items or spells, given its primordial nature.\n\n**Cautionary Note:**\nWielders must tread carefully with the Whispering Shard, as prolonged contact may lead them down a path of no return, aligning more closely with the forbidden powers that the Elden Ring lore often warns against. The knowledge it grants could be both enlightening and perilous, much like the journey through the Lands Between itself.\n\nThis new item adds depth to the lore and gameplay experience of Elden Ring, offering players another layer to explore in their quest for understanding and power within this richly crafted world.",
+    "metrics": {
+      "category": "item description",
+      "faithfulness": NaN,
+      "answer_relevancy": NaN,
+      "context_precision": 0.9999999999,
+      "context_recall": 0.3333333333333333,
+      "answer_correctness": NaN,
+      "bert_score_source": 0.7982474565505981,
+      "bert_score_reference": 0.7957202792167664,
+      "mauve": 0.0040720962619612555,
+      "distinct_2": 0.9055690072639225,
+      "repetition_2": 0.053268765133171914,
+      "world_consistency": 0.933
+    }
+  }
+]

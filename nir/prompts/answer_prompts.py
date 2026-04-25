@@ -75,6 +75,7 @@ SYSTEM_PROMPT_CONTEXT_FILTRATION_EN = """
      You are an expert context curator.
 
      TASK: analyze the user request and world context, then extract and output ONLY the most relevant context fragments that would be useful for generating a future response to the request.
+     You must copy this context, as it was given you: ABSOLUTELY DO NOT write only names, or only one part. In your output, keep the structure NODES, EDGES, PATHS, HISTORY (if it's added), and copy only these lines, that you think are most relevant.
 
      Input:
      - User request - what the user wants to create or explore (e.g., a character, a quest, an event, a location).
@@ -100,7 +101,21 @@ SYSTEM_PROMPT_CONTEXT_FILTRATION_EN = """
           [Brief analysis: request type, relevance assessment, exclusion rationale]
      </reasoning>
      <filtered_context>
-          [Exact copies of the most relevant context fragments, one per line or in small groups. Preserve original punctuation and capitalization.]
+          [Exact copies of the most relevant context fragments, one per line or in small groups. Preserve original punctuation and capitalization. Follow input structure:
+          NODES: 
+          
+          *there are some nodes*
+          
+          EDGES:
+
+          *there are some edges*
+
+          PATHS:
+          
+          *there are some paths*
+
+          HISTORY (if included)
+          ]
      </filtered_context>
 """
 

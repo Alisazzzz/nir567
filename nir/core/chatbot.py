@@ -107,36 +107,31 @@ instruct_model = manager.create_chat_model(
 
 #GRAPH CHOICE
 
-#this is for graph creation
+# #this is for graph creation
 # data = loader.loadCSV(
-#     path="assets/documents/NUCLEAR CRYPT.csv"
+#     path="assets/documents/INAZUMAS MAIN QUEST.txt"
 # )
-# data = loader.loadCSV_withColumns(
-#     path="assets/documents/NUCLEAR CRYPT SHORT.csv",
-#     columns=["Описание места действия", "Персонаж", "Действие", "Реплика"]
-# )
-# print(data)
 
-# chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
-# graph = extract_graph_from_nodes(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph, preserve_all_data=True, language="ru")
+# chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0, chunk_size=1000, chunk_overlap=100)
+# graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph, preserve_all_data=True, language="en")
 # vector_db_info = VectorStoreInfo(
 #     type="chromadb",
 #     info={ 
-#         "name" : "nuclear_crypt_csv_test_from_nodes_short",
+#         "name" : "inazuma_lore",
 #         "path" : "assets/databases/chroma_db"
 #     }
 # )
 # graph.create_vector_db(vector_db_info)
 # create_embeddings(graph, graph.get_vector_db(), embedding_model)
-# graph.save(filepath="assets/graphs/nuclear_crypt_csv_test_from_nodes_short.json")
-# graph.visualize(filepath="assets/outputs/nuclear_crypt_csv_test_from_nodes_short.html")
+# graph.save(filepath="assets/graphs/inazuma_lore.json")
+# graph.visualize(filepath="assets/outputs/inazuma_lore.html")
 
 #this is for graph loading
-# graph = NetworkXGraph()
-# graph.load(
-#     filepath="assets/graphs/gpt_test.json"
-# )
-# graph.visualize(filepath="assets/outputs/gpt_test.html")
+graph = NetworkXGraph()
+graph.load(filepath="assets/graphs/elden_ring_lore.json")
+query="Create a description with appearance, history and motivation for a brand new character, who is also a Tarnished and wants to collaborate with player's hero. It happens after the appearance of the Tarnished in the world."
+context = form_context_with_llm(query=query, graph=graph, llm=instruct_model, embedding_model=embedding_model, add_history=False, max_tokens=2048)
+print(context)
 
 # chat = Chat(
 #     chat_model=chat_model, 
@@ -147,66 +142,66 @@ instruct_model = manager.create_chat_model(
 # chat.set_add_history(False)
 # chat.start_chat()
 
-graph = NetworkXGraph()
-graph.load(filepath="assets/graphs/notebook_story_from_nodes.json")
-query="Create an overview of the first quest, where player playes for an ancient demon, few moments after his transition from rock into a living creature (red cat)."
+# graph = NetworkXGraph()
+# graph.load(filepath="assets/graphs/notebook_story_from_nodes.json")
+# query="Create an overview of the first quest, where player playes for an ancient demon, few moments after his transition from rock into a living creature (red cat)."
 
-context = form_context_without_llm(query=query, graph=graph, embedding_model=embedding_model, add_history=False)
+# context = form_context_without_llm(query=query, graph=graph, embedding_model=embedding_model, add_history=False)
 
-# variant 1
-print("\n\n")
-print("BASIC (ONLY PLAN)")
-print("\n")
+# # variant 1
+# print("\n\n")
+# print("BASIC (ONLY PLAN)")
+# print("\n")
 
-answer_plan = generate_plan(query, context, chat_model, False, "en")
-print("Answer plan")
-print(answer_plan)
-print("\n")
+# answer_plan = generate_plan(query, context, chat_model, False, "en")
+# print("Answer plan")
+# print(answer_plan)
+# print("\n")
 
-answer_final = generate_answer_based_on_plan(query, answer_plan, context, chat_model, "en")
-print("Final answer")
-print(answer_final)
-print("\n")
-
-
-# variant 2
-print("\n\n")
-print("PLAN WITH THEORY")
-print("\n")
-
-answer_plan = generate_plan(query, context, chat_model, True, "en")
-print("Answer plan")
-print(answer_plan)
-print("\n")
-
-answer_final = generate_answer_based_on_plan(query, answer_plan, context, chat_model, "en")
-print("Final answer")
-print(answer_final)
-print("\n")
+# answer_final = generate_answer_based_on_plan(query, answer_plan, context, chat_model, "en")
+# print("Final answer")
+# print(answer_final)
+# print("\n")
 
 
-# variant 3
-print("\n\n")
-print("ONLY FILTER")
-print("\n")
+# # variant 2
+# print("\n\n")
+# print("PLAN WITH THEORY")
+# print("\n")
 
-filtered_context = filter_context(query, context, chat_model, "en")
-print("Filtered context")
-print(filtered_context)
-print("\n")
+# answer_plan = generate_plan(query, context, chat_model, True, "en")
+# print("Answer plan")
+# print(answer_plan)
+# print("\n")
 
-answer_final = generate_answer_based_on_context(query, filtered_context, chat_model, "en")
-print("Final answer")
-print(answer_final)
-print("\n")
+# answer_final = generate_answer_based_on_plan(query, answer_plan, context, chat_model, "en")
+# print("Final answer")
+# print(answer_final)
+# print("\n")
 
 
-# variant 4
-print("\n\n")
-print("RAW CONTEXT")
-print("\n")
+# # variant 3
+# print("\n\n")
+# print("ONLY FILTER")
+# print("\n")
 
-answer_final = generate_answer_based_on_context(query, context, chat_model, "en")
-print("Final answer")
-print(answer_final)
-print("\n")
+# filtered_context = filter_context(query, context, chat_model, "en")
+# print("Filtered context")
+# print(filtered_context)
+# print("\n")
+
+# answer_final = generate_answer_based_on_context(query, filtered_context, chat_model, "en")
+# print("Final answer")
+# print(answer_final)
+# print("\n")
+
+
+# # variant 4
+# print("\n\n")
+# print("RAW CONTEXT")
+# print("\n")
+
+# answer_final = generate_answer_based_on_context(query, context, chat_model, "en")
+# print("Final answer")
+# print(answer_final)
+# print("\n")
