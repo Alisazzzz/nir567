@@ -1,172 +1,40 @@
 #All stuff for certain metrics is here
 
 
+
 #--------------------------
 #---------imports----------
 #--------------------------
 
-
 import re
 from typing import Dict, List, Optional
 from collections import Counter, defaultdict
-
-from langchain.schema import Generation, LLMResult
-from langchain_core.embeddings import Embeddings
+from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 import torch
 from datasets import Dataset
 from bert_score import score as bert_score_fn
-
-from ragas.llms import LangchainLLMWrapper
-from ragas.embeddings import LangchainEmbeddingsWrapper
-
+import os
 import mauve
+
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_ollama import OllamaEmbeddings, OllamaLLM
 
 from nir.graph.graph_structures import Edge
 from nir.graph.knowledge_graph import KnowledgeGraph
-from nir.tests import testing_prompts
+from nir.prompts import testing_prompts
 
-import re
-import json
-from typing import Any
-from langchain_ollama import OllamaEmbeddings, OllamaLLM
-
+from ragas.llms import LangchainLLMWrapper
+from ragas.embeddings import LangchainEmbeddingsWrapper
 from ragas import RunConfig, evaluate
 from ragas.metrics import (
+    answer_similarity,
     faithfulness,
     answer_relevancy,
     context_precision,
     context_recall,
-    answer_correctness,  # актуальное имя вместо AnswerAccuracy
+    answer_correctness, 
 )
-
-
-import re
-import json
-from typing import Any, Optional, List, Union
-from langchain_ollama import OllamaLLM
-from langchain_core.prompt_values import StringPromptValue, ChatPromptValue
-from langchain_core.messages import BaseMessage
-from ragas.run_config import RunConfig
-
-import re
-from typing import Any, Optional, List
-from langchain_ollama import OllamaLLM
-from langchain_core.outputs import LLMResult, Generation
-from ragas.run_config import RunConfig
-
-class StrictJSONOllamaWrapper:
-    """
-    Обертка для Ollama, которая заставляет модель возвращать строгий JSON.
-    Правильно обрабатывает callbacks и другие параметры.
-    """
-    
-    def __init__(self, llm: OllamaLLM):
-        self.llm = llm
-        self._run_config = None
-        
-    def set_run_config(self, run_config: RunConfig) -> None:
-        """Устанавливает конфигурацию запуска"""
-        self._run_config = run_config
-        if hasattr(self.llm, 'set_run_config'):
-            self.llm.set_run_config(run_config)
-    
-    def _clean_json(self, text: str) -> str:
-        """Очищает JSON от markdown и лишнего текста"""
-        if not text:
-            return "{}"
-        
-        text = str(text)
-        
-        # Убираем markdown-блоки
-        text = re.sub(r'```json\s*\n?', '', text)
-        text = re.sub(r'```\s*\n?', '', text)
-        
-        # Ищем первую { или [
-        start = text.find('{')
-        if start == -1:
-            start = text.find('[')
-        if start == -1:
-            return "{}"
-            
-        # Ищем закрывающую скобку
-        stack = []
-        for i in range(start, len(text)):
-            char = text[i]
-            if char in '{[':
-                stack.append(char)
-            elif char == '}':
-                if stack and stack[-1] == '{':
-                    stack.pop()
-                    if not stack:
-                        return text[start:i+1]
-            elif char == ']':
-                if stack and stack[-1] == '[':
-                    stack.pop()
-                    if not stack:
-                        return text[start:i+1]
-        return text[start:]
-    
-    def _add_json_instruction(self, prompt: str) -> str:
-        """Добавляет инструкцию о формате JSON"""
-        instruction = "\n\nCRITICAL: Respond with ONLY valid JSON. No explanations, no markdown formatting. Start directly with { or [."
-        return prompt + instruction
-    
-    def generate(self, prompts: List[str], **kwargs) -> LLMResult:
-        """
-        Генерирует ответы с очисткой JSON.
-        Важно: НЕ передаем callbacks отдельно, они уже в kwargs.
-        """
-        # Убираем 'callbacks' из kwargs если он есть в виде отдельного параметра
-        # (хотя в **kwargs он уже должен быть)
-        modified_prompts = [self._add_json_instruction(p) for p in prompts]
-        
-        # Вызываем оригинальный generate
-        # Передаем все kwargs как есть, без извлечения callbacks
-        result = self.llm.generate(modified_prompts, **kwargs)
-        
-        # Очищаем JSON в каждом ответе
-        for gen_list in result.generations:
-            for gen in gen_list:
-                if hasattr(gen, 'text'):
-                    gen.text = self._clean_json(gen.text)
-        
-        return result
-    
-    async def agenerate(self, prompts: List[str], **kwargs) -> LLMResult:
-        """
-        Асинхронная версия generate.
-        """
-        modified_prompts = [self._add_json_instruction(p) for p in prompts]
-        
-        if hasattr(self.llm, 'agenerate'):
-            result = await self.llm.agenerate(modified_prompts, **kwargs)
-        else:
-            # Fallback на синхронный
-            import asyncio
-            import concurrent.futures
-            loop = asyncio.get_event_loop()
-            with concurrent.futures.ThreadPoolExecutor() as pool:
-                result = await loop.run_in_executor(
-                    pool,
-                    lambda: self.llm.generate(modified_prompts, **kwargs)
-                )
-        
-        # Очищаем JSON
-        for gen_list in result.generations:
-            for gen in gen_list:
-                if hasattr(gen, 'text'):
-                    gen.text = self._clean_json(gen.text)
-        
-        return result
-    
-    # Проксируем остальные атрибуты
-    def __getattr__(self, name):
-        return getattr(self.llm, name)
-
-
-
 
 
 
@@ -203,30 +71,56 @@ def split_context_by_lines(context: str) -> list[str]:
         return []
     return context.split('\n')
 
+
+
+#--------------------------
+#-----prompt templates-----
+#--------------------------
+
+prompt_template_interestingness_en = ChatPromptTemplate.from_messages([
+    ("system", testing_prompts.SYSTEM_PROMPT_INTERESTINGNESS_EN),
+    ("human", (
+        "Task description:\n{task_description}\n\n"
+        "Newly created text:\n{generated_text}\n\n" ))
+])
+
+prompt_template_world_consistency_en = ChatPromptTemplate.from_messages([
+    ("system", testing_prompts.SYSTEM_PROMPT_WORLD_CONSISTENCY_EN),
+    ("human", (
+        "Original game world description:\n{original_context}\n\n"
+        "Newly created text:\n{generated_text}\n\n" ))
+])
+
+
+
 #----------------------------------------------------
 #---------metrics for text quality analysis----------
 #----------------------------------------------------
 
-def compute_mauve(generated: str, reference: str, model_id: str = "gpt2") -> float:
-    if not generated.strip() or not reference.strip():
+def compute_mauve(generateds: list[str], references: list[str], model_id: str = "gpt2") -> float:
+    out = mauve.compute_mauve(p_text=references, q_text=generateds, device_id=0, mauve_scaling_factor=2)
+    return float(out.mauve)
+
+
+def compute_self_bleu(generateds: list[str], max_n: int=4) -> float:
+    if len(generateds) < 2:
         return 0.0
+    tokenized = [t.lower().split() for t in generateds]
+    smoothie = SmoothingFunction().method4
+    scores = []
+    n = len(tokenized)
+    for i in range(n):
+        hyp = tokenized[i]
+        refs = [tokenized[j] for j in range(n) if j != i]  
+        score = sentence_bleu(
+            refs,
+            hyp,
+            weights=tuple(1.0 / max_n for _ in range(max_n)),
+            smoothing_function=smoothie
+        )
+        scores.append(score)     
+    return sum(scores) / n
 
-    out = mauve.compute_mauve(
-        p_text=reference,
-        q_text=generated,
-        device_id=0,
-        verbose=False,
-    )
-    return float(out.mauve)
-
-def compute_mauve_several(generated: list[str], reference: list[str], model_id: str = "gpt2") -> float:
-    out = mauve.compute_mauve(
-        p_text=reference,
-        q_text=generated,
-        device_id=0,
-        verbose=False,
-    )
-    return float(out.mauve)
 
 def compute_distinct_n(generated: str, n: int = 2) -> float:
     ngrams = get_ngrams(generated, n)
@@ -244,35 +138,32 @@ def compute_repetition_n(generated: str, n: int = 2) -> float:
     return repeated / len(ngrams)
 
 
-def compute_world_consistency(
-    original_context: str,
+def compute_interestingness(
+    task_description: str,
     generated_text: str,
-    llm: BaseLanguageModel
+    llm: BaseLanguageModel,
+    language: str = "en"
 ) -> float:
-    prompt_template = ChatPromptTemplate.from_messages([
-        ("system", testing_prompts.SYSTEM_PROMPT_WORLD_CONSISTENCY_EN),
-        ("human", (
-            "Original game world description:\n{original_context}\n\n"
-            "Newly created text:\n{generated_text}\n\n" ))
-    ])
+    if language == "ru":
+        chain = prompt_template_interestingness_en | llm
+    else:
+        chain = prompt_template_interestingness_en | llm
 
-    chain = prompt_template | llm
     try:
         response = chain.invoke({
-            "original_context": original_context,
+            "task_description": task_description,
             "generated_text": generated_text
         })
         answer = response.content.strip() if hasattr(response, 'content') else str(response).strip()
         answer = parse_llm_answer(answer, "answer")
-
         match = re.search(r"(\d*\.?\d+)", answer)
         if match:
             score = float(match.group(1))
-            return min(max(score, 0.0), 1.0)
+            return score
         else:
             return 0.0
     except Exception as e:
-        print(f"Error in world consistency evaluation: {e}")
+        print(f"Error in interestingness evaluation: {e}")
         return 0.0
 
 
@@ -281,65 +172,45 @@ def compute_world_consistency(
 #---------metrics for RAG analysis----------
 #-------------------------------------------
 
+
+ragas_evaluation_llm = OllamaLLM(model="mistral:7b-instruct-q2_K", temperature=0.0, num_predict=1024, format="json")
+ragas_evaluation_llm = LangchainLLMWrapper(ragas_evaluation_llm)
+
+ragas_evaluation_embeddings = OllamaEmbeddings(model="nomic-embed-text:v1.5")
+ragas_evaluation_embeddings = LangchainEmbeddingsWrapper(ragas_evaluation_embeddings)
+
+ragas_run_config = RunConfig(max_workers=1, timeout=120)
+
 def evaluate_ragas_metrics(
     question: str,
     answer: str,
     context: str,
-    ground_truth: str,
-    llm: BaseLanguageModel,
-    embeddings: Embeddings,
+    ground_truth: str
 ) -> Dict[str, float]:
     
-    data = [
-        {
-            "question": question,
-            "answer": answer,
-            "ground_truth": ground_truth,
-            "contexts": split_context_by_lines(context)
-        }
-    ]
+    data = {
+        "question": [question],
+        "answer": [answer],
+        "contexts": [split_context_by_lines(context)],
+        "ground_truth": [ground_truth]   
+    }
+    dataset = Dataset.from_dict(data)
 
-    dataset = Dataset.from_list(data)
-    print(dataset)
-
-    metrics = [
-        faithfulness,
-        answer_relevancy,
-        context_precision,
-        context_recall,
-        answer_correctness,
-    ]
-
-    base_llm = OllamaLLM(
-        model="hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",  # например, "llama3.2", "mistral", "phi3"
-        temperature=0,  # Важно: 0 для детерминированных ответов
-        num_ctx=4096,   # Увеличиваем контекст
-    )
-
-    # Embeddings
-    base_embeddings = OllamaEmbeddings(model="nomic-embed-text:v1.5")  # или другая модель
-
-    # Оборачиваем для Ragas
-    llm = LangchainLLMWrapper(base_llm)
-    embeddings = LangchainEmbeddingsWrapper(base_embeddings)
-
-    # Настройка RunConfig - критически важно для Ollama!
-    run_config = RunConfig(
-        max_workers=2,      # Меньше параллельных запросов
-        timeout=80,        # Больше таймаут для маленьких моделей
-    )
-
-    # Теперь evaluate с конфигом
     result = evaluate(
-        dataset=dataset,
-        metrics=metrics,
-        llm=llm,
-        embeddings=embeddings,
-        run_config=run_config,
+        dataset,
+        metrics=[
+            faithfulness,
+            answer_relevancy,
+            context_precision,
+            context_recall,
+            answer_similarity,
+            answer_correctness
+        ],
+        llm=ragas_evaluation_llm,
+        embeddings=ragas_evaluation_embeddings,
+        run_config=ragas_run_config,
+        show_progress=False
     )
-        
-    print(result.scores[0])
-    
     return { k: float(v[0] if isinstance(v, list) else v) for k, v in result.scores[0].items()}
 
 
@@ -349,7 +220,7 @@ def evaluate_bert_score_vs_source(generated_text: str, source_text: str, languag
         refs=[source_text],
         lang=language,
         verbose=False,
-        device="cuda" if torch.cuda.is_available() else "cpu"
+        device="cuda" if torch.cuda.is_available() else "cpu",
     )
     return F1.mean().item()
 
@@ -363,6 +234,34 @@ def evaluate_bert_score_vs_reference(generated_text: str, reference_text: str, l
         device="cuda" if torch.cuda.is_available() else "cpu"
     )
     return F1.mean().item()
+
+
+def compute_world_consistency(
+    original_context: str,
+    generated_text: str,
+    llm: BaseLanguageModel,
+    language: str = "en"
+) -> float:
+    if language == "ru":
+        chain = prompt_template_world_consistency_en | llm
+    else:
+        chain = prompt_template_world_consistency_en | llm
+    try:
+        response = chain.invoke({
+            "original_context": original_context,
+            "generated_text": generated_text
+        })
+        answer = response.content.strip() if hasattr(response, 'content') else str(response).strip()
+        answer = parse_llm_answer(answer, "answer")
+        match = re.search(r"(\d*\.?\d+)", answer)
+        if match:
+            score = float(match.group(1))
+            return score
+        else:
+            return 0.0
+    except Exception as e:
+        print(f"Error in world consistency evaluation: {e}")
+        return 0.0
 
 
 
@@ -419,6 +318,7 @@ def calculate_efficiency_metrics(graph: KnowledgeGraph) -> Dict[str, float]:
         "average degree": avg_degree,
         "average clustering coefficient": avg_clustering
     }
+
 
 def calculate_suitability_metrics(graph: KnowledgeGraph) -> Dict[str, float]:
     nodes = graph.get_all_nodes()

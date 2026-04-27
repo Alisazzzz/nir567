@@ -11,6 +11,15 @@ from nir.embedding.vector_store_loader import VectorStoreInfo, create_vector_sto
 from nir.graph.knowledge_graph import KnowledgeGraph
 from nir.graph.graph_structures import Node, Edge, State
 
+def _strip_json_spaces(obj: any) -> any:
+    """Рекурсивно убирает пробелы из всех строковых ключей и значений."""
+    if isinstance(obj, dict):
+        return {k.rstrip(): _strip_json_spaces(v) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [_strip_json_spaces(item) for item in obj]
+    elif isinstance(obj, str):
+        return obj.rstrip()
+    return obj
 
 class NetworkXGraph(KnowledgeGraph):
     def __init__(self):
@@ -185,15 +194,28 @@ class NetworkXGraph(KnowledgeGraph):
     def load(self, filepath: str) -> None:
         self.graph.clear()
         with open(filepath, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        self.create_vector_db(VectorStoreInfo.model_validate(data["vector_store"]))
-        self.document_filename = data["connected_document"]
-        self.connected_embedding = data["connected_embedding"]
-        for node_dict in data["nodes"]:
+            raw_data = json.load(f)
+        
+        # 1. Очищаем данные от пробелов ДО передачи в Pydantic
+        clean_data = _strip_json_spaces(raw_data)
+        
+        self.create_vector_db(VectorStoreInfo.model_validate(clean_data.get("vector_store", {})))
+        self.document_filename = clean_data.get("connected_document")
+        self.connected_embedding = clean_data.get("connected_embedding")
+        
+        # 2. Загружаем узлы
+        for node_dict in clean_data.get("nodes", []):
             node = Node(**node_dict)
             self.add_node(node)
-        for edge_dict in data["edges"]:
+            
+        # 3. Загружаем рёбра
+        for edge_dict in clean_data.get("edges", []):
             edge = Edge(**edge_dict)
+            # Опционально: проверка целостности
+            if edge.source not in self.graph.nodes:
+                print(f"⚠️ Вершина '{edge.source}' не найдена. Будет создана пустая.")
+            if edge.target not in self.graph.nodes:
+                print(f"⚠️ Вершина '{edge.target}' не найдена. Будет создана пустая.")
             self.add_edge(edge)
 
     def get_document_filename(self):

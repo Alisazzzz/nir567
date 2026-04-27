@@ -128,10 +128,8 @@ instruct_model = manager.create_chat_model(
 
 #this is for graph loading
 graph = NetworkXGraph()
-graph.load(filepath="assets/graphs/elden_ring_lore.json")
-query="Create a description with appearance, history and motivation for a brand new character, who is also a Tarnished and wants to collaborate with player's hero. It happens after the appearance of the Tarnished in the world."
-context = form_context_with_llm(query=query, graph=graph, llm=instruct_model, embedding_model=embedding_model, add_history=False, max_tokens=2048)
-print(context)
+graph.load(filepath="assets/graphs/elden_ring_lore_graph.json")
+graph.visualize(filepath="assets/outputs/elden_ring_lore_graph.html")
 
 # chat = Chat(
 #     chat_model=chat_model, 

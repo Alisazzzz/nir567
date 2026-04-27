@@ -311,3 +311,95 @@ TEST_DATA_TEXT3 = {
         }
     ]
 }
+
+TEST_DATA_TEXT1_SHORT = {
+    "path_to_graph": "assets/graphs/elden_ring_lore.json",
+    "path_to_text": "assets/documents/ELDEN RING LORE.txt",
+    "text_summary": """
+        The Greater Will is an Outer God whose power manifests through the Elden Ring and the Erdtree. 
+        Queen Marika becomes its vessel and establishes the Golden Order to enforce its will. 
+        Before this, dragons ruled the Lands Between but declined after their god abandoned them. 
+        With the rise of the Golden Order, beings tied to the primordial “crucible” (like Omens) became persecuted.
+        Marika wages wars, including against the Fire Giants, and allies with figures like Hoarah Loux (Godfrey). 
+        She and her other self, Radagon, are two aspects of one being. 
+        Their children, including Malenia and Miquella, are cursed. Other Outer Gods also influence events.
+        Ranni rejects the Greater Will and orchestrates the Night of the Black Knives, killing Godwyn. 
+        In response, Marika shatters the Elden Ring, triggering the Shattering war among demigods, each seeking power or change.
+        As the Greater Will’s influence weakens, the Tarnished return to the Lands Between, 
+        aiming to restore or redefine the world’s order.
+    """,
+    "language": "en",
+    "tasks": [
+        {
+            "category": "quest",
+            "query": "Create a new Elden Ring-style side quest involving a Tarnished helping a minor faction or individual affected by the Shattering. The quest should involve moral ambiguity, hidden truth, and a choice between loyalty to the Golden Order or defiance of it. Do not reuse known canonical events.",
+            "reference": """
+                A Tarnished encounters a wandering scholar from a minor ruined order who claims to have discovered fragments 
+                of forbidden knowledge about the Shattering. The scholar asks for protection while traveling to an ancient site where truth 
+                about the Erdtree’s origins may be revealed. Along the journey, it becomes unclear whether the scholar seeks 
+                enlightenment or intends to destabilize remaining order. At the destination, the Tarnished must choose to either help seal 
+                the knowledge away or release it to the world, risking further chaos.
+            """
+        }
+    ]
+}
+
+TEST_DATA_TEXT2_SHORT = {
+    "path_to_text": "assets/documents/Leisure Suit Larry 6.txt",
+    "path_to_graph": "assets/graphs/leisure_suit_larry.json",
+    "text_summary": """
+        Larry Laffer arrives at a luxury spa after losing a dating show, where he is treated poorly as a non-paying guest. 
+        Throughout his stay, he helps several women, including Gammie with her weight-loss treatment, Shablee by finding her a dress for a date, 
+        and Char with gathering items—though many encounters end in rejection or embarrassment. He also meets Cavaricchi and Burgundy, who invite 
+        him to a sauna but exclude him, and Thunderbird, a dominatrix who humiliates him. Larry assists Merrily with her dream of bungee jumping, only 
+        to accidentally fall himself. Despite repeated mishaps, Larry persists. In the end, after completing tasks for Shamara, he finally gains her affection, 
+        concluding his misadventure on a successful note.
+    """,
+    "language": "en",
+    "tasks": [
+        {
+            "category": "quest",
+            "query": "Design a new comedic adventure puzzle sequence set in the same luxury spa. The quest should involve helping a different eccentric guest achieve a risky personal goal by stealthily acquiring and duplicating a restricted access item. The sequence should culminate in an ironic, highly public mishap for the protagonist while the guest finally attains their desire, maintaining the game's signature blend of slapstick and puzzle-solving.",
+            "reference": """
+                Larry assists Merrily Lowe at the pool bar by obtaining the diving tower key from the lifeguard, 
+                making an impression of it in a bar of soap, filing a copy with a bastard file, and returning it to her. 
+                They climb to the bungee platform, where she shares her "Words of Wisdom," but Larry trips over the cords and falls, 
+                accidentally broadcasting his naked descent to the entire spa.
+            """
+        }
+    ]
+}
+
+
+TEST_DATA_TEXT3_SHORT = {
+    "path_to_graph": "assets/graphs/inazuma_lore.json",
+    "path_to_text": "assets/documents/INAZUMAS MAIN QUEST.txt",
+    "text_summary": """
+        The Traveler arrives in Inazuma, a nation ruled by the Electro Archon, the Raiden Shogun, 
+        who enforces isolation and the Vision Hunt Decree—confiscating Visions from citizens, stripping many of their ambition and purpose. 
+        This causes widespread unrest and resistance.
+
+        The Traveler meets allies like Ayaka and Thoma and witnesses the growing oppression. A resistance led by Sangonomiya Kokomi 
+        fights the Shogunate, while the Fatui secretly manipulate events to destabilize Inazuma further.
+
+        It is revealed that the true Archon, Raiden Ei, has retreated into the Plane of Euthymia, leaving a puppet Shogun to enforce her ideal 
+        of "eternity"—a world without change or loss.
+
+        The Traveler confronts the Shogun and then Ei herself within her inner realm. Through a duel and witnessing 
+        the will of Inazuma's people embodied in their Visions, Ei realizes the harm of her ideology.
+
+        She abandons the Vision Hunt Decree, restores the Visions, ends the civil conflict, and begins guiding Inazuma toward a new future.
+    """,
+    "language": "en",
+    "tasks": [
+        {
+            "category": "quest",
+            "query": "Design a new side quest set in Inazuma where the Traveler helps a former Vision bearer cope with the loss of their aspirations after the Vision Hunt Decree. The sequence should involve investigating rumors of a hidden sanctuary where confiscated Visions are kept, navigating moral choices about whether to expose the truth or protect those who still hope, and culminating in a quiet moment of reflection rather than combat.",
+            "reference": """
+                In the quest "The Meaning of Meaningless Waiting," the Traveler meets Tejima, a former samurai whose Vision was confiscated. 
+                Without his Vision, he struggles to remember why he stayed in Konda Village. The Traveler helps him find a letter revealing 
+                he waited for a lover who never returned. Tejima chooses to remain, finding new meaning in patience rather than action.
+            """
+        }
+    ]
+}
