@@ -9,6 +9,9 @@
 import re
 from typing import Dict, List, Optional
 from collections import Counter, defaultdict
+
+import numpy as np
+from transformers import AutoModel, AutoTokenizer
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 import torch
 from datasets import Dataset
@@ -84,11 +87,25 @@ prompt_template_interestingness_en = ChatPromptTemplate.from_messages([
         "Newly created text:\n{generated_text}\n\n" ))
 ])
 
+prompt_template_interestingness_ru = ChatPromptTemplate.from_messages([
+    ("system", testing_prompts.SYSTEM_PROMPT_INTERESTINGNESS_RU),
+    ("human", (
+        "Описание задачи:\n{task_description}\n\n"
+        "Сгенерированный текст:\n{generated_text}\n\n" ))
+])
+
 prompt_template_world_consistency_en = ChatPromptTemplate.from_messages([
     ("system", testing_prompts.SYSTEM_PROMPT_WORLD_CONSISTENCY_EN),
     ("human", (
         "Original game world description:\n{original_context}\n\n"
         "Newly created text:\n{generated_text}\n\n" ))
+])
+
+prompt_template_world_consistency_ru = ChatPromptTemplate.from_messages([
+    ("system", testing_prompts.SYSTEM_PROMPT_WORLD_CONSISTENCY_RU),
+    ("human", (
+        "Описание игрового мира:\n{original_context}\n\n"
+        "Сгенерированный текст:\n{generated_text}\n\n" ))
 ])
 
 
@@ -97,10 +114,26 @@ prompt_template_world_consistency_en = ChatPromptTemplate.from_messages([
 #---------metrics for text quality analysis----------
 #----------------------------------------------------
 
-def compute_mauve(generateds: list[str], references: list[str], model_id: str = "gpt2") -> float:
+def compute_mauve_en(generateds: list[str], references: list[str]) -> float:
     out = mauve.compute_mauve(p_text=references, q_text=generateds, device_id=0, mauve_scaling_factor=2)
     return float(out.mauve)
 
+def compute_mauve_ru(generateds, references, model_name="evilfreelancer/enbeddrus:v0.2"):
+    embeddings = OllamaEmbeddings(model=model_name)
+    
+    ref_embeddings = embeddings.embed_documents(references)
+    gen_embeddings = embeddings.embed_documents(generateds)
+    
+    ref_embeddings = np.array(ref_embeddings)
+    gen_embeddings = np.array(gen_embeddings)
+    
+    out = mauve.compute_mauve(
+        p_features=ref_embeddings,
+        q_features=gen_embeddings,
+        device_id=0,
+        mauve_scaling_factor=2
+    )
+    return float(out.mauve)
 
 def compute_self_bleu(generateds: list[str], max_n: int=4) -> float:
     if len(generateds) < 2:
@@ -145,7 +178,7 @@ def compute_interestingness(
     language: str = "en"
 ) -> float:
     if language == "ru":
-        chain = prompt_template_interestingness_en | llm
+        chain = prompt_template_interestingness_ru | llm
     else:
         chain = prompt_template_interestingness_en | llm
 
@@ -176,7 +209,7 @@ def compute_interestingness(
 ragas_evaluation_llm = OllamaLLM(model="mistral:7b-instruct-q2_K", temperature=0.0, num_predict=1024, format="json")
 ragas_evaluation_llm = LangchainLLMWrapper(ragas_evaluation_llm)
 
-ragas_evaluation_embeddings = OllamaEmbeddings(model="nomic-embed-text:v1.5")
+ragas_evaluation_embeddings = OllamaEmbeddings(model="evilfreelancer/enbeddrus:v0.2")
 ragas_evaluation_embeddings = LangchainEmbeddingsWrapper(ragas_evaluation_embeddings)
 
 ragas_run_config = RunConfig(max_workers=1, timeout=120)
@@ -243,7 +276,7 @@ def compute_world_consistency(
     language: str = "en"
 ) -> float:
     if language == "ru":
-        chain = prompt_template_world_consistency_en | llm
+        chain = prompt_template_world_consistency_ru | llm
     else:
         chain = prompt_template_world_consistency_en | llm
     try:

@@ -77,6 +77,10 @@ class KnowledgeGraph(ABC):
         pass
 
     @abstractmethod
+    def load_and_create_vector_db(self, path: str) -> None:
+        pass
+
+    @abstractmethod
     def get_document_filename(self) -> str:
         pass
 

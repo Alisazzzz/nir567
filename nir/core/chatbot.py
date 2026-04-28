@@ -75,35 +75,35 @@ manager = ModelManager()
 #     model_name="ai-forever/ru-en-RoSBERTa"
 # )
 
-#EMBEDDING MODEL CHOICE
-embedding_model = manager.create_embedding_model(
-    name="embeddings", 
-    option="hf_local", 
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
-)
+# #EMBEDDING MODEL CHOICE
+# embedding_model = manager.create_embedding_model(
+#     name="embeddings", 
+#     option="hf_local", 
+#     model_name="sentence-transformers/all-MiniLM-L6-v2"
+# )
 
 
-#CHAT MODEL CHOICE
-model_config = ModelConfig(
-    model_name="hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
-    temperature=0.7,
-    max_tokens=1024
-)
-chat_model = manager.create_chat_model(
-    name="basic_chat", 
-    option="ollama", 
-    config=model_config
-)
+# #CHAT MODEL CHOICE
+# model_config = ModelConfig(
+#     model_name="hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+#     temperature=0.7,
+#     max_tokens=1024
+# )
+# chat_model = manager.create_chat_model(
+#     name="basic_chat", 
+#     option="ollama", 
+#     config=model_config
+# )
 
-#GRAPH EXTRACTION MODEL CHOICE
-model_config = ModelConfig(
-    model_name="hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest", 
-    temperature=0
-)
-instruct_model = manager.create_chat_model(
-    name="graph_extraction", 
-    option="ollama", 
-    config=model_config)
+# #GRAPH EXTRACTION MODEL CHOICE
+# model_config = ModelConfig(
+#     model_name="hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest", 
+#     temperature=0
+# )
+# instruct_model = manager.create_chat_model(
+#     name="graph_extraction", 
+#     option="ollama", 
+#     config=model_config)
 
 #GRAPH CHOICE
 
@@ -126,10 +126,30 @@ instruct_model = manager.create_chat_model(
 # graph.save(filepath="assets/graphs/inazuma_lore.json")
 # graph.visualize(filepath="assets/outputs/inazuma_lore.html")
 
+
+model_config = ModelConfig(
+    model_name="llama3.2:latest",
+    temperature=0.7,
+    max_tokens=1024
+)
+chat_model = manager.create_chat_model(
+    name="basic_chat", 
+    option="ollama", 
+    config=model_config
+)
+embedding_model = manager.create_embedding_model(
+    name="embeddings", 
+    option="hf_local", 
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
+)
+
 #this is for graph loading
 graph = NetworkXGraph()
-graph.load(filepath="assets/graphs/elden_ring_lore_graph.json")
-graph.visualize(filepath="assets/outputs/elden_ring_lore_graph.html")
+graph.load(path="assets/graphs/generation_tests/elden_ring_lore_graph.json")
+query = "Who is Malenia? Create a short description of her"
+context = form_context_without_llm(query=query,graph=graph,embedding_model=embedding_model)
+answer = generate_answer_based_on_context(query=query,context=context,llm=chat_model)
+print(answer)
 
 # chat = Chat(
 #     chat_model=chat_model, 

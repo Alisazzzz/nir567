@@ -24,9 +24,9 @@
         },
         "basic_chat": {
             "option": "ollama",
-            "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+            "model_name": "llama3.2:latest",
             "config": {
-                "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+                "model_name": "llama3.2:latest",
                 "temperature": 0.7,
                 "max_tokens": 1024,
                 "extra": {}
@@ -57,9 +57,9 @@
         },
         "evaluation_model_tests": {
             "option": "ollama",
-            "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+            "model_name": "mistral:7b-instruct-q2_K",
             "config": {
-                "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+                "model_name": "mistral:7b-instruct-q2_K",
                 "temperature": 0.0,
                 "max_tokens": null,
                 "extra": {}
@@ -68,10 +68,10 @@
         },
         "generation_model_tests": {
             "option": "ollama",
-            "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+            "model_name": "llama3.2:latest",
             "config": {
-                "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
-                "temperature": 0.0,
+                "model_name": "llama3.2:latest",
+                "temperature": 0.7,
                 "max_tokens": null,
                 "extra": {}
             },
@@ -87,6 +87,11 @@
         "embeddings": {
             "option": "hf_local",
             "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+            "api_info": null
+        },
+        "embeddings_tests": {
+            "option": "ollama",
+            "model_name": "evilfreelancer/enbeddrus:v0.2",
             "api_info": null
         }
     }

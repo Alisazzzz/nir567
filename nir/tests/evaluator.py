@@ -47,7 +47,6 @@ def analyze_generation(
     query: str,
     category: str,
     evaluation_llm: BaseLanguageModel,
-    embedding_model: Embeddings,
     language: str = "en"
 ) -> Dict[str, Any]:
 

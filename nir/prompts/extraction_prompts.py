@@ -146,7 +146,8 @@ SYSTEM_PROMPT_EVENTS_IMPACTS_EN = """
 
     IMPORTANT RULES:
     1. Focus on STATE CHANGES only. If nothing changes, return empty lists.
-    2. For affected nodes: Provide new_current_description and new_current_attributes BEFORE and AFTER the event. Insert this new state into existing states, if any, adding time_start and time_end.
+    2. For affected nodes: Provide new_current_description and new_current_attributes BEFORE and AFTER the event. Insert this new state into existing states, if any, adding time_start and time_end. 
+    Be sure that you creates the whole description, not only changes, but with whole description of an entity for certain period of time. Answer the question: how to describe this entitie's now to give all information about this entitie during this period of time?
     3. For affected edges: Mark time_start_event (relation begins) or time_end_event (relation ends).
     4. IDs: Use EXACT entity/edge IDs from the input lists. Do NOT invent new IDs.
     5. REASONING: Explain the causal link before outputting JSON.

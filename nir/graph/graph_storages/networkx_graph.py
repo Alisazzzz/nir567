@@ -5,21 +5,57 @@ from typing import List, Optional
 from langchain_community.graphs.graph_document import GraphDocument
 import json
 from pyvis.network import Network
+from langchain_core.embeddings import Embeddings
 
 from nir.embedding.vector_store import VectorStore
 from nir.embedding.vector_store_loader import VectorStoreInfo, create_vector_store
 from nir.graph.knowledge_graph import KnowledgeGraph
 from nir.graph.graph_structures import Node, Edge, State
+from nir.llm.manager import ModelManager
 
-def _strip_json_spaces(obj: any) -> any:
-    """Рекурсивно убирает пробелы из всех строковых ключей и значений."""
-    if isinstance(obj, dict):
-        return {k.rstrip(): _strip_json_spaces(v) for k, v in obj.items()}
-    elif isinstance(obj, list):
-        return [_strip_json_spaces(item) for item in obj]
-    elif isinstance(obj, str):
-        return obj.rstrip()
-    return obj
+manager = ModelManager()
+
+def create_embeddings(
+        graph: KnowledgeGraph, 
+        vector_store: VectorStore, 
+        embedding_model_name: str
+    ) -> None:
+    
+    nodes = graph.get_all_nodes()
+    edges = graph.get_all_edges()
+    all_ids = []
+    all_documents = []
+    all_metadatas = []
+
+    for node in nodes:
+        text = node.name 
+        all_ids.append(node.id)
+        all_documents.append(text)
+        all_metadatas.append({
+            "type": "node",
+            "node_type": node.type,
+            "name": node.name
+        })
+    for edge in edges:
+        text = f"{edge.source} {edge.relation} {edge.target}"
+        all_ids.append(edge.id)
+        all_documents.append(text)
+        all_metadatas.append({
+            "type": "edge",
+            "relation": edge.relation,
+            "source": edge.source,
+            "target": edge.target
+        })
+    embedding_model=manager.get_embedding_model(embedding_model_name)
+    embeddings = embedding_model.embed_documents(all_documents)
+    vector_store.add_embeddings(
+        ids=all_ids,
+        embeddings=embeddings,
+        metadatas=all_metadatas,
+        documents=all_documents
+    )
+    vector_store.persist()
+
 
 class NetworkXGraph(KnowledgeGraph):
     def __init__(self):
@@ -102,32 +138,17 @@ class NetworkXGraph(KnowledgeGraph):
         if not changed:
             node.states.append(new_state)
         self.graph.nodes[node_id]["data"] = node.model_dump()
-
-    # def update_edge_times(self, edge_id: str, new_description: str, time_start_event: Optional[str] = None, time_end_event: Optional[str] = None) -> None:
-    #     edge = self.get_edge_by_id(edge_id)
-    #     if time_start_event:
-    #         edge["data"]["time_start_event"] = time_start_event
-    #         edge.data.time_start_event = time_start_event
-    #     if time_end_event:
-    #         edge["data"]["time_end_event"] = time_end_event
-    #         edge.data.time_end_event = time_end_event
-    #     edge.description = new_description
-    #     self.graph.edges[edge_id]["data"] = edge
-    #     return
     
     def update_edge_times(self, edge_id: str, new_description: str, 
                       time_start_event: Optional[str] = None, 
                       time_end_event: Optional[str] = None) -> None:
         edge = self.get_edge_by_id(edge_id)
         if edge:
-            # Обновляем атрибуты объекта Pydantic
             if time_start_event:
                 edge.time_start_event = time_start_event
             if time_end_event:
                 edge.time_end_event = time_end_event
             edge.description = new_description
-            
-            # Обновляем в графе (предполагая, что _edge_key_map хранит mapping id -> (u, v))
             if hasattr(self, '_edge_key_map') and edge_id in self._edge_key_map:
                 u, v = self._edge_key_map[edge_id]
                 self.graph.edges[u, v]["data"] = edge
@@ -191,33 +212,50 @@ class NetworkXGraph(KnowledgeGraph):
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
-    def load(self, filepath: str) -> None:
+    def load(self, path: str) -> None:
         self.graph.clear()
-        with open(filepath, "r", encoding="utf-8") as f:
-            raw_data = json.load(f)
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
         
-        # 1. Очищаем данные от пробелов ДО передачи в Pydantic
-        clean_data = _strip_json_spaces(raw_data)
-        
-        self.create_vector_db(VectorStoreInfo.model_validate(clean_data.get("vector_store", {})))
-        self.document_filename = clean_data.get("connected_document")
-        self.connected_embedding = clean_data.get("connected_embedding")
-        
-        # 2. Загружаем узлы
-        for node_dict in clean_data.get("nodes", []):
+        self.create_vector_db(VectorStoreInfo.model_validate(data.get("vector_store", {})))
+        self.document_filename = data.get("connected_document")
+        self.connected_embedding = data.get("connected_embedding")
+
+        for node_dict in data.get("nodes", []):
             node = Node(**node_dict)
             self.add_node(node)
-            
-        # 3. Загружаем рёбра
-        for edge_dict in clean_data.get("edges", []):
+
+        for edge_dict in data.get("edges", []):
             edge = Edge(**edge_dict)
-            # Опционально: проверка целостности
-            if edge.source not in self.graph.nodes:
-                print(f"⚠️ Вершина '{edge.source}' не найдена. Будет создана пустая.")
-            if edge.target not in self.graph.nodes:
-                print(f"⚠️ Вершина '{edge.target}' не найдена. Будет создана пустая.")
             self.add_edge(edge)
 
+    def load_and_create_vector_db(self, path) -> None:
+        self.graph.clear()
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        for node_dict in data.get("nodes", []):
+            node = Node(**node_dict)
+            self.add_node(node)
+
+        for edge_dict in data.get("edges", []):
+            edge = Edge(**edge_dict)
+            self.add_edge(edge)
+
+        self.document_filename = data.get("connected_document")
+
+        self.connected_embedding = data.get("connected_embedding")
+        vector_store_info = data.get("vector_store", {})
+        vector_db_info = VectorStoreInfo(
+            type=vector_store_info.get("type", "chromadb"),
+            info={ 
+                "name" : vector_store_info.get("info", {}).get("name", "basic_name"),
+                "path" : vector_store_info.get("info", {}).get("path", "assets/databases/chroma_db")
+            })
+        self.create_vector_db(vector_db_info)
+        current_vector_db = self.get_vector_db()
+        create_embeddings(self, current_vector_db, self.connected_embedding)
+        
     def get_document_filename(self):
         return self.document_filename
 

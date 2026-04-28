@@ -227,6 +227,14 @@ prompt_context_info_en = ChatPromptTemplate.from_messages([
         "{format_instructions}")
 ]).partial(format_instructions=context_info_parser.get_format_instructions())
 
+prompt_context_info_ru = ChatPromptTemplate.from_messages([
+    ("system", retrieval_prompts.SYSTEM_PROMPT_TIMESPAMPS_RU),
+    ("human",
+        "Text:\n{query_text}\n\n"
+        "List of event names:\n{event_names}\n\n"
+        "{format_instructions}")
+]).partial(format_instructions=context_info_parser.get_format_instructions())
+
 
 
 #---------------------------
@@ -405,7 +413,6 @@ def form_context_without_llm(
     result_paths_dict = {} # { (source_id, target_id, number) : ("name_node_start - relation - ... - relation - name_node_target", token_amount) }
 
     entry_nodes = retrieve_similar_nodes(graph, query, embedding_model, 10, 0.0)
-    print(entry_nodes)
     result_nodes = entry_nodes.copy() 
     for entry_node, resource in entry_nodes:
         neighbours = graph.get_neighbours_of_node(entry_node.id)
@@ -425,7 +432,14 @@ def form_context_without_llm(
     if len(entry_nodes) > 1:
         for a, b in combinations(entry_nodes, 2):
             paths_nodes.append(find_paths(graph, a[0].id, b[0].id))
-    all_paths = [p for paths in paths_nodes for p in paths]
+
+    seen = set()
+    all_paths = [
+        p for paths in paths_nodes 
+        for p in paths 
+        if len(p[0]) > 2 and (tuple(p[0]) not in seen and not seen.add(tuple(p[0])))
+    ]
+
     for path in all_paths:
         i = 0
         for node_id in path[0]:
@@ -505,8 +519,6 @@ def form_context_without_llm(
         history_max_tokens = int(max_tokens * HISTORY_RATIO_WITH_HISTORY)
         history = extract_world_history(events_sequence, graph, history_max_tokens)
         result += history
-
-    print(result)
     return result 
 
 
@@ -521,7 +533,7 @@ def form_context_with_llm(
     ) -> str:
 
     if language == "ru":
-        chain_timestamps = prompt_context_info_en | llm | clean_json | context_info_parser
+        chain_timestamps = prompt_context_info_ru | llm | clean_json | context_info_parser
     else:
         chain_timestamps = prompt_context_info_en | llm | clean_json | context_info_parser
 
