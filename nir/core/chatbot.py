@@ -68,12 +68,12 @@ manager = ModelManager()
 #     model_name="all-minilm:latest"
 # )
 
-# #EMBEDDING MODEL CHOICE
-# embedding_model = manager.create_embedding_model(
-#     name="embeddings", 
-#     option="hf_local", 
-#     model_name="ai-forever/ru-en-RoSBERTa"
-# )
+#EMBEDDING MODEL CHOICE
+embedding_model = manager.create_embedding_model(
+    name="embeddings_rus", 
+    option="ollama", 
+    model_name="evilfreelancer/enbeddrus:v0.2"
+)
 
 # #EMBEDDING MODEL CHOICE
 # embedding_model = manager.create_embedding_model(
@@ -95,61 +95,61 @@ manager = ModelManager()
 #     config=model_config
 # )
 
-# #GRAPH EXTRACTION MODEL CHOICE
-# model_config = ModelConfig(
-#     model_name="hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest", 
-#     temperature=0
-# )
-# instruct_model = manager.create_chat_model(
-#     name="graph_extraction", 
-#     option="ollama", 
-#     config=model_config)
+#GRAPH EXTRACTION MODEL CHOICE
+model_config = ModelConfig(
+    model_name="hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest", 
+    temperature=0.0
+)
+instruct_model = manager.create_chat_model(
+    name="graph_extraction_rus", 
+    option="ollama", 
+    config=model_config)
 
 #GRAPH CHOICE
 
-# #this is for graph creation
-# data = loader.loadCSV(
-#     path="assets/documents/INAZUMAS MAIN QUEST.txt"
+#this is for graph creation
+data = loader.loadCSV_withColumns(
+    path="assets/documents/generation_tests/nuclear_crypt_scenario.csv",
+    columns=["Описание места действия", "Описание кадра", "Персонаж", "Действие", "Реплика"]
+)
+
+chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0, chunk_size=1000, chunk_overlap=100)
+graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph, preserve_all_data=True, language="ru")
+vector_db_info = VectorStoreInfo(
+    type="chromadb",
+    info={ 
+        "name" : "nuclear_crypt_scenario_new",
+        "path" : "assets/databases/chroma_db"
+    }
+)
+graph.create_vector_db(vector_db_info)
+create_embeddings(graph, graph.get_vector_db(), embedding_model)
+graph.save(path="assets/graphs/nuclear_crypt_scenario_graph.json")
+graph.visualize(filepath="assets/outputs/nuclear_crypt_scenario_graph.html")
+
+
+# model_config = ModelConfig(
+#     model_name="llama3.2:latest",
+#     temperature=0.7,
+#     max_tokens=1024
 # )
-
-# chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0, chunk_size=1000, chunk_overlap=100)
-# graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph, preserve_all_data=True, language="en")
-# vector_db_info = VectorStoreInfo(
-#     type="chromadb",
-#     info={ 
-#         "name" : "inazuma_lore",
-#         "path" : "assets/databases/chroma_db"
-#     }
+# chat_model = manager.create_chat_model(
+#     name="basic_chat", 
+#     option="ollama", 
+#     config=model_config
 # )
-# graph.create_vector_db(vector_db_info)
-# create_embeddings(graph, graph.get_vector_db(), embedding_model)
-# graph.save(filepath="assets/graphs/inazuma_lore.json")
-# graph.visualize(filepath="assets/outputs/inazuma_lore.html")
-
-
-model_config = ModelConfig(
-    model_name="llama3.2:latest",
-    temperature=0.7,
-    max_tokens=1024
-)
-chat_model = manager.create_chat_model(
-    name="basic_chat", 
-    option="ollama", 
-    config=model_config
-)
-embedding_model = manager.create_embedding_model(
-    name="embeddings", 
-    option="hf_local", 
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
-)
+# embedding_model = manager.get_embedding_model(
+#     name="embeddings"
+# )
 
 #this is for graph loading
-graph = NetworkXGraph()
-graph.load(path="assets/graphs/generation_tests/elden_ring_lore_graph.json")
-query = "Who is Malenia? Create a short description of her"
-context = form_context_without_llm(query=query,graph=graph,embedding_model=embedding_model)
-answer = generate_answer_based_on_context(query=query,context=context,llm=chat_model)
-print(answer)
+# graph = NetworkXGraph()
+# graph.load_and_create_vector_db(path="assets/graphs/generation_tests/elden_ring_lore_graph.json")
+# graph.save(filepath="assets/graphs/generation_tests/elden_ring_lore_graph.json")
+# query = "Who is Malenia? Create a short description of her"
+# context = form_context_without_llm(query=query,graph=graph,embedding_model=embedding_model)
+# answer = generate_answer_based_on_context(query=query,context=context,llm=chat_model)
+# print(answer)
 
 # chat = Chat(
 #     chat_model=chat_model, 

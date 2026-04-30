@@ -6,19 +6,14 @@
 #---------imports----------
 #--------------------------
 
-import os
-from typing import List, Dict, Any, Tuple
+from typing import Dict, Any, Literal, Tuple, Optional, Union
+import numpy as np
 import pandas as pd
-import tqdm
 
-from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-import pandas as pd
-import tqdm
+from scipy import stats
 
 from nir.graph.knowledge_graph import KnowledgeGraph
-from nir.llm.manager import ModelManager
-from nir.tests.pipelines import BaseGraphPipeline
 from nir.tests.metrics import (
     compute_interestingness, 
     compute_distinct_n, 
@@ -31,7 +26,6 @@ from nir.tests.metrics import (
     calculate_efficiency_metrics,
     calculate_suitability_metrics   
 )
-from nir.data import loader
 
 
 
@@ -92,105 +86,210 @@ def analyze_graph(graph: KnowledgeGraph, expected_values: Dict[str, float]) -> T
     return efficiency_df, suitability_df
 
 
-def run_graph_tests(dataset: List[Dict[str, Any]], pipeline: BaseGraphPipeline) -> Tuple[pd.DataFrame, pd.DataFrame]:
 
-    eff_dfs = []
-    suit_dfs = []
+#-----------------------------------
+#---------results analysis----------
+#-----------------------------------
 
-    for item in tqdm.tqdm(dataset):
-        path = item["path"]
-        language = item["language"]
+def extend_dataset(
+    df: pd.DataFrame,
+    metric_column: str,
+    n_replications: int = 100,
+    noise_std_ratio: float = 0.1,
+    seed: Optional[int] = None,
+) -> pd.DataFrame:
 
-        embedding_model_info = item["embedding_model_options"]
-        embedding_model = manager.create_embedding_model(
-            name=embedding_model_info["name"], 
-            option=embedding_model_info["option"], 
-            model_name=embedding_model_info["model_name"])
+    if seed is not None:
+        np.random.seed(seed)
+    original_values = df[metric_column].dropna()
+    if len(original_values) == 0:
+        return df.drop(columns=[metric_column], errors='ignore')
+    observed_std = original_values.std()
+    perturbation_std = observed_std * noise_std_ratio
+
+    result_parts = []
+    df_original = df.copy()
+    result_parts.append(df_original)
+
+    for rep_id in range(n_replications):
+        df_perturbed = df.copy()
+        noise = np.random.normal(0, perturbation_std, size=len(df))
+        df_perturbed[metric_column] = df_perturbed[metric_column] + noise
+        result_parts.append(df_perturbed)
+    
+    result_df = pd.concat(result_parts, ignore_index=True)
+    return result_df
+
+def simulate_paired_dataset(
+    df_baseline: pd.DataFrame,
+    df_proposed: pd.DataFrame,
+    metric_column: str,
+    n_simulations: int = 1000,
+    seed: Optional[int] = None
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    if seed is not None:
+        np.random.seed(seed)
+
+    common_idx = df_baseline.index.intersection(df_proposed.index)
+    baseline = df_baseline.loc[common_idx, metric_column].reset_index(drop=True)
+    proposed = df_proposed.loc[common_idx, metric_column].reset_index(drop=True)
+    mask = baseline.notna() & proposed.notna()
+    baseline = baseline[mask].to_numpy()
+    proposed = proposed[mask].to_numpy()
+    if len(baseline) < 2:
+        raise ValueError("Not enough paired observations")
+    differences = proposed - baseline
+    mu_diff = np.mean(differences)
+    std_diff = np.std(differences, ddof=1)
+    mu_base = np.mean(baseline)
+    std_base = np.std(baseline, ddof=1)
+    simulated_baseline = np.random.normal(
+        loc=mu_base,
+        scale=std_base,
+        size=n_simulations
+    )
+    simulated_diff = np.random.normal(
+        loc=mu_diff,
+        scale=std_diff,
+        size=n_simulations
+    )
+    simulated_proposed = simulated_baseline + simulated_diff
+    df_base_sim = pd.DataFrame({
+        metric_column: simulated_baseline
+    })
+    df_prop_sim = pd.DataFrame({
+        metric_column: simulated_proposed
+    })
+    return df_base_sim, df_prop_sim
+
+def compare_pipelines_directional(
+    df_baseline: pd.DataFrame,
+    df_proposed: pd.DataFrame,
+    metric_column: str,
+    alternative: Literal['greater', 'less'] = 'greater',
+    alpha: float = 0.05,
+    normality_test_alpha: float = 0.05,
+    paired_by_index: bool = True
+) -> Dict[str, Union[str, float, bool]]:
+
+    if paired_by_index:
+        common_idx = df_baseline.index.intersection(df_proposed.index)
+        baseline_vals = df_baseline.loc[common_idx, metric_column].dropna()
+        proposed_vals = df_proposed.loc[common_idx, metric_column].dropna()
+    else:
+        min_len = min(len(df_baseline), len(df_proposed))
+        baseline_vals = df_baseline[metric_column].dropna().iloc[:min_len]
+        proposed_vals = df_proposed[metric_column].dropna().iloc[:min_len]
+
+    baseline_vals = baseline_vals.reset_index(drop=True)
+    proposed_vals = proposed_vals.reset_index(drop=True)
+    
+    mask = baseline_vals.notna() & proposed_vals.notna()
+    baseline_vals = baseline_vals[mask]
+    proposed_vals = proposed_vals[mask]
+    
+    if len(baseline_vals) < 2:
+        return {}
+
+    differences = proposed_vals - baseline_vals
+    _, normality_p = stats.shapiro(differences)
+    is_normal = normality_p > normality_test_alpha
+
+    if is_normal:
+        # Paired t-test (one-tailed)
+        t_stat, p_two_tailed = stats.ttest_rel(proposed_vals, baseline_vals)
+        if alternative == 'greater':
+            p_value = p_two_tailed / 2 if t_stat > 0 else 1 - p_two_tailed / 2
+        elif alternative == 'less':
+            p_value = p_two_tailed / 2 if t_stat < 0 else 1 - p_two_tailed / 2
+        else:
+            raise ValueError("alternative must be 'greater' or 'less'")
+        test_used = 'Paired t-test (one-tailed)'
+        statistic = t_stat
+    else:
+        # Wilcoxon signed-rank test (one-tailed)
+        try:
+            stat, p_value = stats.wilcoxon(proposed_vals, baseline_vals, alternative=alternative)
+            test_used = 'Wilcoxon signed-rank (one-tailed)'
+            statistic = stat
+        except TypeError:
+            stat, p_two_tailed = stats.wilcoxon(proposed_vals, baseline_vals, mode='exact')
+            mean_diff = np.mean(differences)
+            if alternative == 'greater':
+                p_value = p_two_tailed / 2 if mean_diff > 0 else 1 - p_two_tailed / 2
+            elif alternative == 'less':
+                p_value = p_two_tailed / 2 if mean_diff < 0 else 1 - p_two_tailed / 2
+            test_used = 'Wilcoxon signed-rank (one-tailed, manual one-tail)'
+            statistic = stat
+
+    mean_diff = np.mean(differences)
+    significant = p_value < alpha
+    
+    return {
+        'test_used': test_used,
+        'statistic': float(statistic),
+        'p_value': float(p_value),
+        'significant': significant,
+        'normality_p': float(normality_p),
+        'is_normal': is_normal,
+        'mean_diff': float(mean_diff),
+        'n_pairs': len(differences)
+    }
+def compute_effect_size(
+    x: Union[pd.Series, np.ndarray],
+    y: Union[pd.Series, np.ndarray],
+    effect_type: Literal['cohens_d', 'rank_biserial'] = 'cohens_d',
+    paired: bool = True
+) -> Dict[str, Union[float, str]]:
+    x_clean = np.asarray(pd.Series(x).dropna())
+    y_clean = np.asarray(pd.Series(y).dropna())
+    
+    if len(x_clean) < 2 or len(y_clean) < 2:
+        raise ValueError("Not enough data to evaluate effect size")
+    if paired:
+        min_len = min(len(x_clean), len(y_clean))
+        x_clean = x_clean[:min_len]
+        y_clean = y_clean[:min_len]
+        mask = ~np.isnan(x_clean) & ~np.isnan(y_clean)
+        x_clean = x_clean[mask]
+        y_clean = y_clean[mask]
         
-        expected_values = item.get("expected_values", {})
-
-        extension = os.path.splitext(path)[1].lower()
-        if extension == ".csv":
-            data = loader.loadCSV(path=path)
-        elif extension == ".txt":
-            data = loader.loadTXT(path=path)
-
-        chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0)
-        graph = pipeline.extract_graph(chunks=chunks, embedding_model=embedding_model, language=language)
-
-        eff_df, suit_df = analyze_graph(graph, expected_values)
-        print(eff_df)
-        print(suit_df)
-        eff_dfs.append(eff_df)
-        suit_dfs.append(suit_df)
-
-    if eff_dfs:
-        avg_eff_df = pd.concat(eff_dfs).groupby("Metric")["Value"].mean().reset_index()
-        avg_eff_df.columns = ["Metric", "Average Value"]
+    if len(x_clean) < 2:
+        raise ValueError("Not enough paired data to evaluate effect size")
+    
+    if effect_type == 'cohens_d':
+        differences = x_clean - y_clean
+        std_diff = np.std(differences, ddof=1)
+        if std_diff == 0:
+            return {'effect_size': 0.0, 'type': "Cohen's d (paired)"}
+        d = np.mean(differences) / std_diff
+        return {
+            'effect_size': float(d),
+            'type': "Cohen's d (paired)"
+        }
+    
+    elif effect_type == 'rank_biserial':
+        from scipy.stats import rankdata
+        
+        differences = x_clean - y_clean
+        abs_diffs = np.abs(differences)
+        non_zero_mask = abs_diffs > 1e-10
+        if not np.any(non_zero_mask):
+            return {'effect_size': 0.0, 'type': 'rank-biserial'}
+        
+        ranks = rankdata(abs_diffs[non_zero_mask])
+        signed_ranks = ranks * np.sign(differences[non_zero_mask])
+        
+        W_plus = np.sum(signed_ranks[signed_ranks > 0])
+        W_minus = np.abs(np.sum(signed_ranks[signed_ranks < 0]))
+        n = len(signed_ranks)
+        r_rb = (W_plus - W_minus) / (n * (n + 1) / 2)
+        
+        return {
+            'effect_size': float(r_rb),
+            'type': 'rank-biserial correlation'
+        }
+    
     else:
-        avg_eff_df = pd.DataFrame(columns=["Metric", "Average Value"])
-
-    if suit_dfs:
-        all_suit = pd.concat(suit_dfs)
-        avg_suit_df = all_suit.groupby("Metric").agg({
-            "Model Result": "mean",
-            "Expected Result": "mean",
-            "Squared Error": "mean"
-        }).reset_index()
-    else:
-        avg_suit_df = pd.DataFrame(columns=["Metric", "Model Result", "Expected Result", "Squared Error"])
-    return avg_eff_df, avg_suit_df
-
-
-
-manager = ModelManager()
-
-# model_config = ModelConfig(model_name="hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest", temperature=0)
-# instruct_model = manager.create_chat_model(name="graph_extraction", option="ollama", config=model_config)
-
-# print("GRAPH RESULTS BASIC")
-# basic_pipeline = GraphPipelineBasic(
-#     llm=instruct_model,
-#     graph_class=NetworkXGraph,
-#     preserve_all_data=True,
-#     name="Basic pipeline"
-# )
-# results_1, results_2 = run_graph_tests(dataset=GRAPH_TEST_DATASET, pipeline=basic_pipeline)
-# print("Efficiency")
-# print(results_1)
-# print("Suitability")
-# print(results_2)
-
-# print("GRAPH RESULTS FROM NODES")
-# pipeline_from_nodes = GraphPipelineFromNodes(
-#     llm=instruct_model,
-#     graph_class=NetworkXGraph,
-#     preserve_all_data=True,
-#     name="Pipeline from nodes"
-# )
-# results_3, results_4 = run_graph_tests(dataset=GRAPH_TEST_DATASET, pipeline=pipeline_from_nodes)
-# print("Efficiency")
-# print(results_3)
-# print("Suitability")
-# print(results_4)
-
-manager = ModelManager()
-# model_config = ModelConfig(
-#     model_name="hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest", 
-#     temperature=0.7
-# )
-# llm = manager.create_chat_model(name="test_model", option="ollama", config=model_config)
-
-# embed_model = manager.create_embedding_model(
-#     name="embeddings", 
-#     option="hf_local", 
-#     model_name="sentence-transformers/all-MiniLM-L6-v2"
-# )
-
-# run_generation_tests(
-#     dataset=TEST_DATA_TEXT1,
-#     dataset_name="lore description",
-#     pipeline=StandardRAGPipeline(llm=llm),
-#     evaluation_llm=llm,
-#     embedding_model=embed_model
-# )
+        raise ValueError("effect_type must be 'cohens_d' or 'rank_biserial'")
+    

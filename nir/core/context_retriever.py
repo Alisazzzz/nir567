@@ -140,6 +140,21 @@ def extract_last_json(text: str) -> str:
     return last
 
 def clean_json(text: str) -> str:
+
+    fallback = {
+        "extracted_entities": [],
+        "downer_border_event_name": None,
+        "upper_border_event_name": None
+    }
+    
+    def try_parse(candidate: str) -> str | None:
+        try:
+            cleaned = remove_comments(candidate)
+            json.loads(cleaned)
+            return cleaned
+        except (json.JSONDecodeError, Exception):
+            return None
+    
     codeblock_match = re.search(r"```json(.*?)```", text, re.DOTALL)
     if codeblock_match:
         possible_json = codeblock_match.group(1).strip()
@@ -159,7 +174,11 @@ def clean_json(text: str) -> str:
     cleaned = re.sub(r"[^}]+$", "", cleaned)
     cleaned = remove_comments(cleaned)
     cleaned = re.sub(r'(":\s*"[^"]*")\s*\([^)]*\)', r'\1', cleaned)
-    return cleaned
+    result = try_parse(cleaned)
+    if result:
+        return result
+    else:
+        return json.dumps(fallback, ensure_ascii=False)
 
 def clean_string(text: str) -> str:
     return re.sub(r'[^a-zA-Zа-яА-Я\s]', '', text)
@@ -565,7 +584,9 @@ def form_context_with_llm(
             entity_name_entry = retrieve_similar_nodes(graph=graph, text=entity_name, embedding_model=embedding_model, threshold=0.75)
             if len(entity_name_entry) > 0:
                 entry_nodes.extend(entity_name_entry)
-    result_nodes = entry_nodes.copy() 
+    result_nodes = entry_nodes.copy()
+    if len(result_nodes) == 0:
+        result_nodes = retrieve_similar_nodes(graph, query, embedding_model, 10, 0.0)
     for entry_node, resource in entry_nodes:
         neighbours = graph.get_neighbours_of_node(entry_node.id)
         for neighbour in neighbours:

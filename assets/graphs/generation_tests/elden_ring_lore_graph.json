@@ -4,7 +4,7 @@
   "vector_store": {
     "type": "chromadb",
     "info": {
-      "name": "elden_ring_lore_graph",
+      "name": "elden_ring_lore_graph_new",
       "path": "assets/databases/chroma_db"
     }
   },
@@ -16,7 +16,9 @@
       "base_description": "The Greater Will is an ambiguous Outer God that appears to be a cosmic parasite. Its influence is represented by golden light ('grace').",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "queen_marika",
@@ -40,7 +42,17 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+      "chunk_id": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "id": "elden_ring",
@@ -64,7 +76,9 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "two_fingers",
@@ -73,7 +87,9 @@
       "base_description": "The Two Fingers are literal emissaries that try to enact the desires of the Greater Will.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "golden_order",
@@ -82,7 +98,9 @@
       "base_description": "The Golden Order is a human system of beliefs that helps enact the Greater Will's desires.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "lands_between",
@@ -91,7 +109,9 @@
       "base_description": "The Lands Between is the main setting, first ruled by dragons, later by Marika and the Golden Order.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "dragonlord_placidusax",
@@ -100,7 +120,9 @@
       "base_description": "Dragonlord Placidusax is the former lord of the dragons who ruled the Lands Between.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "dragons",
@@ -109,7 +131,9 @@
       "base_description": "The dragons were the first rulers of the Lands Between, led by Dragonlord Placidusax, allied with an unnamed Outer God.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "erdtree",
@@ -133,7 +157,9 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "haligtree",
@@ -150,7 +176,9 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [4]
+      "chunk_id": [
+        4
+      ]
     },
     {
       "id": "elden_beast",
@@ -159,7 +187,9 @@
       "base_description": "The Elden Beast is a vassal of the Greater Will sent within a star, later absorbed into Queen Marika's body.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "numen",
@@ -168,7 +198,9 @@
       "base_description": "The Numen are a race that originated outside the Lands Between; Queen Marika is descended from them.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "leyndell",
@@ -177,7 +209,9 @@
       "base_description": "Leyndell is the capital established by Marika after becoming the Greater Will's vassal.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "godwyn_the_golden",
@@ -201,7 +235,11 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 5, 7]
+      "chunk_id": [
+        0,
+        5,
+        7
+      ]
     },
     {
       "id": "fortissax",
@@ -210,7 +248,9 @@
       "base_description": "Fortissax is a dragon befriended by Godwyn.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "omens",
@@ -219,7 +259,9 @@
       "base_description": "Omens are those born with signs of the crucible (horns, tails). Before the Golden Order it was a blessing, later a curse.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "maliketh",
@@ -243,7 +285,11 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 4, 8]
+      "chunk_id": [
+        0,
+        4,
+        8
+      ]
     },
     {
       "id": "gloam_eyed_queen",
@@ -252,7 +298,9 @@
       "base_description": "The Gloam-Eyed Queen (also Dusk-Eyed Queen) is a goddess of death, leader of the Godskin Apostles. She held the Rune of Death before Maliketh slew her.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "fire_giants",
@@ -276,7 +324,9 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "radagon",
@@ -307,7 +357,11 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 1, 4]
+      "chunk_id": [
+        0,
+        1,
+        4
+      ]
     },
     {
       "id": "hoarah_loux",
@@ -331,7 +385,10 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 2]
+      "chunk_id": [
+        0,
+        2
+      ]
     },
     {
       "id": "trolls",
@@ -340,7 +397,9 @@
       "base_description": "The trolls are beings who betrayed the Fire Giants and allied with Marika. They have holes in their stomachs where the eye of the Fell God used to be.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "morgott",
@@ -364,7 +423,10 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 5]
+      "chunk_id": [
+        0,
+        5
+      ]
     },
     {
       "id": "mohg",
@@ -388,7 +450,10 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 5]
+      "chunk_id": [
+        0,
+        5
+      ]
     },
     {
       "id": "nokron",
@@ -397,7 +462,9 @@
       "base_description": "Nokron is one of the twin underground cities of the Nox, destroyed by beasts carried on falling stars.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "nokstella",
@@ -406,7 +473,9 @@
       "base_description": "Nokstella is one of the twin underground cities of the Nox, destroyed by beasts carried on falling stars.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "nox",
@@ -415,7 +484,9 @@
       "base_description": "The Nox are individuals who created the fingerslayer blade and were banished underground for alchemy the Greater Will disapproved of.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "carian_kingdom",
@@ -424,7 +495,9 @@
       "base_description": "The Carian kingdom is a neighboring kingdom to Leyndell, led by Queen Rennala, known for sorcery.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "queen_rennala",
@@ -448,7 +521,11 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 3, 4]
+      "chunk_id": [
+        0,
+        3,
+        4
+      ]
     },
     {
       "id": "radahn",
@@ -472,7 +549,11 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 4, 5]
+      "chunk_id": [
+        0,
+        4,
+        5
+      ]
     },
     {
       "id": "rykard",
@@ -481,7 +562,10 @@
       "base_description": "Rykard is a Praetor, son of Radagon and Rennala. He rejected the Erdtree and tried to become a god by devouring all.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0, 5]
+      "chunk_id": [
+        0,
+        5
+      ]
     },
     {
       "id": "ranni",
@@ -505,7 +589,11 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 4, 5]
+      "chunk_id": [
+        0,
+        4,
+        5
+      ]
     },
     {
       "id": "tarnished",
@@ -529,7 +617,10 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 4]
+      "chunk_id": [
+        0,
+        4
+      ]
     },
     {
       "id": "malenia",
@@ -560,7 +651,11 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 4, 5]
+      "chunk_id": [
+        0,
+        4,
+        5
+      ]
     },
     {
       "id": "miquella",
@@ -584,7 +679,11 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0, 4, 5]
+      "chunk_id": [
+        0,
+        4,
+        5
+      ]
     },
     {
       "id": "frenzied_flame",
@@ -593,76 +692,57 @@
       "base_description": "The Frenzied Flame is an Outer God that desires chaos, using the Three Fingers as its emissary.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "night_of_the_black_knives",
       "name": "Night of the Black Knives",
       "type": "event",
       "base_description": "The Night of the Black Knives was an event where Ranni organized the theft of the Rune of Death to kill demigods. Godwyn was killed.",
-      "base_attributes": { "time": "before the Shattering" },
+      "base_attributes": {
+        "time": "before the Shattering"
+      },
       "states": [],
-      "chunk_id": [4]
+      "chunk_id": [
+        4
+      ]
     },
     {
       "id": "shattering",
       "name": "Shattering",
       "type": "event",
       "base_description": "The Shattering is the event where Queen Marika shattered the Elden Ring, leading to her imprisonment and the war between demigods.",
-      "base_attributes": { "time": "after the Night of the Black Knives" },
+      "base_attributes": {
+        "time": "after the Night of the Black Knives"
+      },
       "states": [],
-      "chunk_id": [4]
+      "chunk_id": [
+        4
+      ]
     },
     {
       "id": "shattering_war",
       "name": "Shattering War",
       "type": "event",
       "base_description": "The Shattering War is the war between the demigod children after the shattering of the Elden Ring.",
-      "base_attributes": { "time": "after the Shattering" },
+      "base_attributes": {
+        "time": "after the Shattering"
+      },
       "states": [],
-      "chunk_id": [4]
+      "chunk_id": [
+        4
+      ]
     }
   ],
   "edges": [
-    {
-      "id": "edge_001",
-      "source": "queen_marika",
-      "target": "greater_will",
-      "relation": "is vassal of",
-      "description": "Queen Marika is the vassal of the Greater Will.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
     {
       "id": "edge_002",
       "source": "greater_will",
       "target": "queen_marika",
       "relation": "has vassal",
       "description": "The Greater Will has Queen Marika as its vassal.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_003",
-      "source": "queen_marika",
-      "target": "elden_ring",
-      "relation": "bears",
-      "description": "Queen Marika bears the Elden Ring.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_004",
-      "source": "elden_ring",
-      "target": "queen_marika",
-      "relation": "is borne by",
-      "description": "The Elden Ring is borne by Queen Marika.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
@@ -680,572 +760,11 @@
       "chunk_id": 0
     },
     {
-      "id": "edge_006",
-      "source": "two_fingers",
-      "target": "greater_will",
-      "relation": "enacts desires of",
-      "description": "The Two Fingers enact the desires of the Greater Will.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_007",
-      "source": "golden_order",
-      "target": "greater_will",
-      "relation": "helps enact desires of",
-      "description": "The Golden Order helps enact the Greater Will's desires.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_008",
-      "source": "lands_between",
-      "target": "dragons",
-      "relation": "was ruled by",
-      "description": "The Lands Between were first ruled by the dragons.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_009",
-      "source": "dragons",
-      "target": "lands_between",
-      "relation": "ruled",
-      "description": "The dragons ruled the Lands Between.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_010",
-      "source": "dragons",
-      "target": "dragonlord_placidusax",
-      "relation": "is led by",
-      "description": "The dragons are led by Dragonlord Placidusax.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_011",
-      "source": "dragonlord_placidusax",
-      "target": "dragons",
-      "relation": "leads",
-      "description": "Dragonlord Placidusax leads the dragons.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_012",
-      "source": "queen_marika",
-      "target": "lands_between",
-      "relation": "establishes",
-      "description": "Queen Marika establishes Leyndell in the Lands Between.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_013",
-      "source": "lands_between",
-      "target": "queen_marika",
-      "relation": "is established in by",
-      "description": "The Lands Between have Leyndell established in them by Queen Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
       "id": "edge_014",
       "source": "greater_will",
       "target": "elden_beast",
       "relation": "sends",
       "description": "The Greater Will sends the Elden Beast within a star as a vassal.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_015",
-      "source": "elden_beast",
-      "target": "queen_marika",
-      "relation": "is absorbed into",
-      "description": "The Elden Beast is absorbed into Queen Marika's body.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_016",
-      "source": "queen_marika",
-      "target": "numen",
-      "relation": "is descended from",
-      "description": "Queen Marika is descended from the Numen race.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_017",
-      "source": "hoarah_loux",
-      "target": "queen_marika",
-      "relation": "marries",
-      "description": "Hoarah Loux (as Godfrey) marries Queen Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_018",
-      "source": "queen_marika",
-      "target": "hoarah_loux",
-      "relation": "is married to",
-      "description": "Queen Marika is married to Hoarah Loux (Godfrey).",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_019",
-      "source": "queen_marika",
-      "target": "godwyn_the_golden",
-      "relation": "is mother of",
-      "description": "Queen Marika is the mother of Godwyn the Golden.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_020",
-      "source": "godwyn_the_golden",
-      "target": "queen_marika",
-      "relation": "is child of",
-      "description": "Godwyn the Golden is a child of Queen Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_021",
-      "source": "queen_marika",
-      "target": "morgott",
-      "relation": "is mother of",
-      "description": "Queen Marika is the mother of Morgott.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_022",
-      "source": "morgott",
-      "target": "queen_marika",
-      "relation": "is child of",
-      "description": "Morgott is a child of Queen Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_023",
-      "source": "queen_marika",
-      "target": "mohg",
-      "relation": "is mother of",
-      "description": "Queen Marika is the mother of Mohg.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_024",
-      "source": "mohg",
-      "target": "queen_marika",
-      "relation": "is child of",
-      "description": "Mohg is a child of Queen Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_025",
-      "source": "radagon",
-      "target": "queen_rennala",
-      "relation": "marries",
-      "description": "Radagon marries Queen Rennala.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_026",
-      "source": "queen_rennala",
-      "target": "radagon",
-      "relation": "is married to",
-      "description": "Queen Rennala is married to Radagon.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_027",
-      "source": "radagon",
-      "target": "queen_rennala",
-      "relation": "leaves",
-      "description": "Radagon leaves Rennala to marry Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_028",
-      "source": "radagon",
-      "target": "queen_marika",
-      "relation": "marries",
-      "description": "Radagon marries Queen Marika as her second consort.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_029",
-      "source": "queen_marika",
-      "target": "radagon",
-      "relation": "is married to",
-      "description": "Queen Marika is married to Radagon.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_030",
-      "source": "radagon",
-      "target": "queen_marika",
-      "relation": "is part of",
-      "description": "Radagon is part of the same being as Marika ('Radagon is Marika').",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_031",
-      "source": "queen_marika",
-      "target": "radagon",
-      "relation": "is part of",
-      "description": "Marika is part of the same being as Radagon.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_032",
-      "source": "queen_marika",
-      "target": "malenia",
-      "relation": "is mother of",
-      "description": "Queen Marika is the mother of Malenia.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_033",
-      "source": "malenia",
-      "target": "queen_marika",
-      "relation": "is child of",
-      "description": "Malenia is a child of Queen Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_034",
-      "source": "radagon",
-      "target": "malenia",
-      "relation": "is father of",
-      "description": "Radagon is the father of Malenia.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_035",
-      "source": "queen_marika",
-      "target": "miquella",
-      "relation": "is mother of",
-      "description": "Queen Marika is the mother of Miquella.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_036",
-      "source": "miquella",
-      "target": "queen_marika",
-      "relation": "is child of",
-      "description": "Miquella is a child of Queen Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_037",
-      "source": "radagon",
-      "target": "miquella",
-      "relation": "is father of",
-      "description": "Radagon is the father of Miquella.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_038",
-      "source": "maliketh",
-      "target": "gloam_eyed_queen",
-      "relation": "slew",
-      "description": "Maliketh slew the Gloam-Eyed Queen.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_039",
-      "source": "gloam_eyed_queen",
-      "target": "maliketh",
-      "relation": "was slain by",
-      "description": "The Gloam-Eyed Queen was slain by Maliketh.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_040",
-      "source": "maliketh",
-      "target": "queen_marika",
-      "relation": "serves",
-      "description": "Maliketh serves Marika as her half-brother and Shadow.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_041",
-      "source": "fire_giants",
-      "target": "queen_marika",
-      "relation": "was warred upon by",
-      "description": "The Fire Giants were attacked by Marika's forces.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_042",
-      "source": "queen_marika",
-      "target": "fire_giants",
-      "relation": "waged war on",
-      "description": "Marika waged war on the Fire Giants.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_043",
-      "source": "hoarah_loux",
-      "target": "tarnished",
-      "relation": "becomes part of",
-      "description": "Hoarah Loux (Godfrey) becomes the first Tarnished.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_044",
-      "source": "ranni",
-      "target": "night_of_the_black_knives",
-      "relation": "organizes",
-      "description": "Ranni organizes the Night of the Black Knives.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_045",
-      "source": "night_of_the_black_knives",
-      "target": "godwyn_the_golden",
-      "relation": "kills",
-      "description": "The Night of the Black Knives kills Godwyn the Golden.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_046",
-      "source": "godwyn_the_golden",
-      "target": "night_of_the_black_knives",
-      "relation": "is killed by",
-      "description": "Godwyn the Golden is killed during the Night of the Black Knives.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_047",
-      "source": "queen_marika",
-      "target": "shattering",
-      "relation": "performs",
-      "description": "Queen Marika shatters the Elden Ring (the Shattering).",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_048",
-      "source": "shattering",
-      "target": "queen_marika",
-      "relation": "is performed by",
-      "description": "The Shattering is performed by Queen Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_049",
-      "source": "shattering",
-      "target": "shattering_war",
-      "relation": "causes",
-      "description": "The Shattering leads to the Shattering War.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_050",
-      "source": "shattering_war",
-      "target": "shattering",
-      "relation": "is caused by",
-      "description": "The Shattering War is caused by the Shattering.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_051",
-      "source": "malenia",
-      "target": "radahn",
-      "relation": "fights",
-      "description": "Malenia fights Radahn in Caelid.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_052",
-      "source": "radahn",
-      "target": "malenia",
-      "relation": "fights",
-      "description": "Radahn fights Malenia in Caelid.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_053",
-      "source": "malenia",
-      "target": "radahn",
-      "relation": "afflicts with scarlet rot",
-      "description": "Malenia blooms her scarlet rot, afflicting Radahn and devastating Caelid.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_054",
-      "source": "radahn",
-      "target": "malenia",
-      "relation": "is afflicted by",
-      "description": "Radahn is afflicted by Malenia's scarlet rot.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_055",
-      "source": "mohg",
-      "target": "miquella",
-      "relation": "steals",
-      "description": "Mohg steals away Miquella.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_056",
-      "source": "miquella",
-      "target": "mohg",
-      "relation": "is stolen by",
-      "description": "Miquella is stolen by Mohg.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_057",
-      "source": "dragons",
-      "target": "greater_will",
-      "relation": "was allied with",
-      "description": "The dragons were allied with an unnamed Outer God before being abandoned.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
@@ -1268,193 +787,6 @@
       "target": "erdtree",
       "relation": "influences via",
       "description": "The Greater Will's power, channeled through the Elden Ring, is the source of the Erdtree's power.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_060_new",
-      "source": "erdtree",
-      "target": "omens",
-      "relation": "formerly blessed",
-      "description": "Before the Golden Order, the primordial Erdtree (crucible) saw omens as a blessing.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_080_new",
-      "source": "miquella",
-      "target": "haligtree",
-      "relation": "created",
-      "description": "Miquella created the Haligtree, an artificial Erdtree, after rejecting the Golden Order.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_081_new",
-      "source": "haligtree",
-      "target": "miquella",
-      "relation": "was created by",
-      "description": "The Haligtree was created by Miquella as an artificial Erdtree.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_148",
-      "source": "haligtree",
-      "target": "malenia",
-      "relation": "was created to cure",
-      "description": "The Haligtree was created by Miquella specifically to help find a cure for Malenia's scarlet rot.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_149",
-      "source": "haligtree",
-      "target": "tarnished",
-      "relation": "serves as refuge for",
-      "description": "The Haligtree serves as a home and refuge for those discriminated against by the Golden Order, including Albinaurics, Misbegotten, and other Tarnished outcasts.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_150",
-      "source": "golden_order",
-      "target": "haligtree",
-      "relation": "is opposed to",
-      "description": "The Haligtree was created in opposition to the Golden Order, as Miquella rejected the Golden Order's inability to cure Malenia.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_151",
-      "source": "malenia",
-      "target": "haligtree",
-      "relation": "resides at",
-      "description": "Malenia resides at the Haligtree with her Cleanrot Knights, serving Miquella.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_152",
-      "source": "miquella",
-      "target": "haligtree",
-      "relation": "resides at",
-      "description": "Miquella resides at the Haligtree before being stolen by Mohg.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_153",
-      "source": "erdtree",
-      "target": "queen_marika",
-      "relation": "is controlled by",
-      "description": "The Erdtree is tied to Queen Marika and the Elden Ring, serving as the source of the Golden Order's power.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_154",
-      "source": "erdtree",
-      "target": "greater_will",
-      "relation": "is empowered by",
-      "description": "The Erdtree draws its power from the Greater Will through the Elden Ring.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_061",
-      "source": "golden_order",
-      "target": "omens",
-      "relation": "curses",
-      "description": "After the Golden Order was established, omens were viewed as cursed rather than blessed.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_062",
-      "source": "gloam_eyed_queen",
-      "target": "maliketh",
-      "relation": "held rune taken by",
-      "description": "The Gloam-Eyed Queen held the Rune of Death before Maliketh slew her and took it.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_063",
-      "source": "maliketh",
-      "target": "gloam_eyed_queen",
-      "relation": "took rune from",
-      "description": "Maliketh took the Rune of Death from the Gloam-Eyed Queen after slaying her.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_064",
-      "source": "fire_giants",
-      "target": "queen_marika",
-      "relation": "cursed",
-      "description": "The last Fire Giant cursed Radagon to have red hair.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_065",
-      "source": "queen_marika",
-      "target": "fire_giants",
-      "relation": "cursed",
-      "description": "Marika cursed the last Fire Giant to tend the forge for eternity.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_066",
-      "source": "radagon",
-      "target": "fire_giants",
-      "relation": "was cursed by",
-      "description": "Radagon was cursed by the last Fire Giant to have red hair.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_067",
-      "source": "nox",
-      "target": "greater_will",
-      "relation": "disobeyed",
-      "description": "The Nox messed with alchemy in a way the Greater Will did not approve, creating the fingerslayer blade.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
@@ -1494,116 +826,6 @@
       "chunk_id": 0
     },
     {
-      "id": "edge_071",
-      "source": "carian_kingdom",
-      "target": "queen_marika",
-      "relation": "was warred upon by",
-      "description": "The Carian kingdom was attacked by Marika's forces (led by Radagon) before the marriage.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_072",
-      "source": "queen_marika",
-      "target": "carian_kingdom",
-      "relation": "waged war on",
-      "description": "Marika sent Radagon to wage war on the Carian kingdom before the marriage.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_073",
-      "source": "ranni",
-      "target": "maliketh",
-      "relation": "stole from",
-      "description": "Ranni stole the Rune of Death from Maliketh to create the Black Knives.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_074",
-      "source": "maliketh",
-      "target": "ranni",
-      "relation": "was stolen from by",
-      "description": "Maliketh had the Rune of Death stolen from him by Ranni.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_075",
-      "source": "queen_marika",
-      "target": "night_of_the_black_knives",
-      "relation": "may have colluded in",
-      "description": "Marika is suspected to have been involved in the Night of the Black Knives, as the assassins were Numens like her.",
-      "weight": 0.7,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_076",
-      "source": "radahn",
-      "target": "nokron",
-      "relation": "blocks access to",
-      "description": "Radahn holds up the stars, preventing passage to the underground cities where the Fingerslayer Blade rests.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_077",
-      "source": "radahn",
-      "target": "nokstella",
-      "relation": "blocks access to",
-      "description": "Radahn holds up the stars, preventing passage to the underground cities where the Fingerslayer Blade rests.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_078",
-      "source": "malenia",
-      "target": "miquella",
-      "relation": "serves",
-      "description": "Malenia serves Miquella instead of pursuing her own lordship ambitions.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_079",
-      "source": "miquella",
-      "target": "malenia",
-      "relation": "is served by",
-      "description": "Miquella is served by his sister Malenia.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_082",
-      "source": "golden_order",
-      "target": "miquella",
-      "relation": "was rejected by",
-      "description": "Miquella rejected the Golden Order and the Greater Will because they could not cure Malenia.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
       "id": "edge_083",
       "source": "greater_will",
       "target": "miquella",
@@ -1613,17 +835,6 @@
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 4
-    },
-    {
-      "id": "edge_084",
-      "source": "frenzied_flame",
-      "target": "greater_will",
-      "relation": "opposes",
-      "description": "The Frenzied Flame is an Outer God that seeks chaos, in opposition to the Greater Will's order.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
     },
     {
       "id": "edge_085",
@@ -1637,15 +848,455 @@
       "chunk_id": 0
     },
     {
-      "id": "edge_086",
-      "source": "morgott",
-      "target": "leyndell",
-      "relation": "rules",
-      "description": "Morgott secretly rules Leyndell as the Veiled Monarch after the Shattering.",
+      "id": "edge_001",
+      "source": "queen_marika",
+      "target": "greater_will",
+      "relation": "is vassal of",
+      "description": "Queen Marika is the vassal of the Greater Will.",
       "weight": 1.0,
-      "time_start_event": "shattering_war",
+      "time_start_event": null,
       "time_end_event": null,
-      "chunk_id": 5
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_003",
+      "source": "queen_marika",
+      "target": "elden_ring",
+      "relation": "bears",
+      "description": "Queen Marika bears the Elden Ring.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_012",
+      "source": "queen_marika",
+      "target": "lands_between",
+      "relation": "establishes",
+      "description": "Queen Marika establishes Leyndell in the Lands Between.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_016",
+      "source": "queen_marika",
+      "target": "numen",
+      "relation": "is descended from",
+      "description": "Queen Marika is descended from the Numen race.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_018",
+      "source": "queen_marika",
+      "target": "hoarah_loux",
+      "relation": "is married to",
+      "description": "Queen Marika is married to Hoarah Loux (Godfrey).",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_019",
+      "source": "queen_marika",
+      "target": "godwyn_the_golden",
+      "relation": "is mother of",
+      "description": "Queen Marika is the mother of Godwyn the Golden.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_021",
+      "source": "queen_marika",
+      "target": "morgott",
+      "relation": "is mother of",
+      "description": "Queen Marika is the mother of Morgott.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_023",
+      "source": "queen_marika",
+      "target": "mohg",
+      "relation": "is mother of",
+      "description": "Queen Marika is the mother of Mohg.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_029",
+      "source": "queen_marika",
+      "target": "radagon",
+      "relation": "is married to",
+      "description": "Queen Marika is married to Radagon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_031",
+      "source": "queen_marika",
+      "target": "radagon",
+      "relation": "is part of",
+      "description": "Marika is part of the same being as Radagon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_032",
+      "source": "queen_marika",
+      "target": "malenia",
+      "relation": "is mother of",
+      "description": "Queen Marika is the mother of Malenia.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_035",
+      "source": "queen_marika",
+      "target": "miquella",
+      "relation": "is mother of",
+      "description": "Queen Marika is the mother of Miquella.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_042",
+      "source": "queen_marika",
+      "target": "fire_giants",
+      "relation": "waged war on",
+      "description": "Marika waged war on the Fire Giants.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_065",
+      "source": "queen_marika",
+      "target": "fire_giants",
+      "relation": "cursed",
+      "description": "Marika cursed the last Fire Giant to tend the forge for eternity.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_047",
+      "source": "queen_marika",
+      "target": "shattering",
+      "relation": "performs",
+      "description": "Queen Marika shatters the Elden Ring (the Shattering).",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_072",
+      "source": "queen_marika",
+      "target": "carian_kingdom",
+      "relation": "waged war on",
+      "description": "Marika sent Radagon to wage war on the Carian kingdom before the marriage.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_075",
+      "source": "queen_marika",
+      "target": "night_of_the_black_knives",
+      "relation": "may have colluded in",
+      "description": "Marika is suspected to have been involved in the Night of the Black Knives, as the assassins were Numens like her.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_122",
+      "source": "queen_marika",
+      "target": "maliketh",
+      "relation": "betrayed",
+      "description": "Marika is suspected to have betrayed Maliketh by enabling the theft of the Rune of Death.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_143",
+      "source": "queen_marika",
+      "target": "trolls",
+      "relation": "was allied with",
+      "description": "Marika was allied with the trolls after they betrayed the Fire Giants.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_004",
+      "source": "elden_ring",
+      "target": "queen_marika",
+      "relation": "is borne by",
+      "description": "The Elden Ring is borne by Queen Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_006",
+      "source": "two_fingers",
+      "target": "greater_will",
+      "relation": "enacts desires of",
+      "description": "The Two Fingers enact the desires of the Greater Will.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_127",
+      "source": "two_fingers",
+      "target": "ranni",
+      "relation": "chose as Empyrean",
+      "description": "The Two Fingers chose Ranni as an Empyrean, a potential successor to Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_128",
+      "source": "two_fingers",
+      "target": "malenia",
+      "relation": "chose as Empyrean",
+      "description": "The Two Fingers chose Malenia as an Empyrean, a potential successor to Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_129",
+      "source": "two_fingers",
+      "target": "miquella",
+      "relation": "chose as Empyrean",
+      "description": "The Two Fingers chose Miquella as an Empyrean, a potential successor to Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_007",
+      "source": "golden_order",
+      "target": "greater_will",
+      "relation": "helps enact desires of",
+      "description": "The Golden Order helps enact the Greater Will's desires.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_150",
+      "source": "golden_order",
+      "target": "haligtree",
+      "relation": "is opposed to",
+      "description": "The Haligtree was created in opposition to the Golden Order, as Miquella rejected the Golden Order's inability to cure Malenia.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_061",
+      "source": "golden_order",
+      "target": "omens",
+      "relation": "curses",
+      "description": "After the Golden Order was established, omens were viewed as cursed rather than blessed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_082",
+      "source": "golden_order",
+      "target": "miquella",
+      "relation": "was rejected by",
+      "description": "Miquella rejected the Golden Order and the Greater Will because they could not cure Malenia.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_008",
+      "source": "lands_between",
+      "target": "dragons",
+      "relation": "was ruled by",
+      "description": "The Lands Between were first ruled by the dragons.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_013",
+      "source": "lands_between",
+      "target": "queen_marika",
+      "relation": "is established in by",
+      "description": "The Lands Between have Leyndell established in them by Queen Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_011",
+      "source": "dragonlord_placidusax",
+      "target": "dragons",
+      "relation": "leads",
+      "description": "Dragonlord Placidusax leads the dragons.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_009",
+      "source": "dragons",
+      "target": "lands_between",
+      "relation": "ruled",
+      "description": "The dragons ruled the Lands Between.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_010",
+      "source": "dragons",
+      "target": "dragonlord_placidusax",
+      "relation": "is led by",
+      "description": "The dragons are led by Dragonlord Placidusax.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_057",
+      "source": "dragons",
+      "target": "greater_will",
+      "relation": "was allied with",
+      "description": "The dragons were allied with an unnamed Outer God before being abandoned.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_060_new",
+      "source": "erdtree",
+      "target": "omens",
+      "relation": "formerly blessed",
+      "description": "Before the Golden Order, the primordial Erdtree (crucible) saw omens as a blessing.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_153",
+      "source": "erdtree",
+      "target": "queen_marika",
+      "relation": "is controlled by",
+      "description": "The Erdtree is tied to Queen Marika and the Elden Ring, serving as the source of the Golden Order's power.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_154",
+      "source": "erdtree",
+      "target": "greater_will",
+      "relation": "is empowered by",
+      "description": "The Erdtree draws its power from the Greater Will through the Elden Ring.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_081_new",
+      "source": "haligtree",
+      "target": "miquella",
+      "relation": "was created by",
+      "description": "The Haligtree was created by Miquella as an artificial Erdtree.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_148",
+      "source": "haligtree",
+      "target": "malenia",
+      "relation": "was created to cure",
+      "description": "The Haligtree was created by Miquella specifically to help find a cure for Malenia's scarlet rot.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_149",
+      "source": "haligtree",
+      "target": "tarnished",
+      "relation": "serves as refuge for",
+      "description": "The Haligtree serves as a home and refuge for those discriminated against by the Golden Order, including Albinaurics, Misbegotten, and other Tarnished outcasts.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_015",
+      "source": "elden_beast",
+      "target": "queen_marika",
+      "relation": "is absorbed into",
+      "description": "The Elden Beast is absorbed into Queen Marika's body.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
     },
     {
       "id": "edge_087",
@@ -1659,48 +1310,37 @@
       "chunk_id": 5
     },
     {
-      "id": "edge_088",
-      "source": "malenia",
-      "target": "miquella",
-      "relation": "fought for",
-      "description": "Malenia marched to Caelid and fought Radahn on behalf of Miquella's interests.",
-      "weight": 0.8,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_089",
-      "source": "miquella",
-      "target": "malenia",
-      "relation": "was fought for by",
-      "description": "Miquella had Malenia fight Radahn on his behalf.",
-      "weight": 0.8,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_090",
-      "source": "mohg",
-      "target": "miquella",
-      "relation": "intends to use as puppet",
-      "description": "Mohg intends to use Miquella as a puppet ruler, acting as his consort under the Formless Mother.",
+      "id": "edge_133",
+      "source": "leyndell",
+      "target": "radahn",
+      "relation": "was attacked by",
+      "description": "Leyndell was attacked by Radahn's forces during the Shattering War.",
       "weight": 1.0,
       "time_start_event": "shattering_war",
       "time_end_event": null,
       "chunk_id": 5
     },
     {
-      "id": "edge_091",
-      "source": "miquella",
-      "target": "mohg",
-      "relation": "rejects",
-      "description": "Miquella rejects Mohg's ambitions to use him as a puppet.",
+      "id": "edge_020",
+      "source": "godwyn_the_golden",
+      "target": "queen_marika",
+      "relation": "is child of",
+      "description": "Godwyn the Golden is a child of Queen Marika.",
       "weight": 1.0,
-      "time_start_event": "shattering_war",
+      "time_start_event": null,
       "time_end_event": null,
-      "chunk_id": 5
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_046",
+      "source": "godwyn_the_golden",
+      "target": "night_of_the_black_knives",
+      "relation": "is killed by",
+      "description": "Godwyn the Golden is killed during the Night of the Black Knives.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
     },
     {
       "id": "edge_092",
@@ -1708,193 +1348,6 @@
       "target": "fortissax",
       "relation": "befriended",
       "description": "Godwyn the Golden befriended the dragon Fortissax.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_093",
-      "source": "fortissax",
-      "target": "godwyn_the_golden",
-      "relation": "was befriended by",
-      "description": "Fortissax was befriended by Godwyn the Golden.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_094",
-      "source": "morgott",
-      "target": "mohg",
-      "relation": "is twin brother of",
-      "description": "Morgott is the twin brother of Mohg; both are Omen twins born to Marika and Godfrey.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_095",
-      "source": "mohg",
-      "target": "morgott",
-      "relation": "is twin brother of",
-      "description": "Mohg is the twin brother of Morgott; both are Omen twins born to Marika and Godfrey.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_096",
-      "source": "radahn",
-      "target": "queen_rennala",
-      "relation": "is son of",
-      "description": "Radahn is the son of Radagon and Queen Rennala.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_097",
-      "source": "rykard",
-      "target": "queen_rennala",
-      "relation": "is son of",
-      "description": "Rykard is the son of Radagon and Queen Rennala.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_098",
-      "source": "ranni",
-      "target": "queen_rennala",
-      "relation": "is daughter of",
-      "description": "Ranni is the daughter of Radagon and Queen Rennala.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_099",
-      "source": "radahn",
-      "target": "radagon",
-      "relation": "is son of",
-      "description": "Radahn is the son of Radagon.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_100",
-      "source": "rykard",
-      "target": "radagon",
-      "relation": "is son of",
-      "description": "Rykard is the son of Radagon.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_101",
-      "source": "ranni",
-      "target": "radagon",
-      "relation": "is daughter of",
-      "description": "Ranni is the daughter of Radagon.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_102",
-      "source": "radahn",
-      "target": "rykard",
-      "relation": "is brother of",
-      "description": "Radahn is the brother of Rykard.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_103",
-      "source": "radahn",
-      "target": "ranni",
-      "relation": "is brother of",
-      "description": "Radahn is the brother of Ranni.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_104",
-      "source": "rykard",
-      "target": "radahn",
-      "relation": "is brother of",
-      "description": "Rykard is the brother of Radahn.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_105",
-      "source": "rykard",
-      "target": "ranni",
-      "relation": "is brother of",
-      "description": "Rykard is the brother of Ranni.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_106",
-      "source": "ranni",
-      "target": "radahn",
-      "relation": "is sister of",
-      "description": "Ranni is the sister of Radahn.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_107",
-      "source": "ranni",
-      "target": "rykard",
-      "relation": "is sister of",
-      "description": "Ranni is the sister of Rykard.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_108",
-      "source": "malenia",
-      "target": "miquella",
-      "relation": "is sister of",
-      "description": "Malenia is the sister of Miquella. Both are twins born to Marika and Radagon.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_109",
-      "source": "miquella",
-      "target": "malenia",
-      "relation": "is brother of",
-      "description": "Miquella is the brother of Malenia. Both are twins born to Marika and Radagon.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
@@ -1945,6 +1398,358 @@
       "chunk_id": 0
     },
     {
+      "id": "edge_093",
+      "source": "fortissax",
+      "target": "godwyn_the_golden",
+      "relation": "was befriended by",
+      "description": "Fortissax was befriended by Godwyn the Golden.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_038",
+      "source": "maliketh",
+      "target": "gloam_eyed_queen",
+      "relation": "slew",
+      "description": "Maliketh slew the Gloam-Eyed Queen.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_063",
+      "source": "maliketh",
+      "target": "gloam_eyed_queen",
+      "relation": "took rune from",
+      "description": "Maliketh took the Rune of Death from the Gloam-Eyed Queen after slaying her.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_040",
+      "source": "maliketh",
+      "target": "queen_marika",
+      "relation": "serves",
+      "description": "Maliketh serves Marika as her half-brother and Shadow.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_121",
+      "source": "maliketh",
+      "target": "queen_marika",
+      "relation": "was betrayed by",
+      "description": "Maliketh was betrayed by Marika, who may have been involved in the theft of the Rune of Death.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_074",
+      "source": "maliketh",
+      "target": "ranni",
+      "relation": "was stolen from by",
+      "description": "Maliketh had the Rune of Death stolen from him by Ranni.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_039",
+      "source": "gloam_eyed_queen",
+      "target": "maliketh",
+      "relation": "was slain by",
+      "description": "The Gloam-Eyed Queen was slain by Maliketh.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_062",
+      "source": "gloam_eyed_queen",
+      "target": "maliketh",
+      "relation": "held rune taken by",
+      "description": "The Gloam-Eyed Queen held the Rune of Death before Maliketh slew her and took it.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_130",
+      "source": "gloam_eyed_queen",
+      "target": "two_fingers",
+      "relation": "opposed",
+      "description": "The Gloam-Eyed Queen and her Godskin Apostles opposed the Two Fingers and the Golden Order.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_041",
+      "source": "fire_giants",
+      "target": "queen_marika",
+      "relation": "was warred upon by",
+      "description": "The Fire Giants were attacked by Marika's forces.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_064",
+      "source": "fire_giants",
+      "target": "queen_marika",
+      "relation": "cursed",
+      "description": "The last Fire Giant cursed Radagon to have red hair.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_141",
+      "source": "fire_giants",
+      "target": "trolls",
+      "relation": "was betrayed by",
+      "description": "The Fire Giants were betrayed by the trolls, who allied with Marika instead.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_025",
+      "source": "radagon",
+      "target": "queen_rennala",
+      "relation": "marries",
+      "description": "Radagon marries Queen Rennala.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_027",
+      "source": "radagon",
+      "target": "queen_rennala",
+      "relation": "leaves",
+      "description": "Radagon leaves Rennala to marry Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_135",
+      "source": "radagon",
+      "target": "queen_rennala",
+      "relation": "left a rune for",
+      "description": "Radagon left a piece of the Elden Ring (a rune) with Rennala as a gift when he left her.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_028",
+      "source": "radagon",
+      "target": "queen_marika",
+      "relation": "marries",
+      "description": "Radagon marries Queen Marika as her second consort.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_030",
+      "source": "radagon",
+      "target": "queen_marika",
+      "relation": "is part of",
+      "description": "Radagon is part of the same being as Marika ('Radagon is Marika').",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_034",
+      "source": "radagon",
+      "target": "malenia",
+      "relation": "is father of",
+      "description": "Radagon is the father of Malenia.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_037",
+      "source": "radagon",
+      "target": "miquella",
+      "relation": "is father of",
+      "description": "Radagon is the father of Miquella.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_066",
+      "source": "radagon",
+      "target": "fire_giants",
+      "relation": "was cursed by",
+      "description": "Radagon was cursed by the last Fire Giant to have red hair.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_118",
+      "source": "radagon",
+      "target": "hoarah_loux",
+      "relation": "served under",
+      "description": "Radagon served as a general under Marika alongside Godfrey (Hoarah Loux).",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_017",
+      "source": "hoarah_loux",
+      "target": "queen_marika",
+      "relation": "marries",
+      "description": "Hoarah Loux (as Godfrey) marries Queen Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_043",
+      "source": "hoarah_loux",
+      "target": "tarnished",
+      "relation": "becomes part of",
+      "description": "Hoarah Loux (Godfrey) becomes the first Tarnished.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_119",
+      "source": "hoarah_loux",
+      "target": "radagon",
+      "relation": "served alongside",
+      "description": "Godfrey (Hoarah Loux) served alongside Radagon as a general under Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_140",
+      "source": "trolls",
+      "target": "fire_giants",
+      "relation": "betrayed",
+      "description": "The trolls betrayed the Fire Giants during Marika's war, switching sides to ally with Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_142",
+      "source": "trolls",
+      "target": "queen_marika",
+      "relation": "allied with",
+      "description": "The trolls allied with Marika during the war against the Fire Giants.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_144",
+      "source": "trolls",
+      "target": "carian_kingdom",
+      "relation": "served as knights for",
+      "description": "After pledging fealty to Marika's forces, trolls were allowed to serve as knights in the Carian kingdom, showing more egalitarian treatment.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_146",
+      "source": "trolls",
+      "target": "greater_will",
+      "relation": "removed symbol of",
+      "description": "The trolls removed the eye of the One-Eyed Fell God from their stomachs, showing their rejection of that Outer God.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_147",
+      "source": "trolls",
+      "target": "lands_between",
+      "relation": "are found in",
+      "description": "Trolls can be found throughout the Lands Between, often used as slaves pulling carriages in some regions, but as knights in Caria.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_022",
+      "source": "morgott",
+      "target": "queen_marika",
+      "relation": "is child of",
+      "description": "Morgott is a child of Queen Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_086",
+      "source": "morgott",
+      "target": "leyndell",
+      "relation": "rules",
+      "description": "Morgott secretly rules Leyndell as the Veiled Monarch after the Shattering.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_094",
+      "source": "morgott",
+      "target": "mohg",
+      "relation": "is twin brother of",
+      "description": "Morgott is the twin brother of Mohg; both are Omen twins born to Marika and Godfrey.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
       "id": "edge_114",
       "source": "morgott",
       "target": "malenia",
@@ -1967,15 +1772,48 @@
       "chunk_id": 0
     },
     {
-      "id": "edge_116",
+      "id": "edge_134",
+      "source": "morgott",
+      "target": "radahn",
+      "relation": "defended against",
+      "description": "Morgott rose up and defended Leyndell against Radahn's attack.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_024",
       "source": "mohg",
-      "target": "malenia",
-      "relation": "is half-brother of",
-      "description": "Mohg is the half-brother of Malenia.",
+      "target": "queen_marika",
+      "relation": "is child of",
+      "description": "Mohg is a child of Queen Marika.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 0
+    },
+    {
+      "id": "edge_055",
+      "source": "mohg",
+      "target": "miquella",
+      "relation": "steals",
+      "description": "Mohg steals away Miquella.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_090",
+      "source": "mohg",
+      "target": "miquella",
+      "relation": "intends to use as puppet",
+      "description": "Mohg intends to use Miquella as a puppet ruler, acting as his consort under the Formless Mother.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
     },
     {
       "id": "edge_117",
@@ -1989,59 +1827,48 @@
       "chunk_id": 0
     },
     {
-      "id": "edge_118",
-      "source": "radagon",
-      "target": "hoarah_loux",
-      "relation": "served under",
-      "description": "Radagon served as a general under Marika alongside Godfrey (Hoarah Loux).",
+      "id": "edge_095",
+      "source": "mohg",
+      "target": "morgott",
+      "relation": "is twin brother of",
+      "description": "Mohg is the twin brother of Morgott; both are Omen twins born to Marika and Godfrey.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 0
     },
     {
-      "id": "edge_119",
-      "source": "hoarah_loux",
-      "target": "radagon",
-      "relation": "served alongside",
-      "description": "Godfrey (Hoarah Loux) served alongside Radagon as a general under Marika.",
+      "id": "edge_116",
+      "source": "mohg",
+      "target": "malenia",
+      "relation": "is half-brother of",
+      "description": "Mohg is the half-brother of Malenia.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 0
     },
     {
-      "id": "edge_120",
-      "source": "ranni",
-      "target": "queen_rennala",
-      "relation": "was mentored by",
-      "description": "Ranni was mentored by a snow witch, whose likeness she uses for her doll body.",
-      "weight": 0.9,
+      "id": "edge_139",
+      "source": "mohg",
+      "target": "frenzied_flame",
+      "relation": "is not allied with",
+      "description": "Mohg is allied with the Formless Mother, not the Frenzied Flame (distinct Outer Gods).",
+      "weight": 0.5,
       "time_start_event": null,
       "time_end_event": null,
-      "chunk_id": 4
+      "chunk_id": 0
     },
     {
-      "id": "edge_121",
-      "source": "maliketh",
-      "target": "queen_marika",
-      "relation": "was betrayed by",
-      "description": "Maliketh was betrayed by Marika, who may have been involved in the theft of the Rune of Death.",
-      "weight": 0.8,
+      "id": "edge_067",
+      "source": "nox",
+      "target": "greater_will",
+      "relation": "disobeyed",
+      "description": "The Nox messed with alchemy in a way the Greater Will did not approve, creating the fingerslayer blade.",
+      "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_122",
-      "source": "queen_marika",
-      "target": "maliketh",
-      "relation": "betrayed",
-      "description": "Marika is suspected to have betrayed Maliketh by enabling the theft of the Rune of Death.",
-      "weight": 0.8,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
+      "chunk_id": 0
     },
     {
       "id": "edge_123",
@@ -2077,209 +1904,11 @@
       "chunk_id": 0
     },
     {
-      "id": "edge_126",
-      "source": "ranni",
-      "target": "two_fingers",
-      "relation": "rejects",
-      "description": "Ranni rejects her status as an Empyrean chosen by the Two Fingers, choosing to kill her body instead.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_127",
-      "source": "two_fingers",
-      "target": "ranni",
-      "relation": "chose as Empyrean",
-      "description": "The Two Fingers chose Ranni as an Empyrean, a potential successor to Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_128",
-      "source": "two_fingers",
-      "target": "malenia",
-      "relation": "chose as Empyrean",
-      "description": "The Two Fingers chose Malenia as an Empyrean, a potential successor to Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_129",
-      "source": "two_fingers",
-      "target": "miquella",
-      "relation": "chose as Empyrean",
-      "description": "The Two Fingers chose Miquella as an Empyrean, a potential successor to Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "edge_130",
-      "source": "gloam_eyed_queen",
-      "target": "two_fingers",
-      "relation": "opposed",
-      "description": "The Gloam-Eyed Queen and her Godskin Apostles opposed the Two Fingers and the Golden Order.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_131",
-      "source": "malenia",
-      "target": "radahn",
-      "relation": "marched against",
-      "description": "Malenia marched her Cleanrot Knights from the Haligtree to Caelid specifically to do battle with Radahn.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_132",
-      "source": "radahn",
-      "target": "leyndell",
-      "relation": "attacked",
-      "description": "Radahn's forces attacked Leyndell during the Shattering, seeking to become the ultimate ruler.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_133",
-      "source": "leyndell",
-      "target": "radahn",
-      "relation": "was attacked by",
-      "description": "Leyndell was attacked by Radahn's forces during the Shattering War.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_134",
-      "source": "morgott",
-      "target": "radahn",
-      "relation": "defended against",
-      "description": "Morgott rose up and defended Leyndell against Radahn's attack.",
-      "weight": 1.0,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_135",
-      "source": "radagon",
-      "target": "queen_rennala",
-      "relation": "left a rune for",
-      "description": "Radagon left a piece of the Elden Ring (a rune) with Rennala as a gift when he left her.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_136",
-      "source": "queen_rennala",
-      "target": "radagon",
-      "relation": "received a rune from",
-      "description": "Rennala received a piece of the Elden Ring from Radagon when he left her.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_137",
-      "source": "malenia",
-      "target": "miquella",
-      "relation": "fights on behalf of",
-      "description": "Malenia fights Radahn on behalf of Miquella, though the exact reason is unclear.",
-      "weight": 0.8,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_138",
-      "source": "miquella",
-      "target": "radahn",
-      "relation": "sent Malenia against",
-      "description": "Miquella (through Malenia) opposed Radahn, leading to the battle in Caelid.",
-      "weight": 0.7,
-      "time_start_event": "shattering_war",
-      "time_end_event": null,
-      "chunk_id": 5
-    },
-    {
-      "id": "edge_139",
-      "source": "mohg",
-      "target": "frenzied_flame",
-      "relation": "is not allied with",
-      "description": "Mohg is allied with the Formless Mother, not the Frenzied Flame (distinct Outer Gods).",
-      "weight": 0.5,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_140",
-      "source": "trolls",
-      "target": "fire_giants",
-      "relation": "betrayed",
-      "description": "The trolls betrayed the Fire Giants during Marika's war, switching sides to ally with Marika.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_141",
-      "source": "fire_giants",
-      "target": "trolls",
-      "relation": "was betrayed by",
-      "description": "The Fire Giants were betrayed by the trolls, who allied with Marika instead.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_142",
-      "source": "trolls",
+      "id": "edge_071",
+      "source": "carian_kingdom",
       "target": "queen_marika",
-      "relation": "allied with",
-      "description": "The trolls allied with Marika during the war against the Fire Giants.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_143",
-      "source": "queen_marika",
-      "target": "trolls",
-      "relation": "was allied with",
-      "description": "Marika was allied with the trolls after they betrayed the Fire Giants.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 0
-    },
-    {
-      "id": "edge_144",
-      "source": "trolls",
-      "target": "carian_kingdom",
-      "relation": "served as knights for",
-      "description": "After pledging fealty to Marika's forces, trolls were allowed to serve as knights in the Carian kingdom, showing more egalitarian treatment.",
+      "relation": "was warred upon by",
+      "description": "The Carian kingdom was attacked by Marika's forces (led by Radagon) before the marriage.",
       "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
@@ -2297,26 +1926,510 @@
       "chunk_id": 0
     },
     {
-      "id": "edge_146",
-      "source": "trolls",
-      "target": "greater_will",
-      "relation": "removed symbol of",
-      "description": "The trolls removed the eye of the One-Eyed Fell God from their stomachs, showing their rejection of that Outer God.",
-      "weight": 0.9,
+      "id": "edge_026",
+      "source": "queen_rennala",
+      "target": "radagon",
+      "relation": "is married to",
+      "description": "Queen Rennala is married to Radagon.",
+      "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 0
     },
     {
-      "id": "edge_147",
-      "source": "trolls",
-      "target": "lands_between",
-      "relation": "are found in",
-      "description": "Trolls can be found throughout the Lands Between, often used as slaves pulling carriages in some regions, but as knights in Caria.",
-      "weight": 0.8,
+      "id": "edge_136",
+      "source": "queen_rennala",
+      "target": "radagon",
+      "relation": "received a rune from",
+      "description": "Rennala received a piece of the Elden Ring from Radagon when he left her.",
+      "weight": 1.0,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 0
+    },
+    {
+      "id": "edge_052",
+      "source": "radahn",
+      "target": "malenia",
+      "relation": "fights",
+      "description": "Radahn fights Malenia in Caelid.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_054",
+      "source": "radahn",
+      "target": "malenia",
+      "relation": "is afflicted by",
+      "description": "Radahn is afflicted by Malenia's scarlet rot.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_076",
+      "source": "radahn",
+      "target": "nokron",
+      "relation": "blocks access to",
+      "description": "Radahn holds up the stars, preventing passage to the underground cities where the Fingerslayer Blade rests.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_077",
+      "source": "radahn",
+      "target": "nokstella",
+      "relation": "blocks access to",
+      "description": "Radahn holds up the stars, preventing passage to the underground cities where the Fingerslayer Blade rests.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_096",
+      "source": "radahn",
+      "target": "queen_rennala",
+      "relation": "is son of",
+      "description": "Radahn is the son of Radagon and Queen Rennala.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_099",
+      "source": "radahn",
+      "target": "radagon",
+      "relation": "is son of",
+      "description": "Radahn is the son of Radagon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_102",
+      "source": "radahn",
+      "target": "rykard",
+      "relation": "is brother of",
+      "description": "Radahn is the brother of Rykard.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_103",
+      "source": "radahn",
+      "target": "ranni",
+      "relation": "is brother of",
+      "description": "Radahn is the brother of Ranni.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_132",
+      "source": "radahn",
+      "target": "leyndell",
+      "relation": "attacked",
+      "description": "Radahn's forces attacked Leyndell during the Shattering, seeking to become the ultimate ruler.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_097",
+      "source": "rykard",
+      "target": "queen_rennala",
+      "relation": "is son of",
+      "description": "Rykard is the son of Radagon and Queen Rennala.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_100",
+      "source": "rykard",
+      "target": "radagon",
+      "relation": "is son of",
+      "description": "Rykard is the son of Radagon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_104",
+      "source": "rykard",
+      "target": "radahn",
+      "relation": "is brother of",
+      "description": "Rykard is the brother of Radahn.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_105",
+      "source": "rykard",
+      "target": "ranni",
+      "relation": "is brother of",
+      "description": "Rykard is the brother of Ranni.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_044",
+      "source": "ranni",
+      "target": "night_of_the_black_knives",
+      "relation": "organizes",
+      "description": "Ranni organizes the Night of the Black Knives.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_073",
+      "source": "ranni",
+      "target": "maliketh",
+      "relation": "stole from",
+      "description": "Ranni stole the Rune of Death from Maliketh to create the Black Knives.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_098",
+      "source": "ranni",
+      "target": "queen_rennala",
+      "relation": "is daughter of",
+      "description": "Ranni is the daughter of Radagon and Queen Rennala.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_120",
+      "source": "ranni",
+      "target": "queen_rennala",
+      "relation": "was mentored by",
+      "description": "Ranni was mentored by a snow witch, whose likeness she uses for her doll body.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_101",
+      "source": "ranni",
+      "target": "radagon",
+      "relation": "is daughter of",
+      "description": "Ranni is the daughter of Radagon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_106",
+      "source": "ranni",
+      "target": "radahn",
+      "relation": "is sister of",
+      "description": "Ranni is the sister of Radahn.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_107",
+      "source": "ranni",
+      "target": "rykard",
+      "relation": "is sister of",
+      "description": "Ranni is the sister of Rykard.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_126",
+      "source": "ranni",
+      "target": "two_fingers",
+      "relation": "rejects",
+      "description": "Ranni rejects her status as an Empyrean chosen by the Two Fingers, choosing to kill her body instead.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_033",
+      "source": "malenia",
+      "target": "queen_marika",
+      "relation": "is child of",
+      "description": "Malenia is a child of Queen Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_051",
+      "source": "malenia",
+      "target": "radahn",
+      "relation": "fights",
+      "description": "Malenia fights Radahn in Caelid.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_053",
+      "source": "malenia",
+      "target": "radahn",
+      "relation": "afflicts with scarlet rot",
+      "description": "Malenia blooms her scarlet rot, afflicting Radahn and devastating Caelid.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_131",
+      "source": "malenia",
+      "target": "radahn",
+      "relation": "marched against",
+      "description": "Malenia marched her Cleanrot Knights from the Haligtree to Caelid specifically to do battle with Radahn.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_151",
+      "source": "malenia",
+      "target": "haligtree",
+      "relation": "resides at",
+      "description": "Malenia resides at the Haligtree with her Cleanrot Knights, serving Miquella.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_078",
+      "source": "malenia",
+      "target": "miquella",
+      "relation": "serves",
+      "description": "Malenia serves Miquella instead of pursuing her own lordship ambitions.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_088",
+      "source": "malenia",
+      "target": "miquella",
+      "relation": "fought for",
+      "description": "Malenia marched to Caelid and fought Radahn on behalf of Miquella's interests.",
+      "weight": 0.8,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_108",
+      "source": "malenia",
+      "target": "miquella",
+      "relation": "is sister of",
+      "description": "Malenia is the sister of Miquella. Both are twins born to Marika and Radagon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_137",
+      "source": "malenia",
+      "target": "miquella",
+      "relation": "fights on behalf of",
+      "description": "Malenia fights Radahn on behalf of Miquella, though the exact reason is unclear.",
+      "weight": 0.8,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_036",
+      "source": "miquella",
+      "target": "queen_marika",
+      "relation": "is child of",
+      "description": "Miquella is a child of Queen Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_056",
+      "source": "miquella",
+      "target": "mohg",
+      "relation": "is stolen by",
+      "description": "Miquella is stolen by Mohg.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_091",
+      "source": "miquella",
+      "target": "mohg",
+      "relation": "rejects",
+      "description": "Miquella rejects Mohg's ambitions to use him as a puppet.",
+      "weight": 1.0,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_080_new",
+      "source": "miquella",
+      "target": "haligtree",
+      "relation": "created",
+      "description": "Miquella created the Haligtree, an artificial Erdtree, after rejecting the Golden Order.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_152",
+      "source": "miquella",
+      "target": "haligtree",
+      "relation": "resides at",
+      "description": "Miquella resides at the Haligtree before being stolen by Mohg.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_079",
+      "source": "miquella",
+      "target": "malenia",
+      "relation": "is served by",
+      "description": "Miquella is served by his sister Malenia.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_089",
+      "source": "miquella",
+      "target": "malenia",
+      "relation": "was fought for by",
+      "description": "Miquella had Malenia fight Radahn on his behalf.",
+      "weight": 0.8,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_109",
+      "source": "miquella",
+      "target": "malenia",
+      "relation": "is brother of",
+      "description": "Miquella is the brother of Malenia. Both are twins born to Marika and Radagon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_138",
+      "source": "miquella",
+      "target": "radahn",
+      "relation": "sent Malenia against",
+      "description": "Miquella (through Malenia) opposed Radahn, leading to the battle in Caelid.",
+      "weight": 0.7,
+      "time_start_event": "shattering_war",
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "edge_084",
+      "source": "frenzied_flame",
+      "target": "greater_will",
+      "relation": "opposes",
+      "description": "The Frenzied Flame is an Outer God that seeks chaos, in opposition to the Greater Will's order.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "edge_045",
+      "source": "night_of_the_black_knives",
+      "target": "godwyn_the_golden",
+      "relation": "kills",
+      "description": "The Night of the Black Knives kills Godwyn the Golden.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_048",
+      "source": "shattering",
+      "target": "queen_marika",
+      "relation": "is performed by",
+      "description": "The Shattering is performed by Queen Marika.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_049",
+      "source": "shattering",
+      "target": "shattering_war",
+      "relation": "causes",
+      "description": "The Shattering leads to the Shattering War.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "edge_050",
+      "source": "shattering_war",
+      "target": "shattering",
+      "relation": "is caused by",
+      "description": "The Shattering War is caused by the Shattering.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
     }
   ]
 }
