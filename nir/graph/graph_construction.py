@@ -23,6 +23,7 @@ from langchain_core.runnables import Runnable
 
 from fastcoref import FCoref
 
+from nir.embedding.vector_store_loader import VectorStoreInfo, create_vector_store
 from nir.graph.graph_parser import SafePydanticParser, normalize_events_subgraph, normalize_graph_completion_result, normalize_graph_extraction_result, normalize_merged_node, normalize_merged_node_name, normalize_node_names_extraction_result
 from nir.graph.graph_structures import GraphCompletionResult, InputEdge, InputNode, MergedNode, MergedNodeName, Node, Edge, EventImpact, NodeNamesExtractionResult, State, EventsSubgraph, GraphExtractionResult
 from nir.graph.knowledge_graph import KnowledgeGraph
@@ -455,7 +456,7 @@ def extract_entities_names(
                     "coreference_array": coreference_array
             })
             if result == None:
-                break
+                continue
 
         for extracted_node in result.nodes:
             node_id = create_id(extracted_node.name)     
@@ -594,7 +595,7 @@ def extract_graph_info(
                     "entities_array": nodes_in_chunk
             })
             if result == None:
-                break
+                continue
 
         names_to_ids: Dict[str, str] = {}
         for extracted_node in result.nodes:
@@ -681,74 +682,107 @@ def merge_similar_nodes(
         safe_chain_merging = prompt_merging_ru | llm | safe_merged_nodes_parser.parse
 
     if not nodes:
-        return List(nodes={}, edges={})
+        return list(nodes={}, edges={})
+    
+    vector_db_info = VectorStoreInfo(
+        type="chromadb",
+        info={ 
+            "name" : "helper_database",
+            "path" : "assets/databases/chroma_db"
+        }
+    )
+    vector_db = create_vector_store(vector_db_info)
     
     merged_nodes = []
     id_map = {}
     for node in nodes:
         is_node_merged = False
         node_i_description = f"{node.name}. {node.base_description}"
-        for idx, existing in enumerate(merged_nodes):
-            node_j_description = f"{existing.name}. {existing.base_description}"
-            if node.type == existing.type:
-                sim = cosine_sim(node_i_description, node_j_description, embedding_model)
-                print(f"{node_i_description} SIMILAR WITH {node_j_description} WITH SIMILARITY {sim}") #DEBUGGING
-                if sim >= similarity_threshold or node.name.lower() == existing.name.lower():
-                   
-                    node_for_llm = MergedNode(
-                        name=node.name,
-                        base_description=node.base_description,
-                        base_attributes=node.base_attributes
-                    )
-                    node_chunk = next((chunk.page_content for chunk in chunks if chunk.metadata["chunk_id"] == node.chunk_id[0]), "No context")
+        node_i_emb = np.array(embedding_model.embed_query(node_i_description))
+        results = vector_db.search(node_i_emb, 10)
+        if len(results) > 0:
+            for result in results:
+                existing_array = [node for node in merged_nodes if node.id == result.get("metadata").get("id")]
+                if (len(existing_array) > 0):
+                    existing = existing_array[0]
+                    print(existing)
+                    if node.type == existing.type:
+                        if result.get("distance", 0.0) >= similarity_threshold or node.name.lower() == existing.name.lower():
+                            node_for_llm = MergedNode(
+                                name=node.name,
+                                base_description=node.base_description,
+                                base_attributes=node.base_attributes
+                            )
+                            node_chunk = next((chunk.page_content for chunk in chunks if chunk.metadata["chunk_id"] == node.chunk_id[0]), "No context")
 
-                    existing_for_llm = MergedNode(
-                        name=existing.name,
-                        base_description=existing.base_description,
-                        base_attributes=existing.base_attributes
-                    )
-                    existing_chunk = next((chunk.page_content for chunk in chunks if chunk.metadata["chunk_id"] == existing.chunk_id[-1]), "No context")
-
-                    if preserve_all_data:
-                        merged_node: MergedNode = safe_chain_merging.invoke({
-                            "node_a_json": existing_for_llm.model_dump_json(),
-                            "node_a_chunk": existing_chunk,
-                            "node_b_json": node_for_llm.model_dump_json(),
-                            "node_b_chunk": node_chunk,
-                        })
-                        print(merged_node)
-                    else:
-                        merged_node: MergedNode = safe_invoke_chain(
-                            chain=chain_merging, 
-                            inputs={
-                                "node_a_json": existing_for_llm.model_dump_json(),
-                                "node_a_chunk": existing_chunk,
-                                "node_b_json": node_for_llm.model_dump_json(),
-                                "node_b_chunk": node_chunk,
-                        })
-                        if merged_node is None:
-                            break
-                    
-                    if (merged_node.name != ""):
-                        merged_node_to_graph = Node(
-                            id=existing.id,
-                            name=merged_node.name,
-                            type=existing.type,
-                            base_description=merged_node.base_description,
-                            base_attributes=merged_node.base_attributes,
-                            states=existing.states + node.states,
-                            chunk_id=list(set(existing.chunk_id + node.chunk_id))
-                        )
-
-                        merged_nodes[idx] = merged_node_to_graph
-                        id_map[node.id] = merged_node_to_graph.id
-                        is_node_merged = True
-                        break
-
+                            existing_for_llm = MergedNode(
+                                name=existing.name,
+                                base_description=existing.base_description,
+                                base_attributes=existing.base_attributes
+                            )
+                            existing_chunk = next((chunk.page_content for chunk in chunks if chunk.metadata["chunk_id"] == existing.chunk_id[-1]), "No context")
+                            
+                            if preserve_all_data:
+                                merged_node: MergedNode = safe_chain_merging.invoke({
+                                    "node_a_json": existing_for_llm.model_dump_json(),
+                                    "node_a_chunk": existing_chunk,
+                                    "node_b_json": node_for_llm.model_dump_json(),
+                                    "node_b_chunk": node_chunk,
+                                })
+                            else:
+                                merged_node: MergedNode = safe_invoke_chain(
+                                    chain=chain_merging, 
+                                    inputs={
+                                        "node_a_json": existing_for_llm.model_dump_json(),
+                                        "node_a_chunk": existing_chunk,
+                                        "node_b_json": node_for_llm.model_dump_json(),
+                                        "node_b_chunk": node_chunk,
+                                })
+                                if merged_node is None:
+                                    break
+                            
+                            if (merged_node.name != ""):
+                                merged_node_to_graph = Node(
+                                    id=existing.id,
+                                    name=merged_node.name,
+                                    type=existing.type,
+                                    base_description=merged_node.base_description,
+                                    base_attributes=merged_node.base_attributes,
+                                    states=existing.states + node.states,
+                                    chunk_id=list(set(existing.chunk_id + node.chunk_id))
+                                )
+                                idx = merged_nodes.index(existing)
+                                merged_nodes[idx] = merged_node_to_graph
+                                id_map[node.id] = merged_node_to_graph.id
+                                text = [f"{merged_node_to_graph.name} {merged_node_to_graph.base_description}"]
+                                metadata = [{
+                                    "id": merged_node_to_graph.id,
+                                }]
+                                embedding = embedding_model.embed_documents(text)
+                                vector_db.add_embeddings(
+                                    ids=[merged_node_to_graph.id],
+                                    embeddings=embedding,
+                                    metadatas=metadata,
+                                    documents=text
+                                )
+                                vector_db.persist()
+                                is_node_merged = True
+                                break
         if not is_node_merged:
             merged_nodes.append(deepcopy(node))
             id_map[node.id] = node.id
-    
+            text = [f"{node.name} {node.base_description}"]
+            metadata = [{
+                "id": node.id,
+            }]
+            embedding = embedding_model.embed_documents(text)
+            vector_db.add_embeddings(
+                ids=[node.id],
+                embeddings=embedding,
+                metadatas=metadata,
+                documents=text
+            )
+            vector_db.persist()
     merged_nodes_dict = {n.id: n for n in merged_nodes}
     
     merged_edges_dict = {}
@@ -758,6 +792,8 @@ def merge_similar_nodes(
             merged_edge.source = id_map[edge.source]
             merged_edge.target = id_map[edge.target] 
             merged_edges_dict[merged_edge.id] = merged_edge
+    
+    vector_db.clear_db()
     return merged_nodes_dict, merged_edges_dict
 
 def extract_entities(
@@ -796,7 +832,7 @@ def extract_entities(
                     "coreference_array": coreference_array
             })
             if result == None:
-                break
+                continue
 
         names_to_ids: Dict[str, str] = {}
         for extracted_node in result.nodes:
@@ -916,7 +952,7 @@ def complete_graph(
                         "existing_relations": relations_for_llm
                 })
                 if result == None:
-                    break
+                    continue
 
             print(result)
             if result and result.missing_entities:
@@ -1104,10 +1140,6 @@ def extract_graph(
         language=language
     )
 
-    print("--NODES--")
-    for node in nodes.values():
-        print(node)
-
     completed_nodes, completed_edges = complete_graph(
         chunks=chunks,
         nodes=nodes,
@@ -1117,13 +1149,9 @@ def extract_graph(
         language=language
     )
 
-    print("--COMPLETED NODES--")
-    for node in completed_nodes.values():
-        print(node)
-
     all_nodes = [n for n in completed_nodes.values()]
     all_edges = [e for e in completed_edges.values()]
-
+    
     merged_result = merge_similar_nodes(
         chunks=chunks,
         nodes=all_nodes, 
@@ -1348,7 +1376,7 @@ def create_embeddings(
     all_metadatas = []
 
     for node in nodes:
-        text = node.name 
+        text = f"{node.name} {node.base_description}"
         all_ids.append(node.id)
         all_documents.append(text)
         all_metadatas.append({

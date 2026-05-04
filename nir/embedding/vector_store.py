@@ -41,6 +41,10 @@ class VectorStore(ABC):
         pass
 
     @abstractmethod
+    def clear_db(self) -> None:
+        pass
+
+    @abstractmethod
     def search(
         self,
         query_embedding: List[float],

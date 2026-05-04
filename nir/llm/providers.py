@@ -8,7 +8,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_ollama import OllamaLLM
 from langchain_openai import ChatOpenAI
 from langchain_huggingface import HuggingFaceEndpoint, HuggingFacePipeline
-from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoConfig, AutoModelForCausalLM, pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
 
 
@@ -57,15 +57,27 @@ class OpenAIProvider(BaseModelProvider):
 class HuggingFaceLocalProvider(BaseModelProvider):
     def create_model(self, config: ModelConfig) -> BaseLanguageModel:
         tokenizer = AutoTokenizer.from_pretrained(config.model_name)
-        model = AutoModelForSeq2SeqLM.from_pretrained(config.model_name)
-        hf_pipeline = pipeline(
-            "text2text-generation",
-            model=model,
-            tokenizer=tokenizer,
-            torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
-            device=0 if torch.cuda.is_available() else -1,
-            max_length=config.max_tokens or 100,
-        )
+        model_check = AutoConfig.from_pretrained(config.model_name)
+        if model_check.is_encoder_decoder:
+            model = AutoModelForSeq2SeqLM.from_pretrained(config.model_name)
+            hf_pipeline = pipeline(
+                "text2text-generation",
+                model=model,
+                tokenizer=tokenizer,
+                torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
+                device=0 if torch.cuda.is_available() else -1,
+                max_length=config.max_tokens or 100,
+            )
+        else:
+            model = AutoModelForCausalLM.from_pretrained(config.model_name).to("cuda")
+            hf_pipeline = pipeline(
+                "text-generation",
+                model=model,
+                tokenizer=tokenizer,
+                torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
+                device=0 if torch.cuda.is_available() else -1,
+                max_length=config.max_tokens or 100,
+            )
         return HuggingFacePipeline(pipeline=hf_pipeline)
 
 

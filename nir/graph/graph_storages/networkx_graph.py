@@ -161,27 +161,33 @@ class NetworkXGraph(KnowledgeGraph):
         node.base_attributes = new_info.base_attributes
         node.states = new_info.states
         node.chunk_id = new_info.chunk_id
+        self.graph.nodes[node_id]["data"] = node.model_dump()
         return
     
     def update_edge_full(self, edge_id: str, new_info: Edge) -> None:
-        edge = self.get_edge_by_id(edge_id)
-        edge.source = new_info.source
-        edge.target = new_info.target
-        edge.relation = new_info.relation
-        edge.description = edge.description
-        edge.weight = new_info.weight
-        edge.time_start_event = new_info.time_start_event
-        edge.time_end_event = new_info.time_end_event
-        edge.chunk_id = new_info.chunk_id
-        return
+        for u, v, key, attrs in self.graph.edges(keys=True, data=True):
+            if "data" in attrs:
+                if attrs["data"]["id"] == edge_id:
+                    attrs["data"]["source"] = new_info.source
+                    attrs["data"]["target"] = new_info.target
+                    attrs["data"]["relation"] = new_info.relation
+                    attrs["data"]["description"] = new_info.description
+                    attrs["data"]["weight"] = new_info.weight
+                    attrs["data"]["time_start_event"] = new_info.time_start_event
+                    attrs["data"]["time_end_event"] = new_info.time_end_event
+                    attrs["data"]["chunk_id"] = new_info.chunk_id
+                    return
     
     def remove_node(self, node_id: str) -> None:
         return
 
     def remove_edge(self, edge_id: str) -> None:
         return
+    
+    def clear_graph(self) -> None:
+        self.graph.clear()
 
-    def save(self, filepath: str) -> None:
+    def save(self, path: str) -> None:
         nodes_data = []
         for n in self.graph.nodes:
             node_attrs = self.graph.nodes[n]
@@ -209,7 +215,7 @@ class NetworkXGraph(KnowledgeGraph):
             "nodes": nodes_data, 
             "edges": edges_data
         }
-        with open(filepath, "w", encoding="utf-8") as f:
+        with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
     def load(self, path: str) -> None:

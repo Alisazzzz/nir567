@@ -69,6 +69,10 @@ class KnowledgeGraph(ABC):
         pass
 
     @abstractmethod
+    def clear_graph(self) -> None:
+        pass
+
+    @abstractmethod
     def save(self, path: str) -> None:
         pass
 

@@ -101,7 +101,7 @@ model_config = ModelConfig(
     temperature=0.0
 )
 instruct_model = manager.create_chat_model(
-    name="graph_extraction_rus", 
+    name="graph_extraction", 
     option="ollama", 
     config=model_config)
 
@@ -113,12 +113,12 @@ data = loader.loadCSV_withColumns(
     columns=["Описание места действия", "Описание кадра", "Персонаж", "Действие", "Реплика"]
 )
 
-chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0, chunk_size=1000, chunk_overlap=100)
-graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph, preserve_all_data=True, language="ru")
+chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0, chunk_size=1500, chunk_overlap=500)
+graph = extract_graph(chunks=chunks, llm=instruct_model, embedding_model=embedding_model, graph_class=NetworkXGraph, preserve_all_data=False, language="ru")
 vector_db_info = VectorStoreInfo(
     type="chromadb",
     info={ 
-        "name" : "nuclear_crypt_scenario_new",
+        "name" : "nuclear_crypt_scenario_newest",
         "path" : "assets/databases/chroma_db"
     }
 )

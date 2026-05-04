@@ -35,10 +35,10 @@
         },
         "graph_extraction": {
             "option": "ollama",
-            "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+            "model_name": "hf.co/unsloth/Phi-4-mini-instruct-GGUF:Q4_K_M",
             "config": {
-                "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
-                "temperature": 0,
+                "model_name": "hf.co/unsloth/Phi-4-mini-instruct-GGUF:Q4_K_M",
+                "temperature": 0.0,
                 "max_tokens": null,
                 "extra": {}
             },
@@ -76,6 +76,17 @@
                 "extra": {}
             },
             "api_info": null
+        },
+        "graph_extraction_rus": {
+            "option": "ollama",
+            "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+            "config": {
+                "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
+                "temperature": 0.0,
+                "max_tokens": null,
+                "extra": {}
+            },
+            "api_info": null
         }
     },
     "embedding_models": {
@@ -90,6 +101,11 @@
             "api_info": null
         },
         "embeddings_tests": {
+            "option": "ollama",
+            "model_name": "evilfreelancer/enbeddrus:v0.2",
+            "api_info": null
+        },
+        "embeddings_rus": {
             "option": "ollama",
             "model_name": "evilfreelancer/enbeddrus:v0.2",
             "api_info": null

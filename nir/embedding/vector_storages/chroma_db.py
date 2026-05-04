@@ -62,6 +62,10 @@ class ChromaVectorStore(VectorStore):
     def persist(self) -> None:
         pass
 
+    def clear_db(self) -> None:
+        ids = self.get_all_ids()
+        self.delete_embeddings(ids)
+
     def get_collection(self):
         return self.collection
     
