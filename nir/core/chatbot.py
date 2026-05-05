@@ -268,7 +268,7 @@ class Form:
             else:
                 console.print(f"\n[dim]Enter: edit field | Esc: cancel | Ctrl+S: submit[/dim]")
             
-            key = ConsoleUI.get_simple_key()
+            key = self.get_simple_key()
             
             if key == 'up' and not self.editing:
                 self.selected_field = (self.selected_field - 1) % len(self.fields)
@@ -336,7 +336,16 @@ class Form:
         return valid
     
     def _get_results(self) -> Dict[str, Any]:
-        return {field.label.lower().replace(" ", "_"): field.value for field in self.fields}
+        import re
+        result = {}
+        for field in self.fields:
+            # Нормализуем ключ: всё в нижний регистр, убираем спецсимволы
+            key = field.label.lower()
+            key = re.sub(r'[^a-z0-9_]', '_', key)  # заменяем всё кроме букв, цифр, _
+            key = re.sub(r'_+', '_', key)         # убираем множественные подчеркивания
+            key = key.strip('_')                  # удаляем подчеркивания по краям
+            result[key] = field.value
+        return result
     
     @staticmethod
     def get_simple_key():
@@ -630,13 +639,11 @@ Let's set up your environment!
     def create_new_graph(self) -> bool:
         ConsoleUI.clear()
         ConsoleUI.print_header("Create New Graph")
-        
-        # Select embedding model
+
         embedding_info = self.select_embedding_model()
         self.embedding_model = self.model_manager.get_embedding_model(embedding_info.name)
         self.embedding_model_info = embedding_info
-        
-        # Graph creation form
+
         fields = [
             FormField("Text file (from assets/documents)", required=True),
             FormField("Chunk Size", default="500", field_type="number"),
@@ -651,25 +658,23 @@ Let's set up your environment!
         if result is None:
             return False
         
-        text_path = Path(f"assets/documents/{result['text_file']}")
+        text_path = Path(f"assets/documents/{result['text_file_from_assets_documents']}")
         if not text_path.exists():
             ConsoleUI.print_error(f"File {text_path} not found")
             Prompt.ask("Press Enter to continue", default="")
             return False
-        
-        # Load and chunk text
+
         with Progress(
             SpinnerColumn(),
             TextColumn("[progress.description]{task.description}"),
             BarColumn(),
             TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
         ) as progress:
-            
             task = progress.add_task("[cyan]Loading text...", total=1)
             if text_path.suffix == '.csv':
                 data = loader.loadCSV_withColumns(path=str(text_path), columns=["text"])
             else:
-                data = loader.load_docx(str(text_path))
+                data = loader.loadTXT(str(text_path))
             progress.update(task, completed=1)
             
             task = progress.add_task("[cyan]Creating chunks...", total=1)

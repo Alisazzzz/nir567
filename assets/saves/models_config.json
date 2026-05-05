@@ -87,6 +87,28 @@
                 "extra": {}
             },
             "api_info": null
+        },
+        "laptop_model": {
+            "option": "ollama",
+            "model_name": "llama3.2:latest",
+            "config": {
+                "model_name": "llama3.2:latest",
+                "temperature": "0.7",
+                "max_tokens": "2048",
+                "extra": {}
+            },
+            "api_info": null
+        },
+        "laptop_graph_extraction": {
+            "option": "ollama",
+            "model_name": "qcwind/qwen2.5-7B-instruct-Q4_K_M:latest",
+            "config": {
+                "model_name": "qcwind/qwen2.5-7B-instruct-Q4_K_M:latest",
+                "temperature": "0.7",
+                "max_tokens": "2048",
+                "extra": {}
+            },
+            "api_info": null
         }
     },
     "embedding_models": {
