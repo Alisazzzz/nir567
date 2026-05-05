@@ -35,9 +35,9 @@
         },
         "graph_extraction": {
             "option": "ollama",
-            "model_name": "hf.co/unsloth/Phi-4-mini-instruct-GGUF:Q4_K_M",
+            "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
             "config": {
-                "model_name": "hf.co/unsloth/Phi-4-mini-instruct-GGUF:Q4_K_M",
+                "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
                 "temperature": 0.0,
                 "max_tokens": null,
                 "extra": {}

@@ -4,15 +4,19 @@
 #---------imports----------
 #--------------------------
 
-import tkinter as tk
-from tkinter import ttk
-from typing import Any, Dict
-import networkx as nx
 import math
 import random
 import sys
+from langchain_core.embeddings import Embeddings
+from langchain_core.language_models import BaseLanguageModel
+import networkx as nx
+import tkinter as tk
+from tkinter import ttk
+from typing import Any, Dict
 
+from nir.graph.graph_construction import merge_several_nodes_in_graph
 from nir.graph.graph_structures import Edge, Node, State
+from nir.graph.knowledge_graph import KnowledgeGraph
 
 #-------------------------------
 #---------theme config----------
@@ -79,9 +83,17 @@ ICON_DELETE = "🗑️"
 
 class GraphWindow:
 
-    def __init__(self, graph_storage):
+    def __init__(self, 
+            graph_storage: KnowledgeGraph, 
+            filepath: str, 
+            current_graph_llm: BaseLanguageModel,
+            embedding_model: Embeddings,
+        ):
         self.storage = graph_storage
         self.graph = graph_storage.graph
+        self.filepath = filepath
+        self.current_graph_llm = current_graph_llm
+        self.current_graph_embedding = embedding_model
 
         self.root = tk.Tk()
         self.root.title("Interactive graph visualization")
@@ -115,10 +127,24 @@ class GraphWindow:
 
         self.setup_theme()
         self.build_ui()
-        self._create_layout()
+        self.create_layout()
         self.redraw()
         self.update_info_panel()
 
+    @staticmethod
+    def parse_value(val: str):
+        if not val:
+            return None
+        if val.lower() in ("true", "false"):
+            return val.lower() == "true"
+        try:
+            return int(val)
+        except ValueError:
+            try:
+                return float(val)
+            except ValueError:
+                return val
+            
     def setup_theme(self):
         style = ttk.Style()
         style.theme_use("clam")
@@ -231,10 +257,10 @@ class GraphWindow:
         self.canvas.bind("<Button-2>", self.on_pan_start)
         self.canvas.bind("<B2-Motion>", self.on_pan)
         self.canvas.bind("<ButtonRelease-2>", self.on_pan_end)
-        self.canvas.bind("<Motion>", lambda e: self._track_mouse(e))
+        self.canvas.bind("<Motion>", lambda e: self.track_mouse(e))
         self.canvas.bind("<MouseWheel>", self.on_zoom)
-        self.canvas.bind("<Button-4>", lambda e: self._zoom_event(120))
-        self.canvas.bind("<Button-5>", lambda e: self._zoom_event(-120))
+        self.canvas.bind("<Button-4>", lambda e: self.zoom_event(120))
+        self.canvas.bind("<Button-5>", lambda e: self.zoom_event(-120))
         self.canvas.bind("<Configure>", lambda e: self.redraw())
         
         self.draw_static_legend()
@@ -394,7 +420,7 @@ class GraphWindow:
             self.draw_node_edit_mode()
         elif self.is_editing and len(self.selected_edges) == 1:
             self.draw_edge_edit_mode()
-        elif len(self.selected_nodes) > 1:
+        elif len(self.selected_nodes) > 1 or len(self.selected_edges) > 1:
             self.draw_multi_select()
         elif len(self.selected_nodes) == 1:
             self.draw_node_info()
@@ -402,12 +428,11 @@ class GraphWindow:
             self.draw_edge_info()
         else:
             self.draw_empty_state()
+        
         self.bind_scroll_to_widgets()
-
         if hasattr(self, 'info_canvas'):
             self.info_canvas.update_idletasks()
             self.info_canvas.configure(scrollregion=self.info_canvas.bbox("all"))
-            
             bbox = self.info_canvas.bbox("all")
             canvas_height = self.info_canvas.winfo_height()
             if bbox and bbox[3] > canvas_height:
@@ -531,9 +556,9 @@ class GraphWindow:
         
         ttk.Label(header_frame, text=f" ● [NODE] {node_type}", style="TLabel", foreground=color).pack(side="left")
 
-        delete_btn = ttk.Button(header_frame, text=f"{ICON_DELETE}", command=lambda: self._delete_node(node_id), padding=(9, 0, 0, 5), style="Red.TButton", width=3)
+        delete_btn = ttk.Button(header_frame, text=f"{ICON_DELETE}", command=lambda: self.delete_node(node_id), padding=(9, 0, 0, 5), style="Red.TButton", width=3)
         delete_btn.pack(side="right", padx=5)
-        edit_btn = ttk.Button(header_frame, text=f"{ICON_EDIT}", command=lambda: self._start_editing(node_id), padding=(2, 0, 2, 5), style="Green.TButton", width=3)
+        edit_btn = ttk.Button(header_frame, text=f"{ICON_EDIT}", command=lambda: self.start_editing(node_id), padding=(2, 0, 2, 5), style="Green.TButton", width=3)
         edit_btn.pack(side="right", padx=5)
         #separator
         tk.Frame(self.info_content, height=1, bg=SECONDARY_COLOR).pack(fill="x", pady=(5, 10), padx=10)
@@ -717,7 +742,7 @@ class GraphWindow:
 
         base_attrs = self.edit_widgets.get("base_attributes", {})
         for key, var in base_attrs.items():
-            updated_node.base_attributes[key] = self._parse_value(var.get().strip())
+            updated_node.base_attributes[key] = self.parse_value(var.get().strip())
 
         saved_states = self.edit_widgets.get("states", [])
         for i, state_data in enumerate(saved_states):
@@ -730,17 +755,17 @@ class GraphWindow:
                 sid=sid,
                 current_description=state_data["description"].get("1.0", "end-1c").strip(),
                 current_attributes={},
-                time_start_event=self._parse_value(state_data["time_start"].get().strip()) or None,
-                time_end_event=self._parse_value(state_data["time_end"].get().strip()) or None
+                time_start_event=self.parse_value(state_data["time_start"].get().strip()) or None,
+                time_end_event=self.parse_value(state_data["time_end"].get().strip()) or None
             )
 
             for key, var in state_data["attributes"].items():
-                updated_state.current_attributes[key] = self._parse_value(var.get().strip())
+                updated_state.current_attributes[key] = self.parse_value(var.get().strip())
             updated_node.states.append(updated_state)
 
         self.storage.update_node_full(node_id, updated_node)
         self.graph = self.storage.graph
-        #saving logic
+        self.storage.save(path=self.filepath)
         self.is_editing = False
         self.update_info_panel()
         self.redraw()
@@ -755,9 +780,9 @@ class GraphWindow:
         header_frame.pack(fill="x", pady=5)
         ttk.Label(header_frame, text=f" 🔗 [EDGE]", style="TLabel").pack(side="left")
         
-        delete_btn = ttk.Button(header_frame, text=f"{ICON_DELETE}", command=lambda: self._delete_edge(edge_id), padding=(9, 0, 0, 5), style="Red.TButton", width=3)
+        delete_btn = ttk.Button(header_frame, text=f"{ICON_DELETE}", command=lambda: self.delete_edge(edge_id), padding=(9, 0, 0, 5), style="Red.TButton", width=3)
         delete_btn.pack(side="right", padx=5)
-        edit_btn = ttk.Button(header_frame, text=f"{ICON_EDIT}", command=lambda: self._start_editing(edge_id), padding=(2, 0, 2, 5), style="Green.TButton", width=3)
+        edit_btn = ttk.Button(header_frame, text=f"{ICON_EDIT}", command=lambda: self.start_editing(edge_id), padding=(2, 0, 2, 5), style="Green.TButton", width=3)
         edit_btn.pack(side="right", padx=5)
         #separator
         tk.Frame(self.info_content, height=1, bg=SECONDARY_COLOR).pack(fill="x", pady=(5, 10), padx=10)
@@ -843,138 +868,167 @@ class GraphWindow:
             target=original_edge.target,
             relation=self.edit_widgets["edge"]["relation"].get().strip(),
             description=self.edit_widgets["edge"]["description"].get("1.0", "end-1c").strip(),
-            weight=self._parse_value(self.edit_widgets["edge"]["weight"].get().strip()) or 1.0,
-            time_start_event=str(self._parse_value(self.edit_widgets["edge"]["time_start"].get().strip())) or None,
-            time_end_event=str(self._parse_value(self.edit_widgets["edge"]["time_end"].get().strip())) or None,
+            weight=self.parse_value(self.edit_widgets["edge"]["weight"].get().strip()) or 1.0,
+            time_start_event=str(self.parse_value(self.edit_widgets["edge"]["time_start"].get().strip())) or None,
+            time_end_event=str(self.parse_value(self.edit_widgets["edge"]["time_end"].get().strip())) or None,
             chunk_id=original_edge.chunk_id
         )
         
         self.storage.update_edge_full(edge_id, updated_edge)
         self.graph = self.storage.graph
+        self.storage.save(path=self.filepath)
         self.is_editing = False
         self.update_info_panel()
         self.redraw()
 
     def draw_multi_select(self):
+        for widget in self.info_content.winfo_children():
+            widget.destroy()
         main_container = tk.Frame(self.info_content, bg=BG_PANEL)
         main_container.pack(fill="both", expand=True)
-        
-        # Заголовок
+
+        has_nodes = len(self.selected_nodes) > 0
+        has_edges = len(self.selected_edges) > 0
+        only_nodes = has_nodes and not has_edges
+        only_edges = has_edges and not has_nodes
+
         header_frame = tk.Frame(main_container, bg=BG_PANEL)
         header_frame.pack(fill="x", pady=(0, 5))
-        tk.Label(header_frame, text=f"[ MULTI_SELECT ] {len(self.selected_nodes)} nodes", 
-                fg=SELECT_COLOR, bg=BG_PANEL, font=("Consolas", 10, "bold")).pack(anchor="w")
+        if only_nodes:
+            title_text = f"[ MULTI_SELECT ] {len(self.selected_nodes)} nodes"
+            title_color = SELECT_COLOR
+        elif only_edges:
+            title_text = f"[ MULTI_SELECT ] {len(self.selected_edges)} edges"
+            title_color = SELECT_COLOR
+        else:
+            title_text = f"[ MULTI_SELECT ] {len(self.selected_nodes)} nodes & {len(self.selected_edges)} edges"
+            title_color = EDIT_MODE_COLOR
         
-        # Контейнер для списка (который будет растягиваться)
-        list_container = tk.Frame(main_container, bg=BG_PANEL)
-        list_container.pack(fill="both", expand=True, pady=5)
-        
-        # Canvas с фиксированной шириной и прокруткой
-        nodes_canvas = tk.Canvas(list_container, bg=BG_PANEL, highlightthickness=0)
-        scrollbar = ttk.Scrollbar(list_container, orient="vertical", command=nodes_canvas.yview)
-        nodes_canvas.configure(yscrollcommand=scrollbar.set)
-        
-        nodes_canvas.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
-        
-        # Внутренний фрейм для узлов с фиксированной шириной
-        nodes_frame = tk.Frame(nodes_canvas, bg=BG_PANEL)
-        canvas_window = nodes_canvas.create_window((0, 0), window=nodes_frame, anchor="nw")
-        
-        # Функция обновления прокрутки
-        def update_scroll_region(event=None):
-            nodes_canvas.configure(scrollregion=nodes_canvas.bbox("all"))
-        
-        # Функция для установки ширины фрейма
-        def set_frame_width(event):
-            canvas_width = event.width
-            nodes_canvas.itemconfig(canvas_window, width=canvas_width)
-            # Принудительно обновляем прокрутку после изменения ширины
-            nodes_canvas.update_idletasks()
-            update_scroll_region()
-        
-        nodes_canvas.bind("<Configure>", set_frame_width)
-        nodes_frame.bind("<Configure>", update_scroll_region)
-        
-        # Отображаем каждый узел в отдельной карточке с рамкой
-        for nid in self.selected_nodes:
-            node = self.storage.get_node_by_id(nid)
-            node_type = node.type
-            color = TYPE_COLORS.get(node_type, TYPE_COLORS["default"])
-            
-            # Карточка узла с фиксированной шириной (за счёт fill="x" в родителе)
-            card = tk.Frame(nodes_frame, bg=BG_NODE, bd=2, relief="solid", 
-                        highlightbackground=color, highlightcolor=color, 
-                        highlightthickness=1)
-            card.pack(fill="x", pady=3)
-            
-            # Цветной индикатор
-            indicator = tk.Frame(card, bg=color, width=4)
-            indicator.pack(side="left", fill="y", padx=(0, 8))
-            indicator.pack_propagate(False)
-            
-            # Имя узла (растягивается)
-            tk.Label(card, text=node.name, fg=color, bg=BG_NODE, 
-                    font=("Consolas", 10, "bold"), anchor="w").pack(side="left", fill="x", expand=True, padx=5, pady=5)
-            
-            # Тип узла
-            tk.Label(card, text=node_type.upper(), fg=TEXT_COLOR, bg=BG_NODE, 
-                    font=("Consolas", 8)).pack(side="right", padx=5, pady=5)
-        
-        # Кнопки внизу (приклеены к низу)
+        tk.Label(header_frame, text=title_text, fg=title_color, bg=BG_PANEL, 
+                font=("Consolas", 10, "bold")).pack(anchor="w")
+
+        elements_frame = tk.Frame(main_container, bg=BG_PANEL)
+        elements_frame.pack(fill="both", expand=True, pady=5)
+
+        if has_nodes:
+            nodes_header = tk.Frame(elements_frame, bg=BG_PANEL)
+            nodes_header.pack(fill="x", pady=(0, 5))
+            tk.Label(nodes_header, text="SELECTED NODES:", fg=SECONDARY_COLOR, 
+                    bg=BG_PANEL, font=("Consolas", 9, "bold")).pack(anchor="w")
+            for nid in self.selected_nodes:
+                node = self.storage.get_node_by_id(nid)
+                node_type = node.type
+                color = TYPE_COLORS.get(node_type, TYPE_COLORS["default"])
+                
+                card = tk.Frame(elements_frame, bg=BG_NODE, bd=2, relief="solid", 
+                            highlightbackground=color, highlightcolor=color, 
+                            highlightthickness=1)
+                card.pack(fill="x", pady=3)
+                
+                indicator = tk.Frame(card, bg=color, width=4)
+                indicator.pack(side="left", fill="y", padx=(0, 8))
+                indicator.pack_propagate(False)
+
+                tk.Label(card, text="●", fg=color, bg=BG_NODE, 
+                        font=("Consolas", 10)).pack(side="left", padx=(5, 0))
+                
+                tk.Label(card, text=node.name, fg=color, bg=BG_NODE, 
+                        font=("Consolas", 10, "bold"), anchor="w").pack(side="left", fill="x", expand=True, padx=5, pady=5)
+                
+                tk.Label(card, text=node_type.upper(), fg=TEXT_COLOR, bg=BG_NODE, 
+                        font=("Consolas", 8)).pack(side="right", padx=5, pady=5)
+
+        if has_edges:
+            if has_nodes and has_edges:
+                tk.Frame(elements_frame, height=1, bg=SECONDARY_COLOR).pack(fill="x", pady=10)
+                edges_header = tk.Frame(elements_frame, bg=BG_PANEL)
+                edges_header.pack(fill="x", pady=(0, 5))
+                tk.Label(edges_header, text="SELECTED EDGES:", fg=SECONDARY_COLOR, bg=BG_PANEL, font=("Consolas", 9, "bold")).pack(anchor="w")
+            elif only_edges:
+                edges_header = tk.Frame(elements_frame, bg=BG_PANEL)
+                edges_header.pack(fill="x", pady=(0, 5))
+                tk.Label(edges_header, text="SELECTED EDGES:", fg=SECONDARY_COLOR, bg=BG_PANEL, font=("Consolas", 9, "bold")).pack(anchor="w")
+
+            for edge_id in self.selected_edges:
+                edge_data = self.storage.get_edge_by_id(edge_id)
+                if not edge_data:
+                    continue
+
+                source_node = self.storage.get_node_by_id(edge_data.source)
+                target_node = self.storage.get_node_by_id(edge_data.target)
+                source_name = source_node.name if source_node else edge_data.source
+                target_name = target_node.name if target_node else edge_data.target
+                
+                card = tk.Frame(elements_frame, bg=BG_NODE, bd=2, relief="solid", highlightbackground=SECONDARY_COLOR, highlightcolor=SECONDARY_COLOR, highlightthickness=1)
+                card.pack(fill="x", pady=3)
+                
+                indicator = tk.Frame(card, bg=SECONDARY_COLOR, width=4)
+                indicator.pack(side="left", fill="y", padx=(0, 8))
+                indicator.pack_propagate(False)
+
+                tk.Label(card, text="🔗", fg=SECONDARY_COLOR, bg=BG_NODE, 
+                        font=("Consolas", 10)).pack(side="left", padx=(5, 0))
+
+                text_container = tk.Frame(card, bg=BG_NODE)
+                text_container.pack(side="left", fill="x", expand=True, padx=5, pady=5)
+
+                def truncate_text(text, max_len=15):
+                    return text if len(text) <= max_len else text[:max_len-2] + ".."
+                
+                source_short = truncate_text(source_name)
+                target_short = truncate_text(target_name)
+                relation_text = edge_data.relation if edge_data.relation else "connected to"
+                if len(relation_text) > 25:
+                    relation_text = relation_text[:22] + "..."
+                nodes_label = tk.Label(text_container, 
+                                    text=f"{source_short} → {target_short}", 
+                                    fg=TEXT_COLOR, bg=BG_NODE, 
+                                    font=("Consolas", 9, "bold"), 
+                                    anchor="w")
+                nodes_label.pack(anchor="w")
+                relation_label = tk.Label(text_container, 
+                                        text=f"[{relation_text}]", 
+                                        fg=SECONDARY_COLOR, bg=BG_NODE, 
+                                        font=("Consolas", 8), 
+                                        anchor="w", wraplength=200, justify="left")
+                relation_label.pack(anchor="w")
+                tk.Label(card, text=f"id:{edge_id[:6]}", fg=SECONDARY_COLOR, bg=BG_NODE, font=("Consolas", 7)).pack(side="right", padx=5, pady=5)
+
         buttons_frame = tk.Frame(main_container, bg=BG_PANEL)
         buttons_frame.pack(fill="x", pady=(5, 0))
-        
-        # Создаём внутренний фрейм для кнопок с отступами
         buttons_inner = tk.Frame(buttons_frame, bg=BG_PANEL)
         buttons_inner.pack(fill="x", pady=10)
-        
-        merge_btn = ttk.Button(buttons_inner, text="MERGE NODES", 
-                            command=self._merge_nodes, style="Green.TButton")
-        merge_btn.pack(side="left", padx=5, fill="x", expand=True)
-        
-        delete_btn = ttk.Button(buttons_inner, text="DELETE SELECTED", 
-                            command=lambda: self._delete_selected_elements(), style="Red.TButton")
-        delete_btn.pack(side="left", padx=5, fill="x", expand=True)
-        
-        # Принудительно обновляем прокрутку после отрисовки
-        self.root.after(100, update_scroll_region)
 
-    def _delete_selected_elements(self):
-        """Удаляет выбранные узлы и рёбра"""
+        can_merge = only_nodes and len(self.selected_nodes) >= 2
         
-        # Удаляем выбранные узлы
+        if can_merge:
+            merge_btn = ttk.Button(buttons_inner, text="[ MERGE NODES ]", command=self.merge_nodes, style="Green.TButton")
+            merge_btn.pack(side="left", padx=5, fill="x", expand=True)
+            delete_btn = ttk.Button(buttons_inner, text="[ DELETE SELECTED ]", command=lambda: self.delete_selected_elements(), style="Red.TButton")
+            delete_btn.pack(side="left", padx=5, fill="x", expand=True)
+        else:
+            delete_btn = ttk.Button(buttons_inner, text="[ DELETE SELECTED ]", command=lambda: self.delete_selected_elements(), style="Red.TButton", width=100)
+            delete_btn.pack(fill="x", expand=True, padx=5)
+        self.root.after(100, self.update_scrollbar)
+
+    def delete_selected_elements(self):
         for node_id in list(self.selected_nodes):
             if node_id in self.graph.nodes:
-                self.graph.remove_node(node_id)
-                # Также удаляем из storage, если есть такой метод
-                if hasattr(self.storage, 'remove_node'):
-                    self.storage.remove_node(node_id)
+                self.storage.remove_node(node_id)
         
-        # Удаляем выбранные рёбра
         for edge_id in list(self.selected_edges):
-            # Находим ребро в графе и удаляем
             for u, v, key, attrs in self.graph.edges(keys=True, data=True):
                 if "data" in attrs and attrs["data"].get("id") == edge_id:
-                    self.graph.remove_edge(u, v, key)
-                    # Также удаляем из storage, если есть такой метод
-                    if hasattr(self.storage, 'remove_edge'):
                         self.storage.remove_edge(edge_id)
-                    break
-        
-        # Очищаем выбор
+
         self.selected_nodes.clear()
         self.selected_edges.clear()
-        
-        # Обновляем граф из storage
         self.graph = self.storage.graph
-        
-        # Перерисовываем всё
+        self.storage.save(path=self.filepath)
         self.redraw()
         self.update_info_panel()
-        self._add_bottom_hint()
 
-    def _start_editing(self, node_id):
+    def start_editing(self, node_id):
         self.is_editing = True
         self.update_info_panel()
 
@@ -982,43 +1036,90 @@ class GraphWindow:
         self.is_editing = False
         self.update_info_panel()
 
-    @staticmethod
-    def _parse_value(val: str):
-        if not val:
-            return None
-        if val.lower() in ("true", "false"):
-            return val.lower() == "true"
-        try:
-            return int(val)
-        except ValueError:
-            try:
-                return float(val)
-            except ValueError:
-                return val
-
-    def _delete_node(self, node_id):
-        self.graph.remove_node(node_id)
+    def delete_node(self, node_id):
+        self.storage.remove_node(node_id)
+        self.graph = self.storage.graph
+        self.storage.save(path=self.filepath)
         self.selected_nodes.clear()
         self.redraw()
         self.update_info_panel()
 
-    def _delete_edge(self, edge_id):
-        pass
+    def delete_edge(self, edge_id):
+        self.storage.remove_edge(edge_id)
+        self.graph = self.storage.graph
+        self.storage.save(path=self.filepath)
+        self.selected_edges.clear()
+        self.redraw()
+        self.update_info_panel()
 
-    def _merge_nodes(self):
-        """Объединяет выбранные узлы в один"""
+    def show_loading_dialog(self, message="Processing..."):
+        self.loading_dialog = tk.Toplevel(self.root)
+        self.loading_dialog.title("")
+        self.loading_dialog.configure(bg=BG_PANEL)
+
+        self.loading_dialog.overrideredirect(True)
+        window_width = 300
+        window_height = 100
+        self.root.update_idletasks()
+        root_x = self.root.winfo_x()
+        root_y = self.root.winfo_y()
+        root_width = self.root.winfo_width()
+        root_height = self.root.winfo_height()
+        
+        x = root_x + (root_width - window_width) // 2
+        y = root_y + (root_height - window_height) // 2
+        
+        self.loading_dialog.geometry(f"{window_width}x{window_height}+{x}+{y}")
+        self.loading_dialog.attributes('-topmost', True)
+        frame = tk.Frame(self.loading_dialog, bg=BG_PANEL, bd=2, relief="solid", highlightbackground=SECONDARY_COLOR, highlightthickness=1)
+        frame.pack(fill="both", expand=True, padx=2, pady=2)
+        self.loading_label = tk.Label(frame, text=message, fg=PRIMARY_COLOR, bg=BG_PANEL, font=("Consolas", 11, "bold"))
+        self.loading_label.pack(expand=True, pady=(20, 10))
+        self.loading_dots = 0
+
+        self.animate_loading_dots()
+        self.loading_dialog.grab_set()
+        self.loading_dialog.update()
+
+    def animate_loading_dots(self):
+        if hasattr(self, 'loading_dialog') and self.loading_dialog.winfo_exists():
+            dots = "." * (self.loading_dots + 1)
+            self.loading_label.config(text=f"Merging nodes{dots}")
+            self.loading_dots = (self.loading_dots + 1) % 3
+            self.root.after(500, self.animate_loading_dots)
+
+    def hide_loading_dialog(self):
+        if hasattr(self, 'loading_dialog') and self.loading_dialog.winfo_exists():
+            self.loading_dialog.grab_release()
+            self.loading_dialog.destroy()
+            delattr(self, 'loading_dialog')
+
+    def merge_nodes(self):
         if len(self.selected_nodes) < 2:
-            print("Need at least 2 nodes to merge")
             return
-        
-        # TODO: реализуйте логику объединения узлов
-        # Например: создаёте новый узел, переносите связи, удаляете старые
-        print(f"Merging nodes: {list(self.selected_nodes)}")
-        
-        # После объединения очищаем выбор
-        self.selected_nodes.clear()
-        self.redraw()
-        self.update_info_panel()
+        self.show_loading_dialog("Merging nodes")
+
+        def perform_merge():
+            try:
+                list_nodes_to_merge = [self.storage.get_node_by_id(node_id) for node_id in self.selected_nodes]
+                merge_several_nodes_in_graph(
+                    graph=self.storage, 
+                    nodes_to_merge=list_nodes_to_merge, 
+                    llm=self.current_graph_llm, 
+                    embedding_model=self.current_graph_embedding, 
+                    language=self.storage.language
+                )
+                
+                self.selected_nodes.clear()
+                self.graph = self.storage.graph
+                self.storage.save(path=self.filepath)
+                self.create_layout()
+                
+                self.redraw()
+                self.update_info_panel()
+            finally:
+                self.hide_loading_dialog()
+        self.root.after(50, perform_merge)
 
     def draw_static_legend(self):
         self.legend_canvas.delete("all")
@@ -1031,11 +1132,11 @@ class GraphWindow:
             self.legend_canvas.create_text(35, y_offset + 11, text=label, fill=color, font=("Consolas", 10), anchor="w")
             y_offset += 25
 
-    # -------------------------------------------------
-    # GRAPH LOGIC
-    # -------------------------------------------------
+    #--------------------------------------
+    #---------Graph drawing logic----------
+    #--------------------------------------
 
-    def _create_layout(self):
+    def create_layout(self):
         pos = nx.spring_layout(self.graph, seed=42, k=1.5, iterations=50)
         for node_id, (x, y) in pos.items():
             self.node_positions[node_id] = [800 + x * 500, 450 + y * 400]
@@ -1047,12 +1148,12 @@ class GraphWindow:
             self.is_sorted = False
             self.sort_btn.config(text="[ ↓ SORT_BY_TYPE ]")
         else:
-            self._generate_sorted_layout()
+            self.generate_sorted_layout()
             self.is_sorted = True
             self.sort_btn.config(text="[ ↑ UNSORT ]")
         self.redraw()
 
-    def _generate_sorted_layout(self):
+    def generate_sorted_layout(self):
         type_groups = {}
         for node_id, attrs in self.graph.nodes(data=True):
             ntype = attrs["data"]["type"]
@@ -1093,10 +1194,6 @@ class GraphWindow:
 
         self.node_positions = new_pos
 
-    # -------------------------------------------------
-    # RENDERING
-    # -------------------------------------------------
-
     def redraw(self):
         self.canvas.delete("all")
         self.node_items.clear()
@@ -1127,19 +1224,15 @@ class GraphWindow:
             width = 3 if selected else 2
             fill = BG_NODE 
             if selected:
-                self.canvas.create_oval(x - r*1.2, y - r*1.2, x + r*1.2, y + r*1.2,
-                                        outline=SECONDARY_COLOR, width=1, stipple="gray12")
-            oval = self.canvas.create_oval(x - r, y - r, x + r, y + r,
-                                           fill=fill, outline=outline, width=width)
+                self.canvas.create_oval(x - r*1.2, y - r*1.2, x + r*1.2, y + r*1.2, outline=SECONDARY_COLOR, width=1, stipple="gray12")
+            oval = self.canvas.create_oval(x - r, y - r, x + r, y + r, fill=fill, outline=outline, width=width)
             if self.zoom >= 0.5:
                 text_color = type_color if not selected else SECONDARY_COLOR
-                text = self.canvas.create_text(x, y, text=data["name"], fill=text_color,
-                                               width=60 * self.zoom,
-                                               font=("Consolas", max(8, int(9 * self.zoom))))
+                text = self.canvas.create_text(x, y, text=data["name"], fill=text_color, width=60 * self.zoom, font=("Consolas", max(8, int(9 * self.zoom))))
                 self.node_items[text] = node_id
             self.node_items[oval] = node_id
 
-    def _get_edge_end_point(self, x1, y1, x2, y2, radius):
+    def get_edge_end_point(self, x1, y1, x2, y2, radius):
         dx = x2 - x1
         dy = y2 - y1
         length = math.hypot(dx, dy)
@@ -1161,12 +1254,12 @@ class GraphWindow:
         for pair, groups in edge_groups.items():
             for idx, (u, v, edge_data) in enumerate(groups["forward"]):
                 total = len(groups["forward"]) + len(groups["backward"])
-                self._draw_curved_edge(u, v, edge_data, 1, idx, total)
+                self.draw_curved_edge(u, v, edge_data, 1, idx, total)
             for idx, (u, v, edge_data) in enumerate(groups["backward"]):
                 total = len(groups["forward"]) + len(groups["backward"])
-                self._draw_curved_edge(u, v, edge_data, -1, len(groups["forward"]) + idx, total)
+                self.draw_curved_edge(u, v, edge_data, -1, len(groups["forward"]) + idx, total)
 
-    def _draw_curved_edge(self, u, v, edge_data, direction=1, index=0, total_edges=1):
+    def draw_curved_edge(self, u, v, edge_data, direction=1, index=0, total_edges=1):
         sx1, sy1 = self.screen_positions[u]
         sx2, sy2 = self.screen_positions[v]
 
@@ -1185,8 +1278,8 @@ class GraphWindow:
         cy = my + py * (base_curve + spread)
 
         r = NODE_RADIUS * self.zoom
-        start_x, start_y = self._get_edge_end_point(sx2, sy2, sx1, sy1, r)
-        end_x, end_y = self._get_edge_end_point(sx1, sy1, sx2, sy2, r)
+        start_x, start_y = self.get_edge_end_point(sx2, sy2, sx1, sy1, r)
+        end_x, end_y = self.get_edge_end_point(sx1, sy1, sx2, sy2, r)
 
         edge_id = edge_data.get("id")
         is_selected = edge_id in self.selected_edges
@@ -1231,17 +1324,16 @@ class GraphWindow:
             "canvas_id": line_id
         }
 
-    # -------------------------------------------------
-    # INTERACTION
-    # -------------------------------------------------
+    #-------------------------------------
+    #---------Interaction  logic----------
+    #-------------------------------------
 
     def on_press(self, event):
         if self.panning: return
         shift = (event.state & 0x0001) != 0
-
         halo = max(10, 15 * self.zoom)
         closest = self.canvas.find_closest(event.x, event.y, halo=halo)
-        
+
         clicked_node = None
         clicked_edge = None
         for item in closest:
@@ -1325,9 +1417,9 @@ class GraphWindow:
         self.canvas.config(cursor="")
 
     def on_zoom(self, event):
-        self._zoom_event(event.delta)
+        self.zoom_event(event.delta)
 
-    def _zoom_event(self, delta):
+    def zoom_event(self, delta):
         if delta == 0: return
         factor = 1.15 if delta > 0 else 0.85
 
@@ -1339,7 +1431,7 @@ class GraphWindow:
         self.pan_offset[1] = self.last_mouse_y / self.zoom - wy
         self.redraw()
 
-    def _track_mouse(self, event):
+    def track_mouse(self, event):
         self.last_mouse_x = event.x
         self.last_mouse_y = event.y
 

@@ -206,3 +206,15 @@ class EventImpact(BaseModel):
 
 class EventsSubgraph(BaseModel):
     events_with_impact: List[EventImpact] = Field(default_factory=list)
+
+
+#-----------------------------------------------
+#-----structures for merging nodes in graph-----
+#-----------------------------------------------
+
+class MergedInGraphNode(BaseModel):
+    name: str
+    type: str
+    base_description: str = ""
+    base_attributes: Dict[str, Any] = Field(default_factory=dict)
+    states: List[State] = Field(default_factory=list)

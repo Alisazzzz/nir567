@@ -64,6 +64,7 @@ class NetworkXGraph(KnowledgeGraph):
         self.vector_db_info = None
         self.document_filename = None
         self.connected_embedding = None
+        self.language = "en"
 
     def add_node(self, node: Node) -> None:
         self.graph.add_node(
@@ -179,9 +180,14 @@ class NetworkXGraph(KnowledgeGraph):
                     return
     
     def remove_node(self, node_id: str) -> None:
+        self.graph.remove_node(node_id)
         return
 
     def remove_edge(self, edge_id: str) -> None:
+        for u, v, attrs in self.graph.edges(data=True):
+            if attrs.get("data", {}).get("id") == edge_id:
+                self.graph.remove_edge(u, v)
+                return 
         return
     
     def clear_graph(self) -> None:

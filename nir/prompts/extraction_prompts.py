@@ -128,6 +128,38 @@ SYSTEM_PROMPT_MERGING_EN = """
     CRITICAL: Output ONLY <reasoning> block followed by JSON. No other text.
 """
 
+SYSTEM_PROMPT_MERGING_IN_GRAPH_EN = """
+    You are an expert in entity resolution for knowledge graphs.
+
+    TASK: Merge two nodes into one node, preserve as much data as possible. Create for two nodes combined base_description, merge list of attributes 
+    and list of states: for states, be careful:
+        1. if two states from different nodes are similar - create combined state.
+        2. if two states from different nodes are different (have different times), you must in this case only copy states into final merged node. 
+        3. also be careful with time_start_event and time_end_event: copy them carefully, and while merging, pay attention to when the states change (so time_end_event for the previous state is time_start_event for the next state)
+
+    INPUT: Two node objects with name, base_description, base_attributes and states list.
+
+    OUTPUT FORMAT:
+    First write <reasoning> block explaining how you will combine two nodes.
+    Then output JSON:
+    {{
+          "name": "string (choose best name)",
+          "type": "string (one of types copied from input nodes)",
+          "base_description": "string (combined description)",
+          "base_attributes": {{"key": "value"}}
+          "states": {{
+                {{ 
+                    "sid": "string (id for state copied from input or created if states were merged)", 
+                    "current_description": "string (combined description from two states or copied description)",
+                    "current_attributes": {{"key": "value"}},
+                    "time_start_event": "string (event id copied from input)",
+                    "time_end_event": "string (event id copied from input)"
+                }}
+          }}
+    }}
+    CRITICAL: Output ONLY <reasoning> block followed by JSON. No other text.
+"""
+
 
 SYSTEM_PROMPT_EVENTS_IMPACTS_EN = """
     You are an expert in causal analysis for narrative knowledge graphs.
@@ -1107,4 +1139,36 @@ SYSTEM_PROMPT_ENTITIES_WITH_NAMES_RU = """
     }}
 
     CRITICAL: Выводи ТОЛЬКО блок <reasoning>, затем JSON. Никакого другого текста.
+"""
+
+SYSTEM_PROMPT_MERGING_IN_GRAPH_RU = """
+    Ты эксперт в разрешении сущностей для графов знаний.
+
+    ЗАДАЧА: Объединить два узла в один узел, сохранив как можно больше данных. Создай для двух узлов объединенное base_description, объедини список attributes
+    и список states: для states будь внимателен:
+        1. если два состояния из разных узлов похожи — создай объединенное состояние.
+        2. если два состояния из разных узлов различаются (имеют разное время), ты должен в этом случае просто скопировать состояния в итоговый объединенный узел.
+        3. также будь внимателен с time_start_event и time_end_event: копируй их аккуратно, и при объединении обращай внимание на моменты смены состояний (чтобы time_end_event для предыдущего состояния был time_start_event для следующего состояния)
+
+    ВХОДНЫЕ ДАННЫЕ: Два объекта узла с name, base_description, base_attributes и списком states.
+
+    ФОРМАТ ВЫВОДА:
+    Сначала напиши блок <reasoning>, объясняющий, как ты объединишь два узла.
+    Затем выведи JSON:
+    {{
+        "name": "string (выбери лучшее имя)",
+        "type": "string (один из типов, скопированных из входных узлов)",
+        "base_description": "string (объединенное описание)",
+        "base_attributes": {{"key": "value"}}
+        "states": {{
+            {{
+                "sid": "string (id состояния, скопированное из входных данных или созданное, если состояния были объединены)",
+                "current_description": "string (объединенное описание из двух состояний или скопированное описание)",
+                "current_attributes": {{"key": "value"}},
+                "time_start_event": "string (id события, скопированное из входных данных)",
+                "time_end_event": "string (id события, скопированное из входных данных)"
+            }}
+        }}
+    }}
+    ВАЖНО: Выведи ТОЛЬКО блок <reasoning>, за которым следует JSON. Никакого другого текста.
 """

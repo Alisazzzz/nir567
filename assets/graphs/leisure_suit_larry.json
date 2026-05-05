@@ -74,7 +74,7 @@
     },
     {
       "id": "gammie_with_her_weightloss_treatment",
-      "name": "Gammie with her weight-loss treatment",
+      "name": "Gammie with her weight-loss treatment YES YES",
       "type": "character",
       "base_description": "A woman undergoing a weight-loss treatment at the spa",
       "base_attributes": {},
@@ -155,29 +155,6 @@
       ]
     },
     {
-      "id": "cavaricchi_and_burgundy",
-      "name": "Cavaricchi and Burgundy",
-      "type": "group",
-      "base_description": "Individuals involved with Larry's experience at the spa.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        1
-      ]
-    },
-    {
-      "id": "larry_arrives_at_luxury_spa",
-      "name": "Larry arrives at luxury spa",
-      "type": "event",
-      "base_description": "Event of Larry arriving at the luxury spa after losing a dating show and his subsequent actions, including being treated poorly as a non-paying guest and eventually gaining affection from Shamara by completing tasks for her.",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        1,
-        3
-      ]
-    },
-    {
       "id": "assistance_to_merrilys_dream",
       "name": "Assistance to Merrily's Dream",
       "type": "event",
@@ -228,30 +205,6 @@
       ]
     },
     {
-      "id": "arrival_at_luxury_spa",
-      "name": "Arrival at Luxury Spa",
-      "type": "event",
-      "base_description": "Larry Laffer's arrival at the luxury spa, concluding his misadventure successfully.",
-      "base_attributes": {
-        "time": ""
-      },
-      "states": [],
-      "chunk_id": [
-        4
-      ]
-    },
-    {
-      "id": "char",
-      "name": "Char",
-      "type": "character",
-      "base_description": "A person involved in gathering items at the spa",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        1
-      ]
-    },
-    {
       "id": "gathering_items",
       "name": "gathering items",
       "type": "event",
@@ -260,38 +213,6 @@
       "states": [],
       "chunk_id": [
         1
-      ]
-    },
-    {
-      "id": "rejection_or_embarrassment",
-      "name": "rejection or embarrassment",
-      "type": "event",
-      "base_description": "Negative outcomes from encounters at the spa",
-      "base_attributes": {},
-      "states": [],
-      "chunk_id": [
-        1
-      ]
-    },
-    {
-      "id": "merrily",
-      "name": "Merrily",
-      "type": "character",
-      "base_description": "A character who dreams of bungee jumping and is assisted by Larry Laffer.",
-      "base_attributes": {},
-      "states": [
-        {
-          "sid": "assistance_to_merrilys_dream_merrily_0",
-          "current_description": "A character who has achieved her dream of bungee jumping with the help of Larry Laffer.",
-          "current_attributes": {
-            "dream_fulfilled": "bungee jumping"
-          },
-          "time_start_event": "Assistance to Merrily's Dream",
-          "time_end_event": null
-        }
-      ],
-      "chunk_id": [
-        2
       ]
     },
     {
@@ -328,13 +249,17 @@
       ]
     },
     {
-      "id": "stafforservice",
-      "name": "staff_or_service",
-      "type": "group",
-      "base_description": "Collective term for people or services at the spa who treat Larry poorly.",
-      "base_attributes": {},
+      "id": "larry_arrives_at_luxury_spa",
+      "name": "Larry arrives at luxury spa",
+      "type": "event",
+      "base_description": "Event of Larry arriving at the luxury spa after losing a dating show and his subsequent actions, including being treated poorly as a non-paying guest and eventually gaining affection from Shamara by completing tasks for her. Larry Laffer's arrival at the luxury spa concludes his misadventure successfully.",
+      "base_attributes": {
+        "time": ""
+      },
       "states": [],
       "chunk_id": [
+        1,
+        3,
         4
       ]
     }
@@ -396,28 +321,6 @@
       "chunk_id": 0
     },
     {
-      "id": "larry_laffer_participates_in_larry_arrives_at_spa_edge",
-      "source": "larry_laffer",
-      "target": "larry_arrives_at_luxury_spa",
-      "relation": "participates in",
-      "description": "Larry participates in the event of arriving at the spa.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 3
-    },
-    {
-      "id": "larry_laffer_is_interacted_by_cavaricchi_and_burgundy_edge",
-      "source": "larry_laffer",
-      "target": "cavaricchi_and_burgundy",
-      "relation": "is interacted by",
-      "description": "Larry interacts with Cavaricchi and Burgundy at the spa.",
-      "weight": 0.5,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
       "id": "larry_laffer_participates_in_assistance_to_merrilys_dream_edge",
       "source": "larry_laffer",
       "target": "assistance_to_merrilys_dream",
@@ -451,28 +354,6 @@
       "chunk_id": 3
     },
     {
-      "id": "larry_laffer_participates_in_arrival_at_luxury_spa_edge",
-      "source": "larry_laffer",
-      "target": "arrival_at_luxury_spa",
-      "relation": "participates in",
-      "description": "Larry Laffer participates in the event of arriving at the luxury spa.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "larry_laffer_assists_with_dream_of_merrily_edge",
-      "source": "larry_laffer",
-      "target": "merrily",
-      "relation": "assists with dream of",
-      "description": "Larry assists Merrily in achieving her dream of bungee jumping.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 2
-    },
-    {
       "id": "larry_laffer_is_humiliated_by_dominatrix_edge",
       "source": "larry_laffer",
       "target": "dominatrix",
@@ -482,6 +363,17 @@
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 2
+    },
+    {
+      "id": "larry_laffer_participates_in_arrival_at_luxury_spa_edge",
+      "source": "larry_laffer",
+      "target": "larry_arrives_at_luxury_spa",
+      "relation": "participates in",
+      "description": "Larry Laffer participates in the event of arriving at the luxury spa.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
     },
     {
       "id": "gammie_with_her_weightloss_treatment_receives_help_from_larry_helps_gammie_with_weightloss_treatment_edge",
@@ -649,39 +541,6 @@
       "chunk_id": 2
     },
     {
-      "id": "cavaricchi_and_burgundy_interacts_with_larry_laffer_edge",
-      "source": "cavaricchi_and_burgundy",
-      "target": "larry_laffer",
-      "relation": "interacts with",
-      "description": "Larry interacts with Cavaricchi and Burgundy at the spa.",
-      "weight": 0.5,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "larry_arrives_at_spa_involves_larry_laffer_edge",
-      "source": "larry_arrives_at_luxury_spa",
-      "target": "larry_laffer",
-      "relation": "involves",
-      "description": "Larry participates in the event of arriving at the spa.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 3
-    },
-    {
-      "id": "larry_arrives_at_spa_has_impact_on_shamara_edge",
-      "source": "larry_arrives_at_luxury_spa",
-      "target": "shamara",
-      "relation": "has impact on",
-      "description": "Event has an impact on Shamara's affection towards Larry.",
-      "weight": 0.8,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 3
-    },
-    {
       "id": "assistance_to_merrilys_dream_involves_larry_laffer_edge",
       "source": "assistance_to_merrilys_dream",
       "target": "larry_laffer",
@@ -715,17 +574,6 @@
       "chunk_id": 2
     },
     {
-      "id": "shamara_affected_by_larry_arrives_at_spa_edge",
-      "source": "shamara",
-      "target": "larry_arrives_at_luxury_spa",
-      "relation": "affected by",
-      "description": "Event has an impact on Shamara's affection towards Larry.",
-      "weight": 0.8,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 3
-    },
-    {
       "id": "shamara_has_affection_gained_by_larry_laffer_edge",
       "source": "shamara",
       "target": "larry_laffer",
@@ -735,39 +583,6 @@
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 3
-    },
-    {
-      "id": "shamara_has_completed_by_tasks_for_shamara_edge",
-      "source": "shamara",
-      "target": "tasks_for_shamara",
-      "relation": "has completed by",
-      "description": "Shamara's affection is gained through Larry completing tasks",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 3
-    },
-    {
-      "id": "arrival_at_luxury_spa_involves_larry_laffer_edge",
-      "source": "arrival_at_luxury_spa",
-      "target": "larry_laffer",
-      "relation": "involves",
-      "description": "Larry Laffer participates in the event of arriving at the luxury spa.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 4
-    },
-    {
-      "id": "merrily_receives_assistance_from_larry_laffer_edge",
-      "source": "merrily",
-      "target": "larry_laffer",
-      "relation": "receives assistance from",
-      "description": "Larry assists Merrily in achieving her dream of bungee jumping.",
-      "weight": 1.0,
-      "time_start_event": null,
-      "time_end_event": null,
-      "chunk_id": 2
     },
     {
       "id": "sauna_is_part_of_luxury_spa_edge",
@@ -792,12 +607,23 @@
       "chunk_id": 2
     },
     {
-      "id": "tasks_for_shamara_gains_affection_from_shamara_edge",
-      "source": "tasks_for_shamara",
-      "target": "shamara",
-      "relation": "gains affection from",
-      "description": "Shamara's affection is gained through Larry completing tasks",
+      "id": "arrival_at_luxury_spa_involves_larry_laffer_edge",
+      "source": "larry_arrives_at_luxury_spa",
+      "target": "larry_laffer",
+      "relation": "involves",
+      "description": "Larry Laffer participates in the event of arriving at the luxury spa.",
       "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "larry_arrives_at_spa_has_impact_on_shamara_edge",
+      "source": "larry_arrives_at_luxury_spa",
+      "target": "shamara",
+      "relation": "has impact on",
+      "description": "Event has an impact on Shamara's affection towards Larry.",
+      "weight": 0.8,
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 3

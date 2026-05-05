@@ -24,8 +24,8 @@ from langchain_core.runnables import Runnable
 from fastcoref import FCoref
 
 from nir.embedding.vector_store_loader import VectorStoreInfo, create_vector_store
-from nir.graph.graph_parser import SafePydanticParser, normalize_events_subgraph, normalize_graph_completion_result, normalize_graph_extraction_result, normalize_merged_node, normalize_merged_node_name, normalize_node_names_extraction_result
-from nir.graph.graph_structures import GraphCompletionResult, InputEdge, InputNode, MergedNode, MergedNodeName, Node, Edge, EventImpact, NodeNamesExtractionResult, State, EventsSubgraph, GraphExtractionResult
+from nir.graph.graph_parser import SafePydanticParser, normalize_events_subgraph, normalize_graph_completion_result, normalize_graph_extraction_result, normalize_merged_in_graph_node, normalize_merged_node, normalize_merged_node_name, normalize_node_names_extraction_result
+from nir.graph.graph_structures import GraphCompletionResult, InputEdge, InputNode, MergedInGraphNode, MergedNode, MergedNodeName, Node, Edge, EventImpact, NodeNamesExtractionResult, State, EventsSubgraph, GraphExtractionResult
 from nir.graph.knowledge_graph import KnowledgeGraph
 from nir.graph.graph_storages.networkx_graph import NetworkXGraph
 from nir.prompts import extraction_prompts
@@ -416,6 +416,33 @@ prompt_merging_names_ru = ChatPromptTemplate.from_messages([
         "{format_instructions}"
     )
 ]).partial(format_instructions=merged_nodes_parser.get_format_instructions())
+
+
+
+#---------------------------------------
+#-----editing graph (merging nodes)-----
+#---------------------------------------
+
+merged_in_graph_nodes_parser = PydanticOutputParser(pydantic_object=MergedInGraphNode)
+safe_merged_in_graph_nodes_parser = SafePydanticParser(expected_structure=MergedInGraphNode, normalizer=normalize_merged_in_graph_node)
+
+prompt_merging_in_graph_en = ChatPromptTemplate.from_messages([
+    ("system", extraction_prompts.SYSTEM_PROMPT_MERGING_IN_GRAPH_EN),
+    ("human",
+        "Node A:\n{node_a_json}\n\n"
+        "Node B:\n{node_b_json}\n\n"
+        "{format_instructions}"
+    )
+]).partial(format_instructions=merged_in_graph_nodes_parser.get_format_instructions())
+
+prompt_merging_in_graph_ru = ChatPromptTemplate.from_messages([
+    ("system", extraction_prompts.SYSTEM_PROMPT_MERGING_IN_GRAPH_RU),
+    ("human",
+        "Node A:\n{node_a_json}\n\n"
+        "Node B:\n{node_b_json}\n\n"
+        "{format_instructions}"
+    )
+]).partial(format_instructions=merged_in_graph_nodes_parser.get_format_instructions())
 
 
 #--------------------------------------------------
@@ -1420,7 +1447,7 @@ def update_embeddings(
             "type": "node",
             "node_type": node.type,
             "name": node.name
-        })   
+        })
     store_ids = set(vector_store.get_all_ids())
     graph_ids_set = set(graph_ids)
 
@@ -1466,3 +1493,82 @@ def update_embeddings(
             metadatas=updated_metadatas,
             documents=updated_docs
         )
+
+def merge_several_nodes_in_graph(
+        graph: KnowledgeGraph,
+        nodes_to_merge: List[Node],
+        llm: BaseLanguageModel, 
+        embedding_model: Embeddings,
+        preserve_all_data: bool = True,
+        language: str = "en"
+    ) -> None:  
+    
+    if language == "en":
+        chain_merging = prompt_merging_in_graph_en | llm | clean_json | merged_in_graph_nodes_parser
+        safe_chain_merging = prompt_merging_in_graph_en | llm | safe_merged_in_graph_nodes_parser.parse
+    else:
+        chain_merging = prompt_merging_ru | llm | clean_json | merged_nodes_parser
+        safe_chain_merging = prompt_merging_ru | llm | safe_merged_nodes_parser.parse
+
+    if not nodes_to_merge:
+        return
+
+    node_ids = [node.id for node in nodes_to_merge]
+    result_node = nodes_to_merge[0]
+    for i in range(1, len(nodes_to_merge)):
+        node_i = nodes_to_merge[i]
+        node_i_for_llm = MergedInGraphNode(
+            name=node_i.name,
+            type=node_i.type,
+            base_description=node_i.base_description,
+            base_attributes=node_i.base_attributes,
+            states=node_i.states
+        )
+        node_j_for_llm = MergedInGraphNode(
+            name=result_node.name,
+            type=result_node.type,
+            base_description=result_node.base_description,
+            base_attributes=result_node.base_attributes,
+            states=result_node.states
+        )
+
+        if preserve_all_data:
+            merged_node: MergedInGraphNode = safe_chain_merging.invoke({
+                "node_a_json": node_i_for_llm.model_dump_json(),
+                "node_b_json": node_j_for_llm.model_dump_json(),
+            })
+        else:
+            merged_node: MergedInGraphNode = safe_invoke_chain(
+                chain=chain_merging, 
+                inputs={
+                    "node_a_json": node_i_for_llm.model_dump_json(),
+                    "node_b_json": node_j_for_llm.model_dump_json(),
+            })
+        result_node = Node(
+            id=create_id(merged_node.name),
+            name=merged_node.name,
+            type=merged_node.type,
+            base_description=merged_node.base_description,
+            base_attributes=merged_node.base_attributes,
+            states=merged_node.states,
+            chunk_id=list(set(result_node.chunk_id + node_i.chunk_id))
+        )
+    
+    edges_to_rewire = []
+    for u, v, key, attrs in graph.graph.edges(data=True, keys=True):
+        if u in node_ids or v in node_ids:
+            new_source = result_node.id if u in node_ids else u
+            new_target = result_node.id if v in node_ids else v
+            new_attrs = deepcopy(attrs)
+            if "data" in new_attrs:
+                new_attrs["data"]["source"] = new_source
+                new_attrs["data"]["target"] = new_target
+            edges_to_rewire.append((new_source, new_target, key, new_attrs))
+    for node_id in node_ids:
+        graph.remove_node(node_id)
+    for new_source, new_target, key, attrs in edges_to_rewire:
+        graph.graph.add_edge(new_source, new_target, key=key, **attrs)
+    graph.add_node(result_node)
+
+    update_embeddings(graph, graph.get_vector_db(), embedding_model=embedding_model)
+    return

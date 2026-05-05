@@ -232,6 +232,26 @@ def normalize_merged_node_name(raw: dict) -> dict:
         "name": get_value(raw, "name", ""),
     }
 
+def normalize_state(raw: dict) -> dict:
+    return {
+        "sid": ensure_str(get_value(raw, "sid", "")),
+        "current_description": ensure_str(get_value(raw, "current_description", "")),
+        "current_attributes": ensure_dict(get_value(raw, "current_attributes", {})),
+        "time_start_event": get_value(raw, "time_start_event", None),
+        "time_end_event": get_value(raw, "time_end_event", None),
+    }
+
+def normalize_merged_in_graph_node(raw: dict) -> dict:
+    return {
+        "name": ensure_str(get_value(raw, "name", "")),
+        "type": ensure_str(get_value(raw, "type", "item")),
+        "base_description": ensure_str(get_value(raw, "base_description", "")),
+        "base_attributes": ensure_dict(get_value(raw, "base_attributes", {})),
+        "states": [
+            normalize_state(s) for s in ensure_list(get_value(raw, "states", []))
+            if isinstance(s, dict)
+        ],
+    }
 
 #-------------------------------------------------------
 #-----normalize output structures: graph completion-----
