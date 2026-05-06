@@ -1,0 +1,6 @@
+
+# **/assets/chats/**
+# !**/assets/chats/.gitkeep
+
+# **/assets/databases/**
+# !**/assets/databases/.gitkeep
