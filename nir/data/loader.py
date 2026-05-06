@@ -5,6 +5,7 @@ import pandas as pd
 
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain_community.document_loaders.text import TextLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.document_loaders.telegram import text_to_docs
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -38,6 +39,12 @@ def loadTXT(path: str, encoding: str = "utf-8") -> List[Document]:
     loader = TextLoader(file_path=path, encoding=encoding)
     data = loader.load()
     return data
+
+def loadPDF(path: str, encoding: str = "utf-8") -> List[Document]:
+    loader = PyPDFLoader(file_path=path)
+    data = loader.load()
+    return data
+
 
 def convertFromString(string: str, encoding: str = "utf-8") -> List[Document]:
     data = text_to_docs(string)

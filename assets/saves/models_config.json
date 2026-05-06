@@ -109,6 +109,17 @@
                 "extra": {}
             },
             "api_info": null
+        },
+        "russian chat model": {
+            "option": "ollama",
+            "model_name": "phi4-mini:3.8b",
+            "config": {
+                "model_name": "phi4-mini:3.8b",
+                "temperature": "0.7",
+                "max_tokens": "2048",
+                "extra": {}
+            },
+            "api_info": null
         }
     },
     "embedding_models": {

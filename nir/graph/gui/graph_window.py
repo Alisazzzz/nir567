@@ -26,7 +26,7 @@ BG_DARK = "#0a0a0a"
 BG_NODE = "#151515" 
 BG_PANEL = "#111111"
 
-SECONDARY_COLOR = "#04681d"
+SECONDARY_COLOR = "#0e7026"
 PRIMARY_COLOR = "#0fc23c"
 BUTTON_PRESSED_COLOR = "#077a24"
 SELECT_COLOR = "#fffb20"
@@ -63,7 +63,7 @@ TYPE_ZONES = {
     "group": {"x": -350, "y": -250},
     "location": {"x": 350, "y": -250},
     "event": {"x": 350, "y": 250},
-    "environment_element": {"x": 350, "y": 250},
+    "environment_element": {"x": 350, "y": -250},
     "item": {"x": -350, "y": 250},
 }
 
@@ -1220,11 +1220,11 @@ class GraphWindow:
             x, y = self.screen_positions[node_id]
             selected = node_id in self.selected_nodes
             type_color = TYPE_COLORS.get(data["type"], TYPE_COLORS["default"])
-            outline = SECONDARY_COLOR if selected else type_color
+            outline = type_color
             width = 3 if selected else 2
             fill = BG_NODE 
             if selected:
-                self.canvas.create_oval(x - r*1.2, y - r*1.2, x + r*1.2, y + r*1.2, outline=SECONDARY_COLOR, width=1, stipple="gray12")
+                self.canvas.create_oval(x - r*1.2, y - r*1.2, x + r*1.2, y + r*1.2, outline=SELECT_COLOR, width=2, stipple="gray12")
             oval = self.canvas.create_oval(x - r, y - r, x + r, y + r, fill=fill, outline=outline, width=width)
             if self.zoom >= 0.5:
                 text_color = type_color if not selected else SECONDARY_COLOR

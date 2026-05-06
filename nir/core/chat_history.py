@@ -175,7 +175,7 @@ prompt_topic_check = ChatPromptTemplate.from_messages([
 
 
 #----------------------------
-#-----Chat History Class-----
+#-----chat history class-----
 #----------------------------
 
 class ChatHistory:

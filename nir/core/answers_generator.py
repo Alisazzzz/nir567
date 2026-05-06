@@ -6,8 +6,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.language_models import BaseLanguageModel
 
 from nir.prompts import answer_prompts
-
-
 import re
 
 def parse_llm_answer(text: str, content_type: str) -> str:
