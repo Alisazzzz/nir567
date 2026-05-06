@@ -1358,7 +1358,7 @@ def update_graph(
             if graph.get_node_by_id(n.id) != n:
                 graph.update_node_full(n.id, n)
         else:
-            graph.add_node(n)  
+            graph.add_node(n)
     for e in merged_result[1].values():
         if e.source and e.target:
             if graph.get_edge_by_id(e.id):
@@ -1383,6 +1383,178 @@ def update_graph(
         for event_in_graph in events_only:
             if event_in_graph.name == event.event_name:
                 apply_event_impact_on_graph(graph, event, event_in_graph)
+
+
+def update_graph_from_nodes(
+        chunks: List[Document],       
+        llm: BaseLanguageModel,
+        embedding_model: Embeddings,
+        graph: KnowledgeGraph,
+        preserve_all_data: bool = True,
+        language: str = "en"
+    ) -> None:
+    
+    nodes_names = extract_entities_names(
+        chunks=chunks, 
+        llm=llm,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )
+
+    merged_nodes_names = merge_similar_entities_names(
+        chunks=chunks,
+        nodes=nodes_names.values(), 
+        llm=llm,
+        embedding_model=embedding_model,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )
+
+    nodes, edges = extract_graph_info(
+        chunks=chunks,
+        nodes=merged_nodes_names,
+        llm=llm,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )
+
+    completed_nodes, completed_edges = complete_graph(
+        chunks=chunks,
+        nodes=nodes,
+        edges=edges,
+        llm=llm,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )
+    
+    all_nodes = graph.get_all_nodes()
+    for n in completed_nodes.values():
+        all_nodes.append(n)
+    
+    all_edges = graph.get_all_edges()
+    for e in completed_edges.values():
+        all_edges.append(e)
+
+    merged_result = merge_similar_nodes(
+        chunks=chunks,
+        nodes=all_nodes, 
+        edges=all_edges, 
+        llm=llm, 
+        embedding_model=embedding_model,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )
+    
+    for n in merged_result[0].values():
+        if graph.get_node_by_id(n.id):
+            if graph.get_node_by_id(n.id) != n:
+                graph.update_node_full(n.id, n)
+        else:
+            graph.add_node(n)
+    for e in merged_result[1].values():
+        if e.source and e.target:
+            if graph.get_edge_by_id(e.id):
+                if graph.get_edge_by_id(e.id) != e:
+                    graph.update_edge_full(e.id, e)
+            else:   
+                graph.add_edge(e)
+
+    nodes_in_graph = graph.get_all_nodes()
+    edges_in_graph = graph.get_all_edges()
+    events_impacts = extract_events_impact(
+        chunks=chunks, 
+        nodes=nodes_in_graph, 
+        edges=edges_in_graph, 
+        llm=llm,
+        preserve_all_data=preserve_all_data,
+        language=language
+    )  
+    
+    events_only = [node for node in nodes_in_graph if node.type == "event"]
+    for event in events_impacts:
+        for event_in_graph in events_only:
+            if event_in_graph.name == event.event_name:
+                apply_event_impact_on_graph(graph, event, event_in_graph)
+
+
+def merge_several_nodes_in_graph(
+        graph: KnowledgeGraph,
+        nodes_to_merge: List[Node],
+        llm: BaseLanguageModel, 
+        embedding_model: Embeddings,
+        preserve_all_data: bool = True,
+        language: str = "en"
+    ) -> None:  
+    
+    if language == "en":
+        chain_merging = prompt_merging_in_graph_en | llm | clean_json | merged_in_graph_nodes_parser
+        safe_chain_merging = prompt_merging_in_graph_en | llm | safe_merged_in_graph_nodes_parser.parse
+    else:
+        chain_merging = prompt_merging_ru | llm | clean_json | merged_nodes_parser
+        safe_chain_merging = prompt_merging_ru | llm | safe_merged_nodes_parser.parse
+
+    if not nodes_to_merge:
+        return
+
+    node_ids = [node.id for node in nodes_to_merge]
+    result_node = nodes_to_merge[0]
+    for i in range(1, len(nodes_to_merge)):
+        node_i = nodes_to_merge[i]
+        node_i_for_llm = MergedInGraphNode(
+            name=node_i.name,
+            type=node_i.type,
+            base_description=node_i.base_description,
+            base_attributes=node_i.base_attributes,
+            states=node_i.states
+        )
+        node_j_for_llm = MergedInGraphNode(
+            name=result_node.name,
+            type=result_node.type,
+            base_description=result_node.base_description,
+            base_attributes=result_node.base_attributes,
+            states=result_node.states
+        )
+
+        if preserve_all_data:
+            merged_node: MergedInGraphNode = safe_chain_merging.invoke({
+                "node_a_json": node_i_for_llm.model_dump_json(),
+                "node_b_json": node_j_for_llm.model_dump_json(),
+            })
+        else:
+            merged_node: MergedInGraphNode = safe_invoke_chain(
+                chain=chain_merging, 
+                inputs={
+                    "node_a_json": node_i_for_llm.model_dump_json(),
+                    "node_b_json": node_j_for_llm.model_dump_json(),
+            })
+        result_node = Node(
+            id=create_id(merged_node.name),
+            name=merged_node.name,
+            type=merged_node.type,
+            base_description=merged_node.base_description,
+            base_attributes=merged_node.base_attributes,
+            states=merged_node.states,
+            chunk_id=list(set(result_node.chunk_id + node_i.chunk_id))
+        )
+    
+    edges_to_rewire = []
+    for u, v, key, attrs in graph.graph.edges(data=True, keys=True):
+        if u in node_ids or v in node_ids:
+            new_source = result_node.id if u in node_ids else u
+            new_target = result_node.id if v in node_ids else v
+            new_attrs = deepcopy(attrs)
+            if "data" in new_attrs:
+                new_attrs["data"]["source"] = new_source
+                new_attrs["data"]["target"] = new_target
+            edges_to_rewire.append((new_source, new_target, key, new_attrs))
+    for node_id in node_ids:
+        graph.remove_node(node_id)
+    for new_source, new_target, key, attrs in edges_to_rewire:
+        graph.graph.add_edge(new_source, new_target, key=key, **attrs)
+    graph.add_node(result_node)
+
+    update_embeddings(graph, graph.get_vector_db(), embedding_model=embedding_model)
+    return
 
 
 
@@ -1493,82 +1665,3 @@ def update_embeddings(
             metadatas=updated_metadatas,
             documents=updated_docs
         )
-
-def merge_several_nodes_in_graph(
-        graph: KnowledgeGraph,
-        nodes_to_merge: List[Node],
-        llm: BaseLanguageModel, 
-        embedding_model: Embeddings,
-        preserve_all_data: bool = True,
-        language: str = "en"
-    ) -> None:  
-    
-    if language == "en":
-        chain_merging = prompt_merging_in_graph_en | llm | clean_json | merged_in_graph_nodes_parser
-        safe_chain_merging = prompt_merging_in_graph_en | llm | safe_merged_in_graph_nodes_parser.parse
-    else:
-        chain_merging = prompt_merging_ru | llm | clean_json | merged_nodes_parser
-        safe_chain_merging = prompt_merging_ru | llm | safe_merged_nodes_parser.parse
-
-    if not nodes_to_merge:
-        return
-
-    node_ids = [node.id for node in nodes_to_merge]
-    result_node = nodes_to_merge[0]
-    for i in range(1, len(nodes_to_merge)):
-        node_i = nodes_to_merge[i]
-        node_i_for_llm = MergedInGraphNode(
-            name=node_i.name,
-            type=node_i.type,
-            base_description=node_i.base_description,
-            base_attributes=node_i.base_attributes,
-            states=node_i.states
-        )
-        node_j_for_llm = MergedInGraphNode(
-            name=result_node.name,
-            type=result_node.type,
-            base_description=result_node.base_description,
-            base_attributes=result_node.base_attributes,
-            states=result_node.states
-        )
-
-        if preserve_all_data:
-            merged_node: MergedInGraphNode = safe_chain_merging.invoke({
-                "node_a_json": node_i_for_llm.model_dump_json(),
-                "node_b_json": node_j_for_llm.model_dump_json(),
-            })
-        else:
-            merged_node: MergedInGraphNode = safe_invoke_chain(
-                chain=chain_merging, 
-                inputs={
-                    "node_a_json": node_i_for_llm.model_dump_json(),
-                    "node_b_json": node_j_for_llm.model_dump_json(),
-            })
-        result_node = Node(
-            id=create_id(merged_node.name),
-            name=merged_node.name,
-            type=merged_node.type,
-            base_description=merged_node.base_description,
-            base_attributes=merged_node.base_attributes,
-            states=merged_node.states,
-            chunk_id=list(set(result_node.chunk_id + node_i.chunk_id))
-        )
-    
-    edges_to_rewire = []
-    for u, v, key, attrs in graph.graph.edges(data=True, keys=True):
-        if u in node_ids or v in node_ids:
-            new_source = result_node.id if u in node_ids else u
-            new_target = result_node.id if v in node_ids else v
-            new_attrs = deepcopy(attrs)
-            if "data" in new_attrs:
-                new_attrs["data"]["source"] = new_source
-                new_attrs["data"]["target"] = new_target
-            edges_to_rewire.append((new_source, new_target, key, new_attrs))
-    for node_id in node_ids:
-        graph.remove_node(node_id)
-    for new_source, new_target, key, attrs in edges_to_rewire:
-        graph.graph.add_edge(new_source, new_target, key=key, **attrs)
-    graph.add_node(result_node)
-
-    update_embeddings(graph, graph.get_vector_db(), embedding_model=embedding_model)
-    return

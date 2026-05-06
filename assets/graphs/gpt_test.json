@@ -32,7 +32,9 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "father",
@@ -43,7 +45,9 @@
         "family_role": "father"
       },
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "mother",
@@ -54,7 +58,9 @@
         "family_role": "mother"
       },
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "cat",
@@ -79,7 +85,9 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "notebook",
@@ -103,7 +111,9 @@
           "time_end_event": null
         }
       ],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "bed",
@@ -112,7 +122,9 @@
       "base_description": "The bed in the girl's bedroom under which the cat walks and where the notebook was found; the mother and daughter sit on it.",
       "base_attributes": {},
       "states": [],
-      "chunk_id": [0]
+      "chunk_id": [
+        0
+      ]
     },
     {
       "id": "story_about_cat",
@@ -123,7 +135,9 @@
         "time": ""
       },
       "states": [],
-      "chunk_id": [1]
+      "chunk_id": [
+        1
+      ]
     },
     {
       "id": "world_recreation",
@@ -134,7 +148,9 @@
         "time": ""
       },
       "states": [],
-      "chunk_id": [1]
+      "chunk_id": [
+        1
+      ]
     },
     {
       "id": "cat_finds_notebook",
@@ -145,7 +161,9 @@
         "time": ""
       },
       "states": [],
-      "chunk_id": [1]
+      "chunk_id": [
+        1
+      ]
     },
     {
       "id": "mother_takes_notebook",
@@ -156,7 +174,9 @@
         "time": ""
       },
       "states": [],
-      "chunk_id": [1]
+      "chunk_id": [
+        1
+      ]
     },
     {
       "id": "conversation_about_cat",
@@ -167,7 +187,9 @@
         "time": ""
       },
       "states": [],
-      "chunk_id": [1]
+      "chunk_id": [
+        1
+      ]
     }
   ],
   "edges": [
@@ -205,6 +227,17 @@
       "chunk_id": 0
     },
     {
+      "id": "father_speaks_to_cat",
+      "source": "father",
+      "target": "cat",
+      "relation": "speaks to",
+      "description": "The father looks at the cat and addresses it as a mister demon while asking a question.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
       "id": "mother_sits_on_bed",
       "source": "mother",
       "target": "bed",
@@ -225,50 +258,6 @@
       "time_start_event": null,
       "time_end_event": null,
       "chunk_id": 0
-    },
-    {
-      "id": "cat_finds_notebook_affects_notebook",
-      "source": "cat_finds_notebook",
-      "target": "notebook",
-      "relation": "affects",
-      "description": "The notebook is found by the cat.",
-      "weight": 1.0,
-      "time_start_event": "Cat finds notebook",
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "cat_finds_notebook_occurs_under_bed",
-      "source": "cat_finds_notebook",
-      "target": "bed",
-      "relation": "occurs under",
-      "description": "The cat finds the notebook under the bed.",
-      "weight": 1.0,
-      "time_start_event": "Cat finds notebook",
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "mother_takes_notebook_takes_notebook",
-      "source": "mother_takes_notebook",
-      "target": "notebook",
-      "relation": "takes",
-      "description": "Mother takes the notebook after it is found.",
-      "weight": 1.0,
-      "time_start_event": "Mother takes notebook",
-      "time_end_event": null,
-      "chunk_id": 1
-    },
-    {
-      "id": "mother_takes_notebook_occurs_near_bed",
-      "source": "mother_takes_notebook",
-      "target": "bed",
-      "relation": "occurs near",
-      "description": "Mother takes the notebook from under the bed.",
-      "weight": 1.0,
-      "time_start_event": "Mother takes notebook",
-      "time_end_event": null,
-      "chunk_id": 1
     },
     {
       "id": "story_about_cat_about_cat",
@@ -304,26 +293,26 @@
       "chunk_id": 1
     },
     {
-      "id": "conversation_about_cat_about_cat",
-      "source": "conversation_about_cat",
-      "target": "cat",
-      "relation": "is about",
-      "description": "The conversation centers around the cat being addressed as a demon who used to be a rock.",
+      "id": "cat_finds_notebook_affects_notebook",
+      "source": "cat_finds_notebook",
+      "target": "notebook",
+      "relation": "affects",
+      "description": "The notebook is found by the cat.",
       "weight": 1.0,
-      "time_start_event": "Conversation about cat",
+      "time_start_event": "Cat finds notebook",
       "time_end_event": null,
       "chunk_id": 1
     },
     {
-      "id": "father_speaks_to_cat",
-      "source": "father",
-      "target": "cat",
-      "relation": "speaks to",
-      "description": "The father looks at the cat and addresses it as a mister demon while asking a question.",
+      "id": "cat_finds_notebook_occurs_under_bed",
+      "source": "cat_finds_notebook",
+      "target": "bed",
+      "relation": "occurs under",
+      "description": "The cat finds the notebook under the bed.",
       "weight": 1.0,
-      "time_start_event": null,
+      "time_start_event": "Cat finds notebook",
       "time_end_event": null,
-      "chunk_id": 0
+      "chunk_id": 1
     },
     {
       "id": "cat_finds_precedes_mother_takes",
@@ -337,6 +326,28 @@
       "chunk_id": 1
     },
     {
+      "id": "mother_takes_notebook_takes_notebook",
+      "source": "mother_takes_notebook",
+      "target": "notebook",
+      "relation": "takes",
+      "description": "Mother takes the notebook after it is found.",
+      "weight": 1.0,
+      "time_start_event": "Mother takes notebook",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mother_takes_notebook_occurs_near_bed",
+      "source": "mother_takes_notebook",
+      "target": "bed",
+      "relation": "occurs near",
+      "description": "Mother takes the notebook from under the bed.",
+      "weight": 1.0,
+      "time_start_event": "Mother takes notebook",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
       "id": "mother_takes_precedes_story",
       "source": "mother_takes_notebook",
       "target": "story_about_cat",
@@ -344,6 +355,17 @@
       "description": "After taking the notebook, the mother begins telling the story.",
       "weight": 1.0,
       "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "conversation_about_cat_about_cat",
+      "source": "conversation_about_cat",
+      "target": "cat",
+      "relation": "is about",
+      "description": "The conversation centers around the cat being addressed as a demon who used to be a rock.",
+      "weight": 1.0,
+      "time_start_event": "Conversation about cat",
       "time_end_event": null,
       "chunk_id": 1
     }
