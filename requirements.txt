@@ -10,8 +10,9 @@ langsmith==0.4.29
 
 chromadb==1.1.0
 
-torch==2.9.0
-torchvision==0.24.0 --index-url https://download.pytorch.org/whl/cu126
+--extra-index-url https://download.pytorch.org/whl/cu126
+torch==2.9.0+cu126
+torchvision==0.24.0+cu126
 transformers==4.56.2
 sentence-transformers==5.1.2
 datasets==4.4.1

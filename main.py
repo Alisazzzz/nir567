@@ -8,6 +8,7 @@ if str(project_root) not in sys.path:
 def main():
     try:
         from nir.core.chatbot import run_chat_app
+        print("imported")
         run_chat_app()
     except KeyboardInterrupt:
         print("\n\nInterrupted by user")
@@ -19,4 +20,8 @@ def main():
         sys.exit(1)
 
 if __name__ == "__main__":
+    import torch
+    print(f"PyTorch version: {torch.__version__}")
+    print(f"CUDA available: {torch.cuda.is_available()}")
+    print(f"CUDA version PyTorch expects: {torch.version.cuda}")
     main()
