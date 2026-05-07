@@ -1,0 +1,14 @@
+
+**/assets/chats/**
+!**/assets/chats/.gitkeep
+
+**/assets/databases/chroma_db/**
+!**/assets/databases/chroma_db/.gitkeep
+
+**/assets/models/**
+!**/assets/models/.gitkeep
+
+**/chroma_langchain_db
+
+__pycache__/
+**/webapp

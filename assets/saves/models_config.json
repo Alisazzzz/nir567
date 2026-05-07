@@ -1,0 +1,20 @@
+{
+    "chat_models": {},
+    "embedding_models": {
+        "embeddings_standard": {
+            "option": "ollama",
+            "model_name": "nomic-embed-text:v1.5",
+            "api_info": null
+        },
+        "embeddings_fast": {
+            "option": "hf_local",
+            "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+            "api_info": null
+        },
+        "embeddings_rus": {
+            "option": "ollama",
+            "model_name": "evilfreelancer/enbeddrus:v0.2",
+            "api_info": null
+        }
+    }
+}

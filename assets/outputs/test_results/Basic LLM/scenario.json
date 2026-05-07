@@ -1,0 +1,22 @@
+[
+  {
+    "generated_text": "**Side Quest: \"The Lost Spark\"**\n\nAs the Traveler explores Inazuma, they receive a cryptic message from a former Vision bearer named Kaito. Kaito's Visions once fueled his passion for art and music, but after the Vision Hunt Decree, he was forced to surrender his most prized possessions. Now, Kaito struggles to find meaning in a world without Visions, feeling like a part of him has been extinguished.\n\nThe Traveler agrees to meet with Kaito, who leads them to an abandoned studio on the outskirts of Inazuma's capital city. As they speak, it becomes clear that Kaito is searching for more than just answers – he wants someone to believe in his art again. The Traveler senses that there might be a connection between Kaito's quest and the rumored hidden sanctuary where confiscated Visions are kept.\n\n**Investigation**\n\nThe Traveler begins by asking around town about the location of this sanctuary. Some people speak of it in hushed whispers, claiming it's a place where the Fatui store and study the stolen Visions. Others deny its existence or warn against getting involved. The Traveler must navigate these conflicting accounts to uncover clues.\n\nOne evening, while exploring the city's hidden alleys, the Traveler stumbles upon an old, mysterious scroll with cryptic symbols that seem to point to the sanctuary's location. They also overhear a conversation between two shady figures, discussing the sale of a rare Vision to a wealthy collector.\n\n**Moral Choice**\n\nAs the Traveler delves deeper, they come across a hidden entrance to the sanctuary. Inside, they find rows upon rows of Visions stored in glass jars, each one containing the hopes and dreams of those who once held them. The Traveler is faced with an impossible decision:\n\nA) Expose the truth about the Fatui's activities and the true purpose of the sanctuary. This could potentially free many Visions from their storage, but it also risks exposing the Traveler to the authorities.\n\nB) Protect Kaito and those like him who still hold onto hope. The Traveler can choose to keep the sanctuary a secret, ensuring that no more Visions are confiscated and lost forever.\n\n**Reflection**\n\nIf the Traveler chooses to protect Kaito, they find themselves in a quiet, dimly lit room deep within the sanctuary. Kaito is there, surrounded by his art supplies and scattered papers. The Traveler discovers a journal belonging to Kaito, filled with his struggles and fears.\n\nAs they share stories, the Traveler realizes that Kaito's loss wasn't just about his Visions – it was about the sense of purpose he once had. The Traveler offers words of encouragement, reminding Kaito that his art still holds value, even without Visions to fuel it.\n\nTogether, they spend hours reflecting on the past and imagining a future where creativity can thrive once more. As the night wears on, the Traveler departs, leaving Kaito with a renewed sense of hope and purpose.\n\n**Conclusion**\n\nThe side quest concludes with the Traveler returning to their own path, carrying the weight of Kaito's story with them. They realize that Inazuma's struggle for freedom is not just about Visions, but also about finding meaning in a world where change is inevitable.",
+    "category": "quest",
+    "reference_text": "\n                In the quest \"The Meaning of Meaningless Waiting,\" the Traveler meets Tejima, a former samurai whose Vision was confiscated. \n                Without his Vision, he struggles to remember why he stayed in Konda Village. The Traveler helps him find a letter revealing \n                he waited for a lover who never returned. Tejima chooses to remain, finding new meaning in patience rather than action.\n            ",
+    "metrics": {
+      "category": "quest",
+      "faithfulness": NaN,
+      "answer_relevancy": 0.680797644131376,
+      "context_precision": NaN,
+      "context_recall": 0.25,
+      "semantic_similarity": NaN,
+      "answer_correctness": NaN,
+      "bert_score_source": 0.8340773582458496,
+      "bert_score_reference": 0.8099823594093323,
+      "world_consistency": 0.95,
+      "distinct_2": 0.9078947368421053,
+      "repetition_2": 0.045112781954887216,
+      "interestingness": 0.75
+    }
+  }
+]
