@@ -301,20 +301,24 @@ class Form:
             
             key = ConsoleUI.get_key()
             if key == 'up' and not self.editing:
-                self.selected_field = (self.selected_field - 1) % len(self.fields)
+                self.selected_field = (self.selected_field - 1) % (len(self.fields) + 1)
                 if not self.clear_screen:
                     self.update_selection()
             elif key == 'down' and not self.editing:
-                self.selected_field = (self.selected_field + 1) % len(self.fields)
+                self.selected_field = (self.selected_field + 1) % (len(self.fields) + 1)
                 if not self.clear_screen:
                     self.update_selection()
             elif key == 'enter' and not self.editing:
-                self.editing = True
-                self.fields[self.selected_field].error = ""
-                if not self.clear_screen:
-                    console.print(f"\n[bold green]Editing: {self.fields[self.selected_field].label}[/bold green]")
-                    console.print("[dim]Type your value and press Enter. Esc to cancel editing.[/dim]")
-                self.submit_current_field()
+                if self.selected_field < len(self.fields): 
+                    self.editing = True
+                    self.fields[self.selected_field].error = ""
+                    if not self.clear_screen:
+                        console.print(f"\n[bold green]Editing: {self.fields[self.selected_field].label}[/bold green]")
+                        console.print("[dim]Type your value and press Enter. Esc to cancel editing.[/dim]")
+                    self.submit_current_field()
+                else:
+                    if self.validate_form():
+                        return self.get_results()
             elif key == 'escape':
                 if self.editing:
                     self.editing = False
@@ -329,12 +333,12 @@ class Form:
                     return self.get_results()
     
     def render_fields(self):
-        console.print(f"\n[{ColorTheme.INFO}]Press Enter to edit field, ↑/↓ to navigate[/{ColorTheme.INFO}]\n")
+        console.print(f"\n[{ColorTheme.INFO}]Press Enter to edit field, ↑/↓ to navigate, Enter on 'Submit' to save [/{ColorTheme.INFO}]\n")
         for idx, field in enumerate(self.fields):
             prefix = "→ " if idx == self.selected_field and not self.editing else "  "
-            
+
             if field.field_type == "boolean":
-                value_display = "✅ Yes" if field.value else "❎ No"
+                value_display = "Yes" if field.value else "No"
             elif field.field_type == "select" and field.options:
                 value_display = f"[{field.value}]" if field.value else "[Not selected]"
             else:
@@ -345,15 +349,18 @@ class Form:
                 console.print(f"{prefix}[yellow]{field.label}:[/yellow] [red]{field.error}[/red]")
             else:
                 console.print(f"{prefix}{required_mark} [cyan]{field.label}:[/cyan] [green]{value_display}[/green]")
-        
-        console.print(f"\n[dim]Enter: edit field | Esc: cancel | Alt+S: submit[/dim]")
+        console.print("")
+        submit_idx = len(self.fields)
+        prefix = "→ " if self.selected_field == submit_idx and not self.editing else "  "
+        console.print(f"{prefix}[bold {ColorTheme.TEXT}]Submit form[/bold {ColorTheme.TEXT}]")
+        console.print(f"\n[dim]Enter: edit field | Esc: cancel [/dim]")
     
     def update_selection(self):
-        console.print("\n" * (len(self.fields) + 3), end="")
+        console.print("\n" * (len(self.fields) + 4), end="")
         self.render_fields()
     
     def update_field_value(self):
-        console.print("\n" * (len(self.fields) + 3), end="")
+        console.print("\n" * (len(self.fields) + 4), end="")
         self.render_fields()
 
     def submit_current_field(self):
@@ -383,6 +390,7 @@ class Form:
             
             if field.required and not value:
                 field.error = "This field is required"
+                self.editing = False
                 return
             
             field.value = value
@@ -391,6 +399,7 @@ class Form:
             
         except ValueError:
             field.error = f"Invalid {field.field_type} value"
+            self.editing = False
     
     def validate_form(self) -> bool:
         valid = True
