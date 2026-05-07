@@ -305,7 +305,7 @@ def extract_world_history(
         event = graph.get_node_by_id(event_id)
         text = f"{event.name}. "
         if event.base_attributes.get("time"):
-            text += f"{event.base_attributes.get("time")}. "
+            text += f"{event.base_attributes.get('time')}. "
         text += f"{event.base_description}"
         tokens = estimate_tokens(text)
         result_history_dict[event_id] = (text, tokens)
