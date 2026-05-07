@@ -1060,16 +1060,18 @@ class GraphWindow:
         self.loading_dialog.overrideredirect(True)
         window_width = 300
         window_height = 100
-        self.root.update_idletasks()
-        root_x = self.root.winfo_x()
-        root_y = self.root.winfo_y()
-        root_width = self.root.winfo_width()
-        root_height = self.root.winfo_height()
+        def center_dialog():
+            self.root.update_idletasks()
+            root_x = self.root.winfo_x()
+            root_y = self.root.winfo_y()
+            root_width = self.root.winfo_width()
+            root_height = self.root.winfo_height()
+            x = root_x + (root_width - window_width) // 2
+            y = root_y + (root_height - window_height) // 2
+            self.loading_dialog.geometry(f"{window_width}x{window_height}+{x}+{y}")
         
-        x = root_x + (root_width - window_width) // 2
-        y = root_y + (root_height - window_height) // 2
-        
-        self.loading_dialog.geometry(f"{window_width}x{window_height}+{x}+{y}")
+        self.root.after(10, center_dialog)
+
         self.loading_dialog.attributes('-topmost', True)
         frame = tk.Frame(self.loading_dialog, bg=BG_PANEL, bd=2, relief="solid", highlightbackground=SECONDARY_COLOR, highlightthickness=1)
         frame.pack(fill="both", expand=True, padx=2, pady=2)
