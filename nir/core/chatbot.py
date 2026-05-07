@@ -1,4 +1,4 @@
-#All stuff with console chatbot is here
+#All stuff for console chatbot is here
 
 
 

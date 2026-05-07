@@ -17,7 +17,7 @@ def create_vector_store(config: VectorStoreInfo) -> VectorStore:
         case "chromadb":  
             vector_store = create_chromadb_store(config.info)
         case _:
-            raise ValueError(f"Неизвестный тип эмбеддингов: {type}")
+            raise ValueError(f"Unknown embeddings type: {type}")
     return vector_store
         
 def create_chromadb_store(info: Dict[str, str]) -> ChromaVectorStore:
