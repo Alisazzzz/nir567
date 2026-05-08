@@ -37,6 +37,10 @@ Context retrieval combines semantic similarity search with graph traversal. The 
 Additionally, since the system is implemented as a chatbot-based tool, conversation history is also included in the context provided to the language model.
 
 ## Installation
+This project was developed and tested on Windows environments. Support for Linux and macOS has not been tested.
+
+The system also requires a CUDA-compatible GPU for efficient execution of language and embedding models. CPU-only execution is currently not officially supported and may result in significantly reduced performance or unsupported behavior.
+
 To use method and instruments provided in this repository, follow this steps:
 #### 0. Install Python
 This project requires Python 3.13. The codebase was tested with Python 3.13 only, and compatibility with other Python versions is currently unknown.
