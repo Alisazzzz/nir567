@@ -1,13 +1,13 @@
 # Narrative Generation with Knowledge Graph-Based RAG
 
 
+This project is a prototype system for generating text-based narrative elements such as character descriptions, quests, dialogues, lore fragments, and other narrative content, primarily for video games.
 
-Hello there! This is a repo for a prototype system, that is created for generation video games narrative elements using stuff like Language Models (local or remote, as you wish), Retrieval-Augmented Generation (RAG), an a custom knowledge graph that represents the game world.
-The system is based on theoretical research, main points of which are:
-  1. Structured representations such as knowledge graphs can improve the consistency between the game world and newly generated narrative elements more effectively than standard RAG systems.
-  2. No other points, I'm sorry, only first one.
+Inspired by graph-based RAG systems such as GraphRAG, LightRAG, and PathRAG, the project is also based on several research related to game narrative or gameplay generation using structured world representations that are used for context. The main goal of the method is to improve the consistency between generated narrative elements and the existing game world compared to standard RAG approaches.
 
-The project is designed to assist narrative designers and game developers by automating the creation of text-based narrative content such as character descriptions, location descriptions, quests, dialogues and so on. 
+In this method, the game world is represented as a knowledge graph consisting of six types of nodes: locations, environmental elements, characters, character groups, items, and events, as well as edges connecting them. All nodes except event nodes can contain multiple states representing changes to an entity caused by events. Edges also contain temporal information describing when a relationship appears and when it disappears. If an edge has no timestamps, it is considered to exist throughout the entire history of the world. As a result, the graph represents not only the structure of the game world and relationships between entities, but also the evolution of the world over time and the impact of events on its state.
+
+The method is implemented as a console application that allows users to experiment with the complete extraction and generation pipeline.
 
 ## Requirements
 Python 3.13  
