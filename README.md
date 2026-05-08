@@ -38,7 +38,8 @@ Additionally, since the system is implemented as a chatbot-based tool, conversat
 
 ## Installation
 This project was developed and tested on Windows environments. Support for Linux and macOS has not been tested.
-`.exe` file for app installation without python and its dependencies you can find [here](https://drive.google.com/file/d/1t_Tvv_9Tp9zraukooOTvtXImJTF-mVkQ/view?usp=sharing)
+`.exe` file for app installation without python and its dependencies you can find [here](https://drive.google.com/file/d/1t_Tvv_9Tp9zraukooOTvtXImJTF-mVkQ/view?usp=sharing).
+Additionally, it would be very helpful if you could complete the survey: [in english](https://forms.gle/sACmb5cwsVsPrBPD9) | [in russian](https://forms.gle/voY1HXCN5tyBotpB9)
 
 The system also requires a CUDA-compatible GPU for efficient execution of language and embedding models. CPU-only execution is currently not officially supported and may result in significantly reduced performance or unsupported behavior.
 
