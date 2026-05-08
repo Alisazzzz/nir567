@@ -30,7 +30,7 @@ from nir.data import loader
 from nir.core.answers_generator import generate_answer_based_on_context, generate_answer_based_on_plan, generate_plan
 from nir.core.context_retriever import form_context_with_llm
 from nir.embedding.vector_store_loader import VectorStoreInfo
-from nir.graph.graph_construction import create_embeddings, extract_graph, get_next_chunk_id, update_embeddings, update_graph
+from nir.graph.graph_construction import create_embeddings, extract_graph, extract_graph_from_nodes, get_next_chunk_id, update_embeddings, update_graph, update_graph_from_nodes
 from nir.graph.graph_storages.networkx_graph import NetworkXGraph
 from nir.graph.knowledge_graph import KnowledgeGraph
 from nir.llm.manager import ModelManager
@@ -783,7 +783,7 @@ Let's set up your environment!
             data = loader.loadTXT(str(text_path))
         
         chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0, chunk_size=int(result["chunk_size"]), chunk_overlap=int(result["chunk_overlap"]))   
-        self.graph = extract_graph(chunks=chunks, llm=self.instruct_model, embedding_model=self.embedding_model, graph_class=NetworkXGraph, preserve_all_data=False, language=result["language"]) 
+        self.graph = extract_graph_from_nodes(chunks=chunks, llm=self.instruct_model, embedding_model=self.embedding_model, graph_class=NetworkXGraph, preserve_all_data=False, language=result["language"]) 
         self.language = result["language"]
         vector_db_info = VectorStoreInfo(
             type="chromadb",
@@ -1013,7 +1013,7 @@ Let's set up your environment!
         greatest_id = get_next_chunk_id(self.graph)
         data = loader.convertFromString(response)
         chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=greatest_id)
-        update_graph(chunks, self.instruct_model, self.embedding_model, self.graph)
+        update_graph_from_nodes(chunks, self.instruct_model, self.embedding_model, self.graph)
         
         if self.graph.get_vector_db():
             update_embeddings(self.graph, self.graph.get_vector_db(), self.embedding_model)

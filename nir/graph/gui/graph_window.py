@@ -23,8 +23,8 @@ from nir.graph.knowledge_graph import KnowledgeGraph
 #-------------------------------
 
 BG_DARK = "#0a0a0a"
-BG_NODE = "#151515" 
-BG_PANEL = "#111111"
+BG_NODE = "#0F0F0F" 
+BG_PANEL = "#0a0a0a"
 
 SECONDARY_COLOR = "#0e7026"
 PRIMARY_COLOR = "#0fc23c"

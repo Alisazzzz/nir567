@@ -63,8 +63,11 @@ class ChromaVectorStore(VectorStore):
         pass
 
     def clear_db(self) -> None:
-        ids = self.get_all_ids()
-        self.delete_embeddings(ids)
+        self.client.delete_collection(self.collection.name)
+        self.collection = self.client.get_or_create_collection(
+        name=self.collection.name,
+        metadata={"hnsw:space": "cosine"}
+    )
 
     def get_collection(self):
         return self.collection
@@ -80,7 +83,7 @@ class ChromaVectorStore(VectorStore):
         for i in range(len(results["ids"][0])):
             hits.append({
                 "id": results["ids"][0][i],
-                "distance": results["distances"][0][i],
+                "distance": 1 - results["distances"][0][i],
                 "metadata": results["metadatas"][0][i],
                 "document": results["documents"][0][i],
             })

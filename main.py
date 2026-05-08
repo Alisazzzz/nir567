@@ -8,7 +8,6 @@ if str(project_root) not in sys.path:
 def main():
     try:
         from nir.core.chatbot import run_chat_app
-        print("imported")
         run_chat_app()
     except KeyboardInterrupt:
         print("\n\nInterrupted by user")

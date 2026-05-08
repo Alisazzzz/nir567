@@ -164,8 +164,8 @@ def clean_json(text: str) -> str:
     balanced = extract_last_json(text)
     if balanced:
         try:
-            json.loads(balanced)
             cleaned = remove_comments(balanced)
+            json.loads(balanced)
             return cleaned
         except json.JSONDecodeError:
             pass
@@ -325,8 +325,9 @@ def extract_world_history(
         total_tokens -= result_history_dict[remove_id][1]
     final_ids = [event_ids[0]] + middle_event_ids + [event_ids[-1]]
     for event in final_ids:
-        text = event
+        text = result_history_dict[event_id][0]
         result += text + "\n"
+    print(result)
     return result
 
 
@@ -348,16 +349,23 @@ def retrieve_similar_nodes(
     results = vector_db.search(query_emb, amount)
 
     candidates = []
+    candidate_nodes = []
     for result in results:
         if result.get("distance", 0.0) >= threshold:
             if(result.get("metadata").get("type") == "edge"):
                 node1 = graph.get_node_by_id(result.get("metadata").get("source"))
                 node2 = graph.get_node_by_id(result.get("metadata").get("target"))
-                candidates.append((node1, result.get("distance", 0.0)))
-                candidates.append((node2, result.get("distance", 0.0)))
+                if node1 and not node1.id in candidate_nodes:
+                    candidates.append((node1, result.get("distance", 0.0)))
+                    candidate_nodes.append(node1.id)
+                if node2 and not node2.id in candidate_nodes:
+                    candidates.append((node2, result.get("distance", 0.0)))
+                    candidate_nodes.append(node2.id)
             else:
-                node = graph.get_node_by_id(result.get("id", ""))
-                candidates.append((node, result.get("distance", 0.0)))
+                node = graph.get_node_by_id(result.get("metadata").get("original_id"))
+                if node and node.id in candidate_nodes:
+                    candidates.append((node, result.get("distance", 0.0)))
+                    candidate_nodes.append(node.id)
     candidates.sort(key=lambda x: x[1], reverse=True)
     return candidates
 
@@ -408,7 +416,7 @@ def find_paths(
             new_path = path + [next_node]
             new_edges = edges + [edge.id]
             queue.append((next_node, new_path, new_edges, S_next))
-    results.sort(key=lambda x: x[1], reverse=True)
+    results.sort(key=lambda x: x[2], reverse=True)
     return results
 
 
@@ -439,6 +447,8 @@ def form_context_without_llm(
             if not any(node[0] == neighbour for node in result_nodes):
                 edges = [edge for edge in graph.get_all_edges() if edge.target == neighbour.id]
                 edges = [edge for edge in edges if edge.source == entry_node.id]
+                if not edges:
+                    continue
                 edges.sort(key=lambda x: x.weight)
                 weight = edges[0].weight
                 result_nodes.append((neighbour, weight))
@@ -566,10 +576,12 @@ def form_context_with_llm(
     context_info.downer_border_event_name = clean_string(context_info.downer_border_event_name) if context_info.downer_border_event_name else None
     context_info.upper_border_event_name = clean_string(context_info.upper_border_event_name) if context_info.upper_border_event_name else None
     
-    downer_border_event_id = (graph.get_node_by_name(context_info.downer_border_event_name)).id if context_info.downer_border_event_name else None
-    upper_border_event_id = (graph.get_node_by_name(context_info.upper_border_event_name)).id if context_info.upper_border_event_name else None
+    node_downer_event = graph.get_node_by_name(context_info.downer_border_event_name) if context_info.downer_border_event_name else None
+    downer_border_event_id = node_downer_event.id if node_downer_event else None
+    node_upper_event = graph.get_node_by_name(context_info.upper_border_event_name) if context_info.upper_border_event_name else None
+    upper_border_event_id = node_upper_event.id if node_upper_event else None
     extracted_entities_names = context_info.extracted_entities
-
+    print("CONTEXT INFO: ", context_info, "\n\n")
     result_nodes_dict = {} # { node_id : ("node_name. node_description", token_amount) }
     result_edges_dict = {} # { (source_id, target_id) : ("name_source - relation - name_target", token_amount) }
     result_paths_dict = {} # { (source_id, target_id, number) : ("name_node_start - relation - ... - relation - name_node_target", token_amount) }
@@ -586,7 +598,7 @@ def form_context_with_llm(
                 entry_nodes.extend(entity_name_entry)
     if len(entry_nodes) == 0:
         entry_nodes = retrieve_similar_nodes(graph, query, embedding_model, 10, 0.0)
-
+    print("ENTRY NODES", entry_nodes, "\n\n")
     result_nodes = entry_nodes.copy()
     for entry_node, resource in entry_nodes:
         neighbours = graph.get_neighbours_of_node(entry_node.id)
@@ -608,7 +620,7 @@ def form_context_with_llm(
                 if (edges):
                     weight = edges[0].weight
                     result_nodes.append((neighbour, weight))
-                    reference_time = reference_time = events_sequence.get(downer_border_event_id, min_time) if downer_border_event_id else min_time
+                    reference_time = events_sequence.get(downer_border_event_id, min_time) if downer_border_event_id else min_time
                     for edge in edges:
                         edge_last_appearance = events_sequence.get(edge.time_end_event, max_time) if edge.time_end_event else max_time
                         if (edge_last_appearance < reference_time):
@@ -631,7 +643,6 @@ def form_context_with_llm(
     ]
 
     for path in all_paths:
-        i = 0
         for node_id in path[0]:
             node_in_path = graph.get_node_by_id(node_id)
             if not any(node[0] == node_in_path for node in result_nodes):
@@ -710,6 +721,13 @@ def form_context_with_llm(
             selected_paths.append((key, text))
             path_tokens += tokens
     
+    result = ""
+
+    if (add_history):
+        history_max_tokens = int(max_tokens * HISTORY_RATIO_WITH_HISTORY)
+        history = extract_world_history(events_sequence, graph, history_max_tokens)
+        result += history
+
     result += "\nPATHS:\n\n"
     for (_, text) in selected_paths:
         result += text + "\n"
@@ -718,14 +736,9 @@ def form_context_with_llm(
     for (_, text) in selected_edges:
         result += text + "\n"
 
-    result = "NODES:\n\n"
+    result += "NODES:\n\n"
     for node_id in selected_nodes:
         text = result_nodes_dict[node_id][0]
         result += text + "\n"
-
-    if (add_history):
-        history_max_tokens = int(max_tokens * HISTORY_RATIO_WITH_HISTORY)
-        history = extract_world_history(events_sequence, graph, history_max_tokens)
-        result += history
 
     return result 
