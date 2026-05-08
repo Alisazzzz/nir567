@@ -84,4 +84,4 @@ After everything is installed, run:
 python main.py
 ```
 
-Detailed descriptions of the next steps can be found in the [project wiki](https://github.com/Alisazzzz/nir567/wiki).
+Detailed descriptions of the next steps can be found in the [project wiki](https://github.com/Alisazzzz/nir567/wiki/NIR567-WIKI).
