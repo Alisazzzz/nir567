@@ -1,22 +1,452 @@
 [
   {
-    "generated_text": "Here's a comedic adventure puzzle sequence set in the same luxury spa:\n\n**Quest: \"The Great Art Heist\"**\n\nGuest: Reginald P. Bottomsworth, a flamboyant and eccentric art collector\n\nGoal: Help Reggie achieve his dream of stealing a priceless painting from the spa's museum without getting caught.\n\n**Sequence:**\n\n1. **Gathering Clues**: Larry is approached by Reggie, who claims to have heard about the spa's lax security measures. Reggie asks Larry to \"acquire\" a special keycard that grants access to the museum's restricted areas. Larry must find a way to sneak into the museum's staff-only area and retrieve the keycard without getting caught.\n\t* Puzzle: Larry must navigate through a maze of air vents, avoiding security cameras and guards. He'll need to solve a series of sliding puzzle-style challenges to unlock the vent system.\n2. **Decoding the Masterpiece**: Reggie needs Larry to decode a cryptic message hidden within an ancient art book in the spa's library. The message will reveal a combination to unlock a display case containing a replica of the painting.\n\t* Puzzle: Larry must use his knowledge of art history and cryptography to decipher the code. He'll need to solve a series of wordplay-based puzzles, including crosswords, anagrams, and cryptograms.\n3. **Duplicating the Masterpiece**: Reggie wants Larry to create a flawless replica of the painting using a special art studio in the spa's attic. However, the studio is locked with a combination lock that requires a specific sequence of colors to open.\n\t* Puzzle: Larry must mix paints to create a unique color palette, which he'll use to solve a sliding puzzle-style challenge on a large canvas.\n4. **Stealing the Painting**: With the keycard and replica in hand, Reggie needs Larry to sneak into the museum's gallery and swap out the original painting with the replica.\n\t* Puzzle: Larry must create a diversion by triggering a series of laser beams, which will cover the gallery in a fog-like effect. He'll need to use his knowledge of laser beam patterns to navigate through the beams without getting caught.\n\n**Climax: The Great Art Heist**\n\nAs Reggie prepares to display his replica masterpiece, Larry gets distracted by a stray cat and accidentally triggers a fire alarm, causing the entire museum to evacuate in panic. Meanwhile, Reggie proudly displays his \"stolen\" painting... only to reveal that it's actually just a fake replica created by Larry!\n\nThe audience is left laughing at the absurdity of the situation, while Reggie slinks away, embarrassed but triumphant. The game concludes with a tongue-in-cheek ending cutscene featuring Larry and Reggie as unlikely friends, commiserating over their shared mishap.\n\nThis sequence maintains the game's signature blend of slapstick humor, puzzle-solving, and eccentric characters, culminating in an ironic and highly public mishap for the protagonist while the guest finally achieves their goal.",
+    "generated_text": "Upon arrival at La Costa Lotta, Thunderbird must exit the limousine and approach the guarded gatehouse to begin his journey. Insist on speaking with the gatehouse staff by pressing the \"Talk\" button; a heated discussion will ensue, culminating in the guard demanding to see Thunderbird's identification. Since this is impossible, Thunderbird will be forced to surrender any valuables he may possess.\n\nNext, Thunderbird must enter the High Colonic Treatment Suite where Rose Electa awaits his arrival. Approach her and engage in conversation by pressing the \"Talk\" button; she will reluctantly share a cryptic message about a \"gift\" hidden somewhere within the spa. Search the suite for a small, intricately carved rose; it can be found on a nearby pedestal.\n\nRetrace steps to the reception area and select the \"Lamp of Knowledge\" from the display case; this will grant Thunderbird temporary access to the spa's restricted areas. Now, proceed to the aerobics stage where Cavaricchi Vuarnet is holding court. Interrupt his workout by pressing the \"Talk\" button, and he may be persuaded to part with a gold ring.\n\nExit the aerobics stage and make your way to the Blues Bar, where Burgundy Budding will regale you with tales of her singing career. Purchase a drink from the bar and engage in conversation with Burgundy; she may drop a pearl earring if you press the \"Talk\" button long enough.\n\nProceed to the mud baths area where Charlotte Donay awaits your arrival. Convince her that you're there for a relaxing soak by pressing the \"Talk\" button, and she'll gift you a chilled champagne bottle in exchange.\n\nWith the champagne in hand, return to the reception area and use it to \"purchase\" access to the moonlit beaches. Once on the beach, locate a discarded diamond earring; it can be found nestled among the sand.\n\nThe final stage of Thunderbird's journey begins with a visit to Shamara Payne in her exclusive penthouse suite. Present her with the eclectic assortment of items you've collected thus far; she'll be impressed by your thoughtfulness and grant you access to this luxurious haven.",
     "category": "quest",
-    "reference_text": "\n                Larry assists Merrily Lowe at the pool bar by obtaining the diving tower key from the lifeguard, \n                making an impression of it in a bar of soap, filing a copy with a bastard file, and returning it to her. \n                They climb to the bungee platform, where she shares her \"Words of Wisdom,\" but Larry trips over the cords and falls, \n                accidentally broadcasting his naked descent to the entire spa.\n            ",
+    "reference_text": "\n                Thunderbird's Quest\n                Go to the weight room. Look at Thunderbird, the woman working out on the weight machine. Talk to her. Learn she wants a new pair of handcuffs. Click Exit. Walk to the mud baths, climb up the plant shelf below the television camera (between the shower room doors). Use the wrench on the TV camera to re-aim it into the women's shower. \n                Return to the lobby, then walk South to the spa exterior. Look at the gatehouse. Look at the guard. Notice he is too busy watching your new TV show to even respond to you. Take the handcuffs from his belt. Click Exit. Return to the weight room. Look at Thunderbird. Give her the handcuffs. \n                Any time later, take her up on her suggestion to visit her bedroom. Enjoy your equi-canine experience. Keep your diamond-studded dog collar for a souvenir of the short, but meaningful, time you spent together. Click the Hand on the dog collar in Inventory to extract the diamond by clicking it with the Hand. \n            ",
     "metrics": {
       "category": "quest",
+      "bert_score_source": 0.8314085602760315,
+      "bert_score_reference": 0.8047193288803101,
+      "world_consistency": 0.2,
+      "distinct_2": 0.8685714285714285,
+      "repetition_2": 0.08285714285714285,
+      "interestingness": 0.67,
       "faithfulness": NaN,
-      "answer_relevancy": 0.814223821412627,
-      "context_precision": 0.0,
-      "context_recall": 0.0,
-      "semantic_similarity": 0.8866430556986732,
-      "answer_correctness": NaN,
-      "bert_score_source": 0.7910196781158447,
-      "bert_score_reference": 0.7716256380081177,
+      "answer_relevancy": 0.5785279489172924,
+      "context_precision": 0.6791666666496875,
+      "context_recall": NaN
+    }
+  },
+  {
+    "generated_text": "Start by entering the Mud Baths area, where Charlotte Donay awaits with a tantalizing smile and an electro-shock therapy session ready to go. Take the mud-covered stool provided as you approach her. Larry, don't be shy! Ask Charlotte if she'd like a \"treatment\" upgrade, which will cost 500 spa bucks. If she declines, Charlotte will respond that you're just not \"shocking\" enough. \nCharlotte will then hand you a mud-stained towel and instruct you to dry off before proceeding. Larry, take care of yourself! Move the towel to the drying rack. Next, ask Charlotte about her favorite type of rock music - heavy metal, it seems - and receive an electro-shock-themed keychain as a gift.\nNow, move on to the nearby Steam Room, where you'll find a steam-filled haven for relaxation. Approach the counter and select \"Epsom salts\" from the menu options. Larry, your body is calling! Take the Epsom salt packets dispensed by the machine. You can now proceed to the next location.\nHead towards the Spa Gift Shop, located near the main entrance of La Costa Lotta. Browse through the shelves until you find a box labeled \" Electro-Shock Therapy for Beginners\" and purchase it for 800 spa bucks. Larry, be careful what you wish for! Move on from there, then proceed to the Weightlifting Area.\nIn the Weightlifting Area, look up at the ceiling-mounted weights and hit the \"Lightning Strike\" button, which will lower a heavy metal bar onto a nearby pedestal. Larry, aim true! Now that the bar is in place, approach it carefully and move the weight off the pedestal using the counterbalance system. Move on from there.",
+    "category": "quest",
+    "reference_text": "\n                Charlotte Donay's Quest\n                Go to the mud baths. Look at Charlotte, the girl in the mud. Talk to her. Learn she wants six heavy-duty D-cell batteries. Click Exit. Find the tram in the main hallway. Ride it east until it stops outside the employee's campground. The driver will park it and walk into the campground to puff a butt. \n                Look at the rear of the tram. Click the Hand on the tram's rear hood to open it. (\"Jiggle\" the handle.) Look inside. Use the wrench on the motor to disconnect the battery cable. Click the Hand on the hood to close it. Wait until the driver returns and opens the hood himself. Talk to him. Accept the flashlight from him and. Use it on the motor to light it for him. After he's closed the hood, but before he asks you for his flashlight back, Click the Hand on the flashlight in Inventory to remove his batteries by clicking the Hand on the flashlight. Click the flashlight on him to return it to him. He won't notice it's now empty. \n                Return to the mud baths. Look at Charlotte. Give her the batteries. Get invited to the Electro-Shock Exercise room with her. Look at the door to the E-SE room. Learn it's electrical. \n                Go to the Make-up Classroom. Look at the table in the extreme left foreground. (It's the only table in the room without a lit lamp.) Take the unused electrical cord that's lying on the floor. \n                Return to the mud room. Stand near the door to the E-SE room. Click the Hand on the cord in the Inventory window to strip one end bare. Use the cord on the electrical outlet to plug it in. Use the now-live cord on the door's lock to short circuit the electronic lock. Enter the Electro-Shock Exercise room. Charlotte will follow you in. As you're flashing, note where the naked woman drops her pearl earring as she runs from the room. Enjoy your new post-modern art sculpture. \n                Wake up the next day in your room. After you've recovered, return to the E-SE room and Take the pearl earring from the floor. \n            ",
+    "metrics": {
+      "category": "quest",
+      "bert_score_source": 0.8093451857566833,
+      "bert_score_reference": 0.8090166449546814,
       "world_consistency": 0.9,
-      "distinct_2": 0.8430962343096234,
-      "repetition_2": 0.100418410041841,
-      "interestingness": 0.6
+      "distinct_2": 0.9142857142857143,
+      "repetition_2": 0.07142857142857142,
+      "interestingness": 0.67,
+      "faithfulness": NaN,
+      "answer_relevancy": 0.7142348160970874,
+      "context_precision": 0.0,
+      "context_recall": NaN
+    }
+  },
+  {
+    "generated_text": "Guide Larry to the serene Aqua Oasis, where he will encounter Frau Milchlieb, a curvaceous wellness guru with a penchant for dramatic flair. Start by having Larry enter the Aqua Oasis through the large glass doors, and then push through the crowd of admirers to reach Frau Milchlieb's private lounge area. Approach her from behind, trying not to startle her as she adjusts her designer sunglasses. When she turns around, feign interest in her latest essential oil blend by asking about its ingredients. She'll likely launch into a lengthy lecture on the benefits of lavender and chamomile; politely interrupt by mentioning your own experiences with allergies. Next, try to strike up a conversation about your shared love of 80s pop music by humming \"Take On Me\" - Frau Milchlieb will be impressed by your vocal range, or so she claims. To further endear yourself, offer to help her rearrange the decorative rocks in her centerpiece; she'll appreciate the effort, even if it looks like a toddler's plaything. As you work together, pick up the scattered rose petals and use them to create an impromptu bouquet - Frau Milchlieb will be touched by your thoughtfulness. When the task is complete, ask her about the \"Milk of Life\" supplement she's been touting; she'll offer you a sample in exchange for a photo opportunity. Pose with Frau Milchlieb for a few photos, trying to maintain a straight face as she gushes about your \"aura.\" Finally, gift her the pearl from your collection - it will grant her a momentary sense of satisfaction before she begins planning your next spa adventure.",
+    "category": "quest",
+    "reference_text": "\n                Frau Milchlieb's Quest\n                Go to the dining room. Look at Frau Milchlieb. Talk with her. Learn she's really hungry. Click Exit to return to the dining room. Walk to the employee's campground again. Take the dessert cart that's now parked outside the tent. Wheel it to Frau's room, which is a mere two scenes West. Watch as you automatically knock on her door and accept her invitation into her room. Watch her stuff her face. Willy Mays her ring as it explodes off her foot. \n            ",
+    "metrics": {
+      "category": "quest",
+      "bert_score_source": 0.805519700050354,
+      "bert_score_reference": 0.8123224377632141,
+      "world_consistency": 0.75,
+      "distinct_2": 0.9442379182156134,
+      "repetition_2": 0.040892193308550186,
+      "interestingness": 0.85,
+      "faithfulness": NaN,
+      "answer_relevancy": 0.6481259579495627,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "Begin by entering the aerobics stage, where Cavaricchi Vuarnet is enthusiastically pumping iron while demonstrating her impressive bicep strength to a small audience of impressed onlookers. Insult her tone-deaf singing skills by pressing the \"Singer's Scathing Sarcasm\" button on the nearby jukebox, prompting Cavaricchi to loudly denounce your musical taste. Make a hasty retreat from this confrontation by exiting the stage and proceeding straight into the adjacent weightlifting area, where you find Cavaricchi attempting to set a new record for most iron curls performed in one hour.\n\nPick up the nearby \"Iron Maiden\" trophy, which will serve as a token of your disdain for her over-the-top fitness antics. Next, make your way back onto the stage and initiate the aerobics routine by pressing the \"Get Down with Cavaricchi\" button on the exercise mat. Execute a series of awkward dance moves to earn Cavaricchi's admiration, which will be displayed in a holographic display above her head.\n\nCollect the nearby \"Gym Rat\" certificate, a humorous keepsake that pokes fun at your shared love of fitness. Leave the aerobics stage and enter the VIP lounge, where you'll find Cavaricchi sipping champagne and flirting shamelessly with the spa's bartender. Press the \"Mixologist Mayhem\" button on the bar to create an over-the-top cocktail, which will earn Cavaricchi's laughter and admiration.\n\nMake a quick exit from the VIP lounge by exiting onto the moonlit beach, where you'll find Cavaricchi practicing her yoga poses under the stars. Retrieve the nearby \"Moonlight Mamba\" scarf, a flowing piece of fabric that Cavaricchi has been coveting all evening. Return to the aerobics stage and hand over the scarf as a peace offering, which will grant you her grudging respect and a new, sparkly exercise ball as a reward.\n\nFinally, part ways with Cavaricchi by exiting the aerobics stage and proceeding straight into the High Colonic Treatment Suite, where Larry's next adventure awaits.",
+    "category": "quest",
+    "reference_text": "\n                Cavaricchi Vuarnet's Quest \n                Go to the aerobics classroom. Click the Hand on the only empty step. Dance a little as Cavaricchi Vuarnet harasses you. Keep dancing until she dismisses the class, giving you a chance to be alone with her. Look at her. Talk to her. Look at the badge dangling in mid-air from her cropped T-shirt. Take it. Agree to meet her later at the Steam Room. Click Exit. Leave the Aerobics Studio. \n            ",
+    "metrics": {
+      "category": "quest",
+      "bert_score_source": 0.810805082321167,
+      "bert_score_reference": 0.8132638335227966,
+      "world_consistency": 0.75,
+      "distinct_2": 0.8452012383900929,
+      "repetition_2": 0.09597523219814241,
+      "interestingness": 0.65,
+      "faithfulness": NaN,
+      "answer_relevancy": 0.5844536083472626,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "Begin at the High Colonic Treatment Suite with Rose Electa, where Larry must Insist on chatting up the bubbly masseuse while simultaneously trying to keep his lunch from getting soggy. As he Flirts shamelessly, Larry collects a Perfect Rose, which might come in handy later.\n\nNext, head to the aerobics stage and Engage in an awkward workout with Cavaricchi Vuarnet, who's so buff he makes Larry look like a scrawny twig. Larry earns a Gold Ring as a prize for enduring this grueling session without getting too winded.\n\nFrom there, saunter on over to the Blues Bar, where Burgundy Budding is warbling away on her guitar and serving up questionable cocktails. Order a drink and Strike up a conversation with Burgundy, who'll regale Larry with tales of her fading music career and impending doom.\n\nWhile sipping on that dubious cocktail, Larry must also collect a Pearl by Successfully convincing Burgundy to share one of her prized possessions – a sparkly trinket that's not actually hers. Oops.\n\nAfter the bar, make your way to the mud baths, where electro-shock enthusiast Charlotte Donay is shocking herself and anyone else who will listen. Interact with Charlotte in a way that makes her Laugh, and she'll reward Larry with a chilled Champagne Bottle, which might come in handy for future...ahem...'celebrations'.\n\nNext up, visit the steam rooms and engage in some Steamy Banter with Rose Electa again (no relation to the masseuse). Collect a Lamp of Knowledge by Helping Rose find her lost love letter in this foggy, saucy environment.\n\nNow, head to the moonlit beaches and Find the perfect spot for a romantic sunset picnic. There, Larry will Meet Shamara Payne, a wealthy, spiritually unfulfilled divorcée who's searching for that elusive 'sensitive, caring New Age man.' Collect her Attention by Giving her a thoughtful gift – the Perfect Rose.\n\nShamara will appreciate this token of affection and invite Larry to Join her for a moonlit stroll on the beach. As they Walk Hand in Hand, Larry collects his prize: Shamara's heart, which has been beating just a little bit faster since meeting him.\n\nBut wait! There's a Twist – as Larry is basking in the glow of his newfound love, he discovers that Shamara has a Secret: she's actually a Time-Traveling Alien from the planet 'Heartbreakia', sent to Earth to Study Human Relationships. It turns out that the 'perfect rose' was just one of her many Experimentation Devices – and Larry is now the unwitting participant in her research!",
+    "category": "quest",
+    "reference_text": "\n                Shablee's Quest\n                Go to the Make-Up Classroom. Look at Shablee, the woman at the table on the extreme right foreground. Talk to her. Learn she wants an evening gown. Click Exit to return to the room. Walk to the Blues Bar. Walk backstage. (Click the Walk icon on the curtains at the bottom of the screen.) Find Burgundy's gown hanging there. Take it. Click Exit. Return to the Make-Up Classroom. Look at Shablee. Give her the evening gown. \n                Meet Shablee at the beach. Click the Zipper on her. Kiss her. Hug her. Love her. Click the condom on her. Learn she's no she. Wake up in your bathroom the next day, gargling your heart out. \n                The next time you return to the beach, Take the now-warm champagne that's still sitting there. While you're at the beach, click the Hand on the sand to dig through the sand until you find the whale oil lamp. \n            ",
+    "metrics": {
+      "category": "quest",
+      "bert_score_source": 0.8258267045021057,
+      "bert_score_reference": 0.7870806455612183,
+      "world_consistency": 0.8,
+      "distinct_2": 0.9360189573459715,
+      "repetition_2": 0.04976303317535545,
+      "interestingness": 0.75,
+      "faithfulness": NaN,
+      "answer_relevancy": 0.45648903225741627,
+      "context_precision": 0.0,
+      "context_recall": NaN
+    }
+  },
+  {
+    "generated_text": "As the High Colonic Treatment Suite's cleansing ritual came to an end, Rose Electa bubbled out of her porcelain throne, giggling like a schoolgirl on a sugar high, her bright pink bouffant still intact despite the vigorous scrubbing. Larry stood at attention, his eyes fixed on the sparkling suds as she pranced over to him, a tray laden with steaming towels and a cheeky grin, \"Well, well, well! Look who's been flushed out! You're looking a little...drained, darling.\" She winked, handing him a towel, which he took with a relieved sigh, his face still scrunched up from the procedure. Rose clapped her hands together in glee, \"Don't worry, sweetie, you'll be sparkling like new in no time – or at least, until our next encounter!\" Larry couldn't help but chuckle at her antics as he began to dry himself off, feeling a little more human after the bizarre procedure. Rose leaned in, a sly whisper escaping her lips, \"By the way, do you have any idea what that little 'present' I gave you is for? Just sayin'.\"",
+    "category": "dialogue",
+    "reference_text": "\n                Larry standing near the door, fully clothed, and MUCH skinnier! Rose Eleeta hands you \"one perfect rose for you to remember our time together.\" \"How could I forget?!\" you moan. \"And, please: take one of our 'Courtesy Enema Cards.' Your next visit is FREE!\" Larry says, \"Hey! I'm not pooped any more! I feel like a new man!\" \"Yeah, Larry—and you're not as full of shit as you used to be!\"\n            ",
+    "metrics": {
+      "category": "dialogue",
+      "bert_score_source": 0.7904316782951355,
+      "bert_score_reference": 0.8219192624092102,
+      "world_consistency": 0.95,
+      "distinct_2": 0.978021978021978,
+      "repetition_2": 0.02197802197802198,
+      "interestingness": 0.85,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6966023143419724,
+      "context_precision": 0.99999999998,
+      "context_recall": 0.8333333333333334
+    }
+  },
+  {
+    "generated_text": "As Larry stood frozen in Thunderbird's bedroom, her bedroom in full glory amidst lava lamps and feathers, she approached him with an air of sultry mystery, the flashy souvenir collar gleaming around his neck like a badge of honor. \"Well, well, well, what do we have here?\" she purred, her eyes scanning the glittering trinket as if it held secrets to the universe, \"A bird-brained token from our little birdie encounter, how...fowl-some!\" Larry's face flushed with embarrassment as Thunderbird's gaze lingered on him, her voice dripping with playful menace, \"Don't worry, little stud, I won't peck at your heart just yet,\" she cooed, before turning to admire the collar again, a sly smile spreading across her beak-like lips.",
+    "category": "dialogue",
+    "reference_text": "\n                Thunderbird fastens the glittering collar around Larry's neck and admires her work. \"There. Now you look almost trainable.\" Larry straightens his shirt and says, \"May be.\" She laughs and taps the tag. \"Rattle this when you miss me.\" Larry backs toward the door.\n            ",
+    "metrics": {
+      "category": "dialogue",
+      "bert_score_source": 0.7914474010467529,
+      "bert_score_reference": 0.8371568322181702,
+      "world_consistency": 0.1,
+      "distinct_2": 0.9841269841269841,
+      "repetition_2": 0.015873015873015872,
+      "interestingness": 0.85,
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.5407600236664689,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "As Larry stumbled out of the Electro-Shock Exercise room, his hair standing on end like a startled porcupine, Charlotte Donay greeted him with a radiant smile and a manicure that seemed to gleam like a freshly polished stiletto heel. \"Oh dearie, you look like a walking frisson!\" she exclaimed, her eyes sparkling with amusement as she took in Larry's disheveled appearance. Larry blinked once, twice, his pupils still adjusting from the shocking onslaught of electro-stimulation, before he managed to croak out a weak apology for his less-than-elegant exit. Charlotte's chuckle was like the tinkling of champagne flutes on New Year's Eve, as she swooped in to help him brush off the lingering static. \"Don't worry, darling,\" she purred, her voice husky with the promise of a fine Merlot, \"I'm sure you'll find your zaps are just a little...shocking.\" As Larry gazed at her, still feeling like a frog on a hot griddle, Charlotte's laughter sent him tumbling into a fit of giggles, his jangled nerves slowly coming back online.",
+    "category": "dialogue",
+    "reference_text": "\n                Smoke curls from Larry's cuffs while Charlotte applauds with delight. \"Magnificent, Larry. You really threw yourself into the circuit.\" Larry sways and says, \"I felt a spark, then several opinions.\" She hands him a towel and smiles. Larry nods weakly and tries not to glow.\n            ",
+    "metrics": {
+      "category": "dialogue",
+      "bert_score_source": 0.7916154861450195,
+      "bert_score_reference": 0.8342547416687012,
+      "world_consistency": 0.75,
+      "distinct_2": 0.9666666666666667,
+      "repetition_2": 0.022222222222222223,
+      "interestingness": 0.85,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7337112541456831,
+      "context_precision": 0.99999999998,
+      "context_recall": 1.0
+    }
+  },
+  {
+    "generated_text": "As Larry stood under the steaming mist of the steam room, Cavaricchi Vuarnet emerged from the fog, her chiseled physique glistening with a towel-dry sheen, a sly smile playing on her lips as she handed him a sparkling water bottle adorned with a delicate rose, its petals almost as delicate as her own. \"Ah, Larry, my aerobics partner in crime,\" she purred, \"I must say, I'm impressed by your... dedication to the elliptical trainer.\" Larry's eyes widened at the unintended double entendre, and he stuttered, \"Uh, yeah, it's-a just a hobby...\" Cavaricchi chuckled, her laughter like a gentle breeze on a summer day, as she leaned in, her voice taking on a flirtatious tone, \"I think you're hiding something, Larry. Something that's not just muscle mass.\" With a wink, she vanished into the steamy mist, leaving Larry to wonder if he'd just been pummeled by a feather or seduced by a siren.",
+    "category": "dialogue",
+    "reference_text": "\n                Cavaricchi appears through the steam and adjusts Larry's towel with professional precision. \"You came on time. I admire discipline.\" Larry grins and answers, \"I admire anything I can actually see.\" \"Then keep dreaming, darling. Anticipation burns more calories than success.\" Larry watches her vanish back into the fog and applauds the workout.\n            ",
+    "metrics": {
+      "category": "dialogue",
+      "bert_score_source": 0.795973539352417,
+      "bert_score_reference": 0.8347889184951782,
+      "world_consistency": 0.75,
+      "distinct_2": 0.9685534591194969,
+      "repetition_2": 0.025157232704402517,
+      "interestingness": 0.75,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 1.0
+    }
+  },
+  {
+    "generated_text": "As Larry stumbled onto the Blues Bar stage, Burgundy Budding's seductive croon filled the air, and she raised an eyebrow at his frazzled appearance, \"Well, well, well, looks like someone's been sunburned – and not just from the beach.\" Larry sheepishly grinned, attempting to play off his embarrassment with a charming smile, but Burgundy simply chuckled and said, \"Don't worry, honey, I've seen worse – like your dancing skills.\" With a wink, she slid him another whiskey, and Larry laughed awkwardly, trying to deflect her teasing with a joke about the beach volleyball game that had left him panting; Burgundy giggled, her eyes sparkling with amusement.",
+    "category": "dialogue",
+    "reference_text": "\n                Larry slips into the Blues Bar, spots Shablee near the piano, and immediately tries to hide behind a fern. Shablee beams and waves him over. \"Larry! There you are, darling. I was hoping for a rematch.\" Larry freezes and says, \"I was hoping to become decorative foliage.\"\n            ",
+    "metrics": {
+      "category": "dialogue",
+      "bert_score_source": 0.7974534630775452,
+      "bert_score_reference": 0.8521523475646973,
+      "world_consistency": 0.8,
+      "distinct_2": 0.9626168224299065,
+      "repetition_2": 0.028037383177570093,
+      "interestingness": 0.75,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6899606306868199,
+      "context_precision": 0.699999999965,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "Velvet Mirage is the Blues Bar's sultry siren, strutting around like she owns the joint – which, admittedly, she does – in her tight red leather pants, corseted top, and fishnet gloves that make her look like a cross between a 1950s burlesque performer and a cyborg. Her attitude is equal parts sass and vulnerability, as if she's perpetually trying to prove to herself that she still has it. Velvet wants Larry to win over her with his... unique charms, and we're pretty sure she's already halfway sold on the idea of a hapless hero who trips over his own feet. In this classic 90s point-and-click adventure game, Larry will need to use all his wits (and his ability to not scare Velvet off) to get her attention – maybe by finding that elusive \"Lamp of Knowledge\" and using it to illuminate the secrets behind her mysterious past, or perhaps just by stumbling into a heartfelt conversation about the meaninglessness of fame. Either way, Larry's gonna need to bring his A-game (or at least his B-minus game, considering he's already lost to the first-place winner) if he wants to win over Velvet's heart and get out of this Blues Bar alive.",
+    "category": "character description",
+    "reference_text": "\n                Velvet Mirage lounges across a booth as if furniture were built in her honor. Sequins flash whenever she sighs, which is often and strategically. She wants a proper mirror because the bar spoons flatter no one. Larry can Talk to her, borrow a tray to use as a reflection, and Present it with confidence. She rewards initiative with a backstage pass.\n            ",
+    "metrics": {
+      "category": "character description",
+      "bert_score_source": 0.8065370321273804,
+      "bert_score_reference": 0.8159684538841248,
+      "world_consistency": 0.8,
+      "distinct_2": 0.9712918660287081,
+      "repetition_2": 0.028708133971291867,
+      "interestingness": 0.85,
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.49999999995,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "Here is a short character description for Nurse Trixie:\n\nNurse Trixie is a vision of sugary sweetness, with skin as pale as moonlight and hair that's always perfectly coiffed in a bouffant of bougainvillea pink. Her eyes sparkle like a box of candy-dispensing vending machines, and her smile can charm the wrinkle out of even the grumpiest of spa-goers. But don't let her angelic appearance fool you - Nurse Trixie has a secret: she's obsessed with collecting ridiculous medical-themed knick-knacks for her \"office\" (read: her trailer). She's always on the lookout for the next great addition to her collection, whether it's a velvet Elvis painting or a pair of novelty stethoscope earrings. Larry will find Nurse Trixie tending bar in the spa clinic hallway, doling out pills and prescriptions with a side of sass and a wink - but be warned: she'll only give him what he needs if he can answer her ridiculous trivia questions first. Will Larry's hapless charm be enough to score him some Nurse Trixie swag?",
+    "category": "character description",
+    "reference_text": "\n                Nurse Trixie patrols the clinic hall pushing a cart full of polished instruments. Her smile is warm, but her clipboard is merciless. She speaks softly, charges briskly, and trusts nobody's pulse. Today she needs a thermometer that has recently shattered. Larry can Talk to her, improvise with a chilled spoon, and pretend it is modern equipment. She rewards the effort with skepticism and misrespect.\n            ",
+    "metrics": {
+      "category": "character description",
+      "bert_score_source": 0.799605667591095,
+      "bert_score_reference": 0.8192781209945679,
+      "world_consistency": 0.75,
+      "distinct_2": 0.9606741573033708,
+      "repetition_2": 0.02247191011235955,
+      "interestingness": 0.67,
+      "faithfulness": NaN,
+      "answer_relevancy": 0.6961747991532633,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "Mona Lather is the queen of soapy serenity, reigning over the laundry room behind the guest wing with an iron fist... or rather, an iron washing machine. This bubbly belle sports a bright pink apron, matching curlers, and a hairstyle that defies gravity and good taste alike. With a smile as warm as the steam emanating from her beloved washers, Mona's demeanor is equal parts patient and perturbing, like a gentle warning of impending doom in a packet of detergent. As she expertly sorts the spa's delicate garments with military precision, Mona harbors a secret desire to escape this laundress limbo and find her true calling as a free-spirited poet laureate. Will Larry's clumsy charm or clever wits be enough to coax this soap-sational siren into sharing her hidden rhymes and laundry secrets?",
+    "category": "character description",
+    "reference_text": "\n                Mona Lather rules the laundry room beside thundering dryers and mountains of linen. She values order, gossip, and sharply folded corners. A single missing sock has ruined her afternoon. Larry can Search the baskets, return the runaway sock, and earn her immediate respect. She presses anything he wants for free and shares three scandals at no extra charge.\n            ",
+    "metrics": {
+      "category": "character description",
+      "bert_score_source": 0.7974055409431458,
+      "bert_score_reference": 0.8261911273002625,
+      "world_consistency": 0.1,
+      "distinct_2": 0.9927007299270073,
+      "repetition_2": 0.0072992700729927005,
+      "interestingness": 0.75,
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.6032139916165002,
+      "context_precision": 0.5888888888692593,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "Stella Springs is an oasis of elegance amidst the La Costa Lotta's surreal landscape. Her slender figure, draped in a flowing white sundress, appears as if plucked straight from a serene watercolor painting. The gentle lapping of water against the fountain's edge creates a soothing melody that harmonizes with Stella's melodious laughter, which can charm the most skeptical of souls. A mystical aura surrounds her, hinting at an otherworldly connection to the natural world – perhaps she's here to teach Larry the secrets of inner peace or merely enjoying his company as he stumbles through his journey. As Larry approaches, Stella might offer him a rose petal, leading him on a whimsical chase to find more of these elusive tokens, while her own cryptic smile hints at a deeper game unfolding in the mystical realm beyond this terrestrial escape.",
+    "category": "character description",
+    "reference_text": "\n                Stella Springs poses beside the fountain as though waiting for a painter to arrive. A silk scarf trails behind her in weather that does not justify it. Every sentence sounds rehearsed and expensive. She longs for a lucky coin from the deepest part of the basin. Larry can reach into the water, fish one out, and offer it with a flourish. She rewards gallantry with a damp awful kiss on the cheek.\n            ",
+    "metrics": {
+      "category": "character description",
+      "bert_score_source": 0.8091568350791931,
+      "bert_score_reference": 0.8332252502441406,
+      "world_consistency": 0.0,
+      "distinct_2": 1.0,
+      "repetition_2": 0.0,
+      "interestingness": 0.65,
+      "faithfulness": NaN,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "Greta Voltage is a maintenance engineer tasked with keeping the resort's labyrinthine infrastructure running smoothly. With a body shaped like a slightly used toaster and hair that resembles a tangled mess of copper wire, Greta exudes an air of utilitarian chic. Her mood is as dry as the rust on her toolbox, but beneath her gruff exterior lies a secret: she has a passion for 80s new wave music and would trade her entire maintenance schedule for one more night at a Prince concert. As Larry navigates the tram station, he may stumble upon Greta oiling the tracks of the resort's iconic tramcar, sparking an awkward yet endearing conversation about the merits of analog technology versus modern conveniences. Will Larry be able to charm this mechanical beauty into sharing her favorite synthesizer bands or will his clumsy attempts at flirtation short-circuit their budding connection?",
+    "category": "character description",
+    "reference_text": "\n                Greta Voltage leans into an open fuse box with the confidence of a queen addressing subjects. Her overalls are practical, though somehow theatrical. She wants insulating gloves before touching one final wire. Larry can rummage a locker, Give her the gloves, and stand back wisely. She restores the lights and calls Larry useful enough for today.\n            ",
+    "metrics": {
+      "category": "character description",
+      "bert_score_source": 0.8054013848304749,
+      "bert_score_reference": 0.8232097029685974,
+      "world_consistency": 0.3,
+      "distinct_2": 0.9863013698630136,
+      "repetition_2": 0.0136986301369863,
+      "interestingness": 0.75,
+      "faithfulness": 0.2,
+      "answer_relevancy": 0.5837863654960683,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "As Larry enters the Trophy Hall, he is immediately struck by the ostentatious display of gold-plated trophies and faded sporting memorabilia that line the walls, like a gaudy shrine to mediocrity. A life-size fiberglass replica of a 1970s-era athlete stands proudly at the room's center, its plastic face frozen in an eternal pose of triumph. On a nearby pedestal, a dusty old television set flickers to life, showing a grainy VHS recording of a long-forgotten sports highlight reel. Larry notices a vacant chair beside the TV, adorned with a faded velvet cushion and a handwritten note that reads \"Please fill me out!\" in what appears to be Burgundy Budding's own sloppy handwriting. A nearby reception desk is manned by a bored-looking concierge, who looks up at Larry with a mix of disdain and curiosity as he polishes a tarnished trophy with a dirty rag. To the side of the room, a large wooden cabinet bears an ominous sign that reads \"Do Not Touch: Contains Only Regret\".",
+    "category": "location description",
+    "reference_text": "\n                The Trophy Hall gleams just west of the lobby and smells of polish and vanity. Glass cases display medals for tanning, posture, and competitive smiling. A bored janitor watches anyone interesting enough to distrust. One pedestal stands empty except for a velvet rope and ambition. Larry can Look at the awards, Talk to the janitor, and Take a loose ribbon if he is nimble. Every sound echoes like applause no one deserved.\n            ",
+    "metrics": {
+      "category": "location description",
+      "bert_score_source": 0.8016694188117981,
+      "bert_score_reference": 0.8309152722358704,
+      "world_consistency": 0.8,
+      "distinct_2": 0.9651162790697675,
+      "repetition_2": 0.029069767441860465,
+      "interestingness": 0.67,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6342958508433852,
+      "context_precision": 0.99999999998,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "As Larry enters the steamy Sauna Vestibule, he's immediately enveloped in a sauna-like atmosphere that seems to cling to his skin like a damp hug. The room is decked out with rustic wooden accents and plush, colorful throw pillows, giving it a cozy, Nordic-chic vibe that clashes hilariously with the intense heat radiating from the steam baths. A diminutive, tattooed Sauna Sorceress named Zuzu Valtor tends to the various saunas and steam rooms, her eyes fixed intently on Larry as he approaches. To his left, a gleaming row of sauna stones sits atop a low wooden bench, surrounded by a scattering of cryptic, steam-etching murals that seem to hint at ancient mystical rituals. Zuzu hands Larry a steaming towel, saying \"Don't get too comfortable, friend – you've got a date with the stone gods...and maybe a nasty case of heat stroke.\" As he takes the towel, his eyes land on a nearby bench where Cavaricchi Vuarnet is lounging in a sauna, looking suitably buff and bemused.",
+    "category": "location description",
+    "reference_text": "\n                The Sauna Vestibule waits beside the Steam Room like a lobby for questionable choices. Benches line the walls beneath hooks crowded with towels. A nervous attendant guards a bowl of cucumber slices with admirable seriousness. Larry can Talk to him, borrow a towel, or flip the sand timer for no reason at all.\n            ",
+    "metrics": {
+      "category": "location description",
+      "bert_score_source": 0.8094412684440613,
+      "bert_score_reference": 0.8279724717140198,
+      "world_consistency": 0.3,
+      "distinct_2": 0.9707602339181286,
+      "repetition_2": 0.029239766081871343,
+      "interestingness": 0.85,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6876141234798162,
+      "context_precision": 0.0,
+      "context_recall": 0.25
+    }
+  },
+  {
+    "generated_text": "The Moonlight Patio beckons, a serene oasis under a star-studded sky. A delicate filigree fence surrounds this intimate space, adorned with fluttering silk lanterns that cast an ethereal glow on lush greenery. The air vibrates with the sweet scent of blooming jasmine as Larry stumbles upon this enchanting spot. A solitary guitar player serenades the night away, his melancholic melodies harmonizing with the gentle lapping of a nearby fountain. Amidst the tranquility, Larry notices an inviting chaise longue, partially hidden behind a cascading vine. Rose Electa, resplendent in a flowing white gown, reclines on this very seat, her eyes locked on Larry as she croons an otherworldly duet with the guitarist. As he approaches, his clumsiness is momentarily forgotten, replaced by a sense of longing and connection.",
+    "category": "location description",
+    "reference_text": "\n                Behind the Blues Bar lies the Moonlight Patio, lit by lanterns that forgive everything. Tiny tables surround a cracked fountain pretending to be elegant. Half-finished cocktails sparkle in the dark. Somewhere nearby, a violin insists on mood. Larry can Sit, Search the tables, and Wait for company with unreasonable optimism. It is ideal for romance, misunderstandings, and unpaid tabs.\n            ",
+    "metrics": {
+      "category": "location description",
+      "bert_score_source": 0.8030723333358765,
+      "bert_score_reference": 0.8329394459724426,
+      "world_consistency": 0.9,
+      "distinct_2": 0.984251968503937,
+      "repetition_2": 0.007874015748031496,
+      "interestingness": 0.75,
+      "faithfulness": NaN,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "As Larry trudged up the stairs, his feet creaking on the polished wood floor, he pushed open the door to the Lost and Found Office, a cramped space that seemed to exist solely for the purpose of collecting misplaced items from the spa's eccentric clientele. Shelves lined with dusty boxes and jars filled with what appeared to be questionable potions stretched towards the ceiling, casting long shadows across the room. A faded sign above the counter read \"Lost: One sense of self\" in a font that seemed to wobble with desperation. Larry spotted a few choice items on display: a rubber chicken labeled \"Property of: The Agonizingly Self-Aware\", a vintage typewriter with a single sheet of paper bearing the phrase \"I'm not arguing, I'm just explaining why I'm right\", and a taxidermied squirrel wearing a tiny backpack that seemed to be holding its breath. Larry's eyes landed on a note taped to the wall: \"If you found this, congratulations! You're probably not who you think you are.\" A button on the counter read \"Press me for a surprise\" - Larry hesitated before pressing it, wondering if he'd just triggered a security system or a therapy session.",
+    "category": "location description",
+    "reference_text": "\n                The Lost and Found Office is packed floor to ceiling with abandoned decisions. Shelves hold umbrellas, wigs, slippers, and one accordion nobody claims. A clerk stamps forms as if punishing paper personally. A locked drawer rattles whenever someone mentions jewelry. Larry can Search the bins, Talk to the clerk, and attempt to identify anything with confidence.\n            ",
+    "metrics": {
+      "category": "location description",
+      "bert_score_source": 0.7987580299377441,
+      "bert_score_reference": 0.8301121592521667,
+      "world_consistency": 0.1,
+      "distinct_2": 0.9455445544554455,
+      "repetition_2": 0.039603960396039604,
+      "interestingness": 0.75,
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.6473686822053949,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "As Larry stepped into the Rooftop Solarium, he was enveloped by an atmosphere of pseudo-spiritual indulgence, where gleaming chrome accents clashed with velvet-draped pillars. A crystal-encrusted chandelier refracted the sunlight streaming through the floor-to-ceiling windows, casting a kaleidoscope of colors across the space. Visible on the walls were garish, photo-realistic murals depicting the Seven Celestial Virtues, while at the center of the room stood a glittering, gold-plated fountain that splashed rose-tinted water into a shallow pool. Larry spotted Pamphile Pocketwatch, a waif-like woman with a penchant for mysticism, reclining on a plush chaise longue, sipping a herbal tea from a delicate china cup. As he approached, she gazed up at him with an air of expectant superiority, her eyes shining behind wire-rimmed glasses. \"Welcome, dear Larry,\" she purred, \"I've been expecting you... or rather, not expecting you, since I haven't received your scheduled reading.\"",
+    "category": "location description",
+    "reference_text": "\n                The Rooftop Solarium basks above the resort like a monument to overconfidence. Reclining chairs face the sun in strict formation beside bottles of tanning oil. A warning bell hangs nearby, polished and ignored. Wind gusts dramatically enough to improve everyone's posture. Larry can Take a pair of goggles, ring the bell, or admire the skyline. Everyone here glistens with either health or grease.\n            ",
+    "metrics": {
+      "category": "location description",
+      "bert_score_source": 0.8032892346382141,
+      "bert_score_reference": 0.8221429586410522,
+      "world_consistency": 0.1,
+      "distinct_2": 0.9935483870967742,
+      "repetition_2": 0.0064516129032258064,
+      "interestingness": 0.85,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.693214311657888,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "The toilet seat cover is a utilitarian accessory designed to prevent...unfortunate accidents during moments of intense emotional connection with fellow guests. Its primary function is to maintain a sense of decorum in the most inopportune situations, thus ensuring that Shamara Payne does not have to endure a \"crappy\" first impression. Available for purchase on the maid's cart, a limited edition of these seat covers can be yours for a mere $12.99.",
+    "category": "item description",
+    "reference_text": "\n                Beer Six bottles of ice-cold Lone Star. Take from the washtub inside the Dirty Dancing tent at the Employees' Campground Cantma. Give to Burgundy once she s stopped singing. You can Take more as desired, as long as you don't already have some. You can drink the beer anytime you're not busy, but if you do, you drink them all, they disappear from Inventory, and for a few seconds, you walk around in a drunken stagger. You can return to the Cantina for more, of course.\n            ",
+    "metrics": {
+      "category": "item description",
+      "bert_score_source": 0.79616379737854,
+      "bert_score_reference": 0.8120222091674805,
+      "world_consistency": 0.1,
+      "distinct_2": 1.0,
+      "repetition_2": 0.0,
+      "interestingness": 0.67,
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.6854814409504731,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "\"Golden Gulp: A six-pack of frothy indulgence, discovered in the Blues Bar's fridge during Burgundy Budding's impromptu concert. Primary use: activate the jukebox to unlock a hidden message from Shamara Payne. Secondary use (not recommended): attempting to drink all six beers at once will cause Larry's swim trunks to suddenly inflate like a pair of oversized beach balls, resulting in an embarrassing spectacle.\"",
+    "category": "item description",
+    "reference_text": "\n                Toilet Seat Cover Take from the maid's cart in the Upstairs Hallway. Use on the stool to sit down. Must have in Inventory to sit on the bathroom stool.\n            ",
+    "metrics": {
+      "category": "item description",
+      "bert_score_source": 0.8043938875198364,
+      "bert_score_reference": 0.8221774697303772,
+      "world_consistency": 0.8,
+      "distinct_2": 1.0,
+      "repetition_2": 0.0,
+      "interestingness": 0.85,
+      "faithfulness": 0.25,
+      "answer_relevancy": 0.6449822199292651,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "Here's the item description:\n\nThe rubber belt is a standard issue, off-white rubber strap made of a stretchy synthetic material, approximately 5 inches wide and 12 feet long. It has a thin layer of mildew on one edge, giving it a slightly worn appearance. The label on the back reads \"Fitness Equipment - Gym Only\". A small bolt protrudes from its center.\n\nIn an unexpected twist, Larry finds that the rubber belt is surprisingly effective at repairing the spa's malfunctioning massage chairs by serving as a makeshift tensioning tool. He stretches the belt around the chair's mechanical armature to tighten loose screws and restore functionality. \"Who knew being stretched to one's limits could literally pay off?\"",
+    "category": "item description",
+    "reference_text": "\n                Rubber Belt Take from the Weight Room wriggle machine. Use in the Cellulite Drainage Salon by wrapping it around the machine's hose, thus plugging its vacuum leak.\n            ",
+    "metrics": {
+      "category": "item description",
+      "bert_score_source": 0.7975081205368042,
+      "bert_score_reference": 0.828434407711029,
+      "world_consistency": 0.8,
+      "distinct_2": 0.9747899159663865,
+      "repetition_2": 0.025210084033613446,
+      "interestingness": 0.75,
+      "faithfulness": NaN,
+      "answer_relevancy": 0.6560235539297897,
+      "context_precision": 0.19999999998,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "Item: Match\n\nDescription: A standard match used to ignite various fires throughout the spa. Light the match by interacting with it, then use it in fire-based puzzles or to start small flames for ambiance.\n\nNote: Matches have a limited duration and can be replaced from the inventory.",
+    "category": "item description",
+    "reference_text": "\n                Match You find a lot of non-safety matches in a bowl on the bar in the Blues Bar. The bowl is an inset labeled \"For our MATCHLESS friends! If you don't have one m Inventory, you can Take one. Use the Zipper icon on the match in Inventory to create. . . lil Match Create in Inventory by Clicking the Zipper icon on the match. Use in Inventory on the filled lamp. It has a timer that runs out in 10 minutes, at which time the match is thrown away. However, there are more matches in the Blues Bar, so it is possible to start over.\n            ",
+    "metrics": {
+      "category": "item description",
+      "bert_score_source": 0.7972382307052612,
+      "bert_score_reference": 0.8395132422447205,
+      "world_consistency": 0.8,
+      "distinct_2": 1.0,
+      "repetition_2": 0.0,
+      "interestingness": 0.67,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7164239790472862,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  {
+    "generated_text": "\"For the most discerning Spa-goers, these heavy-duty D-cell batteries are designed to fuel your most intimate, high-stakes pursuits. Intended for powering the ultimate relaxation experience, their robust performance will keep you going even when the mood is at its lowest ebb. But what secrets might they unlock in the darkest recesses of the High Colonic Treatment Suite? Their true purpose remains a closely guarded mystery...\"",
+    "category": "item description",
+    "reference_text": "\n                Batterie Take from Curtis's flashlight after he finishes repairing the tram s batteries, but before he asks you to give him back his flashlight. Used in the Mud Baths when you give them to Charlotte Donay.\n            ",
+    "metrics": {
+      "category": "item description",
+      "bert_score_source": 0.8024218082427979,
+      "bert_score_reference": 0.8161963820457458,
+      "world_consistency": 0.25,
+      "distinct_2": 1.0,
+      "repetition_2": 0.0,
+      "interestingness": 0.5,
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
     }
   }
 ]

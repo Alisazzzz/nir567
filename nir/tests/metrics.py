@@ -11,6 +11,7 @@ from typing import Dict, List, Optional
 from collections import Counter, defaultdict
 
 import numpy as np
+import pandas as pd
 from transformers import AutoModel, AutoTokenizer
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 import torch
@@ -245,6 +246,37 @@ def evaluate_ragas_metrics(
         show_progress=False
     )
     return { k: float(v[0] if isinstance(v, list) else v) for k, v in result.scores[0].items()}
+
+def evaluate_ragas_metrics_batch(
+    questions: List[str],
+    answers: List[str],
+    contexts_raw: List[str],
+    ground_truths: List[str]
+) -> List[Dict[str, float]]:
+    
+    contexts = [split_context_by_lines(ctx) for ctx in contexts_raw]
+    dataset = Dataset.from_dict({
+        "question": questions,
+        "answer": answers,
+        "contexts": contexts,
+        "ground_truth": ground_truths   
+    })
+
+    result = evaluate(
+        dataset,
+        metrics=[
+            faithfulness,
+            answer_relevancy,
+            context_precision,
+            context_recall
+        ],
+        llm=ragas_evaluation_llm,
+        embeddings=ragas_evaluation_embeddings,
+        run_config=ragas_run_config,
+        show_progress=True
+    )
+    raw_scores = result.scores.to_dict(orient="records") if hasattr(result.scores, 'to_dict') else result.scores
+    return [{k: float(v) for k, v in row.items() if isinstance(v, (int, float))}for row in raw_scores]
 
 
 def evaluate_bert_score_vs_source(generated_text: str, source_text: str, language: str = "en") -> float:

@@ -3,9 +3,9 @@ Chapter I: Act I - Of the Land Amidst Monoliths. Rite of Descension
 (At Liyue Harbor)
  Paimon: If you wanna find the Geo Archon, this is the only chance you'll get all year.
  Paimon: Guess it's a good thing Venti brought it up earlier, otherwise we definitely would've missed this year's Rite of Descension.
-Icon Dialogue Talk White Do you know when it is?
+Traveler: Do you know when it is?
  Paimon: Uhh... might be today, might also be tomorrow...
-Icon Dialogue Talk White Do you know where it is?
+Traveler: Do you know where it is?
  Paimon: Well, Venti brought up the time, but Paimon... knows nothing about where it is... Ehe.
  Paimon: Look, we're already in Liyue so let's go ask some of the locals.
  Paimon: Oh, right. About the Geo Archon, "Morax"...
@@ -16,8 +16,8 @@ Icon Dialogue Talk White Do you know where it is?
  Linlang: Rite of Descension... Oh yeah, that reminds me, isn't that today?
  Linlang: Once a year, Rex Lapis bestows upon us his divine prediction, guiding us on how to run Liyue for the coming year.
  Linlang: Last year it was the Yuheng of the Liyue Qixing that was given the honor of asking for the divine prediction.
-Icon Dialogue Talk White Liyue Qixing?
-Icon Dialogue Talk White Yuheng?
+Traveler: Liyue Qixing?
+Traveler: Yuheng?
  Paimon: Ooh! Paimon knows this one!
  Paimon: Mondstadt is to freedom as Liyue is to contracts. Liyue has a strong focus on business and trade.
  Paimon: The Liyue Qixing — the seven leaders of the seven enterprises of Liyue — hold true control over Liyue.
@@ -85,7 +85,7 @@ Icon Dialogue Talk White Yuheng?
  Ivanovich: Oh yeah, not sure if you knew, but most of the adepti appear in the form of various beasts.
  Ivanovich: I heard that when attending these kinds of formal occasions, Rex Lapis himself appears as a celestial cross between two of Liyue's ancient mythical creatures.[note 1]
  Ivanovich: ...Sorry, I shouldn't interrupt your wish. Please, take this.
-Icon Dialogue Talk White I wish I could get some leads from the Geo Archon.
+Traveler: I wish I could get some leads from the Geo Archon.
 (Talk to Ivanovich after making a wish)
  Ivanovich: Even for outsiders, the grandeur and solemnity of the proceedings and ceremony leave a deep impression.
 (Make a wish at the east censer)
@@ -93,7 +93,7 @@ Icon Dialogue Talk White I wish I could get some leads from the Geo Archon.
  Changshun: Haha, seems you know a lot! Making a wish during this time is sure to get you the blessings of both the Adepti and Rex Lapis himself.
  Changshun: I've already made my wish, so you can take this.
  Paimon: Great, thanks!
-Icon Dialogue Talk White I wish I could find my (‍sister‍/‍brother‍) soon...
+Traveler: I wish I could find my (‍sister‍/‍brother‍) soon...
 (Talk to Changshun after making a wish)
  Changshun: May your wealth multiply in the year ahead!
 (After both wishes have been made)
@@ -118,8 +118,8 @@ Under Ningguang's direction, the Rite begins right on time, and Liyue's deity sh
  Paimon: Paimon's freaking out. The killer is amongst us!
  Paimon: Wait... we got close... are we suspects!?
  Paimon: Wait, where are you going?
-Icon Dialogue Talk White (It was a god we faced off against when we arrived in this world too...)
-Icon Dialogue Talk White (We can't fall into their hands...)
+Traveler: (It was a god we faced off against when we arrived in this world too...)
+Traveler: (We can't fall into their hands...)
 (Escape from the Millelith)
  Paimon: Oh no... (‍Traveler‍), there's a whole bunch of soldiers out there too!
  Paimon: Your identity... You may not be the killer, but we can't let them get you!
@@ -145,8 +145,8 @@ Millelith Guard: There's nowhere to run!
 (Paimon and the Traveler follow the rescuer)
 (After the cinematic)
  Paimon: *panting* Phew... Paimon's exhausted...
-Icon Dialogue Talk White I'm even more beat.
-Icon Dialogue Talk White Just what muscles does magical floating use exactly?
+Traveler: I'm even more beat.
+Traveler: Just what muscles does magical floating use exactly?
  Paimon: So insensitive! You have no idea just how tiring floating arou— Wait!
  Paimon: Just who are you exactly?
  ???: Call me Childe.
@@ -158,11 +158,11 @@ Icon Dialogue Talk White Just what muscles does magical floating use exactly?
  Childe: Oh, no. Don't worry, I'm not looking for a fight.
  Childe: Signora gave you quite the bad impression huh? Tsk, that woman... Can't say I'm a fan either.
  Childe: Right, let's forget all about her, shall we? I'm here to help you.
-Icon Dialogue Talk White Help?
+Traveler: Help?
  Childe: Yes. Help.
-Icon Dialogue Talk White I don't need help from the Fatui.
+Traveler: I don't need help from the Fatui.
  Childe: Come now, don't be like that.
-Icon Dialogue Talk White Go. Leave.
+Traveler: Go. Leave.
  Childe: Sure, I may be one of the Harbingers, but hear me out.
  Childe: I'm not a bad guy... Okay perhaps I'm kind of a bad guy, but I'm not here to give you any trouble.
  Childe: Would it be too much to ask for you to keep the sword sheathed?
@@ -195,8 +195,8 @@ View Rex Lapis: What went on out of view in that moment?
  Paimon: Adepti?
  Childe: If you head north from the harbor, then west from Guili Plains, you will eventually reach a stone forest known an Jueyun Karst.
  Childe: The people of Liyue believe it to be the abode of the adepti.
-Icon Dialogue Talk White They really believe that?
-Icon Dialogue Talk White Isn't it just a legend?
+Traveler: They really believe that?
+Traveler: Isn't it just a legend?
  Childe: Legend or not, they believe it. As such, offerings to the adepti are made at its borders. Nobody dares venture in.
  Childe: But I have no need for believing — not when I know for a fact that the adepti truly exist.
  Paimon: Hate to admit it but your Fatui intel seems alright. But, why would we go looking for adepti anyway?
@@ -206,9 +206,9 @@ Icon Dialogue Talk White Isn't it just a legend?
  Childe: The Qixing will already have dispatched the Millelith. They'll be seeking out the assassin from amongst the onlookers.
  Childe: But how could a mere mortal kill a god that can sweep aside entire armies? Rex Lapis never gave up his power as a god.
  Childe: This level of crude response is beyond what is called for. How suspicious...
-Icon Dialogue Talk White You think they're trying to hide the true culprit?
+Traveler: You think they're trying to hide the true culprit?
  Childe: Or... to hide something else. Hard to say.
-Icon Dialogue Talk White You think the Qixing did it and they're trying to pin it on someone else?
+Traveler: You think the Qixing did it and they're trying to pin it on someone else?
  Childe: Your thinking is even more radical than my own, Honorary Knight.
  Childe: Even now, the Northland Bank wouldn't be able to hold the Millelith off for long, but the adepti can clear you of any wrongdoing.
  Childe: Liyue was founded by the Geo Archon and the adepti — of course, it was built by force.
@@ -218,8 +218,8 @@ Icon Dialogue Talk White You think the Qixing did it and they're trying to pin i
 Chapter I: Act I - Of the Land Amidst Monoliths. An Impromptu Change of Plan
 (At Jueyun Karst)
  ???: And who might we be? Those that dare enter Jueyun Karst?
-Icon Dialogue Talk White I was sent here.
-Icon Dialogue Talk White Please take a look at this.
+Traveler: I was sent here.
+Traveler: Please take a look at this.
  ???: A Sigil of Permission... Many a season has passed since one was last in the presence of such an item.
  Moon Carver: He before you is the mighty and illuminated adeptus, Moon Carver. Speak, traveler. What business have you here?
  Paimon: Actually...
@@ -243,8 +243,8 @@ You tell Moon Carver what happened at Yujing Terrace...
  Moon Carver: Traveler, of the unjust accusations placed upon you, one has become aware.
  Moon Carver: The mind knows its answer. Though one must consult with one's fellows, lest the mind be misguided.
  Moon Carver: Go. Take your Sigil of Permission, carry with you a message.
-Icon Dialogue Talk White Who should I look for?
-Icon Dialogue Talk White Where should I go?
+Traveler: Who should I look for?
+Traveler: Where should I go?
  Moon Carver: Mountain Shaper and Cloud Retainer can be found here. Only fate will decide if you shall find them — only fate.
  Moon Carver: There exists a Conqueror of Demons, a Guardian Yaksha. Go to Wangshu Inn. There you shall seek him.
 
@@ -294,19 +294,19 @@ Icon Dialogue Quest Tell me about that adeptus
  Verr Goldet: How 'bout this — you go see the chef for a bowl of Almond Tofu, and a plate of whatever it is you are best at making.
  Verr Goldet: Almond Tofu is one of the few human foods Xiao likes. The other dish is up to you.
  Paimon: Up to us, eh...? Traveler, what do you think you're the best at cooking?
-Icon Dialogue Talk White Satisfying Salad I guess?
+Traveler: Satisfying Salad I guess?
  Paimon: Really hard to screw that one up, right?
-Icon Dialogue Talk White Perhaps a Maha Manjusaka Hot Pyro Slime?
+Traveler: Perhaps a Maha Manjusaka Hot Pyro Slime?
  Paimon: Wow! Never heard of that one! Paimon wants to try it!
  Paimon: But, if we're gonna be cooking for an adeptus, perhaps the Satisfying Salad would be the safer choice...
 (Talking to Verr Goldet again)
  Verr Goldet: Opportunities to meet an adeptus are rare and fleeting. Make the most of it.
 (Talking to Smiley Yanxiao, the chef of Wangshu Inn)
  Smiley Yanxiao: Can't you see I'm on a break kid? Scram.
-Icon Dialogue Talk White Excuse me, we'd like an Almond To—
+Traveler: Excuse me, we'd like an Almond To—
  Smiley Yanxiao: Scram!
  Paimon: Whoa, this chef guy's service is about as good as that Wagner guy's back in Mondstadt.
-Icon Dialogue Talk White It's for the boss, Goldet.
+Traveler: It's for the boss, Goldet.
  Smiley Yanxiao: ...
  Smiley Yanxiao: I see. If it's for the boss, then guess I don't have a choice now, do I?
  Smiley Yanxiao: But my heart's not really in it right now, not enough to make a dessert as painstaking as Almond Tofu.
@@ -343,9 +343,9 @@ Icon Dialogue Talk White It's for the boss, Goldet.
  Verr Goldet: Right. Best you two be off. Go see to it that little ghost doesn't go scaring anybody else.
  Verr Goldet: Not that I'm ordering you around. It's like the adeptus said, mortal souls are not as robust as those of the adepti.
  Verr Goldet: So as to not be harmed when dealing with the adepti, you can start by practicing with that ghost.
-Icon Dialogue Talk White Sounds good.
+Traveler: Sounds good.
  Paimon: But how should we persuade the ghost?
-Icon Dialogue Talk White But how should we persuade the ghost?
+Traveler: But how should we persuade the ghost?
  Verr Goldet: There is a calligraphy painting in the inn known as the Witness Sigil. It's been in circulation for over a thousand years. Go take a look at it.
  Verr Goldet: Once you have, look for a place outside where you can see the exact same Witness Sigil formation.
 (Talking to Verr Goldet again)
@@ -392,8 +392,8 @@ You give the food to Xiao...
  Xiao: The ruling Qixing... Just what role have they played in this?
  Xiao: ...
  Xiao: I will seek Moon Carver, Mountain Shaper, and Cloud Retainer. It is time they too made their decisions.
-Icon Dialogue Talk White Will the adepti take over his role in Liyue?
-Icon Dialogue Talk White Will the adepti interrogate the Qixing?
+Traveler: Will the adepti take over his role in Liyue?
+Traveler: Will the adepti interrogate the Qixing?
  Xiao: Adepti do not turn on their responsibilities.
  Xiao: I have my reasons to not want to be tainted by the mortal realm, but... responsibilities are responsibilities.
  Xiao: Our god is the God of Contracts after all.
@@ -410,7 +410,7 @@ Mysterious Barrier: (Jueyun Karst is where the adepti dwell, so perhaps this is 
 Talk to Li Ding First
 (Talk to Li Ding at the top of Mt. Hulao)
  Li Ding: Have mercy, O mighty adeptus! I beg you... Show mercy upon me and my brother... Spare our lives!
-Icon Dialogue Talk White What's wrong?
+Traveler: What's wrong?
  Li Ding: Who are you? What's going on?
  Paimon: We asked you first!
  Li Ding: ...Oh! You enjoy safe passage in Jueyun Karst... It can only mean one thing!
@@ -424,9 +424,9 @@ Icon Dialogue Talk White What's wrong?
  Paimon: What? We're not adepti messengers... We just wanna find the adepti, like everyone else!
  Li Ding: No no no, you must be messengers... You have to be!
  Li Ding: I have no idea which amber trapped him... Please, you have to rescue him! I beg you, show me some adepti mercy!
-Icon Dialogue Talk White Oh, fine. I'll go have a look...
+Traveler: Oh, fine. I'll go have a look...
  Li Ding: Thank you, thank you! O mighty messengers of the illuminated adepti, I promise that we will never be so foolish again...
-Icon Dialogue Talk White Of your transgressions, your predicament, and your repentance, one has become aware.
+Traveler: Of your transgressions, your predicament, and your repentance, one has become aware.
  Li Ding: Thanks be to the adeptus of Mt. Hulao, and to their messengers! Never will we be so foolish again...
  Paimon: Whoa, check you out! When you speak like that, you actually make a pretty convincing adepti messenger.
 (After the cutscene)
@@ -442,15 +442,15 @@ Icon Dialogue Talk White Of your transgressions, your predicament, and your repe
  Li Dang: Wh–What happened? ...Y–You rescued me? Thank you...
  Li Dang: Oh! And have you seen my brother? His name is Li Ding, we were climbing the mountain together.
  Li Dang: I just hope he didn't get trapped in amber too...
-Icon Dialogue Talk White He's the one who sent us looking for you.
+Traveler: He's the one who sent us looking for you.
  Li Dang: Phew... so he's safe then...?
-Icon Dialogue Talk White He's at the top of the mountain.
+Traveler: He's at the top of the mountain.
  Li Dang: He made it to the top? That means he should be okay...
  Li Dang: Thank you! I will head up to find my brother now.
  Li Dang: Here's hoping I don't run into any more amber on the way...
 (Talk to the brothers at the top of the mountain)
  Li Ding: Thank you for rescuing my brother, O mighty messengers of the illuminated adepti.
-Icon Dialogue Talk White Have you ever seen the adeptus here?
+Traveler: Have you ever seen the adeptus here?
  Li Ding: What? No... I mean, like everyone else, we've heard that there's an adeptus living in Mt. Hulao.
  Li Ding: But regular folks like us would never have the chance to meet them. No way.
  Li Ding: Unlike you guys... You're adepti messengers, so it's a whole different story.
@@ -465,7 +465,7 @@ Free Li Dang First
  Li Dang: Oh! And have you seen my brother? His name is Li Ding, we were climbing the mountain together.
  Li Dang: But then, I... Well, I don't know. Did I get swallowed up by the amber? I think I must have been knocked out...
  Li Dang: I just hope he didn't get trapped in amber too...
-Icon Dialogue Talk White I wouldn't know...
+Traveler: I wouldn't know...
  Li Dang: Alright then, I won't bother you anymore. Thanks again... I'm going to find my brother now.
  Li Dang: I really hope he's okay...
 (Talk to Li Ding)
@@ -474,10 +474,10 @@ Icon Dialogue Talk White I wouldn't know...
  Li Dang: We weren't thinking straight... We thought we could sneak up into the mountain and grab just enough treasure to sell and support our family with.
  Li Dang: As you can see, the adeptus punished us for our greed. The amber swallowed me up, and if you hadn't come to our rescue, who knows when I would've gotten out.
  Li Ding: Luckily the adeptus was merciful. They sent you two as their messengers to save us...
-Icon Dialogue Talk White ...Messengers?
+Traveler: ...Messengers?
  Li Ding: Yes! You two saved my brother, just as I was praying for the adeptus' forgiveness, right here on the top of the mountain.
  Li Dang: You are adepti messengers, no doubt about it.
-Icon Dialogue Talk White Of your transgression, your predicament, and your repentance, one has become aware.
+Traveler: Of your transgression, your predicament, and your repentance, one has become aware.
  Paimon: Whoa, your adepti messenger impression is really good. It's like this is the part you were born to play!
  Li Ding: Thank you... yes, we are truly sorry, my brother and I have learned our lesson.
  Li Ding: We are truly blessed to receive the mercy of the adeptus. We promise that we will change our ways and make an honest living from now one. Even if it means sweating it out down at the docks.
@@ -495,9 +495,9 @@ Meet Mountain Shaper
  Mountain Shaper: ...You intrude upon the sanctity of Mt. Hulao, you destroy the amber of my mountain, and you free a thief whose freedom is not yours to give.
  Mountain Shaper: The thieves' ignorance was an affront to the adepti... but your actions are an abomination of the highest order!
  Paimon: Wait! We can explain...
-Icon Dialogue Talk White Here, look at this...
+Traveler: Here, look at this...
  Mountain Shaper: ...A Sigil of Permission? One was unaware that such things still exist in the mortal realm.
-Icon Dialogue Talk White Moon Carver sent us...
+Traveler: Moon Carver sent us...
  Mountain Shaper: Moon Carver... trusted a mere mortal as his messenger?
  Mountain Shaper: Is this... a Sigil of Permission? One is surprised to find that such things still exist in the mortal realm.
  Mountain Shaper: In the beginning, Rex Lapis cast them for the mortals with his own hand. Few were made then, and thousands of years on, fewer still remain...
@@ -511,11 +511,11 @@ You explain what happened in Liyue Harbor.
  Mountain Shaper: But now... Alas! Rex Lapis, gone...
  Mountain Shaper: Traveler, of the matter you have relayed, one has become aware. One now knows why Moon Carver has sent for us.
  Mountain Shaper: Once one has dealt with certain matters here that require my attention, one shall convene with the other adepti.
-Icon Dialogue Talk White Can someone explain the amber situation to me?
+Traveler: Can someone explain the amber situation to me?
  Paimon: Paimon can! Adepti always have magical powers in storybooks, seems it's true in real life too.
  Paimon: You know, like how grass is actually adepti hair, and rivers are actually adepti saliva... There must be something similar going on with the amber.
-Icon Dialogue Talk White So is rain... adepti tears?
-Icon Dialogue Talk White Amber must be crystallized adepti... ew, gross.
+Traveler: So is rain... adepti tears?
+Traveler: Amber must be crystallized adepti... ew, gross.
  Mountain Shaper: ...Your nonsense knows no bounds. This amber is produced by a flower that one has planted here, called the karst crawler.
  Mountain Shaper: The majority of the plant is hidden underground. When stepped on, it produces amber to trap the invader.
  Mountain Shaper: After taking up residence here, one planted many karst crawlers to ensure that the tranquility of the mountain would remain undisturbed. Over the years, they have helped to prevent many disturbances, but in the process they have also trapped many curious things...
@@ -582,9 +582,9 @@ Mysterious Barrier: (Jueyun Karst is where the adepti dwell, so perhaps this is 
 (At the end of the domain)
  Cloud Retainer: One is most impressed. The path that leads through this abode defies those of ordinary abilities.
  Cloud Retainer: The one before you is the adeptus, Cloud Retainer. Now, speak of the matter which brings you here.
-Icon Dialogue Talk White Did you build this whole place?
+Traveler: Did you build this whole place?
  Cloud Retainer: You surmise correctly. This place did oneself build, as did one design the mechanisms within.
-Icon Dialogue Talk White Did you design all those mechanisms?
+Traveler: Did you design all those mechanisms?
  Cloud Retainer: You surmise correctly.
  Cloud Retainer: In fact, even Guizhong and Rex Lapis themselves found one's technological accomplishments to be worthy of commendation.
  Paimon: This place is huge! And there are so many mechanisms... Do you really have this whole place to yourself?
@@ -598,16 +598,16 @@ You explain what happened in Liyue Harbor.
  Cloud Retainer: How can this be!? Such a heinous crime... Who would dare?
  Cloud Retainer: The notion is so preposterous as to be unbelievable... one shall have to verify the truth of the matter independently...
  Cloud Retainer: ...Perhaps one shall quash Liyue first, then convene with the other adepti–
-Icon Dialogue Talk White ...Excuse me!?
+Traveler: ...Excuse me!?
  Paimon: Wait, what!? Did you just say "squash Liyue Harbor"? Are you seriously gonna wipe out the whole city?
  Cloud Retainer: Only a response of sufficient magnitude can negate the possibility of further incidents.
-Icon Dialogue Talk White But the adepti are sworn to protect the city...
+Traveler: But the adepti are sworn to protect the city...
  Cloud Retainer: It is as you say. We have protected Liyue Harbor under the leadership of Rex Lapis for 37 centuries. But in the face of this coup by nefarious actors... exceptional measures must be taken.
-Icon Dialogue Talk White Aren't you supposed to protect the people there?
+Traveler: Aren't you supposed to protect the people there?
  Cloud Retainer: It is as you say. But if Rex Lapis has indeed been murdered, then Liyue is in great peril. To delay in quashing the threat is to invite further disaster.
  Cloud Retainer: It is precisely because one does not wish to see further suffering that exceptional measures are deemed necessary at this exceptional time.
  Paimon: Yikes! Quick, you gotta think of something! She wants to squash Liyue flat, and it doesn't seem like she's bluffing!
-Icon Dialogue Talk White You accepted our offering, that makes this a contract.
+Traveler: You accepted our offering, that makes this a contract.
  Paimon: Exactly what Paimon was gonna say! We made all that delicious food, and gave every last bit of it to you!
  Paimon: We were hoping you might help Liyue out... not wipe Liyue out!
  Paimon: ...Or at least let's... y'know, discuss it first? Can't hurt for you to get a second opinion.
@@ -644,14 +644,14 @@ Chapter I: Act I - Of the Land Amidst Monoliths. Dust to Dust
  Childe: Naturally. They both have the responsibility and the aptitude for the job.
  Childe: If the ruling Qixing became unable to perform their duty properly, the adepti have the right to take corrective action.
  Childe: The Geo Archon's spirit has risen, so why would the Qixing hide his vessel!? Truly suspicious.
-Icon Dialogue Talk White This makes things difficult for me too.
-Icon Dialogue Talk White I agree, something is definitely not right.
+Traveler: This makes things difficult for me too.
+Traveler: I agree, something is definitely not right.
  Paimon: Oh! Right! He's the whole reason we came here!
  Paimon: If the Liyue Qixing has locked up Exuvia and won't let anyone near...
  Paimon: Then (Traveler's) quest to find The Seven is already over!
  Childe: Oh? You're trying to find The Seven? And just why might that be, pray tell?
-Icon Dialogue Talk White Nothing to do with you.
-Icon Dialogue Talk White No comment.
+Traveler: Nothing to do with you.
+Traveler: No comment.
  Childe: Heh... nice answer.
  Childe: A knight that gets duped by the Fatui would really be no knight at all now, would they?
  Childe: But, I can help you with that too you know.
@@ -665,20 +665,20 @@ Icon Dialogue Talk White No comment.
 Chapter I: Act II - Farewell, Archaic Lord. An Organization Known as Wangsheng
 (Talk to Ekaterina inside the Northland Bank)
  Ekaterina: Welcome, Traveler, friend of Childe. And congratulations on the first day of your illustrious career with the Fatui.
-Icon Dialogue Talk White I don't consider Childe a friend.
-Icon Dialogue Talk White I have no intention of joining the Fatui.
+Traveler: I don't consider Childe a friend.
+Traveler: I have no intention of joining the Fatui.
  Ekaterina: You sound remarkably sure of yourself... Remember, we are mere mortals — our ideas are fluid like water. Only the Tsaritsa truly has a will as solid as the permafrost.
  Ekaterina: But back to the matter at hand. Childe tells me that he has upheld his end of your agreement.
  Paimon: What agreement? Oh, the thing about him helping us find a guy?
  Ekaterina: Correct. Childe promised he would find someone to break the stalemate. And the Harbingers do not break their promises lightly.
  Paimon: Ah. Where is that guy, anyway?
  Ekaterina: Childe is currently at Liuli Pavilion.
-Icon Dialogue Talk White Liuli Pavilion?
+Traveler: Liuli Pavilion?
  Paimon: Ooh, ooh Paimon knows this one!
  Paimon: *clears throat* There are two styles of cooking in Liyue, known as Li style and Yue style. They have been competing for centuries, but neither has emerged as the clear winner.
  Paimon: The flagship restaurant of the Li style is the Liuli Pavilion. The owner especially chose to open the restaurant at Feiyun Slope, so they could compete face-to-face with the Xinyue Kiosk, which is the flagship restaurant of the Yue style.
-Icon Dialogue Talk White Trust you to only know these sorts of things...
-Icon Dialogue Talk White You're like this every time we talk about food...
+Traveler: Trust you to only know these sorts of things...
+Traveler: You're like this every time we talk about food...
  Paimon: Don't talk to Paimon like that! Anyway, Paimon's hungry. Let's get moving.
 (Talk to Ekaterina again)
  Ekaterina: Master Childe awaits you at the Liuli Pavilion. If you please, do not keep him waiting.
@@ -693,8 +693,8 @@ Icon Dialogue Talk White You're like this every time we talk about food...
  Hongru: Mr. Zhongli is awaiting your arrival in the room you booked.
 (Inside the Liuli Pavilion)
  Childe: Allow me to introduce Mr. Zhongli, consultant to an organization known as Wangsheng... and a trusted associate of the Fatui.
-Icon Dialogue Talk White Associate of the Fatui?
-Icon Dialogue Talk White Wangsheng?
+Traveler: Associate of the Fatui?
+Traveler: Wangsheng?
  Childe: Indeed. Wangsheng's line of work can be... sensitive at times. Let's just say they understand when discretion is needed.
  Childe: And we, the Fatui, have always been glad to do business with friends who walk in the shadows.
  Paimon: W–Walk in the shadows?
@@ -706,33 +706,33 @@ Icon Dialogue Talk White Wangsheng?
  Paimon: Eh?
  Childe: Haha, did you think he was some sort of hired killer?
  Childe: The Fatui calls many such people friends, but the Wangsheng Funeral Parlor does no dabble in such business... well, ostensibly.
-Icon Dialogue Talk White Ostensibly...
+Traveler: Ostensibly...
  Childe: Well, they are still— Ah, I shouldn't say too much. In any case, I brought you to meet Mr. Zhongli because...
  Zhongli: Because I can bring you to see Rex Lapis' vessel.
  Paimon: What!?
  Childe: Ha, don't be so surprised. Sure, the Geo Archon's body has been squirreled away by order of the Tianquan Ningguang... but first, let's hear what Mr. Zhongli has to say, shall we?
  Zhongli: Rex Lapis may be the Prime of Adepti, but he is ultimately an adeptus. Many adepti have left us over the millennia — this is the inexorable trend.
  Zhongli: The times have changed — you must have felt it too when you were at Jueyun Karst.
-Icon Dialogue Talk White That's true. The adepti are staying away from Liyue.
-Icon Dialogue Talk White The Geo Archon is also an adeptus?
+Traveler: That's true. The adepti are staying away from Liyue.
+Traveler: The Geo Archon is also an adeptus?
  Zhongli: Archons go by many names. The God of Contracts, the God of Commerce, the Warrior God, Morax, Rex Lapis... is the idea that he also has the title of Adeptus so strange?
  Zhongli: As you have seen, the time of the adepti is ending, and the time of mankind is slowly dawning.
  Zhongli: In years past, Liyue's tradition was that a huge memorial service be held to mark the passing of every adeptus. But this time, the Qixing have made no attempt whatsoever to respect this tradition. It is sacrilege.
-Icon Dialogue Talk White Well, they do have a deicide to deal with...
+Traveler: Well, they do have a deicide to deal with...
  Paimon: Yeah, the killer hasn't even been caught yet.
  Zhongli: Deicide or not, the concern of the Wangsheng Funeral Parlor is this: When the ritual to receive this god is so kingly, it is all the more egregious for his final send-off to go unattended to.
  Zhongli: Traveler, Childe has told me a lot about you. Since you have had dealings with the Anemo Archon, could I ask you to help me prepare the Geo Archon's last rites?
-Icon Dialogue Talk White I'm going to have to think about it...
+Traveler: I'm going to have to think about it...
  Paimon: Well, if you think about it, (‍Traveler‍), we don't have any other choice...
  Childe: Indeed, no amount of consideration can change this outcome.
-Icon Dialogue Talk White I accept your invitation...
+Traveler: I accept your invitation...
  Childe: A wise decision.
-Icon Dialogue Talk White Childe says too much.
+Traveler: Childe says too much.
  Childe: Oh? In our line of work, that means you want to silence me... How interesting. Draw your sword. We shall—
  Childe: Just kidding. Let's continue, shall we?
  Childe: The Tianquan, Ningguang, has forbidden anyone from accessing Rex Lapis' vessel... Which of course you would need to access if you are to achieve your goal of meeting all of The Seven.
  Zhongli: Precisely. Only by participating in the Rite of Parting will you be able to see the form of Rex Lapis again.
-Icon Dialogue Talk White Looks like there's no other choice.
+Traveler: Looks like there's no other choice.
  Zhongli: If we are agreed, come with me. We will speak of the details as we walk.
  Childe: Alright, my bridge-building work here is done. Turned out well, didn't it?
  Childe: You can go if you want to, don't worry about me. I might just have a few more drinks... and get acquainted with these things they call "chopsticks" in the meantime.
@@ -740,10 +740,10 @@ Icon Dialogue Talk White Looks like there's no other choice.
  Childe: My... chopsticks... truly are difficult to use...
 (Talk to Zhongli outside Liuli Pavilion)
  Zhongli: After having experienced the land of the absentee archon, Traveler, how does it feel to know that our archon and adepti are here all around you in Liyue?
-Icon Dialogue Talk White I prefer the atmosphere in Mondstadt.
+Traveler: I prefer the atmosphere in Mondstadt.
  Zhongli: I see, so you're that sort of person. It's not a bad thing.
  Zhongli: But I suppose you have yet to experience the substance of Liyue's three thousand and seven hundred years of divinity.
-Icon Dialogue Talk White Liyue is the better place.
+Traveler: Liyue is the better place.
  Zhongli: Indeed. The weight of three thousand and seven hundred years' worth of history runs deepest in the true divinity of Liyue.
  Zhongli: Organizing the Rite of Parting should prove to be an enlightening part of your travels.
  Zhongli: Liyue is the most prosperous of the seven nations, defended by deities and ruled by the Qixing. As such, the diplomatic maneuverings of the Fatui have gained no purchase here.
@@ -765,10 +765,10 @@ Chapter I: Act II - Farewell, Archaic Lord. Moonfinger
  Shitou: What do you think? The Jade Mystery is an old name in the jade business. Just look at that wonderful quality! Rex Lapis doesn't often bless us with such finery. Go on, pick whichever one you like!
  Paimon: These three pieces really do look pretty, not like the ones you usually dig up...
  Paimon: But how do we pick? Should we just grab one and go?
-Icon Dialogue Talk White A man who makes his living off betting on stones can't be trusted so lightly.
+Traveler: A man who makes his living off betting on stones can't be trusted so lightly.
  Zhongli: Very good. It seems you have learned some tricks of the trade.
  Paimon: What do you think, Mr. Zhongli? How should we pick from these pieces of Noctilucous Jade?
-Icon Dialogue Talk White What do you think, Mr. Zhongli?
+Traveler: What do you think, Mr. Zhongli?
  Zhongli: Oh? You want me to decide? That is fine as well.
  Zhongli: If it were me, the answer would be simple.
  Paimon: Oh? And that would be...?
@@ -777,8 +777,8 @@ Icon Dialogue Talk White What do you think, Mr. Zhongli?
  Paimon: Wait! Wait! Boss, that one didn't count! We need to discuss it again!
 (Talking to Zhongli in private)
  Paimon: Hey! If we only need one for the ritual, aren't we wasting three times the Mora if we buy them all!?
-Icon Dialogue Talk White That's true.
-Icon Dialogue Talk White Actually, it's two times more Mora.
+Traveler: That's true.
+Traveler: Actually, it's two times more Mora.
  Zhongli: Oh, Mora. Hmm...
  Zhongli: It is as you say. I suppose I overlooked this particular aspect of the transaction.
  Paimon: Huh? How do you not think about Mora when buying things!?
@@ -786,10 +786,10 @@ Icon Dialogue Talk White Actually, it's two times more Mora.
  Paimon: Ahh... What?
  Zhongli: All Mora is currency, but not all currency is Mora.
  Paimon: ???
-Icon Dialogue Talk White He's talking about economics.
+Traveler: He's talking about economics.
  Paimon: Is this how the rich live?
  Paimon: Well, he knows a lot about big money, but not a lot about big savings.
-Icon Dialogue Talk White Sounds like he's loaded.
+Traveler: Sounds like he's loaded.
  Paimon: So loaded that he doesn't even bother hunting for a bargain.
  Zhongli: No need to waver. Even when I am constrained by Mora, I have ways of working around my limitations.
  Zhongli: Evaluating the quality of Noctilucous Jade is indeed very tricky. As crude ore, there is little difference in texture, lustrousness, and internal pattern between good and bad jade.
@@ -802,27 +802,27 @@ Icon Dialogue Talk White Sounds like he's loaded.
  Zhongli: If you point at the moon with your finger, a wise man knows that you are pointing at the moon, while a fool will only see the finger.
  Zhongli: The patterns, the facade, these are all the "finger." Noctilucous Jade is a mystical stone used to light up the darkness, and so its brightness is the most important thing — it is the "moon."
  Zhongli: Noctilucous Jade of excellent quality would have superior Pyro affinity. In other words, the bluer and brighter the luster of the ore under high temperature, the higher its quality.
-Icon Dialogue Talk White I didn't realize you were such an expert...
-Icon Dialogue Talk White Is this normal life for a high-class gentleman?
+Traveler: I didn't realize you were such an expert...
+Traveler: Is this normal life for a high-class gentleman?
  Zhongli: I have imparted the priceless secrets of the jade trade to you. Now all that's left is to put it into practice.
  Paimon: Priceless, huh... Paimon's just sad that we might never be able to use it again...
 (Talking again to Shitou)
  Paimon: We're back to buy some rocks, boss. But can you let us burn them first?
  Shitou: B—Burn them? You can't do that, my friends! If you were to do so, what would I have to sell?
-Icon Dialogue Talk White Then, can we get some small samples?
+Traveler: Then, can we get some small samples?
  Shitou: That... Well, fine. As you wish, then.
-Icon Dialogue Talk White Then I'm not buying any.
+Traveler: Then I'm not buying any.
  Shitou: Not buying...? Ah, come, come now, my good friends... we can still discuss this. Negotiation is key to trade, wouldn't you say?
  Shitou: How about this? I can take a small sample of all three. I'll take a bit of a loss — we'll count it as a friendly gesture.
  Zhongli: Don't worry, I know the rules. As long as we can prove that it is good jade, you will not take a loss.
  Shitou: Alright. Take these as samples. I've carved them off with a knife and tagged them to boot.
-Icon Dialogue Talk White These samples...
-Icon Dialogue Talk White So thin...
+Traveler: These samples...
+Traveler: So thin...
  Paimon: ...Aren't these too thin?
  Paimon: Even paper's thicker. No, even a bug's wings are thicker! These are almost see-through!
-Icon Dialogue Talk White How stingy...
+Traveler: How stingy...
  Shitou: Stingy? I've already been very generous. Any more, and you may as well have my neck!
-Icon Dialogue Talk White This is impressive handiwork.
+Traveler: This is impressive handiwork.
  Shitou: Hahaha. You flatter me, but I have to be gentle with these rocks. They are my pride and joy!
  Shitou: If I'd taken off even a bit more, it would have killed me.
  Paimon: But wouldn't something this thin go poof if we held it to the fire?
@@ -832,8 +832,8 @@ Icon Dialogue Talk White This is impressive handiwork.
  Shitou: Oh? Oh, sir, to think you were this learned... Thank you for your understanding!
  Zhongli: Strictly speaking, asking for samples when we have not yet agreed to purchase the goods is unfair. Trade in Liyue must be based upon fairness.
  Paimon: Well, guess we just need to find a place to try this out...
-Icon Dialogue Talk White I remember this spot in the Dadaupa Gorge...
-Icon Dialogue Talk White How about the kitchen at Xiangling's place...
+Traveler: I remember this spot in the Dadaupa Gorge...
+Traveler: How about the kitchen at Xiangling's place...
  Paimon: You mean at Wanmin Restaurant? As long as we do it when she's not in...
  Zhongli: That would not do. It is a place where people come and go. They would be endangered if the elemental reaction were to get out of control... We cannot take such a risk.
  Paimon: Ooh! Paimon remembers! We once saw this biiiiig pot down at the Dadaupa Gorge, in the camp of the hilichurls from the Meaty Tribe! It's real sturdy, and should be able to take the elemental reactions!
@@ -850,8 +850,8 @@ Icon Dialogue Talk White How about the kitchen at Xiangling's place...
  Paimon: It's a bit impolite, but we gotta cut the line.
 (After defeating the hilichurls and approaching the pot)
  Paimon: There's still soup in here. These hilichurls sure have big appetites!
-Icon Dialogue Talk White Well, it's our lab now.
-Icon Dialogue Talk White Shame to let it go to waste...
+Traveler: Well, it's our lab now.
+Traveler: Shame to let it go to waste...
  Paimon: This soup looks like it could be used as our Hydro elemental protection. Let's fire it up and begin our experiment!
 (You place the samples into the pot)
  Paimon: We're ready to go! Paimon will help remember which one of the three is which!
@@ -871,13 +871,13 @@ Icon Dialogue Talk White Shame to let it go to waste...
  Paimon: (‍Traveler‍), let's head back to The Jade Mystery to buy some jade, shall we?
 (Return to Liyue Harbor and talk to Shitou)
  Shitou: You're back, my friends! I've kept the goods for you. Which of them would you like?
-Icon Dialogue Talk White I would like the first Noctilucous Jade.
-Icon Dialogue Talk White I would like the second Noctilucous Jade.
+Traveler: I would like the first Noctilucous Jade.
+Traveler: I would like the second Noctilucous Jade.
 (Dialogue for picking either one)
  Paimon: Huh? No, it wasn't that one, Paimon remembers that it wasn't very bright.
  Paimon: Think a bit harder...
 (If you pick the other wrong option, Paimon repeats this dialogue)
-Icon Dialogue Talk White I would like the third Noctilucous Jade.
+Traveler: I would like the third Noctilucous Jade.
  Paimon: Exactly, that's the one Paimon remembers too!
  Shitou: No problem. If you have your eye on this one, you can have it.
  Zhongli: Then we'll take a box of the third type of jade.
@@ -892,7 +892,7 @@ Icon Dialogue Talk White I would like the third Noctilucous Jade.
  Shitou: If not for our Lord's protection, this city wouldn't exist as it does now. No proprietor could earn money off such a thing.
  Paimon: Aww... I'm sure Rex Lapis will feel your sentiment, boss.
  Zhongli: In the safe hands of the Liyue Qixing and good, honest merchants such as yourself, I, for one, believe that Liyue will continue to prosper as it always has done.
-Icon Dialogue Talk White So let's not get ourselves down just yet.
+Traveler: So let's not get ourselves down just yet.
  Shitou: Alright... thank you, my friends. Hah, what's with me, getting all sentimental like this? I'll practically be giving away all my fortune at this rate.
  Zhongli: Now that we've made our choice, let's take this Noctilucous Jade back.
  Paimon: Hey, wait a minute! He said it was half price, not that we could leave without paying!
@@ -900,30 +900,30 @@ Icon Dialogue Talk White So let's not get ourselves down just yet.
  Zhongli: ...As I thought, I didn't bring any.
  Paimon: Any what?
  Zhongli: Mora. My apologies, another oversight on my part.
-Icon Dialogue Talk White What a strange take on the value of money...
-Icon Dialogue Talk White A local of Liyue who doesn't have money on their mind...
+Traveler: What a strange take on the value of money...
+Traveler: A local of Liyue who doesn't have money on their mind...
  Paimon: That won't do, this isn't some small sum... Oh wait, didn't Childe give us some advance funds earlier?
-Icon Dialogue Talk White I have them on me.
+Traveler: I have them on me.
  Paimon: That's a relief. Have a look, boss, is it enough?
  Shitou: It's fine, just enough for half price... though to be honest, it'd be alright even if the sum wasn't quite enough.
  Zhongli: Well, it's settled, then. Let's take this jade to Yujing Terrace. That's where we plan to hold the Rite...
  Paimon: Look at you, bossing everyone around! You didn't cough up a single Mora!
-Icon Dialogue Talk White Please remember to bring money next time.
+Traveler: Please remember to bring money next time.
  Zhongli: I will do my best. You have my thanks.
-Icon Dialogue Talk White Guess we need to find Childe for more funding.
+Traveler: Guess we need to find Childe for more funding.
  Zhongli: Mm, it seems that we must. I will keep that in mind. Thanks, both of you.
 (Talk to Shitou again)
  Shitou: Ah... Rex Lapis... Rex Lapis...
 (After putting the Noctilucous Jade in place)
  Zhongli: We can leave the jade here. I have already called for a jewelsmith to shape them into the implements that we will need.
  Zhongli: Ah, yes. I have yet to go and see Childe. So as for the jewelsmith's remuneration...
-Icon Dialogue Talk White We'll pay the jewelsmith when he arrives.
-Icon Dialogue Talk White Fingers crossed Childe will reimburse us...
+Traveler: We'll pay the jewelsmith when he arrives.
+Traveler: Fingers crossed Childe will reimburse us...
  Paimon: Guess we can't do anything else. Also, is this where we're doing the Rite of Parting?
  Zhongli: Yes. I have already rented this location, and have begun making preparations for the rite.
-Icon Dialogue Talk White The Rite of Descension took place here, too.
+Traveler: The Rite of Descension took place here, too.
  Zhongli: That's right. The Liyue Qixing have acquiesced to using the same location.
-Icon Dialogue Talk White So we're just using the scene of the crime to...
+Traveler: So we're just using the scene of the crime to...
  Zhongli: The Liyue Qixing have agreed to this arrangement.
  Paimon: But when something this big happened here... should suspects like us really be at the crime scene? We might get caught by the Millelith.
  Paimon: Although with that said, since we got back from Jueyun Karst, none of those pesky Millelith soldiers have come chasing after us. Wonder what that's about...
@@ -931,8 +931,8 @@ Icon Dialogue Talk White So we're just using the scene of the crime to...
  Zhongli: Traditionally, we call it the Exuvia.
  Paimon: Ah, right. That's what it was called! You seem to know everything, Mr. Zhongli. Um, so, was this Exuvia hidden away by the Qixing? I mean, we haven't even figured out who the murderer is...
  Zhongli: One must think that they already have someone in mind. Or perhaps they already know. Surely they must have found all the evidence that there is to find here.
-Icon Dialogue Talk White It still feels very odd.
-Icon Dialogue Talk White Seems a bit too easy-going...
+Traveler: It still feels very odd.
+Traveler: Seems a bit too easy-going...
  Zhongli: These things are for the authorities in Yujing Terrace to consider. Trying to help would probably only add to their troubles.
  Zhongli: Before the Rite is conducted, the Exuvia will be kept temporarily in the Golden House.
  Paimon: Golden House?
@@ -941,8 +941,8 @@ Icon Dialogue Talk White Seems a bit too easy-going...
  Paimon: No, Paimon wasn't thinking about anything bad. Paimon thinks it suits Morax.
  Paimon: But why do you know this, Mr. Zhongli?
  Zhongli: Since the Rite of Parting has the approval of the Qixing, it is a semi-official event. As such, there is already some limited information available.
-Icon Dialogue Talk White The Qixing provide the location, and Childe the funds...
-Icon Dialogue Talk White They must have some ulterior motive...
+Traveler: The Qixing provide the location, and Childe the funds...
+Traveler: They must have some ulterior motive...
  Zhongli: Perhaps each has their motives... but this is the capital of commerce. A little exploitation once in a while is not unacceptable.
  Zhongli: In Liyue, where the God of Contracts reigns, only contracts may not be betrayed. I for one have no issue with little maneuvers outside their remit.
  Zhongli: Well then, we should go and prepare the perfumes used in the Rite.
@@ -964,9 +964,9 @@ Chapter I: Act II - Farewell, Archaic Lord. Three Poignant Perfumes
  Zhongli: Golden House Maiden, Valley Weaver, and Fate's Yearning. One of each to start with, if you don't mind.
  Bolai: ...My goodness! This gentleman is quite the connoisseur!
  Bolai: You two must be his servants. Please refrain from any further attempts to contribute.
-Icon Dialogue Talk White Well, guess I had it coming...
-Icon Dialogue Talk White This is what I get for calling Paimon "emergency food."
-Icon Dialogue Talk White Wait... You don't even recognize me!?
+Traveler: Well, guess I had it coming...
+Traveler: This is what I get for calling Paimon "emergency food."
+Traveler: Wait... You don't even recognize me!?
  Bolai: I'm sorry? Ah, yes... We've met before, haven't we? Sorry, Traveler, I shouldn't have spoken to you in that tone.
  Bolai: Now then... Please peruse at your leisure. Do let me know if you have any further thoughts.
  Zhongli: Silk Flowers exhibit different properties based on how their environmental conditions differ from their ancestral habitat... Nevertheless, these are fine specimens. Excellently preserved.
@@ -976,8 +976,8 @@ Icon Dialogue Talk White Wait... You don't even recognize me!?
  Zhongli: Silk Flowers have all but disappeared from the wild today, due to geographical changes over Liyue's history. Most are now grown by horticulturalists.
  Bolai: Wow. A true connoisseur. Most of that was news even to me!
  Zhongli: I possess but a smattering of trivial knowledge. My traveler friend is the one to watch — they are on track to set foot in every corner of the world.
-Icon Dialogue Talk White What's so impressive about that...
-Icon Dialogue Talk White I'm still an ignoramus on horticulture...
+Traveler: What's so impressive about that...
+Traveler: I'm still an ignoramus on horticulture...
  Paimon: Mr. Zhongli, you're way too humble... So which Silk Flower did you want, anyway?
  Zhongli: I'll take them all, boss.
  Paimon: ...Again!?
@@ -988,8 +988,8 @@ Icon Dialogue Talk White I'm still an ignoramus on horticulture...
  Zhongli: But this is the only Rite of Parting to take place for one of The Seven in three thousand seven hundred years. As such, I do think we should honor tradition down to the last detail in this case.
  Zhongli: Now that's settled, a question... Ahem. Do you have any Mora on you?
  Paimon: You forgot to bring money again!? Grr, Zhongli!!!
-Icon Dialogue Talk White I see a pattern emerging here.
-Icon Dialogue Talk White By this point, I'd be more surprised if he'd remembered.
+Traveler: I see a pattern emerging here.
+Traveler: By this point, I'd be more surprised if he'd remembered.
  Bolai: If I may interject... Did I hear you say that these flowers are to be an offering to the Lord of Geo himself?
  Paimon: Yes... in a sense.
  Bolai: Gosh. Well, why didn't you say so? I heard the awful news about what happened at this year's Rite of Descension...
@@ -1019,10 +1019,10 @@ Icon Dialogue Talk White By this point, I'd be more surprised if he'd remembered
  Paimon: Lan! We need to ask you for a favor...
  Lan: I stopped accepting commissions along time ago. Sorry, you two, but you'll just have to ask another adventurer.
  Paimon: Oh, it's not that kind of favor. It's just a teeny-tiny thing...
-Icon Dialogue Talk White Do you know how to make perfume?
+Traveler: Do you know how to make perfume?
  Lan: ...Wow. Just wow.
  Lan: Do I look like the kind of girl who wears perfume to you? I think you're underestimating the kind of person I am...
-Icon Dialogue Talk White You smell great.
+Traveler: You smell great.
  Lan: ...Wow. Just wow.
  Lan: I am just going to assume that you are either joking or being sarcastic.
  Lan: To be fair, I put a lot of effort into my appearance for someone who spends all their time in the great outdoors. But "I smell great"? Don't be ridiculous.
@@ -1039,9 +1039,9 @@ Icon Dialogue Talk White You smell great.
 (Talk to Qiming)
  Qiming: Hello. How may I help?
  Paimon: We've come to ask you a question...
-Icon Dialogue Talk White Do you know how to make perfume?
+Traveler: Do you know how to make perfume?
  Qiming: Perfume? I rarely think to use it, let alone about how to make it myself.
-Icon Dialogue Talk White You smell great.
+Traveler: You smell great.
  Qiming: Ah... I...
  Qiming: ...Sorry, you caught me off guard. Most people aren't so direct.
  Qiming: I think we need more time to get to know each other...
@@ -1064,27 +1064,27 @@ Icon Dialogue Talk White You smell great.
  Paimon: "Snooping around"? Why are you making it out like we're bad people?
  Ying'er: What can I say? People love to talk... Maybe you ought to be more discreet in the future if you don't want word to get around.
  Ying'er: Relax... I know what you're here. You want to get your hands on my homemade perfume, don't you? What kind would you like?
-Icon Dialogue Talk White A bespoke triple-Silk-flower variety...
-Icon Dialogue Talk White Whichever one you're wearing.
+Traveler: A bespoke triple-Silk-flower variety...
+Traveler: Whichever one you're wearing.
  Ying'er: Heh... I'm not wearing any, darling.
  Ying'er: Could it be that you've been bewitched by my natural scent? If so, I'm afraid it's one of a kind...
  Paimon: Whatever this is, you need to snap out of it right now! (‍Traveler‍), Hand her the Silk Flowers!
  Ying'er: Three in one go... My goodness.
  Ying'er: You have extreme tastes for someone your age. Maybe the rumors I heard were true after all. You're on the prowl and need some sweet-smelling ammunition, is that it?
-Icon Dialogue Talk White It's for Rex Lapis.
+Traveler: It's for Rex Lapis.
  Ying'er: Tsk... Is that the best you could come up with? Even if you were genuinely offering perfume to a deity, that doesn't explain why you'd need three kinds. Sorry, you story just doesn't hold water!
  Paimon: Zhongli was right... People don't remember this tradition anymore.
-Icon Dialogue Talk White You got a problem with that?
+Traveler: You got a problem with that?
  Ying'er: Ay yai yai, who let this tiger out of the cage!? Well, with your looks, who can blame you? If you've got it, flaunt it.
  Ying'er: As one of my favorite poems goes, "Oh, cherry tree, begrudge not thy blossoms as they are deflowered in the spring, for come winter, even thy sturdiest wood shall wither."
  Paimon: That went over Paimon's head a little...
  Ying'er: In short, I'm happy to help. Traveler, you can be my assistant. But you'd better make sure I'm the only person on your mind while you're hanging around with me.
-Icon Dialogue Talk White Okay...
+Traveler: Okay...
  Ying'er: So... Where is a good place for making sweet, sweet perfume?
-Icon Dialogue Talk White Dadaupa Gorge!
+Traveler: Dadaupa Gorge!
  Ying'er: Where is that? Mondstadt? We're only making some perfume, there's not need to go to such ridiculous lengths.
  Ying'er: Somewhere closer to home will do. Let's go for the kitchen at the Wanmin Restaurant.
-Icon Dialogue Talk White How about the kitchen at Xiangling's place...
+Traveler: How about the kitchen at Xiangling's place...
  Ying'er: You mean Wanmin Restaurant? Good choice! Let's go.
 (Talk to Ying'er at Wanmin Restaurant)
  Ying'er: I've had a word with Chef Mao. We can start work now.
@@ -1101,8 +1101,8 @@ Icon Dialogue Talk White How about the kitchen at Xiangling's place...
  Ying'er: Perfume-making uses an altogether different technique from alchemy. Here, let me teach you. Very carefully, take hold of the mortar and pestle... Gently does it...
  Ying'er: You need to keep your wrist firm so your hand doesn't slip...
  Ying'er: Now, use your strong hand to stir it with a persistent rhythm... Keep going until the juices start to come out...
-Icon Dialogue Talk White Don't worry, I know what I'm doing.
-Icon Dialogue Talk White Okay, okay, I get it...
+Traveler: Don't worry, I know what I'm doing.
+Traveler: Okay, okay, I get it...
  Ying'er: Ooh... You're a natural! Like a fish to water.
  Ying'er: Now, take these and try it out on your own using a nearby crafting bench.
  Ying'er: Don't forget to do all three. They look visually identical during the essence extraction process, but I will put them into separate containers when the perfume is ready.
@@ -1118,8 +1118,8 @@ Icon Dialogue Talk White Okay, okay, I get it...
 With a little guidance, you help Ying'er make some perfume.
  Ying'er: All three perfumes are ready. And you, my friend, were a wonderful assistant.
  Ying'er: A testament to the lengths you will go for romance... It's so rare to see nowadays.
-Icon Dialogue Talk White I told you, it's not like that...
-Icon Dialogue Talk White I was thinking of you the whole time.
+Traveler: I told you, it's not like that...
+Traveler: I was thinking of you the whole time.
  Ying'er: Wow, you actually remembered my throwaway comment...
  Ying'er: Y'know, you're cuter than people give you credit for. If I didn't have my guard up, I can see how easily one could be taken in...
  Ying'er: Anyway... Shall I give you a brief overview of each scent? It might just help you match the right scent to the right occasion...
@@ -1128,11 +1128,11 @@ Icon Dialogue Talk White I was thinking of you the whole time.
  Ying'er: The second one is for those with refined tastes... The first choice for daughters of high society.
  Ying'er: Finally, the third one has a soft by lingering scent, like a mist that captures the last light of dusk. Mature women adore this one.
  Ying'er: All clear? Don't get them mixed up now, you'll ruin the mood...
-Icon Dialogue Talk White I... I think I got it...
+Traveler: I... I think I got it...
  Ying'er: Good. Be sure to come visit if you ever need help with anything, okay?
  Ying'er: I'll leave you with some parting words:
  Ying'er: One who tries to sail three boats simultaneously should be careful not to go overboard.
-Icon Dialogue Talk White ...
+Traveler: ...
  Ying'er: Heh. Come and hang out with me at Scent of Spring sometime, okay?
 (After the conversation)
  Paimon: Let's take these three perfumes over to the Statue of the Seven [sic]. Mr. Zhongli's probably been waiting for a while.
@@ -1145,16 +1145,16 @@ Icon Dialogue Talk White ...
  Zhongli: That is true. Well, have you brought the perfumes?
  Paimon: Three sets and not one less!
  Zhongli: Thank you both. Let us offer them up.
-Icon Dialogue Talk White Offer Golden House Maiden
+Traveler: Offer Golden House Maiden
  Paimon: This is the first kind of perfume. Ms. Ying'er said that it's sweet as a dream, and it's liked by younger ladies.
-Icon Dialogue Talk White Offer Valley Weaver
+Traveler: Offer Valley Weaver
  Paimon: This is the second kind. It's got an elegant smell, and the daughters of high society love it!
-Icon Dialogue Talk White Offer Fate's Yearning
+Traveler: Offer Fate's Yearning
  Paimon: The third kind has a gentle but lingering fragrance, something something like the dusk mist, and it's a favorite of mature ladies.
 (Statue glows)
  Paimon: Oh... what was that?
-Icon Dialogue Talk White Looks like Rex Lapis really likes this one.
-Icon Dialogue Talk White I guess the final answer is number three.
+Traveler: Looks like Rex Lapis really likes this one.
+Traveler: I guess the final answer is number three.
  Paimon: That's the one older ladies like, right?
  Paimon: Does that mean that Rex Lapis is actually an older lady?
  Zhongli: Haha, perhaps, perhaps.
@@ -1162,8 +1162,8 @@ Icon Dialogue Talk White I guess the final answer is number three.
  Paimon: What a shame, we only got to see the giant dragon form, and...
  Paimon: Let's hope the Qixing can catch the real killer.
  Zhongli: We can leave that to the authorities. Let us focus on the fond farewell for Rex Lapis.
-Icon Dialogue Talk White (What ulterior motives do Childe and the Qixing have...)
-Icon Dialogue Talk White (Well, we do need to see the Exuvia...)
+Traveler: (What ulterior motives do Childe and the Qixing have...)
+Traveler: (Well, we do need to see the Exuvia...)
  Paimon: So, we've finished another step in our preparations. What's next?
  Zhongli: Next, I would like the two of you to help me borrow the Cleansing Bell.
  Paimon: Cleansing Bell?
@@ -1179,10 +1179,10 @@ Chapter I: Act II - Farewell, Archaic Lord. The Realm Within
 Talk to Madame Ping
 (Talk to Madame Ping)
  Madame Ping: All things must change...
-Icon Dialogue Talk White How do you do?
+Traveler: How do you do?
  Madame Ping: Mm? Youngster, are you here to admire the flowers?
  Madame Ping: But it's a shame. These Glaze Lilies have almost all wilted...
-Icon Dialogue Talk White Are you alright?
+Traveler: Are you alright?
  Madame Ping: It's nothing, it's nothing. I just thought it a great shame that so many of these Glaze Lilies have wilted.
  Paimon: What happened to them?
  Madame Ping: Back in my day, people said that Glaze Lilies can read human hearts.
@@ -1193,12 +1193,12 @@ Icon Dialogue Talk White Are you alright?
  Madame Ping: Some say it was a Fatui plot. Others say that the Qixing made it all up, and still others think that That Which Lies in the Deep is breaking free.
  Madame Ping: This harbor is like a mountain of dry tinder. One spark and the fire will consume us all.
  Madame Ping: ...Well, I shall say no more. This old woman's grown too old and naggy... Did you have something to say, youngster?
-Icon Dialogue Talk White We'd like to borrow the Cleansing Bell.
+Traveler: We'd like to borrow the Cleansing Bell.
  Madame Ping: Ah, that old trinket... I remember it being here with me, but I've grown old. I can't quite recall where it is exactly.
  Madame Ping: An old friend of mine used to wear it on his person, back when I was young...
  Madame Ping: He saw me gazing at it often and gave it to me.
  Madame Ping: But he told me then that if someone should come to borrow that bell, I should not be loath to part with it.
-Icon Dialogue Talk White We'd like to borrow something from you...
+Traveler: We'd like to borrow something from you...
  Madame Ping: Borrow something? ...Oh, you've come to borrow the Cleansing Bell, yes?
  Madame Ping: Apart from that, I don't have anything of value that you youngsters might want.
  Madame Ping: But it was not originally mine, either. That trinket used to belong to a friend of mine.
@@ -1207,20 +1207,20 @@ Icon Dialogue Talk White We'd like to borrow something from you...
  Madame Ping: It has been many years, and who knows how many times someone has come to borrow this bell.
  Madame Ping: Still, though I can't recall when it started, it's been a long time since anyone has come to borrow it.
  Madame Ping: Ah, these old bones are so slow to look for things. I doubt you can wait that long...
-Icon Dialogue Talk White We can look for it ourselves.
+Traveler: We can look for it ourselves.
  Paimon: That's right granny. We'll follow you back home, and search for it ourselves!
  Paimon: And... Um, we can help with chores if you have any too!
-Icon Dialogue Talk White I'm a Knights of Favonius-certified lost property finder!
+Traveler: I'm a Knights of Favonius-certified lost property finder!
  Paimon: What a weird thing to be proud of...
  Madame Ping: Alright, children, there is no need to worry. I didn't place the bell very far away.
  Paimon: Eh? Do you live near here, granny? Whoa, but this is Yujing Terrace. It's gotta be expensive!
  Madame Ping: Haha, an old lady like me can't afford to buy a place in this city. See this ceramic teapot? My entire household is in here.
  Paimon: ...How does that work?
-Icon Dialogue Talk White It contains your house keys?
-Icon Dialogue Talk White The bell is all you own?
+Traveler: It contains your house keys?
+Traveler: The bell is all you own?
  Paimon: Hey, that's rude!
  Paimon: ...And even if it was like that, it must be a very expensive bell, right granny?
-Icon Dialogue Talk White In you go, Paimon.
+Traveler: In you go, Paimon.
  Paimon: What!? There's no way Paimon would fit in there!
  Paimon: And why do you need Paimon to go in, anyway? Can't you just lift the lid and look inside?
  Madame Ping: Hohoho, youngsters. I simply mean that the bell is somewhere inside this teapot, and you are quite welcome to borrow it — if you can find it.
@@ -1258,13 +1258,13 @@ Inside the Teapot
 Cleansing Bell Obtained
 (After leaving the domain)
  Madame Ping: Ho-ho, in and out in no time... You youngsters really are quick.
-Icon Dialogue Talk White Are you an adeptus, ma'am?
+Traveler: Are you an adeptus, ma'am?
  Madame Ping: An adeptus... I haven't heard anyone say those words in earnest for a long time.
  Madame Ping: As to whether I am one or not, child, surely you already understand?
-Icon Dialogue Talk White Are you one of the Liyue Qixing?
+Traveler: Are you one of the Liyue Qixing?
  Madame Ping: The Qixing... Those children stopped letting my friends and I into their counsel long ago.
  Madame Ping: Still, they've done well recently. We old folks are content to be idle.
-Icon Dialogue Talk White Are you with the Fatui?
+Traveler: Are you with the Fatui?
  Madame Ping: The Fatui? Hah! Child, what goes on in that mind of yours, I wonder?
  Madame Ping: I'm far too old to be quibbling with them.
  Madame Ping: But if they overreach themselves, I will do what I must.
@@ -1275,10 +1275,10 @@ Icon Dialogue Talk White Are you with the Fatui?
  Madame Ping: To cry "catch the murderer!" at the top of one's lungs, but ignore the Rite of Parting... That, to me, is what is wrong-headed.
  Madame Ping: Now that you have come to borrow the bell, I guess that perhaps an old friend of mine has finally decided to take matters into their own hands.
  Madame Ping: So, why would I be unwilling to lend you the bell?
-Icon Dialogue Talk White What if your friend doesn't return it?
+Traveler: What if your friend doesn't return it?
  Madame Ping: Oh? Well, if it came to that... Haha, they would find a certain old lady knocking at their door.
  Madame Ping: We haven't met in a while anyway, it would be nice to share a drink and chat.
-Icon Dialogue Talk White Can I keep it?
+Traveler: Can I keep it?
  Paimon: Hey! It belongs to granny! We're supposed to return what we borrow!
  Madame Ping: Let you keep it? Haha, you really are a frank child. If you want it, you can keep it.
  Madame Ping: But this bell gets homesick sometimes. Who knows, it might find its way back into these old hands...
@@ -1292,9 +1292,9 @@ Icon Dialogue Talk White Can I keep it?
 (Talk to Zhongli at Yujing Terrace)
  Zhongli: Indeed, this is the Cleansing Bell. Hmm, it's in good condition.
  Zhongli: Let's place the perfume we've prepared inside.
-Icon Dialogue Talk White Do you know Madame Ping?
+Traveler: Do you know Madame Ping?
  Zhongli: Of course. How would I know that the bell was with her, otherwise?
-Icon Dialogue Talk White Are you also an adeptus?
+Traveler: Are you also an adeptus?
  Zhongli: An adeptus...
  Paimon: That's suspicious! But if you don't want to talk about it, we won't pry.
  Paimon: Oh, yes! That old granny asked us to tell you something.
@@ -1326,8 +1326,8 @@ Getting Kites
  Granny Shan: It's rare to see customers who want to buy this type of kite nowadays. In the early days, we used to get orders from people of all walks of life...
  Paimon: Well, this is Mr. Zhongli from the Wangsheng Funeral Parlor, so he's probably well-versed in all these walks of life.
  Paimon: We've talked about a whole bunch of things while traveling with him...
-Icon Dialogue Talk White Fashion, economics, jewelry and jade pottery...
-Icon Dialogue Talk White Tea, perfumes, flora and fauna...
+Traveler: Fashion, economics, jewelry and jade pottery...
+Traveler: Tea, perfumes, flora and fauna...
  Paimon: He seems to know Liyue's favorite topics, money and government, really well, but he likes talking about less useful topics instead.
  Zhongli: Well, that's because I prefer to share fun things with you.
  Granny Shan: Children's toys are very fun things, that's for sure. I enjoy watching the children at play as much as anyone else. But there is more to it than that.
@@ -1337,21 +1337,21 @@ Icon Dialogue Talk White Tea, perfumes, flora and fauna...
  Granny Shan: I took the liberty of coloring outside the lines when doing the insignia of the Anemo Archon.
  Granny Shan: As for the kite that honors the Geo Archon, one must follow the contract given right down to the last letter. These patterns are ancient, and you can also find them in the Golden House.
  Paimon: Ah, Paimon's heard that name before—
-Icon Dialogue Talk White Shh!
-Icon Dialogue Talk White Paimon, stop talking...
+Traveler: Shh!
+Traveler: Paimon, stop talking...
  Paimon: Huh?
  Zhongli: The design of this kite displays a firm grasp on the cyclicality and eternity so dear to the Electro Archon.
  Zhongli: These markings of tree and leaf pay due honor to wisdom and the passage of time. All this, on a single kite — truly astonishing.
  Zhongli: Justice flows across the surface of the waters, war rages like a flame, as does that which the Cryo Archon once... yes, these details are masterfully done.
  Granny Shan: Hehehe, the compliments of a learned man truly are pleasant.
  Zhongli: Well then, Granny Shan, I shall take these back with me. As for the payment...
-Icon Dialogue Talk White Uh-oh!
-Icon Dialogue Talk White "As for the payment," he says!
+Traveler: Uh-oh!
+Traveler: "As for the payment," he says!
  Childe: Well, allow me.
  Paimon: Hey, it's Childe!
-Icon Dialogue Talk White Did you arrange to meet here?
+Traveler: Did you arrange to meet here?
  Childe: Haha. No, I was merely passing through.
-Icon Dialogue Talk White You ambushed us!
+Traveler: You ambushed us!
  Childe: Haha, no way. I was just passing through!
  Childe: I see Mr. Zhongli's the same as ever. When paying— Well, when getting others to pay for him, he neither looks at the price tag nor his wallet.
  Childe: He knows a great deal about money, and about the trials of the common man. He just doesn't consider poverty to be something that could ever happen to him.
@@ -1368,10 +1368,10 @@ Hiring Help
  Tic: Oh? Help? Sure! I, Tic, always put in one hundred percent effort into everything I do! Of course, there'll be a premium if you want me to give a hundred and ten percent.
  Tic: So what's the job?
  Zhongli: Let me see... we are still missing some wooden implements over at Yujing Terrace. They aren't uncommon objects, so I didn't make any special preparations for them.
-Icon Dialogue Talk White Fetch me 50 tree branches, and 20 stacks of timber!
+Traveler: Fetch me 50 tree branches, and 20 stacks of timber!
  Tic: No problem. That'll be twenty thousand Mora for a single trip. How does that sound?
  Zhongli: Done.
-Icon Dialogue Talk White Wait, let's talk prices.
+Traveler: Wait, let's talk prices.
 (Opens the bartering menu)
 (If the price is right)
  Tic: Let me think... Deal. This price is reasonable. I'll hop right to it.
@@ -1382,11 +1382,11 @@ Icon Dialogue Talk White Wait, let's talk prices.
 (If bartering is unsuccessful)
  Tic: You're mad! And to think I was so willing to bargain, too! Twenty thousand Mora, and not one Mora less! If not, the deal's off!
  Paimon: Hey, don't get mad... Ah, guess we have no choice but to pay in full, (‍Traveler‍).
-Icon Dialogue Talk White We have a deal.
+Traveler: We have a deal.
  Tic: Oh? You're a straight shooter, huh? We have a deal.
-Icon Dialogue Talk White Ugh, we brought too little money...
+Traveler: Ugh, we brought too little money...
  Tic: This is all you've got? Then no can do.
-Icon Dialogue Talk White Please go look for someone named Childe...
+Traveler: Please go look for someone named Childe...
  Tic: Childe? No, no, no. He's putting up the money? Still, no. Wouldn't that mean that I have to make two trips rather than one?
  Tic: How about this. Let's make a trade. I'll take what you're offering right now, and...
  Tic: Get me a single Qingxin flower, and I'll consider that payment for a detour to find this Childe fellow. How does that sound?
@@ -1400,7 +1400,7 @@ Icon Dialogue Talk White Please go look for someone named Childe...
  Paimon: Whoa, that's expensive. Um, could you give us a bit of a discount on account of the whole Hero of Mondstadt thing?
  Tac: Hero of Mondstadt? Never heard of them.
  Zhongli: Well, you may never have heard of this hero, but it seems you've heard of Mora nevertheless, thus I will simply pay the whole sum.
-Icon Dialogue Talk White Wait, let's talk prices.
+Traveler: Wait, let's talk prices.
 (Opens the bartering menu)
 (If the price is right)
  Tac: This price'll do. No loss to me for a day's work.
@@ -1411,11 +1411,11 @@ Icon Dialogue Talk White Wait, let's talk prices.
 (If bartering is unsuccessful)
  Tac: That's enough! I'm done! Twenty-five thousand, and not a Mora less! Take it or leave it!
  Paimon: Hey, don't get mad... Ah, guess we have no choice but to pay in full, (‍Traveler‍).
-Icon Dialogue Talk White We'll pay in full.
+Traveler: We'll pay in full.
  Tac: Hey, that's a good price. Anyone would work for this much Mora.
-Icon Dialogue Talk White Ugh, we brought too little money...
+Traveler: Ugh, we brought too little money...
  Tac: This is all you've got? Then no can do.
-Icon Dialogue Talk White Please go look for someone named Childe...
+Traveler: Please go look for someone named Childe...
  Tac: Childe? No, no, no. He's putting up the money? Still, no. Wouldn't that mean that I have to make two trips rather than one?
  Tac: How about this. Let's make a trade. I'll take what you're offering right now, and...
  Tac: Find me a high-quality Lotus Head. I'll consider that my detour fee paid, and go find what's-his-face Childe. How about it?
@@ -1431,10 +1431,10 @@ Icon Dialogue Talk White Please go look for someone named Childe...
 (Talk to Toe)
  Toe: Hiring help? Sure, but let me just say first that I'm a reserve member of the Adventurers' Guild. I take adventuring commissions, but I don't do anything clerical.
  Zhongli: Adventure... venturing into the mountains to capture a few crystalflies seems adventurous enough.
-Icon Dialogue Talk White Brave adventurer, we have need of 5 crystalflies.
+Traveler: Brave adventurer, we have need of 5 crystalflies.
  Toe: Eh? That's not hard, almost a bit too easy for a reserve adventurer... Eh, never mind. I'll only charge you fifteen thousand Mora. What say you?
  Zhongli: A most fair price.
-Icon Dialogue Talk White No, let's negotiate...
+Traveler: No, let's negotiate...
 (Opens the bartering menu)
 (If the price is right)
  Toe: Five Geo Crystalflies... Yes, I do think it's worth about this much. I'll do it.
@@ -1445,11 +1445,11 @@ Icon Dialogue Talk White No, let's negotiate...
 (If bartering is unsuccessful)
  Toe: Fifteen thousand Mora, not one less! That's the lowest I'm going, end of story!
  Paimon: Hey, don't get mad... Ah, guess we have no choice but to pay in full, (‍Traveler‍).
-Icon Dialogue Talk White Yes, a fair price.
+Traveler: Yes, a fair price.
  Toe: A pleasure doing business with you.
-Icon Dialogue Talk White Ugh, we brought too little money...
+Traveler: Ugh, we brought too little money...
  Toe: This is all you've got? Then no can do.
-Icon Dialogue Talk White Please go look for someone named Childe...
+Traveler: Please go look for someone named Childe...
  Toe: Childe? No, no, no. He's putting up the money? Still, no. Wouldn't that mean that I have to make two trips rather than one?
  Toe: How about this. Let's make a trade. I'll take what you're offering right now, and...
  Toe: Get me a piece of iron ore. I'll take that as payment to go see that Childe person. What do you think?
@@ -1463,10 +1463,10 @@ Talk to Childe
  Paimon: You think you can buy us off with some loose change? No way! Paimon demands to know when the next payment is coming!
  Childe: Haha. Well, how does this sound: You give me the information I need, and maybe I'll leave the Northland Bank's vaults open and unattended for half an hour...
  Paimon: What info do you need!?
-Icon Dialogue Talk White No!
+Traveler: No!
  Paimon: Huh? (‍Traveler‍), does that mean you know what he's after?
-Icon Dialogue Talk White What else could the Fatui want?
-Icon Dialogue Talk White Are you forgetting what happened in Mondstadt?
+Traveler: What else could the Fatui want?
+Traveler: Are you forgetting what happened in Mondstadt?
  Paimon: Yikes! You're right, Signora...
  Childe: ...
  Childe: You both need to calm down... I don't know what's gotten into you, (‍Traveler‍).
@@ -1492,23 +1492,23 @@ Bubu Pharmacy
  Paimon: (‍Traveler‍), how about... you go check it out, and... Paimon will bring up the rear.
 (After approaching the reception desk)
  Paimon: Oh, there you are! But you can't even reach the counter!
-Icon Dialogue Talk White Is she... a zombie!?
+Traveler: Is she... a zombie!?
  Paimon: Ah... Paimon thinks you might be right! Look at the talisman on her forehead!
-Icon Dialogue Talk White Paimon, if we're going to talk about height, you ahh...
+Traveler: Paimon, if we're going to talk about height, you ahh...
  Paimon: Joke's on you — Paimon floats, so height is no restriction.
  Paimon: Anyway, there's something weird about this one over here. What's that talisman doing on her forehead?
  Paimon: It can't be... she's... a zombie!?
  Qiqi: Welcome to Bubu Pharmacy. I am Qiqi.
  Qiqi: Once upon a time, Qiqi died. Then, Qiqi was saved by the adepti. Now, Qiqi is a zombie.
-Icon Dialogue Talk White Such nonchalant delivery for a bombshell revelation...
-Icon Dialogue Talk White Do zombies also count as adepti...?
+Traveler: Such nonchalant delivery for a bombshell revelation...
+Traveler: Do zombies also count as adepti...?
  Paimon: Something like this would be unimaginable in Mondstadt...
  Zhongli: Hello... little girl. Do you sell Everlasting Incense here?
  Qiqi: Excuse me, sir. Did you bring your prescription?
  Zhongli: I... Surely no prescription is needed to purchase Everlasting Incense? It's not a controlled substance...
  Qiqi: Qiqi can get your medicine. But only if you show Qiqi your prescription. These are Qiqi's orders, from Qiqi.
-Icon Dialogue Talk White "Orders"?
-Icon Dialogue Talk White Why is she being so difficult?
+Traveler: "Orders"?
+Traveler: Why is she being so difficult?
  Zhongli: I'm afraid that she's probably right — it's to do with her orders.
  Zhongli: Zombies are limited to acting within the confines of their orders. And somehow, in this case, the zombie issues her own orders to herself.
  Zhongli: My dear Qiqi, we didn't bring a prescription, I'm afraid. But we do hope that you can still help us find some Everlasting Incense.
@@ -1518,9 +1518,9 @@ Icon Dialogue Talk White Why is she being so difficult?
  Paimon: Since when do customers need to do favors for customer service staff?
  Zhongli: Never mind, just think of it as a peer-to-peer transaction. That way everybody wins. Sometimes, in Liyue, the art of the deal is simply about victory via mental gymnastics.
  Qiqi: Go to Mt. Tianheng. Find the Guizhong Ballista. And hunt a Cocogoat. Please and thank you.
-Icon Dialogue Talk White Hunt the what with the which at where?
+Traveler: Hunt the what with the which at where?
  Zhongli: Guizhong Ballista... I have heard of this device before.
-Icon Dialogue Talk White She's playing games with us...
+Traveler: She's playing games with us...
  Zhongli: I don't believe so. The Guizhong Ballista, at least, I have heard of before.
  Zhongli: It is a kind of crossbow turret, installed on Mt. Tianheng by an adeptus in the distant past. An early mechanical device.
  Zhongli: Located in Tianheng Pass, it was designed to automatically fire at large monsters, protecting Liyue from external threats.
@@ -1530,8 +1530,8 @@ Icon Dialogue Talk White She's playing games with us...
  Paimon: Did you wanna add anything else, or...
  Qiqi: No. Just that the Cocogoat is a legendary animal. An adeptibeast.
  Qiqi: What it looks like: don't know. Where to find it: don't know either. Where it came from: also don't know.
-Icon Dialogue Talk White Do tell us if you remember anything else you don't remember...
-Icon Dialogue Talk White This isn't much to go on...
+Traveler: Do tell us if you remember anything else you don't remember...
+Traveler: This isn't much to go on...
  Zhongli: Very well then... Let's start by investigating near the Guizhong Ballista. Perhaps we will find some clues.
  Paimon: What the heck is a Cocogoat...
 (Talk to Qiqi again)
@@ -1579,8 +1579,8 @@ The Ballista
  Zhongli: A search using the Guizhong Ballista revealed no significant life forms nearby, save for the usual wildlife.
  Zhongli: What's more, a contraption built using adeptus technology should have no trouble detecting an "adeptibeast" as Qiqi put it.
  Paimon: Sigh... Which means...
-Icon Dialogue Talk White ...
-Icon Dialogue Talk White Repairing this was a complete waste of time?
+Traveler: ...
+Traveler: Repairing this was a complete waste of time?
  Paimon: Paimon wouldn't go that far. We did something positive, right?
  Zhongli: We won't solve anything while standing here and racking our brains. Let's return to Bubu Pharmacy, explain that we could not find a Cocogoat, and review our next step.
  Paimon: Good idea. We did our best, and that's what counts.
@@ -1588,8 +1588,8 @@ Return to Bubu Pharmacy
  Zhongli: Forgive us, we were unable to fulfill our end of the contract. We found no trace of the Cocogoat adeptibeast of which you speak.
  Qiqi: Ah. What a disappointment. Don't worry about it. But I feel very disappointed.
  Paimon: Aw, poor Qiqi... Why does Paimon feel so guilty all of a sudden?
-Icon Dialogue Talk White Qiqi, do you have any other clues?
-Icon Dialogue Talk White What do you need this Cocogoat for?
+Traveler: Qiqi, do you have any other clues?
+Traveler: What do you need this Cocogoat for?
  Qiqi: Cocogoat milk is tasty. So tasty. Much better than normal goat milk. Only an adeptibeast could make such tasty milk.
  Qiqi: I'm sorry. I have a... poor memory. I cannot remember the name of the milk. That's why I wrote it down. Where did I put it...
  Qiqi: Ah. Here. This is the name. "Coconut milk."
@@ -1599,34 +1599,34 @@ Icon Dialogue Talk White What do you need this Cocogoat for?
  Paimon: Never mind Zhongli, you didn't know. As the Liyue proverb goes, "All things are random, and... so how are you supposed to predict anything?" Literally no one could have seen this coming...
  Qiqi: Excuse me, everyone. Did Qiqi say a bad thing?
  Paimon: Ooh... Sorry, (‍Traveler‍), but Paimon's gonna leave the job of shattering this poor kiddo's world to you...
-Icon Dialogue Talk White It all begins with the fruit of the coconut tree...
-Icon Dialogue Talk White It's time to tell you where coconut milk comes from...
+Traveler: It all begins with the fruit of the coconut tree...
+Traveler: It's time to tell you where coconut milk comes from...
  Qiqi: No... Im-Impossible...
  Paimon: Seems Qiqi took this pretty hard.
-Icon Dialogue Talk White She just needs time to work through it.
-Icon Dialogue Talk White They all need to grow up sometime.
+Traveler: She just needs time to work through it.
+Traveler: They all need to grow up sometime.
  Baizhu: Haha, someone learnt a valuable life lesson today, then? Thank you all for looking after my little Qiqi.
  Zhongli: Might I ask, who...
  Baizhu: Ah, how rude of me. I'm Baizhu, boss of the Bubu Pharmacy.
  Paimon: Paimon thought Qiqi was the boss... turns out it's some wacko who wears medicinal ingredients around his neck!
  White Snake: What a sorry state of affairs... This little mascot is even more of a simpleton than Qiqi...
  Paimon: Ah! The medicine— the snake is s-speaking!
-Icon Dialogue Talk White Wow, a talking snake!
-Icon Dialogue Talk White Nothing in Liyue surprises me anymore.
+Traveler: Wow, a talking snake!
+Traveler: Nothing in Liyue surprises me anymore.
  White Snake: Hmph! I prefer to stay silent. But faced with strangers, I must speak, lest you mistake me for an escapee from the medicine cabinet, for I am a living, breathing serpent!
  Baizhu: Hahaha, don't mind Changsheng, she's a good girl, really. As for you three... Communal chaos-causing with Qiqi aside, what business brings you here?
  Zhongli: Do you sell Everlasting Incense in this fine establishment?
  Baizhu: Everlasting Incense? Why, of course we do!
  Paimon: Phew, at last! Things are finally starting to come together—
  Baizhu: Three million Mora, top quality, guaranteed.
-Icon Dialogue Talk White Three million?!
+Traveler: Three million?!
  Paimon: You might as well just rob the Golden House! Oh, but the Qixing have taken it over for now... Security will be tighter than usual.
-Icon Dialogue Talk White You might as well just rob the Golden House!
+Traveler: You might as well just rob the Golden House!
  Paimon: Too bad the Qixing have taken it over for now... Security will be tighter than usual.
  Zhongli: Hmm... Three million... An innocuous number in and of itself, though practically speaking, it could be a hard sum to come by.
  Paimon: It's a crazy number! We'd never be able to make that much Mora, and as for Mr. Zhongli... he's around three million short.
  Zhongli: This is correct.
-Icon Dialogue Talk White No shame...
+Traveler: No shame...
  Paimon: What are we gonna do? Is this the part where we go crawling back to Childe?
 Twenty minutes later...
  Childe: Bwahahahahahahahaha!
@@ -1656,15 +1656,15 @@ Yujing Terrace
  Zhongli: Well, as it stands, we've hired helpers, and we've acquired the Everlasting Incense. The completion of our preparations is not far off.
  Paimon: Whew... Finally!
  Zhongli: Well, Traveler. Have you gained anything from our adventure so far?
-Icon Dialogue Talk White It's been... odd.
+Traveler: It's been... odd.
  Zhongli: Odd?
-Icon Dialogue Talk White I'm not sure if we've been living the high life...
-Icon Dialogue Talk White Or experiencing the struggles of the poor?
+Traveler: I'm not sure if we've been living the high life...
+Traveler: Or experiencing the struggles of the poor?
  Zhongli: Haha, which is it, I wonder?
  Zhongli: The questions that such travels raise are ever so complicated. Well, I'll leave you to ruminate over it yourself. As to remuneration for your help, I've decided...
  Zhongli: ...to treat you to a meal.
-Icon Dialogue Talk White Zhongli... treating?
-Icon Dialogue Talk White Wow. Amazing.
+Traveler: Zhongli... treating?
+Traveler: Wow. Amazing.
  Zhongli: Oh? Ah, yes, don't worry. I will remember to bring the Mora this time.
  Zhongli: Tonight, I shall take you both to an old hole-in-the-wall, praised throughout Liyue.
  Paimon: Hole-in-the-wall? As in... a cool restaurant?
@@ -1691,9 +1691,9 @@ Chapter I: Act II - Farewell, Archaic Lord. Zhongli's Treat
 (After sitting next to Zhongli)
  Zhongli: Ah, you're here. There's no need to order, I've already done so.
  Zhongli: "Third-Round Knockout" is not for lightweights, like those taverns in Mondstadt. Here, the owner does not take such unorthodox orders as fruit juice.
-Icon Dialogue Talk White So, does this mean I can order wine this time?
+Traveler: So, does this mean I can order wine this time?
  Zhongli: I ordered some wine-fermented sweet rice balls for you, if that counts.
-Icon Dialogue Talk White I guess I should have expected this...
+Traveler: I guess I should have expected this...
  Iron Tongue Tian: ...If it's to your liking, dear customers, I shall continue the tale of Lady Ningguang's Jade Chamber.
  Paimon: Hey, there's even a storyteller here! Great atmosphere!
  Zhongli: Besides the fine wine, the excellent ambiance is the reason why this place is so well loved.
@@ -1717,11 +1717,11 @@ Iron Tongue Tian: The saying goes, the rarest treasures in the land are the word
  Paimon: Paimon wonders what sort of person she is.
  ???: At last, I have found you, you who returned from Jueyun Karst.
  Paimon: Who's there?
-Icon Dialogue Talk White (Paimon, we gotta go...!)
+Traveler: (Paimon, we gotta go...!)
  ???: Wait, I am not with the Millelith, nor am I here to claim your bounty!
  Ganyu: However, I am an emissary of the Liyue Qixing. My name is Ganyu, secretary at the Yuehai Pavilion, and I have come specifically to meet you.
-Icon Dialogue Talk White Emissary?
-Icon Dialogue Talk White Secretary?
+Traveler: Emissary?
+Traveler: Secretary?
  Ganyu: Well, in concrete terms, I am the corporate secretary for the Qixing. At the moment, I am serving as Lady Ningguang's special emissary.
  Paimon: Ningguang sent you? We were literally just talking about her...
  Ganyu: My apologies, you who have returned from Jueyun Karst... I am duty-bound, and cannot extend my courtesy to you in full.
@@ -1736,8 +1736,8 @@ Icon Dialogue Talk White Secretary?
  Paimon: And with that, the emissary who called herself Ganyu just disappeared.
  Paimon: But we've received an invitation from the Liyue Qixing. Paimon still can't believe it!
  Paimon: (‍Traveler‍)! We'll be meeting people that have any more money than Paimon could ever count! We should be on our very best manners!
-Icon Dialogue Talk White I always mind my manners.
-Icon Dialogue Talk White Paimon is up to something again...
+Traveler: I always mind my manners.
+Traveler: Paimon is up to something again...
  Zhongli: Hah... An invitation to visit the Jade Chamber is a rare honor, indeed.
  Zhongli: You'd best be on your way now. But don't forget about the Rite of Parting. Once you've finished at the Jade Chamber, meet me at Dihua Marsh.
  Paimon: Don't worry, we won't forget! Dihua Marsh. We'll see you there!
@@ -1748,53 +1748,53 @@ Icon Dialogue Talk White Paimon is up to something again...
 Chapter I: Act III - A New Star Approaches. The Floating Palace
 (Climb Mt. Tianheng)
  Paimon: Look, up there! That's the Jade Chamber.
-Icon Dialogue Talk White That's pretty high up.
-Icon Dialogue Talk White Question is, how do we get up there?
+Traveler: That's pretty high up.
+Traveler: Question is, how do we get up there?
  Paimon: Hmm... Uhh...
  Paimon: Ah, this is bad, Paimon's supposed to be your guide, but Paimon doesn't know where the way up to the Jade Chamber is...
-Icon Dialogue Talk White You're only realizing that now!?
-Icon Dialogue Talk White We should have asked that emissary, Ganyu.
+Traveler: You're only realizing that now!?
+Traveler: We should have asked that emissary, Ganyu.
  Paimon: Ugh...
  Paimon: Well, since we want to go to the Jade Chamber, heading to its location on the map is the sensible thing to do!
  Paimon: Let's look around. There has to be a way up there nearby!
 (Find wind current mechanism)
  Paimon: Hey, look! There's some sort of mechanism thingy!
  Paimon: Since this is the right place, it must have something to do with the Jade Chamber.
-Icon Dialogue Talk White Maybe it's the way to the Jade Chamber?
+Traveler: Maybe it's the way to the Jade Chamber?
  Paimon: Yes, this must be the way!
-Icon Dialogue Talk White It looks like some sort of trap.
+Traveler: It looks like some sort of trap.
  Paimon: No way! Just trust Paimon's instincts!
 (Activate mechanism and go to the floating island)
  Paimon: Huh? It only takes us up to here...
  Paimon: Aw, if that wind current was strong, we'd be able to reach the top in one go!
-Icon Dialogue Talk White Best we go back to Liyue and ask the Millelith...
+Traveler: Best we go back to Liyue and ask the Millelith...
  Paimon: Huh? Why?
-Icon Dialogue Talk White The way up shouldn't be a secret, or...
+Traveler: The way up shouldn't be a secret, or...
  Paimon: Or? ...Oh, Paimon gets it! If it was a secret, Ganyu wouldn't have let us try to find it ourselves, right?
  Paimon: Alright, let's follow your plan, then we can...
  Paimon: Ooh! Hang on a moment. Look down there!
  Paimon: Looks like we've gotten close to the Guizhong Ballista.
  Paimon: Hmm... Uh... Paimon has a new idea!
  Paimon: Why don't we shoot you up to the Jade Chamber using the Ballista?
-Icon Dialogue Talk White No thanks. I don't have a death wish.
+Traveler: No thanks. I don't have a death wish.
  Paimon: Oh... Right. This method does seem a bit unsafe...
-Icon Dialogue Talk White Still, I do remember that the Ballista had a scope.
-Icon Dialogue Talk White Do you really hate me that much?
+Traveler: Still, I do remember that the Ballista had a scope.
+Traveler: Do you really hate me that much?
  Paimon: Uh... No. Paimon may have just forgotten to think about safety measures...
-Icon Dialogue Talk White Still, I do remember that the Ballista had a scope.
+Traveler: Still, I do remember that the Ballista had a scope.
  Paimon: Oh, that's right!
  Paimon: Now that you mention it, we could use the Guizhong Ballista to see if there's another way up nearby!
 (Head over to the Guizhong Ballista)
  Huaqing: Halt!
  Huaqing: Who trespasses on these hallowed grounds?
-Icon Dialogue Talk White We're just passing through...
-Icon Dialogue Talk White Hallowed what now? These are the wilds around Mt. Tianheng...
+Traveler: We're just passing through...
+Traveler: Hallowed what now? These are the wilds around Mt. Tianheng...
  Paimon: Exactly. What're you talking about?
  Paimon: We're invited guests! What makes you think you can treat us like this?
  Paimon: No... Wait... Maybe this was Ningguang's plan all along!
  Paimon: She pretended to invite us to the Jade Chamber, but set up a Millelith ambush here to arrest us!
-Icon Dialogue Talk White I'm quite sure that's not the case.
-Icon Dialogue Talk White We haven't explained the invitation to them yet...
+Traveler: I'm quite sure that's not the case.
+Traveler: We haven't explained the invitation to them yet...
  Paimon: Grr... Now Paimon's mad! ...You! Over there! This is a trick, isn't it? How shameless!
  Huaqing: What? We're just on guard duty. What do you mean, "shameless"?
  Yang: What nonsense! Seize these suspicious intruders at once!
@@ -1803,7 +1803,7 @@ Icon Dialogue Talk White We haven't explained the invitation to them yet...
  ???: Stop! What's all this about?
  Huaqing: Lady Keqing, these two strange people suddenly appeared. They seem to have designs on the Guizhong Ballista.
  Paimon: Who're you calling "strange"?
-Icon Dialogue Talk White We were just looking for the way to the Jade Chamber.
+Traveler: We were just looking for the way to the Jade Chamber.
  Keqing: Hmm? You want to go to the Jade Chamber? Who are you?
  Paimon: We're invited guests, here to look for the Liyue Qixing! Who are you?
  Keqing: ...
@@ -1815,11 +1815,11 @@ Icon Dialogue Talk White We were just looking for the way to the Jade Chamber.
  Keqing: The Guizhong Ballista in Tianheng Pass has long been in disrepair, and yet it was fixed in a single night. I came here to investigate that occurence.
  Keqing: These Millelith are just here to guard the scene, not to arrest anyone.
  Paimon: So, this was all a misunderstanding? Paimon never would've thought...
-Icon Dialogue Talk White Thinking isn't that hard, Paimon.
+Traveler: Thinking isn't that hard, Paimon.
  Keqing: Anyway, for a mortal to be able to repair an adepti mechanism is quite the mystery, even to the Qixing.
  Paimon: Hehe, that was...
-Icon Dialogue Talk White (Shh, Paimon, don't complicate the matter!)
-Icon Dialogue Talk White (We only did a tiny part of the work there...)
+Traveler: (Shh, Paimon, don't complicate the matter!)
+Traveler: (We only did a tiny part of the work there...)
  Paimon: Eh? Oh, right. So, Lady Yuheng, might you have any idea why Lady Tianquan invited us to go to the Jade Chamber?
  Keqing: Just call me Keqing.
  Keqing: I'd say that Ningguang's purpose is to request that the savior of Mondstadt take a more neutral stance... Or at least, to not wholly side with the adepti.
@@ -1836,8 +1836,8 @@ Icon Dialogue Talk White (We only did a tiny part of the work there...)
  Keqing: Either way, I will admit that the actions of the adepti this time were quite restrained.
  Keqing: Rex Lapis' death is indeed an extraordinary circumstance. But to think that they would call for a council of adepti rather than come down here directly...
  Keqing: How surprisingly civilized of them.
-Icon Dialogue Talk White Any chance you could talk it out with them?
-Icon Dialogue Talk White Ningguang would prefer to negotiate, wouldn't she?
+Traveler: Any chance you could talk it out with them?
+Traveler: Ningguang would prefer to negotiate, wouldn't she?
  Keqing: Well, for Ningguang... She would talk anything and everything out if she could. But I doubt we can do that here.
  Keqing: The time of the adepti has long passed. If even the Liyue Qixing don't want to face that truth, then what future is there for Liyue?
  Paimon: Phew... Another super bold statement...
@@ -1845,26 +1845,26 @@ Icon Dialogue Talk White Ningguang would prefer to negotiate, wouldn't she?
  Keqing: You should both be off to the Jade Chamber. Don't be late, now. Ningguang's schedule is packed to the gills all the way till next year.
  Keqing: The cream of Liyue's mercantile crop all see "ascending to the Jade Chamber" as the greatest honor. Each brings rich gifts as they visit, all to curry a little favor with Ningguang.
  Paimon: Favor?
-Icon Dialogue Talk White Paimon, that's not the point.
-Icon Dialogue Talk White Paimon, get serious.
+Traveler: Paimon, that's not the point.
+Traveler: Paimon, get serious.
  Paimon: But... But!
  Paimon: Wait, that's right! Greeting gifts are a staple of Liyue's culture. We need to get one, not to curry favor or anything — just to... respect Liyue's culture!
-Icon Dialogue Talk White Ah, so eager...
+Traveler: Ah, so eager...
  Keqing: Alright, alright. You can decide on your greeting gift yourselves. Let me tell you how to get to the Jade Chamber first.
  Keqing: You didn't actually have to come to Mt. Tianheng. Go back to Liyue Harbor, find a guide at the Yuehai Pavilion, and...
 You listen as Keqing explains the correct path.
  Keqing: Well then. May we meet again, Traveler.
  Paimon: Well, that Yuheng may not respect the gods, but Paimon thinks she's a pretty cool person.
-Icon Dialogue Talk White She made a good impression on me, too.
-Icon Dialogue Talk White I agree with some of her views.
+Traveler: She made a good impression on me, too.
+Traveler: I agree with some of her views.
  Paimon: So... What should be give to Ningguang when we see her?
-Icon Dialogue Talk White You really have shifted focus, haven't you, Paimon...
+Traveler: You really have shifted focus, haven't you, Paimon...
  Paimon: Oh, right! Paimon dreamed of an amazing snack last night — Sugar-Frosted Slime!
  Paimon: Paimon has a feeling that it would be perfect for a super rich person like Ningguang!
  Paimon: Why don't we go with that for a gift?
-Icon Dialogue Talk White So, do you have a recipe?
+Traveler: So, do you have a recipe?
  Paimon: Nope! But Paimon's sure that we just need to make it with some boom shaka-laka!
-Icon Dialogue Talk White And... how would we make this thing you dreamed up?
+Traveler: And... how would we make this thing you dreamed up?
  Paimon: With a certain boom shaka-laka, of course!
  Paimon: Let's go gather ingredients. Time waits for no one, and neither will our riches!
 
@@ -1872,9 +1872,9 @@ Chapter I: Act III - A New Star Approaches. Equilibrium
 (Talk to Bu'yun at Yuehai Pavilion, before preparing the gift)
 Bu'yun: Though clouds may darken and light turn to gloam, still the moon over the Chamber roams...
 Bu'yun: May I help you?
-Icon Dialogue Talk White Could you take us up to the Jade Chamber?
+Traveler: Could you take us up to the Jade Chamber?
 Bu'yun: You perceive the mansion, but not the moon, and it is not in my power to bring them to you. Please await another opportunity.
-Icon Dialogue Talk White It's nothing.
+Traveler: It's nothing.
  Paimon: Hey, (‍Traveler‍), we haven't prepared our gift yet. We're not ready to go to the Jade Chamber!
  Paimon: We're sorry, it's nothing. See you around!
 Gathering Ingredients
@@ -1886,9 +1886,9 @@ Gathering Ingredients
 (Approach the northern spot)
  Paimon: Huh? Is it just Paimon, or is there a sweet fragrance in the air...?
  Paimon: Huh... Did you hear that?
-Icon Dialogue Talk White It sounded like someone calling out for help.
+Traveler: It sounded like someone calling out for help.
  Paimon: It seemed like it came from those ruins over there...
-Icon Dialogue Talk White It sounded like someone was singing.
+Traveler: It sounded like someone was singing.
  Paimon: Uh, no! That was definitely someone in trouble! It came from those ruins over there.
  Paimon: Uh oh, it looks like the Treasure Hoarders have locked someone inside.
 (While Meng Dan is in the cage)
@@ -1897,12 +1897,12 @@ Icon Dialogue Talk White It sounded like someone was singing.
  Meng Dan: Phew... Thank you for you help, kind travelers. If you hadn't come to my aid, I surely would have rotted in this cell! Those Treasure Hoarders... when their mood was good, they'd rearrange those pots of Sweet Flowers. But when they were in a bad mood, they'd rearrange my face...
  Paimon: Aw, it was nothing. No need to thank us all at once or anything!
  Meng Dan: Haha, I understand. Don't worry, I will compensate you both.
-Icon Dialogue Talk White There's really no need.
+Traveler: There's really no need.
  Meng Dan: Don't say that! I only escaped this predicament because of you.
  Meng Dan: I'm Meng Dan, a supplier for Mingxing Jewelry in Liyue Harbor. I often walk around these mountains in search of antiques.
  Meng Dan: I never expected that those Treasure Hoarders would have their eyes on the same ruins that I had. Before I knew it, they'd caught and imprisoned me.
  Meng Dan: Is there anything that you lack? Antiques, treasures, various knick-knacks, you name it! Well, as long as you want what I have to offer, of course.
-Icon Dialogue Talk White Your goodwill is good enough for me.
+Traveler: Your goodwill is good enough for me.
  Paimon: Wait a moment! Actually, we are looking for something!
  Meng Dan: Oh? And what might that be?
  Paimon: Do you have a box that can store presents? We'd like a pretty one... the kind that you can use to store snacks.
@@ -1925,7 +1925,7 @@ Item Sugar-Frosted Slime
 Sugar-Frosted Slime
 (Obtain Sugar-Frosted Slime Sugar-Frosted Slime)
  Paimon: Woohoo! It looks beautiful!
-Icon Dialogue Talk White (I'm still not sold on this gift idea...)
+Traveler: (I'm still not sold on this gift idea...)
  Paimon: Great! Now that we've put all that we've got into this box, let's go to the Jade Chamber to see Ningguang!
 (Talk to Xingxi again)
  Xingxi: Thanks for saving Uncle Meng. Please take care.
@@ -1948,14 +1948,14 @@ To the Jade Chamber
  Paimon: Since this is our first meeting, um, we've prepared a gift! Hope you like it?
  Ningguang: Oh, for me? You have my thanks. It seems that I have made things difficult for you, considering that you were supposed to be my guests.
  Paimon: Hehe... Oh no, it's nothing.
-Icon Dialogue Talk White Nice place, this Jade Chamber.
+Traveler: Nice place, this Jade Chamber.
  Ningguang: Haha. I'm glad you like it too.
-Icon Dialogue Talk White It's my first time coming to a place this high up...
+Traveler: It's my first time coming to a place this high up...
  Ningguang: This palace floats in the skies, higher than the peak of any mountain. From this vantage point, one may survey all of Liyue.
  Ningguang: I have been gathering the funds necessary to build it from the time I began learning the merchant's craft. And since becoming the Tianquan, I have spared no effort in hiring the best craftsmen to constantly extend it...
  Ningguang: At first, it was but the size of one room. Now, it is large enough to blot out the moon in the skies above Liyue.
  Ningguang: One day, I believe it will overshadow all seven nations.
-Icon Dialogue Talk White (This Tianquan does not lack for ambition...)
+Traveler: (This Tianquan does not lack for ambition...)
  Ningguang: Not many from outside of Liyue earn the right to ascent to the Jade Chamber. But I have been in correspondence with the Acting Grand Master of the Knights of Favonius, who spoke highly of you.
  Ningguang: As such, I have been putting eyes and ears out ever since you reached Liyue...
  Paimon: What!?
@@ -1964,17 +1964,17 @@ Icon Dialogue Talk White (This Tianquan does not lack for ambition...)
  Ningguang: Just Verr Goldet? ...No.
  Ningguang: Everyone at Wangshu Inn is one of ours.
  Paimon: @&%*!
-Icon Dialogue Talk White We also ran into the Yuheng not long ago...
+Traveler: We also ran into the Yuheng not long ago...
  Ningguang: At the Guizhong Ballista, yes?
  Paimon: Uh... you weren't peeking on us from the skies the whole time... were you!?
  Ningguang: Haha... I fear that peeking would have been a little difficult from this altitude.
  Ningguang: Our eyes and ears are more than sufficient. You two are very interesting people, after all. It would be natural to take an interest..
-Icon Dialogue Talk White Keqing said that the Qixing would not wish ill on Rex Lapis.
+Traveler: Keqing said that the Qixing would not wish ill on Rex Lapis.
  Ningguang: Well, I wouldn't expect you to trust us, considering that you have had far more interactions with the adepti. The reason I invited you here was to clear up some misunderstandings.
 (Talk to Ningguang)
  Ningguang: I believe that you've heard of the Archon War?
-Icon Dialogue Talk White Umm... Rings a bell.
-Icon Dialogue Talk White Only in the broadest of strokes.
+Traveler: Umm... Rings a bell.
+Traveler: Only in the broadest of strokes.
  Ningguang: Many gods used to walk this earth, and many long wars were fought between them that did not abate until 2,000 years ago. Much blood was shed, and many lives were lost.
  Ningguang: In the end, only seven victors remained standing in Teyvat. They build cities and nations on the corpses of the vanquished, and thus began the era of The Seven.
  Ningguang: You can see Guyun Stone Forest from here, I trust? It is no natural rock formation — those are giant spears of rock, hurled by Rex Lapis during the war.
@@ -1982,15 +1982,15 @@ Icon Dialogue Talk White Only in the broadest of strokes.
  Ningguang: Not only is it true that gods may die, but so too has the membership of the Seven changed over the last two millennia. Rex Lapis' passing is an unimaginable disaster for Liyue, but the order of The Seven will not collapse simply because of that.
  Ningguang: Another Lord of Geo will arise sooner or later, yet how are we to forget Rex Lapis? When that time comes, the relationship between the people of Liyue and the gods and adepti will surely be different from before.
  Ningguang: Even in the new era, the Liyue Qixing remain Rex Lapis' former subjects... Do you really think us capable of having played a part in his demise? Of lacking the foresight to see the certain repercussions?
-Icon Dialogue Talk White Why hide the Exuvia, then?
+Traveler: Why hide the Exuvia, then?
  Ningguang: Heh...
  Ningguang: That day at Yujing Terrace — it was all so very sudden. Even I was caught completely off guard. You were there, you no doubt saw.
  Ningguang: But our enemy has long lain hidden within the harbor. If we do not act against them now, they will surely gain the upper hand.
  Ningguang: Hiding the Exuvia was a necessary maneuver to take the initiative back, to play the spider while our foes scurry about.
  Paimon: Who's this "enemy" you're talking about?
  Ningguang: What do you think, Traveler?
-Icon Dialogue Talk White Is it "him"?
-Icon Dialogue Talk White It's "him," isn't it?
+Traveler: Is it "him"?
+Traveler: It's "him," isn't it?
  Paimon: Eh? What are you two talking about?
  Ningguang: Well answered.
  Paimon: ...Huh!?
@@ -2001,7 +2001,7 @@ Inside the Jade Chamber
  Ningguang: Be at ease, you two. Make yourselves at home if you wish.
  Paimon: Can we really!?
  Ningguang: I have invited you two here as friends. And when friends come over to play, our enjoyment comes first, naturally.
-Icon Dialogue Talk White Is that what I think it is...?
+Traveler: Is that what I think it is...?
  Paimon: Ooh! Isn't this that legendary wall?
  Ningguang: Why, you've kept your ear to the ground, I see.
  Paimon: That's because even the storytellers are talking about it... Everyone's after a piece of paper from that wall. It's super famous!
@@ -2009,14 +2009,14 @@ Icon Dialogue Talk White Is that what I think it is...?
  Ningguang: But the secrets of the mercantile world are of no interest to you, are they, Traveler? You're rather special, really — and I think you're quite aware of that.
  Ningguang: If possible, I'd like to have your trust.
  Ningguang: But if you were to choose the more trustworthy person between myself and Keqing...
-Icon Dialogue Talk White Well, between your orthodoxy and her heterodoxy...
-Icon Dialogue Talk White I'd go with Keqing and her skepticism of the divine.
+Traveler: Well, between your orthodoxy and her heterodoxy...
+Traveler: I'd go with Keqing and her skepticism of the divine.
  Ningguang: Haha... You'd pick Keqing? I had a feeling.
  Ningguang: I originally thought her a bit too... hard-headed. With someone of her character on the Qixing, I've had some extra messes to clean up behind the scenes.
  Ningguang: But after she said those words: "The time of the adepti has long passed. If even the Liyue Qixing don't want to face that truth, then what future is there for Liyue..."
  Ningguang: Well, I must say that quite a few of my doubts have been dispelled.
  Ningguang: I won't deny that Rex Lapis' passing seems advantageous to us. But for Liyue's sake, we cannot allow ourselves to be shackled by rumors of our usurpation of power.
-Icon Dialogue Talk White I surmise that the Fatui has a hand in these rumors?
+Traveler: I surmise that the Fatui has a hand in these rumors?
  Ningguang: Indeed... It seems that you understood what I meant to say from the very beginning.
  Ningguang: I called for the gag order and for the Exuvia to be hidden to temporarily stabilize the situation, and also to prevent something similar to the incident in Mondstadt.
  Ningguang: With Rex Lapis' death, the Fatui have busied themselves with many clandestine actions beyond their diplomatic remit. As the Tianquan, one responsible for Liyue, I cannot be too concerned with appearances when opposing them.
@@ -2025,12 +2025,12 @@ Icon Dialogue Talk White I surmise that the Fatui has a hand in these rumors?
  Paimon: Wait, that's right! Speaking of ends... Could Paimon say one other thing?
  Ningguang: Of course.
  Paimon: Paimon's heard that anyone who sends a greeting gift gets a little something in return... So, does that include us?
-Icon Dialogue Talk White Seriously, Paimon? Seriously?
+Traveler: Seriously, Paimon? Seriously?
  Ningguang: Hmm-hmm, It's quite alright. I like direct people.
  Ningguang: Well, we have made quite a bit of trouble for you recently. How about this? You can pick any one object here as you please, and you may take it with you.
  Paimon: Yay! Paimon was just waiting for you to say that! Let's see, what should we get...
  Paimon: One of those sheets on that wall!
-Icon Dialogue Talk White ???
+Traveler: ???
  Paimon: Don't look at Paimon like that! One of these sheets of paper will sell for crazy prices, even if it's only as large as Paimon's fingernail!
  Paimon: Just imagine... how much Mora a whole, untorn sheet would sell for!
  Paimon: Let's grab one! The biggest one!
@@ -2044,11 +2044,11 @@ Icon Dialogue Talk White ???
  Paimon: Oh, Ningguang did say that the Fatui have been up to all kinds of mischief in the shadows of Liyue... Spreading rumors, wanting to get their hands on the archon's body, and what not.
  Paimon: But research on the Sigil of Permission? Paimon wonders what they're up to.
  Paimon: Speaking of which, there's also some connection between you and the Sigil of Permission, (‍Traveler‍). Seems there's still more for us to find out.
-Icon Dialogue Talk White It's all unfolding a little too perfectly.
-Icon Dialogue Talk White Ningguang is clearly trying to steer us there.
+Traveler: It's all unfolding a little too perfectly.
+Traveler: Ningguang is clearly trying to steer us there.
  Paimon: Oh? You really think so?
  Paimon: Well... should we not go, then?
-Icon Dialogue Talk White No, what I mean is...
+Traveler: No, what I mean is...
  Paimon: Oh, so you're saying that it's precisely because we can't completely trust Ningguang that we should confirm the truth of what she says for ourselves.
  Paimon: Hmm... That's way out of Paimon's league. Paimon thinks she's been nothing but good to us.
  Paimon: Anyway, we'll see if you're on to something.
@@ -2057,9 +2057,9 @@ Icon Dialogue Talk White No, what I mean is...
  Ningguang: So, have you made your choice?
  Ningguang: You don't have to confirm it with me. Just choose one and take it.
  Ningguang: Afterwards, why not sit down for a while in the Jade Chamber, or have a short stroll? Rest is also an integral part of any journey.
-Icon Dialogue Talk White Thank you for your hospitality.
+Traveler: Thank you for your hospitality.
  Ningguang: Come now, there's no need to stand on ceremony. Loosen up a little.
-Icon Dialogue Talk White It's time we made a move. See you...
+Traveler: It's time we made a move. See you...
  Ningguang: Alright then, I hope the next time we meet, you will either have already done the right thing... or, will be about to make the right call.
 
 Chapter I: Act III - A New Star Approaches. Solitary Fragrance
@@ -2069,18 +2069,18 @@ Investigating the marked location
  Paimon: And, uh, they look really mad at us, too!
 (Upon examining the Fatui's research)
  Paimon: There are so many talismans here! And some stacks of blank paper, too! Hmm, what are they for?
-Icon Dialogue Talk White It looks like they're copying the pattern on the talisman.
-Icon Dialogue Talk White Maybe they're trying to reproduce a talisman.
+Traveler: It looks like they're copying the pattern on the talisman.
+Traveler: Maybe they're trying to reproduce a talisman.
  Paimon: Paimon's seen this pattern before! But where...
  Paimon: Oh, Paimon knows! It looks just like the Sigil of Permission that Childe gave you.
  Paimon: Hmm, but how did a relic of the adepti end up in the hands of someone like Childe? Suspicious...
-Icon Dialogue Talk White It's not just a relic...
+Traveler: It's not just a relic...
  Paimon: Oh, that's right. Cloud Retainer said that when the Lord of Geo created the Sigil of Permission, it wasn't to be used as some ol' relic...
  Paimon: Talismans like that were once used in the Archon War to channel divine powers.
  Paimon: Maybe the Fatui are copying the Sigil of Permission in hopes of achieving a similar effect?
  Paimon: Being able to channel divine power in battle... Whew, that sounds pretty dangerous.
-Icon Dialogue Talk White Seems the Fatui are definitely up to something.
-Icon Dialogue Talk White Maybe this paper is only a snippet of a much bigger plan.
+Traveler: Seems the Fatui are definitely up to something.
+Traveler: Maybe this paper is only a snippet of a much bigger plan.
  Paimon: And the plot thickens... We'll need to keep an eye on Childe, that's for sure.
  Paimon: Hmm, alright, that's enough sticking around here. We gotta go meet up with Zhongli soon.
  Paimon: The last stop on our Rite of Parting preparations tour is... Dihua Marsh!
@@ -2093,24 +2093,24 @@ Finalizing the Rite of Parting
  Zhongli: Indeed. It's second to none in all of Liyue.
  Zhongli: Then you met with Ningguang, I trust? What did you talk about with her?
  Paimon: She's super rich and so generous. Paimon thinks she's very friendly!
-Icon Dialogue Talk White Business people are always "friendly" when it suits their interests.
+Traveler: Business people are always "friendly" when it suits their interests.
   Paimon: Yeah, (‍his‍/‍her‍) take on Ningguang is quite different from Paimon's. (‍He‍/‍She‍) thinks that even the tactless Yuheng is more trustworthy than her.
  Zhongli: Oh, so you also met with Keqing, then? What did she have to say?
  Paimon: She said, "The time of the adepti has long passed. If even the Liyue Qixing don't want to face that truth, then what future is there for Liyue?"
  Zhongli: Haha, no respect for the divine.
  Zhongli: Indeed, contrary to the ever-bold Keqing, Ningguang is more of a businesswoman at heart, though they are both members of the Qixing.
  Zhongli: Although she's friendly, there's no way of clearly discerning her true intentions.
-Icon Dialogue Talk White Ningguang is highly intelligent.
-Icon Dialogue Talk White Ningguang is highly ambitious.
+Traveler: Ningguang is highly intelligent.
+Traveler: Ningguang is highly ambitious.
  Zhongli: Yes, she has only relied on herself to rise to her current position. No ordinary person could ever achieve that.
  Zhongli: It's said that she's the one behind the constant expansion of the Jade Chamber. It's the second most important thing to her. Even if she ever gave up the position of Tianquan, she would never give up the Jade Chamber.
  Paimon: The Jade Chamber is only second? What's the most important thing to her then?
  Zhongli: Why, Mora, of course.
-Icon Dialogue Talk White Makes sense.
-Icon Dialogue Talk White No surprises there.
+Traveler: Makes sense.
+Traveler: No surprises there.
  Paimon: All Ningguang talked about was the Fatui this and the Fatui that... She said that after Rex Lapis was murdered, the Fatui have constantly been trying to sink their fingers into Liyue and that they aren't to be trusted.
  Zhongli: That is how the Fatui have always been. It doesn't surprise me in the least.
-Icon Dialogue Talk White And now they are trying to reproduce the Sigil of Permission.
+Traveler: And now they are trying to reproduce the Sigil of Permission.
  Zhongli: ...
  Zhongli: No matter what they may be planning, you must be careful when dealing with the Fatui. Always be on your guard.
  Paimon: So is there anything we need to get for the Rite of Parting in Dihua Marsh?
@@ -2123,24 +2123,24 @@ Icon Dialogue Talk White And now they are trying to reproduce the Sigil of Permi
  Zhongli: Of course, there are some kinds of flowers that have been preserved and gardened by people in the city. But very few people know that Glaze Lilies may still be found in the wild.
  Zhongli: Wild Glaze Lilies have the strongest fragrance. If we want to follow the true tradition of the Rite of Parting, we must grind up the wild lilies and place the powder in a censer of Everlasting Incense.
  Zhongli: But I'll need your assistance in gathering these flowers.
-Icon Dialogue Talk White You mean you need me to pick them?
+Traveler: You mean you need me to pick them?
  Zhongli: No, I need you to sing to them. Singing to the flowers will make them more fragrant.
-Icon Dialogue Talk White So you need me... to sing?
+Traveler: So you need me... to sing?
  Zhongli: ...That's correct. Your singing will surely bring out the strongest fragrance from the flowers.
  Paimon: Uh... so how good is your singing, (‍Traveler‍)?
-Icon Dialogue Talk White I can hold a tune.
-Icon Dialogue Talk White I'm a pro. Just step back and listen!
+Traveler: I can hold a tune.
+Traveler: I'm a pro. Just step back and listen!
  Paimon: Really? Why doesn't Paimon believe you...
   Zhongli: We'll only know once (‍he‍/‍she‍) starts singing.
 (Upon entering the area)
  Paimon: It's time to sing! Whenever you're ready!
-Icon Dialogue Talk White *clears throat*...
+Traveler: *clears throat*...
   (‍Traveler‍): ♪...♪♪♪♪...♪♪♪♪....♪....♪
 (The three Cryo Whopperflowers awaken)
  Paimon: Wh—What happened...!?
  Paimon: These flowers are jumping... They look really angry! Is it... because you sang a song from Mondstadt that they don't understand here in Liyue?
  Paimon: Those weren't Glaze Lilies! Glaze Lilies wouldn't hit people!
-Icon Dialogue Talk White Those flowers put up quite a fight...
+Traveler: Those flowers put up quite a fight...
  Zhongli: This little monster is known as a "Whopperflower."
  Zhongli: Hmm... Strange. These petals look interesting.
  Zhongli: The Glaze Lilies used as a disguise were buried with the Whopperflower for too long. The result seems to have surprisingly potent medicinal value. Let's collect what we can of these petals.
@@ -2150,17 +2150,17 @@ Icon Dialogue Talk White Those flowers put up quite a fight...
  Ganyu: Excuse me...
  Ganyu: Are you searching for Glaze Lilies?
  Paimon: Oh, hey! It's... what's her face... Ah, Paimon can't remember...
-Icon Dialogue Talk White Greetings, Ganyu.
+Traveler: Greetings, Ganyu.
  Ganyu: Hello, traveler. I'm surprised you still remember my name.
-Icon Dialogue Talk White Greetings, Yangu.
+Traveler: Greetings, Yangu.
  Ganyu: "Yangu"? Wh—Who's that?
  Ganyu: Eh... You've completely forgotten my name, haven't you?
  Ganyu: Ah! That reminds me, how was your visit to the Jade Chamber?
  Paimon: Well, it sure would've been better if you'd told us how to get up there!
  Ganyu: Didn't I tell you the way!? Surely I did!
  Paimon: Nope, we found the way on our own!
-Icon Dialogue Talk White It isn't a secret, so perhaps you just assumed we knew?
-Icon Dialogue Talk White Guess it was our fault for not asking.
+Traveler: It isn't a secret, so perhaps you just assumed we knew?
+Traveler: Guess it was our fault for not asking.
  Ganyu: Oh, I see.
  Ganyu: (Uh-oh, I guess I really did forget to tell them...)
  Paimon: Huh, something seems a little off about Ganyu...
@@ -2173,7 +2173,7 @@ Icon Dialogue Talk White Guess it was our fault for not asking.
  Paimon: Oh... Sorry, we shouldn't have brought it up.
  Ganyu: No, it's quite alright. I just haven't processed my emotions yet.
  Ganyu: When the Archon War came to its end two thousand years ago, the first iteration of The Seven would gather in Liyue and drink with Rex Lapis. But five of those original seven had already passed before Rex Lapis — it's truly a changing of the guard.
-Icon Dialogue Talk White So that means...
+Traveler: So that means...
  Ganyu: Yes. Now that the spirit of Rex Lapis has returned to the heavens, only Barbatos of Mondstadt remains of the first Seven.
  Ganyu: The other five, including Inazuma's Raiden Shogun, are no longer the same friends from two thousand years ago.
  Ganyu: Of the current Seven Archons, the youngest is Sumeru's God of Dendro. She is merely five hundred years old, whereas Rex Lapis was more than six thousand years old at the time of his passing.
@@ -2186,8 +2186,8 @@ Icon Dialogue Talk White So that means...
  Paimon: Huh? Did you just say, "as an adeptus"?
  Ganyu: Yes, I... I am a mix of human and Qilin. Adeptus blood flows through my veins. I fought for Rex Lapis and the city of Liyue during the Archon War.
  Ganyu: After the war ended, I signed a contract with Rex Lapis and took the position as secretary for the Qixing. I've continued those duties to this very day.
-Icon Dialogue Talk White So you're half Qilin? That explains the horns!
-Icon Dialogue Talk White So you're how old!? That explains the forgetfulness!
+Traveler: So you're half Qilin? That explains the horns!
+Traveler: So you're how old!? That explains the forgetfulness!
  Ganyu: Well... uh, let's save that conversation for another day. You say that you are here looking for Glaze Lilies?
  Ganyu: I also know where wild Glaze Lilies can be found. See, I've just picked one myself. Here, you may have it if you wish.
  Zhongli: We dare not refuse it.
@@ -2198,7 +2198,7 @@ Icon Dialogue Talk White So you're how old!? That explains the forgetfulness!
  Ganyu: If you would excuse me, I should return to my work now. Good luck.
  Zhongli: And that just about does it. Our preparations for the Rite of Parting are mostly finished.
  Zhongli: Given the ease of picking Glaze Lilies, I think this was a fitting end to our tasks, in more ways than one.
-Icon Dialogue Talk White Zhongli, you seem suited to working in agricultural development.
+Traveler: Zhongli, you seem suited to working in agricultural development.
  Paimon: Yeah, Paimon can already imagine him starting a business in Liyue.
  Zhongli: Hah, I've had enough ventures in my life already.
  Zhongli: Beginning a new undertaking is always difficult at first and requires no small amount of effort. And once business is at full steam, the stress of it all only wears away at you over time.
@@ -2228,8 +2228,8 @@ Ask the residents for news
  Felix: Only now do they want to start keeping tabs on us? Huh! That's the Qixing for you!
  Felix: Anyway, Mr. Zhongli, you're one of Childe's close associates. Please understand that your actions will reflect on us. Don't let anyone catch you off-guard.
  Paimon: It looks like things are about to boil over in Liyue Harbor...
-Icon Dialogue Talk White Is there anything we can do?
-Icon Dialogue Talk White We can't just stand by and watch.
+Traveler: Is there anything we can do?
+Traveler: We can't just stand by and watch.
  Zhongli: Do you intend to use your neutral identity as an intermediary between both sides? Or, will you use your sword to turn the balance?
  Zhongli: Neither path is an easy one...
  Felix: Oh, by the way, Mr. Zhongli. We've heard that the Wangsheng Funeral Parlor has also been caught up in all this. They're currently squaring off with the authorities at the gates.
@@ -2238,15 +2238,15 @@ Icon Dialogue Talk White We can't just stand by and watch.
  Zhongli: Consider your next course of action carefully, (‍Traveler‍). If you're trying to prevent an explosion, it may be wisest to look for the fuse first.
  Paimon: Phew... Having connections with the Fatui seems to be quite the double-edged sword.
  Paimon: So what did Zhongli mean by looking for the "fuse"?
-Icon Dialogue Talk White Childe.
-Icon Dialogue Talk White That ginger guy.
-Icon Dialogue Talk White You know, Mr. More-Money-Than-Sense.
+Traveler: Childe.
+Traveler: That ginger guy.
+Traveler: You know, Mr. More-Money-Than-Sense.
  Paimon: Ooh, Paimon gets it! If there's anyone that wants to see the whole city turned upside down, it's definitely him.
  Paimon: He must be waiting for the moment when no one is watching to do something really bad!
  Paimon: But, where could we find him now?
  Paimon: Where would he go at a time like this?
-Icon Dialogue Talk White Follow me.
-Icon Dialogue Talk White There's only one place he would go.
+Traveler: Follow me.
+Traveler: There's only one place he would go.
 (Talk to Felix again, optional)
  Felix: The Liyue Qixing... to think that they'd go for us Fatui the first chance they got...
  Felix: Once the adepti send the Qixing packing, we'll just set up foreign relations with them instead!
@@ -2255,18 +2255,18 @@ Chapter I: Act III - A New Star Approaches. Heart of Glaze
  Paimon: Wow... This is the Golden House?
  Paimon: It looked impressive enough from the outside... But who would've guessed that it was even fancier on the inside... and so full of Mora!!!
  Paimon: This is where all of Teyvat's Mora is minted, right? In that case, maybe they won't notice if a few Mora go missing...
-Icon Dialogue Talk White Touch a single Mora and we're done for!
-Icon Dialogue Talk White If it were that easy, this place would have been emptied long ago.
+Traveler: Touch a single Mora and we're done for!
+Traveler: If it were that easy, this place would have been emptied long ago.
  Paimon: Ooh, so it's a trap. Tricky, tricky... Good thing Paimon's got you here!
  Paimon: But even if we can't take any, we can still have a closer look, right?
  Paimon: Or better yet, take a nap on top of a mountain of Mora! It's like a dream come true!
-Icon Dialogue Talk White We'd better check on the Exuvia first.
-Icon Dialogue Talk White Something feels amiss here.
+Traveler: We'd better check on the Exuvia first.
+Traveler: Something feels amiss here.
  Paimon: Oh, right! Back to business!
  Paimon: It's quiet... Too quiet. Surely someone's gotta be guarding something as important as the Exuvia.
  Paimon: Huh!? (‍Traveler‍), look! What happened here?
-Icon Dialogue Talk White The Millelith...
-Icon Dialogue Talk White They've been knocked unconscious!
+Traveler: The Millelith...
+Traveler: They've been knocked unconscious!
  Paimon: Uh-oh, Paimon smells trouble!
  Paimon: Quick! We have to go make sure that the Exuvia is alright.
 (Upon approaching the Exuvia)
@@ -2274,18 +2274,18 @@ Icon Dialogue Talk White They've been knocked unconscious!
  Paimon: Huh? Who's there?
  Childe: If you were Fatui, I imagine that you would be entitled to a generous reward from the Tsaritsa herself.
  Childe: But now, you're nothing but dross — and you're in my way.
-Icon Dialogue Talk White How did you find out it was here?
+Traveler: How did you find out it was here?
  Childe: Hmm, where should I start? Well, I've never been one to beat around the bush, you know. But who could have possibly guessed that the God of Geo would mysteriously perish the very moment I arrived in Liyue, and that the Exuvia would subsequently be hidden away?
  Childe: If it weren't for that lovely little Rite of Parting ceremony you put together, it would have taken me a whole lot longer to get the information I needed.
-Icon Dialogue Talk White Looks like I was just in time, then.
+Traveler: Looks like I was just in time, then.
  Childe: Hah! Although I'm deeply grateful to you that I was able to effortlessly find this secret location...
  Childe: Don't you think that trying to stop me now would just be wasted effort?
  Childe: Stopping the Mora mints, hiding away the Exuvia... Hahaha, the Qixing are really pulling out all the stops this time...
  Paimon: So you've been planning to take the Gnosis from inside the Exuvia all along!?
  Childe: As one of the Eleven Fatui Harbingers, it's my duty to see the will of the Tsaritsa fulfilled.
  Childe: She will get that which she desires.
-Icon Dialogue Talk White Not if I have anything to say about it.
-Icon Dialogue Talk White I won't allow you to get near the Exuvia.
+Traveler: Not if I have anything to say about it.
+Traveler: I won't allow you to get near the Exuvia.
  Childe: Hah! I'm not asking for your blessing, and there's nothing you can do to stop me anyway.
  Childe: The time for discussion and diplomacy has already passed. I mean, if it were up to me, I would have skipped that stage to begin with... but I'm willing to do as the Tsaritsa deems fit.
  Childe: Either way — we now come to my favorite part. A simple pleasure, and one that I am oh-so-delighted to be sharing with you...
@@ -2299,7 +2299,7 @@ Icon Dialogue Talk White I won't allow you to get near the Exuvia.
  Paimon: We won't let what happened in Mondstadt ever happen again!
  Childe: Oh? So you intend to fight me? Good. I won't kill you, Traveler. I'll just play along — to feel the thrill of battle![Note 1]
  Childe: Besides, you could never defeat me. Not even in your wildest dreams. But hey, try to relish the fight anyway. Because if you ask me... without that, what else is there?
-Icon Dialogue Talk White I could never defeat you!? You're completely delusional.
+Traveler: I could never defeat you!? You're completely delusional.
  Childe: Ahahahaha!
  Childe: Fighting talk, I love it! Now, let's see you live up to it.
 (Battle starts)
@@ -2350,8 +2350,8 @@ Tartaglia - Childe - The Eleventh of the Eleven Fatui Harbingers
  Childe: You had no connection to the Gnosis, no matter where it had been taken.
  Paimon: That's what we've been trying to tell you! We didn't take it!
  Childe: Your show of ability today far surpasses that of Signora's initial assessment of you in Mondstadt. Tell me, how could that be?
-Icon Dialogue Talk White (Because I'm collecting the powers of the seven elements...)
-Icon Dialogue Talk White (Because I'm gradually restoring my former power...)
+Traveler: (Because I'm collecting the powers of the seven elements...)
+Traveler: (Because I'm gradually restoring my former power...)
  Childe: You already know the answer, don't you? I can see it in your eyes.
  Childe: But if that is a secret you wish to keep, I guess I'll just have to curb my curiosity.
  Childe: This battle has already left me satisfied.
@@ -2361,8 +2361,8 @@ Icon Dialogue Talk White (Because I'm gradually restoring my former power...)
  Childe: Given that the Gnosis wasn't taken by anyone, then we must look once again to the beginning. Perhaps it was never in the Exuvia to begin with.
  Childe: In fact, it might be that the Exuvia was just a diversion of sorts.
  Paimon: What? So you mean that...
-Icon Dialogue Talk White Rex Lapis still lives?
-Icon Dialogue Talk White The corpse was fake?
+Traveler: Rex Lapis still lives?
+Traveler: The corpse was fake?
  Childe: Yes, it appears so. Interesting to say the least...
  Childe: It seems that the guardian deity of the capital of commerce is also well-versed in little maneuvers beyond the boundaries of contracts.
  Childe: As such, we must now look to our backup plan.
@@ -2381,8 +2381,8 @@ Icon Dialogue Talk White The corpse was fake?
  Childe: Simple! I've already prepared the means to awaken it.
  Paimon: Hey! Those are Sigils of Permission!
  Paimon: Oh, Paimon remembers now! The Fatui have been researching them...
-Icon Dialogue Talk White I saw your research with my own eyes.
-Icon Dialogue Talk White You've been trying to duplicate them.
+Traveler: I saw your research with my own eyes.
+Traveler: You've been trying to duplicate them.
  Childe: Indeed. The one that was given to you was just a by-product of our research.
  Childe: With the power of so many Sigils of Permission concentrated in one place, along with that which was bestowed upon me as a Harbinger by our Tsaritsa... Breaking the subduing might of the Geo Archon's spears for a time should be no obstacle.
  Childe: Using the powers of ancient gods in such a situation fails to interest me and is largely against my principles.
@@ -2531,13 +2531,13 @@ Having experienced this great change, humans and adepti alike cannot help but la
  Ningguang: I also thought to tell him how the past generations of Qixing had strove under his rule to survive in our mortal world, establishing a network of contracts which has since come to be known as "trade."
  Ningguang: But I dared not speak. I could only gaze at him in silence until the moment I awoke.
  Paimon: Aw, Ningguang...
-Icon Dialogue Talk White We're all on the same side here...
+Traveler: We're all on the same side here...
  Cloud Retainer: Yet another perspective... What are you trying to say, Outlander?
-Icon Dialogue Talk White When there is discord between the guardians and those they were meant to defend...
-Icon Dialogue Talk White Harmony becomes very difficult to restore.
+Traveler: When there is discord between the guardians and those they were meant to defend...
+Traveler: Harmony becomes very difficult to restore.
  Paimon: Right, that's something that happened in Mondstadt — it's a story about the Four Winds and the people of the Anemo Archon.
  Paimon: The Anemo Archon sought to quell the strife between the two sides, because he believed that such conflict would only scar the hearts of both and that nothing good would come of it...
-Icon Dialogue Talk White This is what we learned in the City of Freedom.
+Traveler: This is what we learned in the City of Freedom.
  Keqing: Each of the Seven Nations has its own scars from the past.
  Mountain Shaper: Though your point is the very height of simplicity...
  Mountain Shaper: As adepti, we've become a laughingstock, to be chastised thus by an outlander who has lent us such succor.
@@ -2568,8 +2568,8 @@ Icon Dialogue Talk White This is what we learned in the City of Freedom.
  Mountain Shaper: Hmm, seeing the port around us now, it is hard not to feel a bit out of place... wouldn't you say so, Cloud Retainer?
  Cloud Retainer: Your line of inquiry is askew. One did not spearhead this expedition to Liyue Harbor...
  Paimon: Hmm... seems like the adepti have had a change of heart.
-Icon Dialogue Talk White They've listened to what the people have said.
-Icon Dialogue Talk White And they're trying to understand things from their perspective.
+Traveler: They've listened to what the people have said.
+Traveler: And they're trying to understand things from their perspective.
  Xiao: Let us return now.
  Moon Carver: ...Eager to leave, Conqueror of Demons?
  Madame Ping: Hehehe...
@@ -2582,8 +2582,8 @@ Icon Dialogue Talk White And they're trying to understand things from their pers
  Ningguang: *chuckles*
  Madame Ping: Alright, Moon Carver. You needn't worry. It seems to me that this right of supervision is best left to the people of Liyue.
  Paimon: Whew... Looks like the conflict between humans and adepti was avoided. All's well that ends well, huh?
-Icon Dialogue Talk White You can say that again...
-Icon Dialogue Talk White The adepti were quite reasonable in the end...
+Traveler: You can say that again...
+Traveler: The adepti were quite reasonable in the end...
  Paimon: Oh, right! It's nice that we've got peace and all, but we're forgetting one thing!
  Paimon: Childe wanted to unleash the god so he could lure Rex Lapis out!
  Paimon: But we were able to handle the Overlord of the Vortex on our own... So Rex Lapis never showed up!
@@ -2606,11 +2606,11 @@ Northland Bank
  Signora: Hehe, don't take it to heart, Childe. Besides, aren't you happy that you got to skip the formalities and bring chaos to the land? I'm sure you must've enjoyed that...
  Signora: ...Oh, it seems that some of your friends have arrived.
  Paimon: Hey, it's Zhongli and Childe! And... you! You're also one of the Harbingers...
-Icon Dialogue Talk White Signora!
+Traveler: Signora!
  Signora: Haha, it's you two. I believe we've met once before... In the City of Bards, was it? I'm glad you still remember my name.
  Signora: Ah, right. I imagine that it must have been rather hard to forget watching helplessly as something precious was snatched away from your friend.
-Icon Dialogue Talk White (Breathe... Just stay calm.)
-Icon Dialogue Talk White I still have time to take it back.
+Traveler: (Breathe... Just stay calm.)
+Traveler: I still have time to take it back.
  Paimon: No, don't let her get to you, (‍Traveler‍)...
  Paimon: You've yet to gather the powers of all seven elements, and our last battle at the Golden House was almost more than you could handle...
  Paimon: So it might be best to keep things peaceful this time, seeing that two of the Harbingers are here.
@@ -2620,24 +2620,24 @@ Icon Dialogue Talk White I still have time to take it back.
  Childe: Besides, I thought we were getting along quite well together, didn't you? Except for that little tussle we had at the end... Haha.
  Childe: Nothing personal, we just have... different views, that's all. Of course, you may very well hold this against me, but that's up to you...
  Childe: The real deceivers here are Signora and Zhongli... curse them for leading me on.
-Icon Dialogue Talk White Zhongli tricked you?
-Icon Dialogue Talk White Signora and Zhongli?
+Traveler: Zhongli tricked you?
+Traveler: Signora and Zhongli?
  Childe: So actually, I think—
  Signora: Stop wasting time, Childe. There'll be plenty of time to chat once I'm through here.
  Signora: You remember the agreement, Morax. Now, if you would be so kind... The Gnosis, please.
-Icon Dialogue Talk White Agreement?
-Icon Dialogue Talk White Gnosis?
+Traveler: Agreement?
+Traveler: Gnosis?
  Paimon: What in the world are you talking about!?
  Zhongli: ...
  Zhongli: The contract is fulfilled. That which thou seeketh is now bestowed unto thee, for my promise is solid as stone.
  Signora: Hmph, how sanctimonious...
-Icon Dialogue Talk White So Zhongli is actually Rex Lapis?
-Icon Dialogue Talk White I mean, I did have my suspicions...
+Traveler: So Zhongli is actually Rex Lapis?
+Traveler: I mean, I did have my suspicions...
  Paimon: What! So you're the Lord of Geo!?
  Paimon: No, wait! That's an exciting twist and all — but why give the Gnosis to the Fatui!?
  Zhongli: I do not give it for free. I give it as agreed upon in the contract... for it is a matter solely between the Tsaritsa and I.
-Icon Dialogue Talk White I'm afraid I don't understand...
-Icon Dialogue Talk White And why did you feign your death?
+Traveler: I'm afraid I don't understand...
+Traveler: And why did you feign your death?
  Paimon: Yeah, you don't think you went a little bit too far with that whole fake death thing!? Everyone was preparing the ceremony for you when splat, this big dragon falls out of the sky and all of Liyue goes into an uproar. Talk about a disaster!
  Signora: Hehe... Gathering all the forces that had been bubbling behind the scenes, and then stirring them together in a pot that was bound to boil over... That's what he wanted to see, am I right?
  Paimon: Wait... what?
@@ -2650,9 +2650,9 @@ Icon Dialogue Talk White And why did you feign your death?
  Zhongli: But as I began to consider relinquishing my divine role, I soon discovered that many reasons still remained to not hastily depart.
  Zhongli: Was Liyue, the city I had dwelt in for so long, already prepared to enter its next age? I decided that a test was needed in order to reveal the answer.
  Zhongli: So I feigned my own death, and gathered the cast of Childe, the adepti, and the Liyue Qixing to play their roles together on the stage that was Liyue.
-Icon Dialogue Talk White So, were you satisfied with the finale?
+Traveler: So, were you satisfied with the finale?
  Zhongli: Indeed, I was. The Gnosis which I had kept for so many years suddenly seemed to have lost its meaning.
-Icon Dialogue Talk White Let me guess — you had another plan in case it all burned down.
+Traveler: Let me guess — you had another plan in case it all burned down.
  Zhongli: That's right, which is why I continued to safeguard the Gnosis until now.
  Paimon: So you mean that if the chaos ever reached the point of no return, you would simply appear and use your divine powers to bring Liyue back under control?
  Signora: Of course. And it would have been all too easy for him, too.
@@ -2670,16 +2670,16 @@ Icon Dialogue Talk White Let me guess — you had another plan in case it all bu
  Signora: Heh, I think that thanks would be more appropriate. You certainly played no small part in all of this... Wreaking havoc and turning the city upside down. The Lord of Geo ought to thank you for your performance, if anything.
  Signora: If you hadn't created the pressure of a battle between mortals, adepti and a god, the lump of coal resting in the hands of the Geo Archon — Liyue — would never have been able to become a dazzling diamond of a city.
  Childe: Huh? Just whose side are you on, mocking me like that? Are you itching for a fight?
-Icon Dialogue Talk White We were both equally fooled.
+Traveler: We were both equally fooled.
  Childe: Be that as it may, you've come out of this as the hero of Liyue. I, on the other hand, will be forever proscribed as a disturber of the peace, no?
-Icon Dialogue Talk White You've really embarrassed yourself this time.
+Traveler: You've really embarrassed yourself this time.
  Childe: Hey! Haven't you learned the Liyue saying? "Don't always call it as you see it"!
  Signora: Heh... Well then, with the Gnosis in my possession, I have no use for such idle chatter. We should return to Zapolyarny Palace and seek an audience with Her Majesty, the Tsaritsa. Come, Childe.
  Childe: Ugh, fine... I'll meet you there later. I'm not sharing a boat with the likes of you.
  Signora: Hmph, do as you wish.
  Zhongli: Now then, is there anything else you wish to ask me?
-Icon Dialogue Talk White I'd like to know what the Cryo Archon offered you.
-Icon Dialogue Talk White What could possibly be worth a Gnosis?
+Traveler: I'd like to know what the Cryo Archon offered you.
+Traveler: What could possibly be worth a Gnosis?
  Paimon: Right! As Zhongli always told us, "a good trade is a fair trade." Paimon has no idea what could be a good trade for a Gnosis.
  Zhongli: Realistically speaking, there is no such thing.
  Paimon: Huh???
@@ -2720,14 +2720,14 @@ After the dust settles, a date is fixed for the Rite of Parting...
  Fengyan: Having been thwarted in his trial, Rex Lapis' soul has recouped the celestial heights. He beseeches the people of Liyue to grieve not, and to let not their hearts be saddened.
  Fengyan: Nor are they to believe street-borne rumors or indulge in baseless speculation.
  Paimon: Ah... Um, Paimon needs a translation on what the Qixing's announcement said, (‍Traveler‍).
-Icon Dialogue Talk White They said that Rex Lapis wasn't murdered.
-Icon Dialogue Talk White They said that Rex Lapis died because of a divine trial.
+Traveler: They said that Rex Lapis wasn't murdered.
+Traveler: They said that Rex Lapis died because of a divine trial.
  Paimon: ...So that's how they're spinning it...
  Paimon: Something feels off. Why would they suddenly give up looking for the murderer? Not to mention how this excuse sounds like something they just made up on the spot.
  Paimon: Could the Qixing already have known that Rex Lapis wasn't dead? But Zhongli said that neither they nor the adepti knew anything...
  Paimon: Hmm... Did Zhongli tell them in secret after his Gnosis changed hands?
-Icon Dialogue Talk White That's possible.
-Icon Dialogue Talk White I think you've hit the bull's-eye this time.
+Traveler: That's possible.
+Traveler: I think you've hit the bull's-eye this time.
  Paimon: Exactly, right? Ooh, seems like the Rite of Parting has been going on for a while now. Let's go have a look.
 (Approach the Rite of Parting area)
  Paimon: Look, it's Ningguang and Keqing. Are they saying something? Are their speeches over?
@@ -2748,7 +2748,7 @@ Icon Dialogue Talk White I think you've hit the bull's-eye this time.
  Keqing: The Liyue Qixing always repay their debts. And as you have heard, our eyes see far and our reach is long.
  Keqing: Name your price. You deserve that much.
  Paimon: Whoa...
-Icon Dialogue Talk White ...
+Traveler: ...
   (‍Traveler‍): Well... could you help me put up some missing person posters...?
 Talking to the Attendees
 (Talk to Shitou)
@@ -2781,9 +2781,9 @@ Zhongli's Farewell
  Paimon: Hah! That sounds like big talk, Zhongli. Paimon might have believed you if you were treating us to some Third-Round Knockout, but you'd have to pay out your nose just to stand inside Xinyue Kiosk. Are you sure you can afford it?
  Zhongli: Hmm...
  Zhongli: You're right, I do lack the Mora.
-Icon Dialogue Talk White You've been this way this entire time, but...
+Traveler: You've been this way this entire time, but...
  Paimon: But why would Morax lack Mora?
-Icon Dialogue Talk White But why would Morax lack Mora?
+Traveler: But why would Morax lack Mora?
  Zhongli: As the Rex Lapis Morax, I can easily create Mora. But since I have chosen to walk this earth as the mortal Zhongli, I should abide by the same rules that mortals do.
  Zhongli: When I was journeying with you, though I still had the Gnosis in hand, I knew that I must soon retire from my role as an archon. So I had to... rehearse a little, for my new life.
  Paimon: Oh, no wonder! Paimon gets it now. You didn't look at the price tags when we were spending because you've never had to.
@@ -2793,18 +2793,18 @@ Icon Dialogue Talk White But why would Morax lack Mora?
  Zhongli: The archon Morax could never experience life as the true mortal Zhongli could, no matter how many times he descended to be with his people.
  Zhongli: Haha, I must thank you for that, (‍Traveler‍).
  Zhongli: I will treasure the memories that I made as Zhongli, traveling the streets of Liyue with you.
-Icon Dialogue Talk White It was a fine journey.
+Traveler: It was a fine journey.
  Zhongli: That is true, but there is no journey that does not end. No meetings without partings.
  Paimon: Mm... Paimon thinks that we should make a move and continue our search for The Seven.
  Zhongli: I fear that continuing your journey may be difficult. The nation that neighbors Liyue by sea, Inazuma, is presently closed.
-Icon Dialogue Talk White "Closed"?
+Traveler: "Closed"?
  Zhongli: Yes. The nation has been closed by order of its deity.
-Icon Dialogue Talk White Who's the god who rules Inazuma?
+Traveler: Who's the god who rules Inazuma?
  Zhongli: The Electro Archon, Baal — and just as the people of Liyue preferred to call me Rex Lapis, she too goes by another name among locals in Inazuma.
  Paimon: Um, Paimon thinks we've heard that one before. Uh.. Rai... Raiden?
  Zhongli: That is the case. And since Raiden is also the Shogun of Inazuma, people call her the Raiden Shogun.
-Icon Dialogue Talk White The Inazuma Shogunate...
-Icon Dialogue Talk White The Shogun...
+Traveler: The Inazuma Shogunate...
+Traveler: The Shogun...
  Paimon: That said, though people at the wharf were saying that the situation in Inazuma is very tense, Paimon doesn't remember that always being the case. It wasn't that bad last year...
  Paimon: Zhongli, since you're Rex Lapis, shouldn't you know something about what's happening there? Just how did Inazuma become a closed nation?
  Zhongli: It's because of Visions.
@@ -2823,27 +2823,27 @@ Icon Dialogue Talk White The Shogun...
  Zhongli: The fact that even I, the oldest of The Seven, have now "passed away" will only strengthen her resolve to pursue eternity.
  Zhongli: Knowing her, she must have again quoted that adage she is most fond of when proclaiming that decree to her people:
  Zhongli: "Seven ideals for seven gods, and of these, Eternity is nearest unto the Heavenly Principles."
-Icon Dialogue Talk White Heavenly Principles...
+Traveler: Heavenly Principles...
  Zhongli: Alright, then. Was there anything else you wished to know?
-Icon Dialogue Talk White So, about the "trial..."
+Traveler: So, about the "trial..."
  Zhongli: Haha... Ah, that was a good one. Failing a divine trial? How they came up with that excuse, I will never know.
  Zhongli: That said, the reason why the Qixing were so eager to resolve the incident and stop pursuing the culprit was indeed because they received news in secret that Rex Lapis was not dead.
  Zhongli: I hinted as much to the adepti as well.
  Zhongli: How did I accomplish that, you ask? Hmm... Have you ever heard of this particularly convenient adepti art known as "gifting dreams and visions"?
 (Dialogue returns to option selection)
-Icon Dialogue Talk White What about Childe...
+Traveler: What about Childe...
  Paimon: Yeah, about that. Before the Qixing made their announcement, we listened to a lot of people talking on the way. Most of them put the blame for everything on Childe.
  Zhongli: These are indeed false accusations, but it remains undeniably true that Childe did send people to the Jade Chamber to prevent the adepti and the Qixing from defeating the ancient god.
  Zhongli: I've heard that Ningguang is busy milking that for all it's worth on the foreign relations front at the moment, browbeating the envoys of the Fatui...
  Zhongli: Ah, those poor Snezhnayan diplomats. If it were not for Childe's exalted position as a Harbinger, I'm certain that they would have shifted all the blame to him and called for his dismissal by now.
 (Dialogue returns to option selection)
-Icon Dialogue Talk White As for the Liyue Qixing...
+Traveler: As for the Liyue Qixing...
  Zhongli: "The time of the adepti has long passed. If even the Liyue Qixing don't want to face that truth, then what future is there for Liyue?"
  Zhongli: Keqing is absolutely right in saying this.
  Zhongli: Now, though I did laud Ningguang's desire for power, believing this to be a good thing, and thought as a matter of course that she must have been behind the Qixing's plan to take governing power over Liyue from the hands of the gods and adepti...
  Zhongli: Could the original person who brought up the idea of seizing power have been...? Hmm...
 (Dialogue returns to option selection)
-Icon Dialogue Talk White Now, about Mora...
+Traveler: Now, about Mora...
  Paimon: That's right! Zhongli, now that you don't have your Gnosis, what's going to happen to all the Mora in Teyvat?
  Paimon: Since Morax is "dead," are they all just gonna disappear?
  Paimon: Also, isn't the Golden House the only mint in the entire continent? Will it even continue to work?
@@ -2857,5 +2857,5 @@ Icon Dialogue Talk White Now, about Mora...
  Paimon: What's a shame?
  Zhongli: It's a shame that I didn't think of it at the time.
 (Dialogue returns to option selection)
-Icon Dialogue Talk White There's nothing else...
+Traveler: There's nothing else...
  Zhongli: Well then, I suppose you'll have to find a way to get inside this closed nation. Have patience... I suspect that some serendipity must first come into play...

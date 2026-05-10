@@ -1,10 +1,20 @@
 import sys
+import os
 from pathlib import Path
 
 project_root = Path(__file__).parent
 if str(project_root) not in sys.path:
     sys.path.insert(0, str(project_root))
 
+def get_app_dir():
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    return os.path.dirname(os.path.abspath(__file__))
+
+BASE_DIR = get_app_dir()
+ASSETS_DIR = os.path.join(BASE_DIR, 'assets')
+
+os.makedirs(ASSETS_DIR, exist_ok=True)
 def main():
     try:
         from nir.core.chatbot import run_chat_app

@@ -638,7 +638,7 @@ Let's set up your environment!
         self.model_manager.create_embedding_model(
             name=result["model_title_for_your_understanding"],
             option=result["option"],
-            model_name=result["model_id_official_name"],
+            model_name=result["model_name_official_name"],
             api_info=api_key
         )
         ConsoleUI.print_success(f"Embedding model '{result['model_title_for_your_understanding']}' created successfully")
@@ -750,14 +750,13 @@ Let's set up your environment!
             try:
                 import pandas as pd
                 df_sample = pd.read_csv(text_path, nrows=1)
-                console.print("\n[bold]Available columns in CSV:[/bold]")
+                columns_text = "\n[bold]Available columns in CSV:[/bold]\n"
                 for idx, col in enumerate(df_sample.columns, 1):
-                    console.print(f"  {idx}. [green]{col}[/green]")
-                console.print("")
+                    columns_text += (f"  {idx}. [green]{col}[/green]\n")
             except Exception as e:
-                console.print(f"[{ColorTheme.WARNING}]⚠ Could not preview CSV: {e}[/{ColorTheme.WARNING}]\n")
+               columns_text = f"[{ColorTheme.WARNING}]⚠ Could not preview CSV: {e}[/{ColorTheme.WARNING}]\n"
             csv_fields = [FormField("Columns to use (comma-separated)", required=False)]
-            csv_form = Form("Enter columns (leave empty for all)", csv_fields, clear_screen=False)
+            csv_form = Form("Enter columns (leave empty for all)", csv_fields, clear_screen=True, description=columns_text)
             csv_result = csv_form.display()
             
             if csv_result is None:
@@ -947,8 +946,9 @@ Let's set up your environment!
             with Live(status_text, refresh_per_second=10, transient=True) as live:
                 try:
                     current_query += f"\n{query}"
+                    print("QUERY FOR EXTRACTION\n", current_query, "\n")
 
-                    status_text = Text("Searching graph...", style=f"{ColorTheme.INFO}")
+                    status_text = Text("Searching graph...", style=f"{ColorTheme.PRIMARY}")
                     live.update(status_text)
                     context_from_graph = form_context_with_llm(
                         query=current_query,

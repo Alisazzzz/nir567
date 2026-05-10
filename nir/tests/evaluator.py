@@ -45,8 +45,6 @@ def analyze_generation(
 ) -> Dict[str, Any]:
 
     metrics = {"category": category}
-    ragas_res = evaluate_ragas_metrics(query, generated_text, context, reference_text)
-    metrics.update(ragas_res)
     metrics["bert_score_source"] = evaluate_bert_score_vs_source(generated_text, lore_summary, language)
     metrics["bert_score_reference"] = evaluate_bert_score_vs_reference(generated_text, reference_text, language)
     metrics["world_consistency"] = compute_world_consistency(lore_summary, generated_text, evaluation_llm)

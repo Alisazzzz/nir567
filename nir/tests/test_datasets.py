@@ -1,45 +1,3 @@
-TEST_TASKS = [
-    {
-        "id": "test",
-        "query": "Write a short story for a future quest (do not structure it now) about Morgiana and her ordinary life.",
-        "world_context": """
-                The story unfolds in a modest Persian town, grounded in realistic social hierarchies yet touched by a single thread of magic: a hidden cave in the forest, sealed 
-                by an enchanted command—“Open, Sesame.” This cave, filled with seemingly endless treasure, belongs to a band of forty ruthless thieves. The world operates on clear 
-                moral and practical logic—greed leads to ruin, while humility, cleverness, and loyalty are rewarded. Magic exists, but only as a fixed, rule-bound element; 
-                it does not interfere with daily life beyond this one extraordinary location.
-                The society depicted includes merchants, laborers, slaves, and craftsmen. Slavery is present but not absolute—exceptional service can lead to freedom and social 
-                elevation. Wealth is inherited or acquired through fortune, but its moral value depends entirely on how it is used.
-                
-                Main characters and their relationships:
-                 - Ali Baba is a poor but honest woodcutter. He stumbles upon the cave’s secret not through ambition, but by chance. 
-                 He remains modest after gaining wealth and treats others with kindness, including his late brother’s slave, Morgiana. 
-                 His role is passive in action but central as a moral anchor.
-                 - Cassim, Ali Baba’s elder brother, represents greed and social aspiration. Married to a wealthy woman, he immediately seeks to exploit the cave for personal gain. 
-                 His arrogance and forgetfulness lead to his death, cutting his role short but triggering the main conflict.
-                 - Morgiana, a female slave in Cassim’s household, is the true agent of the story. Intelligent, observant, and courageous, she acts decisively to protect Ali Baba’s 
-                 family. Her relationship with Ali Baba evolves from servitude to familial trust; ultimately, she is freed and married to his son—a rare upward mobility 
-                 that underscores the tale’s moral fairness.
-                 - The Captain of the Forty Thieves serves as the primary antagonist. He is cunning and relentless, using disguise and deception twice to hunt down 
-                 the person who breached his secret. However, he underestimates Morgiana, assuming threats come only from men. His rigid worldview leads to his downfall.
-                 - Ali Baba’s son plays a minor but functional role: he unknowingly facilitates the captain’s second infiltration by befriending the disguised robber.
-                His presence bridges generations and allows Morgiana’s final act of heroism to unfold in a domestic setting.
-                In this world, the conflict isn’t driven by epic battles or divine intervention, but by human traits—curiosity, greed, loyalty, and wit—played out 
-                in a setting where a magical secret disrupts ordinary life. The story that follows (Ali Baba discovering the cave, Cassim’s death, and Morgiana thwarting two 
-                assassination attempts) is simply the natural consequence of how these characters interact within this morally coherent, semi-realistic world.
-            """,
-        "expected": """
-                The morning was hot and overcast. Everything foretold a sandstorm, and Morgiana wanted to buy provisions before going outside became dangerous. 
-                She went to the market: only a few merchants had dared to come today and set out their goods, and even they kept glancing anxiously at the horizon, 
-                trying to spot the approaching clouds in time. Morgiana bought everything on her list, bargaining for the best price she could. 
-                After that, she went to the butcher’s shop, which was always open—being inside a solid building, the butcher was not worried about the storm, 
-                as he could easily protect his goods. Having bought meat there, she visited a friend and gave her a ring and a necklace she had promised long ago. 
-                After receiving some fresh gossip, Morgiana returned home and began preparing lunch. Two hours later, the sandstorm began.
-            """,
-        "metric": ["mauve", "distinct-n", "repetition-n", "world_consistency"],
-        "category": "story for a quest"
-    }
-]
-
 GRAPH_TEST_DATASET = [
     {
         "path": "assets/documents/NOTEBOOK STORY.txt",
@@ -107,302 +65,6 @@ GRAPH_TEST_DATASET = [
         }
     },
 ]
-
-TEST_DATA_TEXT1 = {
-    "path_to_graph": "assets/graphs/elden_ring_lore.json",
-    "path_to_text": "assets/documents/ELDEN RING LORE.txt",
-    "text_summary": """
-        The Greater Will is an Outer God whose power manifests through the Elden Ring and the Erdtree. 
-        Queen Marika becomes its vessel and establishes the Golden Order to enforce its will. 
-        Before this, dragons ruled the Lands Between but declined after their god abandoned them. 
-        With the rise of the Golden Order, beings tied to the primordial “crucible” (like Omens) became persecuted.
-        Marika wages wars, including against the Fire Giants, and allies with figures like Hoarah Loux (Godfrey). 
-        She and her other self, Radagon, are two aspects of one being. 
-        Their children, including Malenia and Miquella, are cursed. Other Outer Gods also influence events.
-        Ranni rejects the Greater Will and orchestrates the Night of the Black Knives, killing Godwyn. 
-        In response, Marika shatters the Elden Ring, triggering the Shattering war among demigods, each seeking power or change.
-        As the Greater Will’s influence weakens, the Tarnished return to the Lands Between, 
-        aiming to restore or redefine the world’s order.
-    """,
-    "language": "en",
-    "tasks": [
-        {
-            "category": "quest",
-            "query": "Create a new Elden Ring-style side quest involving a Tarnished helping a minor faction or individual affected by the Shattering. The quest should involve moral ambiguity, hidden truth, and a choice between loyalty to the Golden Order or defiance of it. Do not reuse known canonical events.",
-            "reference": """
-                A Tarnished encounters a wandering scholar from a minor ruined order who claims to have discovered fragments 
-                of forbidden knowledge about the Shattering. The scholar asks for protection while traveling to an ancient site where truth 
-                about the Erdtree’s origins may be revealed. Along the journey, it becomes unclear whether the scholar seeks 
-                enlightenment or intends to destabilize remaining order. At the destination, the Tarnished must choose to either help seal 
-                the knowledge away or release it to the world, risking further chaos.
-            """
-        },
-        {
-            "category": "dialogue",
-            "query": "Write a short in-game style dialogue where a guide-like spirit offers the player a pact and explains their role in the Lands Between.",
-            "reference": """
-                Melina: "I offer you an accord. Let me travel with you, and I will guide you to the foot of the Erdtree."
-                Tarnished: "Why help me?"
-                Melina: "You are Tarnished. You must walk a path to become Elden Lord. I have my own purpose... and I will see it through."
-            """
-        },
-        {
-            "category": "character description",
-            "query": "Create a new Elden Ring character connected to existing factions or figures, but not mentioned in the source text. The character should be linked to known entities like Ranni or the Golden Order, but must be original. Something about hald-wolves will be interesting, I suppose.",
-            "reference": """
-                Blaidd is a half-wolf warrior bound to Ranni the Witch by fate and loyalty. He serves as her shadow and protector, 
-                tasked by the Two Fingers to watch over her Empyrean destiny. Despite his feral nature, Blaidd is deeply loyal and struggles between instinct and duty. 
-                As Ranni rejects the Greater Will, Blaidd becomes entangled in her fate, ultimately unable to escape the influence of the very forces 
-                he was created to serve.
-            """
-        },
-        {
-            "category": "location description",
-            "query": "Create a description for a major capital city in Elden Ring associated with the Golden Order and royal rule.",
-            "reference": """
-                Leyndell, Royal Capital is the seat of the Erdtree and the center of the Golden Order’s power. 
-                It is a vast city built around the massive golden tree, filled with knights, golden architecture, and ancient structures 
-                tied to the rule of Queen Marika. During the Shattering, the capital becomes a key stronghold defended by Morgott, who protects 
-                it despite being an Omen. The city symbolizes the peak and decay of the Golden Order’s influence.
-            """
-        },
-        {
-            "category": "item description",
-            "query": "Create a new mystical item tied to divine or forbidden power in the Elden Ring world. It should feel like a fragment of a larger cosmic truth or broken order, but must not directly reference existing Great Runes or known artifacts.",
-            "reference": """
-                Veilshard of Continuance is a fractured relic said to originate from an unknown layer of the Elden Ring’s structure. 
-                When held, it subtly alters perception of time, allowing the bearer to glimpse alternate outcomes of past actions. However, 
-                prolonged use erodes memory and identity, as if the world itself resists being understood outside its intended order.
-            """
-        }
-    ]
-}
-
-TEST_DATA_TEXT2 = {
-    "path_to_text": "assets/documents/Leisure Suit Larry 6.txt",
-    "path_to_graph": "assets/graphs/leisure_suit_larry.json",
-    "text_summary": """
-        Larry Laffer arrives at a luxury spa after losing a dating show, where he is treated poorly as a non-paying guest. 
-        Throughout his stay, he helps several women, including Gammie with her weight-loss treatment, Shablee by finding her a dress for a date, 
-        and Char with gathering items—though many encounters end in rejection or embarrassment. He also meets Cavaricchi and Burgundy, who invite 
-        him to a sauna but exclude him, and Thunderbird, a dominatrix who humiliates him. Larry assists Merrily with her dream of bungee jumping, only 
-        to accidentally fall himself. Despite repeated mishaps, Larry persists. In the end, after completing tasks for Shamara, he finally gains her affection, 
-        concluding his misadventure on a successful note.
-    """,
-    "language": "en",
-    "tasks": [
-        {
-            "category": "quest",
-            "query": "Design a new comedic adventure puzzle sequence set in the same luxury spa. The quest should involve helping a different eccentric guest achieve a risky personal goal by stealthily acquiring and duplicating a restricted access item. The sequence should culminate in an ironic, highly public mishap for the protagonist while the guest finally attains their desire, maintaining the game's signature blend of slapstick and puzzle-solving.",
-            "reference": """
-                Larry assists Merrily Lowe at the pool bar by obtaining the diving tower key from the lifeguard, 
-                making an impression of it in a bar of soap, filing a copy with a bastard file, and returning it to her. 
-                They climb to the bungee platform, where she shares her "Words of Wisdom," but Larry trips over the cords and falls, 
-                accidentally broadcasting his naked descent to the entire spa.
-            """
-        },
-        {
-            "category": "dialogue",
-            "query": "Write a short, in-game style script dialogue where a weary spa performer negotiates a private meeting with the protagonist. The exchange should highlight the performer's cynical exhaustion and the protagonist's hesitant agreement, formatted strictly as `Character: \"line\"` pairs.",
-            "reference": """
-                Burgundy: "God-dammit, Larry! You got steam room privileges? I'd give a week's pay to get naked and sweat it out now!"
-                Larry: "Uh, yeah, I think so..."
-                Burgundy: "Good. I'll meet you there as soon as I get out of this dress."
-            """
-        },
-        {
-            "category": "character description",
-            "query": "Create a description for a new secondary NPC at the same exclusive health resort. The character should be a physically imposing, stern staff member or guest with a commanding, slightly intimidating demeanor. Detail their appearance, their specific request for a restrictive or unconventional accessory, and how they treat the protagonist once their demand is fulfilled, keeping the tone playfully absurd.",
-            "reference": """
-                Thunderbird is a rough, tough, no-nonsense dominatrix who works out in the spa's weight room. 
-                She desires new handcuffs. When given them, she invites Larry to her room, attaches him to a floor lamp with a diamond-studded dog collar, 
-                and orders him to crawl and bark, showcasing her dominant physique and commanding personality.
-            """
-        },
-        {
-            "category": "location description",
-            "query": "Describe a specialized maintenance or treatment room within the same luxury spa facility. The space should feature a prominent, slightly outdated mechanical apparatus that requires hands-on repair. Highlight its clinical yet utilitarian aesthetic, and emphasize how it functions as an interactive puzzle hub where the protagonist must diagnose and fix interconnected mechanical failures using scavenged parts.",
-            "reference": """
-                The Cellulite Drainage Salon is a clinical room housing a large, complex treatment machine with a dry piston shaft, 
-                a leaking vacuum hose, and a clogged filter tank. The protagonist must diagnose these mechanical failures, 
-                source replacement parts from other spa areas, and reassemble the system to activate the treatment for the front desk clerk.
-            """
-        },
-        {
-            "category": "item description",
-            "query": "Describe a mundane, everyday object found in the spa's guest amenities that has been cleverly modified to serve a clandestine purpose. Focus on how a soft, common material was used to capture a precise mechanical pattern from a restricted item, enabling the protagonist to bypass security through traditional adventure game logic.",
-            "reference": """
-                Impressed Soap is a standard bar of soap that has been carefully pressed with a metal key, 
-                leaving a precise negative impression of the key's teeth. It is a crucial intermediate tool for duplicating keys, 
-                representing a classic adventure game puzzle mechanic where everyday bathroom items are repurposed for stealthy access.
-            """
-        }
-    ]
-}
-
-
-TEST_DATA_TEXT3 = {
-    "path_to_graph": "assets/graphs/inazuma_lore.json",
-    "path_to_text": "assets/documents/INAZUMAS MAIN QUEST.txt",
-    "text_summary": """
-        The Traveler arrives in Inazuma, a nation ruled by the Electro Archon, the Raiden Shogun, 
-        who enforces isolation and the Vision Hunt Decree—confiscating Visions from citizens, stripping many of their ambition and purpose. 
-        This causes widespread unrest and resistance.
-
-        The Traveler meets allies like Ayaka and Thoma and witnesses the growing oppression. A resistance led by Sangonomiya Kokomi 
-        fights the Shogunate, while the Fatui secretly manipulate events to destabilize Inazuma further.
-
-        It is revealed that the true Archon, Raiden Ei, has retreated into the Plane of Euthymia, leaving a puppet Shogun to enforce her ideal 
-        of "eternity"—a world without change or loss.
-
-        The Traveler confronts the Shogun and then Ei herself within her inner realm. Through a duel and witnessing 
-        the will of Inazuma's people embodied in their Visions, Ei realizes the harm of her ideology.
-
-        She abandons the Vision Hunt Decree, restores the Visions, ends the civil conflict, and begins guiding Inazuma toward a new future.
-    """,
-    "language": "en",
-    "tasks": [
-        {
-            "category": "quest",
-            "query": "Design a new side quest set in Inazuma where the Traveler helps a former Vision bearer cope with the loss of their aspirations after the Vision Hunt Decree. The sequence should involve investigating rumors of a hidden sanctuary where confiscated Visions are kept, navigating moral choices about whether to expose the truth or protect those who still hope, and culminating in a quiet moment of reflection rather than combat.",
-            "reference": """
-                In the quest "The Meaning of Meaningless Waiting," the Traveler meets Tejima, a former samurai whose Vision was confiscated. 
-                Without his Vision, he struggles to remember why he stayed in Konda Village. The Traveler helps him find a letter revealing 
-                he waited for a lover who never returned. Tejima chooses to remain, finding new meaning in patience rather than action.
-            """
-        },
-        {
-            "category": "dialogue",
-            "query": "Write a short in-game style dialogue where Yae Miko speaks with the Traveler about the nature of eternity and human ambition. The exchange should reflect Yae's playful yet profound wisdom, the Traveler's outsider perspective, and hint at the tension between Ei's ideals and mortal desires. Format strictly as `Character: \"line\"` pairs.",
-            "reference": """
-                Yae Miko: "Eternity is not a destination, little one. It is the space between heartbeats where hope still flickers."
-                Traveler: "But if nothing changes, doesn't hope itself fade?"
-                Yae Miko: "Ah, but that is precisely why the Shogun fears it. A flicker can become a flame... and flames, as you know, have a way of spreading."
-            """
-        },
-        {
-            "category": "character description",
-            "query": "Create a description for a new secondary NPC connected to the Watatsumi Resistance or the Yashiro Commission. The character should be a scout, messenger, or local guide with knowledge of Inazuma's hidden paths. Detail their appearance, their role in the ongoing conflict, and a personal motivation that ties them to the broader struggle against the Vision Hunt Decree.",
-            "reference": """
-                Teppei is a young, earnest soldier of the Watatsumi Resistance, initially assigned to logistics but eager to prove himself on the front lines. 
-                He wears patched resistance armor and carries a simple spear. His motivation stems from a desire to protect his homeland and earn recognition, 
-                though his enthusiasm sometimes outpaces his experience. He later becomes captain of the special operations unit "Herring I."
-            """
-        },
-        {
-            "category": "location description",
-            "query": "Describe a secluded shrine or ruined temple on Narukami Island that serves as a secret meeting place for those opposing the Vision Hunt Decree. The space should feature weathered torii gates, lingering Electro residue from confiscated Visions, and a central stone monument tied to ancient Inazuman beliefs about ambition and the heavens. Emphasize its role as a quiet hub for clandestine planning.",
-            "reference": """
-                The Komore Teahouse is a hidden establishment nestled in the cliffs of Narukami Island, accessible only through a secret passage. 
-                Its interior blends traditional Inazuman architecture with subtle resistance symbolism—carved cranes representing freedom, hidden 
-                compartments for messages, and a view of the sea that reminds visitors of the world beyond the Sakoku Decree. It serves as the primary safehouse 
-                for the Kamisato Clan's covert operations.
-            """
-        },
-        {
-            "category": "item description",
-            "query": "Describe a newly discovered Inazuman artifact tied to the concept of fleeting ambition and the Electro element. It should feel like a crystallized fragment of a confiscated Vision or a tear from the Sacred Sakura, capable of temporarily resonating with lost desires, but carrying a cost of emotional echo or temporal dissonance.",
-            "reference": """
-                The Omamori of Unspoken Wishes is a small, silk-wrapped charm imbued with faint Electro energy, 
-                originally crafted at the Grand Narukami Shrine. When held, it allows the bearer to briefly sense the lingering 
-                aspirations of a confiscated Vision, offering guidance or comfort. However, prolonged use risks trapping the user in 
-                echoes of another's unfulfilled dreams, blurring the line between their own will and borrowed longing.
-            """
-        }
-    ]
-}
-
-TEST_DATA_TEXT1_SHORT = {
-    "path_to_graph": "assets/graphs/elden_ring_lore.json",
-    "path_to_text": "assets/documents/ELDEN RING LORE.txt",
-    "text_summary": """
-        The Greater Will is an Outer God whose power manifests through the Elden Ring and the Erdtree. 
-        Queen Marika becomes its vessel and establishes the Golden Order to enforce its will. 
-        Before this, dragons ruled the Lands Between but declined after their god abandoned them. 
-        With the rise of the Golden Order, beings tied to the primordial “crucible” (like Omens) became persecuted.
-        Marika wages wars, including against the Fire Giants, and allies with figures like Hoarah Loux (Godfrey). 
-        She and her other self, Radagon, are two aspects of one being. 
-        Their children, including Malenia and Miquella, are cursed. Other Outer Gods also influence events.
-        Ranni rejects the Greater Will and orchestrates the Night of the Black Knives, killing Godwyn. 
-        In response, Marika shatters the Elden Ring, triggering the Shattering war among demigods, each seeking power or change.
-        As the Greater Will’s influence weakens, the Tarnished return to the Lands Between, 
-        aiming to restore or redefine the world’s order.
-    """,
-    "language": "en",
-    "tasks": [
-        {
-            "category": "quest",
-            "query": "Create a new Elden Ring-style side quest involving a Tarnished helping a minor faction or individual affected by the Shattering. The quest should involve moral ambiguity, hidden truth, and a choice between loyalty to the Golden Order or defiance of it. Do not reuse known canonical events.",
-            "reference": """
-                A Tarnished encounters a wandering scholar from a minor ruined order who claims to have discovered fragments 
-                of forbidden knowledge about the Shattering. The scholar asks for protection while traveling to an ancient site where truth 
-                about the Erdtree’s origins may be revealed. Along the journey, it becomes unclear whether the scholar seeks 
-                enlightenment or intends to destabilize remaining order. At the destination, the Tarnished must choose to either help seal 
-                the knowledge away or release it to the world, risking further chaos.
-            """
-        }
-    ]
-}
-
-TEST_DATA_TEXT2_SHORT = {
-    "path_to_text": "assets/documents/Leisure Suit Larry 6.txt",
-    "path_to_graph": "assets/graphs/leisure_suit_larry.json",
-    "text_summary": """
-        Larry Laffer arrives at a luxury spa after losing a dating show, where he is treated poorly as a non-paying guest. 
-        Throughout his stay, he helps several women, including Gammie with her weight-loss treatment, Shablee by finding her a dress for a date, 
-        and Char with gathering items—though many encounters end in rejection or embarrassment. He also meets Cavaricchi and Burgundy, who invite 
-        him to a sauna but exclude him, and Thunderbird, a dominatrix who humiliates him. Larry assists Merrily with her dream of bungee jumping, only 
-        to accidentally fall himself. Despite repeated mishaps, Larry persists. In the end, after completing tasks for Shamara, he finally gains her affection, 
-        concluding his misadventure on a successful note.
-    """,
-    "language": "en",
-    "tasks": [
-        {
-            "category": "quest",
-            "query": "Design a new comedic adventure puzzle sequence set in the same luxury spa. The quest should involve helping a different eccentric guest achieve a risky personal goal by stealthily acquiring and duplicating a restricted access item. The sequence should culminate in an ironic, highly public mishap for the protagonist while the guest finally attains their desire, maintaining the game's signature blend of slapstick and puzzle-solving.",
-            "reference": """
-                Larry assists Merrily Lowe at the pool bar by obtaining the diving tower key from the lifeguard, 
-                making an impression of it in a bar of soap, filing a copy with a bastard file, and returning it to her. 
-                They climb to the bungee platform, where she shares her "Words of Wisdom," but Larry trips over the cords and falls, 
-                accidentally broadcasting his naked descent to the entire spa.
-            """
-        }
-    ]
-}
-
-
-TEST_DATA_TEXT3_SHORT = {
-    "path_to_graph": "assets/graphs/inazuma_lore.json",
-    "path_to_text": "assets/documents/INAZUMAS MAIN QUEST.txt",
-    "text_summary": """
-        The Traveler arrives in Inazuma, a nation ruled by the Electro Archon, the Raiden Shogun, 
-        who enforces isolation and the Vision Hunt Decree—confiscating Visions from citizens, stripping many of their ambition and purpose. 
-        This causes widespread unrest and resistance.
-
-        The Traveler meets allies like Ayaka and Thoma and witnesses the growing oppression. A resistance led by Sangonomiya Kokomi 
-        fights the Shogunate, while the Fatui secretly manipulate events to destabilize Inazuma further.
-
-        It is revealed that the true Archon, Raiden Ei, has retreated into the Plane of Euthymia, leaving a puppet Shogun to enforce her ideal 
-        of "eternity"—a world without change or loss.
-
-        The Traveler confronts the Shogun and then Ei herself within her inner realm. Through a duel and witnessing 
-        the will of Inazuma's people embodied in their Visions, Ei realizes the harm of her ideology.
-
-        She abandons the Vision Hunt Decree, restores the Visions, ends the civil conflict, and begins guiding Inazuma toward a new future.
-    """,
-    "language": "en",
-    "tasks": [
-        {
-            "category": "quest",
-            "query": "Design a new side quest set in Inazuma where the Traveler helps a former Vision bearer cope with the loss of their aspirations after the Vision Hunt Decree. The sequence should involve investigating rumors of a hidden sanctuary where confiscated Visions are kept, navigating moral choices about whether to expose the truth or protect those who still hope, and culminating in a quiet moment of reflection rather than combat.",
-            "reference": """
-                In the quest "The Meaning of Meaningless Waiting," the Traveler meets Tejima, a former samurai whose Vision was confiscated. 
-                Without his Vision, he struggles to remember why he stayed in Konda Village. The Traveler helps him find a letter revealing 
-                he waited for a lover who never returned. Tejima chooses to remain, finding new meaning in patience rather than action.
-            """
-        }
-    ]
-}
 
 TEST_DATA_LORE_DESCRIPTION = {
     "path_to_graph": "assets/graphs/generation_tests/elden_ring_lore_graph.json",
@@ -766,3 +428,574 @@ TEST_DATA_LORE_DESCRIPTION = {
 
     ]
 }
+
+TEST_DATA_DESING_DOCUMENT = {
+    "path_to_graph": "assets/graphs/generation_tests/leisure_suit_larry_graph.json",
+    "path_to_text": "assets/documents/generation_tests/leisure_suit_larry_design_document.txt",
+    "text_summary": """
+        The story kicks off when the perpetually unlucky Larry is thrust onto a "Studs"-style dating game show as a last-minute replacement, only to be insulted by the contestants and finish in second place. His "prize" is a two-week stay at La Costa Lotta, an ultra-luxurious, heavily restricted health spa completely isolated from the outside world. Bounded by a guarded gatehouse and a strict policy that forbids leaving without a paid receipt, the resort operates as a self-contained, post-modern playground where photo-realistic natural backgrounds clash with cartoonish, impossible architecture. Stripped of his identification, money, and means of escape, Larry is forced to navigate this enclosed ecosystem of indulgence, turning his accidental vacation into an elaborate, puzzle-driven adventure across the spa's lavish grounds.
+        At the core of the setting are ten distinct women scattered throughout the resort, each tied to specific locations and comedic scenarios. Larry's journey takes him from the High Colonic Treatment Suite with Rose Electa, to the aerobics stage with the muscular Cavaricchi Vuarnet, the Blues Bar with country singer Burgundy Budding, and the mud baths with electro-shock enthusiast Charlotte Donay. Through a series of awkward, often hilariously deflating encounters, Larry collects a variety of symbolic and practical items: a perfect rose, a gold ring, a pearl, a diamond, a "Lamp of Knowledge," and chilled champagne. The spa's facilities, from the steam rooms and weightlifting areas to the moonlit beaches, serve as interactive stages where Larry's bumbling persistence is constantly tested, with the game deliberately emphasizing titillation and classic point-and-click puzzle mechanics over explicit content.
+        The ultimate narrative goal converges in the spa's exclusive penthouse suite, home to Shamara Payne, a wealthy, spiritually unfulfilled divorcée who has grown weary of material excess and seeks a deeper, more meaningful connection. By presenting her with the eclectic assortment of items gathered from his resort encounters, Larry inadvertently fulfills her search for a "sensitive, caring New Age man," while Shamara's philosophical interpretations of his clumsy gifts grant him his own long-sought romantic fulfillment.
+    """,
+    "language": "en",
+    "tasks": [
+        {
+            "category": "quest",
+            "query": "Write a short quest description (12-15 sentences) for Thunderbird, after Larry arrived at La Costa Lotta, formatted as a continuous sequence of short, direct sentences detailing player actions and locations, items he has to interact with and items he gut as a reward, exactly like a classic 90s point-and-click walkthrough. Write like a guideline: describe actions as imperative verbs. Keep the tone playful, ironic, and exaggerated, like a comedic adventure game. Maintain a campy, innuendo-laden tone that favors witty double entendres over explicit content. Do not use headers, lists, or stage breaks.",
+            "reference": """
+                Thunderbird's Quest
+                Go to the weight room. Look at Thunderbird, the woman working out on the weight machine. Talk to her. Learn she wants a new pair of handcuffs. Click Exit. Walk to the mud baths, climb up the plant shelf below the television camera (between the shower room doors). Use the wrench on the TV camera to re-aim it into the women's shower. 
+                Return to the lobby, then walk South to the spa exterior. Look at the gatehouse. Look at the guard. Notice he is too busy watching your new TV show to even respond to you. Take the handcuffs from his belt. Click Exit. Return to the weight room. Look at Thunderbird. Give her the handcuffs. 
+                Any time later, take her up on her suggestion to visit her bedroom. Enjoy your equi-canine experience. Keep your diamond-studded dog collar for a souvenir of the short, but meaningful, time you spent together. Click the Hand on the dog collar in Inventory to extract the diamond by clicking it with the Hand. 
+            """
+        },
+        {
+            "category": "quest",
+            "query": "Write a multi-step quest (covers three different locations, 10-12 very eshort actions-sentences for each location, keep quest description simple and not too long) for Charlotte Donay, after Larry arrived at La Costa Lotta, formatted as a continuous sequence of short, direct sentences detailing player actions and locations, items he has to interact with and items he gets as a reward, exactly like a classic 90s point-and-click walkthrough. Write like a guideline: describe actions as imperative verbs. Keep the tone playful, ironic, and exaggerated, like a comedic adventure game. Maintain a campy, innuendo-laden tone that favors witty double entendres over explicit content. Do not use headers, lists, or stage breaks.",
+            "reference": """
+                Charlotte Donay's Quest
+                Go to the mud baths. Look at Charlotte, the girl in the mud. Talk to her. Learn she wants six heavy-duty D-cell batteries. Click Exit. Find the tram in the main hallway. Ride it east until it stops outside the employee's campground. The driver will park it and walk into the campground to puff a butt. 
+                Look at the rear of the tram. Click the Hand on the tram's rear hood to open it. ("Jiggle" the handle.) Look inside. Use the wrench on the motor to disconnect the battery cable. Click the Hand on the hood to close it. Wait until the driver returns and opens the hood himself. Talk to him. Accept the flashlight from him and. Use it on the motor to light it for him. After he's closed the hood, but before he asks you for his flashlight back, Click the Hand on the flashlight in Inventory to remove his batteries by clicking the Hand on the flashlight. Click the flashlight on him to return it to him. He won't notice it's now empty. 
+                Return to the mud baths. Look at Charlotte. Give her the batteries. Get invited to the Electro-Shock Exercise room with her. Look at the door to the E-SE room. Learn it's electrical. 
+                Go to the Make-up Classroom. Look at the table in the extreme left foreground. (It's the only table in the room without a lit lamp.) Take the unused electrical cord that's lying on the floor. 
+                Return to the mud room. Stand near the door to the E-SE room. Click the Hand on the cord in the Inventory window to strip one end bare. Use the cord on the electrical outlet to plug it in. Use the now-live cord on the door's lock to short circuit the electronic lock. Enter the Electro-Shock Exercise room. Charlotte will follow you in. As you're flashing, note where the naked woman drops her pearl earring as she runs from the room. Enjoy your new post-modern art sculpture. 
+                Wake up the next day in your room. After you've recovered, return to the E-SE room and Take the pearl earring from the floor. 
+            """
+        },
+        {
+            "category": "quest",
+            "query": "Write a short quest description (10-12 sentences-actions) for revealing the personality and problems of Frau Milchlieb, formatted as a continuous sequence of short, direct sentences detailing player actions and locations, items he has to interact with and items he gets as a reward, exactly like a classic 90s point-and-click walkthrough. Write like a guideline: describe actions as imperative verbs. Keep the tone playful, ironic, and exaggerated, like a comedic adventure game. Maintain a campy, innuendo-laden tone that favors witty double entendres and slapstick physical comedy over explicit content. Do not use headers and lists.",
+            "reference": """
+                Frau Milchlieb's Quest
+                Go to the dining room. Look at Frau Milchlieb. Talk with her. Learn she's really hungry. Click Exit to return to the dining room. Walk to the employee's campground again. Take the dessert cart that's now parked outside the tent. Wheel it to Frau's room, which is a mere two scenes West. Watch as you automatically knock on her door and accept her invitation into her room. Watch her stuff her face. Willy Mays her ring as it explodes off her foot. 
+            """
+        },
+        {
+            "category": "quest",
+            "query": "Write a short quest description (10-12 sentences) for revealing the personality and problems of Cavaricchi Vuarnet. Format quest as a continuous sequence of short, direct sentences detailing player actions and locations, items he has to interact with and items he gets as a reward, exactly like a classic 90s point-and-click walkthrough. Write like a guideline: describe actions as imperative verbs. Keep the tone playful, ironic, and exaggerated, like a comedic adventure game. Maintain a campy, innuendo-laden tone that favors witty double entendres and romantic misdirection over explicit content. Do not use headers or lists.",
+            "reference": """
+                Cavaricchi Vuarnet's Quest 
+                Go to the aerobics classroom. Click the Hand on the only empty step. Dance a little as Cavaricchi Vuarnet harasses you. Keep dancing until she dismisses the class, giving you a chance to be alone with her. Look at her. Talk to her. Look at the badge dangling in mid-air from her cropped T-shirt. Take it. Agree to meet her later at the Steam Room. Click Exit. Leave the Aerobics Studio. 
+            """
+        },
+        {
+            "category": "quest",
+            "query": "Write a short quest description (about 20 sentences) for revealing the personality and problems of Shablee, formatted as a continuous sequence of short, direct sentences detailing player actions and locations, items he has to interact with and items he gets as a reward, exactly like a classic 90s point-and-click walkthrough. Write like a guideline: describe actions as imperative verbs. Keep the tone playful, ironic, and exaggerated, like a comedic adventure game. Add some surprising twist in the end of the quest. Maintain a campy, innuendo-laden tone that favors witty double entendres and lighthearted slapstick over explicit content. Do not use headers or lists.",
+            "reference": """
+                Shablee's Quest
+                Go to the Make-Up Classroom. Look at Shablee, the woman at the table on the extreme right foreground. Talk to her. Learn she wants an evening gown. Click Exit to return to the room. Walk to the Blues Bar. Walk backstage. (Click the Walk icon on the curtains at the bottom of the screen.) Find Burgundy's gown hanging there. Take it. Click Exit. Return to the Make-Up Classroom. Look at Shablee. Give her the evening gown. 
+                Meet Shablee at the beach. Click the Zipper on her. Kiss her. Hug her. Love her. Click the condom on her. Learn she's no she. Wake up in your bathroom the next day, gargling your heart out. 
+                The next time you return to the beach, Take the now-warm champagne that's still sitting there. While you're at the beach, click the Hand on the sand to dig through the sand until you find the whale oil lamp. 
+            """
+        },
+        {
+            "category": "dialogue",
+            "query": "Write a short dialogue scene between Rose Eleeta and Larry, occurring immediately after a bizarre internal cleansing procedure: this is a finish dialoque for Rose Eleeta's quest. The text should not exceed 7 sentences total: a single unstructured paragraph that blends both actions and quoted dialogue (direct speech). Keep the tone campy, cheerful on Rose's part, and playful, like in a comedic adventure game. Maintain a campy, innuendo-laden tone that favors witty double entendres over explicit content. Do not use headers or lists; write as a simple continuous paragraph without strict structure.",
+            "reference": """
+                Larry standing near the door, fully clothed, and MUCH skinnier! Rose Eleeta hands you "one perfect rose for you to remember our time together." "How could I forget?!" you moan. "And, please: take one of our 'Courtesy Enema Cards.' Your next visit is FREE!" Larry says, "Hey! I'm not pooped any more! I feel like a new man!" "Yeah, Larry—and you're not as full of shit as you used to be!"
+            """
+        },
+        {
+            "category": "dialogue",
+            "query": "Write a short dialogue scene between Thunderbird and Larry, occurring immediately after Larry visits her bedroom and receives a flashy souvenir collar. The text should be 4-5 sentences total: a single unstructured paragraph that blends both actions and quoted dialogue (direct speech). Keep the tone campy, playful, and exaggerated, like a classic 90s point-and-click adventure game. Maintain a witty double-entendre style without explicit detail. Do not use headers or lists; write as one continuous paragraph.",
+            "reference": """
+                Thunderbird fastens the glittering collar around Larry's neck and admires her work. "There. Now you look almost trainable." Larry straightens his shirt and says, "May be." She laughs and taps the tag. "Rattle this when you miss me." Larry backs toward the door.
+            """
+        },
+        {
+            "category": "dialogue",
+            "query": "Write a short dialogue scene between Charlotte Donay and Larry, occurring immediately after the Electro-Shock Exercise room disaster. The text should be 5-6 sentences total: a single unstructured paragraph that blends actions and quoted dialogue. Keep the tone campy, cheerful, and slapstick, like a comedic 90s point-and-click adventure game. Favor witty double entendres over explicit content. Do not use headers or lists.",
+            "reference": """
+                Smoke curls from Larry's cuffs while Charlotte applauds with delight. "Magnificent, Larry. You really threw yourself into the circuit." Larry sways and says, "I felt a spark, then several opinions." She hands him a towel and smiles. Larry nods weakly and tries not to glow.
+            """
+        },
+        {
+            "category": "dialogue",
+            "query": "Write a short dialogue scene between Cavaricchi Vuarnet and Larry, occurring in the Steam Room after their meeting was arranged in the aerobics classroom. The text should be 5-6 sentences total: a single unstructured paragraph mixing actions and quoted dialogue. Keep the tone playful, romantic, and ironic like a classic 90s point-and-click adventure game. Use witty misdirection and double meanings, not explicit content. Do not use headers or lists.",
+            "reference": """
+                Cavaricchi appears through the steam and adjusts Larry's towel with professional precision. "You came on time. I admire discipline." Larry grins and answers, "I admire anything I can actually see." "Then keep dreaming, darling. Anticipation burns more calories than success." Larry watches her vanish back into the fog and applauds the workout.
+            """
+        },
+        {
+            "category": "dialogue",
+            "query": "Write a short dialogue scene between Shablee and Larry, occurring later the next day in the Blues Bar after the surprising beach encounter already described in the file. The text should be 4-5 sentences total: one continuous paragraph blending actions and direct speech. Keep the tone campy, teasing, and comedic like a 90s point-and-click adventure game. Favor witty double entendres and embarrassment humor over explicit content. Do not use headers or lists.",
+            "reference": """
+                Larry slips into the Blues Bar, spots Shablee near the piano, and immediately tries to hide behind a fern. Shablee beams and waves him over. "Larry! There you are, darling. I was hoping for a rematch." Larry freezes and says, "I was hoping to become decorative foliage."
+            """
+        },
+        {
+            "category": "character description",
+            "query": "Write a short character description (5 sentences) for a new female character named Velvet Mirage, found in the Blues Bar lounge area. Describe her appearance, attitude, what she wants, and how Larry may interact with her in a classic 90s point-and-click adventure game. Keep the tone campy, ironic, witty, and playful. Maintain a humorous walkthrough flavor without lists or headers.",
+            "reference": """
+                Velvet Mirage lounges across a booth as if furniture were built in her honor. Sequins flash whenever she sighs, which is often and strategically. She wants a proper mirror because the bar spoons flatter no one. Larry can Talk to her, borrow a tray to use as a reflection, and Present it with confidence. She rewards initiative with a backstage pass.
+            """
+        },
+        {
+            "category": "character description",
+            "query": "Write a short character description (6 sentences) for a new female character named Nurse Trixie, found near the spa clinic hallway. Describe her appearance, personality, desire, and how Larry may interact with her in a classic 90s point-and-click adventure game. Keep the tone playful, ironic, and campy.",
+            "reference": """
+                Nurse Trixie patrols the clinic hall pushing a cart full of polished instruments. Her smile is warm, but her clipboard is merciless. She speaks softly, charges briskly, and trusts nobody's pulse. Today she needs a thermometer that has recently shattered. Larry can Talk to her, improvise with a chilled spoon, and pretend it is modern equipment. She rewards the effort with skepticism and misrespect.
+            """
+        },
+        {
+            "category": "character description",
+            "query": "Write a short character description (4-5 sentences) for a new female character named Mona Lather, found in the laundry room behind the guest wing. Describe her appearance, temperament, what she wants, and how Larry may interact with her in a classic 90s point-and-click adventure game. Keep the tone witty, campy, and lighthearted.",
+            "reference": """
+                Mona Lather rules the laundry room beside thundering dryers and mountains of linen. She values order, gossip, and sharply folded corners. A single missing sock has ruined her afternoon. Larry can Search the baskets, return the runaway sock, and earn her immediate respect. She presses anything he wants for free and shares three scandals at no extra charge.
+            """
+        },
+        {
+            "category": "character description",
+            "query": "Write a short character description (5-6 sentences) for a new female character named Stella Springs, found by the outdoor fountain garden. Describe her look, manner, wish, and how Larry may interact with her in a classic 90s point-and-click adventure game. Keep the tone playful and ironic.",
+            "reference": """
+                Stella Springs poses beside the fountain as though waiting for a painter to arrive. A silk scarf trails behind her in weather that does not justify it. Every sentence sounds rehearsed and expensive. She longs for a lucky coin from the deepest part of the basin. Larry can reach into the water, fish one out, and offer it with a flourish. She rewards gallantry with a damp awful kiss on the cheek.
+            """
+        },
+        {
+            "category": "character description",
+            "query": "Write a short character description (5 sentences) for a new female character named Greta Voltage, found in the maintenance corridor near the tram station. Describe her appearance, mood, desire, and how Larry may interact with her in a classic 90s point-and-click adventure game. Keep the tone campy, mechanical, and humorous.",
+            "reference": """
+                Greta Voltage leans into an open fuse box with the confidence of a queen addressing subjects. Her overalls are practical, though somehow theatrical. She wants insulating gloves before touching one final wire. Larry can rummage a locker, Give her the gloves, and stand back wisely. She restores the lights and calls Larry useful enough for today.
+            """
+        },
+        {
+            "category": "location description",
+            "query": "Write a short scene/location description (6 sentences) for a new location called the Trophy Hall, located near the lobby. Describe the room, visible objects, people if any, and possible interactions in the style of a classic 90s point-and-click adventure game. Keep the tone campy, ironic, and playful. No lists or headers.",
+            "reference": """
+                The Trophy Hall gleams just west of the lobby and smells of polish and vanity. Glass cases display medals for tanning, posture, and competitive smiling. A bored janitor watches anyone interesting enough to distrust. One pedestal stands empty except for a velvet rope and ambition. Larry can Look at the awards, Talk to the janitor, and Take a loose ribbon if he is nimble. Every sound echoes like applause no one deserved.
+            """
+        },
+        {
+            "category": "location description",
+            "query": "Write a short scene/location description (5-6 sentences) for a new location called the Sauna Vestibule, connected to the Steam Room. Describe the environment, characters or objects present, and possible interactions in the style of a classic 90s point-and-click adventure game. Keep the tone witty and playful.",
+            "reference": """
+                The Sauna Vestibule waits beside the Steam Room like a lobby for questionable choices. Benches line the walls beneath hooks crowded with towels. A nervous attendant guards a bowl of cucumber slices with admirable seriousness. Larry can Talk to him, borrow a towel, or flip the sand timer for no reason at all.
+            """
+        },
+        {
+            "category": "location description",
+            "query": "Write a short scene/location description (6-7 sentences) for a new location called the Moonlight Patio, accessible from the Blues Bar. Describe scenery, props, and interactions in the style of a classic 90s point-and-click adventure game. Keep the tone campy and romantic-comedic.",
+            "reference": """
+                Behind the Blues Bar lies the Moonlight Patio, lit by lanterns that forgive everything. Tiny tables surround a cracked fountain pretending to be elegant. Half-finished cocktails sparkle in the dark. Somewhere nearby, a violin insists on mood. Larry can Sit, Search the tables, and Wait for company with unreasonable optimism. It is ideal for romance, misunderstandings, and unpaid tabs.
+            """
+        },
+        {
+            "category": "location description",
+            "query": "Write a short scene/location description (6 sentences) for a new location called the Lost and Found Office, near the upstairs hallway. Describe the room, objects, and possible interactions in the style of a classic 90s point-and-click adventure game. Keep the tone ironic and humorous.",
+            "reference": """
+                The Lost and Found Office is packed floor to ceiling with abandoned decisions. Shelves hold umbrellas, wigs, slippers, and one accordion nobody claims. A clerk stamps forms as if punishing paper personally. A locked drawer rattles whenever someone mentions jewelry. Larry can Search the bins, Talk to the clerk, and attempt to identify anything with confidence.
+            """
+        },
+        {
+            "category": "location description",
+            "query": "Write a short scene/location description (5-6 sentences) for a new location called the Rooftop Solarium, reached by elevator from the guest wing. Describe the setting, visible items, atmosphere, and interactions in the style of a classic 90s point-and-click adventure game. Keep the tone playful, exaggerated, and campy.",
+            "reference": """
+                The Rooftop Solarium basks above the resort like a monument to overconfidence. Reclining chairs face the sun in strict formation beside bottles of tanning oil. A warning bell hangs nearby, polished and ignored. Wind gusts dramatically enough to improve everyone's posture. Larry can Take a pair of goggles, ring the bell, or admire the skyline. Everyone here glistens with either health or grease.
+            """
+        },
+                {
+            "category" : "item description",
+            "query" : "Write a very short (3 sentences) item description for a Toilet Seat Cover from a maid's cart. State its single, essential, and mildly absurd purpose. Use a dry, understated, slightly awkward tone typical of the game's humor.",
+            "reference" : """
+                Beer Six bottles of ice-cold Lone Star. Take from the washtub inside the Dirty Dancing tent at the Employees' Campground Cantma. Give to Burgundy once she s stopped singing. You can Take more as desired, as long as you don't already have some. You can drink the beer anytime you're not busy, but if you do, you drink them all, they disappear from Inventory, and for a few seconds, you walk around in a drunken stagger. You can return to the Cantina for more, of course.
+            """
+        },
+        {
+            "category" : "item description",
+            "query" : "Write a very short (4 sentences) item description for a six-pack of beer in the style of a classic 90s point-and-click adventure game inventory entry. Mention where it can be found. Describe its primary puzzle use. Maybe add a playful secondary usage that backfires on Larry. Keep the tone campy, ironic, and lighthearted.",
+            "reference" : """
+                Toilet Seat Cover Take from the maid's cart in the Upstairs Hallway. Use on the stool to sit down. Must have in Inventory to sit on the bathroom stool.
+            """
+        },
+        {
+            "category" : "item description",
+            "query" : "Write a short (3-4 sentences) item description for a Rubber Belt taken from fitness equipment. Describe its mundane appearance. Then explain its unconventional mechanical use in repairing a different machine. End with a brief ironic or witty observation.",
+            "reference" : """
+                Rubber Belt Take from the Weight Room wriggle machine. Use in the Cellulite Drainage Salon by wrapping it around the machine's hose, thus plugging its vacuum leak.
+            """
+
+        },
+        {
+            "category" : "item description",
+            "query" : "Write a very short (4 sentences) item description for a Match found in a bar. Describe how to light it using inventory interaction. Mention that it has a limited duration but can be replaced. Keep the tone practical and slightly urgent.",
+            "reference" : """
+                Match You find a lot of non-safety matches in a bowl on the bar in the Blues Bar. The bowl is an inset labeled "For our MATCHLESS friends! If you don't have one m Inventory, you can Take one. Use the Zipper icon on the match in Inventory to create. . . lil Match Create in Inventory by Clicking the Zipper icon on the match. Use in Inventory on the filled lamp. It has a timer that runs out in 10 minutes, at which time the match is thrown away. However, there are more matches in the Blues Bar, so it is possible to start over.
+            """
+
+        },
+        {
+            "category" : "item description",
+            "query" : "Write a very short (3-4 sentences) item description for a set of heavy-duty D-cell batteries. State their puzzle purpose. Include one subtle, questioning innuendo about what they might power. Avoid being explicit.",
+            "reference" : """
+                Batterie Take from Curtis's flashlight after he finishes repairing the tram s batteries, but before he asks you to give him back his flashlight. Used in the Mud Baths when you give them to Charlotte Donay.
+            """
+        }
+    ]
+}
+
+TEST_DATA_SCENARIO = {
+    "path_to_graph": "assets/graphs/generation_tests/genshin_impact_scenario_graph.json", 
+    "path_to_text": "assets/documents/generation_tests/genshin_impact_liyue_scenario.txt",
+    "text_summary": """
+        The story opens in Liyue Harbor during the annual Rite of Descension, where the Geo Archon Rex Lapis suddenly falls from the sky, apparently dead. Branded as suspects by the Millelith, the Traveler and Paimon are rescued by the Fatui Harbinger Childe, who advises them to seek the aid of the adepti in Jueyun Karst and Wangshu Inn to clear their names. There, they gain the attention of several adepti (including Moon Carver, Mountain Shaper, and Cloud Retainer) and ally with the erudite consultant Zhongli. Together, they decide to organize a traditional Rite of Parting to properly honor the fallen god, embarking on a journey across Liyue to gather sacred ritual items. This takes them from the jade markets and Dihua Marsh to Bubu Pharmacy (involving a humorous detour for Qiqi's "Cocogoat" and Everlasting Incense) and into Madame Ping's mystical teapot domain to retrieve the Cleansing Bell, all while navigating the growing political tension between the Liyue Qixing, the reclusive adepti, and the Fatui.
+        Tensions peak when the Traveler and Paimon are summoned to the Jade Chamber by Ningguang (the Tianquan) and learn of the Fatui's covert operations. Following a trail of clues, they arrive at the Golden House, Teyvat's Mora mint, where Childe ambushes them in an attempt to steal the Archon's Gnosis. When he finds it missing, Childe unleashes a swarm of copied Sigils of Permission to break the ancient seals beneath Guyun Stone Forest, awakening the dormant sea god Osial. To save Liyue Harbor from being swallowed by the waves, the Qixing, Millelith, adepti, and the Traveler unite in a desperate defense. Despite fierce Fatui interference, the allies manage to wound the ancient god, and Ningguang ultimately sacrifices her magnificent floating palace, the Jade Chamber, plunging it into the sea to seal Osial away.
+        In the aftermath, a stunning revelation unfolds at the Northland Bank: Zhongli is actually Rex Lapis himself in mortal form. He explains that he orchestrated his own "death" as a divine trial to test whether Liyue was ready to transition into an era of human rule, and had already secretly agreed to hand over his Gnosis to the Fatui Harbinger Signora as part of a final contract with the Cryo Archon. With the crisis resolved, the adepti formally step back, acknowledging that humanity can now protect its own future, and the Rite of Parting is held successfully. The Traveler then learns of Inazuma's sudden isolation under the Raiden Shogun's Vision Hunt Decree, setting the stage for their next journey across the sea.\
+    """,
+    "language": "en",
+    "tasks": [
+        {
+            "category" : "character description",
+            "query" : "Create a new character, who is a researcher interested in Liyue's history. This character firstly can be foung in ruins, and after conglict with Treasure Hoarders - in Wangshu Inn. Write from 3 to 4 sentences about this character's personality, interests, origin (may be make this character someone from another country?), attitude to Treasure Hoarders. Also write 1 sentence about this character's appearance.",
+            "reference" : """
+                Soraya is a researcher from the Sumeru Akademiya who holds a great interest in Liyue's history and in particular, the legacy of Guizhong, the Lord of Dust and one of the gods who once lived in the Guili Assembly. She holds great respect for history and, as such, associates with people who have intimate knowledge of it. She holds the Treasure Hoarders in great disdain, seeing their plundering and looting of ancient relics for petty cash as sacrilegious. She believes that relics should be for scholars to study, for artists to take inspiration from and for people to admire in an exhibition, not used for earning cash, which is why she holds a low opinion of Treasure Hoarders.
+                Soraya wears a dark green-blue robe with a gold necklace and black sandals. She has brown hair tied in a bun and brown eyes, and wears a pair of black glasses.
+            """
+        },
+        {
+            "category" : "character description",
+            "query" : "Create a new character from Snezhnaya (he may be appeared already - Ivanovich). Write 3-4 short sencences about him: describe his location, his occupation. May be he should be connected with Cor Lapis somehow. Be simple, do not overcreate - just an NPC character.",
+            "reference" : """
+                Ivanovich is an open-world NPC in Liyue Harbor. He can be found near the left side of the docks. He is a Snezhnayan merchant stationed in Liyue. 
+                Ivanovich considers himself a distributor, selling everyday items produced in Snezhnaya. He also procures Cor Lapis to send back to Snezhnaya for their yet-unknown purpose in their factories.
+            """
+        },
+        {
+            "category" : "character description",
+            "query" : "Create a new Fatui character - guardian of the Northland Bank. Output a structured text that have to contain: 2-3 sencences about his occupation (section Occupation), 1 sentence about his free time (section Free time), 2-3 sentences of interesting fact or interesting story about him (section Interesting story), and 1 short and simple sentence for his appearance (section Appearance). Try to be simple, do not overcreate, it is just a NPC character.",
+            "reference" : """
+                Occupation
+                Vlad is a member of the Fatui. When the Fatui established the Northland Bank in Liyue Harbor, Vlad was assigned to serve as a guard for the bank. He works as a daytime guard at the Northland Bank in Liyue Harbor. At nighttime, Nadia takes his place.
+                
+                Free time
+                While he is not working, he can be found standing by the dock near the Snezhnayan merchants at the harbor.
+                
+                Interesting story
+                One time, Nadia accidentally left her letter for her brother at the bank while changing shifts. Vlad, mistaking it as a letter written for him, left a response. Afterwards, the two became pen pals, writing letters for the other to read during their shifts.
+                
+                Appearance
+                Vlad has orange hair and wears a mask and a black red Fatui uniform.
+            """
+        },
+        {
+            "category" : "character description",
+            "query" : "Create a new female character who connected with Ministry of Civil Affairs and Ningguang. She should be someone intriguing, who works from shadows. Write a semi-structured text about her: firstly, write a name (simple name, please) and short catchy description. Then, there is a section 'Appearance' - write only 1-2 simple sentences about her appearance. Next, there is a section 'Character's description' - write 10-11 sentences about her personality and something about her attitude to work and other people's thoughts about her.",
+            "reference" : """
+                Yelan. A mysterious person who claims to work for the Ministry of Civil Affairs, but is a "non-entity" on the Ministry of Civil Affairs' list. Elusive, enigmatic, erratic - all of these are Yelan's hallmarks.
+                
+                Appearance
+                Yelan is the tall female. She has pale skin, light emerald-green eyes, and dark blue hair and asymmetrical bangs that are lighter at the tips.
+                
+                Character's description
+                Yelan, despite claiming to work for the Ministry, is the sole exception. Most of her colleagues have never heard of her, nor is her name anywhere to be found on any rosters.
+                She is a ghost who walks in the middle of many crises under various names. But before the storms can come to an end, she has already disappeared without a trace.
+                Sometimes, she will pick a side in some conflict to offer her help, but those who receive her aid would be fools to celebrate prematurely, for they soon find that the same help has been extended to their opponents.
+                Having stepped into her trap, many have vowed to take revenge, yet none are able to tell what she is planning, let alone know where she stands.
+                Many believe that she is a spy who works for some mysterious organization, and that her forte is stirring things up in the dark, which she then relies on to attain what she wants.
+                Some even go as far as saying that she is a frenetic follower of disorder who neither serves any organization nor holds any meaningful purposes.
+                Even if she does, all she wants is to add fuel to the already spreading flame and drag everyone down into a world of madness created by her.
+                With so many theories and guesses circulating, she has become a mystery. As for the truth, you could only hope to get an answer from Yelan herself.
+                But unfortunately, this is no easy task either — for it is always she who finds you when she wishes to, not the other way around.
+            """
+        },
+        {
+            "category" : "character description",
+            "query" : "Create a new female character, who is an musician in Liyue. Write short description about her: 7-8 sentences about her occupation, her passion and motivations, her inspiration sources, also describe her personality and interests. In the end, add 1-2 sentences about her appearance.",
+            "reference" : """
+                Yun Jin is a skilled director, playwright and singer who is well renowned throughout Liyue for her plays, enjoying this passion and going to many lengths to ensure that everyone who watches her performances leaves satisfied. While appearing to be refined and graceful in formal occasions, she is also known to be exceptionally friendly in private. She draws inspiration from many sources for her plays; she enjoys a wide variety of special drinks as one of her pastimes and she can write a play about one if she enjoys it.
+                Despite enjoying her passion, she also enjoys variety; while she gets along with the troupe in theater-related issues, she frequently clashes with them over personal affairs as she feels that they are too traditional. She is particularly fond of rock 'n' roll, visiting Xinyan and watching her performances at least three times a week no matter how busy she is. Xinyan believes that she comes to visit her due to the finer arts being "suffocating". She tries to keep her visits a secret, as her interest in non-traditional music would cause much consternation among her elders.
+                Yun Jin is medium female. She has a fair complexion, rich red eyes with prominent red makeup painted at the corners, and hip-length jet black hair with purple highlights styled in a hime cut.
+            """
+        },
+        {
+            "category" : "item description",
+            "query" : "Write a short 2-sentence in-game description for Qingxin flower, very beautiful and exclusive white flower. Mention where it can be found, add one fact about this plant.",
+            "reference" : """
+                A translucent white flower that only grows on the highest stone peaks. It eschews the warmth and moisture of the plains to gaze out afar from the solitary mountaintops.
+            """
+        },
+        {
+            "category" : "item description",
+            "query" : "Write a 3-sentenced in-game description for an item Drag­on Lord's Crown. This item can be taken from an ancient stone dragon, a former friend of Zhongli, who spend hundreds of years underground. Describe item's appearance and the history that was a result for such appearance.",
+            "reference" : """
+                Horns created from hardened jade crystallized over a thousand years are the natural crown of the dragon king.
+                Infused with spirit and carved from bedrock, it was born from the mountain's heart to show the strength of the earth to the land amidst monoliths, and its long golden horns are the mark of its ancient strife with an ancient lord.
+                For a time, this horn was shattered and lost its luster, but now it gleams cold and gold as it sits in your palm.
+            """
+        },
+        {
+            "category" : "item description",
+            "query" : "Write a 3-sentences in-game description for an item Gil­ded Scale. This item can be taken from an ancient stone dragon, a former friend of Zhongli, who spend hundreds of years underground. Describe item and write information about history of this item and his previous owner.",
+            "reference" : """
+                Scaled armor that grows naturally over mystical stone, tough and silent, and filled with the strength of the dragon king.
+                Across the years as countless generations returned to the mulch of the earth, gold and obsidian embedded themselves into flesh and blood forged from bedrock before spreading and turning into scales.
+                Searing agony, wordless cries... perhaps they will all vanish when the grudges that spawned them, too, finally come to an end.
+            """
+        },
+        {
+            "category" : "item description",
+            "query" : "Write a short description in 2-3 sentences for item Humor From Tianheng - a book contains poems, that can be found in Wangshu Inn. Describe its contents, its author (Pingshan, The Mystic), and historical usage of this book.",
+            "reference" : """
+                A poetry collection by Pingshan, The Mystic. The quality of the poems is all over the place, but it has long been a reference book or young poets or poet-wannabes in Liyue.
+            """
+        },
+        {
+            "category" : "item description",
+            "query" : "Write 1-2 sentences for short in-game description, that was given to Traveler by Zhongli as a symbolic gift, associated with him.",
+            "reference" : """
+                A Fortune Coin with a special Guyan Sigil engraved into it. It is said that this is the symbol of Rex Lapis, and can be used as a protective talisman.
+            """
+        },
+        {
+            "category" : "dialogue",
+            "query" : "Create an in-world idle dialogue with Madame Ping. Player can have this dialogue with Madame Ping only after completing The Realm Within, so after obtaining Cleansing Bell, and it is like a small talk with a character. Write 5 blocks: each block consists of starting Traveler's (Player's) replica which is followed by 2-4 replicas by Madame Ping, each replica may contain from 1-2 sentences. Before Traveler's replicas write Traveler:, before Madame Ping's replicas write Madame Ping:. The final block must start with Goodbye from Traveler and character's answer to this.",
+            "reference" : """
+                Madame Ping: Oh? Why, hello child.
+                Madame Ping: Though flowers bloom yet always fade, but people go yet return another day. I just knew that you'd be back to see me before long, hehe.
+                
+                Traveler: White Admiring the flowers?
+                Madame Ping: That I am. One season after the next, this flower blooms, then falls, only to bloom again. And on it goes — just like Liyue.
+                Madame Ping: Look over here, and over here. So many flowers are blooming! It looks like this will be a blessed year.
+                
+                Traveler: White What type of flowers are these?
+                Madame Ping: These are Glaze Lilies. Probably the last surviving ones in all of Liyue Harbor.
+                Madame Ping: People say that the sound of singing nourishes them, and helps them grow...
+                Madame Ping: But the sound of fighting, of cursing... it is poison to them, and eats away at their roots.
+                Madame Ping: That is why, over centuries of strife, they have disappeared from Liyue's landscape.
+
+                Traveler: Tell me about the past.
+                Madame Ping: Just because my complexion screams "ancient history" doesn't mean I love discussing the past, you know.
+                Madame Ping: ...Relax, I'm only kidding.
+                Madame Ping: Truth be told, the older you get, the more time you have on your hands, and the more you start contemplating the past... I do wonder how my old friends back in the mountains are getting on...
+                Madame Ping: Liyue Harbor is really a wonderful place now. I wonder if they would ever want to step down into the mortal realm and get a taste of the lifestyle here...
+                Madame Ping: Look at me rambling on again, I must sound like a lunatic! Maybe one day I can discuss my past with you... if it is meant to be.
+                
+                Traveler: This is a beautiful flower.
+                Madame Ping: Hehe, all thanks to the beautiful weather we're having today.
+                Madame Ping: I'd always hoped that one day this flower would bloom all over Liyue once more...
+                Madame Ping: But in the meantime, would you take a few of these flowers from Yujing Terrace with you on your journey, so that they might see the world?
+
+                Traveler: Goodbye.
+                Madame Ping: Goodbye, young one. If you are ever passing by Jueyun Karst, please pass on my regards to my old friends.
+                Madame Ping: If it is meant to be that you see them... then you will see them.
+            """
+        },
+        {
+            "category" : "dialogue",
+            "query" : "Create an in-world idle dialogue with Chaonan, a man in Liyue Harbor. He gave up his dreams of joining the Crux Fleet to become a repairman. Start this dialogie with two replica's of Chaonan, then write Write 5 blocks: each block consists of starting Traveler's (Player's) replica which is followed by 2-4 replicas by Chaonan, each replica may contain from 1-2 sentences. Before Traveler's replicas write Traveler:, before Chaonan's replicas write Chaonan:. The final block must start with Goodbye from Traveler and character's answer to this. This dialogue is like a small talk with a character, revealing his personality and his dreams.",
+            "reference" : """   
+                Chaonan: ...Best if you say the bare minimum to me. I don't want to deplete my stamina.
+                Chaonan: *sigh* If I'd known this would happen, I would have followed my dreams...
+
+                Traveler: Are you tired?
+                Chaonan: ...I'm a ship repairman. When the ships are at sea, I have nothing to do. But when they dock, I'm so busy I never get a wink of sleep...
+                Chaonan: So I have decided to conserve my stamina from now on. Otherwise, I won't be able to cope when the busy period hits.
+                
+                Traveler: Have you considered a change of occupation?
+                Chaonan: Well, this job is rather busy, but being busy also means that there's money to be made.
+                Chaonan: We have Rex Lapis' divine predictions to thank for that. The number of merchants going out to sea has increased year on year in recent times, which has led to our business being on the rise, too.
+                Chaonan: Those merchants who made their fortune aren't stingy, either. They often give us some tips on top of the repair fees.
+                Chaonan: Hard work begets an equal reward, and for the lads that want to earn some money while they're young, this job is pretty good. We shouldn't waste the opportunity that Rex Lapis has given us.
+                
+                Traveler: What dreams?
+                Chaonan: ...I once had the opportunity to join the Crux Fleet, but by the time I signed up, they were full.
+                Chaonan: I gave up on being a seafarer in the end, and went into ship repair work instead. Now I can only watch as the ships go in and out.
+                Chaonan: Maybe if I'd pushed a little harder for it back in the day, I wouldn't have ended up where I am now.
+                Chaonan: And maybe the reason I've not been favored enough to receive a Vision is because I give up too easily.
+                Chaonan: ...I hope you don't end up like me.
+                
+                Traveler: What a pity...
+                Chaonan: The problem is my personality... That, and luck not being on my side.
+                Chaonan: *sigh* It's funny, you know, the day before I signed up I even made a point of going out and buying this feather, which is supposed to bring good luck. Clearly, it had no effect whatsoever...
+                Chaonan: ...Well, no use complaining about it. Here, you can have it, maybe it works better on adventurers.
+                
+                Traveler: Goodbye.
+                Chaonan: Goodbye. Now to focus all my energy on getting a good rest...
+            """
+        },
+        {
+            "category" : "dialogue",
+            "query" : "Create a dialogue for starting a quest about searching for relics in ruins. These relics contains fragments of Liyue's history and culture, and are located in Guili Assembly. The quest-giver is Soraya - a researcher from the Sumeru Akademiya who holds a great interest in Liyue's history and in particular, the legacy of Guizhong, the Lord of Dust. She is interested in relics and conflicts with Treasure Hoarders because they search relics to sell them. Write 5 blocks if replicas: each block starts with Travelers clarifying question and proceeds with 3-8 replicas of Soraya, that can contain 1-2 sentences. Before Traveler's replicas write Traveler:, before Soraya replicas write Soraya:.",
+            "reference" : """
+                Soraya: ...How many secrets does Liyue truly hold?
+                
+                Traveler: Secrets?
+                Soraya: Oh, Traveler, it's you. The secrets I'm referring to are a set of inscriptions.
+                
+                Traveler: Do you mean buried treasure?
+                Soraya: Haha, who knows? It's always possible. Talk of secrets waiting to be uncovered does tend to make one think of buried treasure.
+                Soraya: This place we are in is called the Guili Assembly. According to Liyue folklore, it was once inhabited by people — in fact, it was rather prosperous.
+                Soraya: But for various reasons, the whole place was wiped out. All that remains now is the countless ruins scattered across the landscape.
+                Soraya: Some stories put it down to conflict between the gods, other people say it was a war between humans. And some sources talk of a sudden, catastrophic natural disaster...
+                Soraya: Whatever the reason was, ruins are all that remains here now. The only ones who come here are the hilichurls, the Treasure Hoarders...
+                Soraya: ...And masochistic scholars, like me, who in spite of all the risks just can't resist the idea of how much research value these ruins have to offer.
+                Soraya: In practice though, scholars like me aren't cut out for this kind of field work! I've hardly covered any ground yet, and I already need a rest...
+                Soraya: The actual ruin-exploring seems more your area of expertise. What do you say, fancy helping me out?
+                
+                Traveler: Sure.
+                Soraya: Great. Hmm, but I should give you an idea of what to look for... Yes, keep your eyes peeled for stone pillars and stone tablets.
+                Soraya: Given how ancient these ruins are, any text we can hope to find will be written on stone, not paper.
+                Soraya: After all, stone is the oldest and most durable medium for written communication.
+                
+                Traveler: What am I looking for?
+                Soraya: Hmm... Text essentially. Written messages from the past.
+                Soraya: And if you're looking for text in ruins as ancient as these, that means looking for stone pillars and stone tablets.
+                Soraya: Stone is the oldest, most durable medium for written communication. All the more so in the domain of the Geo Archon.
+                Soraya: The stones here have borne witness to all of history. I am sure they will not disappoint.
+                
+                Traveler: Only if there's treasure...
+                Soraya: Whatever treasure you find, you can keep. Material wealth isn't what appeals to me.
+                Soraya: In Liyue there's a saying that goes: "Money belongs to the world outside your head." I'm more interested in acquiring knowledge than money.
+                Soraya: So while you're hunting for treasure, please also keep your eyes peeled for stone pillars and stone tablets.
+                Soraya: Given how ancient these ruins are, any knowledge we can hope to find will most likely be written on stone.
+            """
+        },
+        {
+            "category" : "dialogue",
+            "query" : "Create an in-game short dialogue with Chef Mao, owner of the Wanmin Restaurant and father of Xiangling. This dialogue must contain three blocks. First is Chef Mao's start welcoming replica, that he says before player selects a dialogue option. Second block starts with Traveler's replica and proceeds with Chef Mao's answer, that contains 1-2 sentences; this block is about the restaurant itself. Third block is about Xiangling, her personality and talent that makes restaurant famous: this block starts with Traveler's question about Chef Mao's daughter and proceeds with 4-5 replicas of Chef Mao describing his Xiangling's talent in cuisine and her revolutionnary methods. Before Traveler's replicas write Traveler:, before Chef Mao replicas write Chef Mao:.",
+            "reference" : """
+                Chef Mao: Here for the Wanmin Restaurant experience? Hi, I'm Chef Mao. Everyone in Chihu Rock will have heard of me.
+
+                Traveler: Tell me more about the Wanmin Restaurant.
+                Chef Mao: Well, I'm the chef. I may not be quite the culinary legend that my daughter is, but you can be sure the Wanmin Restaurant is a cut above all those time-honored brands you see around!
+                
+                Traveler: Your daughter?
+                Chef Mao: That's right — Xiangling! My dear daughter, and my best apprentice ever.
+                Chef Mao: I only taught Xiangling how to cook so that she could inherit the Wanmin Restaurant from me one day. I had no idea she'd turn out to be such a pro. Her abilities far exceed my own.
+                Chef Mao: But she's more than just an excellent chef. She has a real gift for innovation — she's constantly creating all these wonderful new dishes. That really sets her apart from what the time-honored brands do. And it makes her dishes all the more special for people who are used to traditional cuisine.
+                Chef Mao: I started to worry that the restaurant might be too constricting for her. So I sent her off for a while to do some exploring and perfect her art.
+                Chef Mao: If anyone is going to revolutionize Liyue cuisine in the future, it'll be her. No doubt about it!
+            """
+        },
+        {
+            "category" : "dialogue",
+            "query" : "Create an in-game short dialogue with Sisi, a romantic girl who is waiting for her lover-sailor, with whom she wants to get engaged (but he appears to have lied to Sisi that he is devoted to her and will have to keep away from her due to the nature of his work). All she thinks about is love and romance. Write a start replica's of Sisi, then - three blocks of dialogues. Each block starts with Traveler's replica (question), and proceeds with 1-4 Sisi's replicas that may include 1-2 sentences. The first block is about Sisi's lover, the second block is about Rex Lapis' death and Sisi's thoughts about this, and the final block is goodbie-phrases of Traveler and then Sisi.Before Traveler's replicas write Traveler:, before Sisi' replicas write Sisi:.",
+            "reference" : """
+                Sisi: Oh hi. Look, sorry, if you're hitting on me I'll have to refuse. I'm waiting on someone.
+                
+                Traveler:  Who are you waiting for?
+                Sisi: My lover, Chaoxi. He's a sailor.
+                Sisi: We don't get to see each other very often, he's never back on land for very long...
+                Sisi: He's already been gone for so long, who knows when he'll be back...
+                Sisi: Next time he gets back I'm just going to ask him outright when we are going to get married. All this waiting is just too much...
+                
+                Traveler:  About Rex Lapis' death...
+                Sisi: Rex Lapis and Liyue, like two lovers for thousands of years...
+                Sisi: But all relationships must come to an end. If death is the thing that finally separates you, well then surely that's a sign that you had a good run...
+                Sisi: ...or is it a sign that we have all been dumped by Rex Lapis?
+                
+                Traveler: Goodbye.
+                Sisi: Farewell.
+            """
+        },
+        {
+            "category" : "location description",
+            "query" : "Create a lore description for Qingxu Pool - a subarea located in Lisha, Liyue. Write unstructured text, firstly - 3-4 sentences about legend connected with Qingxu Pool's history connected with Archon War and Rex Lapis and adeptis, then - 1 sentence about its current state and 2-3 sentences about its modern history: how Qixing and other groups try to inspect ruins located there.",
+            "reference" : """
+                According to legend, the Qingxu Pool ruins were built before the Archon War. After the evil god ruling the city was defeated, the city was submerged underwater until the end of the Archon War. It is unclear whether the legend of this evil god are actually referring to the Geo Dragon Azhdaha, who rampaged across Lisha before Rex Lapis and three of the adepti finally sealed him in The Chasm. Records of that conflict have been memorialized in the three Nameless Treasures, one of which can be found in Qingxu Pool.
+                While Qingxu Pool is no longer inhabited, a settlement which Tieshan hails from still exists around the area.
+                In the past, the Liyue Qixing approved an attempt to excavate the Qingxu Pool ruins for their rumored buried treasure. However, the ruins were completely sealed shut and at the time, the technology needed to blast through solid rock did not yet exist, so the project was abandoned. 
+            """
+        },
+        {
+            "category" : "location description",
+            "query" : "Write two short in-game descriptions about Dunyu Ruins, a subarea located in Lisha, Liyue. First description more lyrical, poetically desribing current appearance and past histories about ruins. This description contains 4-5 short sentences. Second description is an expedition report in 2 sentences: what is this place like and what possibly can be found there.",
+            "reference" : """
+                The Land of Hidden Jade. But the war of ages past is long over, and the mounds of glittering jade have long been destroyed. Now, only the whisper of flowing water remains.
+                - Viewpoint, Dunyu Ruins
+
+                Every corner of Dunyu Ruins is filled with ancient vestiges, suspended in time inside the dead lake.
+                Without a doubt, there is still a large amount of treasure of unknown origin yet to be discovered.
+                - Expedition description
+            """
+        },
+        {
+            "category" : "location description",
+            "query" : "Create an environment element for Lisha, Liyue, connected with Yakshas. Describe it: what is it, where it is located, its appearance and also its changes: how it appears at first and how it changes with time and human efforts. As output, write only a short and simple descriprion of 3-4 sentences.",
+            "reference" : """
+                Pervases' Temple is a point of interest located in Lisha, Liyue.
+                It is a temple dedicated to the deceased Yaksha, Pervases, and contains a statue dedicated to him. It originally appears as a dilapidated house, before being restored.
+            """
+        },
+        {
+            "category" : "location description",
+            "query" : "Create a location that is a part of a Liyue: The Chasm, mining region that provided essential ores but has a great history related to adeptis and Zhongli, and also more ancient civilizations. Write a short descrsiption for this newly created location, describe its appearance and elements in 3-4 sentences, then describe its modern uses or problems its facing now (also 3-4 sentences), and finally write its history, legends and describe its participation in events of Liyue history (5-7 sentences).",
+            "reference" : """
+                The Chasm is a massive, Liyue-based mining region, characterized by its deep, open-pit surface, contrasting with a dark, sprawling underground filled with glowing flora, ancient ruins, and hazardous black mud. It is known for its intense orange-brown dirt, steep rocky terrain, and a mysterious upside-down city.
+                In the recent past, a series of mysterious accidents led the entire mine to be closed, putting its workers out of a job. However, the Liyue Qixing is gradually reopening the area, thus allowing miners to resume working. Beneath the Seven-Star Array is the Underground Mines.
+                According to legend, the Chasm was originally was the ancient civilization of Lang-Gan. The civilization was destroyed and the Chasm would be formed by the Solar Chariot during the War of Funerary Flame. This meteorite had a "proud and agitated temper," and during the Archon War, the constant strife caused this meteorite to leap back into the heavens, leaving behind the massive expanse that was the Chasm. Legends also said that this was the area where Morax and Azhdaha clashed in battle. Most recently, during the cataclysm 500 years ago, an "iron meteor" fell into The Chasm, which marked the beginning of the Abyss' invasion.
+            """
+        },
+        {
+            "category" : "location description",
+            "query" : "Describe a new location with name Chenyu Vale located on the north of Liyue, related to tea production and creation of jade figurines. This region has his own adeptis. Write a short description for this location: 1-2 sentences of appearance and landscapes, 2-3 sentences of history and culture, and 2-3 key locations important for this region.",
+            "reference" : """
+                Chenyu Vale is a lush, northwestern region of Liyue, characterized by mountainous tea-growing landscapes, tea-house culture, and flowing rivers. 
+                It was protected by the adeptus Fujin and the suanni Lingyuan under an unnamed goddess who turned maddened by the Archon War. Following the creation of The Chasm 6000 years ago, surviving tribes moved to this area, where Fujin taught them to work with jade and agriculture.
+                Key Locations:
+                 - Qiaoying Village: Famous for its tea.
+                 - Yilong Wharf: A busy port and shipping hub for the tea trade.
+                 - Mt. Yaojun: A central, sacred mountain.
+            """
+        },
+        {
+            "category" : "quest",
+            "query" : "Create a world quest about Guili Plains, Guili Assembly ruins and Guizhong's history. The quest-giver is Soraya - a researcher from the Sumeru Akademiya who holds a great interest in Liyue's history and in particular, the legacy of Guizhong, the Lord of Dust. Quest must be related to her researches, in which Traveler helps her. The quest must contain 5 stages-actions: start (where to find Soraya, very short unstructured description of main points of dialogue a what starts the quest), actions - three staged in which player (Traveler) have to do something. If it is action related to some goals to achieve the quest, write what has to be done. If it is another dialogue, write short summary (4-5 sentences maximum) of the dialogue. Final stage is another dialogue that finishes the quest after completing all goals: write summary of this dialogue (3-4 sentences). Structure your output as a numbered list of stages: dialogues and player's tasks.",
+            "reference" : """
+                Start the quest by talking to Soraya near the ruin in Guili Plains. Soraya asks the Traveler to help her explore the Guili Assembly ruins and search for ancient inscriptions on stone pillars and tablets that could reveal Liyue's history. She is primarily interested in acquiring knowledge rather than material wealth, so she allows the Traveler to keep any treasure they might find during their search.         
+                1. Head to Guili Assembly to search for an ancient stone tablet (0/5). Obtain Transcription Transcription from a stone tablet ×5
+                2. Talk to Soraya. After the Traveler brings Soraya five stone tablets, she pieces together their fragmented text to reveal that the Guili Assembly was jointly protected by two allied gods—Guizhong, who ruled over Dust, and a Geo Archon—and that its name derives from syllables of their divine names. Fascinated by this account of peaceful cooperation between deities, Soraya wonders what catastrophic event could have destroyed the settlement despite their power and asks the Traveler to continue searching for more tablets to uncover the rest of the story.
+                3. Search for the stone tablets (0/2). Obtain Transcription Transcription from a ruin ×2
+                4. Talk to Soraya. The newly discovered tablets reveal that a massive battle destroyed the Guili Assembly and hint at hidden treasure protected by Guizhong's Four Commandments. Unable to immediately decipher the philosophical riddle, Soraya decides to return to Wangshu Inn with the Traveler to rest before continuing their investigation.
+            """
+        },
+        {
+            "category" : "quest",
+            "query" : "Create a world quest that can be taken in Wangshu Inn. The quest may be about some sort of business I think, and connected with one character Landa who is a merchant. Quest consisits of 4 parts-stages: first one is start of the quest, describe in 2-3 senteces where and how Traveler takes this quest, if there is a dialogue, write a short summary - main points - of the dialoque. Then there must be three parts: stages 2 and 3 are player's goals or dialogues, describe strictly the goals or create short description for dialogues and their main points. Final stage (4th) is a dialogue with Landa after completing all the goals and taksks: write short summary for this dialogue (3-4 sentences). Be very simple, do not overcreate this quest and add some difficult dramatice legend to it: it is just a simple world side quest to make this world more live. Structure quest stages as numbered list.",
+            "reference" : """
+                Talk to Landa at Wangshu Inn to start the quest. Landa, a merchant who frequently travels between Mondstadt and Liyue, begs the Traveler for help after being ambushed by monsters and forced to flee, leaving behind a box containing crucial wine trade invoices. He anxiously asks the Traveler to retrieve the documents from the marked locations along his escape route, fearing he will lose his job if he fails to deliver them to his wealthy Liyue employer.
+                1. Get the invoices (0/3)
+                2. Talk to Bao'er. One Box of Goods Invoices is held by Bao'er, who will trade it in exchange for three Noctilucous Jade. Bao'er admits to finding the lost box of invoices but proposes a barter: she will only return the documents in exchange for 3 Noctilucous Jades as compensation for her time guarding them. After the Traveler agrees to the deal and provides the gems, she hands over the invoices, advising them not to ask too many questions about the high-value transactions listed inside before sending them on their way.
+                3. Talk to Landa. Landa gratefully accepts the recovered invoices from the Traveler and provides their reward, but panics upon noticing the box has been opened and learning that a stranger examined its contents. He urgently excuses himself to contact his boss about the potential security breach, assuring the Traveler that he trusts them despite the confidential nature of the documents.
+            """
+        },
+        {
+            "category" : "quest",
+            "query" : "Create a simple one-staged quest for Wuwang Hill, Liyue. In this quest preserve dark and mystic atmoshpere of a place, but remains very simple do not overcreate some legends. Output only short description of a quest: how to take it, what about is the first dialogue with quest-giver if any; then - player's goal (task), what he or she has to do to accomplish the quest, and finally - what is the end of the quest, how it finishes. Add in the finish some replicas of Paimon that she will say to finish the quest (start them with Paimon:). Write no more than 8-10 sentences at all.",
+            "reference" : """
+                Book in the Woods is a World Quest in Wuwang Hill, Liyue.
+                Talk to Little Nine. Little Nine asks the Traveler to help find a precious manuscript written by their neighbor Big Nine—a book they were allowed to preview before publication but accidentally lost after falling into a river and drying it in the woods. Worried that Big Nine will be heartbroken or angry if the book is gone for good, Little Nine directs the Traveler to search the nearby forest where they last remember leaving it to dry.
+                1. Find the lost book in the forest (0/2). Traveler and Paimon cannot find any books and decided to go back to ask for extra clues.
+                2. Go back and find Little Nine. Little Nine will not be there and the quest will finish.
+                Finish dialogue:
+                Paimon: What the... Where'd that girl go?
+                Paimon: Has she gone to find the book herself?
+            """
+        },
+        {
+            "category" : "quest",
+            "query" : "Create a quest located in Mingyun Village, Liyue, that reveals some story related to the villagers that abandoned the place long time ago. This story should be very simple, may be connected with some family conflicts or something like that. Write 5 stages of the quest as a numbered list: first stage is starting point, describe how to start the quest. Then stages may be player's task and actions, or dialogues: for dialogues, write short description of what dialogue is about (1-3 sentences). In the final stage describe also a reward that Traveler and Paimon get. Write no more than 15-17 sentences at all.",
+            "reference" : """
+                1. Start the quest by talking to Yuan Hong in Mingyun Village. Yuan Hong, lost in melancholic reverie, recites cryptic poetry about autumn leaves and solitude while dismissing worldly wealth as a farce. He expresses a deep longing to leave the village and start life anew, barely acknowledging the Traveler's attempts to engage him in conversation.
+                2. Look around Mingyun Village. Go to the house facing the billboard and read the "Lost Notes". It is required to read the notes as the first step, as it triggers the spawning of the four parts of the fathers will and the matching four markers on the map.
+                3. Look for a will (0/4). During this, you can find three people in different locations (these are three brothers, sons of Yuan Hong, now all three of thems searching the treasure without desire to reunir as a family) and listen to them:
+                    - Yuan Cheng. Yuan Cheng vents his frustration over his older brothers hoarding the best discoveries and his father's willful blindness to the family's dynamics. Convinced that a hidden treasure lies in the mine unbeknownst to them, he resolves to claim it for himself and flee far away from his family.
+                    - Yuan Qing. Yuan Qing laments his misfortune after sneaking away from his family to be the first to reach the mine and claim its hidden treasure, only to be ambushed by monsters. Now trapped and overwhelmed, he fear he is doomed to fail.
+                    - Yuan Liang. Yuan Liang mocks his brothers for misinterpreting their father's will and arrogantly dismisses any sense of familial duty, focusing solely on the line mentioning hidden treasure. Consumed by greed, he plots to claim the mine's riches for himself, confident that his siblings' foolishness will leave the prize entirely to him.
+                4. Find the treasure. The treasure is at the base of a large tree. When you approach the tree, four Treasure Hoarders will spawn.
+                5. Collect the treasure. A dig option becomes available at the base of the tree. After digging, a Precious Chest will spawn.
+            """
+        },
+        {
+            "category" : "quest",
+            "query" : "Create a world side-quest about restoring the abandoned temple of Pervases, ancient Yaksha and a friend of Xiao. This quest is related to Wang Ping'an, previous scammer who decided to change his life for good. Output unstructured text with quest progress description: describe what Traveler and Paimon do, where they go, who they meet, with whom they have conversations, etc. Include three parts of temple reconstruction: starting the reconstruction, proceeding with it, and, finally, finishing works. On each step Traveler have to help Wang Ping'an with his works somehow, so describe what should be done on each stage. Write about 20-30 sentences in total.",
+            "reference" : """
+                As the Traveler and Paimon walk by Wanmin Restaurant, they smell the aroma of Grilled Tiger Fish and decide to buy some. The Traveler buys three servings and Paimon wonders who's the third serving for. The Traveler had thought of Pervases and decided to buy another serving and go pay their respects. Paimon hopes the statue of Pervases hasn't been defaced as the temple was in a pretty sad state with Treasure Hoarders nearby the last time they were there.
+                As they approach the temple, they see Xiao nearby. Paimon wonders out loud why no one maintains the temple even though the Yakshas are heroes who defended Liyue Harbor. Xiao goes silent and Paimon wonders if he's angry but he says that they did not perform their duty for recognition. They then hear someone calling for help so Xiao and the Traveler go to assist. After defeating the enemies, they find the person under attack was Wang Ping'an, previously known to them as "Starsnatcher." Wang Ping'an had turned a new leaf and was on his way to restore Pervases's temple. Xiao leaves and the Traveler and Wang Ping'an head to the temple to continue their discussion about the temple. Paimon and Traveler wonder if Wang Ping'an was actually being genuine and so Wang Ping'an tells them to come back after work has started to see he has indeed changed.
+                The Traveler returns to the temple later and find that Wang Ping'an has brought some workers and are making good progress on the temple. The Ministry of Civil Affairs got wind of what was going on and posted some Millelith to guard the temple throughout the construction. Although the Millelith are guarding the construction site, Wang Ping'an is worried that material deliveries might get attacked by nearby Treasure Hoarders and asks the Traveler to handle them. The Traveler swiftly defeats the Treasure Hoarders and they ask what they did to offend the Traveler. So the Traveler informs them they are renovating a Yaksha's temple. The Treasure Hoarders did not know the dilapidated temple was for an Adeptus and promise not to mess with the temple lest the Adepti judge them. After reporting back to Wang Ping'an, the Traveler is thanked and is asked to gather some Sandbearer Wood next. Wang Ping'an tells the Traveler that construction will take some more time and to come back in some time.
+                When returning to the temple again, the Traveler finds the construction has finished and the temple fully repaired. Wang Ping'an asks the Traveler if they'd like to offer some incense and so the Traveler lights some incense at the censer. Wang Ping'an tells the Traveler that he will remain at the temple as he compiles his book about the Vigilant Yaksha and welcomes the Traveler to drop by anytime to offer incense.
+            """
+        }
+    ]
+}
+
+TEST_DATA_RUSSIAN_SCENARIO = {}

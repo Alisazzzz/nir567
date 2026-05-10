@@ -660,7 +660,7 @@ def form_context_with_llm(
         for i, node_id in enumerate(path_nodes):
             node = graph.get_node_by_id(node_id)
             pretty_parts.append(node.name)
-            if i > 0:
+            if i > 0 and i < len(path_nodes)-1:
                 pretty_parts.append(" who (what)")
             if i < len(path_edges):
                 edge_id = path_edges[i]
