@@ -24,9 +24,9 @@
         },
         "evaluation_model_tests": {
             "option": "ollama",
-            "model_name": "mistral:7b-instruct-q2_K",
+            "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
             "config": {
-                "model_name": "mistral:7b-instruct-q2_K",
+                "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
                 "temperature": 0.0,
                 "max_tokens": null,
                 "extra": {}

@@ -970,33 +970,33 @@ Let's set up your environment!
                     final_context += f"RETRIEVED KNOWLEDGE:\n{context_from_graph}"
                     print(final_context)
                     
-                    if (self.using_two_staged_pipeline):
-                        status_text = Text("Generating plan...", style=f"{ColorTheme.PRIMARY}")
-                        live.update(status_text)
-                        plan = generate_plan(query, final_context, self.chat_model, language=self.language)
+                    # if (self.using_two_staged_pipeline):
+                    #     status_text = Text("Generating plan...", style=f"{ColorTheme.PRIMARY}")
+                    #     live.update(status_text)
+                    #     plan = generate_plan(query, final_context, self.chat_model, language=self.language)
                     
-                        status_text = Text("Writing answer...", style=f"{ColorTheme.PRIMARY}")
-                        live.update(status_text)
-                        answer = generate_answer_based_on_plan(query, plan, final_context, self.chat_model, language=self.language)
-                    else:
-                        status_text = Text("Writing answer...", style=f"{ColorTheme.PRIMARY}")
-                        live.update(status_text)
-                        answer = generate_answer_based_on_context(query, final_context, self.chat_model, language=self.language)
+                    #     status_text = Text("Writing answer...", style=f"{ColorTheme.PRIMARY}")
+                    #     live.update(status_text)
+                    #     answer = generate_answer_based_on_plan(query, plan, final_context, self.chat_model, language=self.language)
+                    # else:
+                    #     status_text = Text("Writing answer...", style=f"{ColorTheme.PRIMARY}")
+                    #     live.update(status_text)
+                    #     answer = generate_answer_based_on_context(query, final_context, self.chat_model, language=self.language)
 
-                    last_answer = answer
+                    # last_answer = answer
 
-                    if self.chat_history:
-                        self.chat_history.add_message_to_history("user", query)
-                        self.chat_history.add_message_to_history("assistant", answer)
-                        self.current_message_history.append({
-                            "author": "user",
-                            "text": query
-                        })
-                        self.current_message_history.append({
-                            "author": "assistant",
-                            "text": answer
-                        })
-                        self.chat_history.save()
+                    # if self.chat_history:
+                    #     self.chat_history.add_message_to_history("user", query)
+                    #     self.chat_history.add_message_to_history("assistant", answer)
+                    #     self.current_message_history.append({
+                    #         "author": "user",
+                    #         "text": query
+                    #     })
+                    #     self.current_message_history.append({
+                    #         "author": "assistant",
+                    #         "text": answer
+                    #     })
+                    #     self.chat_history.save()
 
                 except Exception as e:
                     console.print(f"\n[{ColorTheme.DANGER}]Error: {e}[/{ColorTheme.DANGER}]")
@@ -1005,9 +1005,9 @@ Let's set up your environment!
                     continue
 
             ConsoleUI.print_header("Answer")
-            console.print(Panel(Markdown(answer), border_style=ColorTheme.PRIMARY, box=box.SQUARE))
-            if last_answer:
-                console.print("[dim]Tip: Type /update to add this answer to the graph[/dim]")
+            # console.print(Panel(Markdown(answer), border_style=ColorTheme.PRIMARY, box=box.SQUARE))
+            # if last_answer:
+            #     console.print("[dim]Tip: Type /update to add this answer to the graph[/dim]")
     
     def update_graph_with_response(self, response: str):
         greatest_id = get_next_chunk_id(self.graph)

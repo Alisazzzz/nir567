@@ -31,50 +31,50 @@ def parse_llm_answer(text: str, content_type: str) -> str:
 
 basic_plan_template_en = ChatPromptTemplate.from_messages([
     ("system", answer_prompts.SYSTEM_PROMPT_PLAN_BASIC_EN),
-    ("human", "User request:\n{query}\n\n" + "Context:\n{context}\n\n")])
+    ("human",  "Context:\n{context}\n\n" + "User request:\n{query}\n\n")])
 
 theoretical_plan_template_en = ChatPromptTemplate.from_messages([
     ("system", answer_prompts.SYSTEM_PROMPT_PLAN_WITH_THEORY_EN),
-    ("human", "User request:\n{query}\n\n" + "Context:\n{context}\n\n")])
+    ("human", "Context:\n{context}\n\n" + "User request:\n{query}\n\n")])
 
 context_filtering_template_en = ChatPromptTemplate.from_messages([
     ("system", answer_prompts.SYSTEM_PROMPT_CONTEXT_FILTRATION_EN),
-    ("human", "User request:\n{query}\n\n" + "Context:\n{context}\n\n")])
+    ("human", "Context:\n{context}\n\n" + "User request:\n{query}\n\n")])
 
 
 
 answer_template_based_on_plan_en = ChatPromptTemplate.from_messages([
     ("system", answer_prompts.SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_PLAN_EN),
-    ("human", "User request:\n{query}\n\n" + "Narrative plan:\n{plan}\n\n" + "Context: \n{context}\n\n")])
+    ("human",  "Narrative plan:\n{plan}\n\n" + "Context: \n{context}\n\n" + "User request:\n{query}\n\n")])
 
 answer_template_based_on_context_en = ChatPromptTemplate.from_messages([
     ("system", answer_prompts.SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_CONTEXT_EN),
-    ("human", "User request:\n{query}\n\n" + "Context: \n{context}\n\n")])
+    ("human", "Context:\n{context}\n\n" + "User request:\n{query}\n\n")])
 
 
 
 # for russian language
 basic_plan_template_ru = ChatPromptTemplate.from_messages([
     ("system", answer_prompts.SYSTEM_PROMPT_PLAN_BASIC_RU),
-    ("human", "User request:\n{query}\n\n" + "Context:\n{context}\n\n")])
+    ("human", "Context:\n{context}\n\n" + "User request:\n{query}\n\n")])
 
 theoretical_plan_template_ru = ChatPromptTemplate.from_messages([
     ("system", answer_prompts.SYSTEM_PROMPT_PLAN_WITH_THEORY_RU),
-    ("human", "User request:\n{query}\n\n" + "Context:\n{context}\n\n")])
+    ("human", "Context:\n{context}\n\n" + "User request:\n{query}\n\n")])
 
 context_filtering_template_ru = ChatPromptTemplate.from_messages([
     ("system", answer_prompts.SYSTEM_PROMPT_CONTEXT_FILTRATION_RU),
-    ("human", "User request:\n{query}\n\n" + "Context:\n{context}\n\n")])
+    ("human", "Context:\n{context}\n\n" + "User request:\n{query}\n\n")])
 
 
 
 answer_template_based_on_plan_ru = ChatPromptTemplate.from_messages([
     ("system", answer_prompts.SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_PLAN_RU),
-    ("human", "User request:\n{query}\n\n" + "Narrative plan:\n{plan}\n\n" + "Context: \n{context}\n\n")])
+    ("human", "Narrative plan:\n{plan}\n\n" + "Context: \n{context}\n\n" + "User request:\n{query}\n\n")])
 
 answer_template_based_on_context_ru = ChatPromptTemplate.from_messages([
     ("system", answer_prompts.SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_CONTEXT_RU),
-    ("human", "User request:\n{query}\n\n" + "Context: \n{context}\n\n")])
+    ("human", "Context:\n{context}\n\n" + "User request:\n{query}\n\n")])
 
 
 def generate_plan(query: str, context: str, llm: BaseLanguageModel, include_theory: bool = True, language: str = "en") -> str:

@@ -1,0 +1,3494 @@
+{
+  "connected_document": "genshin_impact_liyue_scenario.txt",
+  "connected_embedding": "embeddings_fast",
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "genshin_impact_scenario_graph_db",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "traveler",
+      "name": "Traveler",
+      "type": "character",
+      "base_description": "The protagonist, an outlander from another world, searching for their lost sibling and trying to meet all seven Archons. Known as the Honorary Knight of Mondstadt.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "paimon",
+      "name": "Paimon",
+      "type": "character",
+      "base_description": "Traveler's companion, a small floating guide who often speaks on behalf of both.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "zhongli",
+      "name": "Zhongli",
+      "type": "character",
+      "base_description": "Consultant of Wangsheng Funeral Parlor, later revealed to be the Geo Archon Rex Lapis (Morax) in mortal form.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "zhongli_state_1",
+          "current_description": "Zhongli is a consultant at Wangsheng Funeral Parlor, believed to be a knowledgeable mortal with no memory of money. He organizes the Rite of Parting with Traveler's help, hiding his true identity.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "transfer_of_gnosis"
+        },
+        {
+          "sid": "zhongli_state_2",
+          "current_description": "Zhongli is revealed to be Rex Lapis, the Geo Archon, who faked his death to test Liyue. After giving away his Gnosis, he continues living as a mortal without his divine power.",
+          "current_attributes": {},
+          "time_start_event": "transfer_of_gnosis",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "rex_lapis",
+      "name": "Rex Lapis",
+      "type": "character",
+      "base_description": "The Geo Archon, God of Contracts, also known as Morax. He creates Mora and rules Liyue. Faked his death to test Liyue's readiness.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "rex_lapis_state_1",
+          "current_description": "Rex Lapis is the living Geo Archon, ruling Liyue for 3,700 years and creating Mora, though he secretly plans to stage his death.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "fake_death_of_rex_lapis"
+        },
+        {
+          "sid": "rex_lapis_state_2",
+          "current_description": "Rex Lapis is believed to be dead by the people of Liyue. He remains in hiding as Zhongli, observing Liyue's response to his 'death'.",
+          "current_attributes": {},
+          "time_start_event": "fake_death_of_rex_lapis",
+          "time_end_event": "transfer_of_gnosis"
+        },
+        {
+          "sid": "rex_lapis_state_3",
+          "current_description": "Rex Lapis is revealed to be alive. He gives up his Gnosis to the Tsaritsa, ending his role as the Geo Archon and becoming a mortal.",
+          "current_attributes": {},
+          "time_start_event": "transfer_of_gnosis",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "childe",
+      "name": "Childe",
+      "type": "character",
+      "base_description": "Fatui Harbinger, the Eleventh. Loves battle. Helps Traveler initially but secretly plans to steal the Gnosis. Awakens the ancient god Osial.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "childe_state_1",
+          "current_description": "Childe pretends to be a friendly ally to the Traveler, providing funds for the Rite of Parting while secretly planning to steal the Gnosis.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "awakening_of_osial"
+        },
+        {
+          "sid": "childe_state_2",
+          "current_description": "Childe reveals his true intentions, fights the Traveler at the Golden House, then awakens Osial. He is humiliated to learn he was deceived by Zhongli and Signora.",
+          "current_attributes": {},
+          "time_start_event": "awakening_of_osial",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ningguang",
+      "name": "Ningguang",
+      "type": "character",
+      "base_description": "Tianquan of the Liyue Qixing, owner of the Jade Chamber. Ambitious businesswoman.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "ningguang_state_1",
+          "current_description": "Ningguang leads the Liyue Qixing, hides the Exuvia, and invites the Traveler to the Jade Chamber to negotiate. She owns the Jade Chamber.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "sacrifice_of_jade_chamber"
+        },
+        {
+          "sid": "ningguang_state_2",
+          "current_description": "Ningguang sacrifices her Jade Chamber to suppress Osial, losing her beloved palace but saving Liyue. She then negotiates with the adepti and Fatui.",
+          "current_attributes": {},
+          "time_start_event": "sacrifice_of_jade_chamber",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "keqing",
+      "name": "Keqing",
+      "type": "character",
+      "base_description": "Yuheng of the Liyue Qixing, skeptical of divine authority and adepti.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "ganyu",
+      "name": "Ganyu",
+      "type": "character",
+      "base_description": "Secretary of the Qixing, half-qilin adeptus. Fought in Archon War.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "signora",
+      "name": "Signora",
+      "type": "character",
+      "base_description": "Fatui Harbinger, the Eighth. Previously took Venti's Gnosis. Collects Zhongli's Gnosis.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "moon_carver",
+      "name": "Moon Carver",
+      "type": "character",
+      "base_description": "An adeptus living in Jueyun Karst. One of the illuminated adepti.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "cloud_retainer",
+      "name": "Cloud Retainer",
+      "type": "character",
+      "base_description": "An adeptus who built Guizhong Ballista and designed mechanical abodes. Lives in Jueyun Karst.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "mountain_shaper",
+      "name": "Mountain Shaper",
+      "type": "character",
+      "base_description": "An adeptus residing on Mt. Hulao, plants karst crawlers to trap intruders.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "xiao",
+      "name": "Xiao",
+      "type": "character",
+      "base_description": "Conqueror of Demons, a Guardian Yaksha adeptus residing at Wangshu Inn.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "madame_ping",
+      "name": "Madame Ping",
+      "type": "character",
+      "base_description": "An elderly adeptus who guards the Cleansing Bell and lives near Yujing Terrace. Her teapot contains a domain.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "osial",
+      "name": "Osial",
+      "type": "character",
+      "base_description": "Overlord of the Vortex, an ancient god defeated by Rex Lapis during the Archon War and pinned beneath Guyun Stone Forest.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "osial_state_1",
+          "current_description": "Osial is trapped beneath Guyun Stone Forest, pinned by Rex Lapis's stone spears, dormant for over 2,000 years.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "awakening_of_osial"
+        },
+        {
+          "sid": "osial_state_2",
+          "current_description": "Osial is temporarily awakened by Childe and attacks Liyue Harbor. He damages the Guizhong Ballistas before being suppressed by the Jade Chamber.",
+          "current_attributes": {},
+          "time_start_event": "awakening_of_osial",
+          "time_end_event": "sacrifice_of_jade_chamber"
+        },
+        {
+          "sid": "osial_state_3",
+          "current_description": "Osial is suppressed again by the Jade Chamber's fall and retreats beneath the waves. His malice fades but he is not permanently destroyed.",
+          "current_attributes": {},
+          "time_start_event": "sacrifice_of_jade_chamber",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "venti",
+      "name": "Venti",
+      "type": "character",
+      "base_description": "The Anemo Archon, Barbatos, from Mondstadt.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "tsaritsa",
+      "name": "Tsaritsa",
+      "type": "character",
+      "base_description": "The Cryo Archon, ruler of Snezhnaya, leader of the Fatui.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "verr_goldet",
+      "name": "Verr Goldet",
+      "type": "character",
+      "base_description": "Boss of Wangshu Inn, knows about Xiao and adepti. She is secretly working with Ningguang as an informant.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "smiley_yanxiao",
+      "name": "Smiley Yanxiao",
+      "type": "character",
+      "base_description": "Chef at Wangshu Inn, formerly a bandit, afraid of ghosts. Makes Almond Tofu for Xiao.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "smiley_yanxiao_state_1",
+          "current_description": "Smiley Yanxiao is afraid of the ghost Dusky Ming and cannot cook Almond Tofu due to shaky hands.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "comforting_of_dusky_ming"
+        },
+        {
+          "sid": "smiley_yanxiao_state_2",
+          "current_description": "Smiley Yanxiao is no longer afraid after Dusky Ming promises to stop haunting the inn. His hands become steady, and he makes perfect Almond Tofu.",
+          "current_attributes": {},
+          "time_start_event": "comforting_of_dusky_ming",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "qiqi",
+      "name": "Qiqi",
+      "type": "character",
+      "base_description": "A zombie child working at Bubu Pharmacy. Rescued by adepti after death. Has poor memory.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "baizhu",
+      "name": "Baizhu",
+      "type": "character",
+      "base_description": "Owner of Bubu Pharmacy, wears medicinal ingredients around his neck. Accompanied by a talking snake, Changsheng.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "changsheng",
+      "name": "Changsheng",
+      "type": "character",
+      "base_description": "A white, talking snake that hangs around Baizhu's neck.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "yinger",
+      "name": "Ying'er",
+      "type": "character",
+      "base_description": "Perfume maker at Scent of Spring. Helps Traveler and Zhongli extract Silk Flower essence to make perfumes for the Rite of Parting.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "shitou",
+      "name": "Shitou",
+      "type": "character",
+      "base_description": "Owner of Jade Mystery, a jade shop in Liyue Harbor. Sells Noctilucous Jade.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "iron_tongue_tian",
+      "name": "Iron Tongue Tian",
+      "type": "character",
+      "base_description": "Storyteller at Third-Round Knockout. Tells tales of Ningguang and the Jade Chamber.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "dusky_ming",
+      "name": "Dusky Ming",
+      "type": "character",
+      "base_description": "A ghost girl residing at Wangshu Inn. Possesses a Ruin Hunter when scared. Xiao allows her to stay.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "dusky_ming_state_1",
+          "current_description": "Dusky Ming haunts Wangshu Inn, scaring guests and staff, especially Chef Smiley Yanxiao, causing his hands to shake.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "comforting_of_dusky_ming"
+        },
+        {
+          "sid": "dusky_ming_state_2",
+          "current_description": "Dusky Ming promises to stop teasing travelers and agrees not to haunt the inn anymore after being comforted by the Traveler.",
+          "current_attributes": {},
+          "time_start_event": "comforting_of_dusky_ming",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "guizhong",
+      "name": "Guizhong",
+      "type": "character",
+      "base_description": "A historical adeptus, friend of Rex Lapis and Cloud Retainer. The Guizhong Ballista is named after her.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "liyue_qixing",
+      "name": "Liyue Qixing",
+      "type": "group",
+      "base_description": "The seven leaders of Liyue's seven enterprises, ruling over Liyue's mercantile affairs. Includes Ningguang and Keqing.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "fatui",
+      "name": "Fatui",
+      "type": "group",
+      "base_description": "Snezhnaya's military/diplomatic organization, led by the Tsaritsa. Harbingers include Signora and Childe.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "adepti",
+      "name": "adepti",
+      "type": "group",
+      "base_description": "Illuminated beings who fought with Rex Lapis to found Liyue and protect it. Include Cloud Retainer, Moon Carver, Mountain Shaper, Xiao, Ganyu, Madame Ping.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "adepti_state_1",
+          "current_description": "The adepti live secluded in Jueyun Karst, suspicious of the Qixing and demanding answers about Rex Lapis's death.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "battle_at_jade_chamber"
+        },
+        {
+          "sid": "adepti_state_2",
+          "current_description": "The adepti cooperate with the Qixing and Millelith to fight Osial. After witnessing Liyue's strength, they agree to step back and let humans govern the city.",
+          "current_attributes": {},
+          "time_start_event": "battle_at_jade_chamber",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "millelith",
+      "name": "Millelith",
+      "type": "group",
+      "base_description": "Liyue's military guard, loyal to the Qixing.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "treasure_hoarders",
+      "name": "Treasure Hoarders",
+      "type": "group",
+      "base_description": "Bandits and thieves who operate in Liyue. Attempt to disable the Guizhong Ballista and capture Meng Dan.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "wangsheng_funeral_parlor",
+      "name": "Wangsheng Funeral Parlor",
+      "type": "group",
+      "base_description": "Liyue's funeral parlor that organizes burials. Zhongli works there as a consultant.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "bubu_pharmacy",
+      "name": "Bubu Pharmacy",
+      "type": "group",
+      "base_description": "Liyue's finest pharmacy, run by Baizhu with Qiqi as staff. Sells Everlasting Incense.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "liyue_harbor",
+      "name": "Liyue Harbor",
+      "type": "location",
+      "base_description": "The main city of Liyue, a prosperous port and commercial hub.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "liyue_harbor_state_1",
+          "current_description": "Liyue Harbor is peaceful, ruled by Rex Lapis and the Qixing. After Rex Lapis's apparent death, chaos and rumors spread.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "awakening_of_osial"
+        },
+        {
+          "sid": "liyue_harbor_state_2",
+          "current_description": "Liyue Harbor is attacked by Osial. The Qixing, Millelith, and adepti defend the city. The Jade Chamber is sacrificed to save it.",
+          "current_attributes": {},
+          "time_start_event": "awakening_of_osial",
+          "time_end_event": "sacrifice_of_jade_chamber"
+        },
+        {
+          "sid": "liyue_harbor_state_3",
+          "current_description": "Liyue Harbor is saved. The people learn Rex Lapis was not murdered. The Qixing takes full control now that the Geo Archon has retired.",
+          "current_attributes": {},
+          "time_start_event": "sacrifice_of_jade_chamber",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "jueyun_karst",
+      "name": "Jueyun Karst",
+      "type": "location",
+      "base_description": "Mountainous region where the adepti dwell. Contains Mt. Hulao and Mt. Aocang.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "wangshu_inn",
+      "name": "Wangshu Inn",
+      "type": "location",
+      "base_description": "Inn near Dihua Marsh where Xiao stays and a ghost girl resides.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "golden_house",
+      "name": "Golden House",
+      "type": "location",
+      "base_description": "The only mint in Teyvat, where Mora is created using the Geo Archon's power.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "golden_house_state_1",
+          "current_description": "The Golden House is fully operational, minting Mora using Rex Lapis's power. The Exuvia is hidden here after the Rite of Descension.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "transfer_of_gnosis"
+        },
+        {
+          "sid": "golden_house_state_2",
+          "current_description": "The Golden House ceases operations for a lengthy period because creating Mora requires the Geo Archon's Gnosis, which has been given away.",
+          "current_attributes": {},
+          "time_start_event": "transfer_of_gnosis",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "guyun_stone_forest",
+      "name": "Guyun Stone Forest",
+      "type": "location",
+      "base_description": "Stone forest formed by Geo spears thrown by Rex Lapis, pinning down Osial underwater.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "northland_bank",
+      "name": "Northland Bank",
+      "type": "location",
+      "base_description": "Fatui-operated bank in Liyue Harbor. Childe uses it as a base. The final revelation scene takes place here.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "dadaupa_gorge",
+      "name": "Dadaupa Gorge",
+      "type": "location",
+      "base_description": "A location in Mondstadt. Used to test Noctilucous Jade quality in a hilichurl cooking pot.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "wanmin_restaurant",
+      "name": "Wanmin Restaurant",
+      "type": "location",
+      "base_description": "Restaurant in Liyue Harbor where perfume is made using the kitchen.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "third_round_knockout",
+      "name": "Third-Round Knockout",
+      "type": "location",
+      "base_description": "A hole-in-the-wall tavern and eatery near Liyue Harbor, known for its wine and storytelling. Zhongli treats Traveler here.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "mt_tianheng",
+      "name": "Mt. Tianheng",
+      "type": "location",
+      "base_description": "A mountain in Liyue where the Guizhong Ballista is installed.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "dihua_marsh",
+      "name": "Dihua Marsh",
+      "type": "location",
+      "base_description": "A marshy area in Liyue where wild Glaze Lilies grow.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "jade_chamber",
+      "name": "Jade Chamber",
+      "type": "environment_element",
+      "base_description": "Ningguang's floating palace above Liyue Harbor, used as her office and residence. Sacrificed to suppress Osial.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "jade_chamber_state_1",
+          "current_description": "The Jade Chamber floats above Liyue Harbor, serving as Ningguang's palace. It is constantly expanded and is her greatest treasure.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "sacrifice_of_jade_chamber"
+        },
+        {
+          "sid": "jade_chamber_state_2",
+          "current_description": "The Jade Chamber is destroyed, crashed onto Osial to suppress him. It no longer exists in the sky above Liyue.",
+          "current_attributes": {},
+          "time_start_event": "sacrifice_of_jade_chamber",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "guizhong_ballista",
+      "name": "Guizhong Ballista",
+      "type": "environment_element",
+      "base_description": "An ancient adepti crossbow turret on Mt. Tianheng, built by Cloud Retainer, named after Guizhong. Repaired by Zhongli and used against Osial.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "guizhong_ballista_state_1",
+          "current_description": "The Guizhong Ballista is broken and inoperable, disabled by Treasure Hoarders.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "repair_of_guizhong_ballista"
+        },
+        {
+          "sid": "guizhong_ballista_state_2",
+          "current_description": "The Guizhong Ballista is repaired by Zhongli and used to search for the Cocogoat. Later, it is upgraded and used against Osial, but destroyed in the battle.",
+          "current_attributes": {},
+          "time_start_event": "repair_of_guizhong_ballista",
+          "time_end_event": "battle_at_jade_chamber"
+        },
+        {
+          "sid": "guizhong_ballista_state_3",
+          "current_description": "The Guizhong Ballista is destroyed during the battle with Osial and is no longer functional.",
+          "current_attributes": {},
+          "time_start_event": "battle_at_jade_chamber",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "exuvia",
+      "name": "Exuvia",
+      "type": "item",
+      "base_description": "The vessel (dragon body) of Rex Lapis. Housed in the Golden House after the Rite of Descension.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "gnosis",
+      "name": "Gnosis",
+      "type": "item",
+      "base_description": "Divine core of an Archon, given to the Tsaritsa by Zhongli as part of a contract.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "gnosis_state_1",
+          "current_description": "The Gnosis is in Zhongli's possession, still part of his divine power as the Geo Archon.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "transfer_of_gnosis"
+        },
+        {
+          "sid": "gnosis_state_2",
+          "current_description": "The Gnosis is given to Signora and will be taken to the Tsaritsa in Snezhnaya.",
+          "current_attributes": {},
+          "time_start_event": "transfer_of_gnosis",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "sigil_of_permission",
+      "name": "Sigil of Permission",
+      "type": "item",
+      "base_description": "A talisman created by Rex Lapis that allows safe passage to adepti domains and can channel divine power. Fatui research copies.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "cleansing_bell",
+      "name": "Cleansing Bell",
+      "type": "item",
+      "base_description": "A bell used in the Rite of Parting to rid the deity of impurities. Guarded by Madame Ping.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "noctilucous_jade",
+      "name": "Noctilucous Jade",
+      "type": "item",
+      "base_description": "A mystical jade used in the Rite of Parting. Quality is tested by heating and observing brightness.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "everlasting_incense",
+      "name": "Everlasting Incense",
+      "type": "item",
+      "base_description": "Incense bought from Bubu Pharmacy for the Rite of Parting, costing nearly 3 million Mora.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "glaze_lily",
+      "name": "Glaze Lily",
+      "type": "item",
+      "base_description": "A flower that blooms to joyful sounds and withers with gossip. Wild ones are used for the Rite of Parting.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "almond_tofu",
+      "name": "Almond Tofu",
+      "type": "item",
+      "base_description": "Xiao's favorite human food. Made by Smiley Yanxiao at Wangshu Inn.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "coconut_milk",
+      "name": "coconut milk",
+      "type": "item",
+      "base_description": "Qiqi misremembers it as 'Cocogoat milk'. She desires it, leading to a contract with Childe.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "mora",
+      "name": "Mora",
+      "type": "item",
+      "base_description": "The universal currency of Teyvat, minted in the Golden House using the Geo Archon's power.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "rite_of_descension",
+      "name": "Rite of Descension",
+      "type": "event",
+      "base_description": "Annual ritual where Rex Lapis descends to give divine predictions to Liyue.",
+      "base_attributes": {
+        "time": "once a year"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "fake_death_of_rex_lapis",
+      "name": "fake death of Rex Lapis",
+      "type": "event",
+      "base_description": "Zhongli fakes his own death during the Rite of Descension, dropping his dragon body onto the altar.",
+      "base_attributes": {
+        "time": "during the Rite of Descension"
+      },
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "rite_of_parting",
+      "name": "Rite of Parting",
+      "type": "event",
+      "base_description": "Farewell ceremony for Rex Lapis, organized by Zhongli with Traveler's help.",
+      "base_attributes": {
+        "time": "after the fake death"
+      },
+      "states": [],
+      "chunk_id": [
+        9
+      ]
+    },
+    {
+      "id": "preparation_of_rite_of_parting",
+      "name": "preparation of Rite of Parting",
+      "type": "event",
+      "base_description": "Zhongli and Traveler gather materials: Noctilucous Jade, Silk Flower perfumes, Cleansing Bell, seven kites, Everlasting Incense, and wild Glaze Lilies.",
+      "base_attributes": {
+        "time": "after the Rite of Descension and before the Osial battle"
+      },
+      "states": [],
+      "chunk_id": [
+        9
+      ]
+    },
+    {
+      "id": "perfume_making",
+      "name": "perfume making",
+      "type": "event",
+      "base_description": "Ying'er helps Traveler extract essential oils from Golden House Maiden, Valley Weaver, and Fate's Yearning Silk Flowers to create three perfumes for the Rite of Parting.",
+      "base_attributes": {
+        "time": "during preparations"
+      },
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "cocogoat_misunderstanding",
+      "name": "Cocogoat misunderstanding",
+      "type": "event",
+      "base_description": "Qiqi sends Traveler and Zhongli to hunt a nonexistent 'Cocogoat' at the Guizhong Ballista. It turns out she meant coconut milk.",
+      "base_attributes": {
+        "time": "while gathering Everlasting Incense"
+      },
+      "states": [],
+      "chunk_id": [
+        6
+      ]
+    },
+    {
+      "id": "repair_of_guizhong_ballista",
+      "name": "repair of Guizhong Ballista",
+      "type": "event",
+      "base_description": "Zhongli fixes the broken Guizhong Ballista using spare parts found in a supply post, then uses it to search for the 'Cocogoat'.",
+      "base_attributes": {
+        "time": "during the Cocogoat misunderstanding"
+      },
+      "states": [],
+      "chunk_id": [
+        6
+      ]
+    },
+    {
+      "id": "awakening_of_osial",
+      "name": "awakening of Osial",
+      "type": "event",
+      "base_description": "Childe uses multiple Sigils of Permission to temporarily break Rex Lapis's seals and unleash the ancient god Osial.",
+      "base_attributes": {
+        "time": "after the battle in the Golden House"
+      },
+      "states": [],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "battle_at_jade_chamber",
+      "name": "battle at Jade Chamber",
+      "type": "event",
+      "base_description": "Humans (Qixing, Millelith) and adepti cooperate to fight Osial using upgraded Guizhong Ballistas.",
+      "base_attributes": {
+        "time": "after Osial is awakened"
+      },
+      "states": [],
+      "chunk_id": [
+        9
+      ]
+    },
+    {
+      "id": "sacrifice_of_jade_chamber",
+      "name": "sacrifice of Jade Chamber",
+      "type": "event",
+      "base_description": "Ningguang drops the Jade Chamber onto Osial to suppress him, ending the threat.",
+      "base_attributes": {
+        "time": "during the battle"
+      },
+      "states": [],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "transfer_of_gnosis",
+      "name": "transfer of Gnosis",
+      "type": "event",
+      "base_description": "Zhongli gives his Gnosis to Signora as part of his contract with the Tsaritsa.",
+      "base_attributes": {
+        "time": "after the battle"
+      },
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "comforting_of_dusky_ming",
+      "name": "comforting of Dusky Ming",
+      "type": "event",
+      "base_description": "The Traveler finds the ghost girl Dusky Ming, listens to her, and convinces her to stop haunting Wangshu Inn.",
+      "base_attributes": {
+        "time": "during the visit to Wangshu Inn"
+      },
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "sibling",
+      "name": "sibling",
+      "type": "character",
+      "base_description": "The Traveler's lost sibling, whom the Traveler is searching for across Teyvat.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "yujing_terrace",
+      "name": "Yujing Terrace",
+      "type": "location",
+      "base_description": "The highest place in Liyue Harbor, where the Rite of Descension and Rite of Parting take place. The Jade Chamber floats above it.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "mt_hulao",
+      "name": "Mt. Hulao",
+      "type": "location",
+      "base_description": "A mountain in Jueyun Karst where Mountain Shaper resides. Amber traps created by karst crawlers cover the area.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "paper_snow",
+      "name": "paper snow",
+      "type": "item",
+      "base_description": "Shredded documents from Ningguang's wall that contain intelligence. One sheet reveals Fatui research on the Sigil of Permission.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "fatui_research_site",
+      "name": "Fatui research site",
+      "type": "location",
+      "base_description": "A hidden location where the Fatui copy and research Sigils of Permission, discovered by the Traveler using the paper snow clue.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "meng_dan",
+      "name": "Meng Dan",
+      "type": "character",
+      "base_description": "A supplier for Mingxing Jewelry who searches for antiques in the mountains. Rescued by the Traveler from Treasure Hoarders.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1,
+        2
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "traveler_accompanies_paimon_edge",
+      "source": "traveler",
+      "target": "paimon",
+      "relation": "accompanies",
+      "description": "Traveler is accompanied by Paimon as a guide and companion.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_is_guided_by_paimon_edge",
+      "source": "traveler",
+      "target": "paimon",
+      "relation": "is_guided_by",
+      "description": "Traveler receives guidance from Paimon about Liyue customs and directions.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_fights_childe_edge",
+      "source": "traveler",
+      "target": "childe",
+      "relation": "fights",
+      "description": "The Traveler fights Childe in the Golden House to protect the Exuvia and stop him from taking the Gnosis.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_is_misled_by_childe_edge",
+      "source": "traveler",
+      "target": "childe",
+      "relation": "is_misled_by",
+      "description": "Childe pretends to help the Traveler while secretly planning to steal the Gnosis.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_helps_organize_rite_of_parting_edge",
+      "source": "traveler",
+      "target": "rite_of_parting",
+      "relation": "assists_in",
+      "description": "Traveler helps gather jade, make perfume, borrow the Cleansing Bell, obtain kites and incense, and collect Glaze Lilies for the ceremony.",
+      "weight": 0.9,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_searches_for_sibling_edge",
+      "source": "traveler",
+      "target": "sibling",
+      "relation": "searches_for",
+      "description": "The Traveler's main goal is to find their lost sibling, which is why they seek all seven Archons.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_is_hired_by_zhongli_edge",
+      "source": "traveler",
+      "target": "zhongli",
+      "relation": "is_hired_by",
+      "description": "Zhongli asks the Traveler to help organize the Rite of Parting, offering a meal as compensation.",
+      "weight": 0.8,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_follows_childe_to_golden_house_edge",
+      "source": "traveler",
+      "target": "golden_house",
+      "relation": "enters",
+      "description": "Traveler follows Childe to the Golden House to confront him and protect the Exuvia.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_comforts_dusky_ming_edge",
+      "source": "traveler",
+      "target": "dusky_ming",
+      "relation": "comforts",
+      "description": "The Traveler calms Dusky Ming and convinces her to stop haunting the inn.",
+      "weight": 0.8,
+      "time_start_event": "comforting_of_dusky_ming",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_is_invited_by_ningguang_edge",
+      "source": "traveler",
+      "target": "ningguang",
+      "relation": "is_invited_by",
+      "description": "The Traveler receives an invitation to meet Ningguang at the Jade Chamber.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_gifts_sugar_frosted_slime_to_ningguang_edge",
+      "source": "traveler",
+      "target": "ningguang",
+      "relation": "gifts",
+      "description": "The Traveler presents Sugar-Frosted Slime as a greeting gift to Ningguang.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_receives_invitation_from_ganyu_edge",
+      "source": "traveler",
+      "target": "ganyu",
+      "relation": "receives_message_from",
+      "description": "The Traveler gets the invitation to the Jade Chamber via Ganyu.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_meets_keqing_at_guizhong_ballista_edge",
+      "source": "traveler",
+      "target": "keqing",
+      "relation": "meets",
+      "description": "The Traveler meets Keqing while investigating the ballista.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_takes_paper_snow_from_ningguang_wall_edge",
+      "source": "traveler",
+      "target": "paper_snow",
+      "relation": "takes",
+      "description": "As a reward, the Traveler takes a sheet of 'paper snow' from Ningguang's wall.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_investigates_fatui_research_site_edge",
+      "source": "traveler",
+      "target": "fatui_research_site",
+      "relation": "investigates",
+      "description": "Using the paper snow clue, the Traveler finds and investigates a Fatui research site copying Sigils of Permission.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_meets_moon_carver_in_jueyun_karst_edge",
+      "source": "traveler",
+      "target": "moon_carver",
+      "relation": "meets",
+      "description": "The Traveler encounters Moon Carver in Jueyun Karst.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_meets_mountain_shaper_on_mt_hulao_edge",
+      "source": "traveler",
+      "target": "mountain_shaper",
+      "relation": "meets",
+      "description": "The Traveler meets Mountain Shaper after freeing Li Dang from amber.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_meets_cloud_retainer_in_domain_edge",
+      "source": "traveler",
+      "target": "cloud_retainer",
+      "relation": "meets",
+      "description": "The Traveler meets Cloud Retainer inside her abode on Mt. Aocang.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_meets_xiao_at_wangshu_inn_edge",
+      "source": "traveler",
+      "target": "xiao",
+      "relation": "meets",
+      "description": "The Traveler finds Xiao at Wangshu Inn after being sent by Moon Carver.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_meets_madame_ping_at_yujing_terrace_edge",
+      "source": "traveler",
+      "target": "madame_ping",
+      "relation": "meets",
+      "description": "The Traveler encounters Madame Ping near Yujing Terrace.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_rescues_meng_dan_edge",
+      "source": "traveler",
+      "target": "meng_dan",
+      "relation": "rescues",
+      "description": "The Traveler defeats the Treasure Hoarders and frees Meng Dan.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_receives_gift_box_from_meng_dan_edge",
+      "source": "traveler",
+      "target": "meng_dan",
+      "relation": "receives_from",
+      "description": "The Traveler gets a gift box from Meng Dan.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "traveler_sings_to_glaze_lilies_edge",
+      "source": "traveler",
+      "target": "glaze_lily",
+      "relation": "sings_to",
+      "description": "The Traveler attempts to sing to wild Glaze Lilies to make them bloom, but attracts Whopperflowers instead.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "paimon_accompanies_traveler_edge",
+      "source": "paimon",
+      "target": "traveler",
+      "relation": "accompanies",
+      "description": "Paimon accompanies the Traveler as their guide and floating companion.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "paimon_guides_traveler_edge",
+      "source": "paimon",
+      "target": "traveler",
+      "relation": "guides",
+      "description": "Paimon explains Liyue customs, traditions, and helps navigate the region.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_is_rex_lapis_edge",
+      "source": "zhongli",
+      "target": "rex_lapis",
+      "relation": "is",
+      "description": "Zhongli is the mortal identity of Rex Lapis, the Geo Archon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_gives_gnosis_to_signora_edge",
+      "source": "zhongli",
+      "target": "signora",
+      "relation": "gives",
+      "description": "Zhongli hands over his Gnosis to Signora as part of his contract with the Tsaritsa.",
+      "weight": 1.0,
+      "time_start_event": "transfer_of_gnosis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_fakes_death_edge",
+      "source": "zhongli",
+      "target": "fake_death_of_rex_lapis",
+      "relation": "causes",
+      "description": "Zhongli stages his own death during the Rite of Descension to test Liyue's readiness.",
+      "weight": 1.0,
+      "time_start_event": "fake_death_of_rex_lapis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_buys_noctilucous_jade_from_shitou_edge",
+      "source": "zhongli",
+      "target": "shitou",
+      "relation": "buys_from",
+      "description": "Zhongli purchases Noctilucous Jade from Shitou's Jade Mystery for the Rite of Parting, often forgetting to bring Mora.",
+      "weight": 0.7,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_repairs_guizhong_ballista_edge",
+      "source": "zhongli",
+      "target": "repair_of_guizhong_ballista",
+      "relation": "performs",
+      "description": "Zhongli repairs the ancient Guizhong Ballista using spare parts found in a supply post.",
+      "weight": 1.0,
+      "time_start_event": "repair_of_guizhong_ballista",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_treats_traveler_at_third_round_knockout_edge",
+      "source": "zhongli",
+      "target": "traveler",
+      "relation": "treats",
+      "description": "Zhongli buys a meal for the Traveler at Third-Round Knockout as thanks for their help.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_hires_traveler_edge",
+      "source": "zhongli",
+      "target": "traveler",
+      "relation": "hires",
+      "description": "Zhongli recruits the Traveler to help with the Rite of Parting preparations.",
+      "weight": 0.8,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_organizes_rite_of_parting_edge",
+      "source": "zhongli",
+      "target": "rite_of_parting",
+      "relation": "organizes",
+      "description": "Zhongli arranges the entire Rite of Parting, from gathering materials to performing the ceremony.",
+      "weight": 1.0,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_signs_contract_with_tsaritsa_edge",
+      "source": "zhongli",
+      "target": "tsaritsa",
+      "relation": "contracts_with",
+      "description": "Zhongli made a 'contract to end all contracts' with the Cryo Archon, exchanging his Gnosis.",
+      "weight": 1.0,
+      "time_start_event": "transfer_of_gnosis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_teaches_about_noctilucous_jade_edge",
+      "source": "zhongli",
+      "target": "noctilucous_jade",
+      "relation": "teaches_about",
+      "description": "Zhongli explains how to evaluate Noctilucous Jade quality by heating it and observing brightness.",
+      "weight": 0.7,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_is_invited_by_madame_ping_edge",
+      "source": "zhongli",
+      "target": "madame_ping",
+      "relation": "is_invited_by",
+      "description": "Madame Ping sends word through the Traveler that Zhongli can come for tea anytime.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_dines_at_third_round_knockout_edge",
+      "source": "zhongli",
+      "target": "third_round_knockout",
+      "relation": "dines_at",
+      "description": "Zhongli takes the Traveler to eat at the Third-Round Knockout tavern.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_works_at_wangsheng_funeral_parlor_edge",
+      "source": "zhongli",
+      "target": "wangsheng_funeral_parlor",
+      "relation": "works_at",
+      "description": "Zhongli is a consultant for Wangsheng Funeral Parlor.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "zhongli_buys_everlasting_incense_edge",
+      "source": "zhongli",
+      "target": "everlasting_incense",
+      "relation": "buys",
+      "description": "Zhongli arranges the purchase of Everlasting Incense from Bubu Pharmacy.",
+      "weight": 0.9,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "rex_lapis_is_zhongli_edge",
+      "source": "rex_lapis",
+      "target": "zhongli",
+      "relation": "is",
+      "description": "Rex Lapis takes the mortal form of Zhongli.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "rex_lapis_founds_liyue_with_adepti_edge",
+      "source": "rex_lapis",
+      "target": "liyue_harbor",
+      "relation": "founded",
+      "description": "Rex Lapis founded Liyue 3,700 years ago together with the adepti.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "rex_lapis_makes_contract_with_adepti_edge",
+      "source": "rex_lapis",
+      "target": "adepti",
+      "relation": "contracts_with",
+      "description": "Rex Lapis entered into contracts with the adepti for Liyue's protection.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "rex_lapis_creates_mora_edge",
+      "source": "rex_lapis",
+      "target": "mora",
+      "relation": "creates",
+      "description": "As Geo Archon, Rex Lapis can create Mora, and the Golden House mints it using his power.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "osial_defeated_by_rex_lapis_during_archon_war_edge",
+      "source": "rex_lapis",
+      "target": "osial",
+      "relation": "defeated",
+      "description": "Rex Lapis defeated Osial during the Archon War and pinned him under stone spears.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "rex_lapis_defeated_osial_at_guyun_stone_forest_edge",
+      "source": "rex_lapis",
+      "target": "guyun_stone_forest",
+      "relation": "defeated_osial_at",
+      "description": "Rex Lapis defeated Osial during the Archon War and pinned him under stone spears.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "rex_lapis_owns_gnosis_edge",
+      "source": "rex_lapis",
+      "target": "gnosis",
+      "relation": "owns",
+      "description": "Rex Lapis possesses the Gnosis until he gives it away as part of his contract with the Tsaritsa.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": "transfer_of_gnosis",
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_works_for_fatui_edge",
+      "source": "childe",
+      "target": "fatui",
+      "relation": "is_member_of",
+      "description": "Childe is the Eleventh Harbinger of the Fatui.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_fights_traveler_edge",
+      "source": "childe",
+      "target": "traveler",
+      "relation": "fights",
+      "description": "Childe battles the Traveler in the Golden House after suspecting they took the Gnosis.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_misleads_traveler_edge",
+      "source": "childe",
+      "target": "traveler",
+      "relation": "misleads",
+      "description": "Childe acts friendly and helpful while secretly planning to steal the Gnosis and awaken Osial.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_awakens_osial_edge",
+      "source": "childe",
+      "target": "osial",
+      "relation": "awakens",
+      "description": "Childe uses multiple Sigils of Permission to temporarily break Rex Lapis's seals and unleash Osial.",
+      "weight": 1.0,
+      "time_start_event": "awakening_of_osial",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "sigil_of_permission_used_by_childe_edge",
+      "source": "childe",
+      "target": "sigil_of_permission",
+      "relation": "uses",
+      "description": "Childe wields multiple Sigils of Permission to awaken Osial.",
+      "weight": 1.0,
+      "time_start_event": "awakening_of_osial",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_researches_sigil_of_permission_edge",
+      "source": "childe",
+      "target": "sigil_of_permission",
+      "relation": "researches",
+      "description": "The Fatui, led by Childe, research and duplicate Sigils of Permission at a hidden site.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_funds_preparations_edge",
+      "source": "childe",
+      "target": "preparation_of_rite_of_parting",
+      "relation": "funds",
+      "description": "Childe provides Mora to pay for all Rite of Parting materials, unaware of Zhongli's true identity.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_operates_from_northland_bank_edge",
+      "source": "childe",
+      "target": "northland_bank",
+      "relation": "operates_from",
+      "description": "Childe uses Northland Bank as his base in Liyue for Fatui operations.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_researches_sigil_of_permission_at_northland_bank_edge",
+      "source": "childe",
+      "target": "northland_bank",
+      "relation": "researches_at",
+      "description": "Childe conducts Sigil of Permission research at Northland Bank.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_confronts_traveler_at_golden_house_edge",
+      "source": "childe",
+      "target": "golden_house",
+      "relation": "enters",
+      "description": "Childe breaks into the Golden House to steal the Gnosis from the Exuvia.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_contracts_with_qiqi_edge",
+      "source": "childe",
+      "target": "qiqi",
+      "relation": "contracts_with",
+      "description": "Childe agrees to provide coconut milk to Qiqi in exchange for a discount on Everlasting Incense.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_contracts_with_baizhu_edge",
+      "source": "childe",
+      "target": "baizhu",
+      "relation": "contracts_with",
+      "description": "Childe offers Fatui distribution network to Bubu Pharmacy.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "childe_searches_for_gnosis_in_golden_house_edge",
+      "source": "childe",
+      "target": "gnosis",
+      "relation": "searches_for",
+      "description": "Childe enters the Golden House to find and take the Gnosis from the Exuvia.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ningguang_leads_liyue_qixing_edge",
+      "source": "ningguang",
+      "target": "liyue_qixing",
+      "relation": "is_member_of",
+      "description": "Ningguang is the Tianquan, a member of the Liyue Qixing.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ningguang_sacrifices_jade_chamber_edge",
+      "source": "ningguang",
+      "target": "jade_chamber",
+      "relation": "sacrifices",
+      "description": "Ningguang drops the Jade Chamber onto Osial to suppress him and save Liyue.",
+      "weight": 1.0,
+      "time_start_event": "sacrifice_of_jade_chamber",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ningguang_hides_exuvia_edge",
+      "source": "ningguang",
+      "target": "exuvia",
+      "relation": "hides",
+      "description": "Ningguang orders the Exuvia to be hidden away after the Rite of Descension to control the situation.",
+      "weight": 0.9,
+      "time_start_event": "fake_death_of_rex_lapis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ningguang_files_lawsuit_against_fatui_edge",
+      "source": "ningguang",
+      "target": "fatui",
+      "relation": "files_against",
+      "description": "After the Osial battle, Ningguang uses Childe's attack as diplomatic leverage against the Fatui envoys.",
+      "weight": 0.7,
+      "time_start_event": "battle_at_jade_chamber",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ningguang_investigates_fatui_edge",
+      "source": "ningguang",
+      "target": "fatui",
+      "relation": "investigates",
+      "description": "Ningguang spies on Fatui activities in Liyue and limits their movements.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ningguang_orders_millelith_edge",
+      "source": "ningguang",
+      "target": "millelith",
+      "relation": "orders",
+      "description": "Ningguang commands the Millelith to seal the exits and arrest suspects.",
+      "weight": 0.9,
+      "time_start_event": "fake_death_of_rex_lapis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ningguang_receives_intel_from_verr_goldet_edge",
+      "source": "ningguang",
+      "target": "verr_goldet",
+      "relation": "receives_intel_from",
+      "description": "Ningguang uses Verr Goldet as an informant.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ningguang_invites_traveler_to_jade_chamber_edge",
+      "source": "ningguang",
+      "target": "traveler",
+      "relation": "invites",
+      "description": "Ningguang sends Ganyu to formally invite the Traveler to the Jade Chamber.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ningguang_receives_gift_from_traveler_edge",
+      "source": "ningguang",
+      "target": "traveler",
+      "relation": "receives_gift_from",
+      "description": "Ningguang accepts the gift offered by the Traveler.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ningguang_is_subject_of_iron_tongue_tian_stories_edge",
+      "source": "ningguang",
+      "target": "iron_tongue_tian",
+      "relation": "is_subject_of_stories_by",
+      "description": "Ningguang's deeds are told by Iron Tongue Tian.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "keqing_guards_guizhong_ballista_edge",
+      "source": "keqing",
+      "target": "guizhong_ballista",
+      "relation": "investigates",
+      "description": "Keqing investigates the repair of the Guizhong Ballista.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "keqing_meets_traveler_at_guizhong_ballista_edge",
+      "source": "keqing",
+      "target": "traveler",
+      "relation": "meets",
+      "description": "Keqing encounters the Traveler at the Guizhong Ballista.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ganyu_works_for_liyue_qixing_edge",
+      "source": "ganyu",
+      "target": "liyue_qixing",
+      "relation": "works_for",
+      "description": "Ganyu is the secretary of the Qixing and serves as Ningguang's emissary.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ganyu_picks_glaze_lilies_edge",
+      "source": "ganyu",
+      "target": "glaze_lily",
+      "relation": "picks",
+      "description": "Ganyu picks wild Glaze Lilies and gives them to Traveler for the Rite of Parting.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ganyu_delivers_invitation_to_traveler_edge",
+      "source": "ganyu",
+      "target": "traveler",
+      "relation": "delivers_message_to",
+      "description": "Ganyu acts as Ningguang's emissary to invite the Traveler.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "signora_receives_gnosis_from_zhongli_edge",
+      "source": "signora",
+      "target": "zhongli",
+      "relation": "receives_from",
+      "description": "Signora takes the Gnosis from Zhongli at Northland Bank.",
+      "weight": 1.0,
+      "time_start_event": "transfer_of_gnosis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "signora_collects_gnosis_in_mondstadt_edge",
+      "source": "signora",
+      "target": "venti",
+      "relation": "takes_gnosis_from",
+      "description": "Previously in Mondstadt, Signora took Venti's Gnosis.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "signora_serves_tsaritsa_edge",
+      "source": "signora",
+      "target": "tsaritsa",
+      "relation": "serves",
+      "description": "Signora serves the Tsaritsa as a Fatui Harbinger.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "signora_receives_gnosis_edge",
+      "source": "signora",
+      "target": "gnosis",
+      "relation": "receives",
+      "description": "Signora takes the Geo Archon's Gnosis as part of the contract with the Tsaritsa.",
+      "weight": 1.0,
+      "time_start_event": "transfer_of_gnosis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "moon_carver_sends_traveler_to_xiao_edge",
+      "source": "moon_carver",
+      "target": "traveler",
+      "relation": "sends_to",
+      "description": "Moon Carver instructs Traveler to go to Wangshu Inn to find the Conqueror of Demons, Xiao.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "cloud_retainer_built_guizhong_ballista_edge",
+      "source": "cloud_retainer",
+      "target": "guizhong_ballista",
+      "relation": "built",
+      "description": "Cloud Retainer constructed the Guizhong Ballista using adeptus technology.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "cloud_retainer_meets_traveler_in_domain_edge",
+      "source": "cloud_retainer",
+      "target": "traveler",
+      "relation": "meets",
+      "description": "Cloud Retainer grants the Traveler an audience after completing her domain puzzle.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mountain_shaper_plants_karst_crawlers_on_mt_hulao_edge",
+      "source": "mountain_shaper",
+      "target": "mt_hulao",
+      "relation": "planted_in",
+      "description": "Mountain Shaper planted karst crawlers on Mt. Hulao to trap intruders.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mountain_shaper_meets_traveler_on_mt_hulao_edge",
+      "source": "mountain_shaper",
+      "target": "traveler",
+      "relation": "meets",
+      "description": "Mountain Shaper confronts the Traveler on Mt. Hulao for freeing Li Dang.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "xiao_allows_dusky_ming_to_stay_edge",
+      "source": "xiao",
+      "target": "dusky_ming",
+      "relation": "protects",
+      "description": "Xiao asked the innkeepers to let Dusky Ming stay at Wangshu Inn because she has never hurt anyone.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "xiao_lives_at_wangshu_inn_edge",
+      "source": "xiao",
+      "target": "wangshu_inn",
+      "relation": "resides_at",
+      "description": "Xiao, the Conqueror of Demons, resides at Wangshu Inn, often found on the balcony.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "xiao_eats_almond_tofu_edge",
+      "source": "xiao",
+      "target": "almond_tofu",
+      "relation": "eats",
+      "description": "Almond Tofu is Xiao's favorite human food.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "xiao_meets_traveler_at_wangshu_inn_edge",
+      "source": "xiao",
+      "target": "traveler",
+      "relation": "meets",
+      "description": "Xiao appears on the balcony of Wangshu Inn and speaks with the Traveler.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "madame_ping_lends_cleansing_bell_edge",
+      "source": "madame_ping",
+      "target": "cleansing_bell",
+      "relation": "lends",
+      "description": "Madame Ping allows Traveler to borrow the Cleansing Bell from her teapot domain for the Rite of Parting.",
+      "weight": 0.8,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "madame_ping_invites_zhongli_for_tea_edge",
+      "source": "madame_ping",
+      "target": "zhongli",
+      "relation": "invites",
+      "description": "Madame Ping tells Traveler to invite Zhongli for tea at her place.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "madame_ping_meets_traveler_at_yujing_terrace_edge",
+      "source": "madame_ping",
+      "target": "traveler",
+      "relation": "meets",
+      "description": "The Traveler meets Madame Ping while she tends to Glaze Lilies.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "osial_is_awakened_by_childe_edge",
+      "source": "osial",
+      "target": "childe",
+      "relation": "is_awakened_by",
+      "description": "Osial is unleashed from beneath Guyun Stone Forest by Childe's actions.",
+      "weight": 1.0,
+      "time_start_event": "awakening_of_osial",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "osial_pinned_under_guyun_stone_forest_edge",
+      "source": "osial",
+      "target": "guyun_stone_forest",
+      "relation": "imprisoned_under",
+      "description": "Osial remains trapped beneath the sea at Guyun Stone Forest, held by Rex Lapis's stone spears.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "venti_loses_gnosis_to_signora_edge",
+      "source": "venti",
+      "target": "signora",
+      "relation": "loses_gnosis_to",
+      "description": "Venti's Gnosis was taken by Signora.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "tsaritsa_contracts_with_zhongli_edge",
+      "source": "tsaritsa",
+      "target": "zhongli",
+      "relation": "contracts_with",
+      "description": "The Cryo Archon, Tsaritsa, negotiated with Zhongli to obtain his Gnosis.",
+      "weight": 1.0,
+      "time_start_event": "transfer_of_gnosis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "tsaritsa_is_served_by_signora_edge",
+      "source": "tsaritsa",
+      "target": "signora",
+      "relation": "is_served_by",
+      "description": "The Tsaritsa is served by Signora, who acts as her agent.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "tsaritsa_obtains_gnosis_edge",
+      "source": "tsaritsa",
+      "target": "gnosis",
+      "relation": "obtains",
+      "description": "The Tsaritsa acquires the Geo Archon's Gnosis through Signora's collection.",
+      "weight": 1.0,
+      "time_start_event": "transfer_of_gnosis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "verr_goldet_employs_smiley_yanxiao_edge",
+      "source": "verr_goldet",
+      "target": "smiley_yanxiao",
+      "relation": "employs",
+      "description": "Verr Goldet is the boss of Wangshu Inn and employs Smiley Yanxiao as chef.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "verr_goldet_spies_for_ningguang_edge",
+      "source": "verr_goldet",
+      "target": "ningguang",
+      "relation": "spies_for",
+      "description": "Verr Goldet secretly reports to Ningguang about Traveler and others.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "smiley_yanxiao_is_employed_by_verr_goldet_edge",
+      "source": "smiley_yanxiao",
+      "target": "verr_goldet",
+      "relation": "is_employed_by",
+      "description": "Smiley Yanxiao works under Verr Goldet at Wangshu Inn.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "smiley_yanxiao_makes_almond_tofu_edge",
+      "source": "smiley_yanxiao",
+      "target": "almond_tofu",
+      "relation": "cooks",
+      "description": "Smiley Yanxiao prepares Almond Tofu for Xiao.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "smiley_yanxiao_is_frightened_by_dusky_ming_edge",
+      "source": "smiley_yanxiao",
+      "target": "dusky_ming",
+      "relation": "is_frightened_by",
+      "description": "Smiley Yanxiao is afraid of the ghost at Wangshu Inn.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "qiqi_works_at_bubu_pharmacy_edge",
+      "source": "qiqi",
+      "target": "bubu_pharmacy",
+      "relation": "works_at",
+      "description": "Qiqi is a zombie employee at Bubu Pharmacy.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "qiqi_lives_at_bubu_pharmacy_edge",
+      "source": "qiqi",
+      "target": "bubu_pharmacy",
+      "relation": "lives_at",
+      "description": "Qiqi resides and works at Bubu Pharmacy.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "qiqi_misunderstands_coconut_milk_edge",
+      "source": "qiqi",
+      "target": "cocogoat_misunderstanding",
+      "relation": "causes",
+      "description": "Qiqi's poor memory leads her to ask for a 'Cocogoat', creating a comedic misunderstanding.",
+      "weight": 0.6,
+      "time_start_event": "cocogoat_misunderstanding",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "qiqi_is_employed_by_baizhu_edge",
+      "source": "qiqi",
+      "target": "baizhu",
+      "relation": "is_employed_by",
+      "description": "Qiqi works under Baizhu at Bubu Pharmacy.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "qiqi_contracts_with_childe_edge",
+      "source": "qiqi",
+      "target": "childe",
+      "relation": "contracts_with",
+      "description": "Qiqi's desire for coconut milk leads to a deal with Childe.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "baizhu_owns_bubu_pharmacy_edge",
+      "source": "baizhu",
+      "target": "bubu_pharmacy",
+      "relation": "owns",
+      "description": "Baizhu is the owner of Bubu Pharmacy.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "baizhu_works_at_bubu_pharmacy_edge",
+      "source": "baizhu",
+      "target": "bubu_pharmacy",
+      "relation": "works_at",
+      "description": "Baizhu is the owner and pharmacist at Bubu Pharmacy.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "baizhu_employs_qiqi_edge",
+      "source": "baizhu",
+      "target": "qiqi",
+      "relation": "employs",
+      "description": "Baizhu is the boss of Bubu Pharmacy and Qiqi works for him.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "baizhu_contracts_with_childe_edge",
+      "source": "baizhu",
+      "target": "childe",
+      "relation": "contracts_with",
+      "description": "Baizhu agrees to a future collaboration with the Fatui for coconut milk supply.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "changsheng_accompanies_baizhu_edge",
+      "source": "changsheng",
+      "target": "baizhu",
+      "relation": "accompanies",
+      "description": "Changsheng, the talking white snake, is always with Baizhu, often around his neck.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "yinger_makes_perfume_for_traveler_edge",
+      "source": "yinger",
+      "target": "perfume_making",
+      "relation": "performs",
+      "description": "Yinger guides Traveler in extracting essential oils and making three perfumes for the Rite of Parting.",
+      "weight": 1.0,
+      "time_start_event": "perfume_making",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "iron_tongue_tian_performs_at_third_round_knockout_edge",
+      "source": "iron_tongue_tian",
+      "target": "third_round_knockout",
+      "relation": "performs_at",
+      "description": "Iron Tongue Tian tells stories, including tales of Ningguang and the Jade Chamber, at Third-Round Knockout.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "iron_tongue_tian_tells_story_of_ningguang_edge",
+      "source": "iron_tongue_tian",
+      "target": "ningguang",
+      "relation": "tells_story_of",
+      "description": "The storyteller narrates tales of Ningguang and her Jade Chamber.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "dusky_ming_haunts_wangshu_inn_edge",
+      "source": "dusky_ming",
+      "target": "wangshu_inn",
+      "relation": "haunts",
+      "description": "Dusky Ming, a ghost girl, scares staff and guests at Wangshu Inn until Traveler calms her.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "dusky_ming_frightens_smiley_yanxiao_edge",
+      "source": "dusky_ming",
+      "target": "smiley_yanxiao",
+      "relation": "frightens",
+      "description": "The ghost girl scares Smiley Yanxiao, causing his hands to shake.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "dusky_ming_is_comforted_by_traveler_edge",
+      "source": "dusky_ming",
+      "target": "traveler",
+      "relation": "is_comforted_by",
+      "description": "Dusky Ming listens to the Traveler and agrees to behave.",
+      "weight": 0.8,
+      "time_start_event": "comforting_of_dusky_ming",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "liyue_qixing_governs_liyue_harbor_edge",
+      "source": "liyue_qixing",
+      "target": "liyue_harbor",
+      "relation": "governs",
+      "description": "The Qixing hold true control over Liyue Harbor's mercantile and civil affairs.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "liyue_qixing_announces_rex_lapis_failed_trial_edge",
+      "source": "liyue_qixing",
+      "target": "fake_death_of_rex_lapis",
+      "relation": "explains_as",
+      "description": "The Qixing publicly announce that Rex Lapis died due to a failed divine trial, not murder, after learning he is not truly dead.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "fatui_employs_childe_edge",
+      "source": "fatui",
+      "target": "childe",
+      "relation": "employs",
+      "description": "The Fatui employs Childe as the Eleventh Harbinger.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "fatui_is_investigated_by_ningguang_edge",
+      "source": "fatui",
+      "target": "ningguang",
+      "relation": "is_investigated_by",
+      "description": "The Fatui are under surveillance by Ningguang.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "fatui_seeks_gnosis_edge",
+      "source": "fatui",
+      "target": "gnosis",
+      "relation": "seeks",
+      "description": "The Fatui, through Harbingers like Childe and Signora, seek to obtain the Geo Archon's Gnosis.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "adepti_protect_liyue_edge",
+      "source": "adepti",
+      "target": "liyue_harbor",
+      "relation": "protects",
+      "description": "The adepti have a contract to protect Liyue, which they uphold during the Osial crisis.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "adepti_sign_contract_with_rex_lapis_edge",
+      "source": "adepti",
+      "target": "rex_lapis",
+      "relation": "signed_contract_with",
+      "description": "The adepti signed contracts to protect Liyue under Rex Lapis.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "adepti_guard_jueyun_karst_edge",
+      "source": "adepti",
+      "target": "jueyun_karst",
+      "relation": "guards",
+      "description": "The adepti live in and guard the Jueyun Karst, preventing intruders from entering.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "millelith_guards_liyue_edge",
+      "source": "millelith",
+      "target": "liyue_harbor",
+      "relation": "guards",
+      "description": "The Millelith are the military force that guards Liyue Harbor under the Qixing's command.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "millelith_obeys_ningguang_edge",
+      "source": "millelith",
+      "target": "ningguang",
+      "relation": "obeys",
+      "description": "The Millelith follow Ningguang's orders during the crisis.",
+      "weight": 0.8,
+      "time_start_event": "fake_death_of_rex_lapis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "millelith_follows_ningguang_orders_edge",
+      "source": "millelith",
+      "target": "ningguang",
+      "relation": "follows_orders_of",
+      "description": "The Millelith obey Ningguang's commands.",
+      "weight": 0.9,
+      "time_start_event": "fake_death_of_rex_lapis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "millelith_guards_jade_chamber_edge",
+      "source": "millelith",
+      "target": "jade_chamber",
+      "relation": "guards",
+      "description": "Millelith soldiers are stationed at the Jade Chamber.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "treasure_hoarders_vandalize_guizhong_ballista_edge",
+      "source": "treasure_hoarders",
+      "target": "guizhong_ballista",
+      "relation": "damages",
+      "description": "Treasure Hoarders previously disabled the Guizhong Ballista to access hidden treasures.",
+      "weight": 0.7,
+      "time_start_event": "repair_of_guizhong_ballista",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "treasure_hoarders_imprison_meng_dan_edge",
+      "source": "treasure_hoarders",
+      "target": "meng_dan",
+      "relation": "imprisons",
+      "description": "Treasure Hoarders capture and imprison Meng Dan in ruins.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "wangsheng_funeral_parlor_employs_zhongli_edge",
+      "source": "wangsheng_funeral_parlor",
+      "target": "zhongli",
+      "relation": "employs",
+      "description": "Wangsheng Funeral Parlor employs Zhongli as a consultant.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "bubu_pharmacy_houses_qiqi_edge",
+      "source": "bubu_pharmacy",
+      "target": "qiqi",
+      "relation": "houses",
+      "description": "Bubu Pharmacy is Qiqi's home and workplace.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "bubu_pharmacy_is_baizhu_workplace_edge",
+      "source": "bubu_pharmacy",
+      "target": "baizhu",
+      "relation": "is_workplace_of",
+      "description": "Bubu Pharmacy is where Baizhu practices medicine.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "bubu_pharmacy_sells_everlasting_incense_edge",
+      "source": "bubu_pharmacy",
+      "target": "everlasting_incense",
+      "relation": "sells",
+      "description": "Bubu Pharmacy sells Everlasting Incense, with Baizhu offering a discount after Childe's deal.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "liyue_harbor_is_governed_by_liyue_qixing_edge",
+      "source": "liyue_harbor",
+      "target": "liyue_qixing",
+      "relation": "is_governed_by",
+      "description": "Liyue Harbor is run by the Qixing, with Ningguang as Tianquan and Keqing as Yuheng.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "liyue_is_protected_by_adepti_edge",
+      "source": "liyue_harbor",
+      "target": "adepti",
+      "relation": "is_protected_by",
+      "description": "Liyue is defended by the illuminated adepti who signed contracts with Rex Lapis.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "liyue_is_founded_by_rex_lapis_edge",
+      "source": "liyue_harbor",
+      "target": "rex_lapis",
+      "relation": "is_founded_by",
+      "description": "Liyue Harbor was established by Rex Lapis 3,700 years ago.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "jueyun_karst_is_guarded_by_adepti_edge",
+      "source": "jueyun_karst",
+      "target": "adepti",
+      "relation": "is_guarded_by",
+      "description": "Jueyun Karst is the protected domain of the adepti.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "golden_house_mints_mora_edge",
+      "source": "golden_house",
+      "target": "mora",
+      "relation": "produces",
+      "description": "The Golden House is the only mint in Teyvat where Mora is produced using the Geo Archon's power.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "golden_house_is_invaded_by_childe_edge",
+      "source": "golden_house",
+      "target": "childe",
+      "relation": "is_invaded_by",
+      "description": "The Golden House is where Childe confronts Traveler and searches for the Gnosis.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "golden_house_is_visited_by_traveler_edge",
+      "source": "golden_house",
+      "target": "traveler",
+      "relation": "is_visited_by",
+      "description": "Traveler enters the Golden House to confront Childe.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "guyun_stone_forest_is_site_of_awakening_of_osial_edge",
+      "source": "guyun_stone_forest",
+      "target": "awakening_of_osial",
+      "relation": "is_site_of",
+      "description": "Guyun Stone Forest is where Osial is released from his imprisonment.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "guyun_stone_forest_is_battlefield_of_rex_lapis_vs_osial_edge",
+      "source": "guyun_stone_forest",
+      "target": "rex_lapis",
+      "relation": "is_battlefield_of",
+      "description": "Guyun Stone Forest marks where Rex Lapis defeated Osial.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "northland_bank_hosts_transfer_of_gnosis_edge",
+      "source": "northland_bank",
+      "target": "transfer_of_gnosis",
+      "relation": "hosts",
+      "description": "Northland Bank is where the Gnosis exchange occurs.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "northland_bank_is_research_site_for_sigil_of_permission_edge",
+      "source": "northland_bank",
+      "target": "sigil_of_permission",
+      "relation": "is_research_site_for",
+      "description": "Northland Bank houses the Fatui's research on the Sigil of Permission.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "northland_bank_hosts_gnosis_transfer_edge",
+      "source": "northland_bank",
+      "target": "gnosis",
+      "relation": "hosts_transfer_of",
+      "description": "Northland Bank is the location where the Gnosis changes hands from Zhongli to Signora.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "dadaupa_gorge_is_testing_site_for_noctilucous_jade_edge",
+      "source": "dadaupa_gorge",
+      "target": "noctilucous_jade",
+      "relation": "is_testing_site_for",
+      "description": "Dadaupa Gorge is where the quality of Noctilucous Jade is assessed.",
+      "weight": 0.8,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "wanmin_restaurant_hosts_perfume_making_edge",
+      "source": "wanmin_restaurant",
+      "target": "perfume_making",
+      "relation": "hosts",
+      "description": "Wanmin Restaurant's kitchen is used for perfume production.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "third_round_knockout_is_dining_venue_for_zhongli_edge",
+      "source": "third_round_knockout",
+      "target": "zhongli",
+      "relation": "is_dining_venue_for",
+      "description": "Third-Round Knockout serves as the place where Zhongli treats Traveler.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "jade_chamber_is_sacrificed_by_ningguang_edge",
+      "source": "jade_chamber",
+      "target": "ningguang",
+      "relation": "is_sacrificed_by",
+      "description": "The Jade Chamber is destroyed by Ningguang to save Liyue.",
+      "weight": 1.0,
+      "time_start_event": "sacrifice_of_jade_chamber",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "jade_chamber_located_above_yujing_terrace_edge",
+      "source": "jade_chamber",
+      "target": "yujing_terrace",
+      "relation": "located_above",
+      "description": "The Jade Chamber floats in the sky above Yujing Terrace.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "jade_chamber_is_battleground_for_osial_fight_edge",
+      "source": "jade_chamber",
+      "target": "battle_at_jade_chamber",
+      "relation": "is_battleground_for",
+      "description": "The Jade Chamber is the location from which Osial is fought.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "jade_chamber_is_guarded_by_millelith_edge",
+      "source": "jade_chamber",
+      "target": "millelith",
+      "relation": "is_guarded_by",
+      "description": "The Jade Chamber has Millelith guards.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "guizhong_ballista_located_at_mt_tianheng_edge",
+      "source": "guizhong_ballista",
+      "target": "mt_tianheng",
+      "relation": "located_in",
+      "description": "The Guizhong Ballista is installed on Mt. Tianheng.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "guizhong_ballista_used_against_osial_edge",
+      "source": "guizhong_ballista",
+      "target": "osial",
+      "relation": "attacks",
+      "description": "During the battle, the upgraded Guizhong Ballistas, manned by adepti, fire upon Osial.",
+      "weight": 0.9,
+      "time_start_event": "battle_at_jade_chamber",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "guizhong_ballista_was_built_by_cloud_retainer_edge",
+      "source": "guizhong_ballista",
+      "target": "cloud_retainer",
+      "relation": "was_built_by",
+      "description": "The Guizhong Ballista was created by Cloud Retainer.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "guizhong_ballista_is_investigated_by_keqing_edge",
+      "source": "guizhong_ballista",
+      "target": "keqing",
+      "relation": "is_investigated_by",
+      "description": "The Guizhong Ballista draws Keqing's attention after being repaired.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "exuvia_is_hidden_by_ningguang_edge",
+      "source": "exuvia",
+      "target": "ningguang",
+      "relation": "is_hidden_by",
+      "description": "The Exuvia is kept secret on Ningguang's orders.",
+      "weight": 0.9,
+      "time_start_event": "fake_death_of_rex_lapis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "exuvia_stored_in_golden_house_edge",
+      "source": "exuvia",
+      "target": "golden_house",
+      "relation": "stored_in",
+      "description": "Before the Rite of Parting, the Exuvia is temporarily kept in the Golden House.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "exuvia_contains_no_gnosis_edge",
+      "source": "exuvia",
+      "target": "gnosis",
+      "relation": "does_not_contain",
+      "description": "The Exuvia is an empty vessel; the Gnosis was never inside it.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "gnosis_is_given_to_signora_by_zhongli_edge",
+      "source": "gnosis",
+      "target": "signora",
+      "relation": "given_to",
+      "description": "The Gnosis is handed over to Signora by Zhongli at Northland Bank.",
+      "weight": 1.0,
+      "time_start_event": "transfer_of_gnosis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "gnosis_belongs_to_rex_lapis_originally_edge",
+      "source": "gnosis",
+      "target": "rex_lapis",
+      "relation": "belongs_to",
+      "description": "The Gnosis originally belonged to Rex Lapis as his divine core as the Geo Archon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "gnosis_exchanged_in_contract_with_tsaritsa_edge",
+      "source": "gnosis",
+      "target": "tsaritsa",
+      "relation": "exchanged_to",
+      "description": "The Gnosis is given to the Tsaritsa as part of Zhongli's 'contract to end all contracts'.",
+      "weight": 1.0,
+      "time_start_event": "transfer_of_gnosis",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "gnosis_not_found_in_exuvia_by_childe_edge",
+      "source": "gnosis",
+      "target": "exuvia",
+      "relation": "not_found_in",
+      "description": "Childe searches the Exuvia in the Golden House but finds no Gnosis inside.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "gnosis_used_for_minting_mora_edge",
+      "source": "gnosis",
+      "target": "mora",
+      "relation": "enables_creation_of",
+      "description": "The Gnosis provides the Geo Archon's power needed to mint Mora at the Golden House.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": "transfer_of_gnosis",
+      "chunk_id": 1
+    },
+    {
+      "id": "gnosis_is_sought_by_fatui_edge",
+      "source": "gnosis",
+      "target": "fatui",
+      "relation": "sought_by",
+      "description": "The Gnosis is a target for the Fatui, who collect Archons' Gnoses for the Tsaritsa.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "gnosis_transferred_at_northland_bank_edge",
+      "source": "gnosis",
+      "target": "northland_bank",
+      "relation": "transferred_at",
+      "description": "The Gnosis is handed over to Signora inside Northland Bank.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "noctilucous_jade_quality_is_explained_by_zhongli_edge",
+      "source": "noctilucous_jade",
+      "target": "zhongli",
+      "relation": "is_explained_by",
+      "description": "The method to test Noctilucous Jade is taught by Zhongli.",
+      "weight": 0.7,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "testing_of_noctilucous_jade_takes_place_at_dadaupa_gorge_edge",
+      "source": "noctilucous_jade",
+      "target": "dadaupa_gorge",
+      "relation": "tested_at",
+      "description": "Noctilucous Jade is tested for quality at Dadaupa Gorge.",
+      "weight": 0.8,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "everlasting_incense_is_bought_from_bubu_pharmacy_edge",
+      "source": "everlasting_incense",
+      "target": "bubu_pharmacy",
+      "relation": "bought_from",
+      "description": "Everlasting Incense is purchased from Bubu Pharmacy for the Rite of Parting, costing nearly 3 million Mora.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "everlasting_incense_used_in_rite_of_parting_edge",
+      "source": "everlasting_incense",
+      "target": "rite_of_parting",
+      "relation": "used_in",
+      "description": "Everlasting Incense is burned during the Rite of Parting ceremony to honor Rex Lapis.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "everlasting_incense_purchased_by_zhongli_edge",
+      "source": "everlasting_incense",
+      "target": "zhongli",
+      "relation": "purchased_by",
+      "description": "Everlasting Incense is bought by Zhongli with Traveler's help and Childe's funding.",
+      "weight": 0.9,
+      "time_start_event": "preparation_of_rite_of_parting",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "glaze_lily_grows_in_dihua_marsh_edge",
+      "source": "glaze_lily",
+      "target": "dihua_marsh",
+      "relation": "located_in",
+      "description": "Wild Glaze Lilies can be found in Dihua Marsh.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "glaze_lily_is_picked_by_ganyu_edge",
+      "source": "glaze_lily",
+      "target": "ganyu",
+      "relation": "is_picked_by",
+      "description": "The Glaze Lily is picked by Ganyu and given to Traveler.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "glaze_lily_reacts_to_traveler_singing_edge",
+      "source": "glaze_lily",
+      "target": "traveler",
+      "relation": "reacts_to",
+      "description": "The Glaze Lilies are sung to by the Traveler but the real flowers have been replaced by Whopperflowers.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "almond_tofu_is_cooked_by_smiley_yanxiao_edge",
+      "source": "almond_tofu",
+      "target": "smiley_yanxiao",
+      "relation": "is_cooked_by",
+      "description": "Almond Tofu is made by the chef at Wangshu Inn.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "almond_tofu_is_eaten_by_xiao_edge",
+      "source": "almond_tofu",
+      "target": "xiao",
+      "relation": "is_eaten_by",
+      "description": "Almond Tofu is consumed by Xiao.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mora_is_created_by_rex_lapis_edge",
+      "source": "mora",
+      "target": "rex_lapis",
+      "relation": "is_created_by",
+      "description": "Mora is minted using the Geo Archon's power.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "minting_of_mora_requires_gnosis_power_edge",
+      "source": "mora",
+      "target": "gnosis",
+      "relation": "requires_power_of",
+      "description": "Minting Mora requires the power of the Geo Archon's Gnosis, so production stops after the Gnosis is given away.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "rite_of_descension_takes_place_at_yujing_terrace_edge",
+      "source": "rite_of_descension",
+      "target": "yujing_terrace",
+      "relation": "takes_place_at",
+      "description": "The Rite of Descension is held at Yujing Terrace.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "fake_death_causes_confusion_edge",
+      "source": "fake_death_of_rex_lapis",
+      "target": "liyue_harbor",
+      "relation": "affects",
+      "description": "The fake death spreads rumors and chaos throughout Liyue Harbor.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "fake_death_of_rex_lapis_precedes_preparation_of_rite_of_parting_edge",
+      "source": "fake_death_of_rex_lapis",
+      "target": "preparation_of_rite_of_parting",
+      "relation": "precedes",
+      "description": "The fake death occurs before the Traveler and Zhongli begin preparing the Rite of Parting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "rite_of_parting_takes_place_at_yujing_terrace_edge",
+      "source": "rite_of_parting",
+      "target": "yujing_terrace",
+      "relation": "takes_place_at",
+      "description": "The Rite of Parting is also held at Yujing Terrace.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "rite_of_parting_follows_preparation_of_rite_of_parting_edge",
+      "source": "rite_of_parting",
+      "target": "preparation_of_rite_of_parting",
+      "relation": "follows",
+      "description": "The Rite of Parting takes place after all preparations are complete.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "rite_of_parting_requires_everlasting_incense_edge",
+      "source": "rite_of_parting",
+      "target": "everlasting_incense",
+      "relation": "requires",
+      "description": "The Rite of Parting requires Everlasting Incense as one of its essential ritual materials.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "preparation_of_rite_of_parting_involves_yujing_terrace_edge",
+      "source": "preparation_of_rite_of_parting",
+      "target": "yujing_terrace",
+      "relation": "involves",
+      "description": "Yujing Terrace is where the perfume, bell, and jade are placed during preparations.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "preparation_of_rite_of_parting_precedes_rite_of_parting_edge",
+      "source": "preparation_of_rite_of_parting",
+      "target": "rite_of_parting",
+      "relation": "precedes",
+      "description": "The preparation phase occurs before the actual Rite of Parting ceremony.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "preparation_of_rite_of_parting_follows_fake_death_of_rex_lapis_edge",
+      "source": "preparation_of_rite_of_parting",
+      "target": "fake_death_of_rex_lapis",
+      "relation": "follows",
+      "description": "Preparation for the farewell ceremony begins after Rex Lapis's apparent death.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "perfume_making_takes_place_at_wanmin_restaurant_edge",
+      "source": "perfume_making",
+      "target": "wanmin_restaurant",
+      "relation": "takes_place_at",
+      "description": "Ying'er and Traveler make perfume in the kitchen of Wanmin Restaurant.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "perfume_making_during_preparation_edge",
+      "source": "perfume_making",
+      "target": "preparation_of_rite_of_parting",
+      "relation": "part_of",
+      "description": "Making Silk Flower perfumes is one of the tasks in preparing the Rite of Parting.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "cocogoat_misunderstanding_during_preparation_edge",
+      "source": "cocogoat_misunderstanding",
+      "target": "preparation_of_rite_of_parting",
+      "relation": "part_of",
+      "description": "The Cocogoat misunderstanding occurs while gathering Everlasting Incense for the Rite of Parting.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "repair_of_guizhong_ballista_during_cocogoat_misunderstanding_edge",
+      "source": "repair_of_guizhong_ballista",
+      "target": "cocogoat_misunderstanding",
+      "relation": "part_of",
+      "description": "Zhongli repairs the Guizhong Ballista as part of searching for the non-existent Cocogoat.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "awakening_of_osial_takes_place_at_guyun_stone_forest_edge",
+      "source": "awakening_of_osial",
+      "target": "guyun_stone_forest",
+      "relation": "takes_place_at",
+      "description": "Childe awakens Osial from beneath Guyun Stone Forest.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "awakening_of_osial_precedes_battle_at_jade_chamber_edge",
+      "source": "awakening_of_osial",
+      "target": "battle_at_jade_chamber",
+      "relation": "precedes",
+      "description": "Osial's awakening triggers the battle between Liyue's forces and the ancient god.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "battle_at_jade_chamber_takes_place_at_jade_chamber_edge",
+      "source": "battle_at_jade_chamber",
+      "target": "jade_chamber",
+      "relation": "takes_place_at",
+      "description": "The battle against Osial takes place from the Jade Chamber platform.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "battle_at_jade_chamber_follows_awakening_of_osial_edge",
+      "source": "battle_at_jade_chamber",
+      "target": "awakening_of_osial",
+      "relation": "follows",
+      "description": "The battle at the Jade Chamber occurs immediately after Childe awakens Osial.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "battle_at_jade_chamber_precedes_sacrifice_of_jade_chamber_edge",
+      "source": "battle_at_jade_chamber",
+      "target": "sacrifice_of_jade_chamber",
+      "relation": "precedes",
+      "description": "The battle takes place, and after the Guizhong Ballistas are destroyed, Ningguang decides to sacrifice the Jade Chamber.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "sacrifice_of_jade_chamber_follows_battle_at_jade_chamber_edge",
+      "source": "sacrifice_of_jade_chamber",
+      "target": "battle_at_jade_chamber",
+      "relation": "follows",
+      "description": "The Jade Chamber is sacrificed at the climax of the battle to suppress Osial.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "sacrifice_of_jade_chamber_precedes_transfer_of_gnosis_edge",
+      "source": "sacrifice_of_jade_chamber",
+      "target": "transfer_of_gnosis",
+      "relation": "precedes",
+      "description": "After Osial is suppressed, Zhongli reveals his identity and hands over his Gnosis to Signora.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "transfer_of_gnosis_takes_place_at_northland_bank_edge",
+      "source": "transfer_of_gnosis",
+      "target": "northland_bank",
+      "relation": "takes_place_at",
+      "description": "Zhongli gives his Gnosis to Signora inside Northland Bank.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "transfer_of_gnosis_follows_sacrifice_of_jade_chamber_edge",
+      "source": "transfer_of_gnosis",
+      "target": "sacrifice_of_jade_chamber",
+      "relation": "follows",
+      "description": "The Gnosis transfer happens after the Jade Chamber is destroyed and Osial is defeated.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "sibling_is_searched_by_traveler_edge",
+      "source": "sibling",
+      "target": "traveler",
+      "relation": "is_searched_by",
+      "description": "The Traveler's sibling is who they are looking for.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "yujing_terrace_located_below_jade_chamber_edge",
+      "source": "yujing_terrace",
+      "target": "jade_chamber",
+      "relation": "located_below",
+      "description": "Yujing Terrace is directly under the Jade Chamber.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "yujing_terrace_hosts_rite_of_descension_edge",
+      "source": "yujing_terrace",
+      "target": "rite_of_descension",
+      "relation": "hosts",
+      "description": "Yujing Terrace is the venue for the Rite of Descension.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "yujing_terrace_hosts_rite_of_parting_edge",
+      "source": "yujing_terrace",
+      "target": "rite_of_parting",
+      "relation": "hosts",
+      "description": "Yujing Terrace is the venue for the Rite of Parting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "yujing_terrace_is_used_for_preparations_of_rite_of_parting_edge",
+      "source": "yujing_terrace",
+      "target": "preparation_of_rite_of_parting",
+      "relation": "is_used_for",
+      "description": "Yujing Terrace is the staging ground for the Rite of Parting preparations.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "mt_hulao_has_karst_crawlers_planted_by_mountain_shaper_edge",
+      "source": "mt_hulao",
+      "target": "mountain_shaper",
+      "relation": "has_karst_crawlers_planted_by",
+      "description": "Mt. Hulao's amber traps are maintained by Mountain Shaper.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "paper_snow_is_taken_by_traveler_edge",
+      "source": "paper_snow",
+      "target": "traveler",
+      "relation": "is_taken_by",
+      "description": "The paper snow document is taken by the Traveler.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "fatui_research_site_is_found_by_traveler_edge",
+      "source": "fatui_research_site",
+      "target": "traveler",
+      "relation": "is_found_by",
+      "description": "The Fatui's hidden research location is discovered by the Traveler.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "meng_dan_is_imprisoned_by_treasure_hoarders_edge",
+      "source": "meng_dan",
+      "target": "treasure_hoarders",
+      "relation": "is_imprisoned_by",
+      "description": "Meng Dan is held captive by Treasure Hoarders until rescued.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "meng_dan_is_rescued_by_traveler_edge",
+      "source": "meng_dan",
+      "target": "traveler",
+      "relation": "is_rescued_by",
+      "description": "Meng Dan is saved by the Traveler from the Treasure Hoarders.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "meng_dan_gives_gift_box_to_traveler_edge",
+      "source": "meng_dan",
+      "target": "traveler",
+      "relation": "gives",
+      "description": "In gratitude, Meng Dan provides a beautiful antique box for the Traveler's gift.",
+      "weight": 0.6,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    }
+  ]
+}

@@ -1,452 +1,352 @@
 [
   {
-    "generated_text": "Name: Elara Vexar\n\nElara is a meticulous and driven researcher with an insatiable curiosity for Liyue's rich history, often getting lost in the intricacies of ancient texts and relics. A foreigner from the distant land of Khaenriah, she has spent years studying the art of deciphering forgotten languages and uncovering hidden artifacts. Her fascination with Liyue's past is rooted in her desire to understand the enigmatic Tianquan, Ningguang, who remains shrouded in mystery. She holds a deep-seated distrust for Treasure Hoarders, viewing them as reckless collectors who prioritize material wealth over historical significance.\n\nElara has short, dark hair and piercing emerald eyes, often concealed behind a pair of dusty glasses perched on the end of her nose.",
+    "generated_text": "Name: Dr. Elara Vexar\n\nDr. Vexar is a brilliant and meticulous researcher with a passion for uncovering the secrets of Liyue's ancient history, often losing herself in the dusty pages of her notes and journals. Her fascination with the Geo Archon Rex Lapis has driven her to study the various cultures and traditions that have shaped the region over centuries. Despite her extensive knowledge, she harbors a healthy respect for those who possess genuine power and wealth, like the Treasure Hoarders, whom she sees as obstacles to her research goals. She is an outsider in Liyue, having emigrated from the distant land of Mondstadt. With a hint of determination etched on her face.\n\n(Note: Elara Vexar's appearance could be described as slender with curly brown hair tied up in a ponytail and wire-rimmed glasses perched on the end of her nose.)",
     "category": "character description",
     "reference_text": "\n                Soraya is a researcher from the Sumeru Akademiya who holds a great interest in Liyue's history and in particular, the legacy of Guizhong, the Lord of Dust and one of the gods who once lived in the Guili Assembly. She holds great respect for history and, as such, associates with people who have intimate knowledge of it. She holds the Treasure Hoarders in great disdain, seeing their plundering and looting of ancient relics for petty cash as sacrilegious. She believes that relics should be for scholars to study, for artists to take inspiration from and for people to admire in an exhibition, not used for earning cash, which is why she holds a low opinion of Treasure Hoarders.\n                Soraya wears a dark green-blue robe with a gold necklace and black sandals. She has brown hair tied in a bun and brown eyes, and wears a pair of black glasses.\n            ",
     "metrics": {
       "category": "character description",
-      "bert_score_source": 0.8050035834312439,
-      "bert_score_reference": 0.8503541350364685,
-      "world_consistency": 0.75,
-      "distinct_2": 0.9915966386554622,
-      "repetition_2": 0.008403361344537815,
-      "interestingness": 0.67,
-      "faithfulness": 1.0,
-      "answer_relevancy": 0.6285170017420311,
-      "context_precision": 0.9166666666361111,
-      "context_recall": 1.0
+      "bert_score_source": 0.8092793226242065,
+      "bert_score_reference": 0.8472374677658081,
+      "world_consistency": 0.95,
+      "distinct_2": 0.9790209790209791,
+      "repetition_2": 0.02097902097902098,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "Name: Sergei Ivanov\n\nLocation: The bustling streets of Snezhnaya, nestled between the grand architecture of the Wangshu Inn and the tranquil beauty of Jueyun Karst.\n\nOccupation: Sergei is a skilled craftsman, specializing in the delicate art of jade carving. He runs a small workshop near the Jade Market, where he creates intricate trinkets and ornaments that reflect the mystical essence of Liyue's Geo Archon, Rex Lapis.\n\nConnection to Cor Lapis: Unbeknownst to the Traveler, Sergei possesses an unassuming connection to Cor Lapis through his family heritage. His ancestors were once part of a secretive group of jade craftsmen who served as Cor's messengers and advisors, carrying on the legacy of reverence and respect for the Geo Archon that has been passed down through generations.\n\nSergei remains a humble figure, content in his work, yet harboring an unspoken sense of pride and responsibility to honor the legacy of Rex Lapis, much like Zhongli himself.",
+    "generated_text": "Here is a new character from Snezhnaya:\n\nName: Matvey Petrovich\n\nLocation: A small, dusty tavern in the frozen city of Snezhnaya, where locals gather to share stories and gossip.\n\nOccupation: Matvey is a humble bartender at the tavern, serving warm drinks to weary travelers and listening to their tales with a keen ear for rumors. Little does he know that his bar has become a hub for clandestine meetings between those seeking information about the mysterious Geomancers of Liyue.\n\nConnection to Cor Lapis: Rumors have circulated among the townsfolk that Matvey's late father, a miner, stumbled upon an ancient map hinting at the location of a hidden vein of Geo-energy. While no connection has been confirmed, some believe that Matvey might be searching for more than just a good drink recipe.\n\nThat's it!",
     "category": "character description",
     "reference_text": "\n                Ivanovich is an open-world NPC in Liyue Harbor. He can be found near the left side of the docks. He is a Snezhnayan merchant stationed in Liyue. \n                Ivanovich considers himself a distributor, selling everyday items produced in Snezhnaya. He also procures Cor Lapis to send back to Snezhnaya for their yet-unknown purpose in their factories.\n            ",
     "metrics": {
       "category": "character description",
-      "bert_score_source": 0.8173750638961792,
-      "bert_score_reference": 0.8189273476600647,
-      "world_consistency": 0.9,
-      "distinct_2": 0.948051948051948,
-      "repetition_2": 0.05194805194805195,
-      "interestingness": 0.5,
-      "faithfulness": 1.0,
-      "answer_relevancy": 0.68626851381399,
-      "context_precision": 0.0,
-      "context_recall": 0.4
+      "bert_score_source": 0.8036321997642517,
+      "bert_score_reference": 0.8272380828857422,
+      "world_consistency": 0.75,
+      "distinct_2": 0.9777777777777777,
+      "repetition_2": 0.022222222222222223,
+      "interestingness": 0.5
     }
   },
   {
-    "generated_text": "**Name:** Ryker Frost\n\n**Occupation:**\nRyker serves as the guardian of the Northland Bank, tasked with ensuring the security and integrity of the financial institution. He takes his duties seriously, often spending long hours monitoring transactions and identifying potential threats. As a skilled enforcer, Ryker is responsible for maintaining order within the bank's walls.\n\n**Free time:**\nWhen not attending to his duties, Ryker enjoys sipping tea and reading ancient texts on cryptography and finance in his spare moments.\n\n**Interesting story:**\nRyker has a reputation among the Northland Bank staff for being particularly ruthless when dealing with counterfeiters. One notable instance involved Ryker tracking down a group of thieves who had attempted to pass off fake notes, ultimately capturing them without incident. He also has a personal interest in uncovering hidden patterns within financial transactions, which he believes may hold secrets to predicting market fluctuations.\n\n**Appearance:**\nRyker stands at an average height with short, dark hair and piercing blue eyes that seem to bore into those he interrogates.",
+    "generated_text": "Here is the structured text for the new Fatui character:\n\n**Occupation**\nAs the guardian of the Northland Bank, the Fatui agent is responsible for ensuring the security and integrity of the financial institution's operations. He maintains strict control over all transactions and personnel within the bank, using his cunning and resources to detect any potential threats or anomalies. Additionally, he coordinates with other Fatui agents across Teyvat to gather intelligence on suspicious activities.\n\n**Free Time**\nIn his rare moments of leisure, the guardian enjoys sipping tea from a delicate ceramic cup while reading ancient texts on economics and finance in his hidden sanctum within the bank's basement.\n\n**Interesting Story**\nThe guardian was once a humble accountant at the Northland Bank before being recruited by the Fatui. He quickly proved himself to be an exceptional asset due to his attention to detail and natural talent for manipulation, which led to him being promoted to his current position as guardian. His reputation among the bank's employees is shrouded in mystery, with many whispering about his uncanny ability to appear and disappear at will.\n\n**Appearance**\nThe Fatui guardian wears a dark, tailored suit adorned with intricate silver embroidery, symbolizing his status as a respected member of the organization.",
     "category": "character description",
     "reference_text": "\n                Occupation\n                Vlad is a member of the Fatui. When the Fatui established the Northland Bank in Liyue Harbor, Vlad was assigned to serve as a guard for the bank. He works as a daytime guard at the Northland Bank in Liyue Harbor. At nighttime, Nadia takes his place.\n                \n                Free time\n                While he is not working, he can be found standing by the dock near the Snezhnayan merchants at the harbor.\n                \n                Interesting story\n                One time, Nadia accidentally left her letter for her brother at the bank while changing shifts. Vlad, mistaking it as a letter written for him, left a response. Afterwards, the two became pen pals, writing letters for the other to read during their shifts.\n                \n                Appearance\n                Vlad has orange hair and wears a mask and a black red Fatui uniform.\n            ",
     "metrics": {
       "category": "character description",
-      "bert_score_source": 0.7952305674552917,
-      "bert_score_reference": 0.7887322306632996,
-      "world_consistency": 0.0,
-      "distinct_2": 0.9698795180722891,
-      "repetition_2": 0.030120481927710843,
-      "interestingness": 0.85,
-      "faithfulness": 0.0,
-      "answer_relevancy": 0.6077345716992215,
-      "context_precision": 0.49999999995,
-      "context_recall": 0.75
+      "bert_score_source": 0.8047813177108765,
+      "bert_score_reference": 0.7860597968101501,
+      "world_consistency": 0.957,
+      "distinct_2": 0.9323671497584541,
+      "repetition_2": 0.04830917874396135,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "Name: Aria Laoshu (meaning \"cloud music\" in Chinese)\n\nDescription: Shadow Weaver of the Ministry.\n\nAppearance: Aria has short, dark hair often styled in a messy bob, with piercing emerald eyes that seem to see right through you. Her slender figure is always impeccably dressed in dark, high-collared attire that blends seamlessly into the shadows.\n\nCharacter's Description:\nAria Laoshu is a mysterious and enigmatic figure who has risen through the ranks of the Ministry of Civil Affairs with unparalleled speed and precision. Her work style is shrouded in mystery, with whispers among colleagues suggesting she works from the shadows, gathering intel and information that would make even the most seasoned operatives green with envy. Few know her true motivations, but those who have crossed paths with her speak of an air of quiet confidence and an unnerving intensity that makes one question their own judgment.\n\nDespite her elusive nature, Aria has earned a reputation as a brilliant strategist and a master manipulator, able to weave complex webs of intrigue and deception that leave even the most seasoned foes scrambling to keep up. Her work ethic is legendary, with some claiming she can uncover secrets hidden in plain sight with a single glance. Others whisper that she has an uncanny ability to read people, anticipating their every move before they make it.\n\nAria's attitude towards her colleagues is often seen as aloof and detached, as if she views them as mere pawns in a much larger game. She is fiercely loyal to those she considers allies, but will not hesitate to sacrifice anyone who stands in her way. Her relationships with superiors are similarly complicated, with some speculating that she has an unspoken pact with Ningguang herself.\n\nDespite the whispers and rumors surrounding her, Aria Laoshu remains an enigma, a ghostly figure who haunts the corridors of power with an otherworldly presence. Those who have attempted to get close to her often find themselves lost in a maze of mirrors, unsure what is real and what is just a product of their own paranoia.\n\nOne thing is certain, however: Aria Laoshu will stop at nothing to achieve her objectives, using every tool at her disposal to outmaneuver her enemies and bring about the desired outcome. Her true loyalties remain unknown, but one thing is clear: she is a force to be reckoned with in the shadows of Liyue.",
+    "generated_text": "Name: Kaito\n\nDescription: \"Shadow Weaver\"\n\nAppearance:\nKaito stands at an unassuming height of around 5'4\" with a slender build, often shrouded in the shadows. Her face is partially obscured by a hooded cloak, making it difficult to discern her features.\n\nCharacter's description:\nKaito is an enigmatic figure who has managed to infiltrate the Ministry of Civil Affairs, gaining Ningguang's trust and attention. She works tirelessly from the shadows, gathering intelligence and manipulating events to further her own agenda. Her motivations are shrouded in mystery, leaving many to speculate about her true loyalties.\n\nKaito is a master manipulator, able to effortlessly weave complex webs of deceit and intrigue. Her calm demeanor belies a sharp mind and quick wit, allowing her to outmaneuver even the most cunning adversaries. She has a tendency to appear at the right moment, always seemingly one step ahead of the game.\n\nDespite her impressive skills, Kaito is not without her vulnerabilities. A faint scar above her left eyebrow hints at a painful past, while an occasional flicker in her eyes suggests a deep-seated emotional complexity. Few people have seen beyond her façade, and even fewer have managed to crack her shell.\n\nKaito's attitude towards work is one of calculated detachment. She approaches each task with a detached curiosity, never becoming too invested or attached to any particular outcome. This allows her to maintain a level of objectivity, making her an invaluable asset to those who trust her.\n\nOthers often find Kaito's thoughts on them puzzling or even disturbing. Some see her as an enigmatic figure, worthy of admiration and respect, while others view her with suspicion or distrust. One thing is certain, however: Kaito will not be easily swayed by public opinion or expectation. She operates according to her own rules, always seeking to further her hidden agenda.\n\nHer relationships with others are complex and multifaceted. While she can effortlessly charm those who share her interests, Kaito has a tendency to push people away when they get too close. This is not due to a lack of empathy or compassion, but rather a need to maintain control over the narrative.",
     "category": "character description",
     "reference_text": "\n                Yelan. A mysterious person who claims to work for the Ministry of Civil Affairs, but is a \"non-entity\" on the Ministry of Civil Affairs' list. Elusive, enigmatic, erratic - all of these are Yelan's hallmarks.\n                \n                Appearance\n                Yelan is the tall female. She has pale skin, light emerald-green eyes, and dark blue hair and asymmetrical bangs that are lighter at the tips.\n                \n                Character's description\n                Yelan, despite claiming to work for the Ministry, is the sole exception. Most of her colleagues have never heard of her, nor is her name anywhere to be found on any rosters.\n                She is a ghost who walks in the middle of many crises under various names. But before the storms can come to an end, she has already disappeared without a trace.\n                Sometimes, she will pick a side in some conflict to offer her help, but those who receive her aid would be fools to celebrate prematurely, for they soon find that the same help has been extended to their opponents.\n                Having stepped into her trap, many have vowed to take revenge, yet none are able to tell what she is planning, let alone know where she stands.\n                Many believe that she is a spy who works for some mysterious organization, and that her forte is stirring things up in the dark, which she then relies on to attain what she wants.\n                Some even go as far as saying that she is a frenetic follower of disorder who neither serves any organization nor holds any meaningful purposes.\n                Even if she does, all she wants is to add fuel to the already spreading flame and drag everyone down into a world of madness created by her.\n                With so many theories and guesses circulating, she has become a mystery. As for the truth, you could only hope to get an answer from Yelan herself.\n                But unfortunately, this is no easy task either — for it is always she who finds you when she wishes to, not the other way around.\n            ",
     "metrics": {
       "category": "character description",
-      "bert_score_source": 0.7973365783691406,
-      "bert_score_reference": 0.7885019779205322,
-      "world_consistency": 0.25,
-      "distinct_2": 0.9296482412060302,
-      "repetition_2": 0.06030150753768844,
-      "interestingness": 0.85,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.4543814888716358,
-      "context_precision": 0.999999999975,
-      "context_recall": 0.0
+      "bert_score_source": 0.7965301871299744,
+      "bert_score_reference": 0.7859858870506287,
+      "world_consistency": 0.957,
+      "distinct_2": 0.9441340782122905,
+      "repetition_2": 0.05307262569832402,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "Name: Luna Mirabel\n\nLuna is a talented musician in Liyue who has dedicated her life to mastering the ancient art of guqin music. Her passion for music stems from her love for the mystical energy that resonates within the sounds, which she believes holds the secrets of the universe. Inspired by the poetic works of the great Liyue poet, Tang Xingzhi, and the mesmerizing melodies of traditional Ge song, Luna strives to create music that transcends time and space. Her motivation is to use her art as a bridge between cultures, fostering harmony and understanding among the people of Liyue. As an erudite consultant's assistant, Luna often accompanies Zhongli on his diplomatic missions, using her music to soothe tense situations and build connections with foreign dignitaries. Outside of her duties, Luna enjoys exploring the winding canals of Liyue Harbor, collecting rare instruments, and practicing calligraphy under the moonlight.\n\nLuna's personality is marked by her gentle yet fiery spirit, which she expresses through her creative expression. She has a deep empathy for those who are misunderstood or overlooked, often using her music to amplify their voices. In her free time, Luna enjoys reading ancient texts on alchemy and astronomy, seeking to understand the intricate balance of the universe. Her interests include collecting rare herbs, practicing tai chi, and sipping tea under the shade of a majestic tree.\n\nLuna's appearance is characterized by her delicate features, with high cheekbones and large almond-shaped eyes that seem to hold a thousand secrets within them. Her hair is as black as the night sky, falling in loose waves down her back, and is often adorned with intricate braids made from silk threads.",
+    "generated_text": "Name: Luna Mei\n\nLuna is a talented and enigmatic musician in Liyue, known for her captivating performances that weave together traditional Liyue instruments with modern influences. Her music is a reflection of her passion for the sea, as she often draws inspiration from the tides, waves, and oceanic landscapes of Liyue. Luna's primary motivation stems from a desire to capture the essence of her homeland through her art, sharing its beauty and emotions with others. She finds solace in the works of ancient Liyue poets and mythological stories, which often serve as themes for her compositions. Her music has also been influenced by the mystical energies that permeate Liyue, leading to an otherworldly quality that resonates deeply with listeners. Luna's personality is characterized by her creativity, curiosity, and determination, often driving her to push boundaries in her craft. She is fiercely loyal to those she cares about and will go to great lengths to support their artistic endeavors. When not performing or composing, Luna can be found exploring the winding streets of Liyue, discovering hidden gems and collecting rare musical instruments.\n\nLuna's appearance is marked by a wild tangle of curly black hair and an infectious smile that lights up her face, often accompanied by a delicate tattoo of a Lychee flower on her left cheekbone.",
     "category": "character description",
     "reference_text": "\n                Yun Jin is a skilled director, playwright and singer who is well renowned throughout Liyue for her plays, enjoying this passion and going to many lengths to ensure that everyone who watches her performances leaves satisfied. While appearing to be refined and graceful in formal occasions, she is also known to be exceptionally friendly in private. She draws inspiration from many sources for her plays; she enjoys a wide variety of special drinks as one of her pastimes and she can write a play about one if she enjoys it.\n                Despite enjoying her passion, she also enjoys variety; while she gets along with the troupe in theater-related issues, she frequently clashes with them over personal affairs as she feels that they are too traditional. She is particularly fond of rock 'n' roll, visiting Xinyan and watching her performances at least three times a week no matter how busy she is. Xinyan believes that she comes to visit her due to the finer arts being \"suffocating\". She tries to keep her visits a secret, as her interest in non-traditional music would cause much consternation among her elders.\n                Yun Jin is medium female. She has a fair complexion, rich red eyes with prominent red makeup painted at the corners, and hip-length jet black hair with purple highlights styled in a hime cut.\n            ",
     "metrics": {
       "category": "character description",
-      "bert_score_source": 0.8078362345695496,
-      "bert_score_reference": 0.8241025805473328,
-      "world_consistency": 0.9,
-      "distinct_2": 0.9535714285714286,
-      "repetition_2": 0.04285714285714286,
-      "interestingness": 0.75,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.6195484410986065,
-      "context_precision": 0.99999999995,
-      "context_recall": 1.0
+      "bert_score_source": 0.8060941696166992,
+      "bert_score_reference": 0.8353007435798645,
+      "world_consistency": 0.957,
+      "distinct_2": 0.963302752293578,
+      "repetition_2": 0.03211009174311927,
+      "interestingness": 0.8
     }
   },
   {
-    "generated_text": "\"In the misty mountains of Liyue, the exquisite Qingxin flower blooms with rare beauty, its delicate white petals a testament to its exclusivity. This majestic bloom can only be found in the most remote and inaccessible regions of the Jade Sea Islands, where it's said to remain in bloom for exactly 7 days each year.\"",
+    "generated_text": "Here is a possible in-game description for the Qingxin flower:\n\n\"Rarity: 5/5 (Exclusive to Liyue's rarest gardens) - This exquisite, white Qingxin flower blooms only once a year under the light of the full moon. Legend has it that its petals retain the essence of celestial music, and those who listen closely can hear the whispers of the gods.\"\n\nNote: I've included the fact that the Qingxin flower is said to retain the essence of celestial music, which could be an interesting aspect for players to discover. Let me know if you'd like me to add anything else!",
     "category": "item description",
     "reference_text": "\n                A translucent white flower that only grows on the highest stone peaks. It eschews the warmth and moisture of the plains to gaze out afar from the solitary mountaintops.\n            ",
     "metrics": {
       "category": "item description",
-      "bert_score_source": 0.7987911105155945,
-      "bert_score_reference": 0.8603963255882263,
-      "world_consistency": 0.1,
-      "distinct_2": 0.9818181818181818,
-      "repetition_2": 0.01818181818181818,
-      "interestingness": 0.75,
-      "faithfulness": 0.0,
-      "answer_relevancy": 0.7117369201566616,
-      "context_precision": 0.0,
-      "context_recall": 1.0
+      "bert_score_source": 0.7981225848197937,
+      "bert_score_reference": 0.8348551988601685,
+      "world_consistency": 0.957,
+      "distinct_2": 0.9108910891089109,
+      "repetition_2": 0.07920792079207921,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "Here is a 3-sentence in-game description for the Dragon Lord's Crown:\n\nThis ancient crown, crafted by the mighty stone dragon known as the Dragon King of the Underworld, bears the scars of centuries spent entombed beneath the earth. Its once-majestic scales now weathered to a mossy green, with intricate carvings that tell the tale of the dragon's own trials and tribulations, the crown shines with an otherworldly aura that seems to whisper secrets to those who dare listen. As Zhongli himself wore it for centuries before passing it down to you, this fabled Dragon Lord's Crown is said to channel the wisdom and power of its long-lost friend, imbuing its wearer with a deep connection to the mysteries of the earth itself.",
+    "generated_text": "Here is a 3-sentenced in-game description for the Dragon Lord's Crown:\n\nThis majestic crown bears the visage of an ancient dragon lord, its intricately carved scales shimmering with a warm, golden light. Said to have been forged from the memories of Zhongli's own mortal years, the crown was crafted by his friend, a mighty stone dragon who spent centuries imprisoned beneath the earth before finally ascending to the surface. Worn upon the head of the worthy, the Dragon Lord's Crown grants its wearer a fraction of the ancient dragon's wisdom and vitality, as if the very essence of the land itself had been distilled into this magnificent, ethereal circlet.",
     "category": "item description",
     "reference_text": "\n                Horns created from hardened jade crystallized over a thousand years are the natural crown of the dragon king.\n                Infused with spirit and carved from bedrock, it was born from the mountain's heart to show the strength of the earth to the land amidst monoliths, and its long golden horns are the mark of its ancient strife with an ancient lord.\n                For a time, this horn was shattered and lost its luster, but now it gleams cold and gold as it sits in your palm.\n            ",
     "metrics": {
       "category": "item description",
-      "bert_score_source": 0.7980085611343384,
-      "bert_score_reference": 0.8228113055229187,
-      "world_consistency": 0.0,
-      "distinct_2": 0.9375,
-      "repetition_2": 0.046875,
-      "interestingness": 0.75,
-      "faithfulness": 0.0,
-      "answer_relevancy": 0.8214341873433586,
-      "context_precision": 0.999999999975,
-      "context_recall": 0.0
+      "bert_score_source": 0.7999820709228516,
+      "bert_score_reference": 0.8277715444564819,
+      "world_consistency": 0.75,
+      "distinct_2": 0.9298245614035088,
+      "repetition_2": 0.05263157894736842,
+      "interestingness": 0.8
     }
   },
   {
-    "generated_text": "**Gilged Scale**\n\nThis worn, golden scale is said to have been once attached to the underside of an ancient stone dragon, a revered companion of the Geo Archon Rex Lapis, who spent centuries hidden beneath the earth. According to legend, the dragon would periodically emerge to bask in the warm light of the setting sun, and it was during one such occasion that Rex Lapis discovered the scale, imbuing it with his divine energy. Now, this relic is said to hold a fraction of the Geo Archon's might, granting its wielder increased earth element strength and vitality.",
+    "generated_text": "**Gilged Scale**\n\nThis glimmering scale, once polished by the gentle claws of a mighty dragon, now hangs from its ancient holder's belt, bearing testament to the storied friendship between Zhongli and his former companion. For centuries, the dragon dwelled deep beneath the earth, guarding secrets and treasures as it watched civilizations rise and fall above. Its demise at the hands of an enemy unknown has left this scale, imbued with the essence of its long-lived bond, a poignant reminder of loyalty and camaraderie.",
     "category": "item description",
     "reference_text": "\n                Scaled armor that grows naturally over mystical stone, tough and silent, and filled with the strength of the dragon king.\n                Across the years as countless generations returned to the mulch of the earth, gold and obsidian embedded themselves into flesh and blood forged from bedrock before spreading and turning into scales.\n                Searing agony, wordless cries... perhaps they will all vanish when the grudges that spawned them, too, finally come to an end.\n            ",
     "metrics": {
       "category": "item description",
-      "bert_score_source": 0.8032687902450562,
-      "bert_score_reference": 0.8056930899620056,
-      "world_consistency": 0.8,
-      "distinct_2": 0.9278350515463918,
-      "repetition_2": 0.061855670103092786,
-      "interestingness": 0.8,
-      "faithfulness": 0.0,
-      "answer_relevancy": 0.6750433344349732,
-      "context_precision": 0.9999999999,
-      "context_recall": 1.0
+      "bert_score_source": 0.7989727258682251,
+      "bert_score_reference": 0.8086958527565002,
+      "world_consistency": 0.857,
+      "distinct_2": 1.0,
+      "repetition_2": 0.0,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "The Humor From Tianheng is an ancient book containing humorous poems attributed to Pingshan, the Mystic, a renowned poet known for his witty and satirical writings during the Han Dynasty. This book is said to have been used as a tool by scholars and literati to mock and ridicule their contemporaries, offering insight into the social norms and cultural values of its time. Its contents remain largely lost to modern audiences, but those familiar with its pages are said to still chuckle at Pingshan's clever wordplay and biting humor.",
+    "generated_text": "The \"Humor from Tianheng\" is an ancient text containing humorous poems written by Pingshan, the Mystic, a renowned poet of old. The book's contents are characterized by its witty and satirical verses that poked fun at various aspects of Liyue culture and society. Historically, this book was used as a popular entertainment among the people of Liyue during the Ming Dynasty era, offering a lighthearted respite from the seriousness of daily life.",
     "category": "item description",
     "reference_text": "\n                A poetry collection by Pingshan, The Mystic. The quality of the poems is all over the place, but it has long been a reference book or young poets or poet-wannabes in Liyue.\n            ",
     "metrics": {
       "category": "item description",
-      "bert_score_source": 0.7978430986404419,
-      "bert_score_reference": 0.8548519015312195,
-      "world_consistency": 0.0,
-      "distinct_2": 0.9887640449438202,
-      "repetition_2": 0.011235955056179775,
-      "interestingness": 0.75,
-      "faithfulness": 0.0,
-      "answer_relevancy": 0.7513586992339117,
-      "context_precision": 0.0,
-      "context_recall": 0.0
+      "bert_score_source": 0.805712878704071,
+      "bert_score_reference": 0.8678787350654602,
+      "world_consistency": 0.75,
+      "distinct_2": 0.9861111111111112,
+      "repetition_2": 0.013888888888888888,
+      "interestingness": 0.6
     }
   },
   {
-    "generated_text": "The small crystal orb, known as the Gnosis Orb, glows softly in your hand, its gentle pulse a reminder of the trials you have faced and the path that lies ahead. This sacred relic holds the essence of Rex Lapis' power, now entrusted to you by the Geo Archon himself.",
+    "generated_text": "Zhongli gifts the Traveler a small, intricately carved wooden box containing a single, crimson lotus seed, symbolizing the delicate balance between fate and free will. The lotus seed serves as a reminder of their shared destiny and the trials that lie ahead.",
     "category": "item description",
     "reference_text": "\n                A Fortune Coin with a special Guyan Sigil engraved into it. It is said that this is the symbol of Rex Lapis, and can be used as a protective talisman.\n            ",
     "metrics": {
       "category": "item description",
-      "bert_score_source": 0.8126693367958069,
-      "bert_score_reference": 0.8587155938148499,
-      "world_consistency": 0.9,
-      "distinct_2": 1.0,
-      "repetition_2": 0.0,
-      "interestingness": 0.75,
-      "faithfulness": 1.0,
-      "answer_relevancy": 0.6098868068836464,
-      "context_precision": 0.6388888888675925,
-      "context_recall": 0.0
+      "bert_score_source": 0.799699068069458,
+      "bert_score_reference": 0.845574676990509,
+      "world_consistency": 0.952,
+      "distinct_2": 0.975609756097561,
+      "repetition_2": 0.024390243902439025,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "Here is the in-world idle dialogue with Madame Ping:\n\nTraveler: I've been meaning to ask, how do you manage to infuse your tea with such an air of mysticism?\n\nMadame Ping: It's all about understanding the balance between the physical and spiritual worlds. A good cup of tea can be a powerful tool for connection.\n\nTraveler: Indeed, I've found that sometimes it takes more than just a simple potion or spell to truly understand the world around us.\n\nMadame Ping: That's where patience and observation come in – one must learn to listen to the whispers of the universe.\n\nTraveler: I've heard rumors about your \"mystical teapot\" – is it truly as extraordinary as they claim?\n\nMadame Ping: (laughs) Ah, my teapot has seen its fair share of...interesting conversations. The secrets it holds are safe with me, for now.\n\nGoodbye, Madame Ping. It was a pleasure speaking with you again.",
+    "generated_text": "Here is the in-world idle dialogue between the Traveler and Madame Ping:\n\nBlock 1:\nTraveler: Ah, I've finally obtained the Cleansing Bell. It was quite a journey to get it.\nMadame Ping: Indeed, the gods can be cruel when they demand items from mortals. Did you have any trouble navigating the mystical energies of Bubu Pharmacy?\n\nBlock 2:\nTraveler: The Everlasting Incense was quite an experience. I've never seen anything like it before.\nMadame Ping: Yes, and Qiqi's Cocogoat was a delightful surprise. I'm glad to see that even in Liyue, the gods still have a sense of humor.\n\nBlock 3:\nTraveler: I must say, Madame Ping, your teapot is quite an impressive sight. The intricate designs are beautiful.\nMadame Ping: Thank you, Traveler. It's been passed down through generations of my family, and each one holds a special story and significance. Would you like to hear some of them?\n\nBlock 4:\nTraveler: I would love to hear more about it. Your family's history is certainly fascinating.\nMadame Ping: Ah, yes... well, let's just say that we've had our fair share of adventures over the centuries. Perhaps one day I'll share some of those stories with you.\n\nBlock 5:\nTraveler: Goodbye, Madame Ping. It was nice speaking with you again.\nMadame Ping: Farewell, Traveler. May the gods smile upon you once more... and may your tea always be steeped to perfection.",
     "category": "dialogue",
     "reference_text": "\n                Madame Ping: Oh? Why, hello child.\n                Madame Ping: Though flowers bloom yet always fade, but people go yet return another day. I just knew that you'd be back to see me before long, hehe.\n                \n                Traveler: White Admiring the flowers?\n                Madame Ping: That I am. One season after the next, this flower blooms, then falls, only to bloom again. And on it goes — just like Liyue.\n                Madame Ping: Look over here, and over here. So many flowers are blooming! It looks like this will be a blessed year.\n                \n                Traveler: White What type of flowers are these?\n                Madame Ping: These are Glaze Lilies. Probably the last surviving ones in all of Liyue Harbor.\n                Madame Ping: People say that the sound of singing nourishes them, and helps them grow...\n                Madame Ping: But the sound of fighting, of cursing... it is poison to them, and eats away at their roots.\n                Madame Ping: That is why, over centuries of strife, they have disappeared from Liyue's landscape.\n\n                Traveler: Tell me about the past.\n                Madame Ping: Just because my complexion screams \"ancient history\" doesn't mean I love discussing the past, you know.\n                Madame Ping: ...Relax, I'm only kidding.\n                Madame Ping: Truth be told, the older you get, the more time you have on your hands, and the more you start contemplating the past... I do wonder how my old friends back in the mountains are getting on...\n                Madame Ping: Liyue Harbor is really a wonderful place now. I wonder if they would ever want to step down into the mortal realm and get a taste of the lifestyle here...\n                Madame Ping: Look at me rambling on again, I must sound like a lunatic! Maybe one day I can discuss my past with you... if it is meant to be.\n                \n                Traveler: This is a beautiful flower.\n                Madame Ping: Hehe, all thanks to the beautiful weather we're having today.\n                Madame Ping: I'd always hoped that one day this flower would bloom all over Liyue once more...\n                Madame Ping: But in the meantime, would you take a few of these flowers from Yujing Terrace with you on your journey, so that they might see the world?\n\n                Traveler: Goodbye.\n                Madame Ping: Goodbye, young one. If you are ever passing by Jueyun Karst, please pass on my regards to my old friends.\n                Madame Ping: If it is meant to be that you see them... then you will see them.\n            ",
     "metrics": {
       "category": "dialogue",
-      "bert_score_source": 0.7933525443077087,
-      "bert_score_reference": 0.7585031986236572,
-      "world_consistency": 0.75,
-      "distinct_2": 0.948051948051948,
-      "repetition_2": 0.025974025974025976,
-      "interestingness": 0.75,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.0,
-      "context_precision": 0.49999999995,
-      "context_recall": NaN
+      "bert_score_source": 0.8080270290374756,
+      "bert_score_reference": 0.767288088798523,
+      "world_consistency": 0.857,
+      "distinct_2": 0.9291666666666667,
+      "repetition_2": 0.041666666666666664,
+      "interestingness": 0.6
     }
   },
   {
-    "generated_text": "Here is the in-world idle dialogue:\n\nTraveler: Excuse me, are you... another version of Chaonan?\n\nChaonan: Ah, yeah! I'm one of them replicas. You know, the ones that keep popping up everywhere? (chuckles)\n\nTraveler: I've seen a few. So, what's your story? How did you end up here in Liyue Harbor?\n\nChaonan: Well, I used to have big dreams of joining the Crux Fleet, but then I realized it wasn't for me. Too much stress and danger. Now I'm just trying to make ends meet as a repairman.\n\nTraveler: That's understandable. I've seen people come and go from this place. What do you think about the Rite of Descension?\n\nChaonan: Honestly? I'm not really sure what it means for our city, but I'm glad we got to have some closure with Rex Lapis' \"death\". It feels like a weight's been lifted off our shoulders.\n\nTraveler: Yeah, it was a big moment. Do you think Liyue will be okay after all the recent events?\n\nChaonan: (pauses) To be honest? I don't know. But I do know that we'll figure it out together. We have to. Goodbye",
+    "generated_text": "Traveler:\nHey there! I couldn't help but notice you're working on that old ship repairer's gear. What made you choose this path?\n\nChaonan: \nYeah, it's not as glamorous as being in the Crux Fleet, but someone's gotta keep these ships seaworthy.\n\nTraveler:\nI can imagine. I've heard stories about the Crux Fleet's adventures, and how they explored the world together. Did you ever get a chance to join them?\n\nChaonan: \nI did, actually. I was all set to leave Liyue with them, but my sister got sick, and I had to stay behind to take care of her. That's when I realized I needed to prioritize something other than chasing the wind.\n\nTraveler:\nThat's a tough decision to make. It takes a lot of courage to put someone else's needs before your own dreams. What made you choose repair work instead?\n\nChaonan: \nIt was just something that needed doing, you know? Someone's gotta keep these ships going, and I figured it'd be less flashy than being part of the Crux Fleet. Plus, I get to see some interesting parts when they come in for maintenance.\n\nTraveler:\nI can respect that. Sometimes our paths don't take us exactly where we want them to go, but they still lead us somewhere important. Do you ever wish you could have joined the Crux Fleet after all?\n\nChaonan: \nAll the time, mate! But like I said, life's not always fair, and sometimes you gotta make do with what you've got. I'm good where I am.\n\nTraveler:\nGoodbye!\n\nChaonan: \nYeah, same to you, friend.",
     "category": "dialogue",
     "reference_text": "   \n                Chaonan: ...Best if you say the bare minimum to me. I don't want to deplete my stamina.\n                Chaonan: *sigh* If I'd known this would happen, I would have followed my dreams...\n\n                Traveler: Are you tired?\n                Chaonan: ...I'm a ship repairman. When the ships are at sea, I have nothing to do. But when they dock, I'm so busy I never get a wink of sleep...\n                Chaonan: So I have decided to conserve my stamina from now on. Otherwise, I won't be able to cope when the busy period hits.\n                \n                Traveler: Have you considered a change of occupation?\n                Chaonan: Well, this job is rather busy, but being busy also means that there's money to be made.\n                Chaonan: We have Rex Lapis' divine predictions to thank for that. The number of merchants going out to sea has increased year on year in recent times, which has led to our business being on the rise, too.\n                Chaonan: Those merchants who made their fortune aren't stingy, either. They often give us some tips on top of the repair fees.\n                Chaonan: Hard work begets an equal reward, and for the lads that want to earn some money while they're young, this job is pretty good. We shouldn't waste the opportunity that Rex Lapis has given us.\n                \n                Traveler: What dreams?\n                Chaonan: ...I once had the opportunity to join the Crux Fleet, but by the time I signed up, they were full.\n                Chaonan: I gave up on being a seafarer in the end, and went into ship repair work instead. Now I can only watch as the ships go in and out.\n                Chaonan: Maybe if I'd pushed a little harder for it back in the day, I wouldn't have ended up where I am now.\n                Chaonan: And maybe the reason I've not been favored enough to receive a Vision is because I give up too easily.\n                Chaonan: ...I hope you don't end up like me.\n                \n                Traveler: What a pity...\n                Chaonan: The problem is my personality... That, and luck not being on my side.\n                Chaonan: *sigh* It's funny, you know, the day before I signed up I even made a point of going out and buying this feather, which is supposed to bring good luck. Clearly, it had no effect whatsoever...\n                Chaonan: ...Well, no use complaining about it. Here, you can have it, maybe it works better on adventurers.\n                \n                Traveler: Goodbye.\n                Chaonan: Goodbye. Now to focus all my energy on getting a good rest...\n            ",
     "metrics": {
       "category": "dialogue",
-      "bert_score_source": 0.7990872859954834,
-      "bert_score_reference": 0.7843106985092163,
-      "world_consistency": 0.1,
-      "distinct_2": 0.9543147208121827,
-      "repetition_2": 0.03553299492385787,
-      "interestingness": 0.6,
-      "faithfulness": 1.0,
-      "answer_relevancy": 0.0,
-      "context_precision": 0.5833333333041666,
-      "context_recall": NaN
+      "bert_score_source": 0.7892583012580872,
+      "bert_score_reference": 0.8056228160858154,
+      "world_consistency": 0.857,
+      "distinct_2": 0.9233576642335767,
+      "repetition_2": 0.06204379562043796,
+      "interestingness": 0.6
     }
   },
   {
-    "generated_text": "Here is a dialogue for starting a quest about searching for relics in ruins:\n\nTraveler:\nSoraya, I've been tracking your research on Liyue's history and culture. Can you tell me more about what brings you to Guili Assembly?\n\nSoraya:\nI'm searching for any leads on the whereabouts of relics from Liyue's ancient past. Specifically, fragments related to Guizhong, the Lord of Dust. His legacy is shrouded in mystery, and I believe these relics hold the key to understanding his significance.\n\nTraveler:\nWhat makes you think that these relics are hidden in ruins? And what exactly do you hope to find?\n\nSoraya:\nGuili Assembly has been plagued by Treasure Hoarders who seek to exploit the relics for their own gain. I aim to uncover the truth behind Guizhong's legacy and prevent those relics from falling into the wrong hands.\n\nTraveler:\nI see. And can you tell me more about Guizhong himself? What was his role in Liyue's history?\n\nSoraya:\nGuizhong was a powerful figure, said to have mastered the art of dust manipulation. His influence on Liyue's culture is still felt today, and I believe that understanding his legacy will reveal much about our world.\n\nTraveler:\nI'll need more information before we can begin searching for these relics. Do you have any leads or clues?\n\nSoraya:\nUnfortunately, my research has been hindered by Treasure Hoarders who've stolen several of the relics I needed to continue my work. I require assistance in retrieving those relics and uncovering the truth behind Guizhong's legacy.\n\nTraveler:\nAlright, let's get started then. We'll search for these relics in the ruins of Guili Assembly. Are you prepared to face whatever dangers lie within?\n\nSoraya:\nI'm more than prepared. I've been studying the ancient lore of Liyue, and I know that we're not just searching for relics – we're uncovering a piece of our world's history.",
+    "generated_text": "Here is the dialogue for starting a quest about searching for relics in ruins:\n\nTraveler: I've heard rumors of valuable relics hidden within the ancient ruins of Guili Assembly. Can you tell me more about what you're looking for, and why?\n\nSoraya: Those relics hold the key to understanding Liyue's rich history, particularly the legacy of Guizhong, the Lord of Dust. His influence on our world is still debated among scholars.\n\nTraveler: I'm not sure I understand how these relics could help us. What makes them so significant?\n\nSoraya: The relics contain fragments of ancient texts, artifacts, and even magical energies that can provide insight into Liyue's most pivotal moments. They're crucial for our understanding of the world we live in.\n\nTraveler: I see. But aren't there others searching for these relics? Treasure Hoarders, perhaps?\n\nSoraya: (frustrated) Yes, those ruthless collectors are always one step ahead of me. Their sole interest is in selling these relics to the highest bidder, regardless of their historical value or cultural significance.\n\nTraveler: I'm willing to help you find and protect these relics from falling into the wrong hands. Can you tell me more about where to start?\n\nSoraya: Thank you for your assistance! Guili Assembly's ruins are said to be filled with ancient artifacts and texts, but be warned – Treasure Hoarders have already begun to infiltrate the site. We must move quickly to uncover these relics before they're lost forever.\n\nTraveler: I'll get started right away. Do you have any leads on specific locations or clues that might help us?\n\nSoraya: (rummaging through her notes) Ah, yes! There's an old map that supposedly points to a hidden chamber deep within the ruins. But be cautious – the path is treacherous, and I fear we're not alone in our pursuit.\n\nTraveler: Alright, let's get moving. We can't let those relics fall into the wrong hands.\n\nSoraya: (smiling) Together, we might just uncover a piece of Liyue's history that could change everything we thought we knew about this world.",
     "category": "dialogue",
     "reference_text": "\n                Soraya: ...How many secrets does Liyue truly hold?\n                \n                Traveler: Secrets?\n                Soraya: Oh, Traveler, it's you. The secrets I'm referring to are a set of inscriptions.\n                \n                Traveler: Do you mean buried treasure?\n                Soraya: Haha, who knows? It's always possible. Talk of secrets waiting to be uncovered does tend to make one think of buried treasure.\n                Soraya: This place we are in is called the Guili Assembly. According to Liyue folklore, it was once inhabited by people — in fact, it was rather prosperous.\n                Soraya: But for various reasons, the whole place was wiped out. All that remains now is the countless ruins scattered across the landscape.\n                Soraya: Some stories put it down to conflict between the gods, other people say it was a war between humans. And some sources talk of a sudden, catastrophic natural disaster...\n                Soraya: Whatever the reason was, ruins are all that remains here now. The only ones who come here are the hilichurls, the Treasure Hoarders...\n                Soraya: ...And masochistic scholars, like me, who in spite of all the risks just can't resist the idea of how much research value these ruins have to offer.\n                Soraya: In practice though, scholars like me aren't cut out for this kind of field work! I've hardly covered any ground yet, and I already need a rest...\n                Soraya: The actual ruin-exploring seems more your area of expertise. What do you say, fancy helping me out?\n                \n                Traveler: Sure.\n                Soraya: Great. Hmm, but I should give you an idea of what to look for... Yes, keep your eyes peeled for stone pillars and stone tablets.\n                Soraya: Given how ancient these ruins are, any text we can hope to find will be written on stone, not paper.\n                Soraya: After all, stone is the oldest and most durable medium for written communication.\n                \n                Traveler: What am I looking for?\n                Soraya: Hmm... Text essentially. Written messages from the past.\n                Soraya: And if you're looking for text in ruins as ancient as these, that means looking for stone pillars and stone tablets.\n                Soraya: Stone is the oldest, most durable medium for written communication. All the more so in the domain of the Geo Archon.\n                Soraya: The stones here have borne witness to all of history. I am sure they will not disappoint.\n                \n                Traveler: Only if there's treasure...\n                Soraya: Whatever treasure you find, you can keep. Material wealth isn't what appeals to me.\n                Soraya: In Liyue there's a saying that goes: \"Money belongs to the world outside your head.\" I'm more interested in acquiring knowledge than money.\n                Soraya: So while you're hunting for treasure, please also keep your eyes peeled for stone pillars and stone tablets.\n                Soraya: Given how ancient these ruins are, any knowledge we can hope to find will most likely be written on stone.\n            ",
     "metrics": {
       "category": "dialogue",
-      "bert_score_source": 0.800955057144165,
-      "bert_score_reference": 0.7766053080558777,
-      "world_consistency": 0.5,
-      "distinct_2": 0.8421052631578947,
-      "repetition_2": 0.12693498452012383,
-      "interestingness": 0.75,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.5450098876960041,
-      "context_precision": 0.6388888888675925,
-      "context_recall": 0.5
+      "bert_score_source": 0.8022786378860474,
+      "bert_score_reference": 0.7764208912849426,
+      "world_consistency": 0.75,
+      "distinct_2": 0.9195402298850575,
+      "repetition_2": 0.0603448275862069,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "Here is a short dialogue between the Traveler and Chef Mao:\n\n**Block 1**\nTraveler: Greetings, welcome to Wanmin Restaurant!\nChef Mao: Ah, honored to have you dine with us! Come, come, sit down, and let me treat you to some of my signature dishes.\n\n**Block 2**\nTraveler: This restaurant is quite renowned in Liyue. What makes it so special?\nChef Mao: Yes, we strive for perfection in every bite, blending traditional flavors with modern twists. My daughter Xiangling's passion for innovation has been instrumental in our success!\n\n**Block 3**\nTraveler: I've heard great things about your daughter's culinary skills. Can you tell me more about her?\nChef Mao: Oh, she's a firecracker! Her bold methods and attention to detail have elevated Wanmin Restaurant to new heights. She's always pushing the boundaries of traditional Liyue cuisine, experimenting with novel ingredients and techniques that leave customers speechless. And her ability to balance flavors is unmatched – it's like a symphony on their palate!",
+    "generated_text": "Here is a short dialogue between the Traveler and Chef Mao:\n\n**Start**\n\nWelcome to Wanmin Restaurant, replica of the famous Liyue eatery! Please select one of the options below to continue your conversation with Chef Mao.\n\n1. Ask about his restaurant's specialties\n2. Inquire about his daughter, Xiangling\n3. Express interest in his cooking techniques\n\n**Block 1: Restaurant**\n\nTraveler: I've heard great things about Wanmin Restaurant. What sets it apart from other eateries in Liyue?\n\nChef Mao: Ah, our restaurant is known for its unique blend of traditional and innovative flavors. We use only the freshest ingredients to create dishes that are both familiar and exciting.\n\n**Block 2: Xiangling**\n\nTraveler: I've also heard a lot about your daughter, Xiangling. What can you tell me about her?\n\nChef Mao: Oh, Xiangling is a firecracker! She's got a passion for cooking that's unmatched by anyone I've ever met. Her bold and experimental approach to cuisine has made Wanmin Restaurant famous throughout the region.\n\nChef Mao: And it's not just about throwing a few ingredients together – she's got a real eye for presentation and a deep understanding of how flavors work together. She's always pushing the boundaries of what's possible with food, and it shows in every dish that comes out of our kitchen.\n\nChef Mao: I'm so proud of her – she's going to make a great chef one day! And she's already making a name for herself in the culinary world, which is wonderful to see.",
     "category": "dialogue",
     "reference_text": "\n                Chef Mao: Here for the Wanmin Restaurant experience? Hi, I'm Chef Mao. Everyone in Chihu Rock will have heard of me.\n\n                Traveler: Tell me more about the Wanmin Restaurant.\n                Chef Mao: Well, I'm the chef. I may not be quite the culinary legend that my daughter is, but you can be sure the Wanmin Restaurant is a cut above all those time-honored brands you see around!\n                \n                Traveler: Your daughter?\n                Chef Mao: That's right — Xiangling! My dear daughter, and my best apprentice ever.\n                Chef Mao: I only taught Xiangling how to cook so that she could inherit the Wanmin Restaurant from me one day. I had no idea she'd turn out to be such a pro. Her abilities far exceed my own.\n                Chef Mao: But she's more than just an excellent chef. She has a real gift for innovation — she's constantly creating all these wonderful new dishes. That really sets her apart from what the time-honored brands do. And it makes her dishes all the more special for people who are used to traditional cuisine.\n                Chef Mao: I started to worry that the restaurant might be too constricting for her. So I sent her off for a while to do some exploring and perfect her art.\n                Chef Mao: If anyone is going to revolutionize Liyue cuisine in the future, it'll be her. No doubt about it!\n            ",
     "metrics": {
       "category": "dialogue",
-      "bert_score_source": 0.7960273027420044,
-      "bert_score_reference": 0.8186490535736084,
-      "world_consistency": 0.0,
-      "distinct_2": 0.9696969696969697,
-      "repetition_2": 0.01818181818181818,
-      "interestingness": 0.6,
-      "faithfulness": 1.0,
-      "answer_relevancy": 0.5398154171202536,
-      "context_precision": 0.9999999999,
-      "context_recall": 1.0
+      "bert_score_source": 0.7895827293395996,
+      "bert_score_reference": 0.8130549788475037,
+      "world_consistency": 0.857,
+      "distinct_2": 0.9140625,
+      "repetition_2": 0.05078125,
+      "interestingness": 0.75
     }
   },
   {
-    "generated_text": "Here is a short dialogue between Sisi and the Traveler:\n\nTraveler:\nSisi, I've heard you're waiting for your lover to return. What do you hope he'll bring back this time?\n\nSisi: Oh, I just know that he'll come back with a beautiful gift - perhaps some exotic treasures from his travels? He's always been so adventurous, and I want him to be happy. But sometimes I wonder if I'm just a burden to him...\n\nTraveler:\nDo you think his work is keeping him away from you?\n\nSisi: (sighing) Yes, that's what he told me. That he has to keep away from me because of who he is and what he does. It breaks my heart every time we say goodbye. I just want him to love me completely, without any secrets or lies.\n\nTraveler:\nDo you still believe in his promises, even if it feels like he's not being honest with you?\n\nSisi: (smiling wistfully) Oh, I do. I know that deep down, he loves me too. And I want us to have a future together - as husband and wife, sailing the seas side by side... But sometimes, when I hear whispers of his true work, my doubts creep in.\n\nTraveler:\nSisi, what's on your mind right now? You seem troubled.\n\nSisi: (looking out at the sea) It's just that everything feels so... uncertain. The world is changing so fast, and I feel like I'm stuck in one place while he's off exploring new horizons. But then, when I hear about Rex Lapis falling from the sky... it makes me wonder if our love will ever be enough to keep him grounded.\n\nTraveler:\nSisi, don't worry about what's happening with Rex Lapis. Your love is strong, and you two will find a way through this together.\n\nSisi: (smiling up at the Traveler) Thank you for listening. You're always so kind to me... and I'm so grateful to have met you.",
+    "generated_text": "Here is a short dialogue between Sisi and the Traveler:\n\nTraveler:\nSisi, I've heard you're waiting for your lover-sailor. What's their name?\n\nSisi: He called himself \"Elian\" – or so he told me. I thought it was love that made him promise to stay away from me.\n\nTraveler:\nDo you think Elian's work is worth keeping you apart from him? Does his duty truly outweigh the joy of being with the one you love?\n\nSisi: I want to believe he'd choose me if he could, but those stories about his duties always seem so much more important. It hurts to think that my love might be just a luxury he can't afford.\n\nTraveler:\nWhat do you hope is waiting for Elian on the other side of the sea? Is there something more at stake than your love for him?\n\nSisi: I wish...I wish he'd come back to me, no matter what. Our engagement was supposed to be our future together – but now I'm not even sure if that's still possible.\n\nTraveler:\nYou know, sometimes the greatest challenges are worth fighting for, and the rewards can be more precious than any duty or obligation.\n\nSisi: If you believe in that, then please...believe in me too. Help me find my way back to Elian, no matter what it takes.\n\nTraveler:\nI'm here for you, Sisi. We'll face whatever comes next together, as friends and allies.\n\nSisi: Thank you...thank you for being there for me when I need you most.",
     "category": "dialogue",
     "reference_text": "\n                Sisi: Oh hi. Look, sorry, if you're hitting on me I'll have to refuse. I'm waiting on someone.\n                \n                Traveler:  Who are you waiting for?\n                Sisi: My lover, Chaoxi. He's a sailor.\n                Sisi: We don't get to see each other very often, he's never back on land for very long...\n                Sisi: He's already been gone for so long, who knows when he'll be back...\n                Sisi: Next time he gets back I'm just going to ask him outright when we are going to get married. All this waiting is just too much...\n                \n                Traveler:  About Rex Lapis' death...\n                Sisi: Rex Lapis and Liyue, like two lovers for thousands of years...\n                Sisi: But all relationships must come to an end. If death is the thing that finally separates you, well then surely that's a sign that you had a good run...\n                Sisi: ...or is it a sign that we have all been dumped by Rex Lapis?\n                \n                Traveler: Goodbye.\n                Sisi: Farewell.\n            ",
     "metrics": {
       "category": "dialogue",
-      "bert_score_source": 0.7917397022247314,
-      "bert_score_reference": 0.7757683396339417,
-      "world_consistency": 0.25,
-      "distinct_2": 0.8952095808383234,
-      "repetition_2": 0.08682634730538923,
-      "interestingness": 0.75,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.7508536949942237,
-      "context_precision": 0.0,
-      "context_recall": 0.875
+      "bert_score_source": 0.7866169214248657,
+      "bert_score_reference": 0.7682021856307983,
+      "world_consistency": 0.75,
+      "distinct_2": 0.95,
+      "repetition_2": 0.046153846153846156,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "Qingxu Pool is a tranquil oasis nestled within the serene Lisha landscape of Liyue, shrouded in mystery and myth. According to legend, during the Archon War, Rex Lapis descended upon this site, imbuing it with his essence as he battled against the forces of chaos. It is said that the pool's waters hold a faint resonance of the Geo Archon's power, allowing adepts to tap into its energies for purification and insight. Over time, the pool became an sacred site for the adeptis, who would come to meditate and seek guidance within its tranquil depths.\n\nCurrently, Qingxu Pool remains a serene and secluded spot, its waters reflecting the beauty of nature as it basks in the gentle light of the Liyue sun.\n\nIn modern times, members of the Qixing and other groups have attempted to inspect the ruins surrounding Qingxu Pool, seeking to unlock its secrets and harness its power for their own purposes. Despite the site's restricted access, whispers of a hidden entrance or ancient artifacts have drawn numerous expeditions, sparking tensions among the various factions vying for control over Liyue's most enigmatic sites.",
+    "generated_text": "Qingxu Pool is a tranquil oasis nestled within the heart of Lisha, Liyue, shrouded in a veil of mystery that has been woven over centuries. Legend whispers of Qingxu Pool's pivotal role during the Archon War, where Rex Lapis, the Geo Archon, was said to have communed with the pool's ancient energies, imbuing his being with the essence of Liyue's life-giving forces. It is also rumored that the adepti, in their quest for knowledge, delved into the pool's depths, unlocking secrets that would forever alter the course of Liyue's history. The pool's waters are said to hold a piece of Rex Lapis' Gnosis, a fragment of his divine power that still resonates within its tranquil surface.\n\nIn modern times, Qingxu Pool lies in ruins, overgrown with vines and moss, its once-majestic architecture reduced to crumbling stone and shattered glass. The Qixing, ever vigilant, have been known to dispatch teams to explore the pool's remnants, seeking valuable artifacts and relics that might shed light on Liyue's mysterious past.\n\nDespite their efforts, the pool remains an enigma, with many groups vying for access to its hidden secrets. Some claim to have discovered ancient texts etched into the walls, while others speak of eerie whispers carried on the wind, hinting at a deeper connection between Qingxu Pool and the forces that once ruled Liyue. As the years pass, the pool's allure continues to captivate those who dare to explore its forgotten depths, beckoning them towards secrets that may forever change the course of history.",
     "category": "location description",
     "reference_text": "\n                According to legend, the Qingxu Pool ruins were built before the Archon War. After the evil god ruling the city was defeated, the city was submerged underwater until the end of the Archon War. It is unclear whether the legend of this evil god are actually referring to the Geo Dragon Azhdaha, who rampaged across Lisha before Rex Lapis and three of the adepti finally sealed him in The Chasm. Records of that conflict have been memorialized in the three Nameless Treasures, one of which can be found in Qingxu Pool.\n                While Qingxu Pool is no longer inhabited, a settlement which Tieshan hails from still exists around the area.\n                In the past, the Liyue Qixing approved an attempt to excavate the Qingxu Pool ruins for their rumored buried treasure. However, the ruins were completely sealed shut and at the time, the technology needed to blast through solid rock did not yet exist, so the project was abandoned. \n            ",
     "metrics": {
       "category": "location description",
-      "bert_score_source": 0.8174819946289062,
-      "bert_score_reference": 0.8415148854255676,
-      "world_consistency": 0.8,
-      "distinct_2": 0.973404255319149,
-      "repetition_2": 0.015957446808510637,
-      "interestingness": 0.85,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.5716406607749019,
-      "context_precision": 0.999999999975,
-      "context_recall": 0.0
+      "bert_score_source": 0.8150443434715271,
+      "bert_score_reference": 0.8321287631988525,
+      "world_consistency": 0.857,
+      "distinct_2": 0.9042145593869731,
+      "repetition_2": 0.05363984674329502,
+      "interestingness": 0.8
     }
   },
   {
-    "generated_text": "**Lyrical Description**\n\nAmidst the tranquil Lisha, Dunyu Ruins stand as a testament to Liyue's storied past. Overgrown with vines and creepers, their weathered stones seem to whisper secrets of ancient dynasties and forgotten rituals. The wind carries the whispers of long-forgotten gods, while the setting sun casts an otherworldly glow upon the ruins' crumbling facades. In this sacred place, the echoes of Liyue's rich history linger, waiting for brave adventurers to unravel their mysteries.\n\n**Expedition Report**\n\nDunyu Ruins: A partially destroyed temple complex in Lisha, Liyue, believed to be a remnant of an ancient cult that worshipped the earth and its elemental forces. Expedition members can expect to find artifacts and relics related to the Geo Archon's influence, as well as potential clues about the Cult's activities and goals.",
+    "generated_text": "Here are two short descriptions for Dunyu Ruins:\n\n**Lyrical Description**\n\nAmidst the whispers of Liyue's ancient past, the Dunyu Ruins stand as a testament to forgotten lore. Crumbling stone pillars, weathered by time and sea spray, stretch towards the sky like withered fingers, as if grasping for the heavens. The air is heavy with the scent of salt and decay, carrying the whispers of those who once called this place home. Shrouded in mist, the ruins seem to slumber, waiting for the winds of fate to awaken their secrets once more.\n\n**Expedition Report**\n\nDunyu Ruins are an overgrown and decrepit site, hidden deep within Lisha's Liyue Harbor district. Expedition reports suggest that this ancient location may hold valuable archaeological finds and relics from Liyue's forgotten history, although the site's current state of disrepair makes it a challenging prospect for exploration.",
     "category": "location description",
     "reference_text": "\n                The Land of Hidden Jade. But the war of ages past is long over, and the mounds of glittering jade have long been destroyed. Now, only the whisper of flowing water remains.\n                - Viewpoint, Dunyu Ruins\n\n                Every corner of Dunyu Ruins is filled with ancient vestiges, suspended in time inside the dead lake.\n                Without a doubt, there is still a large amount of treasure of unknown origin yet to be discovered.\n                - Expedition description\n            ",
     "metrics": {
       "category": "location description",
-      "bert_score_source": 0.8057041168212891,
-      "bert_score_reference": 0.796853244304657,
-      "world_consistency": 0.75,
-      "distinct_2": 0.9849624060150376,
-      "repetition_2": 0.015037593984962405,
-      "interestingness": 0.67,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.5543361765707391,
-      "context_precision": 0.49999999995,
-      "context_recall": 0.0
+      "bert_score_source": 0.7990561127662659,
+      "bert_score_reference": 0.7958102226257324,
+      "world_consistency": 0.957,
+      "distinct_2": 0.958041958041958,
+      "repetition_2": 0.03496503496503497,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "In Liyue's ancient heart lies the Yaksha-infused environment element known as the \"Echoing Caverns\". Located within the Dihua Marsh, this mystical realm is characterized by an ever-shifting maze of iridescent crystal formations and whispering, ethereal voices that seem to emanate from the very walls themselves. At first, the caverns appear as a kaleidoscope of colors, with crystalline structures that refract light into dazzling patterns. Over time, however, as humans contribute their essence to the environment through offerings and rituals, the Echoing Caverns gradually take on a life of their own, reflecting the emotions and energies of those who interact with them in vivid, swirling hues.",
+    "generated_text": "In Liyue, the Yaksha environment element is known as the Azure Clouds. Located in the vast expanse of the eastern ocean, the Azure Clouds are a series of mist-shrouded islands that drift along with the tides. Initially appearing as a swirling vortex of azure and white clouds, they gradually take on the shapes of lotus flowers and other Yaksha-inspired forms as humans and adepti work to honor the gods and connect with the elemental forces. Over time, the Azure Clouds are said to bloom into vibrant, iridescent blooms that reflect the beauty and resilience of Liyue's people.",
     "category": "location description",
     "reference_text": "\n                Pervases' Temple is a point of interest located in Lisha, Liyue.\n                It is a temple dedicated to the deceased Yaksha, Pervases, and contains a statue dedicated to him. It originally appears as a dilapidated house, before being restored.\n            ",
     "metrics": {
       "category": "location description",
-      "bert_score_source": 0.8048195242881775,
-      "bert_score_reference": 0.817849338054657,
-      "world_consistency": 0.75,
-      "distinct_2": 0.9813084112149533,
-      "repetition_2": 0.018691588785046728,
-      "interestingness": 0.85,
-      "faithfulness": 0.0,
-      "answer_relevancy": 0.5995727888884191,
-      "context_precision": 0.0,
-      "context_recall": 0.6666666666666666
+      "bert_score_source": 0.8069444298744202,
+      "bert_score_reference": 0.8128372430801392,
+      "world_consistency": 0.857,
+      "distinct_2": 0.9393939393939394,
+      "repetition_2": 0.04040404040404041,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "Location: The Chasm\n\nDescription:\nThe Chasm is a vast, sprawling mining region nestled deep within the heart of Liyue's mountains. Its rugged terrain is scarred by ancient canyons and ravines, with towering peaks giving way to vast, barren expanses of stone and earth. A network of winding tunnels and abandoned mines snakes through the chasm, punctuated by the occasional glint of precious ore or the remnants of ancient machinery. The air is thick with the scent of smoke and dust, and the only sound is the distant rumble of waterfalls and the creaking of old wooden beams.\n\nModern Uses/Problems:\nDespite its rich history, The Chasm is struggling to adapt to the changing needs of Liyue's modern economy. Many of its mines have closed due to the decline of traditional ore extraction methods, leaving thousands of workers without livelihoods. The region's infrastructure is in disrepair, and the once-thriving tunnels now serve as a maze for treasure hunters and smugglers. As the Fatui's influence grows, The Chasm has become a hotbed of illicit activity, with rumors of ancient artifacts being plundered or hidden away.\n\nHistory:\nFor centuries, The Chasm was home to a variety of ancient civilizations, each leaving behind their mark on the region's history. The Geo Archons themselves are said to have walked among the people of The Chasm, imparting their wisdom and guiding them in the development of Liyue's unique geomancy. According to legend, it was here that Zhongli first discovered his affinity for the earth element, and where he began his training as a Geo adepti under the guidance of Rex Lapis himself. The Chasm played a significant role in the events leading up to the Rite of Descension, as many of Liyue's most powerful adeptis passed through its tunnels on their journey to the Jade Chamber.\n\nDuring the height of the Fatui's influence, The Chasm was used as a secret hub for the organization's operations. Many believe that this is where Signora, the Cryo Archon, first made contact with Zhongli and began her plan to manipulate events in Liyue from behind the scenes. As the Rite of Parting unfolded, The Chasm became a key location for the Qixing and adeptis as they sought to stop the Fatui's plans and save Liyue Harbor.\n\nToday, The Chasm remains a source of fascination and danger for those who dare to venture into its depths. While it is no longer a major player in Liyue's politics, its history and legend continue to shape the region's identity and inform the actions of its people.",
+    "generated_text": "Based on the provided context, I will create a location that fits within the world of Liyue.\n\n**Location:** The Chasm of the Ancients\n\n**Appearance and Elements:** The Chasm of the Ancients is a vast, labyrinthine network of tunnels and caverns carved into the living rock of Liyue's mountains. Glowing crystals embedded in the walls emit an ethereal light, illuminating the path for miners and adventurers alike. Ancient artifacts and relics from long-lost civilizations can be seen scattered throughout the chasm, surrounded by remnants of ancient rituals and ceremonies.\n\n**Modern Uses or Problems:** The Chasm is still a vital source of essential ores for Liyue's industries, but its remote location and treacherous terrain have led to concerns about worker safety and environmental degradation. Recent excavations have also uncovered signs of an ancient, long-abandoned technology that some believe could hold the key to unlocking new sources of energy or advanced materials. However, the Chasm's unique energies are also said to be unstable, causing periodic seismic events and attracting unwanted attention from the Fatui.\n\n**History:** The Chasm of the Ancients is said to have been a sacred site for the ancient Liyue Qixing, who believed it held the secrets of their ancestors. According to legend, the chasm was once home to an ancient civilization that possessed advanced knowledge of alchemy and crystal magic. The Qixing would often conduct elaborate rituals within the chasm, seeking to harness its energies and unlock new levels of spiritual understanding. Zhongli, as a young adepti, spent many years studying the secrets of the chasm under the guidance of his mentor, Ningguang.\n\nAs Liyue's power grew, so did the Chasm's importance, becoming a hub for the study and application of ancient technologies. However, with the rise of the Fatui, the Chasm became increasingly isolated and forgotten. Today, only a select few know of its hidden secrets and significance, making it a coveted target for those seeking to exploit its power.\n\nIn recent years, rumors have circulated about an ancient text known as the \"Elder's Codex\" hidden within the Chasm's depths, said to hold the key to unlocking Liyue's true potential. The Traveler and Zhongli are among those who seek to uncover its secrets, navigating treacherous tunnels and overcoming deadly traps in pursuit of knowledge that could change the course of Liyue's history forever.",
     "category": "location description",
     "reference_text": "\n                The Chasm is a massive, Liyue-based mining region, characterized by its deep, open-pit surface, contrasting with a dark, sprawling underground filled with glowing flora, ancient ruins, and hazardous black mud. It is known for its intense orange-brown dirt, steep rocky terrain, and a mysterious upside-down city.\n                In the recent past, a series of mysterious accidents led the entire mine to be closed, putting its workers out of a job. However, the Liyue Qixing is gradually reopening the area, thus allowing miners to resume working. Beneath the Seven-Star Array is the Underground Mines.\n                According to legend, the Chasm was originally was the ancient civilization of Lang-Gan. The civilization was destroyed and the Chasm would be formed by the Solar Chariot during the War of Funerary Flame. This meteorite had a \"proud and agitated temper,\" and during the Archon War, the constant strife caused this meteorite to leap back into the heavens, leaving behind the massive expanse that was the Chasm. Legends also said that this was the area where Morax and Azhdaha clashed in battle. Most recently, during the cataclysm 500 years ago, an \"iron meteor\" fell into The Chasm, which marked the beginning of the Abyss' invasion.\n            ",
     "metrics": {
       "category": "location description",
-      "bert_score_source": 0.8180404901504517,
-      "bert_score_reference": 0.8291253447532654,
-      "world_consistency": 0.1,
-      "distinct_2": 0.8896551724137931,
-      "repetition_2": 0.05517241379310345,
-      "interestingness": 0.75,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.5027002789855618,
-      "context_precision": 0.9166666666361111,
-      "context_recall": 1.0
+      "bert_score_source": 0.8151476979255676,
+      "bert_score_reference": 0.8260924816131592,
+      "world_consistency": 0.957,
+      "distinct_2": 0.8857868020304569,
+      "repetition_2": 0.05583756345177665,
+      "interestingness": 0.6
     }
   },
   {
-    "generated_text": "Chenyu Vale is a tranquil and picturesque region located on the northern shores of Liyue, where the rolling hills and verdant tea plantations stretch as far as the eye can see. The landscape is dotted with ancient trees, sparkling waterfalls, and serene lakes that reflect the ever-changing colors of the sky.\n\nChenyu Vale has a rich history dating back to the ancient times of the Jade Empire, when it was said that the goddess of tea, Longzhuan, descended upon this land to share her sacred knowledge of tea cultivation and jade carving with humanity. Over time, the region's adepts developed a unique fusion of tea production and jade figurine crafting, which became an integral part of their spiritual practices. The adepts of Chenyu Vale are known for their exceptional skill in creating intricate jade figurines that hold mystical properties and serve as sacred vessels for the transmission of tea energies.\n\nThree key locations in Chenyu Vale include:\n\n* The Celestial Tea Garden: A breathtakingly beautiful garden where the adepts of Chenyu Vale cultivate rare and exotic teas, which they use to create their signature blends. Visitors can witness the intricate process of tea production, from harvesting to brewing.\n* The Jade Forge of Longzhuan: An ancient temple complex dedicated to the worship of Longzhuan, where the adepts craft exquisite jade figurines infused with mystical energies. The forge is said to be the site where the goddess herself imbued her sacred knowledge into the region's artisans.\n* The Tea Leaf Oasis: A serene and tranquil retreat where visitors can partake in a guided tea ceremony, accompanied by an expert adepts who will reveal the secrets of Chenyu Vale's unique tea blends and jade figurine crafting traditions.",
+    "generated_text": "Chenyu Vale is located on the north of Liyue, nestled within a serene valley surrounded by towering mist-shrouded mountains. The rolling hills of Chenyu Vale are dotted with lush tea plantations, where local adeptis carefully cultivate and harvest the finest tea leaves to create exquisite blends.\n\nIn ancient times, Chenyu Vale was home to a thriving community of jade carvers and tea producers who revered the land's unique energies as a source of inspiration for their craft. The region's history is deeply intertwined with the story of Rex Lapis' trial, as many of its adeptis were said to have been chosen by him himself to carry on his legacy. Over time, Chenyu Vale became a sacred site for the Liyue Qixing and other adepti, who would often journey here to seek guidance from their revered sages.\n\nSome key locations in Chenyu Vale include:\n\n* The Jade Spring: A natural source of crystal-clear water said to hold the essence of Rex Lapis' divine energy. Here, local adepts can attune themselves to the land's vibrations and tap into its power.\n* The Tea Master's Hut: A humble abode where the region's most skilled tea producers gather to share knowledge and techniques. Visitors can learn about the art of blending teas from Chenyu Vale's renowned adepts.\n* The Shaper's Studio: A grand workshop where the adeptis of Chenyu Vale craft exquisite jade figurines infused with the essence of the land. Here, one can witness the delicate process of shaping and polishing the finest jade materials.\n\nAs a new location, Chenyu Vale offers a unique blend of natural beauty, rich history, and spiritual significance that is sure to captivate travelers from across Teyvat.",
     "category": "location description",
     "reference_text": "\n                Chenyu Vale is a lush, northwestern region of Liyue, characterized by mountainous tea-growing landscapes, tea-house culture, and flowing rivers. \n                It was protected by the adeptus Fujin and the suanni Lingyuan under an unnamed goddess who turned maddened by the Archon War. Following the creation of The Chasm 6000 years ago, surviving tribes moved to this area, where Fujin taught them to work with jade and agriculture.\n                Key Locations:\n                 - Qiaoying Village: Famous for its tea.\n                 - Yilong Wharf: A busy port and shipping hub for the tea trade.\n                 - Mt. Yaojun: A central, sacred mountain.\n            ",
     "metrics": {
       "category": "location description",
-      "bert_score_source": 0.8091844320297241,
-      "bert_score_reference": 0.8011557459831238,
-      "world_consistency": 0.8,
-      "distinct_2": 0.8842105263157894,
-      "repetition_2": 0.07368421052631578,
-      "interestingness": 0.65,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.720254682030169,
-      "context_precision": 0.0,
-      "context_recall": 1.0
+      "bert_score_source": 0.8166036009788513,
+      "bert_score_reference": 0.7997520565986633,
+      "world_consistency": 0.857,
+      "distinct_2": 0.9154929577464789,
+      "repetition_2": 0.05985915492957746,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "Here is a world quest about Guili Plains, Guili Assembly ruins, and Guizhong's history:\n\n1. **Start**\nFind Soraya at the Wangshu Inn in Liyue Harbor. She greets you warmly and thanks you for agreeing to help her with her research on Guizhong, the Lord of Dust. \"I've been studying the ancient texts and ruins of Guili Assembly,\" she explains. \"But I need someone with your... particular skills to help me uncover more information.\" Soraya hands you a map of the area and asks you to meet her at the Guili Plains Monument in two days' time.\n\n2. **Action 1: Infiltrate the Guili Assembly Ruins**\nTravel to the Guili Assembly ruins and find the entrance to the inner sanctum. You need to disable the traps and puzzles that protect the ancient texts. After navigating through the deadly traps, you reach a chamber filled with dusty scrolls and artifacts.\n\n3. **Dialogue**\nSoraya arrives at the ruins and is amazed by your success in infiltrating the inner sanctum. \"Wow, I didn't think it was possible to bypass those traps,\" she says. \"Your skills are incredible.\" She begins to examine the ancient texts and mentions that Guizhong's history is tied to an artifact known as the 'Fifth Windstone'.\n\n4. **Action 2: Find the Fifth Windstone**\nSearch the chamber for clues leading to the location of the Fifth Windstone. You find a cryptic poem etched into the wall, which hints at its presence in a nearby cave system. You venture into the caves and navigate through treacherous tunnels to reach a hidden chamber.\n\n5. **Action 3: Retrieve Guizhong's Journal**\nIn the hidden chamber, you find Guizhong's journal, which contains crucial information about his life and legacy as the Lord of Dust. However, the journal is encrypted, and you need to solve a puzzle to unlock it. After solving the puzzle, you gain access to the journal's secrets.\n\n6. **Dialogue**\nSoraya awaits your return at the Guili Plains Monument, eager to learn more about Guizhong's journal. She reads through the decrypted pages and is amazed by the insights into Guizhong's past. \"This changes everything I thought I knew about Guizhong,\" she says. \"Thank you for helping me uncover this piece of Liyue's history.\"\n\n7. **Final Dialogue**\nSoraya thanks you again for your help, explaining that her research on Guizhong has shed new light on the Lord of Dust's legacy. She asks if you'd like to join her at the Sumeru Akademiya to continue researching and learning more about Liyue's history. \"Together, we can uncover even more secrets,\" she says with a smile.",
+    "generated_text": "Here is the world quest about Guili Plains, Guili Assembly ruins, and Guizhong's history:\n\n1. **Start**\nThe Traveler receives a message from Soraya, a researcher from the Sumeru Akademiya, who is standing near the entrance of the Guili Plains. She greets the Traveler warmly and begins her introduction.\n\"Ah, Traveler! I've been studying Liyue's history for years, and I'm convinced that Guizhong, the Lord of Dust, holds many secrets. I was wondering if you could help me uncover more about his legacy. Specifically, I need to know what happened to the Guili Assembly ruins. Can you take me there?\"\nSoraya hands the Traveler a map with some cryptic notes.\n\n2. **Explore Guili Plains**\nThe Traveler and Soraya arrive at the Guili Plains, where they find evidence of an ancient battle. They come across several scattered artifacts and symbols etched into the ground.\nAction: Explore the area to gather clues about the Guili Assembly ruins. Search for any hidden compartments or notes that might provide information.\n\n3. **Unlocking the Ruins**\nThe Traveler and Soraya discover a hidden entrance to the Guili Assembly ruins. Inside, they find an ancient journal belonging to Guizhong himself.\nDialogue: Soraya's eyes widen as she reads through the journal.\n\"This is incredible! Guizhong writes about his struggles with the Tianquan, Ningguang. He was trying to establish a new order in Liyue, one that would bring balance between humans and the elements.\"\n\n4. **The Dust of Time**\nSoraya reveals that she has discovered an ancient ritual that requires a specific ingredient: the dust of time. She believes this dust can be found near the Dihua Marsh.\nAction: Travel to the Dihua Marsh with Soraya and search for the dust of time. This will require navigating through the marsh's treacherous terrain.\n\n5. **Final Revelation**\nThe Traveler and Soraya return to the Guili Assembly ruins, where they find a hidden chamber containing an ancient artifact known as the Dustkeeper's Seal.\nDialogue: Soraya smiles as she holds up the seal.\n\"This is it! The seal is said to hold the essence of Guizhong's legacy. With this, I can finally understand the true purpose of his work in Liyue. Thank you, Traveler, for your help in uncovering the secrets of Guili Plains.\"",
     "category": "quest",
     "reference_text": "\n                Start the quest by talking to Soraya near the ruin in Guili Plains. Soraya asks the Traveler to help her explore the Guili Assembly ruins and search for ancient inscriptions on stone pillars and tablets that could reveal Liyue's history. She is primarily interested in acquiring knowledge rather than material wealth, so she allows the Traveler to keep any treasure they might find during their search.         \n                1. Head to Guili Assembly to search for an ancient stone tablet (0/5). Obtain Transcription Transcription from a stone tablet ×5\n                2. Talk to Soraya. After the Traveler brings Soraya five stone tablets, she pieces together their fragmented text to reveal that the Guili Assembly was jointly protected by two allied gods—Guizhong, who ruled over Dust, and a Geo Archon—and that its name derives from syllables of their divine names. Fascinated by this account of peaceful cooperation between deities, Soraya wonders what catastrophic event could have destroyed the settlement despite their power and asks the Traveler to continue searching for more tablets to uncover the rest of the story.\n                3. Search for the stone tablets (0/2). Obtain Transcription Transcription from a ruin ×2\n                4. Talk to Soraya. The newly discovered tablets reveal that a massive battle destroyed the Guili Assembly and hint at hidden treasure protected by Guizhong's Four Commandments. Unable to immediately decipher the philosophical riddle, Soraya decides to return to Wangshu Inn with the Traveler to rest before continuing their investigation.\n            ",
     "metrics": {
       "category": "quest",
-      "bert_score_source": 0.8133692145347595,
-      "bert_score_reference": 0.823155403137207,
-      "world_consistency": 0.9,
-      "distinct_2": 0.8264840182648402,
-      "repetition_2": 0.1095890410958904,
-      "interestingness": 0.67,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.8607956049618456,
-      "context_precision": 0.9999999999,
-      "context_recall": 1.0
+      "bert_score_source": 0.8201318383216858,
+      "bert_score_reference": 0.8260636925697327,
+      "world_consistency": 0.925,
+      "distinct_2": 0.8541114058355438,
+      "repetition_2": 0.07427055702917772,
+      "interestingness": 0.6
     }
   },
   {
-    "generated_text": "Here is the world quest:\n\n**Quest Name:** \"Landa's Lost Cargo\"\n\n**Stage 1: Starting the Quest**\n\nThe Traveler arrives at Wangshu Inn, seeking information about Landa's recent business ventures. While sipping tea in the inn's courtyard, they overhear a conversation between two guests discussing Landa's troubles.\n\nDialogue Summary:\n\"Have you heard from Landa? His last shipment of rare herbs was delayed... again.\"\n\"I don't know, but I've seen him arguing with some of the local merchants. He's been acting strange lately.\"\nThe Traveler approaches one of the guests and asks about Landa's situation.\nGuest: \"Oh, you mean Landa's cargo problem? I heard he's looking for someone to help him deliver a shipment of rare herbs to the eastern districts.\"\n\n**Stages 2-3: Player's Goals**\n\n* Stage 2: Retrieving the Missing Cargo\n\t+ Goal: Find out which merchant is holding Landa's missing cargo and negotiate their release.\n\t+ Dialogue Options:\n\t\t- \"I'll give you a fair price for it, but I need it now.\"\n\t\t- \"You can't afford it. It's worth more than you're offering.\"\n\t+ Main Point: The player must convince the merchant to return Landa's cargo or negotiate a trade.\n* Stage 3: Escorting the Cargo\n\t+ Goal: Escort the cargo from Wangshu Inn to the eastern districts while avoiding any trouble with local bandits or other factions.\n\t+ Dialogue Options:\n\t\t- \"Keep moving, we don't have all day.\"\n\t\t- \"I think I saw some suspicious characters lurking around here. Let's keep a safe distance.\"\n\n**Stage 4: Completing the Quest**\n\nThe Traveler returns to Wangshu Inn, where Landa thanks them for their help.\nDialogue Summary:\n\"Ah, thank you so much! I owe you one, Traveler. My cargo was worth a small fortune, and without your... persistence, it would have been lost forever.\"\nLanda hands the Traveler a small pouch containing some gold and a rare herb.\n\"I've got this as a token of my gratitude. Take care, and watch out for any more trouble.\"\n\nThis quest is designed to be simple and straightforward, with minimal drama or complications. It adds a bit of flavor to Wangshu Inn and provides an opportunity for the Traveler to interact with Landa and other NPCs in the region.",
+    "generated_text": "Here is the world quest for Wangshu Inn:\n\n**Quest Name:** \"Landa's Missing Cargo\"\n\n**Stage 1: Start of Quest**\n\nThe Traveler enters Wangshu Inn, looking for a place to rest and gather information about the recent events in Liyue. They notice Landa, a merchant, sitting at a table near the entrance, sipping tea and staring at a stack of crates.\n\nLanda (approaching the Traveler): \"Ah, you must be here for the Rite of Parting? I've been trying to get some new goods in, but my cargo has gone missing. Can you help me track it down?\"\n\nMain points: Landa asks for help finding his missing cargo, and mentions that he needs it for an important business deal.\n\n**Stage 2: Investigate the Stolen Cargo**\n\nThe Traveler agrees to help Landa investigate the stolen cargo. They speak with the innkeeper, who remembers a suspicious person lurking around the area where the crates were stored.\n\nInnkeeper (to the Traveler): \"I saw someone in a hooded cloak sneaking around here last night. They might be connected to the missing cargo.\"\n\n**Goal:** Find clues about the identity of the thief and their whereabouts.\n\n**Stage 3: Follow the Clues**\n\nThe Traveler follows the innkeeper's lead, tracing the suspicious person's path through the Liyue Harbor area. They find a small note with an address on it, which appears to be a seedy tavern on the outskirts of town.\n\nNote (found on the ground): \"Meet me at the Black Swan Tavern tonight. -J\"\n\n**Dialogue:** When the Traveler shows the note to Landa:\n\nLanda: \"Ah, that's our thief! I knew they'd try to sell my cargo to the highest bidder. We need to get there quickly and catch them in the act.\"\n\nMain points: The note reveals a lead on the thief, who is planning to meet at the Black Swan Tavern.\n\n**Stage 4: Confront Landa's Thief**\n\nThe Traveler arrives at the Black Swan Tavern with Landa, where they find the hooded figure from earlier. A fight ensues, and after defeating the thief, the Traveler recovers the stolen cargo.\n\nDialogue (with Landa after completing the quest): \"Thanks so much for your help! I owe you one, friend. You've not only recovered my cargo but also saved me from a big financial loss.\"\n\nMain points: The Traveler returns Landa's stolen cargo, and he is grateful for their assistance in resolving the situation.",
     "category": "quest",
     "reference_text": "\n                Talk to Landa at Wangshu Inn to start the quest. Landa, a merchant who frequently travels between Mondstadt and Liyue, begs the Traveler for help after being ambushed by monsters and forced to flee, leaving behind a box containing crucial wine trade invoices. He anxiously asks the Traveler to retrieve the documents from the marked locations along his escape route, fearing he will lose his job if he fails to deliver them to his wealthy Liyue employer.\n                1. Get the invoices (0/3)\n                2. Talk to Bao'er. One Box of Goods Invoices is held by Bao'er, who will trade it in exchange for three Noctilucous Jade. Bao'er admits to finding the lost box of invoices but proposes a barter: she will only return the documents in exchange for 3 Noctilucous Jades as compensation for her time guarding them. After the Traveler agrees to the deal and provides the gems, she hands over the invoices, advising them not to ask too many questions about the high-value transactions listed inside before sending them on their way.\n                3. Talk to Landa. Landa gratefully accepts the recovered invoices from the Traveler and provides their reward, but panics upon noticing the box has been opened and learning that a stranger examined its contents. He urgently excuses himself to contact his boss about the potential security breach, assuring the Traveler that he trusts them despite the confidential nature of the documents.\n            ",
     "metrics": {
       "category": "quest",
-      "bert_score_source": 0.7973452806472778,
-      "bert_score_reference": 0.8080339431762695,
+      "bert_score_source": 0.8081691861152649,
+      "bert_score_reference": 0.8113635778427124,
       "world_consistency": 0.75,
-      "distinct_2": 0.9032258064516129,
-      "repetition_2": 0.06989247311827956,
-      "interestingness": 0.6,
-      "faithfulness": 1.0,
-      "answer_relevancy": 0.7239455459640528,
-      "context_precision": 0.999999999975,
-      "context_recall": 0.6666666666666666
+      "distinct_2": 0.8796992481203008,
+      "repetition_2": 0.06766917293233082,
+      "interestingness": 0.4
     }
   },
   {
-    "generated_text": "Quest: \"Whispers of the Ancients\"\n\nObjective: To uncover the location of a hidden, ancient artifact on Wuwang Hill.\n\nDialogue with Quest-Giver:\nYou approach an old, hooded figure meditating by the hill's base. As you watch, they slowly open their eyes, revealing piercing, otherworldly energy.\n\nPaimon says to you, \"Looks like someone needs help...\"\n\nGoal: The hooded figure tasks you with finding a lost artifact hidden within Wuwang Hill's ancient ruins. You must navigate through the dense fog and crumbling structures to uncover a series of cryptic symbols etched into the walls.\n\nEnd of Quest:\nYou discover the last symbol, revealing the location of the artifact. As you claim it, the hooded figure disappears, leaving behind only whispers on the wind, \"Paimon: Ah-ha! Found something!\" and \"Time to get outta here, Paimon!\"",
+    "generated_text": "Quest: \"Moonlit Vigil\"\n\nTo initiate the quest, speak to the mysterious Moonlit Oracle on Wuwang Hill. The Oracle's first dialogue is:\n\n\"Ah, Traveler, I sense a darkness stirring in Liyue. The moon casts an eerie glow upon this hill, and I fear it may be a harbinger of trouble.\"\n\nThe player's goal is to retrieve a rare Lunar Flower that only blooms under the light of the full moon.\n\nTo accomplish this task, follow the path to the top of Wuwang Hill at midnight, where you'll find a hidden clearing. Use your elemental abilities to purify the polluted air and reveal the Lunar Flower.\n\nUpon retrieving the flower, return to the Moonlit Oracle, who will reward you with a small, glowing stone.\n\nPaimon: \"You've done it again, Traveler! You're as reliable as Paimon's trusty map!\"\n\nPaimon: \"I knew I could count on you! You saved Liyue from darkness... for now!\"\n\nThe quest concludes with the Moonlit Oracle's final words:\n\n\"The moon waxes and wanes, but with each passing night, the shadows grow longer. May the light of the Traveler's heart guide Liyue through the darkness.\"",
     "category": "quest",
     "reference_text": "\n                Book in the Woods is a World Quest in Wuwang Hill, Liyue.\n                Talk to Little Nine. Little Nine asks the Traveler to help find a precious manuscript written by their neighbor Big Nine—a book they were allowed to preview before publication but accidentally lost after falling into a river and drying it in the woods. Worried that Big Nine will be heartbroken or angry if the book is gone for good, Little Nine directs the Traveler to search the nearby forest where they last remember leaving it to dry.\n                1. Find the lost book in the forest (0/2). Traveler and Paimon cannot find any books and decided to go back to ask for extra clues.\n                2. Go back and find Little Nine. Little Nine will not be there and the quest will finish.\n                Finish dialogue:\n                Paimon: What the... Where'd that girl go?\n                Paimon: Has she gone to find the book herself?\n            ",
     "metrics": {
       "category": "quest",
-      "bert_score_source": 0.8054429888725281,
-      "bert_score_reference": 0.7955700159072876,
-      "world_consistency": 0.0,
-      "distinct_2": 0.9253731343283582,
-      "repetition_2": 0.06716417910447761,
-      "interestingness": 0.5,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.7045825532314637,
-      "context_precision": 0.49999999995,
-      "context_recall": 0.5
+      "bert_score_source": 0.8094908595085144,
+      "bert_score_reference": 0.7960739135742188,
+      "world_consistency": 0.857,
+      "distinct_2": 0.9322916666666666,
+      "repetition_2": 0.057291666666666664,
+      "interestingness": 0.7
     }
   },
   {
-    "generated_text": "**Quest: Whispers of Mingyun**\n\nIn Mingyun Village, Liyue, an elderly villager approaches the Traveler and Paimon with a hint of sadness in their eyes.\n\n1. **Starting Point**\nThe quest begins when the villager, named Mei, asks to speak with the Traveler and Paimon privately at the village's central square. As they listen intently, Mei explains that she has been troubled by an old family secret that has haunted her for years. She reveals that a long-forgotten tragedy in Mingyun Village drove many villagers away, but the truth behind it was never told.\n\n2. **Investigate the Old Mansion**\nMei asks the Traveler and Paimon to investigate the abandoned mansion on the outskirts of the village, where she believes crucial information about her family's past lies. The player must navigate through the overgrown garden and broken gates to reach the entrance.\n\n3. **Confronting Family Ties**\nUpon entering the mansion, the Traveler discovers a series of old journals belonging to Mei's great-grandfather, a prominent figure in Mingyun Village. As they flip through the pages, they learn that a bitter family feud over land ownership led to the tragic event that drove villagers away.\n\n4. **A Letter from the Past**\nMei's journal reveals that her great-grandfather had written a heartfelt letter to the villagers before he left, apologizing for his actions and seeking forgiveness. However, the letter was never delivered due to a dispute with one of the village elders. The Traveler finds the original letter hidden in a secret compartment.\n\n5. **A Newfound Understanding**\nWith the letter in hand, Mei finally has closure on her family's past. She thanks the Traveler and Paimon for uncovering the truth and promises to share the story with her fellow villagers. As a reward, Mei gives them a small, intricately carved wooden box containing a rare Mingyun Village specialty: Golden Phoenix tea leaves.",
+    "generated_text": "Here is a quest located in Mingyun Village, Liyue:\n\n**Quest: The Lost Heirloom of Mingyun**\n\n1. **Starting Point:** The Traveler and Paimon arrive in Mingyun Village, where they are approached by the village elder, who greets them with concern. \"Ah, strangers! We've been expecting you. Our village has been plagued by a mysterious absence of our ancestors' traditions. We fear it's connected to their disappearance long ago.\"\n\n2. **Task: Investigate the Old Ancestors' Tomb**: The Traveler and Paimon agree to help and visit the old ancestors' tomb, where they find a worn-out, unsealed door with a cryptic message etched into it.\n\n3. **Dialogue:** \"This is where our ancestors used to leave their offerings,\" says the village elder. \"But since their disappearance, no one has dared to disturb this place again.\"\n\n4. **Task: Retrieve the Missing Scroll**: The Traveler and Paimon search the tomb and find a hidden compartment containing an old scroll with a family tree of the Mingyun clan.\n\n5. **Reward:** After deciphering the family tree, they discover that the ancestors' disappearance was caused by a long-forgotten family conflict over a treasured heirloom, which has been lost for generations. The village elder rewards the Traveler and Paimon with 1000 Morale and an item - an old, intricately carved wooden box containing a fragment of their ancestor's family crest.",
     "category": "quest",
     "reference_text": "\n                1. Start the quest by talking to Yuan Hong in Mingyun Village. Yuan Hong, lost in melancholic reverie, recites cryptic poetry about autumn leaves and solitude while dismissing worldly wealth as a farce. He expresses a deep longing to leave the village and start life anew, barely acknowledging the Traveler's attempts to engage him in conversation.\n                2. Look around Mingyun Village. Go to the house facing the billboard and read the \"Lost Notes\". It is required to read the notes as the first step, as it triggers the spawning of the four parts of the fathers will and the matching four markers on the map.\n                3. Look for a will (0/4). During this, you can find three people in different locations (these are three brothers, sons of Yuan Hong, now all three of thems searching the treasure without desire to reunir as a family) and listen to them:\n                    - Yuan Cheng. Yuan Cheng vents his frustration over his older brothers hoarding the best discoveries and his father's willful blindness to the family's dynamics. Convinced that a hidden treasure lies in the mine unbeknownst to them, he resolves to claim it for himself and flee far away from his family.\n                    - Yuan Qing. Yuan Qing laments his misfortune after sneaking away from his family to be the first to reach the mine and claim its hidden treasure, only to be ambushed by monsters. Now trapped and overwhelmed, he fear he is doomed to fail.\n                    - Yuan Liang. Yuan Liang mocks his brothers for misinterpreting their father's will and arrogantly dismisses any sense of familial duty, focusing solely on the line mentioning hidden treasure. Consumed by greed, he plots to claim the mine's riches for himself, confident that his siblings' foolishness will leave the prize entirely to him.\n                4. Find the treasure. The treasure is at the base of a large tree. When you approach the tree, four Treasure Hoarders will spawn.\n                5. Collect the treasure. A dig option becomes available at the base of the tree. After digging, a Precious Chest will spawn.\n            ",
     "metrics": {
       "category": "quest",
-      "bert_score_source": 0.8180763125419617,
-      "bert_score_reference": 0.8071092367172241,
-      "world_consistency": 0.75,
-      "distinct_2": 0.8849840255591054,
-      "repetition_2": 0.07667731629392971,
-      "interestingness": 0.85,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.6649488472173234,
-      "context_precision": 0.99999999995,
-      "context_recall": 0.0
+      "bert_score_source": 0.8156616687774658,
+      "bert_score_reference": 0.8011847734451294,
+      "world_consistency": 0.957,
+      "distinct_2": 0.8783783783783784,
+      "repetition_2": 0.08558558558558559,
+      "interestingness": 0.5
     }
   },
   {
-    "generated_text": "**The Lost Temple of Pervases**\n\nIn the heart of Liyue, a mysterious energy signature beckons the Traveler and Paimon to explore the long-abandoned temple of Pervases, an ancient Yaksha who was once a close friend of Xiao. Wang Ping'an, the infamous scammer turned reformed individual, has received a cryptic message from Pervases' spirit, requesting their aid in restoring the temple.\n\n**Part 1: Gathering Materials**\n\nThe Traveler and Paimon arrive at the temple's entrance, where they meet Wang Ping'an, who is eager to begin the reconstruction process. He explains that Pervases had left behind a series of cryptic clues pointing to the necessary materials for the restoration. The duo must venture into the nearby Dihua Marsh to gather rare plants and minerals, which can only be found in this unique environment.\n\nAs they navigate the marsh, they come across various creatures, including giant water striders and massive frogs. Paimon uses her agility to catch a few of these creatures, allowing Wang Ping'an to collect their scales and extracts, which are crucial for the reconstruction process.\n\nUpon returning to the temple, Wang Ping'an is impressed with the materials collected and instructs the Traveler to use them to create a foundation for the temple's renovation. The Traveler must mix and shape the materials into the correct form, using Paimon's assistance to carry heavy stones.\n\n**Part 2: Consecrating the Space**\n\nWith the foundation in place, Wang Ping'an leads the Traveler to the interior of the temple, where a series of ancient artifacts await. These relics hold the secrets of Pervases' magic and must be consecrated to awaken the Yaksha's energy.\n\nThe duo encounters a group of mischievous Goblins, who have been taking over the temple's lower levels. Wang Ping'an challenges them to a series of trials, which the Traveler must assist in completing using their combat skills. These trials test the Traveler's agility, strength, and strategic thinking.\n\nAfter defeating the goblins, they access the consecration chamber, where Wang Ping'an begins the ritual to awaken Pervases' energy. The Traveler assists by holding a sacred lantern, which amplifies the ritual's power.\n\n**Part 3: Completing the Reconstruction**\n\nThe final stage of the reconstruction involves restoring Pervases' original structure and imbuing it with his spirit. Wang Ping'an reveals that Pervases had left behind a series of intricate puzzles, which must be solved to unlock the temple's true potential.\n\nThe Traveler and Paimon work together to decipher the puzzles, using their combined skills and knowledge to uncover the hidden patterns. As they progress, the temple begins to glow with an otherworldly energy.\n\nUpon completing the final puzzle, the temple is restored to its former glory, and Pervases' spirit is finally able to rest in peace. Wang Ping'an expresses his gratitude to the Traveler and Paimon for their help, and as a token of appreciation, he gifts them a rare artifact from the temple's treasury.\n\nWith the restoration complete, the Traveler and Paimon bid farewell to Wang Ping'an and exit the temple, leaving behind a brighter, more radiant structure that will serve as a beacon of hope in Liyue.",
+    "generated_text": "**The Temple of Pervases: A New Beginning**\n\nIn Liyue Harbor, the Traveler and Paimon are approached by a familiar face - Wang Ping'an, the former scammer who has turned his life around. He shares with them a personal tale of friendship with an ancient Yaksha named Pervases, who once protected the city from harm. However, the temple dedicated to Pervases was abandoned, and its restoration is crucial for Liyue's harmony.\n\nWang Ping'an asks for the Traveler's help in rebuilding the temple, and they agree to assist him. Their journey takes them to various locations across Liyue, where they meet fellow adepti and gather materials for the reconstruction process.\n\n**Part 1: Gathering Materials**\n\nThe Traveler and Paimon begin by visiting the Jade Market, where they purchase sacred stones and rare artifacts needed for the temple's construction. Wang Ping'an is overwhelmed with excitement as he helps them haggle with merchants. Afterward, they head to Dihua Marsh, where they meet Cloud Retainer adepti, who teaches them about the importance of balancing nature and architecture in temple design.\n\n**Part 2: Proceeding with Reconstruction**\n\nWith materials in hand, the group proceeds to Bubu Pharmacy, where Wang Ping'an's skills as a pharmacist come in handy. They need a rare herb to create an incense that will purify the air and bring good fortune to the temple. Wang Ping'an expertly prepares the incense, which fills the air with a pleasant aroma.\n\nNext, they visit Madame Ping's mystical teapot domain, where Cloud Retainer adepti shares ancient knowledge on how to harness the power of tea leaves for spiritual growth. The Traveler and Paimon learn about the symbolic meanings behind various tea leaves, while Wang Ping'an helps Madame Ping harvest the rare tea leaves needed for the incense.\n\n**Part 3: Finishing Works**\n\nWith all materials in place, the group begins the final stage of temple reconstruction. They head to Guyun Stone Forest, where Mountain Shaper adepti teaches them about the importance of balancing yin and yang energies in architecture. The Traveler helps Wang Ping'an mix a special potion that will bring balance to the temple's energy.\n\nAs they work together, the Traveler reflects on the story of Pervases and his friendship with Wang Ping'an. They realize that the temple's restoration is not just about rebuilding a structure but also about honoring the past and nurturing the present.\n\nFinally, after weeks of hard work, the Temple of Pervases stands before them, its grandeur and beauty reflecting the harmony between nature and architecture. The Traveler, Paimon, Wang Ping'an, and their new friends gather to witness the completion of this sacred project. As they enter the temple, they feel a sense of pride and accomplishment, knowing that they have helped restore a piece of Liyue's history.\n\nThe temple's energy resonates with the Traveler's own abilities, and he feels a deep connection to Pervases' spirit. Wang Ping'an smiles, proud of his friends for helping him complete his dream. As they leave the temple, the Traveler looks forward to their next adventure, knowing that friendships like these can help forge a brighter future for Liyue.",
     "category": "quest",
     "reference_text": "\n                As the Traveler and Paimon walk by Wanmin Restaurant, they smell the aroma of Grilled Tiger Fish and decide to buy some. The Traveler buys three servings and Paimon wonders who's the third serving for. The Traveler had thought of Pervases and decided to buy another serving and go pay their respects. Paimon hopes the statue of Pervases hasn't been defaced as the temple was in a pretty sad state with Treasure Hoarders nearby the last time they were there.\n                As they approach the temple, they see Xiao nearby. Paimon wonders out loud why no one maintains the temple even though the Yakshas are heroes who defended Liyue Harbor. Xiao goes silent and Paimon wonders if he's angry but he says that they did not perform their duty for recognition. They then hear someone calling for help so Xiao and the Traveler go to assist. After defeating the enemies, they find the person under attack was Wang Ping'an, previously known to them as \"Starsnatcher.\" Wang Ping'an had turned a new leaf and was on his way to restore Pervases's temple. Xiao leaves and the Traveler and Wang Ping'an head to the temple to continue their discussion about the temple. Paimon and Traveler wonder if Wang Ping'an was actually being genuine and so Wang Ping'an tells them to come back after work has started to see he has indeed changed.\n                The Traveler returns to the temple later and find that Wang Ping'an has brought some workers and are making good progress on the temple. The Ministry of Civil Affairs got wind of what was going on and posted some Millelith to guard the temple throughout the construction. Although the Millelith are guarding the construction site, Wang Ping'an is worried that material deliveries might get attacked by nearby Treasure Hoarders and asks the Traveler to handle them. The Traveler swiftly defeats the Treasure Hoarders and they ask what they did to offend the Traveler. So the Traveler informs them they are renovating a Yaksha's temple. The Treasure Hoarders did not know the dilapidated temple was for an Adeptus and promise not to mess with the temple lest the Adepti judge them. After reporting back to Wang Ping'an, the Traveler is thanked and is asked to gather some Sandbearer Wood next. Wang Ping'an tells the Traveler that construction will take some more time and to come back in some time.\n                When returning to the temple again, the Traveler finds the construction has finished and the temple fully repaired. Wang Ping'an asks the Traveler if they'd like to offer some incense and so the Traveler lights some incense at the censer. Wang Ping'an tells the Traveler that he will remain at the temple as he compiles his book about the Vigilant Yaksha and welcomes the Traveler to drop by anytime to offer incense.\n            ",
     "metrics": {
       "category": "quest",
-      "bert_score_source": 0.823624312877655,
-      "bert_score_reference": 0.834755003452301,
-      "world_consistency": 0.8,
-      "distinct_2": 0.821969696969697,
-      "repetition_2": 0.07386363636363637,
-      "interestingness": 0.75,
-      "faithfulness": NaN,
-      "answer_relevancy": 0.6972015327198523,
-      "context_precision": 0.49999999995,
-      "context_recall": 1.0
+      "bert_score_source": 0.8322893977165222,
+      "bert_score_reference": 0.829230010509491,
+      "world_consistency": 0.75,
+      "distinct_2": 0.8374291115311909,
+      "repetition_2": 0.08128544423440454,
+      "interestingness": 0.7
     }
   }
 ]
