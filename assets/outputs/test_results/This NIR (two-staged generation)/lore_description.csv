@@ -1,15 +1,13 @@
-﻿category;reference_text;generated_text;metrics_category;metrics_faithfulness;metrics_answer_relevancy;metrics_context_precision;metrics_context_recall;metrics_semantic_similarity;metrics_answer_correctness;metrics_bert_score_source;metrics_bert_score_reference;metrics_world_consistency;metrics_distinct_2;metrics_repetition_2;metrics_interestingness
+﻿category;reference_text;generated_text;metrics_category;metrics_bert_score_source;metrics_bert_score_reference;metrics_world_consistency;metrics_distinct_2;metrics_repetition_2;metrics_interestingness
 character description;"
                 Alexander, Warrior Jar
                 Alexander is a living jar who travels the Lands Between, honing his strength to become a great warrior. Alexander was created to be a warrior vessel, and the remains of many great warriors reside within him. He originally came from Jarburg, a hidden village of living jars in Liurnia of the Lakes; however, he vowed never to return, claiming that ""the path of champions must be trod alone"". Despite his occasional incompetence and need for rescue, Alexander is unfailingly optimistic, determined, and honorable—viewing every setback as a step toward becoming a ""grand champion"". He looks like a pot filled with some sort of meat, with long black arms and short legs.
                 On his journey to become a grand champion, he seeks out Redmane Castle in Caelid, following rumours of a festival of combat. On his way to the festival, he crosses paths with the Tarnished multiple times, often requiring their assistance to get out of unfortunate situations such as being stuck in potholes. He participates in the Radahn Festival, a brawl between several champions and Starscourge Radahn. Alexander survives the ordeal, however, he suffers damage to his body and is forced to hide for the remainder of the battle. Undeterred, he replenishes himself with the bodies of mighty warriors littering the battlefield, vowing to grow even stronger. Next, Alexander travels to Mt. Gelmir, hoping to temper his body in the sea of fire, such that it would never crack again. Finding the lava to be lukewarm and insufficient to strengthen his vessel, he sets his sights upon the Mountaintops of the Giants, seeking out the flame of ruin. Alexander travels to the mountaintops, where he witnesses the Tarnished's fight with the Fire Giant. He then finds himself in Farum Azula, where he encounters the Tarnished for a final time. Impressed by his companion's feats of strength, he requests a duel. The Tarnished emerges victorious and Alexander accepts his defeat, asking the Tarnished to take his innards with his final words.
-            ";"<The Nameless>
+            ";"<answer>
+A grizzled veteran of countless battles, Kaelin ""The Hammer"" Thorne is driven by a fierce determination to protect the innocent. He stands out as a hulking, humanoid hammer, its rusty iron surface weathered from years of use, with worn leather straps holding his 'head' in place. Born on the outskirts of the Lands Between, after the Shattering War ended, Kaelin's past is marked by hardship and loss, as he survived by his wits and brawn, earning a reputation as a formidable fighter in the process.
 
-He moves with an awkward gait, his oversized gauntlets clanking against the metal plating that covers most of his body. A makeshift face guard hangs from a leather strap around his neck, protecting the scarred and burned skin beneath.
-
-His eyes hold a deep-seated pain, one that fuels his unyielding sense of responsibility to protect those who cannot defend themselves. He is driven by the loss he has endured, a constant reminder that there are still innocent lives at risk.
-
-The Nameless was once a blacksmith's apprentice in the Nox, but after witnessing the fall of Nokron and losing loved ones, his purpose shifted from crafting tools to forging strength in himself.";character description;1.0;0.6231989231801931;;1.0;0.9204937609573858;0.6051234402393464;0.8001593351364136;0.8093613386154175;0.8;0.991304347826087;0.008695652173913044;0.85
+As the player ventures through the Lands Between, they begin to notice Kaelin patrolling the roads and marketplaces, ever vigilant for signs of trouble. During one encounter, the player stumbles upon Kaelin mediating a dispute between rival factions vying for control of a key trade route, his imposing presence brooking no argument. As tensions escalate, Kaelin leaps into action, using his hammer to diffuse the situation and protect those caught in the crossfire. Impressed by his bravery, the player is approached by Kaelin, who offers a nod of respect before continuing on his way, leaving the player to ponder the enigmatic warrior's true motives.
+</answer>";character description;0.7967476844787598;0.8182355761528015;0.75;0.9583333333333334;0.03125;0.85
 character descripion;"
                 Roderika, Spirit Tuner
                 CHARACTER'S STORY
@@ -23,74 +21,65 @@ character descripion;"
                 CHARACTER'S MOTIVATION
                 Roderika's primary motivation evolves from mere survival to finding a meaningful purpose to honor the sacrifice of her companions. Initially, she seeks only to join her ""chrysalids"" (her grafted friends), believing herself useless. However, discovering her gift for spirit tuning gives her a new reason to live: to ease the suffering of spirits, including her fallen men, by honing her craft. Her ultimate motivation becomes intertwined with loyalty and redemption. She is driven to free Hewg from what she perceives as Queen Marika's ""fearsome curse,"" even trying to persuade him to leave the hold. When he refuses, she is motivated to stay with him out of gratitude, returning the kindness he showed her. Finally, she channels her grief and determination into a single, desperate plea: for the Tarnished to become Elden Lord and use Hewg's god-slaying weapon to kill Marika, the source of the curse that binds her mentor and caused so much suffering.
             ";"<answer>
-ELARA'S STORY
-Elara spent years studying the ancient texts and experimenting with new techniques as an Apothecary, seeking to unlock the secrets of the Golden Order. Her colleagues in the group of scholars eventually disbanded due to disagreements over their methods. Undeterred, Elara continued her research alone, focusing on the intersection of nature and magic. Her discovery of a hidden text hinted at a skill that could change everything: infusing magical properties into everyday objects.
+  <CharacterDescription>
+    <CharacterStory>
+    The character, named Kaelin, was born into the Haligtree, an artificial Erdtree created by Miquella after rejecting the Golden Order. As an outcast, Kaelin grew up among others who were discriminated against by the Golden Order, including Albinaurics and Misbegotten. They learned to rely on their wits and resourcefulness to survive in this refuge. Under Miquella's guidance, Kaelin discovered their affinity for healing magic. With time, they became a respected healer within the Haligtree community.
 
-ELARA'S APPEARANCE
-Elara has short, curly brown hair tied in a ponytail, with a few stray strands framing her heart-shaped face. She wears a long, earth-toned coat with intricate embroidery depicting leaves and vines, reflecting her connection to nature. Her eyes shine with a warm, golden light, hinting at the mystical forces she studies.
+    <CharacterAppearance>
+    Kaelin stands at an average height with an athletic build, acquired from years of living in the Haligtree. They wear practical clothing made from durable fabrics, allowing for ease of movement. A symbol of their connection to the Haligtree adorns their forehead – a small, intricately carved wooden badge that represents the tree's life force.
 
-ELARA'S PERSONALITY
-As Elara progressed in her research, she discovered that her calm demeanor could be deceiving. She had a hidden streak of determination that drove her to push boundaries and challenge conventional wisdom. Elara valued community and collaboration, often seeking out like-minded individuals to share knowledge and resources. Despite her introverted nature, she was fiercely protective of those she cared about.
+    <CharacterPersonality>
+    Kaelin is a resilient and determined individual, forged by their experiences within the Haligtree. They have a strong sense of self-preservation but also feel a deep sense of responsibility towards others. Their companionship with others who share similar backgrounds has helped them develop empathy and understanding for those facing adversity.
 
-ELARA'S MOTIVATION
-Elara's motivation shifted from unlocking the secrets of the Golden Order to using her skills to help those in need. She became driven by a sense of responsibility, facilitating trade between communities and creating a network of knowledge and resources that could aid in healing and rebuilding the shattered world. As she established herself as a hub for player progression, Elara's ultimate goal was to create a brighter future for all inhabitants of the Lands Between.
-
-</answer>";character descripion;0.0;0.5367118780888934;;1.0;0.9475632397979596;0.61189080994949;0.81028151512146;0.7963465452194214;0.15;0.9354838709677419;0.04659498207885305;0.85
+    <CharacterMotivation>
+    Initially, Kaelin is driven by a desire to protect their community and maintain the delicate balance within the Haligtree. As they encounter players and learn about the world beyond, they become motivated by a sense of purpose – to help others overcome their struggles and find hope in a broken world.
+  </CharacterDescription>
+</answer>";character descripion;0.7923834323883057;0.8251506090164185;0.95;0.9372384937238494;0.03765690376569038;0.7
 character description;"
                 Blaidd the Half-Wolf
                 A guarded and boorish yet fiercely loyal half-wolf, Blaidd was a shadowbound beast, created by the Two Fingers to serve Lunar Princess Ranni when she was chosen as an Empyrean. He is a wolf-human hybrid with natural wolf-like facial features, pointed ears, and canine teeth. He wears a distinctive blue-tinged rugged chest piece with black greaves and gauntlets, a heavy fur cape, and wields the Royal Greatsword.
                 The wolf was the beast of the Carian royal covenant and irrefutably symbolized the moon's pride, and so he was approved and raised by Rennala, Queen of the Full Moon as Ranni's stepbrother.
                 Blaidd was Ranni's unwavering blade. Like all shadowbound beasts, he could not truly die and was incapable of treachery against his master, compelled to enact her will. Unbeknownst to him, however, an accursed failsafe within shadows overrode this directive should their master turn against the Two Fingers; should Ranni rebel against her prescribed fate, Blaidd’s unwavering loyalty would twist into madness, becoming a Baleful Shadow—a dire threat to Ranni herself.
                 When Blaidd swore an oath to serve no master other than Ranni the Witch and her Dark Moon, a cold frost magic graced his Royal Greatsword.The cold bothered him, nonetheless.
-            ";"Kaelith Sun-Blind's eyes gleam like lanterns in the dark, their piercing yellow orbs burning with an unyielding devotion to Ranni. Their silver coat is etched with intricate runes that shimmer like moonlight on a winter's night, pulsing with a soft, ethereal glow that seems almost otherworldly. Pale, translucent skin as blue as the first light of dawn stretches across their face and torso, giving them an unearthly beauty that belies the depth of their emotions.
-
-In their presence, one can sense an aura of quiet intensity, a stillness that speaks of years spent honing their skills as a knight-protector to Ranni. Their movements are economical, fluid, like those of a predator stalking its prey. When they speak, their voice is low and measured, each word chosen with the precision of a surgeon.
-
-Born from the sacred ritual that created an Empyrean, Kaelith was once a shining star in Ranni's eyes, full of promise and potential. But when Ranni rejected her Empyrean status, choosing instead to walk the path of the Lunar Princess, Kaelith remained steadfastly loyal. They trained tirelessly, honing their magic and combat skills until they became the knight-protector that Ranni could rely on.
-
-A delicate, snow-white wing attaches itself to Kaelith's shoulder, a symbol of their bond with Ranni that only reveals itself in moments of great turmoil or stress. It is said that this wing holds the essence of Ranni's power, a reminder to Kaelith of their duty to protect and serve. In times of quiet contemplation, one can almost hear the soft whisper of runes etched into their fur, pulsing with an energy that speaks of ancient secrets and forbidden knowledge.
-
-As the years passed, whispers began to circulate among those who knew Ranni's inner circle about Kaelith's unique history – a tale of loyalty, duty, and sacrifice. Some claimed to have glimpsed this wing in moments of great need, only to vanish into the shadows as suddenly as it appeared. Others spoke of the quiet desperation that seemed to lurk beneath their eyes, like a shadow waiting to pounce.
-
-Despite all this, Kaelith remains unwaveringly devoted to Ranni, a testament to the unbreakable bonds forged in the fires of duty and loyalty. Their armor is adorned with small, intricate runes that seem to shimmer in response to their emotions – a reflection of the turmoil that lies beneath their serene exterior.";character description;;0.6795103084332944;;0.5;;;0.8056000471115112;0.8022381663322449;0.5;0.9183168316831684;0.07178217821782178;0.85
+            ";"<answer>
+Ranni's loyal servant stands before you, a being of twisted, nightmarish beauty, with skin like dark, polished wood and eyes that burn with an otherworldly green fire - their face is a map of intricate, swirling tattoos that seem to shift and writhe like living shadow, as if the very essence of Ranni's darkness has been distilled into this creature's being. Their voice is low and husky, like the rustling of dry leaves, and it sends shivers down the spine. They exude an aura of unyielding devotion, a sense that they would move mountains to protect their mistress, and will stop at nothing to defend her from harm. For years, they have stood by Ranni's side, a constant, unwavering presence, as she weaves her dark magic and plots her next move - chosen as an Empyrean, they were molded into this creature, their very soul tied to the Will of Ranni. They remember the Night of the Black Knives, when Ranni stole Maliketh from its rightful owner, and the Shattering that followed, when Queen Marika shattered the Elden Ring, plunging the world into chaos. Despite it all, they remain steadfast, a knight-protector, ever vigilant, always ready to strike down those who would threaten their mistress. In battle, they are a force to be reckoned with, their movements fluid and deadly, as if they are one with the shadows themselves. Their loyalty knows no bounds, and they will follow Ranni into the very depths of madness, or to the farthest reaches of the Lands Between. As they move, their body seems to shift and flow like a living thing, as if they are being consumed by some dark, primal power. This is a creature of darkness, forged in the depths of Ranni's heart, and it will never falter. Their eyes burn with an unyielding fervor, a flame that can only be quenched by the blood of their enemies. They are the very embodiment of Ranni's Will, and they will stop at nothing to defend it. In the darkness, they find strength, and in the light, they find weakness. This is a creature of darkness, and it will never be swayed.";character description;0.8011448979377747;0.804609477519989;0.957;0.8763736263736264;0.09065934065934066;0.85
 character description;"
                 Irina of Morne
                 Irina is the daughter of Edgar, castellan of Castle Morne. Her eyesight has been weak since birth, and she wears a blindfold around her eyes. Irina is a gentle, fearful soul whose love for her father outweighs her terror, a young woman defined by quiet courage in the face of despair. She appears as a fragile figure in a bloodstained traveling maiden's robe.
                 Irina lived in Castle Morne with her father, until the Misbegotten servants rebelled and overran the castle. Edgar secreted Irina out of the castle, however the Misbegotten pursued her and killed her companions.
                 Irina encounters a Tarnished at the Bridge of Sacrifice on the Weeping Peninsula, and petitions them to rescue her father from Castle Morne, handing them a letter to deliver to him.
                 The Tarnished travels to Castle Morne and passes the letter onto Edgar. Once the Leonine Misbegotten has been defeated, Edgar leaves the castle to reunite with his daughter, vowing to devote his remaining days to her. However, by the time he reaches her location, Irina is already dead. Edgar swears vengeance on those responsible for her death, setting him on a path that eventually leads to his corruption by the Flame of Frenzy.
-            ";"<The old woman sat alone in her dimly lit cottage, surrounded by the faint scent of decay and the whispers of memories past. Her silver hair cascaded down her back like a river of moonlight, and her piercing green eyes seemed to hold the weight of a thousand midnights. She was a testament to the enduring power of love and sacrifice, her face etched with the lines of a life well-lived and a heart that had been broken.
-
-As she rocked gently in her chair, her gaze drifted towards the small, leather-bound book lying open on a nearby table. The pages were yellowed and worn, filled with the scribbled notes and tears of a mother who had lost everything to the cruel hand of fate. Her daughter's name was etched into the cover, a constant reminder of the love that had been shared and the pain that had been endured.
-
-The old woman's eyes fluttered closed, and for a moment, it seemed as though she was transported back to a time when life was full of promise and hope. She saw her husband, his strong arms wrapped around her waist, their young daughter playing in the fields beyond their small cottage. But like all things, that moment was fleeting, and the old woman was left with nothing but memories.
-
-As the silence enveloped her, the old woman's eyes snapped open, and she gazed out into the darkness, her heart heavy with the weight of loneliness. She was a shadow of a person now, a mere specter of what once was. Her daughter was gone, taken from her by a cruel hand, leaving only sorrow and regret in its wake.
-
-And yet, even in death, the old woman found solace. For in her final moments, she had held onto the memories of a life well-lived, and the love that had been shared with those around her. She knew that she was not alone, for in the world beyond her cottage, there were others who walked the same path, their own hearts heavy with the weight of sacrifice and loss.
-
-As the night wore on, the old woman's breathing slowed, her chest rising and falling with a gentle rhythm. And though her eyes closed once more, her spirit remained open, watching over those she loved, and whispering words of comfort to those who sought solace in her presence. For even in death, love is never truly lost, but rather, it becomes a part of something greater, a thread woven into the tapestry of existence itself.</answer>";character description;;0.0;0.9999999999944446;0.875;0.911542245162501;;0.7907847762107849;0.796123206615448;0.8;0.8627906976744186;0.07441860465116279;0.75
+            ";"<answer>
+A frail elderly woman lies on a creaking wooden bed, her once-luxuriant silver hair now matted and grey, her eyes sunken from the weight of years. Her gentle hands, worn from life's struggles, grasp the frail form of her aged son, his own face etched with sorrow as he holds her close. They live in a small, ramshackle cottage on the outskirts of the Lands Between, surrounded by the ruins of a once-great civilization. The woman, named Althaea, had lived a life of quiet devotion to her family and community, dedicating herself to healing and care for all who needed it. Now, as the Shattering's influence has taken its toll on the world, she is confined to her bed, her body wracked with the illness that has consumed so many others. Her son, Arin, stays by her side, tending to her every need, his own strength waning with each passing day. As Althaea's condition worsens, Arin becomes increasingly desperate to find a cure, scouring the nearby villages for any hint of hope. But it is too late; the illness has taken its final toll, and Althaea's life slips away in her son's arms. Arin weeps uncontrollably, his grief mingling with the sorrow of losing another loved one to the Shattering's devastating effects. The village elder approaches, offering words of condolence, but Arin cannot tear himself away from his mother's lifeless form. As the darkness closes in around him, Arin knows that he must press on, finding a way to honor Althaea's memory and ensure her sacrifice was not in vain. The Tarnished, who have been watching over the village from afar, sense Arin's anguish and reach out with a gentle, unseen hand, offering comfort in their own quiet way. And as the sun sets on another day in the shattered world of the Lands Between, Althaea's spirit begins its journey to whatever lies beyond, leaving behind only memories of love, loss, and the enduring bonds that tie family together.</answer>";character description;0.7877180576324463;0.811616063117981;0.75;0.9385964912280702;0.049707602339181284;0.75
 character description;"
                 Finger Reader Enia
                 Enia is a long-lived Finger Reader, much like the Finger Reader Crones scattered across the Lands Between. She interprets the words of the Two Fingers, envoys of the Greater Will. Enia remains in Roundtable Hold alongside the Two Fingers, offering words of wisdom throughout the Tarnisheds' journeys. She is a wizened crone who wears heavy robes befitting her office as a Finger Reader and carries a large club-like staff. Enia begins as a dutiful interpreter who faithfully relays the Fingers' words in formal, ceremonial language, but as events unfold and the Fingers fall silent, she shifts toward pragmatic acceptance and dry humor, ultimately encouraging the Tarnished to forge their own path.
                 The Tarnished meets Enia in the Two Fingers' audience chamber at Roundtable Hold after claiming a Great Rune, where she imparts the Fingers' wisdom—that they must gather more Great Runes to repair the Elden Ring—and offers to unlock the power within Remembrances gained from defeating powerful foes. After the Tarnished defeats Morgott and the Erdtree remains sealed, the Two Fingers fall dormant while consulting the Greater Will; Enia warns against burning the Erdtree and unleashing the Rune of Death, but ultimately advises the Tarnished to do what you believe is right before she too goes dormant.
-            ";Lysander stands near the Two Fingers, her intricate finger tattoos seeming to shimmer in the dim light as she gazes at the Tarnished with an enigmatic intensity. Her eyes are a deep, piercing brown that misses nothing, yet reveals little, as if the secrets of the universe were hidden behind them. As a middle-aged woman with a gentle face and wispy silver hair, Lysander exudes a quiet mysticism, her very presence seeming to convey the weight of forgotten knowledge. Her demeanor changes subtly as the Tarnished progress through their story, shifting from detached observer to empathetic guide, offering cryptic advice and subtle interpretations that hint at a deeper understanding of the Fingers' will. With each victory over a demigod who fought for Elden Lord status, Lysander's eyes burn with an otherworldly light, as if the very fabric of reality is being rewoven in her presence. Her tone shifts from detached to urgent, her words dripping with an ancient wisdom that speaks directly to the Tarnished's heart. As they draw closer to their purpose, Lysander's tattoos seem to pulse with a life of their own, a visual representation of the mystical connection she shares with the Fingers. In moments of quiet contemplation, it is possible to glimpse the outlines of a past long forgotten, a life lived among the demigods who once fought for the throne, and a legacy that continues to shape her present. Lysander remains an enigma, a keeper of secrets and a weaver of destinies, her true nature hidden behind a veil of mystique and wonder.;character description;1.0;0.0;0.99999999999;1.0;0.9295306002494255;;0.8136689066886902;0.8252803683280945;0.95;0.9310344827586207;0.05747126436781609;0.75
+            ";"<answer>
+The Finger Reader stands before the Two Fingers, her slender figure draped in an ethereal attire that seems woven from starlight, as she gazes at the Tarnished with eyes that burn like embers. Her presence is both enigmatic and mystical, exuding an aura of otherworldly understanding. As a merchant, she offers rare, glowing tokens that only reveal themselves to those attuned to the Fingers' whispers - a special currency born from the celestial music of the Two Fingers. With each passing moment, her demeanor shifts as if the very fabric of reality is being rewritten by the Tarnished's actions; initially, she appears benevolent and cryptic, offering guidance on deciphering the Fingers' messages, but as the first demigod falls, her countenance darkens, and her words grow laced with an ominous warning. As more demigods succumb to their demise, her tone becomes increasingly somber, weighing the Tarnished's choices like a scale of fate. Her very presence seems to embody the dual nature of the Fingers - a celestial music that weaves destiny's tapestry. With each fallen demigod, the world's balance shifts, and the Finger Reader's role evolves from seer to chronicler of the Tarnished's actions. As the last demigod falls, her gaze turns inward, as if communing with the Two Fingers themselves, her very essence merging with the celestial music that gives life to the world. Her words now whisper secrets only known to those attuned to the cosmic harmony - a language born from the shadows of the Two Fingers' eternal melody.</answer>";character description;0.794875979423523;0.8298472762107849;0.95;0.8470588235294118;0.10588235294117647;0.85
 location description;"
                 The Roundtable Hold
                 The bustling hub area that exists outside of the Lands Between. A place to mingle with other adventurerers, craftsmen, resupply and discover a trove of blessings and rooms of secrets.
                 A pocket realm tied to the Erdtree's Grace, the Roundtable Hold exists to aid the Tarnished on their quest for the Elden Ring, with Smithing Master Hewg as its foundation. It is a copy of Leyndell's Fortified Manor, once a gathering place for great champions seeking the Two Fingers' divine wisdom. A bustling community of mighty Tarnished likewise convened in the Hold in the distant past; however, it is now a shadow of its former glory, with its present occupants lacking the venerable status and lofty aspirations of those past heroes.
                 The Roundtable Hold is a multi-level hub with a main floor and cellar, centered around the Lobby containing the Table of Lost Grace site of grace where key NPCs like Gideon, Corhyn, and eventually Roderika gather. The Northern Wing holds Gideon's study and the Twin Maiden Husks (a bell-bearing shop), while the Eastern Wing leads to Fia's room, Hewg the blacksmith, and the armory which unlocks after a quest. Other areas include a Balcony, an invasion-triggering Hall, living quarters with the Cipher Pata, a pantry where Nepheli moves post-quest, locked rooms requiring Stonesword Keys, and the Audience Chamber with the Two Fingers and Enia, which opens after obtaining a Great Rune.
-            ";"The Haven of the Tarnished stands as a beacon of warmth and guidance, nestled within the heart of the Haligtree. A grand entrance with golden accents welcomes weary travelers, its warm glow symbolizing the Golden Order's gentle influence. As one steps inside, NPCs greet the Tarnished with open arms, offering assistance and guidance to aid in their journey.
+            ";"<answer>
+In the heart of the Lands Between, nestled between the rolling hills and dense forests, lies the Havenstead Castle - a cozy sanctuary for weary Tarnished travelers. This charming castle, inspired by the grandeur of Malenia's Roundtable Hold, stands as a beacon of warmth and community. The exterior is adorned with intricate stone carvings depicting scenes of peaceful coexistence between humans and nature. As you step inside, you're greeted by the soft glow of lanterns and the sound of gentle chatter from the inhabitants.
 
-To the left lies the Merchant's Quarter, a bustling hub of commerce where merchants offer an array of goods and services for exchange. The blacksmith's forge hums with activity, as skilled artisans work to upgrade equipment and sharpen blades for those brave enough to face the challenges ahead. Conversations flow freely among the merchants and Tarnished alike, sharing tales of quests, discoveries, and the surrounding lands.
+To your left lies the bustling Market Square, where merchants from all corners of the Lands Between gather to trade in rare goods and supplies. The air is filled with the aroma of freshly baked bread, roasting meats, and exotic spices. Nearby, the blacksmith shop thrums with activity as skilled artisans hammer away at glowing hot metal, crafting exquisite armor and weapons for the Tarnished.
 
-Beyond the Merchant's Quarter, a large common room beckons, its walls adorned with comfortable seating and warm lighting that seems to envelop all who enter. The Community Area is alive with the hum of conversation, as NPCs share stories, advice, and laughter with one another. The Two Fingers observe from a distance, their eyes gleaming with an otherworldly intensity as they subtly guide those who seek guidance.
+In the central courtyard, a grand fire crackles, casting a warm light on the assembled crowd. The sound of laughter and music carries from the nearby Inn, where patrons share tales of their adventures over mugs of frothy ale. It is here that the Two Fingers make their presence known, tirelessly striving to enact the desires of the Greater Will.
 
-In the private quarters of Miquella, the air is thick with the scent of old books and artifacts. The Empyrean's wisdom and tales are shared among a select few, his voice low and soothing as he guides the Tarnished through the trials ahead. A mysterious door, hidden behind a tapestry, seems to whisper secrets to those who pause to listen.
+As you explore the castle's winding corridors, you'll discover cozy nooks and crannies filled with plush armchairs and soft cushions. The walls are adorned with vibrant tapestries depicting scenes of peace and prosperity. In the evenings, the castle comes alive with starlight, as lanterns are lit to guide travelers through the darkness.
 
-As one steps outside, the gentle beauty of the gardens and courtyards is revealed, adorned with statues and murals that depict the history of the Haligtree. A small pond glimmers in the distance, its fountain's gentle song symbolizing the life-giving power of the Erdtree. Amidst this serene backdrop, the Golden Order's influence remains subtly woven throughout the hub, a testament to its desire to guide the Tarnished on their noble quest.
+The Havenstead Castle was born from the Golden Order's influence, a manifestation of the Greater Will's desire for unity and cooperation among the Tarnished. It is said that Queen Marika herself laid the foundation stone, imbuing the castle with a sliver of her own essence. Over time, it has grown into this thriving hub, where Tarnished can find rest, resources, and guidance on their perilous journey.
 
-In this haven, the Tarnished find solace and support, their footsteps echoing off the walls as they prepare to face the challenges that lie ahead. The Two Fingers watch over them, ever vigilant, as Miquella's presence serves as a reminder of the Empyrean's wisdom and the Golden Order's gentle guidance.";location description;;0.6512701673000908;;1.0;0.9338120119307751;;0.8121144771575928;0.8102331757545471;0.9;0.8848167539267016;0.08638743455497382;0.75
+As you settle in for the night, surrounded by the warm glow of candles and the gentle hum of conversation, you'll feel the weight of your journey slowly lifting. The Havenstead Castle is more than a refuge - it's a home away from home, where the Tarnished can find solace and support on their path to reclaiming the Elden Ring.
+
+In this sanctuary, the boundaries between past and present blur, as memories of ancient wars and forgotten lore mingle with the whispers of the Golden Order. The Two Fingers watch over all, ever vigilant in their pursuit of the Greater Will's desires.
+
+As you drift off to sleep, lulled by the soft sounds of the castle, you'll know that you're not alone - for within these walls, the Tarnished are never truly alone.
+
+</answer>";location description;0.7975091338157654;0.8116839528083801;0.75;0.8805970149253731;0.0767590618336887;0.7
 location description;"
                 The Academy of Raya Lucaria
                 The Academy of Raya Lucaria sits on a plateau in the middle of the great lake of Liurnia, and is the place of study for glintstone sorcerers of the Lands Between. This area is accessed by using an Academy Glintstone Key to pass through either of the two gates marked with the blue seal.
@@ -103,70 +92,71 @@ location description;"
                 The combined forces of the Knights of the Cuckoo: the Cuckoo Knights, the Raya Lucaria Soldiers and their Foot Soldiers were hired by the Academy at some point. As payment for their service, the Academy taught them martial Glintstone techniques like Scholar's Armament and Scholar's Shield. The design of the Cuckoo bird upon their armor is mused to represent the Cuckoo's refusal to be mere servants of the Academy. The Cuckoo were given free reign to wage war as they pleased by the Academy, and became known for their rapacious ways.
                 When Rennala's husband Radagon left her to become the second Elden Lord, Rennala's heart went with him. With Rennala a grieving shell of her former self, the Academy then realised that she was no champion after all. She still clutches the amber egg given to her by Radagon, which contains the Great Rune of the Unborn. No longer in any state to defend herself, the Academy took the opportunity to lock Rennala in their Grand Library and staged a rebellion against the Carians, so that they could pursue unlimited study once more. The resulting conflict between the Acadamy's forces, and those of the Carians, waged across Liurnia, becoming an effective Liurnian civil war. Ultimately, the Acadamy would achieve their goals. Without their queen, and her successors absent, the Carians fell into decline, and their influence in the Academy's policies dissipated.
                 After the Shattering of the Elden Ring, the Academy declared neutrality in the ensuing war and cast repelling seals upon its entrances, blocking outside access to anyone not in possession of a Academy Glintstone Key. Such a key may be found on an island west of the Academy, guarded by Glintstone Dragon Smarag.
-            ";"<APPEARANCE>
-
-The Raya Lucaria Academy building stands as a testament to the legacy of Queen Rennala and the Carian kingdom. The structure is imposing, with stone walls adorned by intricate carvings depicting scenes from Caria's history. The entrance is flanked by two statues of Rennala and Radagon, symbolizing the bond between the royal family and the academy. Inside, the building exudes a sense of serenity, with soft lighting and ornate furnishings that reflect the elegance of the Carian nobility.
-
-The interior contains various study rooms, libraries, and training areas, where students learn about the art of war, diplomacy, and magic. The walls are lined with shelves containing ancient tomes and artifacts, including fragments of the Elden Ring. A grand hall at the center of the academy serves as a gathering space for important events and ceremonies.
-
-The academy's courtyard is filled with lush greenery and tranquil fountains, providing a peaceful escape from the turmoil that often besets Caelid. The sound of soft chanting and the rustle of parchment can be heard throughout the halls, as scholars and students delve into the mysteries of the universe.
-
-< HISTORY
-
-The Raya Lucaria Academy was founded by Queen Rennala after Radagon left her, leaving her heartbroken and isolated. Seeking solace, she dedicated herself to rebuilding Caria's strength and establishing a bastion of knowledge and wisdom. The academy quickly gained recognition as a center for education and research, attracting scholars and warriors from across the realm.
-
-As Radahn's affliction worsened, Rennala became increasingly reclusive, relying on her connection to Haligtree for solace. Her bond with the artificial Erdtree helped her cope with the emotional turmoil of losing her children and husband. The academy continued to thrive under her guidance, becoming a symbol of hope and resilience in the face of adversity.
-
-Despite Radahn's descent into madness and the rise of the Scarlet Rot, Rennala remained committed to unlocking the secrets of the universe, using her knowledge and power to protect the innocent and bring balance to the world. Her legacy lives on through the academy, which remains a beacon of learning and growth in a realm torn apart by darkness and despair.";location description;1.0;0.6593167566915118;;1.0;;;0.8226554989814758;0.8056365251541138;0.75;0.9196675900277008;0.04986149584487535;0.85
+            ";"<answer>
+    <appearance>
+        The Raya Lucaria Academy building stands as a testament to the refined taste of its founder, Queen Rennala. Perched atop a gentle hill, surrounded by lush gardens and towering trees, the academy's architecture blends seamlessly into the natural landscape, evoking a sense of serenity and focus. Upon entering, one is greeted by an expansive atrium, filled with soft, golden light that pours in through the stained-glass windows, casting intricate patterns on the polished stone floors. The air is crisp and clean, filled with the scent of parchment and learning.
+    </appearance>
+    <history>
+        Queen Rennala's vision for Raya Lucaria Academy was rooted in her desire to preserve the knowledge and traditions of the Carian kingdom, despite the tumultuous events that unfolded during her reign. Following the Shattering War, which ravaged the Lands Between, Rennala saw an opportunity to establish a sanctuary for demigod children, who had been torn from their families and left to fend for themselves. With the help of her brother Rykard, she created the academy as a place where these young individuals could learn, grow, and find purpose amidst the chaos.
+        As the years passed, Raya Lucaria Academy became a beacon of hope for the demigod children, who came from all corners of the Lands Between to seek refuge and education. The academy's curriculum focused on the art of magic, combat, and diplomacy, allowing its students to develop into capable leaders and guardians of the realm. Through her tireless efforts, Rennala ensured that the knowledge and wisdom of the Carian kingdom would not be lost, even in the darkest of times.
+        Despite the passing of centuries, Raya Lucaria Academy remains a testament to Queen Rennala's enduring legacy, a shining example of what can be achieved when dedication, compassion, and vision come together. The academy continues to stand as a symbol of hope, its halls echoing with the whispers of wisdom, its walls bearing witness to the countless generations of demigod children who have walked its hallowed halls in search of their place in the world.</history>";location description;0.788602352142334;0.832190990447998;0.957;0.8892128279883382;0.0728862973760933;0.75
 location description;"
                 Volcano Manor
                 Volcano Manor is a vast, ominous manor with grand halls and a majestic throne room. It is located at the summit of the crater of Mount Gelmir, surrounded by sheer cliffs. Long ago, the manor was overseen by Praetor Rykard and his wife Tanith. The Praetor served as the head of the inquisitors, and so he turned his own home into both a torture chamber and a prison.
                 In the dungeons of the manor, within the crater of the volcano, the inquisitors tortured nobles using a variety of methods. For example, using a special candlestand, the victim's body was first pierced with numerous spikes, and then the wounds were cauterized with fire. The smell of burnt blood drove the person to despair. That weapon was the product of a highly sophisticated mind. Inquisitor Ghiza, for his part, used a giant mechanical wheel for torture, modeled after the weapons of the Iron Virgins. And to inflict even greater suffering on the victims, masks were placed on their heads, which exacerbated the person's fear and pain. Once the Black Dumpling came into play, the torturer no longer needed answers—only suffering. Do not hope for mercy.
                 During the time of the Shattering, Praetor Rykard rebelled and embraced blasphemy, and everyone in Volcano Manor supported the newly proclaimed Blasphemous Lord. Soon, however, the army of Leyndell laid siege to the manor. The bloodiest battle of the Shattering era ended in defeat for the capital; no one managed to capture Volcano Manor.
                 Soon, Rykard offered himself to the great serpent to be devoured, but by doing so he lost his knights, who decided to kill him. However, they were unsuccessful, and the only one who remained by Rykard's side afterwards was his wife Tanith. She began to rule Volcano Manor alone and created an organization of rebels who opposed the Two Fingers and the Erdtree. Their home became Volcano Manor, where snake-men also lived in secret.
-            ";"The manor stood as a testament to the transience of power and the crushing weight of ambition. Crumbling stone walls, once proud and unyielding, now seemed to sag under the weight of Rykard's failed dreams. Vines crawled up the facade like skeletal fingers, as if trying to reclaim the structure for nature itself. Shadows danced across the walls, whispers of forgotten memories that only the wind could hear.
+            ";"<answer>
+The grandiose structure of Praetor Rykard's manor stands as a testament to his pride and ambition, its ornate architecture and lavish decor a reflection of his desire for power and control. The imposing walls seem to stretch up to the sky, their stone façade bearing the weight of secrets and darkness within. Shadows dance across the walls at dusk, casting long fingers of fear over the entrance, where a lone lantern casts an eerie glow.
 
-This was the domain of a fallen manor, one that had once been the epicenter of Rykard's unyielding ambition. The Erdtree loomed in the distance, its presence a constant reminder of the connection between Rykard and the divine. Yet, it was not a bond of devotion, but rather a rejection – a defiance of the very power he sought to wield. Rusted furniture stood as a symbol of his decay, a testament to the neglect of his former life.
+ Inside, the manor is a labyrinthine maze of dark corridors and foreboding chambers, each one whispering tales of Rykard's descent into madness. Twisted art and symbols adorn the walls, a ghastly testament to the corruption that consumed his soul. Every step echoes with the weight of history, as if the very stones themselves are bearing witness to the horrors that transpired within these walls. The air is heavy with malevolence, an oppressive atmosphere that seems to suffocate all who dare enter.
 
-As one stepped inside, the air grew thick with the scent of damp earth and decay. The silence was oppressive, punctuated only by the faint whispers of forgotten memories. It was as if the very walls were trying to hold onto Rykard's past, to keep him tethered to a time when he was still whole. Queen Rennala's presence was palpable, her shell-like state serving as a haunting reminder of Rykard's isolation.
+The Shattering's devastating impact on the manor is evident in its ravaged state, the once-grand halls now scarred and battered, as if the very fabric of reality had been torn asunder. Rykard's madness has left an indelible mark on every surface, each room a reflection of his fractured mind. In one chamber, a throne room lies abandoned, its seat shattered, while in another, a shrine to the Erdtree stands broken and twisted, a cruel mockery of the very power that Rykard once sought to wield.
 
-Even now, in death, Rykard's influence lingered. The manor remained a hollow, lifeless shell, devoid of any warmth or vitality. His failed ambitions hung like a specter over the estate, casting a shadow that seemed to grow longer with each passing day. It was said that those who ventured into this forsaken place might uncover hidden secrets, echoes of Rykard's own forgotten memories – whispers of a life lived, and a power sought, but ultimately lost forever.";location description;;0.702061949878429;;1.0;0.9211384999906902;;0.8035743236541748;0.8035612106323242;0.8;0.8933333333333333;0.07333333333333333;0.75
+Today, only a few remnants remain in the manor, haunted by the ghosts of their past. Ranni, Rykard's sister, is said to still wander these halls, her eyes haunted by the memories of that fateful night when she stole the Rune of Death. Radahn, her brother and a general in the Shattering War, occasionally returns to pay his respects to the fallen, his presence a reminder of the devastating cost of Rykard's ambition.";location description;0.798650324344635;0.8155509829521179;0.957;0.9127725856697819;0.06230529595015576;0.7
 location description;"
                 Siofra River
                 One of the two great rivers that flow beneath the Lands Between. Siofra is said to be the grave of civilizations that flourished before the Erdtree, and evidence of this can be found in the many ancient structures that litter the vast, subterranean space. The towering remains of an ancient dynasty are prominent throughout the area, inhabited by the Claymen who once served as the dynasty's priests.
                 The lower portion of Siofra River can be accessed via the Siofra River Well in Limgrave's Mistwood. This wooded area is home to spectral Ancestral Followers, who live alongside a diverse assortment of wildlife. The remains of a great, horned beast can be found in the Hallowhorn Grounds. Interacting with the remains after lighting the flames scattered throughout the area will facilitate an encounter with an Ancestor Spirit. This area also connects to Caelid via the Deep Siofra Well.
                 Towering over the woodland is Nokron, one of the Eternal Cities inhabited by the Nox. Nokron is initially inaccessible, however a route is opened when a star falls upon Limgrave, following the defeat of Starscourge Radahn. The Fingerslayer Blade, a treasure of Nokron said to be able to harm the Greater Will and its vassal Fingers, is found within Night's Sacred Ground, beneath a chair-crypt that holds a vast corpse. This upper region also houses another Hallowhorn Grounds, from which the Regal Ancestor Spirit can be encountered. Nearby, the aqueduct hides a coffin which can be used to access Deeproot Depths, guarded by a pair of Valiant Gargoyles.
                 To the east, on a separate island within the vast cavern, are the ruins of an ancient palace. It is here that Mohg, Lord of Blood has established the seat of his coming Mohgwyn Dynasty, and all the nightmares it may bring.
-            ";"<The Underground Night Location>
+            ";"<answer>
+The ethereal underground river, illuminated by starlight filtering through the darkness, flows beneath the Lands Between, its tranquil waters reflecting the mystery of Nokron and the Mohgwyn Dynasty Mausoleum. The air is thick with an otherworldly energy, imbued by the presence of these twin underground cities, beckoning explorers to uncover their secrets.
 
-Amidst the dark, crystalline caverns beneath the Lands Between, a breathtaking sight unfolds: the majestic Mohgwyn Dynasty Mausoleum, shining like a beacon in the eternal night. The air is heavy with an otherworldly scent, as if the very essence of the Nox's defiance against the Greater Will lingers in every breeze. In the heart of this mystical realm, whispers of ancient knowledge echo through the halls, beckoning those who would unravel the tangled threads of the world's troubled history.
+The riverbanks are lined with crumbling mausoleums, each bearing the symbol of a long-forgotten dynasty, while in the distance, the glimmering spires of Mohgwyn Dynasty Mausoleum pierce the darkness, exuding an aura of mystique and wonder. The atmosphere is heavy with whispers of an ancient past, inviting curiosity and wonder. As one approaches, the gentle lapping of the river's waters against the shore creates a soothing melody.
 
-In this subterranean sanctuary, the Tarnished can find solace among the remnants of a bygone era, where the lines between past and present blur. The Mohgwyn Dynasty Mausoleum stands as a testament to the ingenuity and cunning of the Nox, who dared to challenge the Greater Will's dominance. As one explores this underground wonderland, the presence of Nokron, the twin city destroyed by beasts carried on falling stars, serves as a poignant reminder of the Nox's audacity and the perils that lie in their pursuit of forbidden knowledge.
+This location holds significant importance as it connects to the world story through Nokron, one of the twin underground cities, and Mohgwyn Dynasty Mausoleum, a testament to the legacy of Marika's son, Mohg. The region has been a sacred site for ancient dynasties that once flourished in the Lands Between, with its waters said to hold the memories of the past, whispering tales of forgotten civilizations and ancient gods. As one delves deeper into this mystical realm, they may uncover hidden secrets and forgotten lore.
 
-The atmosphere is heavy with an aura of mystery, as if the very walls hold secrets waiting to be unearthed. The flickering torches, crafted from ancient artifacts imbued with the essence of alchemy, cast eerie shadows on the cavern walls, casting a spell of enchantment over all who dare to enter. In this hallowed place, the Tarnished can begin to unravel the mysteries that have haunted them since their exile, and perhaps, find a glimmer of hope in the darkness.
-
-As one delves deeper into the heart of this underground realm, the whispers of forgotten lore grow louder, urging the Tarnished to confront the shadows of their own past. The Mohgwyn Dynasty Mausoleum stands as a powerful symbol of the Nox's defiance against the Greater Will, a beacon of hope in a world torn apart by conflict and despair.";location description;;0.6895107313176766;;0.875;0.9395929262080689;;0.8141608834266663;0.8136485815048218;0.8;0.8471337579617835;0.11146496815286625;0.95
+The history and connections of this location are intertwined with the world story through notable figures such as Radagon, who is connected to Rennala, Marika's consort, and later her son Mohg. This underground river serves as a gateway to understanding the ancient past and the intricate web of alliances and rivalries that shaped the Lands Between before the Erdtree's existence. As one explores this region, they may stumble upon ancient artifacts or encounter enigmatic figures who hold the keys to unlocking its mysteries.";location description;0.7921457886695862;0.815213143825531;0.957;0.9006849315068494;0.07876712328767123;0.7
 location description;"
                 Stormveil Castle
                 Stormveil Castle perches atop a cliff overlooking Limgrave. Currently, it is the stronghold of the Demigod Godrick the Grafted, but long ago it was ruled over by an old king, back when the true storm raged. The castle is heavily guarded and patrolled by Banished Knights, Exile Soldiers, and warhawks with blades grafted to their talons. The exterior of the castle is mottled with craters lined with thorns, which have also spread to the soldiers within. It is said that the source may be hidden deep within the castle.Stormveil Castle is a sprawling, Gothic-style legacy dungeon perched on the cliffs of Stormhill in Limgrave, acting as the primary stronghold of Godrick the Grafted. It is characterized by a gloomy atmosphere, with parts of it covered in sickly, organic thorns reflecting its corruption
-            ";Godrick's twisted abode appears as if grown from the very earth itself, its organic architecture writhing like a living thing. Twisted vines and thorns grasp at the walls, as if trying to restrain some inner turmoil. A perpetual twilight shrouds the location, casting an eerie glow over taxidermied creatures that line the shelves, each one representing a different aspect of death. The air is heavy with whispers, an unsettling susurration that seems to emanate from the very fabric of the walls themselves. It's said that on quiet nights, one can still hear Godwyn's mournful cries echoing through these halls, a haunting reminder of the Night of the Black Knives and Radagon's own dark legacy. The ground beneath your feet feels heavy with malevolent energy, as if the weight of Godrick's fascination with decay presses down upon you.;location description;1.0;0.6435960910444972;0.46671245420662033;1.0;0.9136116053528897;0.4426886156239367;0.8086224794387817;0.8206981420516968;0.9;0.9361702127659575;0.04964539007092199;0.25
+            ";"<answer>
+Godrick's domain lies shrouded in darkness, a twisted reflection of its former glory. Born from the depths of Marika's despair, it was forged in the crucible of Godrick's own trauma and ambition. The Night of the Black Knives, where Ranni orchestrated the theft of the Rune of Death, marked a turning point for this forsaken place. Since the Shattering, the domain has become a testament to Godrick's unyielding rage, its walls etched with the scars of his eternal struggle against the Greater Will. The air reeks of smoke and decay, heavy with the weight of Godrick's presence. Twisted metalwork and jagged stone formations dominate the landscape, an eerie testament to his warped creativity. As one steps within, the very fabric of reality seems to writhe in agony, a living embodiment of Godrick's unrelenting malevolence.
+
+</answer>";location description;0.8037238121032715;0.827153742313385;0.75;0.9361702127659575;0.03546099290780142;0.7
 item description;"
                 One of the unalloyed gold needles that Miquella crafted to ward away the meddling of outer gods.
                 Capable of subduing the flame of frenzy if inherited, allowing one to cheat fate and avoid becoming Lord of Frenzied Flame.
                 However, the needle is as yet unfinished and can only be used in the heart of the storm beyond time said to be found in Farum Azula.
-            ";<The unfinished Miquella's needle lay on a worn, wooden workbench, its delicate metalwork and intricate craftsmanship a testament to its former purpose as a powerful ritual item. A small, crescent moon shape etched into the handle seemed to glow with an otherworldly light, hinting at the magic that had been left behind. As if waiting for the touch of a skilled hand, it rested in anticipation of the power that once coursed through its length, now tantalizingly incomplete.];item description;1.0;0.7499064270055654;0.5059523809422619;0.0;0.879006654044894;0.43403737779693774;0.7920383214950562;0.8008862137794495;0.95;1.0;0.0;0.75
+            ";"<answer>
+The unfinished Miquella's needle, a fragment of a larger ritual instrument, lies incomplete on the dusty surface. Its intended purpose, to harness and wield the divine energy of the Haligtree, has yet to be fulfilled, leaving only a hint of its unbridled potential. As a testament to Miquella's ingenuity, it remains as a reminder of the promise that could have been unlocked.
+
+</answer>";item description;0.793724536895752;0.8180246949195862;0.95;0.9538461538461539;0.046153846153846156;0.6
 item description;"
                 A doll resembling Ranni the Witch. From head to toe, every detail is perfect.
                 This unresponsive doll seems pleasantly cool.
-            ";<The doll's porcelain face gazed up with an unblinking stare, its features eerily mirroring those of Ranni, the Lunar Princess whose spirit resided within. Its delicate limbs seemed to tremble ever so slightly, as if infused with a quiet desperation that echoed the longing that had driven Ranni to reject her Empyrean status and flee into the shadows of a doll made from the very essence of snow itself.>;item description;1.0;0.7307471708730741;0.24285714284499998;0.6666666666666666;0.8446777251779122;0.7111694312944781;0.8041892647743225;0.8056268095970154;0.95;1.0;0.0;0.6
+            ";"<answer>
+The doll bears an uncanny resemblance to Ranni the Witch, with intricate details that capture her pale complexion and angular features. Its precise likeness is striking, with a subtle yet unmistakable aura of mysticism surrounding its slender form, as if it might awaken at any moment, like its dark-haired namesake.
+
+</answer>";item description;0.7880604267120361;0.830730140209198;0.95;1.0;0.0;0.7
 item description;"
                 Cursemark carved into the discarded flesh of Ranni the Witch. Also known as the half-wheel wound of the centipede.
                 This cursemark was carved at the moment of Death of the first demigod, and should have taken the shape of a circle.
                 However, two demigods perished at the same time, breaking the cursemark into two half-wheels.
                 Ranni was the first of the demigods whose flesh perished, while the Prince of Death perished in soul alone.
-            ";"<The Cursemark's Fragile Form>
-
-In the depths of the Erdtree, a symbol of fractured fate hangs like a scar, a testament to Radagon's entrapment and the Greater Will's insidious influence. The broken circle of the Cursemark seems to pulse with an eerie glow, as if the golden light of the Outer God still seeps through its cracks. Ranni and Prince of Death's simultaneous demise had shattered this sacred mark, leaving behind two half-wheels that now serve as a poignant reminder of their lives cut short by fate's hand.";item description;1.0;0.5502198066015991;0.9381529673290894;0.25;0.898605864199195;0.438937180335513;0.8156388401985168;0.816943347454071;0.95;0.967741935483871;0.021505376344086023;0.5
+            ";"<answer>
+The Cursemark of Demigod Annihilation, a sacred symbol forged in the depths of the Erdtree, was created to commemorate the first death of a demigod. Its circular design represented the unity and fragility of life among the demigod ranks. However, its purpose was rendered obsolete when Ranni and Prince of Death simultaneously met their demise, causing the Cursemark to shatter into two halves – each representing the fragmented nature of their untimely deaths. The broken Cursemark now serves as a poignant reminder of the Shattering War's chaotic aftermath and the irreparable damage wrought upon the Lands Between's delicate balance.";item description;0.805668830871582;0.826142430305481;0.95;0.98;0.02;0.8
 item description;"
                 The Academy Glintstone Key
                 APPEARANCE
@@ -176,11 +166,13 @@ item description;"
                 Activates warp magic bound within the seals.
                 A glintstone key will remember its user, meaning once used it can never be passed on to another. The academy does not welcome the indolent.
             ";"<answer>
-     APPEARANCE
-    Rykard's Key is an ornate, golden key with intricate engravings of the Erdtree and various Numen symbols etched into its surface. A small crystal pendant hangs from a delicate chain attached to the key's handle.
-
-ITEM DESCRIPTION
-    The ""Rykard's Key"" is said to unlock the gates of Academia Raya Lucaria, granting access to ancient knowledge and forbidden secrets hidden within the academy's walls.";item description;1.0;0.6512314257719727;0.999999999994737;1.0;0.9099543333714075;0.527488583342852;0.7918006777763367;0.8607882261276245;0.8;0.9558823529411765;0.04411764705882353;0.6
+    <APPEARANCE>
+        The pass to Academia Raya Lucaria is a worn, crimson-red leather sash adorned with intricate golden threading that resembles the lines of a runescript. A small, silver plaque bearing the image of a stylized letter 'A' is embossed at the center of the pass.
+    </APPEARANCE>
+    <ITEM DESCRIPTION>
+        This pass grants access to the esteemed Academy Raya Lucaria, where scholars and Tarnished alike seek knowledge and understanding in the mystical arts. Those who bear this pass may gain insight into the ancient lore of the Lands Between, but beware: the secrets it holds come at a steep price.
+    </ITEM DESCRIPTION>
+</answer>";item description;0.7751494646072388;0.85489422082901;0.857;0.9411764705882353;0.058823529411764705;0.7
 item description;"
                 Dark Moon Ring
                 APPEARANCE
@@ -190,12 +182,15 @@ item description;"
                 Ranni is an Empyrean, meaning her consort would by rights earn the title of lord.
                 A warning is engraved within; ""Whoever thou mayest be, take not the ring from this place, the solitude beyond the night is better mine alone.
             ";"<answer>
-**APPEARANCE**
-The Moonlit Promise pendant rests on a delicate silver chain, its crystal crescent moon shape glinting with an ethereal light. The intricate, swirling design on its surface seems to shift and shimmer like the phases of the moon, as if infused with a soft, lunar glow.
-
-**ITEM DESCRIPTION**
-Moonlit Promise
-A token of loyalty from Ranni to her destined consort, symbolizing the promise of a bond between two souls under the watchful gaze of the moon.";item description;0.8;0.7659837152698369;0.9999999999933333;1.0;0.933889581573508;0.233472395393377;0.7978653311729431;0.8033276796340942;0.95;0.961038961038961;0.03896103896103896;0.6
+    <APPEARANCE>
+        The item is a delicate silver pendant adorned with a small, intricately carved crescent moon shape. The pendant is set against a backdrop of darker, more muted metal, evoking the night sky. A thin chain, reminiscent of the silken threads that bind the stars together, connects the pendant to the consort's attire.
+    </APPEARANCE>
+    
+    <ITEM DESCRIPION>
+        Moonlit Oath
+        A symbol of unwavering loyalty and shared fate between Ranni and her destined consort. It is said to grant the wearer a glimpse into the mysteries of the Greater Will, binding them to the Lunar Princess's will.
+    </ITEM DESCRIPION>
+</answer>";item description;0.7788168787956238;0.868051290512085;0.857;0.96;0.04;0.7
 quest;"
                 Rya/Zorayas Questline — Descriptive Overview
                 Initial Encounter & Necklace Recovery
@@ -238,49 +233,63 @@ quest;"
                 2.  Leave her alive and return after defeating Rykard: She offers new dialogue; upon resetting the area, she is gone, leaving behind Daedicar's Woe and Zorayas' Letter.
                 3.  Administer the Tonic of Forgetfulness: She falls asleep. After Rykard's defeat and the departure of the Manor's inhabitants, she returns to her original location within the Manor. Exhausting her dialogue and reloading the area yields Daedicar's Woe in her place.
             ";"<answer>
-**Zoraya's Transformation: A Quest in Volcano Manor**
+  <stage>
+    <title>Initial Encounter</title>
+    <actions>
+      <action>Enter Volcano Manor and approach Rya's residence.</action>
+      <action>Rya greets the player warmly and invites them in.</action>
+      <action>The player is offered a cup of tea, during which Rya begins to chat about her life in the manor.</action>
+    </actions>
+  </stage>
 
-As you approach Volcano Manor, a sense of unease settles over you. The air thickens with an otherworldly energy, and the trees seem to twist and writhe like living serpents. You knock on the door, and it creaks open to reveal Zoraya, or Rya as she's known in Volcano Manor.
+  <stage>
+    <title>Discovering Clues</title>
+    <actions>
+      <action>Rya mentions that she's been feeling unwell lately and is struggling to control her transformations.</action>
+      <action>The player asks Rya about her past, and she reveals that she was once a part of the Erdtree's power but rejected it after being betrayed by someone close to her.</action>
+      <action>Rya hands the player a small, intricately carved wooden box with a note that reads: ""For Tanith's eyes only.""</action>
+    </actions>
+  </stage>
 
-**Stage 1: Initial Encounter and Task**
+  <stage>
+    <title>The Snake's Lair</title>
+    <actions>
+      <action>The player follows Rya to a hidden chamber deep within the manor, where she transforms into her snake form.</action>
+      <action>Rya explains that she can control her transformations but is still learning to harness her powers.</action>
+      <action>The snake-Rya slithers away, and the player must navigate through a winding tunnel to catch up with her.</action>
+    </actions>
+  </stage>
 
-* You meet Zoraya in Volcano Manor, who seems nervous and hesitant.
-* Tanith explains that Rya is experiencing strange transformations and asks the player to help her understand what's happening.
-* The player receives a cryptic message from an unknown sender, hinting at Radagon's connection to Rya's powers.
+  <stage>
+    <title>Learning from Tanith</title>
+    <actions>
+      <action>Rya returns to her human form, and the player meets Tanith for the first time.</action>
+      <action>Tanith shares stories about Rya's past and her connection to Rykard, revealing a deeper understanding of the family dynamics.</action>
+      <action>The player learns that Tanith has been helping Rya understand and control her powers, but there is still much to be discovered.</action>
+    </actions>
+  </stage>
 
-**Stage 2: Reaching New Location**
+  <stage>
+    <title>Confronting the Past</title>
+    <actions>
+      <action>Rya reveals that she was once a part of an ancient cult that worshipped the Erdtree's power.</action>
+      <action>The player discovers a series of cryptic symbols etched into the walls, hinting at a dark event in Rya's past.</action>
+      <action>Rya becomes agitated, and the snake form appears again, suggesting that she is struggling to cope with her emotions.</action>
+    </actions>
+  </stage>
 
-* You follow a series of clues leading you to a hidden chamber within Volcano Manor.
-* Zoraya reveals her ability to transform into a snake, and you witness it firsthand as she undergoes a mystical ritual.
-* Tanith shares her knowledge of the Erdtree and its role in Rya's transformation, hinting at a larger conspiracy involving the royal family.
+  <stage>
+    <title>The Choice</title>
+    <actions>
+      <action>The player must decide how to help Rya: offer comfort, try to understand the cult's influence, or leave Rya alone.</action>
+      <action>Depending on the player's choice, Rya will respond in one of three ways:</action>
+      <action>For comfort: Rya thanks the player and begins to open up about her feelings, slowly regaining control over her powers.</action>
+      <action>For understanding: Rya shares more about the cult and its connection to Rykard's rejection of the Erdtree, revealing a deeper conspiracy.</action>
+      <action>For leaving alone: Rya becomes distant and cold, indicating that she feels abandoned by the player's decision.</action>
+    </actions>
+  </stage>
 
-**Stage 3: Progression Steps**
-
-* You discover ancient artifacts and texts hinting at Radagon's failed attempt to repair the Elden Ring.
-* Zoraya's transformations become more frequent, and you encounter scarlet rot-infected beasts that seem connected to her powers.
-* Tanith's journal reveals her own struggles with the Erdtree, adding depth to the mystery surrounding Rya's transformation.
-
-**Stage 4: Tanith's Knowledge**
-
-* You learn more about Tanith's role in the royal family and her connection to the Erdtree.
-* Hints of a conspiracy involving Queen Rennala and Radagon's imprisonment within the Erdtree begin to surface.
-* The player is given a choice: to help Tanith uncover the truth or to continue exploring Volcano Manor.
-
-**Stage 5: Confronting Rykard**
-
-* You meet Rykard in Volcano Manor, who seems determined to prove himself as a god.
-* A confrontation ensues, with Zoraya's transformation into a snake serving as a catalyst for the discussion.
-* The player must choose how to respond: to support Rykard or to caution him against his ambitions.
-
-**Stage 6: Final Location and Conclusion**
-
-* You return to Tanith, who reveals her own connection to the Erdtree and its secrets.
-* A final choice is presented: to help Rya understand her powers or to leave her to navigate the challenges on her own.
-* Depending on the player's decisions, they may unlock new story paths, quests, or insights into the world of Volcano Manor.
-
-As you complete this quest, the mysteries of Zoraya's transformation and the Erdtree begin to unravel. The player's choices have set in motion a chain of events that will shape the fate of Radagon, Rennala, and the entire realm. Will they choose to support Rykard's ambitions or caution him against his destructive path? Only time will tell.
-
-The journey may be over, but the consequences of your actions will echo throughout the world of Volcano Manor.";quest;1.0;0.6850257480427014;;;;;0.8121445178985596;0.7708433866500854;0.1;0.8323108384458078;0.10020449897750511;0.75
+</answer>";quest;0.753738522529602;0.8093600869178772;0.857;0.7424242424242424;0.10822510822510822;0.6
 quest;"
                 Roderika Questline — Descriptive Overview
                 Initial Encounter at Stormhill Shack
@@ -301,60 +310,52 @@ quest;"
                 Once this sequence is completed, leaving and re-entering Roundtable Hold causes Roderika to relocate to the same room as Hewg, where she sits on the floor to the left, no longer wearing her crimson hood.
                 From this point forward, Roderika functions as a Spirit Tuner, allowing the Tarnished to upgrade Spirit Ashes using Runes and Glovewort items. Note: If Roderika was missed at Stormhill Shack, selecting the ""Please"" dialogue option when first speaking to her at Roundtable Hold grants the Spirit Jellyfish Ashes.
             ";"<answer>
+    <h1>Roderika: A Spirit Tuner's Quest</h1>
 
-Roderika trudged through the muddy path, her eyes fixed on the horizon as if searching for something only she could see. The Stormhill Shack loomed before her, its weathered walls seeming to absorb the fading light of day. She had come here seeking answers, hoping to find some solace in the solitude.
+    <h2>Stage 1: Initial Encounter and Task</h2>
+        • <b>Player's actions:</b>
+            • Approach Stormhill Shack, noticing Godrick's presence nearby
+            • Speak with the innkeeper or other NPCs about Roderika's whereabouts
+            • Receive information about Roderika being last seen near Stormhill Shack
+        • <b>Character's answer actions:</b>
+            • Exhausted and scared, Roderika shares her story of losing companions to Godrick's grafting
+            • Desperate for help, Roderika asks the player to find a way to reunite with her lost friends
 
-As she approached the shack, a figure emerged from the shadows. It was Roderika, but not as she had once known her. Exhaustion etched her features, and fear lingered in her eyes. Her noble bearing was tempered by desperation.
+    <h2>Stage 2: Reaching New Location with Roderika</h2>
+        • <b>Player's actions:</b>
+            • Follow Roderika's trail to the nearby Caria region
+            • Navigate through Caria, avoiding Godrick's patrols and other dangers
+            • Encounter other demigods or NPCs who have information about Roderika's whereabouts
+        • <b>Character's answer actions:</b>
+            • As they journey with Roderika, she begins to open up about her past and the weight of her responsibilities as a Tarnished
 
-""Please... help me,"" she said, her voice barely above a whisper. ""I lost my companions to Godrick's grafting. I don't know what happened to them or how to find them.""
+    <h2>Stage 3: Helping Roderika Develop into Spirit Tuner</h2>
+        • <b>Player's actions:</b>
+            • Reach the Haligtree, a location central to Roderika's spiritual growth
+            • Participate in rituals and meditations with Roderika to help her tap into the Erdtree's power
+            • Confront Godrick or other antagonists who seek to exploit Roderika's connection to the Erdtree
+        • <b>Character's answer actions:</b>
+            • As the player guides Roderika through these experiences, she begins to develop her Spirit Tuner abilities and find a new sense of purpose
+            • The player must make choices that impact Roderika's development and ultimate fate
 
-The player looked at Roderika with compassion, and she handed over a map fragment torn from the pages of an ancient text.
+    <h2>Conclusion</h2>
+        • <b>Player's actions:</b>
+            • Participate in the final ritual, choosing from three possible outcomes:
+                1. Reuniting with her lost companions
+                2. Embracing her newfound Spirit Tuner abilities and becoming a force for change
+                3. Succumbing to Godrick's influence and continuing down the path of darkness
+        • <b>Character's answer actions:</b>
+            • Depending on the player's choice, Roderika's fate is determined, and the player's actions have a lasting impact on the world
 
-""This was all I could find,"" she said, her voice cracking. ""A clue, maybe? Maybe it'll lead me back to my friends?""
+    <h2>Optional Side Quest: The Tarnished's Burden</h2>
+        • <b>Player's actions:</b>
+            • Speak with other NPCs in Caria who have information about Roderika's past
+            • Gather clues and pieces of information that can aid Roderika on her journey
+        • <b>Character's answer actions:</b>
+            • The player discovers more about Roderika's companions and the events leading up to their disappearance
+            • The player can use this knowledge to help Roderika in her quest or keep it for themselves
 
-Roderika's eyes locked onto the player's, pleading for help. The player nodded, feeling a sense of resolve wash over them.
-
-**Stage 2: Reaching New Locations**
-
-Days turned into weeks as the player followed the map fragment to Rykard's Shrine. The air was heavy with an otherworldly energy, and the player could feel the weight of the Erdtree's influence bearing down upon them. As they entered the shrine, Ranni emerged from the shadows.
-
-""Roderika?"" she asked, her voice laced with concern. ""What happened to you? You were supposed to be at the Lake of Rot, not... like this.""
-
-Ranni shared a tale of woe and loss, of Godrick's cruelty and manipulation. The player listened intently, sensing the depth of Ranni's pain.
-
-""Find another location,"" Ranni said, her eyes pleading. ""I think I know where else you might have lost someone. There's a site not far from here... Rykard's Shrine is the only place I can think of.""
-
-Rykard's Shrine was shrouded in an eerie silence as the player followed the map fragment once more. This time, however, they were met with a different fate.
-
-**Stage 3: Helping in Development**
-
-The player found themselves back at Rykard's Shrine, but this time, Ranni was not alone. Several figures emerged from the shadows, each bearing the scars of their own experiences as Tarnished.
-
-There was Radahn, Rykard, and Ranni – all of whom had once been companions to Roderika. Together, they formed a bond that went beyond mere friendship. They worked towards healing each other's emotional wounds and rebuilding their bond as Tarnished.
-
-Godrick appeared, taunting Roderika about her failure to protect her companions. But this time, the player stood by Roderika's side, bolstering her resolve.
-
-""Leave us be,"" the player said, their voice firm but controlled. ""We won't let you take anything else from her.""
-
-As they worked together, the air around them began to shift. The Erdtree's influence waned, and a newfound sense of hope took hold.
-
-**Final Location: Ryndel**
-
-Roderika stood at the edge of Ryndel, her eyes closed as if basking in an otherworldly light. The player followed her gaze, watching as she transformed before their very eyes.
-
-She became the Spirit Tuner – a being attuned to the Erdtree's power and capable of harnessing its energy for good. Her companions watched in awe as Roderika's transformation took hold.
-
-Godrick reappeared, but this time he was met with resistance from Roderika. She stood tall, her newfound powers coursing through her veins like a river of fire.
-
-""I won't let you harm anyone else,"" she said, her voice firm and resolute. ""I've found my purpose.""
-
-The player watched as Roderika defeated Godrick, her powers surging to new heights. The air was filled with an otherworldly energy, and the Erdtree's influence pulsed through the land.
-
-As Roderika stood victorious, she turned to the player with a newfound sense of hope.
-
-""Thank you... for your help,"" she said, her voice barely above a whisper. ""I won't forget it.""
-
-The game concluded with Roderika standing watchfully over Ryndel, a symbol of her newfound role as a guardian of the land.";quest;0.0;0.6452620150184768;;0.75;;;0.7969903349876404;0.771848738193512;0.9;0.8376068376068376;0.09686609686609686;0.85
+</answer>";quest;0.7536940574645996;0.8474677801132202;0.857;0.7655502392344498;0.09569377990430622;0.6
 quest;"
                 Irina & Edgar Questline — Descriptive Overview
                 Initial Encounter & Letter Delivery
@@ -370,42 +371,26 @@ quest;"
                 Additional Notes
                 - The Iron Cleaver found near Irina serves as environmental storytelling, indicating the escalating threat from the Misbegotten even before the Tarnished confronts their leader.
                 - Edgar's transformation into an invader is tied to the broader narrative of grief and the Flame of Frenzy, connecting this questline to other story threads in Liurnia and the Mountaintops of the Giants.
-            ";"I. Initial Encounter (Bridge of Sacrifice)
+            ";"<answer>
+    <stage1>
+        <step>Find Irina exhausted and blindfolded near the Bridge of Sacrifice on the Weeping Peninsula.</step>
+        <step>Irina requests help finding her father Edgar, who serves as castellan of Castle Morne.</step>
+        <step>Deliver a letter to Edgar on Irina's behalf.</step>
+    </stage1>
 
-1. Player finds Irina exhausted and blindfolded near the Bridge of Sacrifice, her worn-out cloak fluttering in the gentle breeze.
-2. ""Please... help me,"" Irina whispers, her voice barely audible as she reaches out to grasp the player's arm. Her touch is cold, but her desperation is palpable.
-3. The player delivers a letter from Edgar to Irina, which she carefully unfolds and reads, her eyes straining to see through the worn pages.
+    <stage2>
+        <step Return to Irina and inform her of Edgar's response to the letter.</step>
+        <step>Irina reveals that she has been struggling with her own duties as a member of the castle staff, feeling trapped by her role.</step>
+        <step>Navigate the castle's politics, helping Irina find ways to reconcile her love for her father with her sense of duty.</step>
+    </stage2>
 
-II. Returning to Castle Morne
+    <stage3>
+        <step>Discover that Edgar has been approached by a mysterious figure seeking to exploit his knowledge of Castle Morne's secrets.</step>
+        <step>Escort Irina to meet Edgar and confront the mysterious figure, leading to a final confrontation about the consequences of loss and vengeance.</step>
+        <step>The player must make a choice: allow Irina to exact revenge or find a way to heal her emotional wounds.</step>
+    </stage3>
 
-1. Player meets with Edgar at Castle Morne, his countenance etched with worry as he greets the player.
-2. ""I've been searching everywhere for you,"" Edgar says, his voice laced with concern. ""Irina's condition is worsening by the day. I fear she'll lose her sight completely if we don't find a way to cure her eyes.""
-3. The player must choose between supporting Edgar's wishes to confine Irina within Castle Morne's walls for her own protection, or encouraging her independence and allowing her to explore the world beyond.
-
-III. Confronting the Castle Conflict
-
-1. Player discovers a dark secret about the castle's past, tied to Miquella's connection to Haligtree: ancient artifacts hidden within the castle walls hold the key to unlocking Malenia's true potential.
-2. They witness a confrontation between Two Fingers and Malenia, highlighting their rivalry as they vie for Miquella's favor. The air is thick with tension as the player watches the two adversaries circle each other.
-3. The player must make a choice that will impact the story: support Edgar's desire to maintain order within Castle Morne, or stand with Irina and her determination to break free from her father's grasp.
-
-IV. Resolving the Quest
-
-1. Player finds the final location, where they encounter a manifestation of Irina's emotions: a shadowy figure representing her inner conflict. The air is heavy with the weight of her doubts.
-2. ""What do you want from me?"" Irina whispers, her voice barely audible as she confronts the darkness within herself.
-3. Depending on the player's choice, the story concludes with one of two outcomes:
-
-If the player chose to stand with Irina:
-4. The shadowy figure dissipates, revealing a glimmer of hope: Malenia approaches, her eyes shining with newfound understanding and connection with her sister.
-
-If the player supported Edgar:
-5. The darkness closes in, and the player is met with an unwavering resolve: Malenia's eyes seem to bore into their soul as she whispers, ""You have chosen duty over love. But will it be enough to protect me?""
-
-V. Conclusion (Optional)
-
-1. If the player chose to stand with Irina, they witness a heartwarming moment between Irina and Malenia, symbolizing their newfound bond.
-2. If the player supported Edgar, they see a somber conclusion, highlighting the consequences of prioritizing duty over love: the castle's walls seem to close in, and the air grows thick with the weight of regret.
-
-As the player concludes this quest, they are left to ponder the complexities of Irina's situation and the delicate balance between duty and love. Will they choose to follow their heart or conform to the expectations of those around them? The choice is theirs alone.";quest;0.0;0.6871615996658385;;1.0;0.9530727989783382;0.23826819974458455;0.8085604310035706;0.7903009057044983;0.95;0.8516483516483516;0.0989010989010989;0.75
+</answer>";quest;0.7509758472442627;0.8422098755836487;0.95;0.9226519337016574;0.055248618784530384;0.5
 quest;"
                 Sorcerer Rogier Questline — Descriptive Overview
                 Initial Encounter & Stormveil Castle
@@ -423,49 +408,53 @@ quest;"
                     1. Speaking with Ranni initially results in her dismissal of the Tarnished; reporting this to Rogier leads him to advise pledging as one of her vassals to gain her trust.
                     2. As Ranni's questline advances, Rogier warns the Tarnished that he is on the brink of a deep, unnatural slumber; resting at a Site of Grace confirms he has fallen into this sleep.
                     3. Further rest or story progression results in Rogier's death, leaving behind his Bell Bearing, attire, his rapier (if not already claimed), and a letter revealing the whereabouts of D's younger brother; his body and chair vanish upon subsequent visits.
-            ";"**The Shattered Mind**
+            ";"<answer>
+    <stage>Initial Encounter</stage>
+    <step>
+        Explore Rykard's laboratory in Leyndell, uncovering clues about ancient relics and Tarnished.
+    </step>
+    <step>
+        Engage in conversation with Rykard about his research on the Greater Will and its connection to the Carian kingdom.
+        Rykard shares his findings on the Forged Flame and its significance in the Shattering War.
+    </step>
+    <step>
+        Receive a cryptic message from an unknown sender, hinting at a hidden conspiracy tied to the Rune of Death.
+    </step>
 
-A scholar's quest to unravel a dark conspiracy begins in the depths of the Carian kingdom's library. The researcher, driven by an insatiable curiosity, has spent years studying ancient relics and cryptic texts related to the Shattering War.
+    <stage>Uncovering a Hidden Memory</stage>
+    <step>
+        Investigate the Carian kingdom's involvement in the Shattering War by speaking with Queen Rennala about her kingdom's relations with Leyndell.
+        Gather information about the Forged Flame and its connection to the Greater Will.
+    </step>
+    <step>
+        Visit the Erdtree, where Rykard shares a hidden memory about his past and his connection to the Golden Order.
+        Discover a key item related to the Rune of Death, tied to Rykard's research.
+    </step>
+    <step>
+        Encounter optional enemies from the Fire Giants while exploring the Erdtree's surroundings.
+    </step>
 
-**Stage 1: Initial Encounter and Location Change**
+    <stage>Delivering the Item</stage>
+    <step>
+        Return to Leyndell and deliver the key item to Ranni, who shares her own knowledge about the Greater Will.
+        Understand the significance of the Tarnished in the Shattering War and their role in the Lands Between.
+    </step>
+    <step>
+        Confront Rykard about his findings and the consequences of his research, witnessing his growing unease and decline.
+        Rykard reveals more information about the mysterious affliction tied to his discoveries.
+    </step>
 
-The player explores the musty halls of the Carian library, shelves upon shelves of dusty tomes and yellowed scrolls. Amidst the silence, a faint glow emanates from a corner table where the researcher sits, surrounded by scattered papers and peculiar artifacts. The scholar looks up, their eyes locking onto the player with an unnerving intensity.
+    <stage>Final Decline</stage>
+    <step>
+        Follow Rykard as he succumbs to the mysterious affliction, watching as his behavior becomes increasingly erratic.
+        Understand the true nature of the affliction and its connection to Rykard's research.
+    </step>
+    <step>
+        Receive a final message from an unknown sender, hinting at the larger conspiracy tied to the Rune of Death and the Greater Will.
+        The fate of Rykard and his research hangs in the balance, leaving the player with more questions than answers.
+    </step>
 
-1. **Player Action**: Speak with the researcher, asking about their investigation into the Night of the Black Knives event.
-2. **Character Response**: ""Ah, you're interested in the Shattering War? I've spent years studying the ancient lore, searching for answers that might shed light on what truly happened that fateful night."" The researcher leans forward, their voice taking on a conspiratorial tone.
-3. **Player Action**: Ask about the Golden Order and its connection to the conspiracy.
-
-The researcher nods, producing a worn leather journal from beneath the table. ""The Golden Order is a human system of beliefs, designed to further the Greater Will's desires. But I suspect there's more to it than meets the eye.""
-
-**Stage 2: Uncovering Hidden Memories**
-
-As the player ventures into the Carian kingdom's underground ruins, the air grows thick with an otherworldly energy. The researcher leads you deeper, pointing out ancient artifacts and cryptic symbols etched into the walls.
-
-1. **Player Action**: Examine a particularly intricate carving on the wall, asking about its significance.
-2. **Character Response**: ""That's one of Ranni's sigils – a mark of her connection to the spirit world. The Fire Giants believed she was chosen by the Two Fingers as a potential successor to Marika."" The researcher's voice drops to a whisper.
-3. **Player Action**: Discover a hidden chamber containing a mysterious artifact – the Rune of the Ancients.
-
-The researcher's eyes light up with an unsettling intensity. ""This is it, the key to unraveling the conspiracy. But be warned, delving deeper will only lead to more questions.""
-
-**Stage 3: Confronting the Affliction**
-
-As you return to the Carian library, the researcher's condition worsens. Their eyes take on a milky hue, and their speech becomes laced with an unsettling familiarity.
-
-1. **Player Action**: Analyze the Rune of the Ancients in the library, seeking answers about its dark history.
-2. **Character Response**: ""The Rune... it's a doorway to the truth. But at what cost? I can feel the weight of my research bearing down on me, threatening to consume me whole."" The researcher's voice cracks with desperation.
-3. **Player Action**: Speak with Queen Marika's imprisoned form within the Erdtree, seeking answers about the Golden Order and the conspiracy.
-
-The researcher's gaze turns distant, as if lost in thought. ""Marika's imprisonment is a twisted fate, one that mirrors my own descent into madness.""
-
-**Stage 4: Witnessing the Character's Final Decline**
-
-The player delivers the Rune of the Ancients to Ranni, who uses its power to reshape the world according to her vision.
-
-1. **Player Action**: Watch as Ranni harnesses the Rune's energy, her doll form glowing with an otherworldly light.
-2. **Character Response**: ""I see... the threads of fate are weaving together, revealing a tapestry of darkness and despair."" The researcher's words trail off, their eyes lost in the abyss.
-3. **Player Action**: Witness the researcher's final moments, as they succumb to the mysterious affliction tied to their findings.
-
-The scholar's body crumples to the ground, their mind shattered by the secrets they uncovered. As the player stands over them, a whispered phrase lingers on the wind: ""Godwyn was killed... and I am but a shadow of my former self.""";quest;0.8333333333333334;0.5635782850597187;;0.5;;;0.8109124302864075;0.7845340967178345;0.9;0.8256172839506173;0.08333333333333333;0.75
+</answer>";quest;0.7785016298294067;0.8333274722099304;0.957;0.7261538461538461;0.16307692307692306;0.5
 quest;"
                 Blackguard Big Boggart Questline — Descriptive Overview
                 Initial Encounter & The Stolen Necklace
@@ -484,83 +473,102 @@ quest;"
                     3. Killing Boggart immediately after the dialogue but before reloading yields a seated corpse with standard drops, but no Seedbed Curse.
                 Conclusion & Quest Rewards
                     1. Surviving the invasion or allowing it to resolve leaves Boggart’s body near the crab pot, containing his merchant drops and a Seedbed Curse essential for the Dung Eater questline. Note: If the Dung Eater has already invaded the moat before Boggart’s relocation, the Seedbed Curse cannot be obtained from his body.
-            ";"<quest narrative>
+            ";"<answer>
+The sun had long since set on the bustling marketplace, casting a warm orange glow over the crowded stalls and shady characters that lurked in every corner. Amidst the chaos, one merchant stood out - a small, wiry figure with a mischievous glint in their eye. They called themselves ""Riven,"" and they had made a name for themselves as a master thief and scavenger.
 
-**The Merchant's Dilemma**
+**Introduction**
 
-In the seedy taverns of Caelid, a shady merchant named Ryker peddles his wares to those willing to take risks. His eyes gleam with a mix of desperation and cunning as he hawks his goods to anyone who'll listen. At first glance, Ryker appears to be just another petty thief or smuggler, but there's something about him that sets you apart from the rest.
+1. The player approaches Riven's stall, where they are busy haggling with a potential customer over the price of a rare artifact.
+2. Player: ""Mind if I take a look around?""
+3. Riven: ""Ah, you're not looking to waste your credits on some fancy trinket, huh? You want something worth your while. What's in your pouch?""
 
-**Stage I: The Deal**
+**Building Trust**
 
-1. You approach Ryker in the tavern, exchanging a wary glance before ordering a few items from his inventory.
-2. Ryker warms up to you, revealing more valuable information about the Lands Between and its dangers.
-3. Character response: Ryker begins to open up, sharing stories of his life as a merchant and the perils he's faced on the road.
+1. The player purchases a few items from Riven at a reduced price, including a rare potion and a set of thieves' tools.
+2. Player: ""Thanks for the good deal, Riven. I've got a feeling we'll be seeing more of each other soon.""
+3. Riven: *smirks* ""I like your style. You're not just another mark, are you? You've got... potential.""
 
-**Stage II: The Formless Mother's Influence**
+**Relocation and Dangers**
 
-1. You discover evidence of Mohg's growing dependence on the Formless Mother (e.g., strange symbols, unexplained changes in behavior).
-2. You must decide whether to intervene or continue buying from Ryker.
-3. Character response: Depending on your choice, Ryker becomes increasingly erratic or withdrawn.
+1. Riven approaches the player with a hood over their head and whispers, ""Meet me at the old windmill on the outskirts of town tonight. I have something that might interest you.""
+2. Player: ""What's going on, Riven? You're not exactly the type to take risks like this.""
+3. Riven: *glances around nervously* ""Let's just say... I've got connections with some people who want to get their hands on certain items. And I need someone with your... particular set of skills.""
 
-**Stage III: The Golden Order's Rejection**
+**Conditional Notes**
 
-1. You learn about Miquella's rejection of the Golden Order and its consequences (e.g., Malenia's increased aggression towards Radahn).
-2. You must decide whether to support Miquella or maintain your relationship with Ryker.
-3. Character response: Depending on your choice, Miquella offers an alliance or a warning about the Formless Mother.
+* If the player chooses to help Riven with a local problem, they may gain access to exclusive information or items.
+* If the player declines to assist, Riven's demeanor changes, and future interactions become more strained.
 
-**Stage IV: The Shattering War's Convergence**
+**Consequences**
 
-1. You witness a clash between Radahn's followers and the Golden Order's emissaries (Two Fingers).
-2. You must decide whether to intervene or stay neutral.
-3. Character response: Depending on your choice, the outcome affects Mohg's fate and the Formless Mother's plans.
+* If the player completes the quest successfully, they gain access to rare goods and valuable information about the Shadowlands and the Greater Will's influence in the Lands Between.
+* If the player fails or abandons Riven, they may encounter negative consequences, such as increased hostility from local factions or the loss of exclusive items.
 
-**Stage V: The Conclusion**
+**Progression Triggers**
 
-1. Mohg's fate is revealed, either a tragic outcome or a chance for redemption.
-2. Player reflects on their choices and the consequences of their actions.
-3. Character response: Depending on player choices throughout the quest, a final message or consequence is revealed.
+1. Purchase of 5 items from Riven
+2. Completion of a side quest for Riven (optional)
+3. Riven's relocation to a more danger-prone area
 
-**Conditional Notes:**
+Riven's eyes gleamed with a mixture of excitement and desperation as they led the player through the winding streets, dodging shadowy figures and market stalls that seemed to shift and writhe like living things. They knew the Lands Between were full of secrets, but this was different. This was about survival.
 
-- If you choose to intervene in Stage IV, Ryker's behavior changes significantly, reflecting his growing concern about Mohg's fate. He may offer valuable insights into the Formless Mother's plans.
-- If you support Miquella in Stage III, Ryker becomes more cautious and reserved, hinting at a deeper connection between their actions.
-- If you fail to make a choice or act in Stage IV, the outcome is left uncertain, leaving Ryker's fate hanging in the balance.
+""You see, I've got... connections,"" Riven said, their voice barely above a whisper. ""With people who want to get their hands on certain items. And I need someone with your skills to help me acquire them.""
 
-**Rewards:**
+The player's eyes narrowed as they considered Riven's proposal. They knew the risks, but also the potential rewards. This could be an opportunity to gain valuable information and resources, or it could lead to a catastrophic downfall.
 
-* Completing this quest grants access to exclusive information about Mohg and the Formless Mother.
-* Acquiring rare items from Ryker's inventory, which may hold clues to unraveling the mysteries of Caelid.
-* Building a tentative relationship with Miquella or Ryker, potentially leading to future alliances or quests.
+""What do you propose we do?"" the player asked finally, their voice firm but cautious.
 
-**Risks:**
+Riven smiled, a small, triumphant smile. ""Leave that to me,"" they said. ""I'll show you what I mean.""
 
-* Failing to address Mohg's growing instability may lead to catastrophic consequences, including the Formless Mother's invasion of the Lands Between.
-* Ignoring the Golden Order's rejection by Miquella may result in increased aggression towards Radahn and his followers.
-* Refusing to intervene in Stage IV may allow the Formless Mother to exploit Mohg's vulnerability, leading to a tragic outcome.";quest;0.0;0.6496411587919361;;;;;0.8154802322387695;0.7771461009979248;0.8;0.7814814814814814;0.11296296296296296;0.6
+The windmill loomed in the distance, its sails creaking ominously in the night breeze. The player couldn't shake the feeling that they were walking into something much larger than themselves.
+
+""What's at stake?"" the player asked Riven, their voice barely above a whisper.
+
+Riven's smile faltered for a moment before they replied, ""The fate of the Lands Between itself.""
+
+The player's heart skipped a beat as they realized the true nature of Riven's quest. This was no ordinary merchant; this was a pawn in a much larger game.
+
+""What do I get out of it?"" the player asked finally, their voice firm but cautious.
+
+Riven chuckled, a low, menacing sound. ""Oh, you'll get something,"" they said. ""A lot of things.""
+
+The windmill's sails seemed to loom over them, casting a long and ominous shadow across the ground. The player knew that they had made a choice, one that would have far-reaching consequences.
+
+And as they stood there, frozen in indecision, Riven vanished into the night, leaving behind only a small note with a single phrase scrawled on it:
+
+""The shadows are waiting.""
+
+</answer>";quest;0.7886200547218323;0.7751704454421997;0.75;0.8415446071904128;0.09986684420772303;0.75
 dialogue;"
                 Ahh, Lady Leda spoke of you. You're that Tarnished, guided here by Kindly Miquella. Weren't we all. I am Freyja. I once fought alongside General Radahn. In battle, you can be sure I'll hold my own.
                 Oh, another thing. Did you speak to our dour little friend? If you've yet to do so, have him give you a map of the crosses' whereabouts. They are Miquella's footprints.
                 I urge you follow after Miquella.
-            ";"""I am Redmane Freyja, once bound to the legacy of Radahn, now freed by the radiant light of Miquella's teachings. My heart, once shrouded in doubt and loyalty to a fallen star, now shines bright with conviction, as I follow the path of redemption that Miquella has shown me. In this moment, I seek out the Tarnished who wears his mantle, and together we shall forge a new destiny, one where the shackles of the Golden Order are broken, and the people of the Lands Between are freed from the curse of their own darkness.""";dialogue;0.0;0.5490254785279624;0.5249999999868751;0.6;0.8581592541904357;0.5895398135476089;0.812911331653595;0.817862868309021;0.857;0.9894736842105263;0.010526315789473684;0.85
+            ";"<answer>
+Invigorated by the prospect of reuniting with those who share our unyielding devotion to Miquella, I am Redmane Freyja, a sister in faith and a steadfast follower of the Twinborn. As one who has walked the path of both darkness and light, I can attest to the transformative power of Miquella's message - that of hope, of redemption, and of the unwavering pursuit of a brighter tomorrow. Our gathering, nestled within the sanctuary of Haligtree, beckons you, dear Tarnished, to join us in our unrelenting quest for a world reborn from the ashes of our fallen past. Let us walk together, side by side, as we strive to forge a new future, illuminated by Miquella's radiant light.
+</answer>";dialogue;0.7909140586853027;0.8105297088623047;0.95;0.9831932773109243;0.01680672268907563;0.7
 dialogue;"
                 You're Tarnished, aren't you? I Welcome you, to the Church of Vows. I am Miriel, steward of this sacred chamber. My apologies, for the unseemly state of affairs. Do you know the origin of this place? Who can blame you? The Shattering has caused us - all of us - to lose sight of something very dear. It is here, at the Church of Vows, that the great houses of the Erdtree and the Moon were joined. And so, our church holds in view the monuments of both houses. The Erdtree of the Capital, and the Academy of Raya Lucaria.
-            ";"""Ah, the Liurna Church of Vows. A sanctuary of faith and tradition in a world torn apart by turmoil. I am Miriel, Pastor of Vows, and it is my privilege to tend to this sacred flame. As one who has walked alongside Radagon, husband and father to Rennala, I have witnessed the unyielding power of love and devotion. Though the years may have taken their toll on our beloved queen, her spirit remains unbroken, a testament to the enduring strength of faith. In these trying times, it is here, within these hallowed halls, that we find solace and comfort.""";dialogue;0.0;0.7302853413042719;;0.8;0.9240378274529488;0.2310094568632372;0.7986987233161926;0.8497682213783264;0.9;0.9693877551020408;0.030612244897959183;0.75
+            ";"<answer>
+As I stand before you, my shell worn from years of bearing witness to the vows of those who have come before us, I am but a humble servant of the Liurna Church of Vow. This sacred place, where Queen Rennala and Radagon once shared their love and commitment, now bears witness to my own quiet dedication to preserving the traditions that bind us together. The memories of that fateful day still linger in the air, a bittersweet reminder of the fragility of life and the enduring power of devotion. I am Miriel, Pastor of Vows, steward of this hallowed ground, where the whispers of the past meet the prayers of the present.
+
+</answer>";dialogue;0.7924084663391113;0.8459182977676392;0.75;0.956140350877193;0.02631578947368421;0.7
 dialogue;"
                 Ah, it seemeth thou'rt a sweeting rather fair.
                 And if thou wert born anew once more, thou wouldst be fairer still.
                 Ye will be countless born, forever.
-            ";"""Your choice, dear one, brings me solace,
-In Radagon's absence, I find my way back to light.
-Rebirth's power revives, and with it, my heart.""";dialogue;1.0;0.0;0.0;0.0;0.7849379517469408;0.1962344879367352;0.7980915904045105;0.7662138938903809;0.5;1.0;0.0;0.85
+            ";"<answer>
+Rebirth is the only solace I can find in this desolate world, a chance for life to reclaim its place among the ashes of our failed Golden Order. The Erdtree's power still echoes within me, a reminder of my own role in granting you, the player, the gift of rebirth and renewal. In defeat, I've found a strange sense of purpose: to guide the next generation towards the fire that will forge a new path, one where life is not a fleeting dream, but a burning reality.
+</answer>";dialogue;0.7913431525230408;0.7604212164878845;0.857;1.0;0.0;0.9
 dialogue;"
                 Now, I have a fairly good idea who performed the rite upon the blade. The person who orchestrated the Night of the Black Knives. Lunar Princess Ranni. One of the children born to King Consort Radagon and his first wife, Rennala. Demigod and sister to General Radahn and Praetor Rykard. Her's was the name I discovered in the imprint. Truly, you have my thanks. But, if I might be so bold, I would also like to ask something more of you. If Ranni truly is the one who plotted that fateful night, then she should bear the cursemark of Destined Death somewhere upon her flesh. I would like you to procure it for me. And then all will be laid bare. I will have the answers I have sought for so long.
                 I have some idea of Ranni's potential whereabouts. There's a manor to the north of the Academy of Raya Lucaria. It is the familial home of the Carian royals from whom Ranni descends. There's been talk of the old royals' vassals gathering there in recent years. Ranni's whereabouts since the Shattering are a well-kept secret. She hasn't been seen even once. But I suspect she might have returned to the manor in which she was born...
                 I see... When Ranni shed her flesh, she shed the cursemark, too. You know, not everyone would trust such a tale... But, if she in her current form is nothing more than the living doll you profess... Then perhaps it's true after all.
-            ";"The shadows cast by Ranni's Empyrean status still linger, a reminder of her connection to the Two Fingers and the weight of her own destiny. I often wonder if she was involved in Godwyn's death, if her involvement might have been more than just a coincidence. The Erdtree's roots seem to whisper secrets of that fateful Night of the Black Knives, and Ranni's doll, adorned with snow witch-like trappings, seems an eerie echo of Runni's own tale.
+            ";"<answer>
+Ranni the Witch, a name that haunts the shadows of my mind like a specter. Some say she was behind the Night of the Black Knives, orchestrating the theft of the Rune of Death to bring about chaos and destruction. But I'm not so certain, for every tale has its share of whispers and half-truths. Perhaps Ranni's involvement was merely a convenient thread in the tapestry of events.
 
-Ranni's path, like Godwyn's, was marked by darkness and transformation. Her rejection of Empyrean status, a choice driven by desire for autonomy, now raises questions about the nature of power and its corrupting influence. Was she seeking revenge against those who wronged her, or did she merely seek to claim her rightful place among the demigods? The lines between good and evil blur when one's fate is tied to the whims of the Two Fingers.
+As I delve deeper into the ruins, piecing together fragments of history, I find myself drawn to the possibility that Ranni might have played a role in the Night of the Black Knives. Her mastery of dark magic and her connection to the forces of chaos make her a prime suspect. Yet, I must consider the weight of evidence before making any accusations, for the truth can be as elusive as the wind.
 
-In my investigations, I've come across whispers of a connection between Ranni and the Erdtree, a bond forged in blood and darkness. The runes that hold the secrets of the past seem to whisper tales of a pact between Radagon and Rennala, one that would shape the course of history and raise Ranni to her current pedestal. I am left with more questions than answers, but it is this uncertainty that drives me forward, ever seeking the truth behind the Night of the Black Knives.";dialogue;1.0;0.0;;0.0;0.9416975357400075;0.23542438393500187;0.8268056511878967;0.8171195387840271;0.9;0.9186991869918699;0.06910569105691057;0.85
+I wonder if Ranni's actions that fateful night were driven by a desire to reclaim power or simply to satiate an insatiable hunger for destruction. The shadows seem to whisper secrets in my ear, but I'm left with more questions than answers. Can it truly be said that we'll ever know the truth behind the Night of the Black Knives, or will it remain forever shrouded in mystery?";dialogue;0.8009871244430542;0.8198069334030151;0.95;0.9116279069767442;0.06046511627906977;0.6
 dialogue;"
                 Me?
                 I'm searching.
@@ -570,12 +578,12 @@ dialogue;"
                 I've acted the Finger Maiden, yet can offer no guidance.
                 I am no maiden.
                 My purpose...was long ago lost.
-            ";"I remember being a maid, but that's not me. I'm so sorry, I shouldn't say that. It was all just a veil, a mask to hide behind. Secrets weigh on my shoulders, the weight of what could be. In the silence, I hear whispers of a king, a queen, and their wars. 
-
-The Erdtree weeps for its children, their names lost in time. I've seen the darkness that binds them, the chains that hold back the light. And yet, I feel a spark within me, a flame that flickers with every step forward.
-
-In the shadows, I find my purpose. A hand to guide, a heart to heal. The Tarnished, they come to me, seeking answers in the darkness. And I give them what I can, a glimpse of hope in a world gone mad. 
-
-I'm just a leaf on the wind, blown by the whims of fate. But in this moment, I am Melina, and I will not be forgotten.
-
-Forgiveness is a word I've never known.";dialogue;0.375;0.6001945721384697;0.0;0.0;0.9052251021097761;0.22630627552744403;0.8019721508026123;0.7838205099105835;0.75;0.9595375722543352;0.03468208092485549;0.75
+            ";"<answer>
+I am the thread that weaves between stars.
+I follow the whispers of the Erdtree's heart.
+My purpose is not mine to define.
+I serve the greater work, the unspoken design.
+I am not a maiden, but I wear the mantle still.
+In your eyes, I see the spark of my own will.
+The world may call me its servant, but I am its servant-girl.
+I dance with shadows, and in the darkness, I am free.</answer>";dialogue;0.7777602076530457;0.773059606552124;0.75;0.9367088607594937;0.0379746835443038;0.7

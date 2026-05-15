@@ -2738,7 +2738,7 @@
       "relation": "hosts",
       "description": "Northland Bank is where the Gnosis exchange occurs.",
       "weight": 1.0,
-      "time_start_event": null,
+      "time_start_event": "transfer_of_gnosis",
       "time_end_event": null,
       "chunk_id": 1
     },
@@ -2760,7 +2760,7 @@
       "relation": "hosts_transfer_of",
       "description": "Northland Bank is the location where the Gnosis changes hands from Zhongli to Signora.",
       "weight": 1.0,
-      "time_start_event": null,
+      "time_start_event": "transfer_of_gnosis",
       "time_end_event": null,
       "chunk_id": 1
     },
@@ -2991,7 +2991,7 @@
       "relation": "transferred_at",
       "description": "The Gnosis is handed over to Signora inside Northland Bank.",
       "weight": 1.0,
-      "time_start_event": null,
+      "time_start_event": "transfer_of_gnosis",
       "time_end_event": null,
       "chunk_id": 1
     },

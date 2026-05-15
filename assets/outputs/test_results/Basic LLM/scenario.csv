@@ -1,44 +1,579 @@
-﻿category;reference_text;generated_text;metrics_category;metrics_faithfulness;metrics_answer_relevancy;metrics_context_precision;metrics_context_recall;metrics_semantic_similarity;metrics_answer_correctness;metrics_bert_score_source;metrics_bert_score_reference;metrics_world_consistency;metrics_distinct_2;metrics_repetition_2;metrics_interestingness
+﻿category;reference_text;generated_text;metrics_category;metrics_bert_score_source;metrics_bert_score_reference;metrics_world_consistency;metrics_distinct_2;metrics_repetition_2;metrics_interestingness
+character description;"
+                Soraya is a researcher from the Sumeru Akademiya who holds a great interest in Liyue's history and in particular, the legacy of Guizhong, the Lord of Dust and one of the gods who once lived in the Guili Assembly. She holds great respect for history and, as such, associates with people who have intimate knowledge of it. She holds the Treasure Hoarders in great disdain, seeing their plundering and looting of ancient relics for petty cash as sacrilegious. She believes that relics should be for scholars to study, for artists to take inspiration from and for people to admire in an exhibition, not used for earning cash, which is why she holds a low opinion of Treasure Hoarders.
+                Soraya wears a dark green-blue robe with a gold necklace and black sandals. She has brown hair tied in a bun and brown eyes, and wears a pair of black glasses.
+            ";"Name: Dr. Elara Vexar
+
+Dr. Vexar is a brilliant and meticulous researcher with a passion for uncovering the secrets of Liyue's ancient history, often losing herself in the dusty pages of her notes and journals. Her fascination with the Geo Archon Rex Lapis has driven her to study the various cultures and traditions that have shaped the region over centuries. Despite her extensive knowledge, she harbors a healthy respect for those who possess genuine power and wealth, like the Treasure Hoarders, whom she sees as obstacles to her research goals. She is an outsider in Liyue, having emigrated from the distant land of Mondstadt. With a hint of determination etched on her face.
+
+(Note: Elara Vexar's appearance could be described as slender with curly brown hair tied up in a ponytail and wire-rimmed glasses perched on the end of her nose.)";character description;0.8092793226242065;0.8472374677658081;0.95;0.9790209790209791;0.02097902097902098;0.7
+character description;"
+                Ivanovich is an open-world NPC in Liyue Harbor. He can be found near the left side of the docks. He is a Snezhnayan merchant stationed in Liyue. 
+                Ivanovich considers himself a distributor, selling everyday items produced in Snezhnaya. He also procures Cor Lapis to send back to Snezhnaya for their yet-unknown purpose in their factories.
+            ";"Here is a new character from Snezhnaya:
+
+Name: Matvey Petrovich
+
+Location: A small, dusty tavern in the frozen city of Snezhnaya, where locals gather to share stories and gossip.
+
+Occupation: Matvey is a humble bartender at the tavern, serving warm drinks to weary travelers and listening to their tales with a keen ear for rumors. Little does he know that his bar has become a hub for clandestine meetings between those seeking information about the mysterious Geomancers of Liyue.
+
+Connection to Cor Lapis: Rumors have circulated among the townsfolk that Matvey's late father, a miner, stumbled upon an ancient map hinting at the location of a hidden vein of Geo-energy. While no connection has been confirmed, some believe that Matvey might be searching for more than just a good drink recipe.
+
+That's it!";character description;0.8036321997642517;0.8272380828857422;0.75;0.9777777777777777;0.022222222222222223;0.5
+character description;"
+                Occupation
+                Vlad is a member of the Fatui. When the Fatui established the Northland Bank in Liyue Harbor, Vlad was assigned to serve as a guard for the bank. He works as a daytime guard at the Northland Bank in Liyue Harbor. At nighttime, Nadia takes his place.
+                
+                Free time
+                While he is not working, he can be found standing by the dock near the Snezhnayan merchants at the harbor.
+                
+                Interesting story
+                One time, Nadia accidentally left her letter for her brother at the bank while changing shifts. Vlad, mistaking it as a letter written for him, left a response. Afterwards, the two became pen pals, writing letters for the other to read during their shifts.
+                
+                Appearance
+                Vlad has orange hair and wears a mask and a black red Fatui uniform.
+            ";"Here is the structured text for the new Fatui character:
+
+**Occupation**
+As the guardian of the Northland Bank, the Fatui agent is responsible for ensuring the security and integrity of the financial institution's operations. He maintains strict control over all transactions and personnel within the bank, using his cunning and resources to detect any potential threats or anomalies. Additionally, he coordinates with other Fatui agents across Teyvat to gather intelligence on suspicious activities.
+
+**Free Time**
+In his rare moments of leisure, the guardian enjoys sipping tea from a delicate ceramic cup while reading ancient texts on economics and finance in his hidden sanctum within the bank's basement.
+
+**Interesting Story**
+The guardian was once a humble accountant at the Northland Bank before being recruited by the Fatui. He quickly proved himself to be an exceptional asset due to his attention to detail and natural talent for manipulation, which led to him being promoted to his current position as guardian. His reputation among the bank's employees is shrouded in mystery, with many whispering about his uncanny ability to appear and disappear at will.
+
+**Appearance**
+The Fatui guardian wears a dark, tailored suit adorned with intricate silver embroidery, symbolizing his status as a respected member of the organization.";character description;0.8047813177108765;0.7860597968101501;0.957;0.9323671497584541;0.04830917874396135;0.7
+character description;"
+                Yelan. A mysterious person who claims to work for the Ministry of Civil Affairs, but is a ""non-entity"" on the Ministry of Civil Affairs' list. Elusive, enigmatic, erratic - all of these are Yelan's hallmarks.
+                
+                Appearance
+                Yelan is the tall female. She has pale skin, light emerald-green eyes, and dark blue hair and asymmetrical bangs that are lighter at the tips.
+                
+                Character's description
+                Yelan, despite claiming to work for the Ministry, is the sole exception. Most of her colleagues have never heard of her, nor is her name anywhere to be found on any rosters.
+                She is a ghost who walks in the middle of many crises under various names. But before the storms can come to an end, she has already disappeared without a trace.
+                Sometimes, she will pick a side in some conflict to offer her help, but those who receive her aid would be fools to celebrate prematurely, for they soon find that the same help has been extended to their opponents.
+                Having stepped into her trap, many have vowed to take revenge, yet none are able to tell what she is planning, let alone know where she stands.
+                Many believe that she is a spy who works for some mysterious organization, and that her forte is stirring things up in the dark, which she then relies on to attain what she wants.
+                Some even go as far as saying that she is a frenetic follower of disorder who neither serves any organization nor holds any meaningful purposes.
+                Even if she does, all she wants is to add fuel to the already spreading flame and drag everyone down into a world of madness created by her.
+                With so many theories and guesses circulating, she has become a mystery. As for the truth, you could only hope to get an answer from Yelan herself.
+                But unfortunately, this is no easy task either — for it is always she who finds you when she wishes to, not the other way around.
+            ";"Name: Kaito
+
+Description: ""Shadow Weaver""
+
+Appearance:
+Kaito stands at an unassuming height of around 5'4"" with a slender build, often shrouded in the shadows. Her face is partially obscured by a hooded cloak, making it difficult to discern her features.
+
+Character's description:
+Kaito is an enigmatic figure who has managed to infiltrate the Ministry of Civil Affairs, gaining Ningguang's trust and attention. She works tirelessly from the shadows, gathering intelligence and manipulating events to further her own agenda. Her motivations are shrouded in mystery, leaving many to speculate about her true loyalties.
+
+Kaito is a master manipulator, able to effortlessly weave complex webs of deceit and intrigue. Her calm demeanor belies a sharp mind and quick wit, allowing her to outmaneuver even the most cunning adversaries. She has a tendency to appear at the right moment, always seemingly one step ahead of the game.
+
+Despite her impressive skills, Kaito is not without her vulnerabilities. A faint scar above her left eyebrow hints at a painful past, while an occasional flicker in her eyes suggests a deep-seated emotional complexity. Few people have seen beyond her façade, and even fewer have managed to crack her shell.
+
+Kaito's attitude towards work is one of calculated detachment. She approaches each task with a detached curiosity, never becoming too invested or attached to any particular outcome. This allows her to maintain a level of objectivity, making her an invaluable asset to those who trust her.
+
+Others often find Kaito's thoughts on them puzzling or even disturbing. Some see her as an enigmatic figure, worthy of admiration and respect, while others view her with suspicion or distrust. One thing is certain, however: Kaito will not be easily swayed by public opinion or expectation. She operates according to her own rules, always seeking to further her hidden agenda.
+
+Her relationships with others are complex and multifaceted. While she can effortlessly charm those who share her interests, Kaito has a tendency to push people away when they get too close. This is not due to a lack of empathy or compassion, but rather a need to maintain control over the narrative.";character description;0.7965301871299744;0.7859858870506287;0.957;0.9441340782122905;0.05307262569832402;0.7
+character description;"
+                Yun Jin is a skilled director, playwright and singer who is well renowned throughout Liyue for her plays, enjoying this passion and going to many lengths to ensure that everyone who watches her performances leaves satisfied. While appearing to be refined and graceful in formal occasions, she is also known to be exceptionally friendly in private. She draws inspiration from many sources for her plays; she enjoys a wide variety of special drinks as one of her pastimes and she can write a play about one if she enjoys it.
+                Despite enjoying her passion, she also enjoys variety; while she gets along with the troupe in theater-related issues, she frequently clashes with them over personal affairs as she feels that they are too traditional. She is particularly fond of rock 'n' roll, visiting Xinyan and watching her performances at least three times a week no matter how busy she is. Xinyan believes that she comes to visit her due to the finer arts being ""suffocating"". She tries to keep her visits a secret, as her interest in non-traditional music would cause much consternation among her elders.
+                Yun Jin is medium female. She has a fair complexion, rich red eyes with prominent red makeup painted at the corners, and hip-length jet black hair with purple highlights styled in a hime cut.
+            ";"Name: Luna Mei
+
+Luna is a talented and enigmatic musician in Liyue, known for her captivating performances that weave together traditional Liyue instruments with modern influences. Her music is a reflection of her passion for the sea, as she often draws inspiration from the tides, waves, and oceanic landscapes of Liyue. Luna's primary motivation stems from a desire to capture the essence of her homeland through her art, sharing its beauty and emotions with others. She finds solace in the works of ancient Liyue poets and mythological stories, which often serve as themes for her compositions. Her music has also been influenced by the mystical energies that permeate Liyue, leading to an otherworldly quality that resonates deeply with listeners. Luna's personality is characterized by her creativity, curiosity, and determination, often driving her to push boundaries in her craft. She is fiercely loyal to those she cares about and will go to great lengths to support their artistic endeavors. When not performing or composing, Luna can be found exploring the winding streets of Liyue, discovering hidden gems and collecting rare musical instruments.
+
+Luna's appearance is marked by a wild tangle of curly black hair and an infectious smile that lights up her face, often accompanied by a delicate tattoo of a Lychee flower on her left cheekbone.";character description;0.8060941696166992;0.8353007435798645;0.957;0.963302752293578;0.03211009174311927;0.8
+item description;"
+                A translucent white flower that only grows on the highest stone peaks. It eschews the warmth and moisture of the plains to gaze out afar from the solitary mountaintops.
+            ";"Here is a possible in-game description for the Qingxin flower:
+
+""Rarity: 5/5 (Exclusive to Liyue's rarest gardens) - This exquisite, white Qingxin flower blooms only once a year under the light of the full moon. Legend has it that its petals retain the essence of celestial music, and those who listen closely can hear the whispers of the gods.""
+
+Note: I've included the fact that the Qingxin flower is said to retain the essence of celestial music, which could be an interesting aspect for players to discover. Let me know if you'd like me to add anything else!";item description;0.7981225848197937;0.8348551988601685;0.957;0.9108910891089109;0.07920792079207921;0.7
+item description;"
+                Horns created from hardened jade crystallized over a thousand years are the natural crown of the dragon king.
+                Infused with spirit and carved from bedrock, it was born from the mountain's heart to show the strength of the earth to the land amidst monoliths, and its long golden horns are the mark of its ancient strife with an ancient lord.
+                For a time, this horn was shattered and lost its luster, but now it gleams cold and gold as it sits in your palm.
+            ";"Here is a 3-sentenced in-game description for the Dragon Lord's Crown:
+
+This majestic crown bears the visage of an ancient dragon lord, its intricately carved scales shimmering with a warm, golden light. Said to have been forged from the memories of Zhongli's own mortal years, the crown was crafted by his friend, a mighty stone dragon who spent centuries imprisoned beneath the earth before finally ascending to the surface. Worn upon the head of the worthy, the Dragon Lord's Crown grants its wearer a fraction of the ancient dragon's wisdom and vitality, as if the very essence of the land itself had been distilled into this magnificent, ethereal circlet.";item description;0.7999820709228516;0.8277715444564819;0.75;0.9298245614035088;0.05263157894736842;0.8
+item description;"
+                Scaled armor that grows naturally over mystical stone, tough and silent, and filled with the strength of the dragon king.
+                Across the years as countless generations returned to the mulch of the earth, gold and obsidian embedded themselves into flesh and blood forged from bedrock before spreading and turning into scales.
+                Searing agony, wordless cries... perhaps they will all vanish when the grudges that spawned them, too, finally come to an end.
+            ";"**Gilged Scale**
+
+This glimmering scale, once polished by the gentle claws of a mighty dragon, now hangs from its ancient holder's belt, bearing testament to the storied friendship between Zhongli and his former companion. For centuries, the dragon dwelled deep beneath the earth, guarding secrets and treasures as it watched civilizations rise and fall above. Its demise at the hands of an enemy unknown has left this scale, imbued with the essence of its long-lived bond, a poignant reminder of loyalty and camaraderie.";item description;0.7989727258682251;0.8086958527565002;0.857;1.0;0.0;0.7
+item description;"
+                A poetry collection by Pingshan, The Mystic. The quality of the poems is all over the place, but it has long been a reference book or young poets or poet-wannabes in Liyue.
+            ";"The ""Humor from Tianheng"" is an ancient text containing humorous poems written by Pingshan, the Mystic, a renowned poet of old. The book's contents are characterized by its witty and satirical verses that poked fun at various aspects of Liyue culture and society. Historically, this book was used as a popular entertainment among the people of Liyue during the Ming Dynasty era, offering a lighthearted respite from the seriousness of daily life.";item description;0.805712878704071;0.8678787350654602;0.75;0.9861111111111112;0.013888888888888888;0.6
+item description;"
+                A Fortune Coin with a special Guyan Sigil engraved into it. It is said that this is the symbol of Rex Lapis, and can be used as a protective talisman.
+            ";Zhongli gifts the Traveler a small, intricately carved wooden box containing a single, crimson lotus seed, symbolizing the delicate balance between fate and free will. The lotus seed serves as a reminder of their shared destiny and the trials that lie ahead.;item description;0.799699068069458;0.845574676990509;0.952;0.975609756097561;0.024390243902439025;0.7
+dialogue;"
+                Madame Ping: Oh? Why, hello child.
+                Madame Ping: Though flowers bloom yet always fade, but people go yet return another day. I just knew that you'd be back to see me before long, hehe.
+                
+                Traveler: White Admiring the flowers?
+                Madame Ping: That I am. One season after the next, this flower blooms, then falls, only to bloom again. And on it goes — just like Liyue.
+                Madame Ping: Look over here, and over here. So many flowers are blooming! It looks like this will be a blessed year.
+                
+                Traveler: White What type of flowers are these?
+                Madame Ping: These are Glaze Lilies. Probably the last surviving ones in all of Liyue Harbor.
+                Madame Ping: People say that the sound of singing nourishes them, and helps them grow...
+                Madame Ping: But the sound of fighting, of cursing... it is poison to them, and eats away at their roots.
+                Madame Ping: That is why, over centuries of strife, they have disappeared from Liyue's landscape.
+
+                Traveler: Tell me about the past.
+                Madame Ping: Just because my complexion screams ""ancient history"" doesn't mean I love discussing the past, you know.
+                Madame Ping: ...Relax, I'm only kidding.
+                Madame Ping: Truth be told, the older you get, the more time you have on your hands, and the more you start contemplating the past... I do wonder how my old friends back in the mountains are getting on...
+                Madame Ping: Liyue Harbor is really a wonderful place now. I wonder if they would ever want to step down into the mortal realm and get a taste of the lifestyle here...
+                Madame Ping: Look at me rambling on again, I must sound like a lunatic! Maybe one day I can discuss my past with you... if it is meant to be.
+                
+                Traveler: This is a beautiful flower.
+                Madame Ping: Hehe, all thanks to the beautiful weather we're having today.
+                Madame Ping: I'd always hoped that one day this flower would bloom all over Liyue once more...
+                Madame Ping: But in the meantime, would you take a few of these flowers from Yujing Terrace with you on your journey, so that they might see the world?
+
+                Traveler: Goodbye.
+                Madame Ping: Goodbye, young one. If you are ever passing by Jueyun Karst, please pass on my regards to my old friends.
+                Madame Ping: If it is meant to be that you see them... then you will see them.
+            ";"Here is the in-world idle dialogue between the Traveler and Madame Ping:
+
+Block 1:
+Traveler: Ah, I've finally obtained the Cleansing Bell. It was quite a journey to get it.
+Madame Ping: Indeed, the gods can be cruel when they demand items from mortals. Did you have any trouble navigating the mystical energies of Bubu Pharmacy?
+
+Block 2:
+Traveler: The Everlasting Incense was quite an experience. I've never seen anything like it before.
+Madame Ping: Yes, and Qiqi's Cocogoat was a delightful surprise. I'm glad to see that even in Liyue, the gods still have a sense of humor.
+
+Block 3:
+Traveler: I must say, Madame Ping, your teapot is quite an impressive sight. The intricate designs are beautiful.
+Madame Ping: Thank you, Traveler. It's been passed down through generations of my family, and each one holds a special story and significance. Would you like to hear some of them?
+
+Block 4:
+Traveler: I would love to hear more about it. Your family's history is certainly fascinating.
+Madame Ping: Ah, yes... well, let's just say that we've had our fair share of adventures over the centuries. Perhaps one day I'll share some of those stories with you.
+
+Block 5:
+Traveler: Goodbye, Madame Ping. It was nice speaking with you again.
+Madame Ping: Farewell, Traveler. May the gods smile upon you once more... and may your tea always be steeped to perfection.";dialogue;0.8080270290374756;0.767288088798523;0.857;0.9291666666666667;0.041666666666666664;0.6
+dialogue;"   
+                Chaonan: ...Best if you say the bare minimum to me. I don't want to deplete my stamina.
+                Chaonan: *sigh* If I'd known this would happen, I would have followed my dreams...
+
+                Traveler: Are you tired?
+                Chaonan: ...I'm a ship repairman. When the ships are at sea, I have nothing to do. But when they dock, I'm so busy I never get a wink of sleep...
+                Chaonan: So I have decided to conserve my stamina from now on. Otherwise, I won't be able to cope when the busy period hits.
+                
+                Traveler: Have you considered a change of occupation?
+                Chaonan: Well, this job is rather busy, but being busy also means that there's money to be made.
+                Chaonan: We have Rex Lapis' divine predictions to thank for that. The number of merchants going out to sea has increased year on year in recent times, which has led to our business being on the rise, too.
+                Chaonan: Those merchants who made their fortune aren't stingy, either. They often give us some tips on top of the repair fees.
+                Chaonan: Hard work begets an equal reward, and for the lads that want to earn some money while they're young, this job is pretty good. We shouldn't waste the opportunity that Rex Lapis has given us.
+                
+                Traveler: What dreams?
+                Chaonan: ...I once had the opportunity to join the Crux Fleet, but by the time I signed up, they were full.
+                Chaonan: I gave up on being a seafarer in the end, and went into ship repair work instead. Now I can only watch as the ships go in and out.
+                Chaonan: Maybe if I'd pushed a little harder for it back in the day, I wouldn't have ended up where I am now.
+                Chaonan: And maybe the reason I've not been favored enough to receive a Vision is because I give up too easily.
+                Chaonan: ...I hope you don't end up like me.
+                
+                Traveler: What a pity...
+                Chaonan: The problem is my personality... That, and luck not being on my side.
+                Chaonan: *sigh* It's funny, you know, the day before I signed up I even made a point of going out and buying this feather, which is supposed to bring good luck. Clearly, it had no effect whatsoever...
+                Chaonan: ...Well, no use complaining about it. Here, you can have it, maybe it works better on adventurers.
+                
+                Traveler: Goodbye.
+                Chaonan: Goodbye. Now to focus all my energy on getting a good rest...
+            ";"Traveler:
+Hey there! I couldn't help but notice you're working on that old ship repairer's gear. What made you choose this path?
+
+Chaonan: 
+Yeah, it's not as glamorous as being in the Crux Fleet, but someone's gotta keep these ships seaworthy.
+
+Traveler:
+I can imagine. I've heard stories about the Crux Fleet's adventures, and how they explored the world together. Did you ever get a chance to join them?
+
+Chaonan: 
+I did, actually. I was all set to leave Liyue with them, but my sister got sick, and I had to stay behind to take care of her. That's when I realized I needed to prioritize something other than chasing the wind.
+
+Traveler:
+That's a tough decision to make. It takes a lot of courage to put someone else's needs before your own dreams. What made you choose repair work instead?
+
+Chaonan: 
+It was just something that needed doing, you know? Someone's gotta keep these ships going, and I figured it'd be less flashy than being part of the Crux Fleet. Plus, I get to see some interesting parts when they come in for maintenance.
+
+Traveler:
+I can respect that. Sometimes our paths don't take us exactly where we want them to go, but they still lead us somewhere important. Do you ever wish you could have joined the Crux Fleet after all?
+
+Chaonan: 
+All the time, mate! But like I said, life's not always fair, and sometimes you gotta make do with what you've got. I'm good where I am.
+
+Traveler:
+Goodbye!
+
+Chaonan: 
+Yeah, same to you, friend.";dialogue;0.7892583012580872;0.8056228160858154;0.857;0.9233576642335767;0.06204379562043796;0.6
+dialogue;"
+                Soraya: ...How many secrets does Liyue truly hold?
+                
+                Traveler: Secrets?
+                Soraya: Oh, Traveler, it's you. The secrets I'm referring to are a set of inscriptions.
+                
+                Traveler: Do you mean buried treasure?
+                Soraya: Haha, who knows? It's always possible. Talk of secrets waiting to be uncovered does tend to make one think of buried treasure.
+                Soraya: This place we are in is called the Guili Assembly. According to Liyue folklore, it was once inhabited by people — in fact, it was rather prosperous.
+                Soraya: But for various reasons, the whole place was wiped out. All that remains now is the countless ruins scattered across the landscape.
+                Soraya: Some stories put it down to conflict between the gods, other people say it was a war between humans. And some sources talk of a sudden, catastrophic natural disaster...
+                Soraya: Whatever the reason was, ruins are all that remains here now. The only ones who come here are the hilichurls, the Treasure Hoarders...
+                Soraya: ...And masochistic scholars, like me, who in spite of all the risks just can't resist the idea of how much research value these ruins have to offer.
+                Soraya: In practice though, scholars like me aren't cut out for this kind of field work! I've hardly covered any ground yet, and I already need a rest...
+                Soraya: The actual ruin-exploring seems more your area of expertise. What do you say, fancy helping me out?
+                
+                Traveler: Sure.
+                Soraya: Great. Hmm, but I should give you an idea of what to look for... Yes, keep your eyes peeled for stone pillars and stone tablets.
+                Soraya: Given how ancient these ruins are, any text we can hope to find will be written on stone, not paper.
+                Soraya: After all, stone is the oldest and most durable medium for written communication.
+                
+                Traveler: What am I looking for?
+                Soraya: Hmm... Text essentially. Written messages from the past.
+                Soraya: And if you're looking for text in ruins as ancient as these, that means looking for stone pillars and stone tablets.
+                Soraya: Stone is the oldest, most durable medium for written communication. All the more so in the domain of the Geo Archon.
+                Soraya: The stones here have borne witness to all of history. I am sure they will not disappoint.
+                
+                Traveler: Only if there's treasure...
+                Soraya: Whatever treasure you find, you can keep. Material wealth isn't what appeals to me.
+                Soraya: In Liyue there's a saying that goes: ""Money belongs to the world outside your head."" I'm more interested in acquiring knowledge than money.
+                Soraya: So while you're hunting for treasure, please also keep your eyes peeled for stone pillars and stone tablets.
+                Soraya: Given how ancient these ruins are, any knowledge we can hope to find will most likely be written on stone.
+            ";"Here is the dialogue for starting a quest about searching for relics in ruins:
+
+Traveler: I've heard rumors of valuable relics hidden within the ancient ruins of Guili Assembly. Can you tell me more about what you're looking for, and why?
+
+Soraya: Those relics hold the key to understanding Liyue's rich history, particularly the legacy of Guizhong, the Lord of Dust. His influence on our world is still debated among scholars.
+
+Traveler: I'm not sure I understand how these relics could help us. What makes them so significant?
+
+Soraya: The relics contain fragments of ancient texts, artifacts, and even magical energies that can provide insight into Liyue's most pivotal moments. They're crucial for our understanding of the world we live in.
+
+Traveler: I see. But aren't there others searching for these relics? Treasure Hoarders, perhaps?
+
+Soraya: (frustrated) Yes, those ruthless collectors are always one step ahead of me. Their sole interest is in selling these relics to the highest bidder, regardless of their historical value or cultural significance.
+
+Traveler: I'm willing to help you find and protect these relics from falling into the wrong hands. Can you tell me more about where to start?
+
+Soraya: Thank you for your assistance! Guili Assembly's ruins are said to be filled with ancient artifacts and texts, but be warned – Treasure Hoarders have already begun to infiltrate the site. We must move quickly to uncover these relics before they're lost forever.
+
+Traveler: I'll get started right away. Do you have any leads on specific locations or clues that might help us?
+
+Soraya: (rummaging through her notes) Ah, yes! There's an old map that supposedly points to a hidden chamber deep within the ruins. But be cautious – the path is treacherous, and I fear we're not alone in our pursuit.
+
+Traveler: Alright, let's get moving. We can't let those relics fall into the wrong hands.
+
+Soraya: (smiling) Together, we might just uncover a piece of Liyue's history that could change everything we thought we knew about this world.";dialogue;0.8022786378860474;0.7764208912849426;0.75;0.9195402298850575;0.0603448275862069;0.7
+dialogue;"
+                Chef Mao: Here for the Wanmin Restaurant experience? Hi, I'm Chef Mao. Everyone in Chihu Rock will have heard of me.
+
+                Traveler: Tell me more about the Wanmin Restaurant.
+                Chef Mao: Well, I'm the chef. I may not be quite the culinary legend that my daughter is, but you can be sure the Wanmin Restaurant is a cut above all those time-honored brands you see around!
+                
+                Traveler: Your daughter?
+                Chef Mao: That's right — Xiangling! My dear daughter, and my best apprentice ever.
+                Chef Mao: I only taught Xiangling how to cook so that she could inherit the Wanmin Restaurant from me one day. I had no idea she'd turn out to be such a pro. Her abilities far exceed my own.
+                Chef Mao: But she's more than just an excellent chef. She has a real gift for innovation — she's constantly creating all these wonderful new dishes. That really sets her apart from what the time-honored brands do. And it makes her dishes all the more special for people who are used to traditional cuisine.
+                Chef Mao: I started to worry that the restaurant might be too constricting for her. So I sent her off for a while to do some exploring and perfect her art.
+                Chef Mao: If anyone is going to revolutionize Liyue cuisine in the future, it'll be her. No doubt about it!
+            ";"Here is a short dialogue between the Traveler and Chef Mao:
+
+**Start**
+
+Welcome to Wanmin Restaurant, replica of the famous Liyue eatery! Please select one of the options below to continue your conversation with Chef Mao.
+
+1. Ask about his restaurant's specialties
+2. Inquire about his daughter, Xiangling
+3. Express interest in his cooking techniques
+
+**Block 1: Restaurant**
+
+Traveler: I've heard great things about Wanmin Restaurant. What sets it apart from other eateries in Liyue?
+
+Chef Mao: Ah, our restaurant is known for its unique blend of traditional and innovative flavors. We use only the freshest ingredients to create dishes that are both familiar and exciting.
+
+**Block 2: Xiangling**
+
+Traveler: I've also heard a lot about your daughter, Xiangling. What can you tell me about her?
+
+Chef Mao: Oh, Xiangling is a firecracker! She's got a passion for cooking that's unmatched by anyone I've ever met. Her bold and experimental approach to cuisine has made Wanmin Restaurant famous throughout the region.
+
+Chef Mao: And it's not just about throwing a few ingredients together – she's got a real eye for presentation and a deep understanding of how flavors work together. She's always pushing the boundaries of what's possible with food, and it shows in every dish that comes out of our kitchen.
+
+Chef Mao: I'm so proud of her – she's going to make a great chef one day! And she's already making a name for herself in the culinary world, which is wonderful to see.";dialogue;0.7895827293395996;0.8130549788475037;0.857;0.9140625;0.05078125;0.75
+dialogue;"
+                Sisi: Oh hi. Look, sorry, if you're hitting on me I'll have to refuse. I'm waiting on someone.
+                
+                Traveler:  Who are you waiting for?
+                Sisi: My lover, Chaoxi. He's a sailor.
+                Sisi: We don't get to see each other very often, he's never back on land for very long...
+                Sisi: He's already been gone for so long, who knows when he'll be back...
+                Sisi: Next time he gets back I'm just going to ask him outright when we are going to get married. All this waiting is just too much...
+                
+                Traveler:  About Rex Lapis' death...
+                Sisi: Rex Lapis and Liyue, like two lovers for thousands of years...
+                Sisi: But all relationships must come to an end. If death is the thing that finally separates you, well then surely that's a sign that you had a good run...
+                Sisi: ...or is it a sign that we have all been dumped by Rex Lapis?
+                
+                Traveler: Goodbye.
+                Sisi: Farewell.
+            ";"Here is a short dialogue between Sisi and the Traveler:
+
+Traveler:
+Sisi, I've heard you're waiting for your lover-sailor. What's their name?
+
+Sisi: He called himself ""Elian"" – or so he told me. I thought it was love that made him promise to stay away from me.
+
+Traveler:
+Do you think Elian's work is worth keeping you apart from him? Does his duty truly outweigh the joy of being with the one you love?
+
+Sisi: I want to believe he'd choose me if he could, but those stories about his duties always seem so much more important. It hurts to think that my love might be just a luxury he can't afford.
+
+Traveler:
+What do you hope is waiting for Elian on the other side of the sea? Is there something more at stake than your love for him?
+
+Sisi: I wish...I wish he'd come back to me, no matter what. Our engagement was supposed to be our future together – but now I'm not even sure if that's still possible.
+
+Traveler:
+You know, sometimes the greatest challenges are worth fighting for, and the rewards can be more precious than any duty or obligation.
+
+Sisi: If you believe in that, then please...believe in me too. Help me find my way back to Elian, no matter what it takes.
+
+Traveler:
+I'm here for you, Sisi. We'll face whatever comes next together, as friends and allies.
+
+Sisi: Thank you...thank you for being there for me when I need you most.";dialogue;0.7866169214248657;0.7682021856307983;0.75;0.95;0.046153846153846156;0.7
+location description;"
+                According to legend, the Qingxu Pool ruins were built before the Archon War. After the evil god ruling the city was defeated, the city was submerged underwater until the end of the Archon War. It is unclear whether the legend of this evil god are actually referring to the Geo Dragon Azhdaha, who rampaged across Lisha before Rex Lapis and three of the adepti finally sealed him in The Chasm. Records of that conflict have been memorialized in the three Nameless Treasures, one of which can be found in Qingxu Pool.
+                While Qingxu Pool is no longer inhabited, a settlement which Tieshan hails from still exists around the area.
+                In the past, the Liyue Qixing approved an attempt to excavate the Qingxu Pool ruins for their rumored buried treasure. However, the ruins were completely sealed shut and at the time, the technology needed to blast through solid rock did not yet exist, so the project was abandoned. 
+            ";"Qingxu Pool is a tranquil oasis nestled within the heart of Lisha, Liyue, shrouded in a veil of mystery that has been woven over centuries. Legend whispers of Qingxu Pool's pivotal role during the Archon War, where Rex Lapis, the Geo Archon, was said to have communed with the pool's ancient energies, imbuing his being with the essence of Liyue's life-giving forces. It is also rumored that the adepti, in their quest for knowledge, delved into the pool's depths, unlocking secrets that would forever alter the course of Liyue's history. The pool's waters are said to hold a piece of Rex Lapis' Gnosis, a fragment of his divine power that still resonates within its tranquil surface.
+
+In modern times, Qingxu Pool lies in ruins, overgrown with vines and moss, its once-majestic architecture reduced to crumbling stone and shattered glass. The Qixing, ever vigilant, have been known to dispatch teams to explore the pool's remnants, seeking valuable artifacts and relics that might shed light on Liyue's mysterious past.
+
+Despite their efforts, the pool remains an enigma, with many groups vying for access to its hidden secrets. Some claim to have discovered ancient texts etched into the walls, while others speak of eerie whispers carried on the wind, hinting at a deeper connection between Qingxu Pool and the forces that once ruled Liyue. As the years pass, the pool's allure continues to captivate those who dare to explore its forgotten depths, beckoning them towards secrets that may forever change the course of history.";location description;0.8150443434715271;0.8321287631988525;0.857;0.9042145593869731;0.05363984674329502;0.8
+location description;"
+                The Land of Hidden Jade. But the war of ages past is long over, and the mounds of glittering jade have long been destroyed. Now, only the whisper of flowing water remains.
+                - Viewpoint, Dunyu Ruins
+
+                Every corner of Dunyu Ruins is filled with ancient vestiges, suspended in time inside the dead lake.
+                Without a doubt, there is still a large amount of treasure of unknown origin yet to be discovered.
+                - Expedition description
+            ";"Here are two short descriptions for Dunyu Ruins:
+
+**Lyrical Description**
+
+Amidst the whispers of Liyue's ancient past, the Dunyu Ruins stand as a testament to forgotten lore. Crumbling stone pillars, weathered by time and sea spray, stretch towards the sky like withered fingers, as if grasping for the heavens. The air is heavy with the scent of salt and decay, carrying the whispers of those who once called this place home. Shrouded in mist, the ruins seem to slumber, waiting for the winds of fate to awaken their secrets once more.
+
+**Expedition Report**
+
+Dunyu Ruins are an overgrown and decrepit site, hidden deep within Lisha's Liyue Harbor district. Expedition reports suggest that this ancient location may hold valuable archaeological finds and relics from Liyue's forgotten history, although the site's current state of disrepair makes it a challenging prospect for exploration.";location description;0.7990561127662659;0.7958102226257324;0.957;0.958041958041958;0.03496503496503497;0.7
+location description;"
+                Pervases' Temple is a point of interest located in Lisha, Liyue.
+                It is a temple dedicated to the deceased Yaksha, Pervases, and contains a statue dedicated to him. It originally appears as a dilapidated house, before being restored.
+            ";In Liyue, the Yaksha environment element is known as the Azure Clouds. Located in the vast expanse of the eastern ocean, the Azure Clouds are a series of mist-shrouded islands that drift along with the tides. Initially appearing as a swirling vortex of azure and white clouds, they gradually take on the shapes of lotus flowers and other Yaksha-inspired forms as humans and adepti work to honor the gods and connect with the elemental forces. Over time, the Azure Clouds are said to bloom into vibrant, iridescent blooms that reflect the beauty and resilience of Liyue's people.;location description;0.8069444298744202;0.8128372430801392;0.857;0.9393939393939394;0.04040404040404041;0.7
+location description;"
+                The Chasm is a massive, Liyue-based mining region, characterized by its deep, open-pit surface, contrasting with a dark, sprawling underground filled with glowing flora, ancient ruins, and hazardous black mud. It is known for its intense orange-brown dirt, steep rocky terrain, and a mysterious upside-down city.
+                In the recent past, a series of mysterious accidents led the entire mine to be closed, putting its workers out of a job. However, the Liyue Qixing is gradually reopening the area, thus allowing miners to resume working. Beneath the Seven-Star Array is the Underground Mines.
+                According to legend, the Chasm was originally was the ancient civilization of Lang-Gan. The civilization was destroyed and the Chasm would be formed by the Solar Chariot during the War of Funerary Flame. This meteorite had a ""proud and agitated temper,"" and during the Archon War, the constant strife caused this meteorite to leap back into the heavens, leaving behind the massive expanse that was the Chasm. Legends also said that this was the area where Morax and Azhdaha clashed in battle. Most recently, during the cataclysm 500 years ago, an ""iron meteor"" fell into The Chasm, which marked the beginning of the Abyss' invasion.
+            ";"Based on the provided context, I will create a location that fits within the world of Liyue.
+
+**Location:** The Chasm of the Ancients
+
+**Appearance and Elements:** The Chasm of the Ancients is a vast, labyrinthine network of tunnels and caverns carved into the living rock of Liyue's mountains. Glowing crystals embedded in the walls emit an ethereal light, illuminating the path for miners and adventurers alike. Ancient artifacts and relics from long-lost civilizations can be seen scattered throughout the chasm, surrounded by remnants of ancient rituals and ceremonies.
+
+**Modern Uses or Problems:** The Chasm is still a vital source of essential ores for Liyue's industries, but its remote location and treacherous terrain have led to concerns about worker safety and environmental degradation. Recent excavations have also uncovered signs of an ancient, long-abandoned technology that some believe could hold the key to unlocking new sources of energy or advanced materials. However, the Chasm's unique energies are also said to be unstable, causing periodic seismic events and attracting unwanted attention from the Fatui.
+
+**History:** The Chasm of the Ancients is said to have been a sacred site for the ancient Liyue Qixing, who believed it held the secrets of their ancestors. According to legend, the chasm was once home to an ancient civilization that possessed advanced knowledge of alchemy and crystal magic. The Qixing would often conduct elaborate rituals within the chasm, seeking to harness its energies and unlock new levels of spiritual understanding. Zhongli, as a young adepti, spent many years studying the secrets of the chasm under the guidance of his mentor, Ningguang.
+
+As Liyue's power grew, so did the Chasm's importance, becoming a hub for the study and application of ancient technologies. However, with the rise of the Fatui, the Chasm became increasingly isolated and forgotten. Today, only a select few know of its hidden secrets and significance, making it a coveted target for those seeking to exploit its power.
+
+In recent years, rumors have circulated about an ancient text known as the ""Elder's Codex"" hidden within the Chasm's depths, said to hold the key to unlocking Liyue's true potential. The Traveler and Zhongli are among those who seek to uncover its secrets, navigating treacherous tunnels and overcoming deadly traps in pursuit of knowledge that could change the course of Liyue's history forever.";location description;0.8151476979255676;0.8260924816131592;0.957;0.8857868020304569;0.05583756345177665;0.6
+location description;"
+                Chenyu Vale is a lush, northwestern region of Liyue, characterized by mountainous tea-growing landscapes, tea-house culture, and flowing rivers. 
+                It was protected by the adeptus Fujin and the suanni Lingyuan under an unnamed goddess who turned maddened by the Archon War. Following the creation of The Chasm 6000 years ago, surviving tribes moved to this area, where Fujin taught them to work with jade and agriculture.
+                Key Locations:
+                 - Qiaoying Village: Famous for its tea.
+                 - Yilong Wharf: A busy port and shipping hub for the tea trade.
+                 - Mt. Yaojun: A central, sacred mountain.
+            ";"Chenyu Vale is located on the north of Liyue, nestled within a serene valley surrounded by towering mist-shrouded mountains. The rolling hills of Chenyu Vale are dotted with lush tea plantations, where local adeptis carefully cultivate and harvest the finest tea leaves to create exquisite blends.
+
+In ancient times, Chenyu Vale was home to a thriving community of jade carvers and tea producers who revered the land's unique energies as a source of inspiration for their craft. The region's history is deeply intertwined with the story of Rex Lapis' trial, as many of its adeptis were said to have been chosen by him himself to carry on his legacy. Over time, Chenyu Vale became a sacred site for the Liyue Qixing and other adepti, who would often journey here to seek guidance from their revered sages.
+
+Some key locations in Chenyu Vale include:
+
+* The Jade Spring: A natural source of crystal-clear water said to hold the essence of Rex Lapis' divine energy. Here, local adepts can attune themselves to the land's vibrations and tap into its power.
+* The Tea Master's Hut: A humble abode where the region's most skilled tea producers gather to share knowledge and techniques. Visitors can learn about the art of blending teas from Chenyu Vale's renowned adepts.
+* The Shaper's Studio: A grand workshop where the adeptis of Chenyu Vale craft exquisite jade figurines infused with the essence of the land. Here, one can witness the delicate process of shaping and polishing the finest jade materials.
+
+As a new location, Chenyu Vale offers a unique blend of natural beauty, rich history, and spiritual significance that is sure to captivate travelers from across Teyvat.";location description;0.8166036009788513;0.7997520565986633;0.857;0.9154929577464789;0.05985915492957746;0.7
 quest;"
-                In the quest ""The Meaning of Meaningless Waiting,"" the Traveler meets Tejima, a former samurai whose Vision was confiscated. 
-                Without his Vision, he struggles to remember why he stayed in Konda Village. The Traveler helps him find a letter revealing 
-                he waited for a lover who never returned. Tejima chooses to remain, finding new meaning in patience rather than action.
-            ";"**Side Quest: ""Lost Aspirations""**
+                Start the quest by talking to Soraya near the ruin in Guili Plains. Soraya asks the Traveler to help her explore the Guili Assembly ruins and search for ancient inscriptions on stone pillars and tablets that could reveal Liyue's history. She is primarily interested in acquiring knowledge rather than material wealth, so she allows the Traveler to keep any treasure they might find during their search.         
+                1. Head to Guili Assembly to search for an ancient stone tablet (0/5). Obtain Transcription Transcription from a stone tablet ×5
+                2. Talk to Soraya. After the Traveler brings Soraya five stone tablets, she pieces together their fragmented text to reveal that the Guili Assembly was jointly protected by two allied gods—Guizhong, who ruled over Dust, and a Geo Archon—and that its name derives from syllables of their divine names. Fascinated by this account of peaceful cooperation between deities, Soraya wonders what catastrophic event could have destroyed the settlement despite their power and asks the Traveler to continue searching for more tablets to uncover the rest of the story.
+                3. Search for the stone tablets (0/2). Obtain Transcription Transcription from a ruin ×2
+                4. Talk to Soraya. The newly discovered tablets reveal that a massive battle destroyed the Guili Assembly and hint at hidden treasure protected by Guizhong's Four Commandments. Unable to immediately decipher the philosophical riddle, Soraya decides to return to Wangshu Inn with the Traveler to rest before continuing their investigation.
+            ";"Here is the world quest about Guili Plains, Guili Assembly ruins, and Guizhong's history:
 
-The Traveler is approached by Kaito, a former Vision bearer from Inazuma's rural areas. Kaito's eyes once burned with ambition, but after the Vision Hunt Decree was enforced, their spark was extinguished. They now wander the land, lost and unsure of their purpose.
+1. **Start**
+The Traveler receives a message from Soraya, a researcher from the Sumeru Akademiya, who is standing near the entrance of the Guili Plains. She greets the Traveler warmly and begins her introduction.
+""Ah, Traveler! I've been studying Liyue's history for years, and I'm convinced that Guizhong, the Lord of Dust, holds many secrets. I was wondering if you could help me uncover more about his legacy. Specifically, I need to know what happened to the Guili Assembly ruins. Can you take me there?""
+Soraya hands the Traveler a map with some cryptic notes.
 
-Kaito shares rumors of a hidden sanctuary, where confiscated Visions are kept. They believe this might be the key to finding their lost aspirations. The Traveler agrees to help Kaito uncover the truth.
+2. **Explore Guili Plains**
+The Traveler and Soraya arrive at the Guili Plains, where they find evidence of an ancient battle. They come across several scattered artifacts and symbols etched into the ground.
+Action: Explore the area to gather clues about the Guili Assembly ruins. Search for any hidden compartments or notes that might provide information.
 
-**Act 1: Investigating the Rumors**
+3. **Unlocking the Ruins**
+The Traveler and Soraya discover a hidden entrance to the Guili Assembly ruins. Inside, they find an ancient journal belonging to Guizhong himself.
+Dialogue: Soraya's eyes widen as she reads through the journal.
+""This is incredible! Guizhong writes about his struggles with the Tianquan, Ningguang. He was trying to establish a new order in Liyue, one that would bring balance between humans and the elements.""
 
-The Traveler and Kaito travel to the outskirts of Inazuma's capital city, searching for any leads on the sanctuary. Along the way, they encounter various NPCs who share whispers about a hidden chamber deep within the Shogunate's headquarters.
+4. **The Dust of Time**
+Soraya reveals that she has discovered an ancient ritual that requires a specific ingredient: the dust of time. She believes this dust can be found near the Dihua Marsh.
+Action: Travel to the Dihua Marsh with Soraya and search for the dust of time. This will require navigating through the marsh's treacherous terrain.
 
-As they investigate, the Traveler notices that some NPCs are hesitant to discuss the topic, while others seem genuinely scared. Kaito confides in the Traveler that they remember being a Vision bearer, and the pain of losing their aspirations is still raw.
+5. **Final Revelation**
+The Traveler and Soraya return to the Guili Assembly ruins, where they find a hidden chamber containing an ancient artifact known as the Dustkeeper's Seal.
+Dialogue: Soraya smiles as she holds up the seal.
+""This is it! The seal is said to hold the essence of Guizhong's legacy. With this, I can finally understand the true purpose of his work in Liyue. Thank you, Traveler, for your help in uncovering the secrets of Guili Plains.""";quest;0.8201318383216858;0.8260636925697327;0.925;0.8541114058355438;0.07427055702917772;0.6
+quest;"
+                Talk to Landa at Wangshu Inn to start the quest. Landa, a merchant who frequently travels between Mondstadt and Liyue, begs the Traveler for help after being ambushed by monsters and forced to flee, leaving behind a box containing crucial wine trade invoices. He anxiously asks the Traveler to retrieve the documents from the marked locations along his escape route, fearing he will lose his job if he fails to deliver them to his wealthy Liyue employer.
+                1. Get the invoices (0/3)
+                2. Talk to Bao'er. One Box of Goods Invoices is held by Bao'er, who will trade it in exchange for three Noctilucous Jade. Bao'er admits to finding the lost box of invoices but proposes a barter: she will only return the documents in exchange for 3 Noctilucous Jades as compensation for her time guarding them. After the Traveler agrees to the deal and provides the gems, she hands over the invoices, advising them not to ask too many questions about the high-value transactions listed inside before sending them on their way.
+                3. Talk to Landa. Landa gratefully accepts the recovered invoices from the Traveler and provides their reward, but panics upon noticing the box has been opened and learning that a stranger examined its contents. He urgently excuses himself to contact his boss about the potential security breach, assuring the Traveler that he trusts them despite the confidential nature of the documents.
+            ";"Here is the world quest for Wangshu Inn:
 
-**Act 2: Moral Choice**
+**Quest Name:** ""Landa's Missing Cargo""
 
-The Traveler and Kaito reach the Shogunate's headquarters, where they discover a hidden entrance to the chamber containing confiscated Visions. Inside, they find rows of shelves with Visions sealed away in glass cases.
+**Stage 1: Start of Quest**
 
-A Shogunate guard approaches, warning the Traveler that revealing the existence of this sanctuary would undermine the Vision Hunt Decree. The guard offers to destroy all evidence of the sanctuary if the Traveler refuses to expose it.
+The Traveler enters Wangshu Inn, looking for a place to rest and gather information about the recent events in Liyue. They notice Landa, a merchant, sitting at a table near the entrance, sipping tea and staring at a stack of crates.
 
-The Traveler must make a moral choice:
+Landa (approaching the Traveler): ""Ah, you must be here for the Rite of Parting? I've been trying to get some new goods in, but my cargo has gone missing. Can you help me track it down?""
 
-1. **Expose the truth**: Share the location of the sanctuary with Kaito, potentially setting them on the path to rediscovery.
-2. **Protect those who still hope**: Refuse to reveal the sanctuary's existence, ensuring that the Shogunate doesn't crush any remaining aspirations.
+Main points: Landa asks for help finding his missing cargo, and mentions that he needs it for an important business deal.
 
-**Act 3: Reflection**
+**Stage 2: Investigate the Stolen Cargo**
 
-Depending on the Traveler's choice:
+The Traveler agrees to help Landa investigate the stolen cargo. They speak with the innkeeper, who remembers a suspicious person lurking around the area where the crates were stored.
 
-1. If they expose the truth:
-Kaito is overjoyed, believing this might be their chance to rediscover their lost aspirations. The Traveler and Kaito leave the sanctuary together, with a sense of hope and possibility.
-2. If they protect those who still hope:
-The guard disappears into the shadows, and the Traveler and Kaito depart without sharing the location of the sanctuary. Kaito is left uncertain, but the Traveler reassures them that their aspirations are worth fighting for.
+Innkeeper (to the Traveler): ""I saw someone in a hooded cloak sneaking around here last night. They might be connected to the missing cargo.""
 
-As the Traveler and Kaito exit the sanctuary, they find themselves in a quiet, serene environment – perhaps a garden or a peaceful lake. The Traveler sits with Kaito, listening as they share stories of their past ambitions and struggles.
+**Goal:** Find clues about the identity of the thief and their whereabouts.
 
-The scene fades to black as Kaito begins to reflect on their lost aspirations, but this time, with a glimmer of hope. The Traveler watches over them, symbolizing the promise of support and guidance in a world where Visions are once again free.
+**Stage 3: Follow the Clues**
 
-**Conclusion**
+The Traveler follows the innkeeper's lead, tracing the suspicious person's path through the Liyue Harbor area. They find a small note with an address on it, which appears to be a seedy tavern on the outskirts of town.
 
-This side quest allows the Traveler to confront the emotional aftermath of the Vision Hunt Decree, helping a former Vision bearer find solace and rediscover their aspirations. By navigating moral choices and culminating in a quiet moment of reflection, the Traveler guides Kaito toward healing and hope, reinforcing the theme of freedom and empowerment that defines Inazuma's story.";quest;;0.7323650859695395;;0.25;0.912511296702842;;0.807291567325592;0.8023267388343811;0.75;0.8160919540229885;0.09961685823754789;0.75
+Note (found on the ground): ""Meet me at the Black Swan Tavern tonight. -J""
+
+**Dialogue:** When the Traveler shows the note to Landa:
+
+Landa: ""Ah, that's our thief! I knew they'd try to sell my cargo to the highest bidder. We need to get there quickly and catch them in the act.""
+
+Main points: The note reveals a lead on the thief, who is planning to meet at the Black Swan Tavern.
+
+**Stage 4: Confront Landa's Thief**
+
+The Traveler arrives at the Black Swan Tavern with Landa, where they find the hooded figure from earlier. A fight ensues, and after defeating the thief, the Traveler recovers the stolen cargo.
+
+Dialogue (with Landa after completing the quest): ""Thanks so much for your help! I owe you one, friend. You've not only recovered my cargo but also saved me from a big financial loss.""
+
+Main points: The Traveler returns Landa's stolen cargo, and he is grateful for their assistance in resolving the situation.";quest;0.8081691861152649;0.8113635778427124;0.75;0.8796992481203008;0.06766917293233082;0.4
+quest;"
+                Book in the Woods is a World Quest in Wuwang Hill, Liyue.
+                Talk to Little Nine. Little Nine asks the Traveler to help find a precious manuscript written by their neighbor Big Nine—a book they were allowed to preview before publication but accidentally lost after falling into a river and drying it in the woods. Worried that Big Nine will be heartbroken or angry if the book is gone for good, Little Nine directs the Traveler to search the nearby forest where they last remember leaving it to dry.
+                1. Find the lost book in the forest (0/2). Traveler and Paimon cannot find any books and decided to go back to ask for extra clues.
+                2. Go back and find Little Nine. Little Nine will not be there and the quest will finish.
+                Finish dialogue:
+                Paimon: What the... Where'd that girl go?
+                Paimon: Has she gone to find the book herself?
+            ";"Quest: ""Moonlit Vigil""
+
+To initiate the quest, speak to the mysterious Moonlit Oracle on Wuwang Hill. The Oracle's first dialogue is:
+
+""Ah, Traveler, I sense a darkness stirring in Liyue. The moon casts an eerie glow upon this hill, and I fear it may be a harbinger of trouble.""
+
+The player's goal is to retrieve a rare Lunar Flower that only blooms under the light of the full moon.
+
+To accomplish this task, follow the path to the top of Wuwang Hill at midnight, where you'll find a hidden clearing. Use your elemental abilities to purify the polluted air and reveal the Lunar Flower.
+
+Upon retrieving the flower, return to the Moonlit Oracle, who will reward you with a small, glowing stone.
+
+Paimon: ""You've done it again, Traveler! You're as reliable as Paimon's trusty map!""
+
+Paimon: ""I knew I could count on you! You saved Liyue from darkness... for now!""
+
+The quest concludes with the Moonlit Oracle's final words:
+
+""The moon waxes and wanes, but with each passing night, the shadows grow longer. May the light of the Traveler's heart guide Liyue through the darkness.""";quest;0.8094908595085144;0.7960739135742188;0.857;0.9322916666666666;0.057291666666666664;0.7
+quest;"
+                1. Start the quest by talking to Yuan Hong in Mingyun Village. Yuan Hong, lost in melancholic reverie, recites cryptic poetry about autumn leaves and solitude while dismissing worldly wealth as a farce. He expresses a deep longing to leave the village and start life anew, barely acknowledging the Traveler's attempts to engage him in conversation.
+                2. Look around Mingyun Village. Go to the house facing the billboard and read the ""Lost Notes"". It is required to read the notes as the first step, as it triggers the spawning of the four parts of the fathers will and the matching four markers on the map.
+                3. Look for a will (0/4). During this, you can find three people in different locations (these are three brothers, sons of Yuan Hong, now all three of thems searching the treasure without desire to reunir as a family) and listen to them:
+                    - Yuan Cheng. Yuan Cheng vents his frustration over his older brothers hoarding the best discoveries and his father's willful blindness to the family's dynamics. Convinced that a hidden treasure lies in the mine unbeknownst to them, he resolves to claim it for himself and flee far away from his family.
+                    - Yuan Qing. Yuan Qing laments his misfortune after sneaking away from his family to be the first to reach the mine and claim its hidden treasure, only to be ambushed by monsters. Now trapped and overwhelmed, he fear he is doomed to fail.
+                    - Yuan Liang. Yuan Liang mocks his brothers for misinterpreting their father's will and arrogantly dismisses any sense of familial duty, focusing solely on the line mentioning hidden treasure. Consumed by greed, he plots to claim the mine's riches for himself, confident that his siblings' foolishness will leave the prize entirely to him.
+                4. Find the treasure. The treasure is at the base of a large tree. When you approach the tree, four Treasure Hoarders will spawn.
+                5. Collect the treasure. A dig option becomes available at the base of the tree. After digging, a Precious Chest will spawn.
+            ";"Here is a quest located in Mingyun Village, Liyue:
+
+**Quest: The Lost Heirloom of Mingyun**
+
+1. **Starting Point:** The Traveler and Paimon arrive in Mingyun Village, where they are approached by the village elder, who greets them with concern. ""Ah, strangers! We've been expecting you. Our village has been plagued by a mysterious absence of our ancestors' traditions. We fear it's connected to their disappearance long ago.""
+
+2. **Task: Investigate the Old Ancestors' Tomb**: The Traveler and Paimon agree to help and visit the old ancestors' tomb, where they find a worn-out, unsealed door with a cryptic message etched into it.
+
+3. **Dialogue:** ""This is where our ancestors used to leave their offerings,"" says the village elder. ""But since their disappearance, no one has dared to disturb this place again.""
+
+4. **Task: Retrieve the Missing Scroll**: The Traveler and Paimon search the tomb and find a hidden compartment containing an old scroll with a family tree of the Mingyun clan.
+
+5. **Reward:** After deciphering the family tree, they discover that the ancestors' disappearance was caused by a long-forgotten family conflict over a treasured heirloom, which has been lost for generations. The village elder rewards the Traveler and Paimon with 1000 Morale and an item - an old, intricately carved wooden box containing a fragment of their ancestor's family crest.";quest;0.8156616687774658;0.8011847734451294;0.957;0.8783783783783784;0.08558558558558559;0.5
+quest;"
+                As the Traveler and Paimon walk by Wanmin Restaurant, they smell the aroma of Grilled Tiger Fish and decide to buy some. The Traveler buys three servings and Paimon wonders who's the third serving for. The Traveler had thought of Pervases and decided to buy another serving and go pay their respects. Paimon hopes the statue of Pervases hasn't been defaced as the temple was in a pretty sad state with Treasure Hoarders nearby the last time they were there.
+                As they approach the temple, they see Xiao nearby. Paimon wonders out loud why no one maintains the temple even though the Yakshas are heroes who defended Liyue Harbor. Xiao goes silent and Paimon wonders if he's angry but he says that they did not perform their duty for recognition. They then hear someone calling for help so Xiao and the Traveler go to assist. After defeating the enemies, they find the person under attack was Wang Ping'an, previously known to them as ""Starsnatcher."" Wang Ping'an had turned a new leaf and was on his way to restore Pervases's temple. Xiao leaves and the Traveler and Wang Ping'an head to the temple to continue their discussion about the temple. Paimon and Traveler wonder if Wang Ping'an was actually being genuine and so Wang Ping'an tells them to come back after work has started to see he has indeed changed.
+                The Traveler returns to the temple later and find that Wang Ping'an has brought some workers and are making good progress on the temple. The Ministry of Civil Affairs got wind of what was going on and posted some Millelith to guard the temple throughout the construction. Although the Millelith are guarding the construction site, Wang Ping'an is worried that material deliveries might get attacked by nearby Treasure Hoarders and asks the Traveler to handle them. The Traveler swiftly defeats the Treasure Hoarders and they ask what they did to offend the Traveler. So the Traveler informs them they are renovating a Yaksha's temple. The Treasure Hoarders did not know the dilapidated temple was for an Adeptus and promise not to mess with the temple lest the Adepti judge them. After reporting back to Wang Ping'an, the Traveler is thanked and is asked to gather some Sandbearer Wood next. Wang Ping'an tells the Traveler that construction will take some more time and to come back in some time.
+                When returning to the temple again, the Traveler finds the construction has finished and the temple fully repaired. Wang Ping'an asks the Traveler if they'd like to offer some incense and so the Traveler lights some incense at the censer. Wang Ping'an tells the Traveler that he will remain at the temple as he compiles his book about the Vigilant Yaksha and welcomes the Traveler to drop by anytime to offer incense.
+            ";"**The Temple of Pervases: A New Beginning**
+
+In Liyue Harbor, the Traveler and Paimon are approached by a familiar face - Wang Ping'an, the former scammer who has turned his life around. He shares with them a personal tale of friendship with an ancient Yaksha named Pervases, who once protected the city from harm. However, the temple dedicated to Pervases was abandoned, and its restoration is crucial for Liyue's harmony.
+
+Wang Ping'an asks for the Traveler's help in rebuilding the temple, and they agree to assist him. Their journey takes them to various locations across Liyue, where they meet fellow adepti and gather materials for the reconstruction process.
+
+**Part 1: Gathering Materials**
+
+The Traveler and Paimon begin by visiting the Jade Market, where they purchase sacred stones and rare artifacts needed for the temple's construction. Wang Ping'an is overwhelmed with excitement as he helps them haggle with merchants. Afterward, they head to Dihua Marsh, where they meet Cloud Retainer adepti, who teaches them about the importance of balancing nature and architecture in temple design.
+
+**Part 2: Proceeding with Reconstruction**
+
+With materials in hand, the group proceeds to Bubu Pharmacy, where Wang Ping'an's skills as a pharmacist come in handy. They need a rare herb to create an incense that will purify the air and bring good fortune to the temple. Wang Ping'an expertly prepares the incense, which fills the air with a pleasant aroma.
+
+Next, they visit Madame Ping's mystical teapot domain, where Cloud Retainer adepti shares ancient knowledge on how to harness the power of tea leaves for spiritual growth. The Traveler and Paimon learn about the symbolic meanings behind various tea leaves, while Wang Ping'an helps Madame Ping harvest the rare tea leaves needed for the incense.
+
+**Part 3: Finishing Works**
+
+With all materials in place, the group begins the final stage of temple reconstruction. They head to Guyun Stone Forest, where Mountain Shaper adepti teaches them about the importance of balancing yin and yang energies in architecture. The Traveler helps Wang Ping'an mix a special potion that will bring balance to the temple's energy.
+
+As they work together, the Traveler reflects on the story of Pervases and his friendship with Wang Ping'an. They realize that the temple's restoration is not just about rebuilding a structure but also about honoring the past and nurturing the present.
+
+Finally, after weeks of hard work, the Temple of Pervases stands before them, its grandeur and beauty reflecting the harmony between nature and architecture. The Traveler, Paimon, Wang Ping'an, and their new friends gather to witness the completion of this sacred project. As they enter the temple, they feel a sense of pride and accomplishment, knowing that they have helped restore a piece of Liyue's history.
+
+The temple's energy resonates with the Traveler's own abilities, and he feels a deep connection to Pervases' spirit. Wang Ping'an smiles, proud of his friends for helping him complete his dream. As they leave the temple, the Traveler looks forward to their next adventure, knowing that friendships like these can help forge a brighter future for Liyue.";quest;0.8322893977165222;0.829230010509491;0.75;0.8374291115311909;0.08128544423440454;0.7

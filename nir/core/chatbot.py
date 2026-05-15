@@ -28,7 +28,7 @@ from langchain_core.embeddings import Embeddings
 
 from nir.data import loader
 from nir.core.answers_generator import generate_answer_based_on_context, generate_answer_based_on_plan, generate_plan
-from nir.core.context_retriever import form_context_with_llm
+from nir.core.context_retriever import form_context_with_llm, form_context_without_llm
 from nir.embedding.vector_store_loader import VectorStoreInfo
 from nir.graph.graph_construction import create_embeddings, extract_graph, extract_graph_from_nodes, get_next_chunk_id, update_embeddings, update_graph, update_graph_from_nodes
 from nir.graph.graph_storages.networkx_graph import NetworkXGraph
@@ -950,13 +950,14 @@ Let's set up your environment!
 
                     status_text = Text("Searching graph...", style=f"{ColorTheme.PRIMARY}")
                     live.update(status_text)
-                    context_from_graph = form_context_with_llm(
+                    context_from_graph = form_context_without_llm(
                         query=current_query,
                         graph=self.graph,
-                        llm=self.instruct_model,
+                        #llm=self.instruct_model,
                         embedding_model=self.embedding_model,
                         add_history=session_add_history,
-                        max_tokens=2048
+                        max_tokens=2048,
+                        language=self.language
                     )
 
                     final_context = ""
@@ -1045,7 +1046,7 @@ Let's set up your environment!
         
         if self.graph and self.graph_filepath:
             self.graph.save(path=self.graph_filepath)
-            ConsoleUI.print_success("🖫   Graph saved")
+            ConsoleUI.print_success(" 🖫 Graph saved")
         
         return True
 

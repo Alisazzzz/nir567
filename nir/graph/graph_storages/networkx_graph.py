@@ -28,13 +28,23 @@ def create_embeddings(
     all_metadatas = []
 
     for node in nodes:
-        text = node.name 
-        all_ids.append(node.id)
+        text = f"{node.name}"
+        all_ids.append(f"name_{node.id}")
         all_documents.append(text)
         all_metadatas.append({
             "type": "node",
             "node_type": node.type,
-            "name": node.name
+            "name": node.name,
+            "original_id": node.id
+        })
+        text = f"{node.name}. {node.base_description}" 
+        all_ids.append(f"full_{node.id}")
+        all_documents.append(text)
+        all_metadatas.append({
+            "type": "node",
+            "node_type": node.type,
+            "name": node.name,
+            "original_id": node.id
         })
     for edge in edges:
         text = f"{edge.source} {edge.relation} {edge.target}"

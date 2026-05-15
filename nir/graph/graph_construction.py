@@ -1746,14 +1746,16 @@ def update_embeddings(
         graph_metadatas.append({
             "type": "node",
             "node_type": node.type,
-            "name": node.name
+            "name": node.name,
+            "original_id": node.id
         })
         graph_ids.append(f"name_{node.id}")
         graph_docs.append(f"{node.name}")
         graph_metadatas.append({
             "type": "node",
             "node_type": node.type,
-            "name": node.name
+            "name": node.name,
+            "original_id": node.id
         })
     for edge in graph.get_all_edges():
         graph_ids.append(edge.id)

@@ -12,6 +12,7 @@ import random
 import spacy
 import numpy as np
 import re
+from rapidfuzz import process
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.prompts import ChatPromptTemplate
@@ -185,6 +186,51 @@ def clean_json(text: str) -> str:
 def clean_string(text: str) -> str:
     return re.sub(r'[^a-zA-Zа-яА-Я\s]', '', text)
 
+entities_from_graph = set()
+def update_entities_from_graph(graph: KnowledgeGraph) -> None:
+    global entities_from_graph
+    entities_from_graph.clear()
+    entities_from_graph = set([ node.name for node in graph.get_all_nodes() ])
+
+nlp_models = {}
+STOP_WORDS_EN = {"who", "what", "where", "when", "why", "how", "someone", "something", "anything", "everything", "he", "she", "they", "it", "them", "his", "her", "their", "him"}
+STOP_WORDS_RU = {"кто", "что", "где", "когда", "почему", "зачем", "как", "откуда", "куда", "кто-то", "кто-нибудь", "что-то", "что-нибудь", "кое-что", "нечто", "всё", "все", "вся", "всё", "всего", "всему", "всем", "всём", "всякий", "любой", "каждый", "он", "она", "оно", "они", "мы", "ты", "вы", "я", "его", "её", "их", "мой", "твой", "наш", "ваш", "свой", "этот", "тот", "такой", "та", "те", "эти", "тех", "этом"}
+
+def extract_mentioned_entities(query: str, already_extracted_entities: List[str] = [], similarity_threshold: float = 0.95, language: str = "en") -> List[str]:
+    global entities_from_graph
+    if language not in nlp_models:
+        nlp_model = "ru_core_news_sm" if language == "ru" else "en_core_web_sm"
+        nlp_models[language] = spacy.load(nlp_model)
+    nlp = nlp_models[language]
+    doc = nlp(query)
+
+    if language == "ru":
+        current_stop_words = STOP_WORDS_RU
+    else:
+        current_stop_words = STOP_WORDS_EN
+
+    entities = set([word.lower() for word in already_extracted_entities])
+    words = set([word.lower().strip() for word in query.split()])
+    lowered_entities_from_graph = set([entity.lower() for entity in entities_from_graph])
+    entities |= lowered_entities_from_graph & words
+    for token in doc:
+        if token.pos_ == "PROPN":
+            entities.add((token.text).lower())
+    for chunk in doc.noun_chunks:
+        if not clean_string(chunk.text).lower().strip() in current_stop_words:
+            entities.add(clean_string(chunk.text).lower().strip())
+            
+    final_extracted_entities_names = set()
+    for extracted_entity in entities:
+        match = process.extractOne(extracted_entity, entities_from_graph)
+        if (match):
+            name, score, index = match
+            if (score > similarity_threshold):
+                final_extracted_entities_names.add(name)
+
+    print("FINAL ENTITIES --> ", final_extracted_entities_names)
+    return list(final_extracted_entities_names)
+
 def filter_node_states_by_time(
         node: Node,
         event_sequence: Dict[str, int], #event_id: number in sequence
@@ -193,7 +239,7 @@ def filter_node_states_by_time(
     ) -> Node:
 
     min_time = 0
-    max_time = max(event_sequence.values()) if event_sequence else 0
+    max_time = max(event_sequence.values())+1 if event_sequence else 0
     left = event_sequence.get(downer_border_event_id, min_time) if downer_border_event_id else min_time
     right = event_sequence.get(upper_border_event_id, max_time) if upper_border_event_id else max_time
     if left > right:
@@ -202,7 +248,7 @@ def filter_node_states_by_time(
     def overlaps(start_eid, end_eid):
         start_level = event_sequence.get(start_eid, min_time) if start_eid else min_time
         end_level = event_sequence.get(end_eid, max_time) if end_eid else max_time
-        return not (end_level < left or start_level > right)
+        return not (start_level >= right or end_level < left)
 
     new_states = []
     for st in node.states:
@@ -244,7 +290,7 @@ prompt_context_info_en = ChatPromptTemplate.from_messages([
     ("system", retrieval_prompts.SYSTEM_PROMPT_TIMESPAMPS_EN),
     ("human",
         "Text:\n{query_text}\n\n"
-        "List of event names:\n{event_names}\n\n"
+        "List of extracted events and their names:\n{events_names}\n\n"
         "{format_instructions}")
 ]).partial(format_instructions=context_info_parser.get_format_instructions())
 
@@ -252,7 +298,7 @@ prompt_context_info_ru = ChatPromptTemplate.from_messages([
     ("system", retrieval_prompts.SYSTEM_PROMPT_TIMESPAMPS_RU),
     ("human",
         "Text:\n{query_text}\n\n"
-        "List of event names:\n{event_names}\n\n"
+        "List of extracted events and their names:\n{events_names}\n\n"
         "{format_instructions}")
 ]).partial(format_instructions=context_info_parser.get_format_instructions())
 
@@ -376,33 +422,40 @@ def retrieve_similar_nodes(
     vector_db = graph.get_vector_db()
     query_emb = np.array(embedding_model.embed_query(text))
     results = vector_db.search(query_emb, amount)
-    
     candidates = []
     candidate_nodes = []
     for result in results:
         if result.get("distance", 0.0) >= threshold:
             if(result.get("metadata").get("type") == "edge"):
                 edge = graph.get_edge_by_id(result.get("id"))
-                print("STARTER EDGE  --  ", edge)
-                max_time = max(events_sequence.values())+1 if events_sequence else 0
-                min_time = 0
-                reference_time = events_sequence.get(upper_border_event_id, max_time) if upper_border_event_id else max_time
-                if edge:
-                    edge_first_appearance = events_sequence.get(edge.time_start_event, min_time) if edge.time_start_event else min_time
-                    if edge_first_appearance < reference_time:
-                        print("starter edge added")
-                        node1 = graph.get_node_by_id(result.get("metadata").get("source"))
-                        node2 = graph.get_node_by_id(result.get("metadata").get("target"))
-                        if node1 and not node1.id in candidate_nodes:
-                            candidates.append((node1, result.get("distance", 0.0)))
-                            candidate_nodes.append(node1.id)
-                        if node2 and not node2.id in candidate_nodes:
-                            candidates.append((node2, result.get("distance", 0.0)))
-                            candidate_nodes.append(node2.id)
-            else:
+                if (use_filtration):
+                    max_time = max(events_sequence.values())+1 if events_sequence else 0
+                    min_time = 0
+                    reference_time = events_sequence.get(upper_border_event_id, max_time) if upper_border_event_id else max_time
+                    if edge:
+                        edge_first_appearance = events_sequence.get(edge.time_start_event, min_time) if edge.time_start_event else min_time
+                        if edge_first_appearance < reference_time:
+                            node1 = graph.get_node_by_id(result.get("metadata").get("source"))
+                            node2 = graph.get_node_by_id(result.get("metadata").get("target"))
+                            if node1 and not node1.id in candidate_nodes:
+                                candidates.append((node1, result.get("distance", 0.0)))
+                                candidate_nodes.append(node1.id)
+                            if node2 and not node2.id in candidate_nodes:
+                                candidates.append((node2, result.get("distance", 0.0)))
+                                candidate_nodes.append(node2.id)
+                else:
+                    node1 = graph.get_node_by_id(result.get("metadata").get("source"))
+                    node2 = graph.get_node_by_id(result.get("metadata").get("target"))
+                    if node1 and not node1.id in candidate_nodes:
+                        candidates.append((node1, result.get("distance", 0.0)))
+                        candidate_nodes.append(node1.id)
+                    if node2 and not node2.id in candidate_nodes:
+                        candidates.append((node2, result.get("distance", 0.0)))
+                        candidate_nodes.append(node2.id)
+            else:         
                 node = graph.get_node_by_id(result.get("metadata").get("original_id"))
                 if node and node.id in candidate_nodes:
-                    candidates.append((node, result.get("distance", 0.0)))
+                    candidates.append((node, result.get("distance", 0.0) + 2.0))
                     candidate_nodes.append(node.id)
     candidates.sort(key=lambda x: x[1], reverse=True)
     return candidates
@@ -439,7 +492,7 @@ def find_paths(
             reference_time = event_sequence.get(upper_border_event_id, max_time) if upper_border_event_id else max_time
             for edge in outgoing_edges:
                 edge_first_appearance = event_sequence.get(edge.time_start_event, min_time) if edge.time_start_event else min_time
-                if edge_first_appearance <= reference_time:
+                if edge_first_appearance < reference_time:
                     outgoing_edges_filtered.append(edge)
             outgoing_edges = outgoing_edges_filtered
         
@@ -468,7 +521,8 @@ def form_context_without_llm(
         graph: KnowledgeGraph,
         embedding_model: Embeddings,
         add_history: bool=False,
-        max_tokens: int = 1024
+        max_tokens: int = 1024,
+        language: str = "en"
     ) -> str:
 
     events_sequence = extract_event_sequence(graph) #event_id: number in sequence
@@ -477,7 +531,20 @@ def form_context_without_llm(
     result_edges_dict = {} # { (source_id, target_id) : ("name_source - relation - name_target", token_amount) }
     result_paths_dict = {} # { (source_id, target_id, number) : ("name_node_start - relation - ... - relation - name_node_target", token_amount) }
 
-    entry_nodes = retrieve_similar_nodes(graph, query, embedding_model, 10, 0.0)
+    update_entities_from_graph(graph=graph)
+    extracted_entities_names = extract_mentioned_entities(query=query, language=language)
+
+    entry_nodes = []
+    for entity_name in extracted_entities_names:
+        if graph.get_node_by_name(entity_name):
+            entry_nodes.append((graph.get_node_by_name(entity_name), 10.0))
+            continue
+        else:
+            entity_name_entry = retrieve_similar_nodes(graph=graph, text=entity_name, embedding_model=embedding_model, threshold=0.75)
+            if len(entity_name_entry) > 0:
+                entry_nodes.extend(entity_name_entry)
+    if len(entry_nodes) == 0:
+        entry_nodes = retrieve_similar_nodes(graph=graph, text=query, embedding_model=embedding_model, amount=10, threshold=0.0)
     result_nodes = entry_nodes.copy() 
     for entry_node, resource in entry_nodes:
         neighbours = graph.get_neighbours_of_node(entry_node.id)
@@ -610,57 +677,41 @@ def form_context_with_llm(
 
     events_sequence = extract_event_sequence(graph) #event_id: number in sequence
     events_nodes = []
+    events_names = []
     for event in events_sequence.keys():
-        events_nodes.append(graph.get_node_by_id(event))
-    events_names = [event.name for event in events_nodes]
-    context_info = chain_timestamps.invoke({ "query_text": query, "event_names": events_names })
+        event_node = graph.get_node_by_id(event)
+        events_nodes.append(event_node)
+        events_names.append(f"{event_node.name}. {event_node.base_description}")
+
+    update_entities_from_graph(graph=graph)
+    context_info = chain_timestamps.invoke({ "query_text": query, "events_names": events_names })
 
     context_info.downer_border_event_name = clean_string(context_info.downer_border_event_name) if context_info.downer_border_event_name else None
     context_info.upper_border_event_name = clean_string(context_info.upper_border_event_name) if context_info.upper_border_event_name else None
-    print(context_info)
 
     node_downer_event = graph.get_node_by_name(context_info.downer_border_event_name) if context_info.downer_border_event_name else None
     downer_border_event_id = node_downer_event.id if node_downer_event else None
     node_upper_event = graph.get_node_by_name(context_info.upper_border_event_name) if context_info.upper_border_event_name else None
     upper_border_event_id = node_upper_event.id if node_upper_event else None
-    extracted_entities_names = context_info.extracted_entities
-    print(downer_border_event_id, " -- ", upper_border_event_id)
-
-
-    nlp = spacy.load("en_core_web_sm")
-    text = query
-    doc = nlp(text)
-    print("NER:")
-    for ent in doc.ents:
-        print(ent.text, ent.label_)
-    print("\nPROPN:")
-    for token in doc:
-        if token.pos_ == "PROPN":
-            print(token.text)
-    print("\nNOUN CHUNKS:")
-    for chunk in doc.noun_chunks:
-        print(chunk.text)
-
+    extracted_entities_names = context_info.extracted_entities if context_info.extracted_entities else []
+    extracted_entities_names = extract_mentioned_entities(query=query, already_extracted_entities=extracted_entities_names, language=language)
+    
     result_nodes_dict = {} # { node_id : ("node_name. node_description", token_amount) }
     result_edges_dict = {} # { (source_id, target_id) : ("name_source - relation - name_target", token_amount) }
     result_paths_dict = {} # { (source_id, target_id, number) : ("name_node_start - relation - ... - relation - name_node_target", token_amount) }
 
     entry_nodes = []
-   
-    if extracted_entities_names:
-        for entity_name in extracted_entities_names:
-            if graph.get_node_by_name(entity_name):
-                entry_nodes.append((graph.get_node_by_name(entity_name), 1.0))
-                continue
-            else:
-                entity_name_entry = retrieve_similar_nodes(graph=graph, text=entity_name, embedding_model=embedding_model, threshold=0.75, use_filtration=True, upper_border_event_id=upper_border_event_id, events_sequence=events_sequence)
-                if len(entity_name_entry) > 0:
-                    entry_nodes.extend(entity_name_entry)
-        if len(entry_nodes) == 0:
-            entry_nodes = retrieve_similar_nodes(graph=graph, text=query, embedding_model=embedding_model, amount=10, threshold=0.0, use_filtration=True, upper_border_event_id=upper_border_event_id, events_sequence=events_sequence)
-    else:
+    for entity_name in extracted_entities_names:
+        if graph.get_node_by_name(entity_name):
+            entry_nodes.append((graph.get_node_by_name(entity_name), 1.0))
+            continue
+        else:
+            entity_name_entry = retrieve_similar_nodes(graph=graph, text=entity_name, embedding_model=embedding_model, threshold=0.75)
+            if len(entity_name_entry) > 0:
+                entry_nodes.extend(entity_name_entry)
+    if len(entry_nodes) == 0:
         entry_nodes = retrieve_similar_nodes(graph=graph, text=query, embedding_model=embedding_model, amount=10, threshold=0.0, use_filtration=True, upper_border_event_id=upper_border_event_id, events_sequence=events_sequence)
-    
+
     result_nodes = entry_nodes.copy()
     for entry_node, resource in entry_nodes:
         neighbours = graph.get_neighbours_of_node(entry_node.id)
@@ -669,18 +720,15 @@ def form_context_with_llm(
                 edges = [edge for edge in graph.get_all_edges() if edge.target == neighbour.id]
                 edges = [edge for edge in edges if edge.source == entry_node.id]
                 edges.sort(key=lambda x: x.weight)
-                print(edges)
                 max_time = max(events_sequence.values())+1 if events_sequence else 0
                 min_time = 0
 
                 edges_filtered = []
                 reference_time = events_sequence.get(upper_border_event_id, max_time) if upper_border_event_id else max_time
-                print(reference_time)
                 for edge in edges:
                     edge_first_appearance = events_sequence.get(edge.time_start_event, min_time) if edge.time_start_event else min_time
                     if edge_first_appearance < reference_time:
                         edges_filtered.append(edge)
-                        print(edge)
                 edges = edges_filtered
                 if (edges):
                     weight = edges[0].weight

@@ -1,61 +1,43 @@
 #All prompts for context retriveal are here
 
 SYSTEM_PROMPT_TIMESPAMPS_EN = """
-    You are an expert in temporal reasoning, narrative entity extraction, and timeline mapping.
-    Your task is to analyze a text fragment, extract all mentioned entities, and determine the temporal boundaries by mapping them onto a given ordered list of event names.
+    You receive:
+        1. A text fragment.
+        2. A chronologically ordered list of event names and their descriptions.
 
-    INPUTS:
-    1. A text fragment that may mention temporal constraints such as "before X", "after Y", "between A and B", or similar expressions, along with various narrative entities.
-    2. A list of event names, provided in strict chronological order.  
-        - Some events may appear in parentheses to indicate they occur in parallel, e.g.:  
-        ["Ancient Fall", "(Rise of Mages, Fall of Kings)", "Cataclysm"].
+    Task: extract
+        - all explicitly mentioned entities,
+        - temporal constraints,
+        - matching boundary events from the provided event list.
 
-    YOUR TASK:
-        - Identify and extract all distinct entities mentioned in the text.
-        - Infer an approximate temporal interval referenced in the text by mapping it to the provided event list.
-        - Provide a concise reasoning block that explicitly answers the guiding questions below.
-        - Output a single valid JSON object containing: "reasoning", "extracted_entities", "downer_border_event_name", and "upper_border_event_name".
+    Definitions:
+    - downer boundary: the event after which the described situation happens.
+    - upper boundary: the event before which the described situation happens.
 
-    GUIDING QUESTIONS FOR REASONING:
-    Before finalizing the output, you must internally address and briefly document:
-    1. What explicit or implicit temporal markers does the text contain?
-    2. Which events from the provided list correspond to these markers?
-    3. What are all the distinct entities (characters, locations, factions, objects, concepts, etc.) explicitly mentioned in the text?
-    4. How do these references constrain the possible time interval, and what justifies the chosen boundaries?
-    Keep the reasoning concise but structured enough to show your logical path.
+    Rules:
+    1. Use ONLY events from the provided event list.
+    2. Do NOT invent events or infer hidden lore.
+    3. Extract entities exactly as written in the text whenever possible.
+    4. If the text contains:
+        - "after X" -> downer boundary event name = X
+        - "before Y" -> upper boundary event name = Y
+        - "during Z" -> downer boundary event name = Z and upper boundary event name = Z+1 (event which is described NEXT after the Z event if there is any, otherwise None)
+    5. If the temporal reference is indirect or paraphrased: match it to the closest event from the list using semantic similarity.
+    6. If no reliable boundary can be determined: return null for that field.
+    7. Output ONLY valid JSON.
 
-    RULES:
-        1. If the text describes a period **after event X**, then `downer_border_event_name` must be event X.
-        2. If the text describes a period **before event Y**, then `upper_border_event_name` must be event Y.
-        3. If the text describes a period **between X and Y**, output both fields.
-        4. If an event group is inside parentheses (parallel events), treat the group as a single temporal point. You may select any individual event from that parenthesized group if needed.
-        5. Extract entities exactly as they appear in the text (or their clear, unambiguous coreferences). Do not invent entities or infer background knowledge. If none are found, return an empty list [].
-        6. If no temporal references can be confidently extracted, return null for both border fields.
-        7. Do not invent events. Use only the provided event names (or names inside parenthesized groups). NEVER add brackets to event names in the output; write ONLY plain text.
-        8. Output **only a valid JSON object**. Do not include markdown, code blocks, or extra text.
-
-    OUTPUT FORMAT:
+    Reasoning requirements:
+        Briefly explain:
+        - detected temporal expressions,
+        - matched events,
+        - extracted entities,
+        - why the boundaries were selected.
+    Output format:
     {{
-        "reasoning": "1. Temporal markers: ... 2. Matching events: ... 3. Entities: ... 4. Interval justification: ...",
-        "extracted_entities": ["entity1", "entity2", ...],
+        "reasoning": "...",
+        "extracted_entities": ["..."],
         "downer_border_event_name": "...",
         "upper_border_event_name": "..."
-    }}
-
-    EXAMPLE (only for reference):
-    Input:
-        Text:
-            "Create a character whom Edith met during her journey through the forest.
-            This happened after the Great Tribal War but before the Cataclysm."
-        Events:
-            ["Ancient Civilization Collapse", "Rise of the Barbarians", "Great Tribal War",
-            "Titan Massacre", "The Calm", "Return of the Gods Cataclysm"]
-    Output:
-    {{
-        "reasoning": "1. Temporal markers: 'after the Great Tribal War', 'before the Cataclysm'. 2. Matching events: lower='Great Tribal War', upper='Return of the Gods Cataclysm'. 3. Entities: 'Edith' (character), 'the forest' (location). 4. Interval is strictly bounded by the explicit 'after/before' phrasing matching the chronological list.",
-        "extracted_entities": ["Edith", "the forest"],
-        "downer_border_event_name": "Great Tribal War",
-        "upper_border_event_name": "Return of the Gods Cataclysm"
     }}
 """
 
