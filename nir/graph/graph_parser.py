@@ -9,11 +9,17 @@
 import json
 import re
 
+from langchain_core.messages import BaseMessage
+
 
 
 #--------------------------
 #-----additional stuff-----
 #--------------------------
+def get_text(response):
+    if isinstance(response, BaseMessage):
+        return response.content
+    return response
 
 def remove_comments(s: str) -> str:
     out_chars = []
@@ -111,6 +117,7 @@ def extract_last_json(text: str) -> str:
     return last
 
 def clean_json(text: str) -> str:
+    text = get_text(text)
     codeblock_match = re.search(r"```json(.*?)```", text, re.DOTALL)
     if codeblock_match:
         possible_json = codeblock_match.group(1).strip()

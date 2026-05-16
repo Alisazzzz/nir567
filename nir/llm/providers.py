@@ -7,6 +7,7 @@ from langchain_core.language_models import BaseLanguageModel
 
 from langchain_ollama import OllamaLLM
 from langchain_openai import ChatOpenAI
+from langchain_mistralai.chat_models import ChatMistralAI
 from langchain_huggingface import HuggingFaceEndpoint, HuggingFacePipeline
 from transformers import AutoConfig, AutoModelForCausalLM, pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
@@ -52,7 +53,19 @@ class OpenAIProvider(BaseModelProvider):
             max_tokens=config.max_tokens,
             api_key=self.api_key,
         )
+    
 
+class MistralProvider(BaseModelProvider):
+    def __init__(self, api_key: str):
+        self.api_key = api_key
+
+    def create_model(self, config: ModelConfig) -> BaseLanguageModel:
+        return ChatMistralAI(
+            model=config.model_name,
+            temperature=config.temperature,
+            max_tokens=config.max_tokens,
+            api_key=self.api_key,
+        )
 
 class HuggingFaceLocalProvider(BaseModelProvider):
     def create_model(self, config: ModelConfig) -> BaseLanguageModel:

@@ -7,6 +7,7 @@
 #--------------------------
 
 import re, json
+import time
 import networkx as nx
 import regex
 import numpy as np
@@ -21,6 +22,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.runnables import Runnable
+from langchain_core.messages import BaseMessage
 
 from fastcoref import FCoref
 
@@ -37,6 +39,11 @@ from nir.embedding.vector_store import VectorStore
 #--------------------------
 #-----additional stuff-----
 #--------------------------
+
+def get_text(response):
+    if isinstance(response, BaseMessage):
+        return response.content
+    return response
 
 def get_next_chunk_id(graph: KnowledgeGraph = None) -> int:
     if graph == None:
@@ -154,6 +161,7 @@ def extract_last_json(text: str) -> str:
     return last
 
 def clean_json(text: str) -> str:
+    text = get_text(text)
     codeblock_match = re.search(r"```json(.*?)```", text, re.DOTALL)
     if codeblock_match:
         possible_json = codeblock_match.group(1).strip()
@@ -381,7 +389,7 @@ prompt_events_en = ChatPromptTemplate.from_messages([
 ]).partial(format_instructions=events_parser.get_format_instructions())
 
 prompt_events_ru = ChatPromptTemplate.from_messages([
-    ("system", extraction_prompts.SYSTEM_PROMPT_EVENTS_RU),
+    ("system", extraction_prompts.SYSTEM_PROMPT_EVENTS_IMPACTS_RU),
     ("human",
         "Text:\n{chunk_text}\n\n"
         "Events:\n{events_list}\n\n"
@@ -600,7 +608,7 @@ def merge_similar_entities_names(
         llm: BaseLanguageModel, 
         embedding_model: Embeddings,
         preserve_all_data: bool = True,
-        similarity_threshold: float = 0.85,
+        similarity_threshold: float = 0.95,
         language: str = "en"
 ) -> List[Node]:
 
@@ -887,8 +895,8 @@ def merge_similar_nodes(
         llm: BaseLanguageModel, 
         embedding_model: Embeddings,
         preserve_all_data: bool = True,
-        high_threshold: float = 0.90,
-        low_threshold: float = 0.75,
+        high_threshold: float = 0.95,
+        low_threshold: float = 0.85,
         language: str = "en"
     ) -> Tuple[Dict[str, Node], Dict[str, Edge]]:  
     
@@ -1106,6 +1114,7 @@ def complete_graph(
 
             if result and result.missing_entities:
                 for missing_entity in result.missing_entities:
+                    print("FOUND: ", missing_entity.name)
                     entity_id = create_id(missing_entity.name)  
                     if entity_id not in new_nodes:
                         new_node = Node(
@@ -1132,18 +1141,22 @@ def complete_graph(
                         )
                         new_nodes[entity_id] = new_node
                         names_to_ids[new_node.name] = entity_id
+                        print("ADDED NODE", missing_entity.name)
             
             if result and result.missing_relations:
                 for missing in result.missing_relations:
+                    print("FOUND: ", f"{missing.node1} {missing.relation_from1to2} {missing.node2} edge")
                     edge_id_1to2 = create_id(f"{missing.node1} {missing.relation_from1to2} {missing.node2} edge")
                     edge_id_2to1 = create_id(f"{missing.node2} {missing.relation_from2to1} {missing.node1} edge")
 
                     if edge_id_1to2 in new_edges:
+                        print("EXISTING")
                         continue
 
                     node1_id = names_to_ids.get(missing.node1)
                     node2_id = names_to_ids.get(missing.node2)
                     if not node1_id or not node2_id:
+                        print("NO NODES")
                         continue
 
                     new_edges[edge_id_1to2] = Edge(
@@ -1164,6 +1177,7 @@ def complete_graph(
                         weight=missing.weight,
                         chunk_id=chunk.metadata["chunk_id"]
                     )
+                    print("ADDED EDGE", f"{missing.node1} {missing.relation_from1to2} {missing.node2} edge")
             
         except Exception as e:
             continue
@@ -1185,21 +1199,28 @@ def apply_event_impact_on_graph(
         for affected_node in impact.affected_nodes:
             existing_node = graph.get_node_by_id(affected_node.id)
             if existing_node:
-                new_state = State(
-                    sid=f"{event_id}_{affected_node.id}_{len(existing_node.states)}",
-                    current_description=affected_node.new_current_description,
-                    current_attributes=affected_node.new_current_attributes,
-                    time_start_event=affected_node.time_start_event if affected_node.time_start_event else event_name,
-                    time_end_event=affected_node.time_end_event
-                )
-                
-                if new_state.time_start_event and not new_state.time_end_event:
-                    for prev_state in existing_node.states:
-                        if prev_state.time_end_event is None:
+                if "before" in event_name:
+                    new_state = State(
+                        sid=f"{event_id}_{affected_node.id}_{len(existing_node.states)}",
+                        current_description=affected_node.new_current_description,
+                        current_attributes=affected_node.new_current_attributes,
+                        time_start_event="",
+                        time_end_event=affected_node.time_end_event
+                    )
+                    graph.update_node_states(affected_node.id, new_state)
+                else:
+                    new_state = State(
+                        sid=f"{event_id}_{affected_node.id}_{len(existing_node.states)}",
+                        current_description=affected_node.new_current_description,
+                        current_attributes=affected_node.new_current_attributes,
+                        time_start_event=affected_node.time_start_event if affected_node.time_start_event else event_name,
+                        time_end_event=affected_node.time_end_event
+                    )
+                    for prev_state in reversed(existing_node.states):
+                        if not prev_state.time_end_event:
                             prev_state.time_end_event = event_name
                             break
-                
-                graph.update_node_states(affected_node.id, new_state)
+                    graph.update_node_states(affected_node.id, new_state)
     
     if impact.affected_edges:
         for affected_edge in impact.affected_edges:
@@ -1328,6 +1349,7 @@ def extract_graph(
         preserve_all_data=preserve_all_data,
         language=language
     )  
+    print("EVENT IMPACTS", events_impacts)
 
     events_only = [node for node in nodes_in_graph if node.type == "event"]
     for event in events_impacts:     
@@ -1368,7 +1390,8 @@ def extract_graph_from_nodes(
         language=language
     )
     print("---MERGED NODES---")
-    print(merged_nodes_names)
+    for node in merged_nodes_names:
+        print(node)
 
     nodes, edges = extract_graph_info(
         chunks=chunks,
@@ -1417,7 +1440,7 @@ def extract_graph_from_nodes(
         preserve_all_data=preserve_all_data,
         language=language
     )  
-
+    print("EVENT IMPACTS", events_impacts)
     events_only = [node for node in nodes_in_graph if node.type == "event"]
     for event in events_impacts:
         for event_in_graph in events_only:
@@ -1746,16 +1769,14 @@ def update_embeddings(
         graph_metadatas.append({
             "type": "node",
             "node_type": node.type,
-            "name": node.name,
-            "original_id": node.id
+            "name": node.name
         })
         graph_ids.append(f"name_{node.id}")
         graph_docs.append(f"{node.name}")
         graph_metadatas.append({
             "type": "node",
             "node_type": node.type,
-            "name": node.name,
-            "original_id": node.id
+            "name": node.name
         })
     for edge in graph.get_all_edges():
         graph_ids.append(edge.id)

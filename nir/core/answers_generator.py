@@ -8,6 +8,13 @@ from langchain_core.language_models import BaseLanguageModel
 from nir.prompts import answer_prompts
 import re
 
+from langchain_core.messages import BaseMessage
+
+def get_text(response):
+    if isinstance(response, BaseMessage):
+        return response.content
+    return response
+
 def parse_llm_answer(text: str, content_type: str) -> str:
     if not text or not text.strip():
         return ""
@@ -89,7 +96,7 @@ def generate_plan(query: str, context: str, llm: BaseLanguageModel, include_theo
         else:
             chain_plan = basic_plan_template_en | llm
     result = chain_plan.invoke(({"query": query, "context": context}))
-    result = parse_llm_answer(result, "plan")
+    result = parse_llm_answer(get_text(result), "plan")
     return str(result)
 
 def filter_context(query: str, context: str, llm: BaseLanguageModel, language: str = "en") -> str:
@@ -98,7 +105,7 @@ def filter_context(query: str, context: str, llm: BaseLanguageModel, language: s
     else:
         chain_context = context_filtering_template_en | llm
     result = chain_context.invoke(({"query": query, "context": context}))
-    result = parse_llm_answer(result, "filtered_context")
+    result = parse_llm_answer(get_text(result), "filtered_context")
     return str(result)
 
 def generate_answer_based_on_plan(query: str, plan: str, context: str, llm: BaseLanguageModel, language: str = "en") -> str:
@@ -107,7 +114,7 @@ def generate_answer_based_on_plan(query: str, plan: str, context: str, llm: Base
     else:
         chain_final = answer_template_based_on_plan_en | llm
     result = chain_final.invoke(({"query": query, "plan": plan, "context": context}))
-    return str(result)
+    return str(get_text(result))
 
 def generate_answer_based_on_context(query: str, context: str, llm: BaseLanguageModel, language: str = "en") -> str:
     if language == "ru":
@@ -115,5 +122,6 @@ def generate_answer_based_on_context(query: str, context: str, llm: BaseLanguage
     else:
         chain_final = answer_template_based_on_context_en | llm
     result = chain_final.invoke(({"query": query, "context": context}))
-    result = parse_llm_answer(result, "answer")
+    
+    result = parse_llm_answer(get_text(result), "answer")
     return str(result)

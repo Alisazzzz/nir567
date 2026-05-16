@@ -118,6 +118,8 @@ class ModelManager:
                 model = providers.HuggingFaceLocalProvider().create_model(config)
             case "hf_api":
                 model = providers.HuggingFaceAPIProvider(api_info).create_model(config)
+            case "mistralai":
+                model = providers.MistralProvider(api_info).create_model(config)
             case _:
                 raise ValueError(f"Unknown LLM type: {option}")
         config_dict = self._serialize_config(config)
