@@ -1,14 +1,13 @@
 #All stuff related to answer generation is here
 
 
-
+import re
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.language_models import BaseLanguageModel
+from langchain_core.messages import BaseMessage
 
 from nir.prompts import answer_prompts
-import re
 
-from langchain_core.messages import BaseMessage
 
 def get_text(response):
     if isinstance(response, BaseMessage):

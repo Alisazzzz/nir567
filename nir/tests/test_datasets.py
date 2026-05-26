@@ -1,70 +1,268 @@
-GRAPH_TEST_DATASET = [
+GRAPH_TEST_DATASET_SMALL = [
     {
-        "path": "assets/documents/NOTEBOOK STORY.txt",
-        "language": "en",
-        "embedding_model_options": {
-            "name": "embeddings",
-            "option": "hf_local",
-            "model_name": "sentence-transformers/all-MiniLM-L6-v2"
-        },
+        "graph": "assets/documents/graph_extraction_tests/elden_ring_short_russian_graph_small.json",
         "expected_values": {
-            "nodes": 11,
-            "edges": 42,
-            "characters": 4,
-            "groups": 1,
+            "nodes": 13,
+            "edges": 54,
+            "characters": 3,
+            "groups": 2,
             "locations": 1,
-            "location_elements": 2,
-            "events": 2,
+            "location_elements": 1,
+            "events": 3,
+            "items": 3,
+            "total_states": 8,
+            "nodes_with_gt_2_states": 0,
+        }
+    },
+
+    {
+        "path": "assets/documents/graph_extraction_tests/genshin_liyue_short_graph_small.json",
+        "expected_values": {
+            "nodes": 15,
+            "edges": 60,
+            "characters": 5,
+            "groups": 2,
+            "locations": 3,
+            "location_elements": 0,
+            "events": 4,
             "items": 1,
-            "total_states": 4,
+            "total_states": 10,
             "nodes_with_gt_2_states": 2,
         }
     },
 
     {
-        "path": "assets/documents/RUSTY LAKE SHORT.txt",
-        "language": "en",
-        "embedding_model_options": {
-            "name": "embeddings",
-            "option": "hf_local",
-            "model_name": "sentence-transformers/all-MiniLM-L6-v2"
-        },
+        "path": "assets/documents/graph_extraction_tests/some_english_text_graph_small.json",
         "expected_values": {
-            "nodes": 15,
-            "edges": 48,
-            "characters": 7,
+            "nodes": 11,
+            "edges": 36,
+            "characters": 4,
             "groups": 1,
-            "locations": 2,
+            "locations": 3,
             "location_elements": 0,
             "events": 3,
-            "items": 2,
-            "total_states": 2,
+            "items": 0,
+            "total_states": 7,
             "nodes_with_gt_2_states": 1,
         }
     },
 
     {
-        "path": "assets/documents/NUCLEAR CRYPT SHORT.txt",
-        "language": "ru",
-        "embedding_model_options": {
-            "name": "embeddings",
-            "option": "hf_local",
-            "model_name": "ai-forever/ru-en-RoSBERTa"
-        },
+        "path": "assets/documents/graph_extraction_tests/rusty_lake_paradise_description_graph_small.json",
+        "expected_values": {
+            "nodes": 16,
+            "edges": 64,
+            "characters": 7,
+            "groups": 1,
+            "locations": 2,
+            "location_elements": 0,
+            "events": 4,
+            "items": 2,
+            "total_states": 5,
+            "nodes_with_gt_2_states": 1,
+        }
+    }
+]
+
+GRAPH_TEST_DATASET_SMALL_FROM_NODES = [
+    {
+        "graph": "assets/documents/graph_extraction_tests/elden_ring_short_russian_graph_small_from_nodes.json",
+        "expected_values": {
+            "nodes": 13,
+            "edges": 54,
+            "characters": 3,
+            "groups": 2,
+            "locations": 1,
+            "location_elements": 1,
+            "events": 3,
+            "items": 3,
+            "total_states": 8,
+            "nodes_with_gt_2_states": 0,
+        }
+    },
+
+    {
+        "path": "assets/documents/graph_extraction_tests/genshin_liyue_short_graph_small_from_nodes.json",
         "expected_values": {
             "nodes": 15,
-            "edges": 54,
-            "characters": 1,
+            "edges": 60,
+            "characters": 5,
             "groups": 2,
             "locations": 3,
             "location_elements": 0,
             "events": 4,
-            "items": 5,
-            "total_states": 6,
-            "nodes_with_gt_2_states": 3,
+            "items": 1,
+            "total_states": 10,
+            "nodes_with_gt_2_states": 2,
         }
     },
+
+    {
+        "path": "assets/documents/graph_extraction_tests/some_english_text_graph_small_from_nodes.json",
+        "expected_values": {
+            "nodes": 11,
+            "edges": 36,
+            "characters": 4,
+            "groups": 1,
+            "locations": 3,
+            "location_elements": 0,
+            "events": 3,
+            "items": 0,
+            "total_states": 7,
+            "nodes_with_gt_2_states": 1,
+        }
+    },
+
+    {
+        "path": "assets/documents/graph_extraction_tests/rusty_lake_paradise_description_graph_small_from_nodes.json",
+        "expected_values": {
+            "nodes": 16,
+            "edges": 64,
+            "characters": 7,
+            "groups": 1,
+            "locations": 2,
+            "location_elements": 0,
+            "events": 4,
+            "items": 2,
+            "total_states": 5,
+            "nodes_with_gt_2_states": 1,
+        }
+    }
 ]
+
+GRAPH_TEST_DATASET_LARGE = [
+    {
+        "graph": "assets/documents/graph_extraction_tests/elden_ring_short_russian_graph_big.json",
+        "expected_values": {
+            "nodes": 13,
+            "edges": 54,
+            "characters": 3,
+            "groups": 2,
+            "locations": 1,
+            "location_elements": 1,
+            "events": 3,
+            "items": 3,
+            "total_states": 8,
+            "nodes_with_gt_2_states": 0,
+        }
+    },
+
+    {
+        "path": "assets/documents/graph_extraction_tests/genshin_liyue_short_graph_big.json",
+        "expected_values": {
+            "nodes": 15,
+            "edges": 60,
+            "characters": 5,
+            "groups": 2,
+            "locations": 3,
+            "location_elements": 0,
+            "events": 4,
+            "items": 1,
+            "total_states": 10,
+            "nodes_with_gt_2_states": 2,
+        }
+    },
+
+    {
+        "path": "assets/documents/graph_extraction_tests/some_english_text_graph_big.json",
+        "expected_values": {
+            "nodes": 11,
+            "edges": 36,
+            "characters": 4,
+            "groups": 1,
+            "locations": 3,
+            "location_elements": 0,
+            "events": 3,
+            "items": 0,
+            "total_states": 7,
+            "nodes_with_gt_2_states": 1,
+        }
+    },
+
+    {
+        "path": "assets/documents/graph_extraction_tests/rusty_lake_paradise_description_graph_big.json",
+        "expected_values": {
+            "nodes": 16,
+            "edges": 64,
+            "characters": 7,
+            "groups": 1,
+            "locations": 2,
+            "location_elements": 0,
+            "events": 4,
+            "items": 2,
+            "total_states": 5,
+            "nodes_with_gt_2_states": 1,
+        }
+    }
+]
+
+GRAPH_TEST_DATASET_LARGE_FROM_NODES = [
+    {
+        "graph": "assets/documents/graph_extraction_tests/elden_ring_short_russian_graph_big_from_nodes.json",
+        "expected_values": {
+            "nodes": 13,
+            "edges": 54,
+            "characters": 3,
+            "groups": 2,
+            "locations": 1,
+            "location_elements": 1,
+            "events": 3,
+            "items": 3,
+            "total_states": 8,
+            "nodes_with_gt_2_states": 0,
+        }
+    },
+
+    {
+        "path": "assets/documents/graph_extraction_tests/genshin_liyue_short_graph_big_from_nodes.json",
+        "expected_values": {
+            "nodes": 15,
+            "edges": 60,
+            "characters": 5,
+            "groups": 2,
+            "locations": 3,
+            "location_elements": 0,
+            "events": 4,
+            "items": 1,
+            "total_states": 10,
+            "nodes_with_gt_2_states": 2,
+        }
+    },
+
+    {
+        "path": "assets/documents/graph_extraction_tests/some_english_text_graph_big_from_nodes.json",
+        "expected_values": {
+            "nodes": 11,
+            "edges": 36,
+            "characters": 4,
+            "groups": 1,
+            "locations": 3,
+            "location_elements": 0,
+            "events": 3,
+            "items": 0,
+            "total_states": 7,
+            "nodes_with_gt_2_states": 1,
+        }
+    },
+
+    {
+        "path": "assets/documents/graph_extraction_tests/rusty_lake_paradise_description_graph_big_from_nodes.json",
+        "expected_values": {
+            "nodes": 16,
+            "edges": 64,
+            "characters": 7,
+            "groups": 1,
+            "locations": 2,
+            "location_elements": 0,
+            "events": 4,
+            "items": 2,
+            "total_states": 5,
+            "nodes_with_gt_2_states": 1,
+        }
+    }
+]
+
+
 
 TEST_DATA_LORE_DESCRIPTION = {
     "path_to_graph": "assets/graphs/generation_tests/elden_ring_lore_graph.json",

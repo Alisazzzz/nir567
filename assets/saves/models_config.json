@@ -1,80 +1,37 @@
-{
+{ 
     "chat_models": {
-        "graph_extraction_model": {
+        "graph_extraction_local": {
             "option": "ollama",
             "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
             "config": {
                 "model_name": "hf.co/VlSav/Vikhr-Nemo-12B-Instruct-R-21-09-24-Q4_K_M-GGUF:latest",
                 "temperature": 0.0,
-                "max_tokens": "2048",
+                "max_tokens": null,
                 "extra": {}
             },
             "api_info": null
         },
-        "chat_model": {
-            "option": "ollama",
-            "model_name": "phi4-mini:3.8b",
+        "graph_extraction_remote": {
+            "option": "mistralai",
+            "model_name": "mistral-medium-2505",
             "config": {
-                "model_name": "phi4-mini:3.8b",
-                "temperature": 0.6,
-                "max_tokens": "2048",
-                "extra": {}
-            },
-            "api_info": null
-        },
-        "evaluation_model_tests": {
-            "option": "ollama",
-            "model_name": "llama3.1:8b-instruct-q6_K",
-            "config": {
-                "model_name": "llama3.1:8b-instruct-q6_K",
+                "model_name": "mistral-medium-2505",
                 "temperature": 0.0,
                 "max_tokens": null,
                 "extra": {}
             },
-            "api_info": null
-        },
-        "generation_model_tests": {
-            "option": "ollama",
-            "model_name": "phi4-mini:latest",
-            "config": {
-                "model_name": "phi4-mini:latest",
-                "temperature": 0.7,
-                "max_tokens": null,
-                "extra": {}
-            },
-            "api_info": null
-        },
-        "russian_generation_model_tests": {
-            "option": "ollama",
-            "model_name": "phi4-mini:latest",
-            "config": {
-                "model_name": "phi4-mini:latest",
-                "temperature": 0.7,
-                "max_tokens": null,
-                "extra": {}
-            },
-            "api_info": null
+            "api_info": "sA9z6RzFyAuH3jqCesal8qZihuGS9BUi"
         }
     },
     "embedding_models": {
-        "embeddings_standard": {
-            "option": "ollama",
-            "model_name": "nomic-embed-text:v1.5",
-            "api_info": null
-        },
         "embeddings_fast": {
             "option": "hf_local",
             "model_name": "sentence-transformers/all-MiniLM-L6-v2",
             "api_info": null
         },
         "embeddings_rus": {
-            "option": "ollama",
-            "model_name": "evilfreelancer/enbeddrus:v0.2",
-            "api_info": null
-        },
-        "embeddings_tests": {
-            "option": "ollama",
-            "model_name": "evilfreelancer/enbeddrus:v0.2",
+            "option": "hf_local",
+            "model_name": "deepvk/USER-base",
             "api_info": null
         }
     }

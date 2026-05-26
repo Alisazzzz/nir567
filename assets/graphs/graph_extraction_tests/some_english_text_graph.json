@@ -1,0 +1,432 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "some_english_text",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "aerlin",
+      "name": "Aerlin",
+      "type": "character",
+      "base_description": "An elderly elf who looks like a child but has the personality of a mature woman. Once in her adult form, she loved a man who rejected her feelings, leading to her decision to remain as a child forever and change her appearance. She is part of an event where she meets Tutu Josh after thousands of years.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "aerlin_changes_appearance_aerlin_0",
+          "current_description": "An elderly elf who looks like a child, with the personality of a mature woman. She once loved a man in her adult form but was rejected, leading to her decision to remain as a child forever and change her appearance.",
+          "current_attributes": {},
+          "time_start_event": "Aerlin changes appearance",
+          "time_end_event": "Aerlin changes appearance"
+        },
+        {
+          "sid": "tutu_josh_kills_man_aerlin_1",
+          "current_description": "An elderly elf in her adult form, who loved a man but was rejected by him.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "Tutu Josh kills man"
+        },
+        {
+          "sid": "tutu_josh_kills_man_aerlin_2",
+          "current_description": "Aerlin is unaware of Tutu Josh's action but is indirectly affected by the loss of her love interest.",
+          "current_attributes": {},
+          "time_start_event": "Tutu Josh kills man",
+          "time_end_event": null
+        },
+        {
+          "sid": "aerlin_meets_tutu_josh_aerlin_3",
+          "current_description": "An elderly elf who looks like a child, part of the event where she reunites with Tutu Josh after thousands of years and travels with him.",
+          "current_attributes": {},
+          "time_start_event": "Aerlin meets Tutu Josh",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "tutu_josh",
+      "name": "Tutu Josh",
+      "type": "character",
+      "base_description": "A human god who tricked Death and has been alive for thousands of years. He travels with Aerlin, secretly in love with her, and has a history of killing a man who was an object of Aerlin's love.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "aerlin_meets_tutu_josh_tutu_josh_0",
+          "current_description": "A human god who has been alive for thousands of years, now reunited with Aerlin after his time in the Underworld.",
+          "current_attributes": {},
+          "time_start_event": "Aerlin meets Tutu Josh",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "the_old_older_forest",
+      "name": "The Old Older Forest",
+      "type": "location",
+      "base_description": "A dark forest that was once the garden of gods millions of years ago. It was burned during The Great War and remained deserted for thousands of years before recovering to become a healthy, shadowy forest with old trees. This forest hides the Underworld's Gate.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "aerlin_changes_appearance",
+      "name": "Aerlin changes appearance",
+      "type": "event",
+      "base_description": "Event where Aerlin decides to change her appearance after a broken heart.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "tutu_josh_kills_man",
+      "name": "Tutu Josh kills man",
+      "type": "event",
+      "base_description": "Event where Tutu Josh kills the man who rejected Aerlin's love, though she is unaware of his actions.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "underworld",
+      "name": "Underworld",
+      "type": "location",
+      "base_description": "A place where Tutu Josh spent thousands of years trying to trick Death. It is not directly associated with the event of Aerlin and Tutu Josh meeting, but has a historical connection to Tutu Josh.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "aerlin_meets_tutu_josh",
+      "name": "Aerlin meets Tutu Josh",
+      "type": "event",
+      "base_description": "An event where Aerlin and Tutu Josh reunite after thousands of years spent by Tutu Josh in the Underworld.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "underworlds_gate",
+      "name": "Underworld's Gate",
+      "type": "item",
+      "base_description": "Automatically created node",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "death",
+      "name": "Death",
+      "type": "character",
+      "base_description": "A personification of the end of life, often depicted as a figure that Tutu Josh tried to trick.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "aerlins_feelings_rejection",
+      "name": "Aerlin's feelings rejection",
+      "type": "item",
+      "base_description": "Automatically created node",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "man",
+      "name": "man",
+      "type": "item",
+      "base_description": "Automatically created node",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "great_war",
+      "name": "Great War",
+      "type": "item",
+      "base_description": "Automatically created node",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "city",
+      "name": "city",
+      "type": "location",
+      "base_description": "A human city that was founded not long ago and developed into a huge center of commerce.",
+      "base_attributes": {
+        "role": "commerce center"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "commerce",
+      "name": "commerce",
+      "type": "item",
+      "base_description": "Automatically created node",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "aerlin_is_involved_in_aerlin_changes_appearance_edge",
+      "source": "aerlin",
+      "target": "aerlin_changes_appearance",
+      "relation": "is involved in",
+      "description": "Aerlin is the subject of this event where she changes her appearance.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "aerlin_is_affected_by_tutu_josh_kills_man_edge",
+      "source": "aerlin",
+      "target": "tutu_josh_kills_man",
+      "relation": "is affected by",
+      "description": "The event affects Aerlin indirectly through the actions of Tutu Josh towards a man she loved.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "aerlin_is_traveled_with_by_death_edge",
+      "source": "aerlin",
+      "target": "death",
+      "relation": "is traveled with by",
+      "description": "Tutu Josh travels with Aerlin, keeping his love for her a secret.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "aerlin_takes_place_in_aerlin_meets_tutu_josh_edge",
+      "source": "aerlin",
+      "target": "aerlin_meets_tutu_josh",
+      "relation": "takes place in",
+      "description": "Aerlin is a participant in the event of their meeting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "aerlin_is_in_great_war_edge",
+      "source": "aerlin",
+      "target": "great_war",
+      "relation": "is in",
+      "description": "Aerlin travels with Tutu Josh and they are located in the The Old Older Forest.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "aerlin_changes_appearance_involves_aerlin_edge",
+      "source": "aerlin_changes_appearance",
+      "target": "aerlin",
+      "relation": "involves",
+      "description": "Aerlin is the subject of this event where she changes her appearance.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "tutu_josh_kills_man_involves_death_edge",
+      "source": "tutu_josh_kills_man",
+      "target": "death",
+      "relation": "involves",
+      "description": "Tutu Josh is the perpetrator of this event where he kills a man.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "tutu_josh_kills_man_affects_aerlin_edge",
+      "source": "tutu_josh_kills_man",
+      "target": "aerlin",
+      "relation": "affects",
+      "description": "The event affects Aerlin indirectly through the actions of Tutu Josh towards a man she loved.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "underworld_was_a_location_where_the_participant_spent_time_before_the_event_aerlin_meets_tutu_josh_edge",
+      "source": "underworld",
+      "target": "aerlin_meets_tutu_josh",
+      "relation": "was a location where the participant spent time before the event",
+      "description": "The event occurs after Tutu Josh's time in the Underworld.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "aerlin_meets_tutu_josh_involves_aerlin_edge",
+      "source": "aerlin_meets_tutu_josh",
+      "target": "aerlin",
+      "relation": "involves",
+      "description": "Aerlin is a participant in the event of their meeting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "aerlin_meets_tutu_josh_involves_death_edge",
+      "source": "aerlin_meets_tutu_josh",
+      "target": "death",
+      "relation": "involves",
+      "description": "Tutu Josh is a participant in the event of their meeting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "aerlin_meets_tutu_josh_is_a_secret_love_for_death_edge",
+      "source": "aerlin_meets_tutu_josh",
+      "target": "death",
+      "relation": "is a secret love for",
+      "description": "Tutu Josh is secretly in love with Aerlin.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "aerlin_meets_tutu_josh_occurred_after_leaving_underworld_edge",
+      "source": "aerlin_meets_tutu_josh",
+      "target": "underworld",
+      "relation": "occurred after leaving",
+      "description": "The event occurs after Tutu Josh's time in the Underworld.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "underworlds_gate_is_hidden_in_great_war_edge",
+      "source": "underworlds_gate",
+      "target": "great_war",
+      "relation": "is hidden in",
+      "description": "The Underworld's Gate is located within the The Old Older Forest.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "death_is_involved_in_tutu_josh_kills_man_edge",
+      "source": "death",
+      "target": "tutu_josh_kills_man",
+      "relation": "is involved in",
+      "description": "Tutu Josh is the perpetrator of this event where he kills a man.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "death_travels_with_aerlin_edge",
+      "source": "death",
+      "target": "aerlin",
+      "relation": "travels with",
+      "description": "Tutu Josh travels with Aerlin, keeping his love for her a secret.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "death_takes_place_in_aerlin_meets_tutu_josh_edge",
+      "source": "death",
+      "target": "aerlin_meets_tutu_josh",
+      "relation": "takes place in",
+      "description": "Tutu Josh is a participant in the event of their meeting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "death_is_an_object_of_secret_love_by_aerlin_meets_tutu_josh_edge",
+      "source": "death",
+      "target": "aerlin_meets_tutu_josh",
+      "relation": "is an object of secret love by",
+      "description": "Tutu Josh is secretly in love with Aerlin.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "great_war_contains_aerlin_edge",
+      "source": "great_war",
+      "target": "aerlin",
+      "relation": "contains",
+      "description": "Aerlin travels with Tutu Josh and they are located in the The Old Older Forest.",
+      "weight": 0.5,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "great_war_hides_underworlds_gate_edge",
+      "source": "great_war",
+      "target": "underworlds_gate",
+      "relation": "hides",
+      "description": "The Underworld's Gate is located within the The Old Older Forest.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    }
+  ]
+}

@@ -1,0 +1,624 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "some_english_text",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "aerlin",
+      "name": "Aerlin",
+      "type": "character",
+      "base_description": "An elderly elf who looks like a child, but her personality reveals a mature woman. Once she was in her adult form, who loved a man, but after she revealed him her feelings he rejected her heart. After that, with a broken heart, Aerlin decided to be a child forever and changed her appearance. She meets Tutu Josh in Hihi haha city.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "aerlin_changes_appearance_aerlin_0",
+          "current_description": "An elderly elf in her adult form, who loved a man.",
+          "current_attributes": {
+            "appearance": "adult"
+          },
+          "time_start_event": null,
+          "time_end_event": "Aerlin changes appearance"
+        },
+        {
+          "sid": "aerlin_changes_appearance_aerlin_1",
+          "current_description": "An elderly elf who looks like a child, but her personality reveals a mature woman.",
+          "current_attributes": {
+            "appearance": "child-like"
+          },
+          "time_start_event": "Aerlin changes appearance",
+          "time_end_event": "Aerlin meets Tutu Josh"
+        },
+        {
+          "sid": "aerlin_meets_tutu_josh_aerlin_2",
+          "current_description": "An elderly elf who looks like a child, but her personality reveals a mature woman. Once she was in her adult form, who loved a man, but after she revealed him her feelings he rejected her heart. After that, with a broken heart, Aerlin decided to be a child forever and changed her appearance.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "Aerlin meets Tutu Josh"
+        },
+        {
+          "sid": "aerlin_meets_tutu_josh_aerlin_3",
+          "current_description": "An elderly elf who looks like a child, but her personality reveals a mature woman. She meets Tutu Josh in Hihi haha city.",
+          "current_attributes": {},
+          "time_start_event": "Aerlin meets Tutu Josh",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "tutu_josh",
+      "name": "Tutu Josh",
+      "type": "character",
+      "base_description": "A human god, who tricked the Death and now he is still alive after thousands of years in Underworld. He travels with Aerlin, secretly in love with her: when a man who was an object of Aerlin's love rejected her feelings, Tutu Josh killed him, but Aerlin does not know about this. He meets Aerlin in Hihi haha city after thousands of years in the Underworld.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "aerlin_meets_tutu_josh_tutu_josh_0",
+          "current_description": "A human god, who tricked the Death and now he is still alive after thousands of years in Underworld. He travels with Aerlin, secretly in love with her: when a man who was an object of Aerlin's love rejected her feelings, Tutu Josh killed him, but Aerlin does not know about this.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "Aerlin meets Tutu Josh"
+        },
+        {
+          "sid": "aerlin_meets_tutu_josh_tutu_josh_1",
+          "current_description": "A human god, who tricked the Death and now he is still alive after thousands of years in Underworld. He meets Aerlin in Hihi haha city after thousands of years in the Underworld.",
+          "current_attributes": {},
+          "time_start_event": "Aerlin meets Tutu Josh",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "the_man",
+      "name": "The man",
+      "type": "character",
+      "base_description": "A man who rejected Aerlin's feelings and was loved by her but rejected her feelings.",
+      "base_attributes": {
+        "role": "love interest of Aerlin"
+      },
+      "states": [
+        {
+          "sid": "tutu_josh_kills_man_the_man_0",
+          "current_description": "A man who rejected Aerlin's feelings and was loved by her but rejected her feelings.",
+          "current_attributes": {
+            "status": "alive"
+          },
+          "time_start_event": "",
+          "time_end_event": "Tutu Josh kills man"
+        },
+        {
+          "sid": "tutu_josh_kills_man_the_man_1",
+          "current_description": "A man who was killed by Tutu Josh.",
+          "current_attributes": {
+            "status": "dead"
+          },
+          "time_start_event": "Tutu Josh kills man",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "the_old_older_forest",
+      "name": "The Old Older Forest",
+      "type": "location",
+      "base_description": "Dark forest that was a garden of gods millions years ago, after that it was burned during The Great War, and after thousands of years being deserted it started to recover. Now it is a healthy dark forest, very shadowy, with old trees. This forest hides the Underworld's Gate.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "the_great_war_the_old_older_forest_0",
+          "current_description": "A garden of gods.",
+          "current_attributes": {
+            "state": "garden"
+          },
+          "time_start_event": "",
+          "time_end_event": "The Great War"
+        },
+        {
+          "sid": "the_great_war_the_old_older_forest_1",
+          "current_description": "A dark forest that was burned during The Great War and started to recover after thousands of years.",
+          "current_attributes": {
+            "state": "recovered"
+          },
+          "time_start_event": "The Great War",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "underworlds_gate",
+      "name": "Underworld's Gate",
+      "type": "environment_element",
+      "base_description": "A gate hidden within The Old Older Forest.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "underworld",
+      "name": "Underworld",
+      "type": "location",
+      "base_description": "A location where Tutu Josh has lived for thousands of years. Tutu Josh spent time here tricking the Death.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "aerlin_changes_appearance",
+      "name": "Aerlin changes appearance",
+      "type": "event",
+      "base_description": "Aerlin decided to be a child forever and changed her appearance after her heart was broken.",
+      "base_attributes": {
+        "time": "after her heart was broken"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "tutu_josh_kills_man",
+      "name": "Tutu Josh kills man",
+      "type": "event",
+      "base_description": "Tutu Josh killed the man who rejected Aerlin's feelings.",
+      "base_attributes": {
+        "time": "after the man rejected Aerlin's feelings"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "the_great_war",
+      "name": "The Great War",
+      "type": "event",
+      "base_description": "A war that resulted in the burning of The Old Older Forest.",
+      "base_attributes": {
+        "time": "millions of years ago"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "hihi_haha_city",
+      "name": "Hihi haha city",
+      "type": "location",
+      "base_description": "A city where Aerlin and Tutu Josh meet.",
+      "base_attributes": {
+        "significance": "meeting place"
+      },
+      "states": [
+        {
+          "sid": "city_developed_hihi_haha_city_0",
+          "current_description": "A newly founded human city.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "City developed"
+        },
+        {
+          "sid": "city_developed_hihi_haha_city_1",
+          "current_description": "A huge center of commerce.",
+          "current_attributes": {},
+          "time_start_event": "City developed",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "death",
+      "name": "Death",
+      "type": "character",
+      "base_description": "A character who was tricked by Tutu Josh, allowing him to stay alive.",
+      "base_attributes": {
+        "role": "deity",
+        "status": "tricked"
+      },
+      "states": [],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "aerlin_meets_tutu_josh",
+      "name": "Aerlin meets Tutu Josh",
+      "type": "event",
+      "base_description": "Aerlin meets Tutu Josh in Hihi haha city after thousands of years Tutu Josh spent in the Underworld.",
+      "base_attributes": {
+        "time": "after thousands of years Tutu Josh spent in the Underworld"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "city_developed",
+      "name": "City developed",
+      "type": "event",
+      "base_description": "The city developed into a huge center of commerce.",
+      "base_attributes": {
+        "time": "not long ago"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "commerce",
+      "name": "commerce",
+      "type": "event",
+      "base_description": "The event of the city developing into a center of commerce.",
+      "base_attributes": {
+        "type": "economic development"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "tutu_josh_is_secretly_in_love_with_hihi_haha_city_edge",
+      "source": "tutu_josh",
+      "target": "hihi_haha_city",
+      "relation": "is secretly in love with",
+      "description": "Tutu Josh is secretly in love with Aerlin.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "tutu_josh_killed_the_man_edge",
+      "source": "tutu_josh",
+      "target": "the_man",
+      "relation": "killed",
+      "description": "Tutu Josh killed the man who rejected Aerlin's feelings.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "tutu_josh_participates_in_tutu_josh_kills_man_edge",
+      "source": "tutu_josh",
+      "target": "tutu_josh_kills_man",
+      "relation": "participates in",
+      "description": "Tutu Josh participates in the event of killing the man.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "tutu_josh_lives_in_underworld_edge",
+      "source": "tutu_josh",
+      "target": "underworld",
+      "relation": "lives in",
+      "description": "Tutu Josh has lived in the Underworld for thousands of years.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "tutu_josh_spent_time_in_underworld_edge",
+      "source": "tutu_josh",
+      "target": "underworld",
+      "relation": "spent time in",
+      "description": "Tutu Josh spent thousands of years in the Underworld.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "tutu_josh_participates_in_aerlin_meets_tutu_josh_edge",
+      "source": "tutu_josh",
+      "target": "aerlin_meets_tutu_josh",
+      "relation": "participates in",
+      "description": "Tutu Josh participates in the event of meeting Aerlin.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "tutu_josh_tricked_death_edge",
+      "source": "tutu_josh",
+      "target": "death",
+      "relation": "tricked",
+      "description": "Tutu Josh tricked the Death.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "the_man_was_loved_by_hihi_haha_city_edge",
+      "source": "the_man",
+      "target": "hihi_haha_city",
+      "relation": "was loved by",
+      "description": "Aerlin loved the man who later rejected her feelings.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "the_man_rejected_hihi_haha_city_edge",
+      "source": "the_man",
+      "target": "hihi_haha_city",
+      "relation": "rejected",
+      "description": "The man rejected Aerlin's feelings.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "the_man_was_killed_by_tutu_josh_edge",
+      "source": "the_man",
+      "target": "tutu_josh",
+      "relation": "was killed by",
+      "description": "Tutu Josh killed the man who rejected Aerlin's feelings.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "the_old_older_forest_was_burned_during_the_great_war_edge",
+      "source": "the_old_older_forest",
+      "target": "the_great_war",
+      "relation": "was burned during",
+      "description": "The Old Older Forest was burned during The Great War.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "the_old_older_forest_recovery_is_preceded_by_the_great_war_edge",
+      "source": "the_old_older_forest",
+      "target": "the_great_war",
+      "relation": "recovery is preceded by",
+      "description": "The Great War resulted in the burning of The Old Older Forest, which eventually recovered.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "the_old_older_forest_hides_underworlds_gate_edge",
+      "source": "the_old_older_forest",
+      "target": "underworlds_gate",
+      "relation": "hides",
+      "description": "The Old Older Forest hides the Underworld's Gate.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "underworlds_gate_is_hidden_by_the_old_older_forest_edge",
+      "source": "underworlds_gate",
+      "target": "the_old_older_forest",
+      "relation": "is hidden by",
+      "description": "The Old Older Forest hides the Underworld's Gate.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "underworld_is_inhabited_by_tutu_josh_edge",
+      "source": "underworld",
+      "target": "tutu_josh",
+      "relation": "is inhabited by",
+      "description": "Tutu Josh has lived in the Underworld for thousands of years.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "underworld_was_inhabited_by_tutu_josh_edge",
+      "source": "underworld",
+      "target": "tutu_josh",
+      "relation": "was inhabited by",
+      "description": "Tutu Josh spent thousands of years in the Underworld.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "aerlin_changes_appearance_involves_hihi_haha_city_edge",
+      "source": "aerlin_changes_appearance",
+      "target": "hihi_haha_city",
+      "relation": "involves",
+      "description": "Aerlin participates in the event of changing her appearance.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "tutu_josh_kills_man_involves_tutu_josh_edge",
+      "source": "tutu_josh_kills_man",
+      "target": "tutu_josh",
+      "relation": "involves",
+      "description": "Tutu Josh participates in the event of killing the man.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "the_great_war_burned_the_old_older_forest_edge",
+      "source": "the_great_war",
+      "target": "the_old_older_forest",
+      "relation": "burned",
+      "description": "The Old Older Forest was burned during The Great War.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "the_great_war_precedes_recovery_of_the_old_older_forest_edge",
+      "source": "the_great_war",
+      "target": "the_old_older_forest",
+      "relation": "precedes recovery of",
+      "description": "The Great War resulted in the burning of The Old Older Forest, which eventually recovered.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "hihi_haha_city_loved_the_man_edge",
+      "source": "hihi_haha_city",
+      "target": "the_man",
+      "relation": "loved",
+      "description": "Aerlin loved the man who later rejected her feelings.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "hihi_haha_city_was_rejected_by_the_man_edge",
+      "source": "hihi_haha_city",
+      "target": "the_man",
+      "relation": "was rejected by",
+      "description": "The man rejected Aerlin's feelings.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "hihi_haha_city_is_secretly_loved_by_tutu_josh_edge",
+      "source": "hihi_haha_city",
+      "target": "tutu_josh",
+      "relation": "is secretly loved by",
+      "description": "Tutu Josh is secretly in love with Aerlin.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "hihi_haha_city_participates_in_aerlin_changes_appearance_edge",
+      "source": "hihi_haha_city",
+      "target": "aerlin_changes_appearance",
+      "relation": "participates in",
+      "description": "Aerlin participates in the event of changing her appearance.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "hihi_haha_city_participates_in_aerlin_meets_tutu_josh_edge",
+      "source": "hihi_haha_city",
+      "target": "aerlin_meets_tutu_josh",
+      "relation": "participates in",
+      "description": "Aerlin participates in the event of meeting Tutu Josh.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "death_was_tricked_by_tutu_josh_edge",
+      "source": "death",
+      "target": "tutu_josh",
+      "relation": "was tricked by",
+      "description": "Tutu Josh tricked the Death.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "aerlin_meets_tutu_josh_involves_hihi_haha_city_edge",
+      "source": "aerlin_meets_tutu_josh",
+      "target": "hihi_haha_city",
+      "relation": "involves",
+      "description": "Aerlin participates in the event of meeting Tutu Josh.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "aerlin_meets_tutu_josh_involves_tutu_josh_edge",
+      "source": "aerlin_meets_tutu_josh",
+      "target": "tutu_josh",
+      "relation": "involves",
+      "description": "Tutu Josh participates in the event of meeting Aerlin.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "aerlin_meets_tutu_josh_follows_commerce_edge",
+      "source": "aerlin_meets_tutu_josh",
+      "target": "commerce",
+      "relation": "follows",
+      "description": "The meeting of Aerlin and Tutu Josh follows the development of commerce in the city.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "commerce_precedes_aerlin_meets_tutu_josh_edge",
+      "source": "commerce",
+      "target": "aerlin_meets_tutu_josh",
+      "relation": "precedes",
+      "description": "The meeting of Aerlin and Tutu Josh follows the development of commerce in the city.",
+      "weight": 0.7,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    }
+  ]
+}

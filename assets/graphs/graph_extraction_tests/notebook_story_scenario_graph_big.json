@@ -1,0 +1,509 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "notebook_story_scenario",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "little_girl",
+      "name": "Little girl",
+      "type": "character",
+      "base_description": "A young girl, daughter of the family.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "father",
+      "name": "Father",
+      "type": "character",
+      "base_description": "The father of the little girl.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "maria",
+      "name": "Maria",
+      "type": "character",
+      "base_description": "The mother of the little girl.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "type": "character",
+      "base_description": "The family cat, an ancient demon who was a rock before World Recreation.",
+      "base_attributes": {
+        "former state": "rock"
+      },
+      "states": [
+        {
+          "sid": "world_recreation_cat_0",
+          "current_description": "The family cat, an ancient demon who was a rock before World Recreation.",
+          "current_attributes": {
+            "former state": "demon"
+          },
+          "time_start_event": "World Recreation",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "notebook",
+      "name": "Notebook",
+      "type": "item",
+      "base_description": "A notebook that was lost but then found under the bed, containing a story about the cat.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "notebook_found_notebook_0",
+          "current_description": "A notebook that was found under the bed, containing a story about the cat.",
+          "current_attributes": {
+            "location": "under the bed"
+          },
+          "time_start_event": "Notebook found",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "bed",
+      "name": "Bed",
+      "type": "item",
+      "base_description": "The bed in the little girl's bedroom where the notebook was found.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "bedroom",
+      "name": "Bedroom",
+      "type": "location",
+      "base_description": "The little girl's bedroom where the bed is located.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "world_recreation",
+      "name": "World Recreation",
+      "type": "event",
+      "base_description": "A significant historical event after which demons appeared.",
+      "base_attributes": {
+        "time": "ancient times"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "notebook_found",
+      "name": "Notebook found",
+      "type": "event",
+      "base_description": "The event of the notebook being found under the bed.",
+      "base_attributes": {
+        "time": "during the conversation"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "storytelling",
+      "name": "Storytelling",
+      "type": "event",
+      "base_description": "The event of Maria telling the story about the cat.",
+      "base_attributes": {
+        "time": "after finding the notebook"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "rock",
+      "name": "rock",
+      "type": "item",
+      "base_description": "The form the cat was in before World Recreation.",
+      "base_attributes": {
+        "material": "stone"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "demons",
+      "name": "demons",
+      "type": "group",
+      "base_description": "A group of entities that appeared after World Recreation.",
+      "base_attributes": {
+        "origin": "World Recreation"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "little_girl_asks_for_story_maria_edge",
+      "source": "little_girl",
+      "target": "maria",
+      "relation": "asks for story",
+      "description": "The little girl asks Maria to tell a story about the cat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "little_girl_is_in_bedroom_edge",
+      "source": "little_girl",
+      "target": "bedroom",
+      "relation": "is in",
+      "description": "The little girl is sitting in her bedroom.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "father_is_in_bedroom_edge",
+      "source": "father",
+      "target": "bedroom",
+      "relation": "is in",
+      "description": "The father is staying indoors, likely in the bedroom.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "father_participates_in_storytelling_edge",
+      "source": "father",
+      "target": "storytelling",
+      "relation": "participates in",
+      "description": "The father participates in the storytelling event by engaging with the story.",
+      "weight": 0.8,
+      "time_start_event": "Storytelling",
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "maria_is_asked_by_little_girl_edge",
+      "source": "maria",
+      "target": "little_girl",
+      "relation": "is asked by",
+      "description": "The little girl asks Maria to tell a story about the cat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "maria_needs_notebook_edge",
+      "source": "maria",
+      "target": "notebook",
+      "relation": "needs",
+      "description": "Maria needs the notebook to tell the story.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "maria_participates_in_storytelling_edge",
+      "source": "maria",
+      "target": "storytelling",
+      "relation": "participates in",
+      "description": "Maria participates in the storytelling event.",
+      "weight": 1.0,
+      "time_start_event": "Storytelling",
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "maria_is_in_bedroom_edge",
+      "source": "maria",
+      "target": "bedroom",
+      "relation": "is in",
+      "description": "Maria is sitting on the bed in the bedroom.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_finds_notebook_edge",
+      "source": "cat",
+      "target": "notebook",
+      "relation": "finds",
+      "description": "The cat finds the notebook under the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_was_affected_by_world_recreation_edge",
+      "source": "cat",
+      "target": "world_recreation",
+      "relation": "was affected by",
+      "description": "The cat was a rock before the World Recreation event.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_was_rock_edge",
+      "source": "cat",
+      "target": "rock",
+      "relation": "was",
+      "description": "The cat was a rock before World Recreation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_is_needed_by_maria_edge",
+      "source": "notebook",
+      "target": "maria",
+      "relation": "is needed by",
+      "description": "Maria needs the notebook to tell the story.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_is_found_by_cat_edge",
+      "source": "notebook",
+      "target": "cat",
+      "relation": "is found by",
+      "description": "The cat finds the notebook under the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_is_under_bed_edge",
+      "source": "notebook",
+      "target": "bed",
+      "relation": "is under",
+      "description": "The notebook is found under the bed.",
+      "weight": 1.0,
+      "time_start_event": "Notebook found",
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_is_used_in_storytelling_edge",
+      "source": "notebook",
+      "target": "storytelling",
+      "relation": "is used in",
+      "description": "The notebook is used in the storytelling event.",
+      "weight": 1.0,
+      "time_start_event": "Storytelling",
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bed_has_under_notebook_edge",
+      "source": "bed",
+      "target": "notebook",
+      "relation": "has under",
+      "description": "The notebook is found under the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bed_is_in_bedroom_edge",
+      "source": "bed",
+      "target": "bedroom",
+      "relation": "is in",
+      "description": "The bed is located in the bedroom.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bedroom_contains_bed_edge",
+      "source": "bedroom",
+      "target": "bed",
+      "relation": "contains",
+      "description": "The bed is located in the bedroom.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bedroom_contains_little_girl_edge",
+      "source": "bedroom",
+      "target": "little_girl",
+      "relation": "contains",
+      "description": "The little girl is sitting in her bedroom.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bedroom_contains_maria_edge",
+      "source": "bedroom",
+      "target": "maria",
+      "relation": "contains",
+      "description": "Maria is sitting on the bed in the bedroom.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bedroom_contains_father_edge",
+      "source": "bedroom",
+      "target": "father",
+      "relation": "contains",
+      "description": "The father is staying indoors, likely in the bedroom.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "world_recreation_affected_cat_edge",
+      "source": "world_recreation",
+      "target": "cat",
+      "relation": "affected",
+      "description": "The cat was a rock before the World Recreation event.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "world_recreation_caused_appearance_of_demons_edge",
+      "source": "world_recreation",
+      "target": "demons",
+      "relation": "caused appearance of",
+      "description": "World Recreation caused the appearance of demons.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_found_precedes_storytelling_edge",
+      "source": "notebook_found",
+      "target": "storytelling",
+      "relation": "precedes",
+      "description": "The notebook being found precedes the storytelling event.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "storytelling_follows_notebook_found_edge",
+      "source": "storytelling",
+      "target": "notebook_found",
+      "relation": "follows",
+      "description": "The notebook being found precedes the storytelling event.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "storytelling_involves_maria_edge",
+      "source": "storytelling",
+      "target": "maria",
+      "relation": "involves",
+      "description": "Maria participates in the storytelling event.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "storytelling_uses_notebook_edge",
+      "source": "storytelling",
+      "target": "notebook",
+      "relation": "uses",
+      "description": "The notebook is used in the storytelling event.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "storytelling_involves_father_edge",
+      "source": "storytelling",
+      "target": "father",
+      "relation": "involves",
+      "description": "The father participates in the storytelling event by engaging with the story.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rock_was_form_of_cat_edge",
+      "source": "rock",
+      "target": "cat",
+      "relation": "was form of",
+      "description": "The cat was a rock before World Recreation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "demons_appeared_after_world_recreation_edge",
+      "source": "demons",
+      "target": "world_recreation",
+      "relation": "appeared after",
+      "description": "World Recreation caused the appearance of demons.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    }
+  ]
+}

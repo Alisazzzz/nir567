@@ -5,6 +5,7 @@ langchain-experimental==0.3.4
 langchain-ollama==0.3.8
 langchain-huggingface==0.3.1
 langchain-openai==0.3.35
+langchain-mistralai==0.2.12
 langchain-text-splitters==0.3.11
 langsmith==0.4.29
 pypdf 

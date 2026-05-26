@@ -1,0 +1,1204 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "elden_ring_short_russian",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "междуземье",
+      "name": "Междуземье",
+      "type": "location",
+      "base_description": "Древний мир, существовавший под властью Золотого Порядка. Мир руин, безумия и бесконечного упадка.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "раскол_междуземье_0",
+          "current_description": "Древний мир, существовавший под властью Золотого Порядка.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "Раскол"
+        },
+        {
+          "sid": "раскол_междуземье_1",
+          "current_description": "Мир руин, безумия и бесконечного упадка.",
+          "current_attributes": {
+            "статус": "разрушено"
+          },
+          "time_start_event": "Раскол",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "древо_эрд",
+      "name": "Древо Эрд",
+      "type": "environment_element",
+      "base_description": "Гигантское золотое древо, чьё сияние считалось символом благодати и божественной власти. Источник Золотого Порядка.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "золотой_порядок",
+      "name": "Золотой Порядок",
+      "type": "item",
+      "base_description": "Система законов, воплощённая в Кольце Элден. Правит Междуземьем. Разрушен Марикой.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "разрушение_кольца_элден_золотой_порядок_0",
+          "current_description": "Система законов, воплощённая в Кольце Элден. Правит Междуземьем.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "Разрушение Кольца Элден"
+        },
+        {
+          "sid": "разрушение_кольца_элден_золотой_порядок_1",
+          "current_description": "Система законов, воплощённая в Кольце Элден. Разрушен Марикой.",
+          "current_attributes": {
+            "статус": "разрушен"
+          },
+          "time_start_event": "Разрушение Кольца Элден",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "высшая_воля",
+      "name": "Высшая Воля",
+      "type": "character",
+      "base_description": "Внешнее божество, действующее через Марику Вечную.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "полубоги",
+      "name": "полубоги",
+      "type": "group",
+      "base_description": "Группа, служащая Золотому Порядку в Междуземье. Наследники Марики, борющиеся за осколки Кольца.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "население",
+      "name": "население",
+      "type": "group",
+      "base_description": "Население Междуземья, служащее Золотому Порядку.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "падение_мира",
+      "name": "Падение мира",
+      "type": "event",
+      "base_description": "Началось после Ночи Чёрных Ножей. Катастрофа для всего Золотого Порядка.",
+      "base_attributes": {
+        "time": "после Ночи Чёрных Ножей"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "ночь_чёрных_ножей",
+      "name": "Ночь Чёрных Ножей",
+      "type": "event",
+      "base_description": "Тайный заговор, в ходе которого был убит Годвин Золотой.",
+      "base_attributes": {
+        "time": "до Падения мира"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "годвин_золотой",
+      "name": "Годвин Золотой",
+      "type": "character",
+      "base_description": "Сын Марики и первый из полубогов, познавший истинную смерть.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "ночь_чёрных_ножей_годвин_золотой_0",
+          "current_description": "Сын Марики и первый из полубогов.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "Ночь Чёрных Ножей"
+        },
+        {
+          "sid": "ночь_чёрных_ножей_годвин_золотой_1",
+          "current_description": "Сын Марики и первый из полубогов, познавший истинную смерть.",
+          "current_attributes": {
+            "статус": "мёртвый"
+          },
+          "time_start_event": "Ночь Чёрных Ножей",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "разрушение_кольца_элден",
+      "name": "Разрушение Кольца Элден",
+      "type": "event",
+      "base_description": "Событие, в ходе которого Марика разрушила Кольцо Элден.",
+      "base_attributes": {
+        "time": "после Ночи Чёрных Ножей"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "раскол",
+      "name": "Раскол",
+      "type": "event",
+      "base_description": "Война, последовавшая за разрушением Кольца Элден.",
+      "base_attributes": {
+        "time": "после разрушения Кольца Элден"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "борьба_за_осколки_кольца",
+      "name": "Борьба за осколки Кольца",
+      "type": "event",
+      "base_description": "Ожесточённая борьба полубогов за осколки Кольца.",
+      "base_attributes": {
+        "time": "во время Раскола"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "дети_марики",
+      "name": "Дети Марики",
+      "type": "group",
+      "base_description": "Наследники Марики, искажённые силой Великих Рун.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "раскол_дети_марики_0",
+          "current_description": "Наследники Марики.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "Раскол"
+        },
+        {
+          "sid": "раскол_дети_марики_1",
+          "current_description": "Наследники Марики, искажённые силой Великих Рун.",
+          "current_attributes": {
+            "статус": "искажены"
+          },
+          "time_start_event": "Раскол",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "искажение_детей_марики",
+      "name": "Искажение Детей Марики",
+      "type": "event",
+      "base_description": "Событие, в ходе которого Дети Марики были искажены силой Великих Рун.",
+      "base_attributes": {
+        "time": "во время Раскола"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "право_стать_новым_владыкой_междуземья",
+      "name": "Право стать новым владыкой Междуземья",
+      "type": "item",
+      "base_description": "Цель борьбы полубогов.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "война",
+      "name": "Война",
+      "type": "event",
+      "base_description": "Событие, превратившее некогда величественное королевство в мир руин.",
+      "base_attributes": {
+        "time": "во время Раскола"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "благодать",
+      "name": "благодать",
+      "type": "environment_element",
+      "base_description": "Символ, воплощённый в сиянии Древа Эрд.",
+      "base_attributes": {
+        "источник": "Древо Эрд"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "некогда_величественное_королевство",
+      "name": "Некогда величественное королевство",
+      "type": "location",
+      "base_description": "Королевство, которое было превращено в мир руин, безумия и бесконечного упадка.",
+      "base_attributes": {
+        "состояние": "разрушено"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "осколки_кольца",
+      "name": "Осколки Кольца",
+      "type": "item",
+      "base_description": "Осколки Кольца Элден, Великие руны, за которые боролись полубоги.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "марика_вечная",
+      "name": "Марика Вечная",
+      "type": "character",
+      "base_description": "Марика, также известная как Марика Вечная, разрушила Кольцо Элден, расколов его на Великие Руны.",
+      "base_attributes": {
+        "титул": "Вечная"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "кольцо_элден",
+      "name": "Кольцо Элден",
+      "type": "item",
+      "base_description": "Кольцо Элден также известно как Золотое Кольцо, воплощение Золотого Порядка. Хранится Марикой Вечной. Разрушено Марикой.",
+      "base_attributes": {
+        "материал": "золото"
+      },
+      "states": [
+        {
+          "sid": "разрушение_кольца_элден_кольцо_элден_0",
+          "current_description": "Воплощение Золотого Порядка. Хранится Марикой Вечной.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "Разрушение Кольца Элден"
+        },
+        {
+          "sid": "разрушение_кольца_элден_кольцо_элден_1",
+          "current_description": "Воплощение Золотого Порядка. Было разрушено Марикой.",
+          "current_attributes": {
+            "статус": "разрушено"
+          },
+          "time_start_event": "Разрушение Кольца Элден",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "междуземье_правится_золотой_порядок_edge",
+      "source": "междуземье",
+      "target": "золотой_порядок",
+      "relation": "правится",
+      "description": "Междуземье правится Золотым Порядком.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "междуземье_было_превращено_в_раскол_edge",
+      "source": "междуземье",
+      "target": "раскол",
+      "relation": "было превращено в",
+      "description": "Раскол превратил Междуземье в мир руин.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "междуземье_стало_местом_падение_мира_edge",
+      "source": "междуземье",
+      "target": "падение_мира",
+      "relation": "стало местом",
+      "description": "Падение мира произошло в Междуземье.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "междуземье_содержит_древо_эрд_edge",
+      "source": "междуземье",
+      "target": "древо_эрд",
+      "relation": "содержит",
+      "description": "Древо Эрд находится в Междуземье",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "междуземье_подчиняется_высшая_воля_edge",
+      "source": "междуземье",
+      "target": "высшая_воля",
+      "relation": "подчиняется",
+      "description": "Высшая Воля правит Междуземьем через Марику Вечную",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "междуземье_правится_марика_edge",
+      "source": "междуземье",
+      "target": "марика_вечная",
+      "relation": "правится",
+      "description": "Марика правит Междуземьем через Золотой Порядок.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "междуземье_объединяется_марика_вечная_edge",
+      "source": "междуземье",
+      "target": "марика_вечная",
+      "relation": "объединяется",
+      "description": "Марика Вечная объединяет Междуземье",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "древо_эрд_является_источником_золотой_порядок_edge",
+      "source": "древо_эрд",
+      "target": "золотой_порядок",
+      "relation": "является источником",
+      "description": "Источником Золотого Порядка является Древо Эрд.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "древо_эрд_находится_в_междуземье_edge",
+      "source": "древо_эрд",
+      "target": "междуземье",
+      "relation": "находится в",
+      "description": "Древо Эрд находится в Междуземье",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "древо_эрд_является_символом_благодать_edge",
+      "source": "древо_эрд",
+      "target": "благодать",
+      "relation": "является символом",
+      "description": "Древо Эрд является символом божественной власти",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "золотой_порядок_правит_междуземье_edge",
+      "source": "золотой_порядок",
+      "target": "междуземье",
+      "relation": "правит",
+      "description": "Междуземье правится Золотым Порядком.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "золотой_порядок_имеет_источник_древо_эрд_edge",
+      "source": "золотой_порядок",
+      "target": "древо_эрд",
+      "relation": "имеет источник",
+      "description": "Источником Золотого Порядка является Древо Эрд.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "золотой_порядок_обслуживается_полубоги_edge",
+      "source": "золотой_порядок",
+      "target": "полубоги",
+      "relation": "обслуживается",
+      "description": "Полубоги служат Золотому Порядку.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "золотой_порядок_обслуживается_население_edge",
+      "source": "золотой_порядок",
+      "target": "население",
+      "relation": "обслуживается",
+      "description": "Население служит Золотому Порядку.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "золотой_порядок_пострадал_от_падение_мира_edge",
+      "source": "золотой_порядок",
+      "target": "падение_мира",
+      "relation": "пострадал от",
+      "description": "Падение мира стало катастрофой для Золотого Порядка.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "золотой_порядок_пострадал_от_ночь_чёрных_ножей_edge",
+      "source": "золотой_порядок",
+      "target": "ночь_чёрных_ножей",
+      "relation": "пострадал от",
+      "description": "Ночь Чёрных Ножей стала катастрофой для Золотого Порядка.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "золотой_порядок_правит_марика_вечная_edge",
+      "source": "золотой_порядок",
+      "target": "марика_вечная",
+      "relation": "правит",
+      "description": "Золотой Порядок правит через Марику Вечную",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "золотой_порядок_был_разрушен_марика_edge",
+      "source": "золотой_порядок",
+      "target": "марика_вечная",
+      "relation": "был разрушен",
+      "description": "Марика разрушила Золотой Порядок.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "золотой_порядок_воплощается_в_кольцо_элден_edge",
+      "source": "золотой_порядок",
+      "target": "кольцо_элден",
+      "relation": "воплощается в",
+      "description": "Золотой Порядок воплощён в Кольце Элден.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "высшая_воля_правит_междуземье_edge",
+      "source": "высшая_воля",
+      "target": "междуземье",
+      "relation": "правит",
+      "description": "Высшая Воля правит Междуземьем через Марику Вечную",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "высшая_воля_действует_через_марика_вечная_edge",
+      "source": "высшая_воля",
+      "target": "марика_вечная",
+      "relation": "действует через",
+      "description": "Высшая Воля действует через Марику Вечную.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "полубоги_служат_золотой_порядок_edge",
+      "source": "полубоги",
+      "target": "золотой_порядок",
+      "relation": "служат",
+      "description": "Полубоги служат Золотому Порядку.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "полубоги_борются_за_право_стать_новым_владыкой_междуземья_edge",
+      "source": "полубоги",
+      "target": "право_стать_новым_владыкой_междуземья",
+      "relation": "борются за",
+      "description": "Полубоги борются за право стать новым владыкой Междуземья.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "полубоги_включает_годвин_золотой_edge",
+      "source": "полубоги",
+      "target": "годвин_золотой",
+      "relation": "включает",
+      "description": "Годвин Золотой был первым из полубогов, познавшим истинную смерть.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "полубоги_борются_за_осколки_кольца_edge",
+      "source": "полубоги",
+      "target": "осколки_кольца",
+      "relation": "борются за",
+      "description": "Полубоги борются за осколки Кольца.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "полубоги_дети_марика_edge",
+      "source": "полубоги",
+      "target": "марика_вечная",
+      "relation": "дети",
+      "description": "Полубоги являются детьми Марики.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "полубоги_подчиняются_марика_вечная_edge",
+      "source": "полубоги",
+      "target": "марика_вечная",
+      "relation": "подчиняются",
+      "description": "Марика Вечная правит полубогами",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "население_служат_золотой_порядок_edge",
+      "source": "население",
+      "target": "золотой_порядок",
+      "relation": "служат",
+      "description": "Население служит Золотому Порядку.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "население_подчиняется_марика_вечная_edge",
+      "source": "население",
+      "target": "марика_вечная",
+      "relation": "подчиняется",
+      "description": "Марика Вечная правит населением",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "падение_мира_началось_после_ночь_чёрных_ножей_edge",
+      "source": "падение_мира",
+      "target": "ночь_чёрных_ножей",
+      "relation": "follows",
+      "description": "Ночь Чёрных Ножей привела к Падению мира.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "падение_мира_стало_катастрофой_для_золотой_порядок_edge",
+      "source": "падение_мира",
+      "target": "золотой_порядок",
+      "relation": "стало катастрофой для",
+      "description": "Падение мира стало катастрофой для Золотого Порядка.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "падение_мира_произошло_в_междуземье_edge",
+      "source": "падение_мира",
+      "target": "междуземье",
+      "relation": "произошло в",
+      "description": "Падение мира произошло в Междуземье.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "падение_мира_привело_к_раскол_edge",
+      "source": "падение_мира",
+      "target": "раскол",
+      "relation": "precedes",
+      "description": "Падение мира привело к Расколу.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ночь_чёрных_ножей_привела_к_падение_мира_edge",
+      "source": "ночь_чёрных_ножей",
+      "target": "падение_мира",
+      "relation": "precedes",
+      "description": "Ночь Чёрных Ножей привела к Падению мира.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ночь_чёрных_ножей_включает_смерть_годвин_золотой_edge",
+      "source": "ночь_чёрных_ножей",
+      "target": "годвин_золотой",
+      "relation": "включает смерть",
+      "description": "Годвин Золотой был убит во время Ночи Чёрных Ножей.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "ночь_чёрных_ножей_стало_катастрофой_для_золотой_порядок_edge",
+      "source": "ночь_чёрных_ножей",
+      "target": "золотой_порядок",
+      "relation": "стало катастрофой для",
+      "description": "Ночь Чёрных Ножей стала катастрофой для Золотого Порядка.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "годвин_золотой_умер_во_время_ночь_чёрных_ножей_edge",
+      "source": "годвин_золотой",
+      "target": "ночь_чёрных_ножей",
+      "relation": "умер во время",
+      "description": "Годвин Золотой был убит во время Ночи Чёрных Ножей.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "годвин_золотой_первый_из_полубоги_edge",
+      "source": "годвин_золотой",
+      "target": "полубоги",
+      "relation": "первый из",
+      "description": "Годвин Золотой был первым из полубогов, познавшим истинную смерть.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "годвин_золотой_сын_марика_edge",
+      "source": "годвин_золотой",
+      "target": "марика_вечная",
+      "relation": "сын",
+      "description": "Годвин Золотой является сыном Марики.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "разрушение_кольца_элден_привело_к_раскол_edge",
+      "source": "разрушение_кольца_элден",
+      "target": "раскол",
+      "relation": "привело к",
+      "description": "Разрушение Кольца Элден привело к Расколу.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "разрушение_кольца_элден_привело_к_раскол_edge",
+      "source": "разрушение_кольца_элден",
+      "target": "раскол",
+      "relation": "precedes",
+      "description": "Разрушение Кольца Элден привело к Расколу.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "разрушение_кольца_элден_создало_великие_руны_edge",
+      "source": "разрушение_кольца_элден",
+      "target": "осколки_кольца",
+      "relation": "создало",
+      "description": "Разрушение Кольца Элден привело к созданию Великих Рун.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "раскол_начался_после_разрушение_кольца_элден_edge",
+      "source": "раскол",
+      "target": "разрушение_кольца_элден",
+      "relation": "follows",
+      "description": "Разрушение Кольца Элден привело к Расколу.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "раскол_исказил_дети_марики_edge",
+      "source": "раскол",
+      "target": "дети_марики",
+      "relation": "исказил",
+      "description": "Раскол исказил Детей Марики.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "раскол_превратил_в_междуземье_edge",
+      "source": "раскол",
+      "target": "междуземье",
+      "relation": "превратил в",
+      "description": "Раскол превратил Междуземье в мир руин.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "раскол_включает_война_edge",
+      "source": "раскол",
+      "target": "война",
+      "relation": "включает",
+      "description": "Раскол включает войну, превратившую королевство в руины.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "раскол_включает_борьба_за_осколки_кольца_edge",
+      "source": "раскол",
+      "target": "борьба_за_осколки_кольца",
+      "relation": "включает",
+      "description": "Борьба за осколки Кольца является частью Раскола.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "раскол_превратил_в_некогда_величественное_королевство_edge",
+      "source": "раскол",
+      "target": "некогда_величественное_королевство",
+      "relation": "превратил в",
+      "description": "Раскол превратил некогда величественное королевство в мир руин.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "раскол_началось_после_падение_мира_edge",
+      "source": "раскол",
+      "target": "падение_мира",
+      "relation": "follows",
+      "description": "Падение мира привело к Расколу.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "борьба_за_осколки_кольца_является_частью_раскол_edge",
+      "source": "борьба_за_осколки_кольца",
+      "target": "раскол",
+      "relation": "является частью",
+      "description": "Борьба за осколки Кольца является частью Раскола.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "борьба_за_осколки_кольца_имеет_целью_великие_руны_edge",
+      "source": "борьба_за_осколки_кольца",
+      "target": "осколки_кольца",
+      "relation": "имеет целью",
+      "description": "Великие Руны являются целью борьбы за осколки Кольца.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "дети_марики_были_искажены_во_время_раскол_edge",
+      "source": "дети_марики",
+      "target": "раскол",
+      "relation": "были искажены во время",
+      "description": "Раскол исказил Детей Марики.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "дети_марики_дети_марика_edge",
+      "source": "дети_марики",
+      "target": "марика_вечная",
+      "relation": "дети",
+      "description": "Дети Марики являются её детьми.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "искажение_детей_марики_вызвано_великие_руны_edge",
+      "source": "искажение_детей_марики",
+      "target": "осколки_кольца",
+      "relation": "вызвано",
+      "description": "Искажение Детей Марики вызвано силой Великих Рун.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "право_стать_новым_владыкой_междуземья_является_целью_борьбы_полубоги_edge",
+      "source": "право_стать_новым_владыкой_междуземья",
+      "target": "полубоги",
+      "relation": "является целью борьбы",
+      "description": "Полубоги борются за право стать новым владыкой Междуземья.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "война_является_частью_раскол_edge",
+      "source": "война",
+      "target": "раскол",
+      "relation": "является частью",
+      "description": "Раскол включает войну, превратившую королевство в руины.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "благодать_символизируется_древо_эрд_edge",
+      "source": "благодать",
+      "target": "древо_эрд",
+      "relation": "символизируется",
+      "description": "Древо Эрд является символом божественной власти",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "некогда_величественное_королевство_было_превращено_в_раскол_edge",
+      "source": "некогда_величественное_королевство",
+      "target": "раскол",
+      "relation": "было превращено в",
+      "description": "Раскол превратил некогда величественное королевство в мир руин.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "великие_руны_были_созданы_в_результате_разрушение_кольца_элден_edge",
+      "source": "осколки_кольца",
+      "target": "разрушение_кольца_элден",
+      "relation": "были созданы в результате",
+      "description": "Разрушение Кольца Элден привело к созданию Великих Рун.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "великие_руны_вызвало_искажение_детей_марики_edge",
+      "source": "осколки_кольца",
+      "target": "искажение_детей_марики",
+      "relation": "вызвало",
+      "description": "Искажение Детей Марики вызвано силой Великих Рун.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "великие_руны_являются_целью_борьба_за_осколки_кольца_edge",
+      "source": "осколки_кольца",
+      "target": "борьба_за_осколки_кольца",
+      "relation": "являются целью",
+      "description": "Великие Руны являются целью борьбы за осколки Кольца.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "осколки_кольца_являются_целью_борьбы_полубоги_edge",
+      "source": "осколки_кольца",
+      "target": "полубоги",
+      "relation": "являются целью борьбы",
+      "description": "Полубоги борются за осколки Кольца.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "марика_вечная_является_посредником_высшая_воля_edge",
+      "source": "марика_вечная",
+      "target": "высшая_воля",
+      "relation": "является посредником",
+      "description": "Высшая Воля действует через Марику Вечную.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "марика_правит_междуземье_edge",
+      "source": "марика_вечная",
+      "target": "междуземье",
+      "relation": "правит",
+      "description": "Марика правит Междуземьем через Золотой Порядок.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "марика_вечная_объединяет_междуземье_edge",
+      "source": "марика_вечная",
+      "target": "междуземье",
+      "relation": "объединяет",
+      "description": "Марика Вечная объединяет Междуземье",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "марика_вечная_правит_полубоги_edge",
+      "source": "марика_вечная",
+      "target": "полубоги",
+      "relation": "правит",
+      "description": "Марика Вечная правит полубогами",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "марика_мать_полубоги_edge",
+      "source": "марика_вечная",
+      "target": "полубоги",
+      "relation": "мать",
+      "description": "Полубоги являются детьми Марики.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "марика_вечная_правит_население_edge",
+      "source": "марика_вечная",
+      "target": "население",
+      "relation": "правит",
+      "description": "Марика Вечная правит населением",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "марика_вечная_подчиняется_золотой_порядок_edge",
+      "source": "марика_вечная",
+      "target": "золотой_порядок",
+      "relation": "подчиняется",
+      "description": "Золотой Порядок правит через Марику Вечную",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "марика_разрушила_золотой_порядок_edge",
+      "source": "марика_вечная",
+      "target": "золотой_порядок",
+      "relation": "разрушила",
+      "description": "Марика разрушила Золотой Порядок.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "марика_мать_годвин_золотой_edge",
+      "source": "марика_вечная",
+      "target": "годвин_золотой",
+      "relation": "мать",
+      "description": "Годвин Золотой является сыном Марики.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "марика_мать_дети_марики_edge",
+      "source": "марика_вечная",
+      "target": "дети_марики",
+      "relation": "мать",
+      "description": "Дети Марики являются её детьми.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "марика_хранит_золотое_кольцо_edge",
+      "source": "марика_вечная",
+      "target": "кольцо_элден",
+      "relation": "хранит",
+      "description": "Марика Вечная хранит Золотое Кольцо.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "марика_разрушила_кольцо_элден_edge",
+      "source": "марика_вечная",
+      "target": "кольцо_элден",
+      "relation": "разрушила",
+      "description": "Марика разрушила Кольцо Элден.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "кольцо_элден_является_воплощением_золотой_порядок_edge",
+      "source": "кольцо_элден",
+      "target": "золотой_порядок",
+      "relation": "является воплощением",
+      "description": "Золотой Порядок воплощён в Кольце Элден.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "золотое_кольцо_хранится_марика_edge",
+      "source": "кольцо_элден",
+      "target": "марика_вечная",
+      "relation": "хранится",
+      "description": "Марика Вечная хранит Золотое Кольцо.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "кольцо_элден_было_разрушено_марика_edge",
+      "source": "кольцо_элден",
+      "target": "марика_вечная",
+      "relation": "было разрушено",
+      "description": "Марика разрушила Кольцо Элден.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    }
+  ]
+}

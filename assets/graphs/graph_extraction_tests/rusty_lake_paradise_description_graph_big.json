@@ -1,0 +1,1020 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "rusty_lake_paradise_description",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "caroline_eilander",
+      "name": "Caroline Eilander",
+      "type": "character",
+      "base_description": "An alchemist who develops the recipe for the elixir.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "sacrifice_of_caroline_caroline_eilander_0",
+          "current_description": "An alchemist who develops the recipe for the elixir, living on Paradise Island.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "Sacrifice of Caroline"
+        },
+        {
+          "sid": "sacrifice_of_caroline_caroline_eilander_1",
+          "current_description": "An alchemist who was sacrificed by her family.",
+          "current_attributes": {},
+          "time_start_event": "Sacrifice of Caroline",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "nicholas",
+      "name": "Nicholas",
+      "type": "character",
+      "base_description": "Caroline's husband.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "margaret",
+      "name": "Margaret",
+      "type": "character",
+      "base_description": "Nicholas' mother.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "gerard",
+      "name": "Gerard",
+      "type": "character",
+      "base_description": "Nicholas' brother.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "elizabeth",
+      "name": "Elizabeth",
+      "type": "character",
+      "base_description": "Daughter of Caroline and Nicholas.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "david",
+      "name": "David",
+      "type": "character",
+      "base_description": "Son of Caroline and Nicholas.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "jakob",
+      "name": "Jakob",
+      "type": "character",
+      "base_description": "First-born son of Caroline and Nicholas.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "sending_jakob_away_jakob_0",
+          "current_description": "First-born son of Caroline and Nicholas, living on Paradise Island.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "Sending Jakob away"
+        },
+        {
+          "sid": "sending_jakob_away_jakob_1",
+          "current_description": "First-born son of Caroline and Nicholas, sent away on a boat.",
+          "current_attributes": {},
+          "time_start_event": "Sending Jakob away",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "paradise_island",
+      "name": "Paradise Island",
+      "type": "location",
+      "base_description": "The island where Caroline and her family live.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "lake",
+      "name": "Lake",
+      "type": "environment_element",
+      "base_description": "Used as a basis for the elixir.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "elixir",
+      "name": "Elixir",
+      "type": "item",
+      "base_description": "Developed by Caroline using the Lake as a basis.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "ritual",
+      "name": "Ritual",
+      "type": "event",
+      "base_description": "A ritual that requires a human sacrifice to maintain Paradise Island.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "sending_jakob_away",
+      "name": "Sending Jakob away",
+      "type": "event",
+      "base_description": "Caroline sends Jakob away on a boat.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "sacrifice_of_caroline",
+      "name": "Sacrifice of Caroline",
+      "type": "event",
+      "base_description": "The family sacrifices Caroline instead of Jakob.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "family",
+      "name": "Family",
+      "type": "group",
+      "base_description": "Caroline's family including Nicholas, Margaret, Gerard, Elizabeth, David, and Jakob.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "boat",
+      "name": "boat",
+      "type": "item",
+      "base_description": "A vessel used by Caroline to send Jakob away.",
+      "base_attributes": {
+        "purpose": "transportation"
+      },
+      "states": [
+        {
+          "sid": "sending_jakob_away_boat_0",
+          "current_description": "A vessel.",
+          "current_attributes": {
+            "purpose": "transportation"
+          },
+          "time_start_event": "",
+          "time_end_event": "Sending Jakob away"
+        },
+        {
+          "sid": "sending_jakob_away_boat_1",
+          "current_description": "A vessel used by Caroline to send Jakob away.",
+          "current_attributes": {
+            "purpose": "transportation"
+          },
+          "time_start_event": "Sending Jakob away",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "human_sacrifice",
+      "name": "human sacrifice",
+      "type": "event",
+      "base_description": "The act of sacrificing a human as part of the ritual.",
+      "base_attributes": {
+        "purpose": "maintain Paradise Island"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "caroline_eilander_is_married_to_nicholas_edge",
+      "source": "caroline_eilander",
+      "target": "nicholas",
+      "relation": "is married to",
+      "description": "Caroline is married to Nicholas.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "caroline_eilander_is_mother_of_elizabeth_edge",
+      "source": "caroline_eilander",
+      "target": "elizabeth",
+      "relation": "is mother of",
+      "description": "Elizabeth is Caroline's daughter.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "caroline_eilander_is_mother_of_david_edge",
+      "source": "caroline_eilander",
+      "target": "david",
+      "relation": "is mother of",
+      "description": "David is Caroline's son.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "caroline_eilander_is_mother_of_jakob_edge",
+      "source": "caroline_eilander",
+      "target": "jakob",
+      "relation": "is mother of",
+      "description": "Jakob is Caroline's first-born son.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "caroline_eilander_loves_jakob_edge",
+      "source": "caroline_eilander",
+      "target": "jakob",
+      "relation": "loves",
+      "description": "Caroline loves her first-born son, Jakob.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "caroline_eilander_lives_on_paradise_island_edge",
+      "source": "caroline_eilander",
+      "target": "paradise_island",
+      "relation": "lives on",
+      "description": "Caroline lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "caroline_eilander_develops_elixir_edge",
+      "source": "caroline_eilander",
+      "target": "elixir",
+      "relation": "develops",
+      "description": "Caroline develops the elixir.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "caroline_eilander_initiates_sending_jakob_away_edge",
+      "source": "caroline_eilander",
+      "target": "sending_jakob_away",
+      "relation": "initiates",
+      "description": "Caroline sends Jakob away on a boat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "caroline_eilander_is_involved_in_sacrifice_of_caroline_edge",
+      "source": "caroline_eilander",
+      "target": "sacrifice_of_caroline",
+      "relation": "is involved in",
+      "description": "Caroline is sacrificed by the family.",
+      "weight": 1.0,
+      "time_start_event": "Sacrifice of Caroline",
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "caroline_eilander_is_part_of_family_edge",
+      "source": "caroline_eilander",
+      "target": "family",
+      "relation": "is part of",
+      "description": "Caroline was part of the family before being sacrificed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": "Sacrifice of Caroline",
+      "chunk_id": 0
+    },
+    {
+      "id": "nicholas_is_married_to_caroline_eilander_edge",
+      "source": "nicholas",
+      "target": "caroline_eilander",
+      "relation": "is married to",
+      "description": "Caroline is married to Nicholas.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "nicholas_is_son_of_margaret_edge",
+      "source": "nicholas",
+      "target": "margaret",
+      "relation": "is son of",
+      "description": "Margaret is Nicholas' mother.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "nicholas_is_brother_of_gerard_edge",
+      "source": "nicholas",
+      "target": "gerard",
+      "relation": "is brother of",
+      "description": "Gerard is Nicholas' brother.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "nicholas_lives_on_paradise_island_edge",
+      "source": "nicholas",
+      "target": "paradise_island",
+      "relation": "lives on",
+      "description": "Nicholas lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "nicholas_is_part_of_family_edge",
+      "source": "nicholas",
+      "target": "family",
+      "relation": "is part of",
+      "description": "Nicholas is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "margaret_is_mother_of_nicholas_edge",
+      "source": "margaret",
+      "target": "nicholas",
+      "relation": "is mother of",
+      "description": "Margaret is Nicholas' mother.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "margaret_lives_on_paradise_island_edge",
+      "source": "margaret",
+      "target": "paradise_island",
+      "relation": "lives on",
+      "description": "Margaret lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "margaret_is_part_of_family_edge",
+      "source": "margaret",
+      "target": "family",
+      "relation": "is part of",
+      "description": "Margaret is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "gerard_is_brother_of_nicholas_edge",
+      "source": "gerard",
+      "target": "nicholas",
+      "relation": "is brother of",
+      "description": "Gerard is Nicholas' brother.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "gerard_lives_on_paradise_island_edge",
+      "source": "gerard",
+      "target": "paradise_island",
+      "relation": "lives on",
+      "description": "Gerard lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "gerard_is_part_of_family_edge",
+      "source": "gerard",
+      "target": "family",
+      "relation": "is part of",
+      "description": "Gerard is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "elizabeth_is_daughter_of_caroline_eilander_edge",
+      "source": "elizabeth",
+      "target": "caroline_eilander",
+      "relation": "is daughter of",
+      "description": "Elizabeth is Caroline's daughter.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "elizabeth_lives_on_paradise_island_edge",
+      "source": "elizabeth",
+      "target": "paradise_island",
+      "relation": "lives on",
+      "description": "Elizabeth lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "elizabeth_is_part_of_family_edge",
+      "source": "elizabeth",
+      "target": "family",
+      "relation": "is part of",
+      "description": "Elizabeth is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "david_is_son_of_caroline_eilander_edge",
+      "source": "david",
+      "target": "caroline_eilander",
+      "relation": "is son of",
+      "description": "David is Caroline's son.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "david_lives_on_paradise_island_edge",
+      "source": "david",
+      "target": "paradise_island",
+      "relation": "lives on",
+      "description": "David lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "david_is_part_of_family_edge",
+      "source": "david",
+      "target": "family",
+      "relation": "is part of",
+      "description": "David is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "jakob_is_son_of_caroline_eilander_edge",
+      "source": "jakob",
+      "target": "caroline_eilander",
+      "relation": "is son of",
+      "description": "Jakob is Caroline's first-born son.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "jakob_is_loved_by_caroline_eilander_edge",
+      "source": "jakob",
+      "target": "caroline_eilander",
+      "relation": "is loved by",
+      "description": "Caroline loves her first-born son, Jakob.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "jakob_lives_on_paradise_island_edge",
+      "source": "jakob",
+      "target": "paradise_island",
+      "relation": "lives on",
+      "description": "Jakob lived on Paradise Island before being sent away.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": "Sending Jakob away",
+      "chunk_id": 0
+    },
+    {
+      "id": "jakob_is_intended_to_be_sacrificed_by_family_edge",
+      "source": "jakob",
+      "target": "family",
+      "relation": "is intended to be sacrificed by",
+      "description": "The family wishes to sacrifice Jakob.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "jakob_is_part_of_family_edge",
+      "source": "jakob",
+      "target": "family",
+      "relation": "is part of",
+      "description": "Jakob was part of the family before being sent away.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": "Sending Jakob away",
+      "chunk_id": 0
+    },
+    {
+      "id": "jakob_is_involved_in_sending_jakob_away_edge",
+      "source": "jakob",
+      "target": "sending_jakob_away",
+      "relation": "is involved in",
+      "description": "Jakob is sent away on a boat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paradise_island_is_home_to_caroline_eilander_edge",
+      "source": "paradise_island",
+      "target": "caroline_eilander",
+      "relation": "is home to",
+      "description": "Caroline lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paradise_island_is_home_to_nicholas_edge",
+      "source": "paradise_island",
+      "target": "nicholas",
+      "relation": "is home to",
+      "description": "Nicholas lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paradise_island_is_home_to_margaret_edge",
+      "source": "paradise_island",
+      "target": "margaret",
+      "relation": "is home to",
+      "description": "Margaret lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paradise_island_is_home_to_gerard_edge",
+      "source": "paradise_island",
+      "target": "gerard",
+      "relation": "is home to",
+      "description": "Gerard lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paradise_island_is_home_to_elizabeth_edge",
+      "source": "paradise_island",
+      "target": "elizabeth",
+      "relation": "is home to",
+      "description": "Elizabeth lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paradise_island_is_home_to_david_edge",
+      "source": "paradise_island",
+      "target": "david",
+      "relation": "is home to",
+      "description": "David lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paradise_island_is_home_to_jakob_edge",
+      "source": "paradise_island",
+      "target": "jakob",
+      "relation": "is home to",
+      "description": "Jakob lives on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paradise_island_contains_lake_edge",
+      "source": "paradise_island",
+      "target": "lake",
+      "relation": "contains",
+      "description": "The Lake is located on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paradise_island_is_wished_to_be_maintained_by_family_edge",
+      "source": "paradise_island",
+      "target": "family",
+      "relation": "is wished to be maintained by",
+      "description": "The family wishes to maintain Paradise Island through the ritual.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paradise_island_is_maintained_by_human_sacrifice_edge",
+      "source": "paradise_island",
+      "target": "human_sacrifice",
+      "relation": "is maintained by",
+      "description": "The human sacrifice is intended to maintain Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "lake_located_in_paradise_island_edge",
+      "source": "lake",
+      "target": "paradise_island",
+      "relation": "located in",
+      "description": "The Lake is located on Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "lake_is_used_by_elixir_edge",
+      "source": "lake",
+      "target": "elixir",
+      "relation": "is used by",
+      "description": "The elixir uses the Lake as a basis.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "elixir_is_developed_by_caroline_eilander_edge",
+      "source": "elixir",
+      "target": "caroline_eilander",
+      "relation": "is developed by",
+      "description": "Caroline develops the elixir.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "elixir_uses_lake_edge",
+      "source": "elixir",
+      "target": "lake",
+      "relation": "uses",
+      "description": "The elixir uses the Lake as a basis.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "ritual_is_maintained_by_family_edge",
+      "source": "ritual",
+      "target": "family",
+      "relation": "is maintained by",
+      "description": "The family wishes to maintain Paradise Island through the ritual.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "ritual_requires_human_sacrifice_edge",
+      "source": "ritual",
+      "target": "human_sacrifice",
+      "relation": "requires",
+      "description": "The ritual requires a human sacrifice.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "sending_jakob_away_is_initiated_by_caroline_eilander_edge",
+      "source": "sending_jakob_away",
+      "target": "caroline_eilander",
+      "relation": "is initiated by",
+      "description": "Caroline sends Jakob away on a boat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "sending_jakob_away_involves_jakob_edge",
+      "source": "sending_jakob_away",
+      "target": "jakob",
+      "relation": "involves",
+      "description": "Jakob is sent away on a boat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "sending_jakob_away_uses_boat_edge",
+      "source": "sending_jakob_away",
+      "target": "boat",
+      "relation": "uses",
+      "description": "The event of sending Jakob away involves using a boat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "sacrifice_of_caroline_is_performed_by_family_edge",
+      "source": "sacrifice_of_caroline",
+      "target": "family",
+      "relation": "is performed by",
+      "description": "The family sacrifices Caroline instead of Jakob.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "sacrifice_of_caroline_involves_caroline_eilander_edge",
+      "source": "sacrifice_of_caroline",
+      "target": "caroline_eilander",
+      "relation": "involves",
+      "description": "Caroline is sacrificed by the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_wishes_to_maintain_ritual_edge",
+      "source": "family",
+      "target": "ritual",
+      "relation": "wishes to maintain",
+      "description": "The family wishes to maintain Paradise Island through the ritual.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_wishes_to_sacrifice_jakob_edge",
+      "source": "family",
+      "target": "jakob",
+      "relation": "wishes to sacrifice",
+      "description": "The family wishes to sacrifice Jakob.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_contains_jakob_edge",
+      "source": "family",
+      "target": "jakob",
+      "relation": "contains",
+      "description": "Jakob is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_performs_sacrifice_of_caroline_edge",
+      "source": "family",
+      "target": "sacrifice_of_caroline",
+      "relation": "performs",
+      "description": "The family sacrifices Caroline instead of Jakob.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_contains_caroline_eilander_edge",
+      "source": "family",
+      "target": "caroline_eilander",
+      "relation": "contains",
+      "description": "Caroline is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_contains_nicholas_edge",
+      "source": "family",
+      "target": "nicholas",
+      "relation": "contains",
+      "description": "Nicholas is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_contains_margaret_edge",
+      "source": "family",
+      "target": "margaret",
+      "relation": "contains",
+      "description": "Margaret is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_contains_gerard_edge",
+      "source": "family",
+      "target": "gerard",
+      "relation": "contains",
+      "description": "Gerard is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_contains_elizabeth_edge",
+      "source": "family",
+      "target": "elizabeth",
+      "relation": "contains",
+      "description": "Elizabeth is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_contains_david_edge",
+      "source": "family",
+      "target": "david",
+      "relation": "contains",
+      "description": "David is part of the family.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_wishes_to_maintain_paradise_island_edge",
+      "source": "family",
+      "target": "paradise_island",
+      "relation": "wishes to maintain",
+      "description": "The family wishes to maintain Paradise Island through the ritual.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "family_intends_human_sacrifice_edge",
+      "source": "family",
+      "target": "human_sacrifice",
+      "relation": "intends",
+      "description": "The family intends to perform a human sacrifice as part of the ritual.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "boat_is_used_by_sending_jakob_away_edge",
+      "source": "boat",
+      "target": "sending_jakob_away",
+      "relation": "is used by",
+      "description": "The event of sending Jakob away involves using a boat.",
+      "weight": 1.0,
+      "time_start_event": "Sending Jakob away",
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "human_sacrifice_is_required_by_ritual_edge",
+      "source": "human_sacrifice",
+      "target": "ritual",
+      "relation": "is required by",
+      "description": "The ritual requires a human sacrifice.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "human_sacrifice_is_intended_by_family_edge",
+      "source": "human_sacrifice",
+      "target": "family",
+      "relation": "is intended by",
+      "description": "The family intends to perform a human sacrifice as part of the ritual.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "human_sacrifice_maintains_paradise_island_edge",
+      "source": "human_sacrifice",
+      "target": "paradise_island",
+      "relation": "maintains",
+      "description": "The human sacrifice is intended to maintain Paradise Island.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    }
+  ]
+}

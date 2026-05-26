@@ -143,27 +143,23 @@ class NetworkXGraph(KnowledgeGraph):
         node = self.get_node_by_id(node_id)
         changed = False
         for i, state in enumerate(node.states):
-            if state.current_description == new_state.current_description:
+            if state.sid == new_state.sid:
                 node.states[i] = new_state
                 changed = True
         if not changed:
             node.states.append(new_state)
         self.graph.nodes[node_id]["data"] = node.model_dump()
     
-    def update_edge_times(self, edge_id: str, new_description: str, 
-                      time_start_event: Optional[str] = None, 
-                      time_end_event: Optional[str] = None) -> None:
-        edge = self.get_edge_by_id(edge_id)
-        if edge:
-            if time_start_event:
-                edge.time_start_event = time_start_event
-            if time_end_event:
-                edge.time_end_event = time_end_event
-            edge.description = new_description
-            if hasattr(self, '_edge_key_map') and edge_id in self._edge_key_map:
-                u, v = self._edge_key_map[edge_id]
-                self.graph.edges[u, v]["data"] = edge
-        return
+    def update_edge_times(self, edge_id: str, new_description: str, time_start_event: Optional[str] = None, time_end_event: Optional[str] = None) -> None:
+        for u, v, attrs in self.graph.edges(data=True):
+            if "data" in attrs:
+                if attrs["data"]["id"] == edge_id:
+                    if time_start_event:
+                        attrs["data"]["time_start_event"] = time_start_event
+                    if time_end_event:
+                        attrs["data"]["time_end_event"] = time_end_event
+                    attrs["data"]["description"] = new_description
+                    print(attrs)
 
     def update_node_full(self, node_id: str, new_info: Node) -> None:
         node = self.get_node_by_id(node_id)

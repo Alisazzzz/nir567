@@ -9,14 +9,18 @@
 import heapq
 import json
 import random
+import regex
 import spacy
 import numpy as np
 import re
 from rapidfuzz import process
+
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.output_parsers import PydanticOutputParser
+from langchain_core.messages import BaseMessage
+
 from typing import Any, Dict, List, Tuple, Optional
 from itertools import combinations
 from collections import defaultdict, deque
@@ -142,8 +146,13 @@ def extract_last_json(text: str) -> str:
                     last = text[start:i+1]
     return last
 
-def clean_json(text: str) -> str:
+def get_text(response):
+    if isinstance(response, BaseMessage):
+        return response.content
+    return response
 
+def clean_json(text: str) -> str:
+    text = get_text(text)
     fallback = {
         "extracted_entities": [],
         "downer_border_event_name": None,
@@ -216,9 +225,12 @@ def extract_mentioned_entities(query: str, already_extracted_entities: List[str]
     for token in doc:
         if token.pos_ == "PROPN":
             entities.add((token.text).lower())
-    for chunk in doc.noun_chunks:
-        if not clean_string(chunk.text).lower().strip() in current_stop_words:
-            entities.add(clean_string(chunk.text).lower().strip())
+    try:
+        for chunk in doc.noun_chunks:
+            if not clean_string(chunk.text).lower().strip() in current_stop_words:
+                entities.add(clean_string(chunk.text).lower().strip())
+    except (NotImplementedError, ValueError):
+        print("cannot use noun chunk")
             
     final_extracted_entities_names = set()
     for extracted_entity in entities:
@@ -247,12 +259,16 @@ def filter_node_states_by_time(
 
     def overlaps(start_eid, end_eid):
         start_level = event_sequence.get(start_eid, min_time) if start_eid else min_time
+        print(start_level, " ", right)
         end_level = event_sequence.get(end_eid, max_time) if end_eid else max_time
+        print(end_level, " ", left)
         return not (start_level >= right or end_level < left)
 
     new_states = []
     for st in node.states:
-        if overlaps(st.time_start_event, st.time_end_event):
+        start_id = re.sub(r"\s+", "_", regex.sub(r"[^\p{L}\p{N}\s_]", "", st.time_start_event).strip()).lower() if st.time_start_event else None
+        end_id = re.sub(r"\s+", "_", regex.sub(r"[^\p{L}\p{N}\s_]", "", st.time_end_event).strip()).lower() if st.time_end_event else None
+        if overlaps(start_id, end_id):
             new_states.append(st)
     new_node = node.model_copy(deep=True)
     new_node.states = new_states
@@ -322,7 +338,7 @@ def extract_event_sequence(graph: KnowledgeGraph) -> Dict[str, int]:
         if edge.relation in ("precedes", "предшествует"):
             src = edge.source
             dst = edge.target
-        elif edge.relation in ("follows", "следует за", "следует"):
+        elif edge.relation in ("follows", "следует за"):
             src = edge.target
             dst = edge.source
         if src is None:
@@ -454,9 +470,18 @@ def retrieve_similar_nodes(
                         candidate_nodes.append(node2.id)
             else:         
                 node = graph.get_node_by_id(result.get("metadata").get("original_id"))
-                if node and node.id in candidate_nodes:
-                    candidates.append((node, result.get("distance", 0.0) + 2.0))
-                    candidate_nodes.append(node.id)
+                if use_filtration:
+                    max_time = max(events_sequence.values())+1 if events_sequence else 0
+                    if node.type == "event" and events_sequence.get(node.id, 0) >= events_sequence.get(upper_border_event_id, max_time):
+                        continue
+                    else:
+                        if node and node.id in candidate_nodes:
+                            candidates.append((node, result.get("distance", 0.0) + 2.0))
+                            candidate_nodes.append(node.id)
+                else:
+                    if node and node.id in candidate_nodes:
+                        candidates.append((node, result.get("distance", 0.0) + 2.0))
+                        candidate_nodes.append(node.id)
     candidates.sort(key=lambda x: x[1], reverse=True)
     return candidates
 
@@ -689,6 +714,9 @@ def form_context_with_llm(
     context_info.downer_border_event_name = clean_string(context_info.downer_border_event_name) if context_info.downer_border_event_name else None
     context_info.upper_border_event_name = clean_string(context_info.upper_border_event_name) if context_info.upper_border_event_name else None
 
+    print(events_sequence)
+    print(context_info)
+
     node_downer_event = graph.get_node_by_name(context_info.downer_border_event_name) if context_info.downer_border_event_name else None
     downer_border_event_id = node_downer_event.id if node_downer_event else None
     node_upper_event = graph.get_node_by_name(context_info.upper_border_event_name) if context_info.upper_border_event_name else None
@@ -702,11 +730,16 @@ def form_context_with_llm(
 
     entry_nodes = []
     for entity_name in extracted_entities_names:
-        if graph.get_node_by_name(entity_name):
-            entry_nodes.append((graph.get_node_by_name(entity_name), 1.0))
-            continue
+        entity = graph.get_node_by_name(entity_name)
+        if entity:
+            max_time = max(events_sequence.values())+1 if events_sequence else 0
+            if entity.type == "event" and events_sequence.get(entity.id, 0) >= events_sequence.get(upper_border_event_id, max_time):
+                continue
+            else:
+                entry_nodes.append((graph.get_node_by_name(entity_name), 1.0))
+                continue
         else:
-            entity_name_entry = retrieve_similar_nodes(graph=graph, text=entity_name, embedding_model=embedding_model, threshold=0.75)
+            entity_name_entry = retrieve_similar_nodes(graph=graph, text=entity_name, embedding_model=embedding_model, threshold=0.75, use_filtration=True, upper_border_event_id=upper_border_event_id, events_sequence=events_sequence)
             if len(entity_name_entry) > 0:
                 entry_nodes.extend(entity_name_entry)
     if len(entry_nodes) == 0:
@@ -717,17 +750,21 @@ def form_context_with_llm(
         neighbours = graph.get_neighbours_of_node(entry_node.id)
         for neighbour in neighbours:
             if not any(node[0] == neighbour for node in result_nodes):
-                edges = [edge for edge in graph.get_all_edges() if edge.target == neighbour.id]
-                edges = [edge for edge in edges if edge.source == entry_node.id]
-                edges.sort(key=lambda x: x.weight)
                 max_time = max(events_sequence.values())+1 if events_sequence else 0
                 min_time = 0
 
+                if neighbour.type == "event" and events_sequence.get(neighbour.id, 0) >= events_sequence.get(upper_border_event_id, max_time):
+                    continue
+
+                edges = [edge for edge in graph.get_all_edges() if edge.target == neighbour.id]
+                edges = [edge for edge in edges if edge.source == entry_node.id]
+                edges.sort(key=lambda x: x.weight)
+                
                 edges_filtered = []
                 reference_time = events_sequence.get(upper_border_event_id, max_time) if upper_border_event_id else max_time
                 for edge in edges:
                     edge_first_appearance = events_sequence.get(edge.time_start_event, min_time) if edge.time_start_event else min_time
-                    if edge_first_appearance < reference_time:
+                    if edge_first_appearance < reference_time and reference_time > 0:
                         edges_filtered.append(edge)
                 edges = edges_filtered
                 if (edges):
@@ -819,6 +856,7 @@ def form_context_with_llm(
             used_tokens += tokens
 
     filtered_edges = [(pair, (text, tokens)) for pair, (text, tokens) in result_edges_dict.items() if pair[0] in selected_nodes and pair[1] in selected_nodes]
+    print("EDGES -> ", filtered_edges)
     selected_edges = []
     edge_tokens = 0
     for pair, (text, tokens) in filtered_edges:

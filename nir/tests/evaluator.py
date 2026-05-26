@@ -72,12 +72,12 @@ def analyze_graph(graph: KnowledgeGraph, expected_values: Dict[str, float]) -> T
     for metric in all_metric_names:
         actual = suitability_metrics.get(metric, 0.0)
         expected = expected_values.get(metric, 0.0)
-        squared_error = abs(((actual - expected) / (expected + 1)) * 100)
+        symmetric_relative_error = ((actual - expected) / ((abs(actual) + abs(expected)) / 2 + 1e-8))
         suitability_rows.append({
             "Metric": metric,
             "Model Result": actual,
             "Expected Result": expected,
-            "Squared Error": squared_error
+            "Symmetric relative error": symmetric_relative_error
         })
     suitability_df = pd.DataFrame(suitability_rows)
 
@@ -233,6 +233,7 @@ def compare_pipelines_directional(
         'mean_diff': float(mean_diff),
         'n_pairs': len(differences)
     }
+
 def compute_effect_size(
     x: Union[pd.Series, np.ndarray],
     y: Union[pd.Series, np.ndarray],

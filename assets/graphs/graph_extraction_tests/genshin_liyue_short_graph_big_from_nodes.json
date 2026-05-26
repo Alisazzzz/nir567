@@ -1,0 +1,873 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "genshin_liyue_short",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "rex_lapis",
+      "name": "Rex Lapis",
+      "type": "character",
+      "base_description": "The Geo Archon who falls from the sky, apparently dead.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "rex_lapis_falls_rex_lapis_0",
+          "current_description": "The Geo Archon who is alive.",
+          "current_attributes": {
+            "status": "alive"
+          },
+          "time_start_event": "",
+          "time_end_event": "Rex Lapis falls"
+        },
+        {
+          "sid": "rex_lapis_falls_rex_lapis_1",
+          "current_description": "The Geo Archon who falls from the sky, apparently dead.",
+          "current_attributes": {
+            "status": "dead"
+          },
+          "time_start_event": "Rex Lapis falls",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "traveler",
+      "name": "Traveler",
+      "type": "character",
+      "base_description": "A suspect branded by the Millelith and rescued by Childe.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "rex_lapis_falls_traveler_0",
+          "current_description": "A traveler in Liyue Harbor.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "Rex Lapis falls"
+        },
+        {
+          "sid": "rex_lapis_falls_traveler_1",
+          "current_description": "A suspect branded by the Millelith and rescued by Childe.",
+          "current_attributes": {
+            "status": "suspect"
+          },
+          "time_start_event": "Rex Lapis falls",
+          "time_end_event": "Rite of Parting"
+        },
+        {
+          "sid": "rite_of_parting_traveler_2",
+          "current_description": "A traveler organizing the Rite of Parting with Paimon and Zhongli.",
+          "current_attributes": {
+            "status": "organizer"
+          },
+          "time_start_event": "Rite of Parting",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "paimon",
+      "name": "Paimon",
+      "type": "character",
+      "base_description": "A companion of the Traveler, also branded as a suspect by the Millelith and rescued by Childe.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "rex_lapis_falls_paimon_0",
+          "current_description": "A companion of the Traveler.",
+          "current_attributes": {},
+          "time_start_event": null,
+          "time_end_event": "Rex Lapis falls"
+        },
+        {
+          "sid": "rex_lapis_falls_paimon_1",
+          "current_description": "A companion of the Traveler, also branded as a suspect by the Millelith and rescued by Childe.",
+          "current_attributes": {
+            "status": "suspect"
+          },
+          "time_start_event": "Rex Lapis falls",
+          "time_end_event": "Rite of Parting"
+        },
+        {
+          "sid": "rite_of_parting_paimon_2",
+          "current_description": "A companion of the Traveler, organizing the Rite of Parting with the Traveler and Zhongli.",
+          "current_attributes": {
+            "status": "organizer"
+          },
+          "time_start_event": "Rite of Parting",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "childe",
+      "name": "Childe",
+      "type": "character",
+      "base_description": "A Fatui Harbinger who rescues the Traveler and Paimon.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "zhongli",
+      "name": "Zhongli",
+      "type": "character",
+      "base_description": "An erudite consultant who allies with the Traveler and Paimon.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "rite_of_parting_zhongli_0",
+          "current_description": "An erudite consultant who allies with the Traveler and Paimon, organizing the Rite of Parting.",
+          "current_attributes": {
+            "status": "ally"
+          },
+          "time_start_event": "Rite of Parting",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "millelith",
+      "name": "Millelith",
+      "type": "group",
+      "base_description": "A group that brands the Traveler and Paimon as suspects.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "fatui_harbinger",
+      "name": "Fatui Harbinger",
+      "type": "group",
+      "base_description": "A group to which Childe belongs.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "liyue_harbor",
+      "name": "Liyue Harbor",
+      "type": "location",
+      "base_description": "The location where the Rite of Descension takes place and Rex Lapis falls.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "jueyun_karst",
+      "name": "Jueyun Karst",
+      "type": "location",
+      "base_description": "A location where the adepti are sought for help.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "wangshu_inn",
+      "name": "Wangshu Inn",
+      "type": "location",
+      "base_description": "A location where the adepti are sought for help.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "rex_lapis_falls",
+      "name": "Rex Lapis falls",
+      "type": "event",
+      "base_description": "The event where Rex Lapis falls from the sky, apparently dead.",
+      "base_attributes": {
+        "time": "during the annual Rite of Descension"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "rite_of_descension",
+      "name": "Rite of Descension",
+      "type": "event",
+      "base_description": "An annual event during which Rex Lapis falls.",
+      "base_attributes": {
+        "time": "annual",
+        "frequency": "annual"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "rite_of_parting",
+      "name": "Rite of Parting",
+      "type": "event",
+      "base_description": "A traditional rite organized to honor the fallen Rex Lapis.",
+      "base_attributes": {
+        "time": "after the fall of Rex Lapis"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "adepti",
+      "name": "Adepti",
+      "type": "group",
+      "base_description": "A group sought for help by the Traveler and Paimon.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "sacred_ritual_items",
+      "name": "Sacred Ritual Items",
+      "type": "item",
+      "base_description": "Items gathered across Liyue for the Rite of Parting.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "liyue",
+      "name": "liyue",
+      "type": "item",
+      "base_description": "Automatically created node",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "rex_lapis_is_honored_by_rite_of_parting_edge",
+      "source": "rex_lapis",
+      "target": "rite_of_parting",
+      "relation": "is honored by",
+      "description": "The Rite of Parting honors Rex Lapis.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rex_lapis_is_involved_in_rex_lapis_falls_edge",
+      "source": "rex_lapis",
+      "target": "rex_lapis_falls",
+      "relation": "is involved in",
+      "description": "Rex Lapis falls involves Rex Lapis.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rex_lapis_falls_in_liyue_harbor_edge",
+      "source": "rex_lapis",
+      "target": "liyue_harbor",
+      "relation": "falls in",
+      "description": "Rex Lapis falls from the sky in Liyue Harbor.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paimon_is_branded_by_millelith_edge",
+      "source": "paimon",
+      "target": "millelith",
+      "relation": "is branded by",
+      "description": "The Millelith brands Paimon as a suspect.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paimon_is_rescued_by_childe_edge",
+      "source": "paimon",
+      "target": "childe",
+      "relation": "is rescued by",
+      "description": "Childe rescues Paimon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paimon_seeks_aid_in_jueyun_karst_edge",
+      "source": "paimon",
+      "target": "jueyun_karst",
+      "relation": "seeks aid in",
+      "description": "Paimon seeks aid in Jueyun Karst.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paimon_seeks_aid_in_wangshu_inn_edge",
+      "source": "paimon",
+      "target": "wangshu_inn",
+      "relation": "seeks aid in",
+      "description": "Paimon seeks aid in Wangshu Inn.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paimon_allies_with_zhongli_edge",
+      "source": "paimon",
+      "target": "zhongli",
+      "relation": "allies with",
+      "description": "Paimon allies with Zhongli.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paimon_organizes_rite_of_parting_edge",
+      "source": "paimon",
+      "target": "rite_of_parting",
+      "relation": "organizes",
+      "description": "Paimon organizes the Rite of Parting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paimon_gathers_sacred_ritual_items_edge",
+      "source": "paimon",
+      "target": "sacred_ritual_items",
+      "relation": "gathers",
+      "description": "Paimon gathers sacred ritual items.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "paimon_is_present_during_rite_of_descension_edge",
+      "source": "paimon",
+      "target": "rite_of_descension",
+      "relation": "is present during",
+      "description": "Paimon is present during the annual Rite of Descension.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "childe_rescues_liyue_edge",
+      "source": "childe",
+      "target": "liyue",
+      "relation": "rescues",
+      "description": "Childe rescues the Traveler.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "childe_rescues_paimon_edge",
+      "source": "childe",
+      "target": "paimon",
+      "relation": "rescues",
+      "description": "Childe rescues Paimon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "childe_is_a_member_of_fatui_harbinger_edge",
+      "source": "childe",
+      "target": "fatui_harbinger",
+      "relation": "is a member of",
+      "description": "Childe is a member of the Fatui Harbinger.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "childe_is_present_during_rite_of_descension_edge",
+      "source": "childe",
+      "target": "rite_of_descension",
+      "relation": "is present during",
+      "description": "Childe is present during the annual Rite of Descension.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "zhongli_is_allied_with_liyue_edge",
+      "source": "zhongli",
+      "target": "liyue",
+      "relation": "is allied with",
+      "description": "The Traveler allies with Zhongli.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "zhongli_is_allied_with_paimon_edge",
+      "source": "zhongli",
+      "target": "paimon",
+      "relation": "is allied with",
+      "description": "Paimon allies with Zhongli.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "zhongli_organizes_rite_of_parting_edge",
+      "source": "zhongli",
+      "target": "rite_of_parting",
+      "relation": "organizes",
+      "description": "Zhongli organizes the Rite of Parting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "millelith_brands_as_suspect_liyue_edge",
+      "source": "millelith",
+      "target": "liyue",
+      "relation": "brands as suspect",
+      "description": "The Millelith brands the Traveler as a suspect.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "millelith_brands_as_suspect_paimon_edge",
+      "source": "millelith",
+      "target": "paimon",
+      "relation": "brands as suspect",
+      "description": "The Millelith brands Paimon as a suspect.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "fatui_harbinger_has_member_childe_edge",
+      "source": "fatui_harbinger",
+      "target": "childe",
+      "relation": "has member",
+      "description": "Childe is a member of the Fatui Harbinger.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "liyue_harbor_is_the_location_of_rex_lapis_falls_edge",
+      "source": "liyue_harbor",
+      "target": "rex_lapis_falls",
+      "relation": "is the location of",
+      "description": "Rex Lapis falls occurs in Liyue Harbor.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "liyue_harbor_is_fallen_in_by_rex_lapis_edge",
+      "source": "liyue_harbor",
+      "target": "rex_lapis",
+      "relation": "is fallen in by",
+      "description": "Rex Lapis falls from the sky in Liyue Harbor.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "liyue_harbor_hosts_rite_of_descension_edge",
+      "source": "liyue_harbor",
+      "target": "rite_of_descension",
+      "relation": "hosts",
+      "description": "The annual Rite of Descension takes place in Liyue Harbor.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "jueyun_karst_is_sought_for_aid_by_liyue_edge",
+      "source": "jueyun_karst",
+      "target": "liyue",
+      "relation": "is sought for aid by",
+      "description": "The Traveler seeks aid in Jueyun Karst.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "jueyun_karst_is_sought_for_aid_by_paimon_edge",
+      "source": "jueyun_karst",
+      "target": "paimon",
+      "relation": "is sought for aid by",
+      "description": "Paimon seeks aid in Jueyun Karst.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "wangshu_inn_is_sought_for_aid_by_liyue_edge",
+      "source": "wangshu_inn",
+      "target": "liyue",
+      "relation": "is sought for aid by",
+      "description": "The Traveler seeks aid in Wangshu Inn.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "wangshu_inn_is_sought_for_aid_by_paimon_edge",
+      "source": "wangshu_inn",
+      "target": "paimon",
+      "relation": "is sought for aid by",
+      "description": "Paimon seeks aid in Wangshu Inn.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rex_lapis_falls_occurs_in_liyue_harbor_edge",
+      "source": "rex_lapis_falls",
+      "target": "liyue_harbor",
+      "relation": "occurs in",
+      "description": "Rex Lapis falls occurs in Liyue Harbor.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rex_lapis_falls_occurs_during_rite_of_descension_edge",
+      "source": "rex_lapis_falls",
+      "target": "rite_of_descension",
+      "relation": "occurs during",
+      "description": "Rex Lapis falls occurs during the Rite of Descension.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rex_lapis_falls_is_part_of_rite_of_descension_edge",
+      "source": "rex_lapis_falls",
+      "target": "rite_of_descension",
+      "relation": "is part of",
+      "description": "The annual Rite of Descension includes the event of Rex Lapis falling.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rex_lapis_falls_involves_rex_lapis_edge",
+      "source": "rex_lapis_falls",
+      "target": "rex_lapis",
+      "relation": "involves",
+      "description": "Rex Lapis falls involves Rex Lapis.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rite_of_descension_is_the_event_during_which_rex_lapis_falls_edge",
+      "source": "rite_of_descension",
+      "target": "rex_lapis_falls",
+      "relation": "is the event during which",
+      "description": "Rex Lapis falls occurs during the Rite of Descension.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rite_of_descension_includes_rex_lapis_falls_edge",
+      "source": "rite_of_descension",
+      "target": "rex_lapis_falls",
+      "relation": "includes",
+      "description": "The annual Rite of Descension includes the event of Rex Lapis falling.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rite_of_descension_takes_place_in_liyue_harbor_edge",
+      "source": "rite_of_descension",
+      "target": "liyue_harbor",
+      "relation": "takes place in",
+      "description": "The annual Rite of Descension takes place in Liyue Harbor.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rite_of_descension_has_attendee_liyue_edge",
+      "source": "rite_of_descension",
+      "target": "liyue",
+      "relation": "has attendee",
+      "description": "The Traveler is present during the annual Rite of Descension.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rite_of_descension_has_attendee_paimon_edge",
+      "source": "rite_of_descension",
+      "target": "paimon",
+      "relation": "has attendee",
+      "description": "Paimon is present during the annual Rite of Descension.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rite_of_descension_has_attendee_childe_edge",
+      "source": "rite_of_descension",
+      "target": "childe",
+      "relation": "has attendee",
+      "description": "Childe is present during the annual Rite of Descension.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rite_of_parting_is_organized_by_liyue_edge",
+      "source": "rite_of_parting",
+      "target": "liyue",
+      "relation": "is organized by",
+      "description": "The Traveler organizes the Rite of Parting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rite_of_parting_is_organized_by_paimon_edge",
+      "source": "rite_of_parting",
+      "target": "paimon",
+      "relation": "is organized by",
+      "description": "Paimon organizes the Rite of Parting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rite_of_parting_is_organized_by_zhongli_edge",
+      "source": "rite_of_parting",
+      "target": "zhongli",
+      "relation": "is organized by",
+      "description": "Zhongli organizes the Rite of Parting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rite_of_parting_honors_rex_lapis_edge",
+      "source": "rite_of_parting",
+      "target": "rex_lapis",
+      "relation": "honors",
+      "description": "The Rite of Parting honors Rex Lapis.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "rite_of_parting_requires_sacred_ritual_items_edge",
+      "source": "rite_of_parting",
+      "target": "sacred_ritual_items",
+      "relation": "requires",
+      "description": "The Rite of Parting requires sacred ritual items.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "sacred_ritual_items_are_required_by_rite_of_parting_edge",
+      "source": "sacred_ritual_items",
+      "target": "rite_of_parting",
+      "relation": "are required by",
+      "description": "The Rite of Parting requires sacred ritual items.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "sacred_ritual_items_are_gathered_by_liyue_edge",
+      "source": "sacred_ritual_items",
+      "target": "liyue",
+      "relation": "are gathered by",
+      "description": "The Traveler gathers sacred ritual items.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "sacred_ritual_items_are_gathered_by_paimon_edge",
+      "source": "sacred_ritual_items",
+      "target": "paimon",
+      "relation": "are gathered by",
+      "description": "Paimon gathers sacred ritual items.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "liyue_is_branded_by_millelith_edge",
+      "source": "liyue",
+      "target": "millelith",
+      "relation": "is branded by",
+      "description": "The Millelith brands the Traveler as a suspect.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "liyue_is_rescued_by_childe_edge",
+      "source": "liyue",
+      "target": "childe",
+      "relation": "is rescued by",
+      "description": "Childe rescues the Traveler.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "liyue_seeks_aid_in_jueyun_karst_edge",
+      "source": "liyue",
+      "target": "jueyun_karst",
+      "relation": "seeks aid in",
+      "description": "The Traveler seeks aid in Jueyun Karst.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "liyue_seeks_aid_in_wangshu_inn_edge",
+      "source": "liyue",
+      "target": "wangshu_inn",
+      "relation": "seeks aid in",
+      "description": "The Traveler seeks aid in Wangshu Inn.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "liyue_allies_with_zhongli_edge",
+      "source": "liyue",
+      "target": "zhongli",
+      "relation": "allies with",
+      "description": "The Traveler allies with Zhongli.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "liyue_organizes_rite_of_parting_edge",
+      "source": "liyue",
+      "target": "rite_of_parting",
+      "relation": "organizes",
+      "description": "The Traveler organizes the Rite of Parting.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "liyue_gathers_sacred_ritual_items_edge",
+      "source": "liyue",
+      "target": "sacred_ritual_items",
+      "relation": "gathers",
+      "description": "The Traveler gathers sacred ritual items.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "liyue_is_present_during_rite_of_descension_edge",
+      "source": "liyue",
+      "target": "rite_of_descension",
+      "relation": "is present during",
+      "description": "The Traveler is present during the annual Rite of Descension.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    }
+  ]
+}

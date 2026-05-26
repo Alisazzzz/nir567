@@ -193,6 +193,11 @@ class AffectedNode(BaseModel):
     time_start_event: Optional[str] = None
     time_end_event: Optional[str] = None
 
+class ChangedState(BaseModel):
+    node_id: str
+    sid: str
+    time_end_event: Optional[str] = None
+
 class AffectedEdge(BaseModel):
     id: str
     new_description: str
@@ -201,6 +206,7 @@ class AffectedEdge(BaseModel):
 
 class EventImpact(BaseModel):
     event_name: str
+    changed_states: List[ChangedState] = Field(default_factory=list)
     affected_nodes: List[AffectedNode] = Field(default_factory=list)
     affected_edges: List[AffectedEdge] = Field(default_factory=list)
 

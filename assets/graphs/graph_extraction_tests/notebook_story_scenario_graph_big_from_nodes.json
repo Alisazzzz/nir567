@@ -1,0 +1,619 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "notebook_story_scenario",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "little_girl",
+      "name": "Little girl",
+      "type": "character",
+      "base_description": "A little girl, daughter of the family. Sitting on the bed in her bedroom, asking her mother to tell a story about the cat.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "father",
+      "name": "Father",
+      "type": "character",
+      "base_description": "The father of the little girl. Staying in the doorway, encouraging Maria to tell the story.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "maria",
+      "name": "Maria",
+      "type": "character",
+      "base_description": "The mother of the little girl. Sitting on the bed next to her daughter, looking for her notebook to tell the story.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "type": "character",
+      "base_description": "The family cat. Walking under the bed, finding the notebook. An ancient demon who was a rock before the World Recreation.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "notebook_lost_and_found_cat_0",
+          "current_description": "The family cat. Walking under the bed.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "Notebook lost and found"
+        },
+        {
+          "sid": "world_recreation_cat_1",
+          "current_description": "An ancient demon who was a rock.",
+          "current_attributes": {
+            "former identity": "rock",
+            "type": "demon"
+          },
+          "time_start_event": "",
+          "time_end_event": "World Recreation"
+        },
+        {
+          "sid": "world_recreation_cat_2",
+          "current_description": "The family cat. An ancient demon who was a rock before the World Recreation.",
+          "current_attributes": {
+            "type": "cat"
+          },
+          "time_start_event": "World Recreation",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "bedroom",
+      "name": "Bedroom",
+      "type": "location",
+      "base_description": "The location where the events take place.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "bed",
+      "name": "Bed",
+      "type": "item",
+      "base_description": "The item on which the little girl and Maria are sitting.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "notebook",
+      "name": "Notebook",
+      "type": "item",
+      "base_description": "The item that was lost and found under the bed, containing the story about the cat.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "notebook_lost_and_found_notebook_0",
+          "current_description": "The item that was lost.",
+          "current_attributes": {
+            "status": "lost"
+          },
+          "time_start_event": "",
+          "time_end_event": "Notebook lost and found"
+        },
+        {
+          "sid": "notebook_lost_and_found_notebook_1",
+          "current_description": "The item that was lost and found under the bed, containing the story about the cat.",
+          "current_attributes": {
+            "status": "found"
+          },
+          "time_start_event": "Notebook lost and found",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "notebook_lost_and_found",
+      "name": "Notebook lost and found",
+      "type": "event",
+      "base_description": "The event of the notebook being lost and then found.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "world_recreation",
+      "name": "World Recreation",
+      "type": "event",
+      "base_description": "An event mentioned in the notebook, related to the cat's origins.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "doorway",
+      "name": "doorway",
+      "type": "environment_element",
+      "base_description": "The doorway where the father is staying.",
+      "base_attributes": {
+        "location": "bedroom"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "demon",
+      "name": "demon",
+      "type": "character",
+      "base_description": "The ancient demon that the cat was before the World Recreation.",
+      "base_attributes": {
+        "former identity": "rock"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "mother",
+      "name": "mother",
+      "type": "item",
+      "base_description": "Automatically created node",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "little_girl_is_daughter_of_father_edge",
+      "source": "little_girl",
+      "target": "father",
+      "relation": "is daughter of",
+      "description": "The little girl is the daughter of the father.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "little_girl_is_daughter_of_maria_edge",
+      "source": "little_girl",
+      "target": "maria",
+      "relation": "is daughter of",
+      "description": "The little girl is the daughter of Maria.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "little_girl_sits_on_bed_edge",
+      "source": "little_girl",
+      "target": "bed",
+      "relation": "sits on",
+      "description": "The little girl is sitting on the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "father_is_father_of_little_girl_edge",
+      "source": "father",
+      "target": "little_girl",
+      "relation": "is father of",
+      "description": "The little girl is the daughter of the father.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "father_is_in_doorway_edge",
+      "source": "father",
+      "target": "doorway",
+      "relation": "is in",
+      "description": "The father is staying in the doorway.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "maria_is_mother_of_little_girl_edge",
+      "source": "maria",
+      "target": "little_girl",
+      "relation": "is mother of",
+      "description": "The little girl is the daughter of Maria.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "maria_sits_on_bed_edge",
+      "source": "maria",
+      "target": "bed",
+      "relation": "sits on",
+      "description": "Maria is sitting on the bed next to her daughter.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_finds_notebook_edge",
+      "source": "cat",
+      "target": "notebook",
+      "relation": "finds",
+      "description": "The cat finds the notebook under the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_is_story_in_notebook_edge",
+      "source": "cat",
+      "target": "notebook",
+      "relation": "is story in",
+      "description": "The notebook contains the story about the cat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_is_related_to_world_recreation_edge",
+      "source": "cat",
+      "target": "world_recreation",
+      "relation": "is related to",
+      "description": "The cat's origins are related to the World Recreation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_is_involved_in_notebook_lost_and_found_edge",
+      "source": "cat",
+      "target": "notebook_lost_and_found",
+      "relation": "is involved in",
+      "description": "The event involves the cat finding the notebook.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_is_thanked_by_mother_edge",
+      "source": "cat",
+      "target": "mother",
+      "relation": "is thanked by",
+      "description": "The mother thanks the cat for finding the notebook.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cat_was_demon_edge",
+      "source": "cat",
+      "target": "demon",
+      "relation": "was",
+      "description": "The cat was an ancient demon before the World Recreation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bedroom_contains_bed_edge",
+      "source": "bedroom",
+      "target": "bed",
+      "relation": "contains",
+      "description": "The bed is in the bedroom.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bedroom_has_part_doorway_edge",
+      "source": "bedroom",
+      "target": "doorway",
+      "relation": "has part",
+      "description": "The doorway is part of the bedroom.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bed_is_sat_on_by_little_girl_edge",
+      "source": "bed",
+      "target": "little_girl",
+      "relation": "is sat on by",
+      "description": "The little girl is sitting on the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bed_is_sat_on_by_maria_edge",
+      "source": "bed",
+      "target": "maria",
+      "relation": "is sat on by",
+      "description": "Maria is sitting on the bed next to her daughter.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bed_is_in_bedroom_edge",
+      "source": "bed",
+      "target": "bedroom",
+      "relation": "is in",
+      "description": "The bed is in the bedroom.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bed_has_under_notebook_edge",
+      "source": "bed",
+      "target": "notebook",
+      "relation": "has under",
+      "description": "The notebook is found under the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "bed_is_location_of_notebook_lost_and_found_edge",
+      "source": "bed",
+      "target": "notebook_lost_and_found",
+      "relation": "is location of",
+      "description": "The event occurs near the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_is_found_by_cat_edge",
+      "source": "notebook",
+      "target": "cat",
+      "relation": "is found by",
+      "description": "The cat finds the notebook under the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_contains_story_about_cat_edge",
+      "source": "notebook",
+      "target": "cat",
+      "relation": "contains story about",
+      "description": "The notebook contains the story about the cat.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_is_under_bed_edge",
+      "source": "notebook",
+      "target": "bed",
+      "relation": "is under",
+      "description": "The notebook is found under the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_mentions_world_recreation_edge",
+      "source": "notebook",
+      "target": "world_recreation",
+      "relation": "mentions",
+      "description": "The notebook mentions the World Recreation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_is_involved_in_notebook_lost_and_found_edge",
+      "source": "notebook",
+      "target": "notebook_lost_and_found",
+      "relation": "is involved in",
+      "description": "The event involves the notebook being lost and found.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_lost_and_found_involves_notebook_edge",
+      "source": "notebook_lost_and_found",
+      "target": "notebook",
+      "relation": "involves",
+      "description": "The event involves the notebook being lost and found.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_lost_and_found_involves_cat_edge",
+      "source": "notebook_lost_and_found",
+      "target": "cat",
+      "relation": "involves",
+      "description": "The event involves the cat finding the notebook.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_lost_and_found_occurs_near_bed_edge",
+      "source": "notebook_lost_and_found",
+      "target": "bed",
+      "relation": "occurs near",
+      "description": "The event occurs near the bed.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "notebook_lost_and_found_involves_mother_edge",
+      "source": "notebook_lost_and_found",
+      "target": "mother",
+      "relation": "involves",
+      "description": "The mother is involved in the event of the notebook being lost and found.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "world_recreation_is_mentioned_in_notebook_edge",
+      "source": "world_recreation",
+      "target": "notebook",
+      "relation": "is mentioned in",
+      "description": "The notebook mentions the World Recreation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "world_recreation_relates_to_cat_edge",
+      "source": "world_recreation",
+      "target": "cat",
+      "relation": "relates to",
+      "description": "The cat's origins are related to the World Recreation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "world_recreation_relates_to_demon_edge",
+      "source": "world_recreation",
+      "target": "demon",
+      "relation": "relates to",
+      "description": "The demon is related to the World Recreation event.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "doorway_contains_father_edge",
+      "source": "doorway",
+      "target": "father",
+      "relation": "contains",
+      "description": "The father is staying in the doorway.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "doorway_is_part_of_bedroom_edge",
+      "source": "doorway",
+      "target": "bedroom",
+      "relation": "is part of",
+      "description": "The doorway is part of the bedroom.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "demon_is_now_cat_edge",
+      "source": "demon",
+      "target": "cat",
+      "relation": "is now",
+      "description": "The cat was an ancient demon before the World Recreation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "demon_is_related_to_world_recreation_edge",
+      "source": "demon",
+      "target": "world_recreation",
+      "relation": "is related to",
+      "description": "The demon is related to the World Recreation event.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "mother_is_involved_in_notebook_lost_and_found_edge",
+      "source": "mother",
+      "target": "notebook_lost_and_found",
+      "relation": "is involved in",
+      "description": "The mother is involved in the event of the notebook being lost and found.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "mother_thanks_cat_edge",
+      "source": "mother",
+      "target": "cat",
+      "relation": "thanks",
+      "description": "The mother thanks the cat for finding the notebook.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    }
+  ]
+}

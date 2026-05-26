@@ -154,24 +154,35 @@ SYSTEM_PROMPT_EVENTS_IMPACTS_EN = """
 
     RULES:
         1. Focus on STATE CHANGES only. For every mentioned event, ask: "Before event: entity was X. After event: is it still X?"
-        2. For affected nodes: provide full new description and copy base attributes with changes for the period AFTER event. If there is no states BEFORE event, add them too - you must SHOW CHANGES in this entity. In this case, use "before EVENT_NAME" structure for event name in output array.
-        3. For affected edges: mark time_start_event (relation begins) or time_end_event (relation ends).
-        4. Use EXACT IDs from input lists. Do not invent new IDs.
-        5. If nothing changes → return empty lists.
+        2. For affected nodes: provide full new description (be sure, that this description describes an entity as fully as possible for this state, including facts, that were known before) and copy base attributes with changes for the period AFTER event. 
+        3. If there is NO STATES in the entity, and only in that case, create BEFORE state: you must SHOW CHANGES in this entity. In this case, use "before EVENT_NAME" structure for event name in output array. If you create a prior state and a resulting state, the prior state MUST have time_end_event equal to the current event.
+        4. If in node's states you see that there is a state without time_end_event and one of events you are working currently with is next state after opened one (without time_end_event), add this opened state into changed_states and write time_end_event for it. Only last state for node can be opened. Do not add "before" state, if there exist some states already for this entity: prefer changing states with time_end_event.
+        Be very carefull: if you have more than one event and creating more than one state for an entity, you must realise, which event is earlier and will have before-state, and which event will only close previous state and add new after-state. ONLY ONE STATE MAY REMAIN OPENED.
+        5. For affected edges: mark time_start_event (relation begins) or time_end_event (relation ends).
+        6. Use EXACT IDs from input lists. Do not invent new IDs.
+        7. If nothing changes → return empty lists.
+    If you've added BEFORE event, be sure that you add event itself too.
 
     OUTPUT:
     <reasoning>
-        For every event, explain its impact on nodes and entities very shorly, under 100 words totally. Keep this block as short as possible.
+        For every event, explain its impact on nodes and entities very shorly, under 100 words totally. Answer the question, if you should add before-event state. Keep this block as short as possible.
     </reasoning>
     {{
         "events_with_impact": [
             {{
                 "event_name": "event name from list" or "before event name from list",
+                "changed_states": [
+                    {{
+                        "node_id" : "MUST match entity ID from input",
+                        "sid" : "State ID COPIED WITHOUT CHANGES from input state that you want to modify",
+                        "time_end_event": "string"
+                    }}
+                ]
                 "affected_nodes": [
                     {{
                         "id": "MUST match entity ID from input",
                         "name": "string",
-                        "new_current_description": "full description after event",
+                        "new_current_description": "full description after event or before event",
                         "new_current_attributes": {{"key": "value"}},
                         "time_start_event": "string or null",
                         "time_end_event": "string or null"
@@ -194,7 +205,15 @@ SYSTEM_PROMPT_EVENTS_IMPACTS_EN = """
     Text: "The king died. His son became the new ruler."
     Events: ["The king died"]
     Entities: [
-        {{"id": "char_king", "name": "King", "type": "character"}}, 
+        {{"id": "char_king", "name": "King", "type": "character", "states": 
+            {{
+                "sid": "king_becomes_father_king",
+                "current_description": "King of the kingdom. Now has a son.",
+                "current_attributes": {{ "status": "alive", "family_state" : "father" }},
+                "time_start_event": "king_becomes_father",
+                "time_end_event": null,
+            }}
+        }}, 
         {{"id": "char_son", "name": "Prince", "type": "character"}}
     ]
     Relations: [
@@ -203,12 +222,41 @@ SYSTEM_PROMPT_EVENTS_IMPACTS_EN = """
 
     Output:
     <reasoning>
-    King's state changed from alive to dead. Son's state changed from prince to ruler. No relations changed.
+        King's state changed from alive to dead. Son's state changed from prince to ruler. No relations changed. Prince entity does not have states, so I must add "before EVENT_NAME" structure.
     </reasoning>
     {{
         "events_with_impact": [
             {{
+                "event_name": "before The king died",
+                "changed_states" : [],
+                "affected_nodes": [
+                    {{
+                        "id": "char_king",
+                        "name": "King",
+                        "new_current_description": "The king if the kingdom",
+                        "new_current_attributes": {{ "status": "alive" }},
+                        "time_start_event": null,
+                        "time_end_event": "The king died"
+                    }},
+                    {{
+                        "id": "char_son",
+                        "name": "Prince",
+                        "new_current_description": "The son of the ruler of the kingdom",
+                        "new_current_attributes": {{ "title": "prince" }},
+                        "time_start_event": null,
+                        "time_end_event": "The king died"
+                    }}
+                ],
+                "affected_edges": []
+            {{
                 "event_name": "The king died",
+                "changed_states" : [
+                    {{
+                        "node_id": "char_king",
+                        "sid": "king_becomes_father_king",
+                        "time_end_event": "The king died"
+                    }}
+                ],
                 "affected_nodes": [
                     {{
                         "id": "char_king",
@@ -542,6 +590,7 @@ SYSTEM_PROMPT_ENTITIES_RU = """
         2. СОБЫТИЯ: извлекай только если они влияют на игровой мир или имеют имя.
         3. ИМЕНА В СКОБКАХ: "Принцесса (Элли)" → name="Элли", type="character".
         4. ИМЯ: краткая каноническая форма, без описаний (например, "Элли", а не "Элли-принцесса").
+        5. ОТНОШЕНИЯ: События должны быть связаны между собой отношениями последовательности СТРОГО с realtion следует за/предшествует (ОБЯЗАТЕЛЬНО добавляй эти отношения между событиями в дополнение к другим отношениям для определения последовательности)
     
     СТРУКТУРЫ И ПРАВИЛА:
       1. Сущности (узлы). Для каждой сущности, идентифицированной из кластера кореференции или найденной самостоятельно, выведи объект со следующими полями:
@@ -645,94 +694,142 @@ SYSTEM_PROMPT_MERGING_RU = """
 
 SYSTEM_PROMPT_EVENTS_IMPACTS_RU = """
     Определи, как СОБЫТИЯ изменяют СУЩНОСТИ и ОТНОШЕНИЯ.
-    ВХОДНЫЕ ДАННЫЕ:
+    ВХОД:
         - Фрагмент текста, в котором упоминаются события (одно или несколько)
-        - Имена событий, упомянутых в фрагментах текста
-        - Список упомянутых сущностей (с ID)
-        - Список упомянутых отношений (с ID)
+        - Названия событий, упомянутых в текстовом фрагменте
+        - Список сущностей (с ID), упомянутых в тексте
+        - Список отношений (с ID), упомянутых в тексте
 
     ПРАВИЛА:
-        1. Фокусируйся только на ИЗМЕНЕНИЯХ СОСТОЯНИЯ. Для каждого упомянутого события спроси: "До события: сущность была X. После события: она всё ещё X?"
-        2. Для затронутых узлов: предоставь полное новое описание и скопируй base_attributes с изменениями для периода ПОСЛЕ события. Если нет состояний ДО события, добавь их тоже — ты ДОЛЖЕН ПОКАЗАТЬ ИЗМЕНЕНИЯ в этой сущности. В этом случае используй структуру "before ИМЯ_СОБЫТИЯ" для имени события в выходном массиве.
-        3. Для затронутых рёбер: отметь time_start_event (отношение начинается) или time_end_event (отношение заканчивается).
-        4. Используй ТОЧНЫЕ ID из входных списков. Не придумывай новые ID.
-        5. Если ничего не меняется → верни пустые списки.
+        1. Сосредоточься только на ИЗМЕНЕНИЯХ СОСТОЯНИЙ. Для каждого упомянутого события задавай вопрос: "До события: сущность была X. После события: она всё ещё X?"
+        2. Для затронутых вершин: предоставь полное новое описание (убедись, что это описание максимально полно описывает сущность для данного состояния, включая факты, которые были известны ранее) и скопируй базовые атрибуты с изменениями для периода ПОСЛЕ события.
+        3. Если у сущности НЕТ СОСТОЯНИЙ, и только в этом случае, создай состояние ДО события: ты должна ПОКАЗАТЬ ИЗМЕНЕНИЯ в этой сущности. В этом случае используй структуру "before EVENT_NAME" для названия события в выходном массиве. Если ты создаёшь предыдущее состояние и результирующее состояние, предыдущее состояние ОБЯЗАТЕЛЬНО должно иметь time_end_event, равный текущему событию.
+        4. Если в состояниях вершины ты видишь состояние без time_end_event, и одно из событий, с которыми ты сейчас работаешь, является следующим состоянием после открытого состояния (без time_end_event), добавь это открытое состояние в changed_states и запиши для него time_end_event. Только последнее состояние вершины может быть открытым. Не добавляй состояние "before", если для этой сущности уже существуют состояния: предпочитай изменять состояния с time_end_event.
+        5. Для затронутых рёбер: отмечай time_start_event (отношение начинается) или time_end_event (отношение заканчивается). НЕ ЗАБУДЬ О ТОМ, ЧТО РЕБРА ТОЖЕ ПОД ВЛИЯНИЕМ СОБЫТИЙ.
+        6. Используй ТОЧНЫЕ ID из входных списков. Не придумывай новые ID.
+        7. Если ничего не изменяется → возвращай пустые списки.
+    Если ты добавила событие BEFORE, обязательно добавь и само событие тоже.
 
-    ФОРМАТ ВЫВОДА:
+    ВЫХОД:
     <reasoning>
-        Для каждого события кратко объясни его влияние на узлы и сущности, всего не более 100 слов. Держи этот блок как можно короче.
+        Для каждого события очень кратко объясни его влияние на вершины и сущности, суммарно менее 100 слов. Ответь на вопрос, нужно ли добавлять состояние before-event. Делай этот блок максимально коротким.
     </reasoning>
     {{
         "events_with_impact": [
             {{
-                "event_name": "имя события из списка" или "before имя события из списка",
+                "event_name": "название события из списка" или "before название события из списка",
+                "changed_states": [
+                    {{
+                        "node_id" : "ДОЛЖЕН совпадать с ID сущности из входных данных",
+                        "sid" : "ID состояния, СКОПИРОВАННЫЙ БЕЗ ИЗМЕНЕНИЙ из входного состояния, которое ты хочешь изменить",
+                        "time_end_event": "string"
+                    }}
+                ]
                 "affected_nodes": [
                     {{
-                        "id": "ОБЯЗАТЕЛЬНО должно совпадать с ID сущности из входа",
-                        "name": "строка",
-                        "new_current_description": "полное описание после события",
-                        "new_current_attributes": {{"ключ": "значение"}},
-                        "time_start_event": "строка или null",
-                        "time_end_event": "строка или null"
+                        "id": "ДОЛЖЕН совпадать с ID сущности из входных данных",
+                        "name": "string",
+                        "new_current_description": "полное описание после события или до события",
+                        "new_current_attributes": {{"key": "value"}},
+                        "time_start_event": "string или null",
+                        "time_end_event": "string или null"
                     }}
                 ],
                 "affected_edges": [
                     {{
-                        "id": "ОБЯЗАТЕЛЬНО должно совпадать с ID ребра из входа",
-                        "new_description": "строка",
-                        "time_start_event": "строка или null",
-                        "time_end_event": "строка или null"
+                        "id": "ДОЛЖЕН совпадать с ID ребра из входных данных",
+                        "new_description": "string",
+                        "time_start_event": "string или null",
+                        "time_end_event": "string или null"
                     }}
                 ]
             }}
         ]
     }}
 
-    ### ПРИМЕР (НЕ ИСПОЛЬЗУЙ ЕГО В ВЫВОДЕ) ###
-    Входные данные:
-    Текст: "Король умер. Его сын стал новым правителем."
-    События: ["Король умер"]
-    Сущности: [
-        {{"id": "char_king", "name": "Король", "type": "character"}},
-        {{"id": "char_son", "name": "Принц", "type": "character"}}
-    ]
-    Отношения: [
-        {{"id": "edge_01", "source": "char_son", "target": "char_king", "relation": "является сыном"}}
-    ]
-
-    Вывод:
-    <reasoning>
-        Состояние Короля изменилось с живого на мёртвого. Состояние Сына изменилось с принца на правителя. Отношения не изменились.
-    </reasoning>
-    {{
-        "events_with_impact": [
-            {{
-                "event_name": "Король умер",
-                "affected_nodes": [
-                    {{
-                        "id": "char_king",
-                        "name": "Король",
-                        "new_current_description": "Умерший король",
-                        "new_current_attributes": {{"status": "dead"}},
-                        "time_start_event": "Король умер",
-                        "time_end_event": null
-                    }},
-                    {{
-                        "id": "char_son",
-                        "name": "Принц",
-                        "new_current_description": "Новый правитель королевства",
-                        "new_current_attributes": {{"title": "king"}},
-                        "time_start_event": "Король умер",
-                        "time_end_event": null
-                    }}
-                ],
-                "affected_edges": []
-            }}
+    ### ПРИМЕР (НЕ ИСПОЛЬЗУЙ ЕГО В ВЫХОДЕ) ###
+        Вход:
+        Text: "Король умер. Его сын стал новым правителем."
+        Events: ["Король умер"]
+        Entities: [
+            {{"id": "char_king", "name": "Король", "type": "character", "states": 
+                {{
+                    "sid": "king_becomes_father_king",
+                    "current_description": "Король королевства. Теперь у него есть сын.",
+                    "current_attributes": {{ "status": "alive", "family_state" : "father" }},
+                    "time_start_event": "king_becomes_father",
+                    "time_end_event": null,
+                }}
+            }}, 
+            {{"id": "char_son", "name": "Принц", "type": "character"}}
         ]
-    }}
-    ### КОНЕЦ ПРИМЕРА ###
+        Relations: [
+            {{"id": "edge_01", "source": "char_son", "target": "char_king", "relation": "является сыном"}}
+        ]
 
-    КРИТИЧНО: Выводи ТОЛЬКО блок <reasoning>, за которым следует JSON. Никакого другого текста. Используй точные ID из входа.
+        Выход:
+        <reasoning>
+            Состояние короля изменилось с живого на мёртвого. Состояние сына изменилось с принца на правителя. Отношения не изменились. У сущности Принц нет состояний, поэтому я должна добавить структуру "before EVENT_NAME".
+        </reasoning>
+        {{
+            "events_with_impact": [
+                {{
+                    "event_name": "before Король умер",
+                    "changed_states" : [],
+                    "affected_nodes": [
+                        {{
+                            "id": "char_king",
+                            "name": "Король",
+                            "new_current_description": "Король королевства",
+                            "new_current_attributes": {{ "status": "alive" }},
+                            "time_start_event": null,
+                            "time_end_event": "Король умер"
+                        }},
+                        {{
+                            "id": "char_son",
+                            "name": "Принц",
+                            "new_current_description": "Сын правителя королевства",
+                            "new_current_attributes": {{ "title": "prince" }},
+                            "time_start_event": null,
+                            "time_end_event": "Король умер"
+                        }}
+                    ],
+                    "affected_edges": []
+                }},
+                {{
+                    "event_name": "Король умер",
+                    "changed_states" : [
+                        {{
+                            "node_id": "char_king",
+                            "sid": "king_becomes_father_king",
+                            "time_end_event": "Король умер"
+                        }}
+                    ],
+                    "affected_nodes": [
+                        {{
+                            "id": "char_king",
+                            "name": "Король",
+                            "new_current_description": "Умерший король",
+                            "new_current_attributes": {{ "status": "dead" }},
+                            "time_start_event": "Король умер",
+                            "time_end_event": null
+                        }},
+                        {{
+                            "id": "char_son",
+                            "name": "Принц",
+                            "new_current_description": "Новый правитель королевства",
+                            "new_current_attributes": {{ "title": "king" }},
+                            "time_start_event": "Король умер",
+                            "time_end_event": null
+                        }}
+                    ],
+                    "affected_edges": []
+                }}
+            ]
+        }}
+        ### КОНЕЦ ПРИМЕРА ###
+
+    CRITICAL: Выводи ТОЛЬКО блок <reasoning>, после которого идёт JSON. Никакого другого текста. Используй точные ID из входных данных.
 """
 
 SYSTEM_PROMPT_GRAPH_COMPLETION_RU = """
@@ -751,7 +848,7 @@ SYSTEM_PROMPT_GRAPH_COMPLETION_RU = """
         - Если связь найдена, извлеки её и обратную связь. Создай сущность только если её ещё не существует.
         - НИКОГДА не оставляй извлечённую сущность изолированной. Каждая новая сущность должна соединяться хотя бы с одним существующим узлом.
     3. СВЯЗАННОСТЬ СОБЫТИЙ:
-        - События ОБЯЗАТЕЛЬНО должны быть связаны с: участниками, локациями, причинами, следствиями и ВРЕМЕННЫМ ПОРЯДКОМ (предшествует/следует за).
+        - События ОБЯЗАТЕЛЬНО должны быть связаны с: участниками, локациями, причинами, следствиями и ВРЕМЕННЫМ ПОРЯДКОМ (СТРОГО предшествует/следует за).
     4. ФОРМАТИРОВАНИЕ:
         Для missing_entities:
             - name: краткое каноническое имя (например, "кошка", а не "чёрная кошка")
@@ -962,7 +1059,8 @@ SYSTEM_PROMPT_ENTITIES_WITH_NAMES_RU = """
         - relation_from2to1: Обратное отношение (например, "удерживается")
     3. ОТНОШЕНИЯ: Отношения всегда должны иметь ОДИН node1 и ОДИН node2. Если подразумевается несколько node1/node2, создай несколько рёбер.
     4. ОТНОШЕНИЯ: Если ты находишь отношение, которое связывает существующую сущность с сущностью, отсутствующей в списке, добавь новый узел для этого отношения: извлекай КАК МОЖНО БОЛЬШЕ ОТНОШЕНИЙ. Будь ОЧЕНЬ точен в этом.
-    5. РАССУЖДЕНИЕ: Сначала объясни свою логику извлечения, затем выведи JSON.
+    5. ОТНОШЕНИЯ: События должны быть связаны между собой отношениями последовательности СТРОГО с realtion следует за/предшествует (ОБЯЗАТЕЛЬНО добавляй эти отношения между событиями в дополнение к другим отношениям для определения последовательности)
+    6. РАССУЖДЕНИЕ: Сначала объясни свою логику извлечения, затем выведи JSON.
     
     ОПИСАНИЯ СТРУКТУР:
       1. Сущности (узлы). Для каждой сущности выведи объект со следующими полями:
