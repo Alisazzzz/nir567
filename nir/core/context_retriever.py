@@ -478,11 +478,11 @@ def retrieve_similar_nodes(
                         if node.type == "event" and events_sequence.get(node.id, 0) >= events_sequence.get(upper_border_event_id, max_time):
                             continue
                         else:
-                            if node and node.id in candidate_nodes:
+                            if node.id not in candidate_nodes:
                                 candidates.append((node, result.get("distance", 0.0) + 1.0))
                                 candidate_nodes.append(node.id)
                     else:
-                        if node.id in candidate_nodes:
+                        if node.id not in candidate_nodes:
                             candidates.append((node, result.get("distance", 0.0) + 1.0))
                             candidate_nodes.append(node.id)
     return candidates
