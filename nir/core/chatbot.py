@@ -692,8 +692,7 @@ Let's set up your environment!
             MenuItem("Select existing graph", action="select"),
             MenuItem("Create new graph", action="create")
         ]
-        menu = InteractiveMenu("Graph Setup", items, show_back=False, description="Press Esc to cancel graph setup",
-                               is_start = is_start, step=3, step_description="Graph Setup")
+        menu = InteractiveMenu("Graph Setup", items, show_back=False, description="Press Esc to cancel graph setup", is_start = is_start, step=3, step_description="Graph Setup")
         selected = menu.display()
         if selected:
             if selected.action == "select":
@@ -940,20 +939,25 @@ Let's set up your environment!
                 time.sleep(0.2)
                 self.run_chat_session()
                 break
+            elif '/' in query.lower():
+                console.print(f"[{ColorTheme.SECONDARY}] Unknown command")
+                continue
+            elif query.lower() == "":
+                console.print(f"[{ColorTheme.SECONDARY}] Nothing is written.....")
+                continue
 
             status_text = Text("Initializing...", style=f"{ColorTheme.INFO}")
             
             with Live(status_text, refresh_per_second=10, transient=True) as live:
                 try:
                     current_query += f"\n{query}"
-                    print("QUERY FOR EXTRACTION\n", current_query, "\n")
 
                     status_text = Text("Searching graph...", style=f"{ColorTheme.PRIMARY}")
                     live.update(status_text)
-                    context_from_graph = form_context_without_llm(
+                    context_from_graph = form_context_with_llm(
                         query=current_query,
                         graph=self.graph,
-                        #llm=self.instruct_model,
+                        llm=self.instruct_model,
                         embedding_model=self.embedding_model,
                         add_history=session_add_history,
                         max_tokens=2048,
@@ -969,7 +973,6 @@ Let's set up your environment!
                             current_message_history_string = self.chat_history.get_context_window(max_tokens=2048) 
                         final_context += f"CHAT HISTORY: {current_message_history_string}\n\n"
                     final_context += f"RETRIEVED KNOWLEDGE:\n{context_from_graph}"
-                    print(final_context)
                     
                     if (self.using_two_staged_pipeline):
                         status_text = Text("Generating plan...", style=f"{ColorTheme.PRIMARY}")

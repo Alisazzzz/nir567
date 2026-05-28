@@ -5,15 +5,15 @@ SYSTEM_PROMPT_PLAN_BASIC_EN = """
           - World context
 
      Task:
-          Create a concise plan for the final response.
+          Create a concise plan for the final response. Find which information should be used in the final answer.
 
      The plan must:
           - identify what the user wants,
           - determine whether the request is:
-          - creating new content,
-          - modifying existing content,
-          - answering a question,
-          - reference important world elements,
+               - creating new content,
+               - modifying existing content,
+               - answering a question,
+          - reference important world elements that should be mentioned in the answer,
           - describe the narrative direction if needed,
           - outline the structure of the final response.
 
@@ -158,6 +158,7 @@ SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_PLAN_EN = """
           - If the task is MODIFY_EXISTING, preserve unchanged parts and apply only the requested changes.
           - If the task is NEW_CONTENT, create original content instead of paraphrasing the context.
           - Prefer specific, memorable details over generic descriptions.
+          - Try to insert new element into game world: add details mentioned in context.
           - Keep the response immersive and coherent.
 
      Output only the XML block below.
@@ -196,6 +197,7 @@ SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_CONTEXT_EN = """
           - When creating new content, add original details instead of paraphrasing existing lore.
           - When modifying existing content, preserve unchanged elements.
           - Avoid generic ideas and repetition.
+          - Try to insert new element into game world: add details mentioned in context.
           - Prefer specific, memorable details over vague descriptions.
 
      Output format:
@@ -350,6 +352,7 @@ SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_PLAN_RU = """
           - Если задача — изменить существующее, сохрани неизменённые части и примени только запрошенные изменения.
           - Если задача — создать новый контент, создай оригинальный контент, а не перефразируй контекст.
           - Отдавай предпочтение конкретным, запоминающимся деталям, а не общим описаниям.
+          - Старайся вписывать новый контент в существующий мир и упоминать элементы из контекста.
           - Сохраняй ответ погружающим (иммерсивным) и связным.
 
      Выведи только XML-блок ниже.
@@ -388,6 +391,7 @@ SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_CONTEXT_RU = """
           - При создании нового контента добавляй оригинальные детали, а не перефразируй существующий лор.
           - При изменении существующего контента сохраняй неизменённые элементы.
           - Избегай общих идей и повторений.
+          - Старайся вписывать новый контент в существующий мир и упоминать элементы из контекста.
           - Отдавай предпочтение конкретным, запоминающимся деталям, а не расплывчатым описаниям.
 
      Формат вывода:

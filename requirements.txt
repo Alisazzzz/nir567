@@ -8,8 +8,8 @@ langchain-openai==0.3.35
 langchain-mistralai==0.2.12
 langchain-text-splitters==0.3.11
 langsmith==0.4.29
-pypdf 
-
+pypdf==6.12.1
+rapidfuzz==3.14.3
 chromadb==1.1.0
 
 --extra-index-url https://download.pytorch.org/whl/cu126

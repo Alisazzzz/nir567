@@ -6,7 +6,6 @@
 #---------imports----------
 #--------------------------
 
-import heapq
 import json
 import random
 import regex
@@ -21,9 +20,9 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain.output_parsers import PydanticOutputParser
 from langchain_core.messages import BaseMessage
 
-from typing import Any, Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional
 from itertools import combinations
-from collections import defaultdict, deque
+from collections import defaultdict
 from pydantic import BaseModel
 
 from nir.graph.knowledge_graph import KnowledgeGraph
@@ -195,6 +194,13 @@ def clean_json(text: str) -> str:
 def clean_string(text: str) -> str:
     return re.sub(r'[^a-zA-Zа-яА-Я\s]', '', text)
 
+def cosine_sim(text1: str, text2: str, embedding_model: Embeddings) -> float:
+    q1 = f"{text1}"
+    q2 = f"{text2}"
+    embedding1 = np.array(embedding_model.embed_query(q1))
+    embedding2 = np.array(embedding_model.embed_query(q2))
+    return float(np.dot(embedding1, embedding2) / (np.linalg.norm(embedding1) * np.linalg.norm(embedding2)))
+
 entities_from_graph = set()
 def update_entities_from_graph(graph: KnowledgeGraph) -> None:
     global entities_from_graph
@@ -230,7 +236,7 @@ def extract_mentioned_entities(query: str, already_extracted_entities: List[str]
             if not clean_string(chunk.text).lower().strip() in current_stop_words:
                 entities.add(clean_string(chunk.text).lower().strip())
     except (NotImplementedError, ValueError):
-        print("cannot use noun chunk")
+        print("THIS IS RUSSIAN, cannot use noun chunk :(")
             
     final_extracted_entities_names = set()
     for extracted_entity in entities:
@@ -239,8 +245,6 @@ def extract_mentioned_entities(query: str, already_extracted_entities: List[str]
             name, score, index = match
             if (score > similarity_threshold):
                 final_extracted_entities_names.add(name)
-
-    print("FINAL ENTITIES --> ", final_extracted_entities_names)
     return list(final_extracted_entities_names)
 
 def filter_node_states_by_time(
@@ -257,19 +261,17 @@ def filter_node_states_by_time(
     if left > right:
         left, right = right, left
 
-    def overlaps(start_eid, end_eid):
-        start_level = event_sequence.get(start_eid, min_time) if start_eid else min_time
-        print(start_level, " ", right)
-        end_level = event_sequence.get(end_eid, max_time) if end_eid else max_time
-        print(end_level, " ", left)
-        return not (start_level >= right or end_level < left)
-
     new_states = []
     for st in node.states:
         start_id = re.sub(r"\s+", "_", regex.sub(r"[^\p{L}\p{N}\s_]", "", st.time_start_event).strip()).lower() if st.time_start_event else None
         end_id = re.sub(r"\s+", "_", regex.sub(r"[^\p{L}\p{N}\s_]", "", st.time_end_event).strip()).lower() if st.time_end_event else None
-        if overlaps(start_id, end_id):
-            new_states.append(st)
+        start_level = event_sequence.get(start_id, min_time) if start_id else min_time
+        end_level = event_sequence.get(end_id, max_time) if end_id else max_time
+        if start_level >= right:
+            continue
+        if end_level < left:
+            continue
+        new_states.append(st)
     new_node = node.model_copy(deep=True)
     new_node.states = new_states
     return new_node
@@ -454,35 +456,35 @@ def retrieve_similar_nodes(
                             node1 = graph.get_node_by_id(result.get("metadata").get("source"))
                             node2 = graph.get_node_by_id(result.get("metadata").get("target"))
                             if node1 and not node1.id in candidate_nodes:
-                                candidates.append((node1, result.get("distance", 0.0)))
+                                candidates.append((node1, result.get("distance", 0.0) + 1.0))
                                 candidate_nodes.append(node1.id)
                             if node2 and not node2.id in candidate_nodes:
-                                candidates.append((node2, result.get("distance", 0.0)))
+                                candidates.append((node2, result.get("distance", 0.0) + 1.0))
                                 candidate_nodes.append(node2.id)
                 else:
                     node1 = graph.get_node_by_id(result.get("metadata").get("source"))
                     node2 = graph.get_node_by_id(result.get("metadata").get("target"))
                     if node1 and not node1.id in candidate_nodes:
-                        candidates.append((node1, result.get("distance", 0.0)))
+                        candidates.append((node1, result.get("distance", 0.0) + 1.0))
                         candidate_nodes.append(node1.id)
                     if node2 and not node2.id in candidate_nodes:
-                        candidates.append((node2, result.get("distance", 0.0)))
+                        candidates.append((node2, result.get("distance", 0.0) + 1.0))
                         candidate_nodes.append(node2.id)
             else:         
                 node = graph.get_node_by_id(result.get("metadata").get("original_id"))
-                if use_filtration:
-                    max_time = max(events_sequence.values())+1 if events_sequence else 0
-                    if node.type == "event" and events_sequence.get(node.id, 0) >= events_sequence.get(upper_border_event_id, max_time):
-                        continue
+                if node:
+                    if use_filtration:
+                        max_time = max(events_sequence.values())+1 if events_sequence else 0
+                        if node.type == "event" and events_sequence.get(node.id, 0) >= events_sequence.get(upper_border_event_id, max_time):
+                            continue
+                        else:
+                            if node and node.id in candidate_nodes:
+                                candidates.append((node, result.get("distance", 0.0) + 1.0))
+                                candidate_nodes.append(node.id)
                     else:
-                        if node and node.id in candidate_nodes:
-                            candidates.append((node, result.get("distance", 0.0) + 2.0))
+                        if node.id in candidate_nodes:
+                            candidates.append((node, result.get("distance", 0.0) + 1.0))
                             candidate_nodes.append(node.id)
-                else:
-                    if node and node.id in candidate_nodes:
-                        candidates.append((node, result.get("distance", 0.0) + 2.0))
-                        candidate_nodes.append(node.id)
-    candidates.sort(key=lambda x: x[1], reverse=True)
     return candidates
 
 def find_paths(
@@ -714,9 +716,6 @@ def form_context_with_llm(
     context_info.downer_border_event_name = clean_string(context_info.downer_border_event_name) if context_info.downer_border_event_name else None
     context_info.upper_border_event_name = clean_string(context_info.upper_border_event_name) if context_info.upper_border_event_name else None
 
-    print(events_sequence)
-    print(context_info)
-
     node_downer_event = graph.get_node_by_name(context_info.downer_border_event_name) if context_info.downer_border_event_name else None
     downer_border_event_id = node_downer_event.id if node_downer_event else None
     node_upper_event = graph.get_node_by_name(context_info.upper_border_event_name) if context_info.upper_border_event_name else None
@@ -736,7 +735,7 @@ def form_context_with_llm(
             if entity.type == "event" and events_sequence.get(entity.id, 0) >= events_sequence.get(upper_border_event_id, max_time):
                 continue
             else:
-                entry_nodes.append((graph.get_node_by_name(entity_name), 1.0))
+                entry_nodes.append((graph.get_node_by_name(entity_name), 2.0))
                 continue
         else:
             entity_name_entry = retrieve_similar_nodes(graph=graph, text=entity_name, embedding_model=embedding_model, threshold=0.75, use_filtration=True, upper_border_event_id=upper_border_event_id, events_sequence=events_sequence)
@@ -768,7 +767,7 @@ def form_context_with_llm(
                         edges_filtered.append(edge)
                 edges = edges_filtered
                 if (edges):
-                    weight = edges[0].weight
+                    weight = edges[0].weight + cosine_sim(f"{entry_node.name}. {entry_node.base_description}", f"{neighbour.name}. {neighbour.base_description}", embedding_model)
                     result_nodes.append((neighbour, weight))
                     reference_time = events_sequence.get(downer_border_event_id, min_time) if downer_border_event_id else min_time
                     for edge in edges:
@@ -786,17 +785,14 @@ def form_context_with_llm(
             paths_nodes.append(find_paths(graph, a[0].id, b[0].id, True, events_sequence, upper_border_event_id))
 
     seen = set()
-    all_paths = [
-        p for paths in paths_nodes 
-        for p in paths 
-        if len(p[0]) > 2 and (tuple(p[0]) not in seen and not seen.add(tuple(p[0])))
-    ]
+    all_paths = [p for paths in paths_nodes for p in paths if len(p[0]) > 2 and (tuple(p[0]) not in seen and not seen.add(tuple(p[0])))]
 
     for path in all_paths:
         for node_id in path[0]:
             node_in_path = graph.get_node_by_id(node_id)
             if not any(node[0] == node_in_path for node in result_nodes):
-                result_nodes.append((node_in_path, path[2]))
+                weight = path[2] + cosine_sim(query, f"{node_in_path.name}. {node_in_path.base_description}", embedding_model)
+                result_nodes.append((node_in_path, weight))
     
     pair_counters = {}
     for path_nodes, path_edges, score in all_paths:
@@ -811,7 +807,10 @@ def form_context_with_llm(
             node = graph.get_node_by_id(node_id)
             pretty_parts.append(node.name)
             if i > 0 and i < len(path_nodes)-1:
-                pretty_parts.append(" who (what)")
+                if (language == "ru"):
+                    pretty_parts.append(" кто (что)")
+                else:
+                    pretty_parts.append(" who (what)")
             if i < len(path_edges):
                 edge_id = path_edges[i]
                 edge = graph.get_edge_by_id(edge_id)
@@ -827,7 +826,7 @@ def form_context_with_llm(
         pretty_string = "".join(pretty_parts)
         result_paths_dict[(source_id, target_id, index)] = (pretty_string, score)
 
-    result_nodes.sort(key=lambda x: x[1])
+    result_nodes.sort(key=lambda x: x[1], reverse=True)
     for node, weight in result_nodes:
         text = f"{node.name}."
         filtered_node = filter_node_states_by_time(node, events_sequence, downer_border_event_id, upper_border_event_id)
@@ -835,10 +834,10 @@ def form_context_with_llm(
             for state in filtered_node.states:
                 text = text + f" {state.current_description}"
         else:
-            text = text + f" {filtered_node.base_description}"
+            text = text + f" {filtered_node.base_description}" + f" ({weight})"
         tokens = estimate_tokens(text)
         result_nodes_dict[node.id] = (text, tokens)
-    
+
     if (add_history):
         node_budget = int(max_tokens * NODE_RATIO_WITH_HISTORY)
         edge_budget = int(max_tokens * EDGE_RATIO_WITH_HISTORY)
@@ -848,15 +847,15 @@ def form_context_with_llm(
         edge_budget = int(max_tokens * EDGE_RATIO_WITHOUT_HISTORY)
         path_budget = int(max_tokens * PATH_RATIO_WITHOUT_HISTORY)
 
-    selected_nodes = set()
+    selected_nodes = []
     used_tokens = 0
     for node_id, (text, tokens) in result_nodes_dict.items():
         if used_tokens + tokens <= node_budget:
-            selected_nodes.add(node_id)
-            used_tokens += tokens
+            if node_id not in selected_nodes:
+                selected_nodes.append(node_id)
+                used_tokens += tokens
 
     filtered_edges = [(pair, (text, tokens)) for pair, (text, tokens) in result_edges_dict.items() if pair[0] in selected_nodes and pair[1] in selected_nodes]
-    print("EDGES -> ", filtered_edges)
     selected_edges = []
     edge_tokens = 0
     for pair, (text, tokens) in filtered_edges:

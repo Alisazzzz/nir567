@@ -653,7 +653,7 @@ def merge_similar_entities_names(
         if len(cluster) == 1:
             merged_nodes.append(cluster[0])
             continue
-        print(f"Merging cluster of {len(cluster)} similar names: {[n.name for n in cluster]}")
+        print(f"Merging cluster of {len(cluster)} similar names: {[n.name for n in cluster]}") #DEBUGGING
         names_json = json.dumps([n.name for n in cluster], ensure_ascii=False)
         contexts = "\n".join([
             next((c.page_content for c in chunks if c.metadata["chunk_id"] == n.chunk_id[0]), "") 
@@ -812,7 +812,7 @@ def recursive_batch_merge(
             merged_results.append(batch[0])
             continue
             
-        print(f"Batch merging {len(batch)} nodes (type: {merge_type})...")
+        print(f"Batch merging {len(batch)} nodes (type: {merge_type})...") #DEBUGGING
         if merge_type == "names":
             nodes_json = json.dumps([n.name for n in batch], ensure_ascii=False)
         else:
@@ -948,7 +948,7 @@ def merge_similar_nodes(
         need_pause: bool = False
     ) -> Tuple[Dict[str, Node], Dict[str, Edge]]:  
     
-    print("Merging nodes.") 
+    print("Merging nodes stage.") #DEBUGGING
     if not nodes:
         return {}, {}
 
@@ -1176,7 +1176,6 @@ def complete_graph(
 
             if result and result.missing_entities:
                 for missing_entity in result.missing_entities:
-                    print("FOUND ENTITY: ", missing_entity.name)
                     entity_id = create_id(missing_entity.name)
                     if entity_id not in new_nodes:
                         new_node = Node(
@@ -1190,7 +1189,6 @@ def complete_graph(
                         )
                         new_nodes[entity_id] = new_node
                         names_to_ids[new_node.name] = entity_id
-                        print("ADDED NODE", missing_entity.name)
                     else:
                         entity_id = get_next_unique_node_id(entity_id, new_nodes)
                         new_node = Node(
@@ -1204,19 +1202,13 @@ def complete_graph(
                         )
                         new_nodes[entity_id] = new_node
                         names_to_ids[new_node.name] = entity_id
-                        print("ADDED NODE", missing_entity.name)
             
             if result and result.missing_relations:
                 for missing in result.missing_relations:
-                    print(create_id(missing.node1))
-                    print(create_id(missing.node2))
-                    print(names_to_ids)
-                    print("FOUND: ", f"{missing.node1} {missing.relation_from1to2} {missing.node2} edge")
                     edge_id_1to2 = create_id(f"{missing.node1} {missing.relation_from1to2} {missing.node2} edge")
                     edge_id_2to1 = create_id(f"{missing.node2} {missing.relation_from2to1} {missing.node1} edge")
 
                     if edge_id_1to2 in new_edges:
-                        print("EXISTING")
                         continue
                     
                     node1_id = create_id(missing.node1)
@@ -1233,7 +1225,6 @@ def complete_graph(
                         )
                         new_nodes[node1_id] = new_node
                         names_to_ids[new_node.name] = node1_id
-                        print("ADDED NODE FROM RELATION", missing.node1)
                     if not node2_id in names_to_ids.values():
                         new_node = Node(
                             id=node1_id,
@@ -1246,7 +1237,6 @@ def complete_graph(
                         )
                         new_nodes[node2_id] = new_node
                         names_to_ids[new_node.name] = node2_id
-                        print("ADDED NODE FROM RELATION", missing.node2)
 
                     new_edges[edge_id_1to2] = Edge(
                         id=edge_id_1to2,
@@ -1266,7 +1256,6 @@ def complete_graph(
                         weight=missing.weight,
                         chunk_id=chunk.metadata["chunk_id"]
                     )
-                    print("ADDED EDGE", f"{missing.node1} {missing.relation_from1to2} {missing.node2} edge") #DEBUGGING
             
         except Exception as e:
             continue
@@ -1280,7 +1269,6 @@ def apply_event_impact_on_graph(
     ) -> None:
 
     print(f"Applying events impacts: {impact.event_name}") #DEBUGGING
-    print(impact)
 
     event_id = event.id
     event_name = event.name
@@ -1299,14 +1287,11 @@ def apply_event_impact_on_graph(
                         )
                         graph.update_node_states(changed_state.node_id, new_state)
 
-                        print("UPDATED NODE STATE") #DEBUGGING
-
     if impact.affected_nodes:
         for affected_node in impact.affected_nodes:
             existing_node = graph.get_node_by_id(affected_node.id)
             if existing_node:
                 if "before" in impact.event_name:
-                    print("YESSS THIS IS BEFORE STATE")
                     new_state = State(
                         sid=f"{event_id}_{affected_node.id}_{len(existing_node.states)}",
                         current_description=affected_node.new_current_description,
@@ -1343,7 +1328,6 @@ def apply_event_impact_on_graph(
                     time_start_event=time_start,
                     time_end_event=time_end
                 )
-                print("EDGE TIMES UPDATED")
 
 def extract_events_impact(
         chunks: List[Document],
@@ -1380,7 +1364,6 @@ def extract_events_impact(
         
         entities_input_nodes = [create_input_node(node) for node in entities_nodes]
         chunk_input_edges = [create_input_edge(edge) for edge in chunk_edges]
-        print(entities_input_nodes)
         
         if len(event_names) > 0:
             if preserve_all_data:
@@ -1473,14 +1456,6 @@ def extract_graph(
         language=language,
         need_pause=need_pause
     )  
-    print("EVENT IMPACTS", events_impacts)
-
-    # events_only = [node for node in nodes_in_graph if node.type == "event"]
-    # for event in events_impacts:     
-    #     for event_in_graph in events_only:
-    #         print (event_in_graph.name, event.event_name)
-    #         if event_in_graph.name == event.event_name:
-    #             apply_event_impact_on_graph(graph, event, event_in_graph)
 
     return graph
 
@@ -1503,9 +1478,6 @@ def extract_graph_from_nodes(
         language=language,
         need_pause=need_pause
     )
-    print("---NODES---")
-    for node in nodes_names.values():
-        print(node)
 
     merged_nodes_names = merge_similar_entities_names(
         chunks=chunks,
@@ -1516,9 +1488,6 @@ def extract_graph_from_nodes(
         language=language,
         need_pause=need_pause
     )
-    print("---MERGED NODES---")
-    for node in merged_nodes_names:
-        print(node)
 
     nodes, edges = extract_graph_info(
         chunks=chunks,
@@ -1572,14 +1541,6 @@ def extract_graph_from_nodes(
         language=language,
         need_pause=need_pause
     )
-    # print("EVENT IMPACTS", events_impacts)
-    # events_only = [node for node in nodes_in_graph if node.type == "event"]
-    # for event in events_impacts:
-    #     for event_in_graph in events_only:
-    #         print (event_in_graph.name, event.event_name)
-    #         if (event_in_graph.name == event.event_name) or ("before" in event.event_name):
-    #             apply_event_impact_on_graph(graph, event, event_in_graph)
-
     return graph
 
 def update_graph(
@@ -1649,17 +1610,12 @@ def update_graph(
         chunks=chunks, 
         nodes=nodes_in_graph, 
         edges=edges_in_graph, 
+        graph=graph,
         llm=llm,
         preserve_all_data=preserve_all_data,
         language=language,
         need_pause=need_pause
     )  
-    
-    events_only = [node for node in nodes_in_graph if node.type == "event"]
-    for event in events_impacts:
-        for event_in_graph in events_only:
-            if event_in_graph.name == event.event_name:
-                apply_event_impact_on_graph(graph, event, event_in_graph)
 
 
 def update_graph_from_nodes(
@@ -1747,18 +1703,13 @@ def update_graph_from_nodes(
     events_impacts = extract_events_impact(
         chunks=chunks, 
         nodes=nodes_in_graph, 
-        edges=edges_in_graph, 
+        edges=edges_in_graph,
+        graph=graph,
         llm=llm,
         preserve_all_data=preserve_all_data,
         language=language,
         need_pause=need_pause
     )  
-    
-    events_only = [node for node in nodes_in_graph if node.type == "event"]
-    for event in events_impacts:
-        for event_in_graph in events_only:
-            if event_in_graph.name == event.event_name:
-                apply_event_impact_on_graph(graph, event, event_in_graph)
 
 
 def merge_several_nodes_in_graph(
@@ -1888,7 +1839,6 @@ def create_embeddings(
             "source": edge.source,
             "target": edge.target
         })
-    print(all_ids)
     embeddings = embedding_model.embed_documents(all_documents)
     vector_store.add_embeddings(
         ids=all_ids,

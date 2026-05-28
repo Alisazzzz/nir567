@@ -146,6 +146,17 @@ class NetworkXGraph(KnowledgeGraph):
             if state.sid == new_state.sid:
                 node.states[i] = new_state
                 changed = True
+            elif state.current_description == new_state.current_description:
+                for attribute, value in new_state.current_attributes.items():
+                    if attribute in state.current_attributes.keys():
+                        state.current_attributes[attribute] = new_state.current_attributes[attribute]
+                    else:
+                        state.current_attributes[attribute] = value
+                if new_state.time_start_event and not state.time_start_event:
+                    state.time_start_event = new_state.time_start_event
+                if new_state.time_end_event and not  state.time_end_event:
+                    state.time_end_event = new_state.time_end_event
+                changed = True
         if not changed:
             node.states.append(new_state)
         self.graph.nodes[node_id]["data"] = node.model_dump()

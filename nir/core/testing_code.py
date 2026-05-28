@@ -43,12 +43,10 @@ instruct_model = manager.get_chat_model("graph_extraction_remote")
 graph = NetworkXGraph()
 graph.load("assets/graphs/graph_extraction_tests/nuclear_crypt_synopsis_graph_big_from_nodes.json")
 
-query = "Опиши персонажа-ученого, друга для Главного Героя, находящегося в подводной лаборатории"
-context = form_context_with_llm(query, graph, instruct_model, embedding_model, "ru")
-print(context)
-
 query = "Опиши персонажа-ученого, друга для Главного Героя, до чрезвычайной ситуации с Валладием-5 на подводной лаборатории"
 context = form_context_with_llm(query, graph, instruct_model, embedding_model, "ru")
 print(context)
 
-GraphWindow(graph, "assets/graphs/graph_extraction_tests/nuclear_crypt_synopsis_graph_big_from_nodes.json", instruct_model, embedding_model).run()
+query = "Придумай нового персонажа"
+context = form_context_with_llm(query, graph, instruct_model, embedding_model, "ru")
+print(context)
