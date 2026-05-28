@@ -170,7 +170,6 @@ class NetworkXGraph(KnowledgeGraph):
                     if time_end_event:
                         attrs["data"]["time_end_event"] = time_end_event
                     attrs["data"]["description"] = new_description
-                    print(attrs)
 
     def update_node_full(self, node_id: str, new_info: Node) -> None:
         node = self.get_node_by_id(node_id)
