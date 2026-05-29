@@ -1,0 +1,4065 @@
+{
+  "connected_document": null,
+  "connected_embedding": null,
+  "vector_store": {
+    "type": "chromadb",
+    "info": {
+      "name": "nuclear_crypt_info_english",
+      "path": "assets/databases/chroma_db"
+    }
+  },
+  "nodes": [
+    {
+      "id": "scientists",
+      "name": "scientists",
+      "type": "group",
+      "base_description": "The greatest scientists whose brains were digitized and cloned by the SynD corporation.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "launching_of_the_digital_genius_program_scientists_0",
+          "current_description": "The greatest scientists before their brains were digitized and cloned by the SynD corporation.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "launching of the Digital Genius program"
+        },
+        {
+          "sid": "launching_of_the_digital_genius_program_scientists_1",
+          "current_description": "The greatest scientists whose brains were digitized and cloned by the SynD corporation.",
+          "current_attributes": {},
+          "time_start_event": "launching of the Digital Genius program",
+          "time_end_event": null
+        },
+        {
+          "sid": "cloning_of_brains_scientists_2",
+          "current_description": "The greatest scientists involved in the Digital Genius program.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "cloning of brains"
+        },
+        {
+          "sid": "cloning_of_brains_scientists_3",
+          "current_description": "The greatest scientists whose brains were cloned by the SynD corporation.",
+          "current_attributes": {},
+          "time_start_event": "cloning of brains",
+          "time_end_event": "implanting biological weapons"
+        },
+        {
+          "sid": "implanting_biological_weapons_scientists_4",
+          "current_description": "The greatest scientists with implanted biological weapons.",
+          "current_attributes": {},
+          "time_start_event": "implanting biological weapons",
+          "time_end_event": "killing of scientists"
+        },
+        {
+          "sid": "killing_of_scientists_scientists_5",
+          "current_description": "The greatest scientists killed by the implanted biological weapons.",
+          "current_attributes": {},
+          "time_start_event": "killing of scientists",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "planet_earth",
+      "name": "Planet Earth",
+      "type": "location",
+      "base_description": "The planet where the story takes place in the near future, year 2175.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "creation_of_the_laboratory_planet_earth_0",
+          "current_description": "The planet where the story takes place in the near future, year 2175.",
+          "current_attributes": {},
+          "time_start_event": "",
+          "time_end_event": "creation of the laboratory"
+        },
+        {
+          "sid": "creation_of_the_laboratory_planet_earth_1",
+          "current_description": "The planet where the story takes place in the near future, year 2175, with a newly created underwater laboratory.",
+          "current_attributes": {
+            "year": 2175
+          },
+          "time_start_event": "creation of the laboratory",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "underwater_laboratory",
+      "name": "underwater laboratory",
+      "type": "location",
+      "base_description": "A modern chemical-technological laboratory in a dilapidated, emergency condition, created by the SynD corporation in 2132. An underwater laboratory where robots with digitized consciousnesses of the world’s greatest scientists work tirelessly.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "creation_of_the_laboratory_underwater_laboratory_0",
+          "current_description": "A modern chemical-technological laboratory created by the SynD corporation in 2132.",
+          "current_attributes": {},
+          "time_start_event": "creation of the laboratory",
+          "time_end_event": "manipulation by the corporation"
+        },
+        {
+          "sid": "manipulation_by_the_corporation_underwater_laboratory_1",
+          "current_description": "A modern chemical-technological laboratory in a dilapidated, emergency condition, created by the SynD corporation in 2132.",
+          "current_attributes": {},
+          "time_start_event": "manipulation by the corporation",
+          "time_end_event": null
+        },
+        {
+          "sid": "accident_underwater_laboratory_2",
+          "current_description": "A modern chemical-technological laboratory in a state of chaos and despair, caused by the spread of Valladium-5.",
+          "current_attributes": {},
+          "time_start_event": "Accident",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "biological_weapons",
+      "name": "biological weapons",
+      "type": "item",
+      "base_description": "Weapons implanted into the bodies of the scientists, killing them five years after the launch of the 'Digital Genius' program.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "implanting_biological_weapons_biological_weapons_0",
+          "current_description": "Weapons implanted into the bodies of the scientists.",
+          "current_attributes": {},
+          "time_start_event": "implanting biological weapons",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "creation_of_the_laboratory",
+      "name": "creation of the laboratory",
+      "type": "event",
+      "base_description": "The event of creating the underwater laboratory by the SynD corporation in 2132.",
+      "base_attributes": {
+        "time": "2132"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "launching_of_the_digital_genius_program",
+      "name": "launching of the Digital Genius program",
+      "type": "event",
+      "base_description": "The event of launching the 'Digital Genius' program by the SynD corporation.",
+      "base_attributes": {
+        "time": "2132"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "cloning_of_brains",
+      "name": "cloning of brains",
+      "type": "event",
+      "base_description": "The event of cloning the brains of the scientists as part of the 'Digital Genius' program.",
+      "base_attributes": {
+        "time": "2132-2137"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "implanting_biological_weapons",
+      "name": "implanting biological weapons",
+      "type": "event",
+      "base_description": "The event of implanting biological weapons into the bodies of the scientists.",
+      "base_attributes": {
+        "time": "2137"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "killing_of_scientists",
+      "name": "killing of scientists",
+      "type": "event",
+      "base_description": "The event of killing the scientists five years after the launch of the 'Digital Genius' program due to the implanted biological weapons.",
+      "base_attributes": {
+        "time": "2137"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "manipulation_by_the_corporation",
+      "name": "manipulation by the corporation",
+      "type": "event",
+      "base_description": "The event of the SynD corporation manipulating the scientists to establish a monopoly on science.",
+      "base_attributes": {
+        "time": "2132-2175"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "valladium",
+      "name": "Valladium",
+      "type": "item",
+      "base_description": "A newly discovered chemical element found at the station. It serves as an energy source and its isotopes can alter the physical properties of objects.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "valladium5",
+      "name": "Valladium-5",
+      "type": "item",
+      "base_description": "An unstable isotope of Valladium that causes accelerated aging in all materials, leading to chaos and potential global catastrophe. It is located in the central laboratory and needs to be neutralized by Alex. It causes decay.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "accident_valladium5_0",
+          "current_description": "An unstable isotope of Valladium that causes accelerated aging in all materials, leading to chaos and potential global catastrophe. It is created by the accident and needs to be neutralized.",
+          "current_attributes": {},
+          "time_start_event": "Accident",
+          "time_end_event": null
+        },
+        {
+          "sid": "isotope_particles_break_free_valladium5_1",
+          "current_description": "An unstable isotope of Valladium that has escaped into the outside world, causing a global catastrophe.",
+          "current_attributes": {},
+          "time_start_event": "Isotope particles break free",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "id": "accident",
+      "name": "Accident",
+      "type": "event",
+      "base_description": "An event where Valladium-5 is created and spreads rapidly, causing the laboratory to descend into chaos.",
+      "base_attributes": {
+        "time": "Year 2175"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "epicenter_of_the_disaster",
+      "name": "Epicenter of the disaster",
+      "type": "location",
+      "base_description": "The location where the protagonist heads to neutralize the isotope.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "global_catastrophe",
+      "name": "Global Catastrophe",
+      "type": "event",
+      "base_description": "An event that could occur if Valladium-5 escapes into the outside world.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "main_computer",
+      "name": "Main Computer",
+      "type": "item",
+      "base_description": "The station’s main computer that calculates the approximate time before the isotope particles break free.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "isotope_particles_break_free",
+      "name": "Isotope particles break free",
+      "type": "event",
+      "base_description": "An event predicted to occur in 30 days, leading to potential global catastrophe.",
+      "base_attributes": {
+        "time": "30 days after the accident"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "master",
+      "name": "Master",
+      "type": "character",
+      "base_description": "A character who prepared the equipment in the workshop for Alex.",
+      "base_attributes": {
+        "role": "preparer of equipment"
+      },
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "atomizer",
+      "name": "Atomizer",
+      "type": "item",
+      "base_description": "A cannon named by Alex that is used to neutralize Valladium-5.",
+      "base_attributes": {
+        "function": "neutralize Valladium-5",
+        "creator": "Alex"
+      },
+      "states": [],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "workshop",
+      "name": "workshop",
+      "type": "location",
+      "base_description": "The location where Alex heads to get equipment.",
+      "base_attributes": {
+        "purpose": "equipment retrieval"
+      },
+      "states": [
+        {
+          "sid": "alex_heads_to_workshop_workshop_0",
+          "current_description": "The location where Alex heads to get equipment and is currently the destination for Alex.",
+          "current_attributes": {
+            "purpose": "equipment retrieval",
+            "current_activity": "destination for Alex"
+          },
+          "time_start_event": "Alex heads to workshop",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "test_area",
+      "name": "Test Area",
+      "type": "location",
+      "base_description": "A location within the workshop.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "laboratory",
+      "name": "laboratory",
+      "type": "location",
+      "base_description": "A location where a state of emergency occurs.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "state_of_emergency_laboratory_0",
+          "current_description": "A location where a state of emergency has occurred.",
+          "current_attributes": {
+            "state": "emergency"
+          },
+          "time_start_event": "State of emergency",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "residential_sector",
+      "name": "residential sector",
+      "type": "location",
+      "base_description": "A location where personnel are urged to proceed. It is where the communication system was tested from different points.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "state_of_emergency_residential_sector_0",
+          "current_description": "A location where personnel are urged to proceed due to a state of emergency.",
+          "current_attributes": {
+            "state": "emergency_affected"
+          },
+          "time_start_event": "State of emergency",
+          "time_end_event": null
+        },
+        {
+          "sid": "alex_heads_to_workshop_residential_sector_1",
+          "current_description": "A location where personnel are urged to proceed and where the communication system was tested from different points.",
+          "current_attributes": {
+            "state": "emergency_affected",
+            "current_activity": "communication system testing"
+          },
+          "time_start_event": "Testing communication system",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "state_of_emergency",
+      "name": "State of emergency",
+      "type": "event",
+      "base_description": "An event that occurs in the laboratory.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "testing_the_cannon",
+      "name": "Testing the cannon",
+      "type": "event",
+      "base_description": "An event involving the Master and Alex.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "naming_the_cannon",
+      "name": "Naming the cannon",
+      "type": "event",
+      "base_description": "An event where Alex names the cannon the Atomizer.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        2
+      ]
+    },
+    {
+      "id": "finn_mccarthy",
+      "name": "Finn McCarthy",
+      "type": "character",
+      "base_description": "A character who is supportive and knowledgeable about the communication system. He interacts with Alex and Ogawa, expressing hope for the mission's success. He is also interested in any interesting findings and survivors. He provides information about the door mechanism and the keycard. He shouts to Alex to run and helps him escape from William Rivers. He is supportive of Alex's mission.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "finding_battery_finn_mccarthy_0",
+          "current_description": "A character who is supportive and knowledgeable about the communication system. He interacts with Alex and Ogawa, expressing hope for the mission's success. He is also interested in any interesting findings and survivors. He provides information about the door mechanism and the keycard. He shouts to Alex to run and helps him escape from William Rivers. He is supportive of Alex's mission. He finds a battery.",
+          "current_attributes": {
+            "actions": "finds battery"
+          },
+          "time_start_event": "finding battery",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "takeshi_ogawa",
+      "name": "Takeshi Ogawa",
+      "type": "character",
+      "base_description": "A character who prepared the communication system and interacts with Alex and Finn McCarthy. He gives the radio to Alex for testing and provides guidance for the mission. He points out the passage to the Workshop. He comments on the horrifying effects of corrosion. He supports Alex's mission.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "protagonists_room",
+      "name": "Protagonist’s Room",
+      "type": "location",
+      "base_description": "The room where Alex starts his journey, expressing his hopes and readiness.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "corridor",
+      "name": "Corridor",
+      "type": "location",
+      "base_description": "A location where Finn McCarthy and Alex have a conversation about the mission and the communication system.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "atrium_exit",
+      "name": "Atrium Exit",
+      "type": "location",
+      "base_description": "The location where Alex, Finn McCarthy, and Takeshi Ogawa meet before testing the radio.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "communication_system",
+      "name": "communication system",
+      "type": "item",
+      "base_description": "A device handcrafted by Ogawa and tested by Finn and Takeshi for long-distance communication.",
+      "base_attributes": {
+        "creator": "Takeshi Ogawa",
+        "tested_by": "Finn and Takeshi"
+      },
+      "states": [
+        {
+          "sid": "finn_and_takeshi_test_item_communication_system_0",
+          "current_description": "A device handcrafted by Ogawa and tested by Finn and Takeshi for long-distance communication. It has been confirmed functional.",
+          "current_attributes": {
+            "creator": "Takeshi Ogawa",
+            "tested_by": "Finn and Takeshi",
+            "status": "functional"
+          },
+          "time_start_event": "Finn and Takeshi test item",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "radio",
+      "name": "Radio",
+      "type": "item",
+      "base_description": "An item given to Alex by Ogawa for testing the communication system.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "testing_communication_system_radio_0",
+          "current_description": "An item given to Alex by Ogawa for testing the communication system and is currently being used for testing.",
+          "current_attributes": {
+            "purpose": "communication testing",
+            "current_activity": "in use"
+          },
+          "time_start_event": "Testing communication system",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "alex_heads_to_workshop",
+      "name": "Alex heads to workshop",
+      "type": "event",
+      "base_description": "Alex heads to the workshop to get equipment, mentioning the need to handle corrosion.",
+      "base_attributes": {
+        "time": "after the conversation in the corridor"
+      },
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "testing_communication_system",
+      "name": "Testing communication system",
+      "type": "event",
+      "base_description": "The event where the communication system is tested by Alex, Finn McCarthy, and Takeshi Ogawa using the radio.",
+      "base_attributes": {
+        "time": "before heading to the workshop"
+      },
+      "states": [],
+      "chunk_id": [
+        3
+      ]
+    },
+    {
+      "id": "central_laboratory",
+      "name": "central laboratory",
+      "type": "location",
+      "base_description": "The location within the underwater laboratory where Valladium-5 is located.",
+      "base_attributes": {
+        "function": "research"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "medical_sector",
+      "name": "medical sector",
+      "type": "location",
+      "base_description": "The first destination for Alex, from where he will head to the workshop.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        4,
+        5
+      ]
+    },
+    {
+      "id": "storage_facility",
+      "name": "storage facility",
+      "type": "location",
+      "base_description": "The location Alex will proceed to after obtaining protection from the workshop.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "protective_layer",
+      "name": "protective layer",
+      "type": "item",
+      "base_description": "A layer that can coat Alex's body to protect him from corrosion, prepared by Master in the workshop.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "alex_retrieves_equipment_protective_layer_0",
+          "current_description": "A layer that can coat Alex's body to protect him from corrosion, prepared by Master in the workshop. It has been retrieved by Alex.",
+          "current_attributes": {
+            "status": "retrieved"
+          },
+          "time_start_event": "Alex retrieves equipment",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "finn_and_takeshi_test_item",
+      "name": "Finn and Takeshi test item",
+      "type": "event",
+      "base_description": "Finn and Takeshi test the communication system over long distances.",
+      "base_attributes": {
+        "time": "before Alex's mission"
+      },
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "alex_reaches_workshop",
+      "name": "Alex reaches workshop",
+      "type": "event",
+      "base_description": "Alex reaches the workshop to retrieve equipment.",
+      "base_attributes": {
+        "time": "during Alex's mission"
+      },
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "alex_retrieves_equipment",
+      "name": "Alex retrieves equipment",
+      "type": "event",
+      "base_description": "Alex retrieves equipment from the workshop.",
+      "base_attributes": {
+        "time": "during Alex's mission"
+      },
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "alex_coats_body",
+      "name": "Alex coats body",
+      "type": "event",
+      "base_description": "Alex coats his body with a protective layer.",
+      "base_attributes": {
+        "time": "during Alex's mission"
+      },
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "alex_proceeds_to_storage",
+      "name": "Alex proceeds to storage",
+      "type": "event",
+      "base_description": "Alex proceeds to the storage facility after obtaining protection.",
+      "base_attributes": {
+        "time": "during Alex's mission"
+      },
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "wards",
+      "name": "Wards",
+      "type": "location",
+      "base_description": "A location mentioned in the medical sector.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "pneumatic_mail_station",
+      "name": "Pneumatic Mail Station",
+      "type": "location",
+      "base_description": "A location where a keycard might be stuck.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "lounge",
+      "name": "Lounge",
+      "type": "location",
+      "base_description": "A place that used to have a fountain.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "mechanism",
+      "name": "mechanism",
+      "type": "item",
+      "base_description": "A mechanism that doesn't work due to a missing battery.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "mechanism_doesnt_work_mechanism_0",
+          "current_description": "A mechanism that doesn't work due to a missing battery.",
+          "current_attributes": {
+            "status": "non-functional"
+          },
+          "time_start_event": "mechanism doesn't work",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "battery",
+      "name": "battery",
+      "type": "item",
+      "base_description": "An item that fits many things, including door mechanisms.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "finding_battery_battery_0",
+          "current_description": "An item that fits many things, including door mechanisms, and has been found.",
+          "current_attributes": {
+            "status": "found"
+          },
+          "time_start_event": "finding battery",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "keycard",
+      "name": "keycard",
+      "type": "item",
+      "base_description": "An item needed for the door and might be stuck in the pneumatic mail station.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "emergency_protocols_keycard_0",
+          "current_description": "An item needed for the door due to emergency protocols and might be stuck in the pneumatic mail station.",
+          "current_attributes": {
+            "required_for": "door"
+          },
+          "time_start_event": "emergency protocols",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "package",
+      "name": "package",
+      "type": "item",
+      "base_description": "A package that was sent but its arrival is uncertain.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "package_was_sent_package_0",
+          "current_description": "A package that was sent but its arrival is uncertain.",
+          "current_attributes": {
+            "status": "sent",
+            "arrival": "uncertain"
+          },
+          "time_start_event": "package was sent",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "fountain",
+      "name": "fountain",
+      "type": "item",
+      "base_description": "An item that used to be in the lounge.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "mechanism_doesnt_work",
+      "name": "mechanism doesn't work",
+      "type": "event",
+      "base_description": "An event where the mechanism doesn't work due to a missing battery.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "emergency_protocols",
+      "name": "emergency protocols",
+      "type": "event",
+      "base_description": "An event where the door is locked because of emergency protocols.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "package_was_sent",
+      "name": "package was sent",
+      "type": "event",
+      "base_description": "An event where a package was sent but its arrival is uncertain.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "finding_battery",
+      "name": "finding battery",
+      "type": "event",
+      "base_description": "An event where Finn McCarthy finds a battery that fits many things, including door mechanisms.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "william_rivers",
+      "name": "William Rivers",
+      "type": "character",
+      "base_description": "A scientist who has undergone a horrifying transformation into the Psycho. He mentions creating Valladium-2 and is aggressive towards Alex. He confronts Alex in the Therapist's Office.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "encounter_with_psycho_william_rivers_0",
+          "current_description": "A scientist who has undergone a horrifying transformation into the Psycho. He is aggressive towards Alex and confronts him in the Therapist's Office.",
+          "current_attributes": {
+            "status": "aggressive",
+            "location": "Therapist's Office"
+          },
+          "time_start_event": "Encounter with Psycho",
+          "time_end_event": null
+        },
+        {
+          "sid": "returning_stolen_items_william_rivers_1",
+          "current_description": "A scientist who has undergone a horrifying transformation into the Psycho. He is desperate and confronts Alex in the Therapist's Office, begging for help.",
+          "current_attributes": {
+            "status": "desperate",
+            "location": "Therapist's Office"
+          },
+          "time_start_event": "returning stolen items",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        6,
+        7
+      ]
+    },
+    {
+      "id": "valladium2",
+      "name": "Valladium-2",
+      "type": "item",
+      "base_description": "An isotope created by William Rivers that Alex plans to install into the Atomizer.",
+      "base_attributes": {
+        "creator": "William Rivers",
+        "function": "increase temperature of objects"
+      },
+      "states": [
+        {
+          "sid": "obtaining_valladium2_valladium2_0",
+          "current_description": "Alex obtains Valladium-2 and plans to install it into the Atomizer.",
+          "current_attributes": {
+            "status": "obtained"
+          },
+          "time_start_event": "Obtaining Valladium-2",
+          "time_end_event": null
+        },
+        {
+          "sid": "install_valladium2_valladium2_1",
+          "current_description": "Alex has installed Valladium-2 into the Atomizer.",
+          "current_attributes": {
+            "status": "installed"
+          },
+          "time_start_event": "Install Valladium-2",
+          "time_end_event": null
+        },
+        {
+          "sid": "switching_isotopes_valladium2_2",
+          "current_description": "An isotope created by William Rivers that Alex plans to install into the Atomizer.",
+          "current_attributes": {
+            "creator": "William Rivers",
+            "function": "increase temperature of objects",
+            "status": "obtained"
+          },
+          "time_start_event": "",
+          "time_end_event": "switching isotopes"
+        },
+        {
+          "sid": "switching_isotopes_valladium2_3",
+          "current_description": "An isotope created by William Rivers that Alex has installed into the Atomizer.",
+          "current_attributes": {
+            "creator": "William Rivers",
+            "function": "increase temperature of objects",
+            "status": "installed"
+          },
+          "time_start_event": "switching isotopes",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "residential_zone",
+      "name": "Residential Zone",
+      "type": "location",
+      "base_description": "A location where Alex returns after escaping from William Rivers.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "return_to_residential_zone_residential_zone_0",
+          "current_description": "A location where Alex returns after escaping from William Rivers. Alex is now present here.",
+          "current_attributes": {
+            "status": "current location"
+          },
+          "time_start_event": "Return to Residential Zone",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        6
+      ]
+    },
+    {
+      "id": "encounter_with_psycho",
+      "name": "Encounter with Psycho",
+      "type": "event",
+      "base_description": "An event where Alex encounters William Rivers, who has transformed into the Psycho.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        6
+      ]
+    },
+    {
+      "id": "obtaining_valladium2",
+      "name": "Obtaining Valladium-2",
+      "type": "event",
+      "base_description": "An event where Alex obtains the Valladium-2 isotope.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        6
+      ]
+    },
+    {
+      "id": "return_to_residential_zone",
+      "name": "Return to Residential Zone",
+      "type": "event",
+      "base_description": "An event where Alex returns to the Residential Zone after escaping from William Rivers.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        6
+      ]
+    },
+    {
+      "id": "install_valladium2",
+      "name": "Install Valladium-2",
+      "type": "event",
+      "base_description": "An event where Alex plans to install Valladium-2 into the Atomizer.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        6
+      ]
+    },
+    {
+      "id": "therapists_office",
+      "name": "Therapist's Office",
+      "type": "location",
+      "base_description": "The location where Alex encounters William Rivers and where William Rivers confronts Alex. This is where it all ends, according to Rivers, and where he demands Alex return what was stolen. It is also the place where Alex reflects on Rivers' transformation and the tragic circumstances surrounding his condition.",
+      "base_attributes": {
+        "purpose": "confrontation",
+        "significance": "This location is crucial for the confrontation between Alex and William Rivers, revealing the tragic consequences of Valladium-2 and the moral dilemmas faced by the characters."
+      },
+      "states": [],
+      "chunk_id": [
+        6,
+        7
+      ]
+    },
+    {
+      "id": "isotopes",
+      "name": "isotopes",
+      "type": "item",
+      "base_description": "Items that can be switched and increase the temperature of objects.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "switching_isotopes",
+      "name": "switching isotopes",
+      "type": "event",
+      "base_description": "Event where isotopes are switched.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "going_to_testing_zone",
+      "name": "going to testing zone",
+      "type": "event",
+      "base_description": "Event where Alex goes to the testing zone.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "returning_stolen_items",
+      "name": "returning stolen items",
+      "type": "event",
+      "base_description": "Event where stolen items are returned.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "repairing_door",
+      "name": "repairing door",
+      "type": "event",
+      "base_description": "Event where the door is repaired.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "heading_to_workshop",
+      "name": "heading to workshop",
+      "type": "event",
+      "base_description": "Event where Alex heads to the workshop.",
+      "base_attributes": {
+        "time": ""
+      },
+      "states": [],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "digital_genius_program",
+      "name": "Digital Genius program",
+      "type": "event",
+      "base_description": "A program launched by the SynD corporation to digitize and clone the brains of the world's greatest scientists.",
+      "base_attributes": {
+        "time": "2132"
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "modern_underwater_chemicaltechnological_laboratory",
+      "name": "modern underwater chemical-technological laboratory",
+      "type": "location",
+      "base_description": "A modern underwater chemical-technological laboratory in a dilapidated, emergency condition.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "corrosion",
+      "name": "corrosion",
+      "type": "environment_element",
+      "base_description": "A destructive process that dissolves materials into the air, caused by Valladium-5.",
+      "base_attributes": {
+        "effect": "dissolves materials",
+        "cause": "Valladium-5"
+      },
+      "states": [],
+      "chunk_id": [
+        4
+      ]
+    },
+    {
+      "id": "main_administration",
+      "name": "main administration",
+      "type": "location",
+      "base_description": "A location where the keycard is needed from.",
+      "base_attributes": {},
+      "states": [],
+      "chunk_id": [
+        5
+      ]
+    },
+    {
+      "id": "year_2132",
+      "name": "year 2132",
+      "type": "temporal",
+      "base_description": "The year when the underwater laboratory was created by the SynD corporation.",
+      "base_attributes": {
+        "year": 2132
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "year_2175",
+      "name": "year 2175",
+      "type": "temporal",
+      "base_description": "The year when the story takes place in the near future.",
+      "base_attributes": {
+        "year": 2175
+      },
+      "states": [],
+      "chunk_id": [
+        0
+      ]
+    },
+    {
+      "id": "corrosion_effects",
+      "name": "corrosion_effects",
+      "type": "event",
+      "base_description": "The horrifying effects caused by corrosion, mentioned by Takeshi Ogawa.",
+      "base_attributes": {
+        "severity": "horrifying"
+      },
+      "states": [],
+      "chunk_id": [
+        6
+      ]
+    },
+    {
+      "id": "testing_zone",
+      "name": "testing zone",
+      "type": "location",
+      "base_description": "A location where Alex is instructed to go to see how the isotope switching works.",
+      "base_attributes": {
+        "purpose": "testing isotopes"
+      },
+      "states": [],
+      "chunk_id": [
+        7
+      ]
+    },
+    {
+      "id": "protagonist",
+      "name": "Protagonist (Alex)",
+      "type": "character",
+      "base_description": "A character who heads into the epicenter of the disaster to save the laboratory and humanity, known as the protagonist, aiming to neutralize Valladium-5.",
+      "base_attributes": {
+        "role": "protagonist"
+      },
+      "states": [],
+      "chunk_id": [
+        1
+      ]
+    },
+    {
+      "id": "synd_corporation",
+      "name": "SynD corporation",
+      "type": "group",
+      "base_description": "A corporation that created the underwater laboratory in 2132, also known for investing significant resources into enhancing individuals with high-quality materials.",
+      "base_attributes": {
+        "industry": "chemical-technological"
+      },
+      "states": [],
+      "chunk_id": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "cyborgs",
+      "name": "cyborgs",
+      "type": "group",
+      "base_description": "Robots containing the digitized brains of the world's greatest scientists that work tirelessly in the underwater laboratory. They lose their metallic bodies and human sanity due to Valladium-5.",
+      "base_attributes": {},
+      "states": [
+        {
+          "sid": "cloning_of_brains_cyborgs_0",
+          "current_description": "Robots containing the digitized brains of the world's greatest scientists that work tirelessly in the underwater laboratory.",
+          "current_attributes": {},
+          "time_start_event": "cloning of brains",
+          "time_end_event": "Accident"
+        },
+        {
+          "sid": "accident_robots_1",
+          "current_description": "Robots with digitized consciousnesses of the world’s greatest scientists that have lost their metallic bodies and human sanity due to Valladium-5.",
+          "current_attributes": {},
+          "time_start_event": "Accident",
+          "time_end_event": null
+        }
+      ],
+      "chunk_id": [
+        0,
+        1
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "scientists_were_subjected_to_cloning_of_brains_edge",
+      "source": "scientists",
+      "target": "cloning_of_brains",
+      "relation": "were subjected to",
+      "description": "The scientists were subjected to the cloning of their brains.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "scientists_were_subjected_to_implanting_biological_weapons_edge",
+      "source": "scientists",
+      "target": "implanting_biological_weapons",
+      "relation": "were subjected to",
+      "description": "The scientists were subjected to the implanting of biological weapons.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "scientists_were_subjected_to_killing_of_scientists_edge",
+      "source": "scientists",
+      "target": "killing_of_scientists",
+      "relation": "were subjected to",
+      "description": "The scientists were subjected to killing due to the implanted biological weapons.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "scientists_were_involved_in_digital_genius_program_edge",
+      "source": "scientists",
+      "target": "digital_genius_program",
+      "relation": "were involved in",
+      "description": "The scientists were involved in the Digital Genius program.",
+      "weight": 1.0,
+      "time_start_event": "launching of the Digital Genius program",
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "scientists_participated_in_digital_genius_program_edge",
+      "source": "scientists",
+      "target": "digital_genius_program",
+      "relation": "participated in",
+      "description": "The scientists participated in the Digital Genius program.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "scientists_brains_are_contained_in_cyborgs_edge",
+      "source": "scientists",
+      "target": "cyborgs",
+      "relation": "brains are contained in",
+      "description": "The cyborgs contain the digitized brains of the scientists.",
+      "weight": 1.0,
+      "time_start_event": "cloning of brains",
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "planet_earth_has_central_laboratory_edge",
+      "source": "planet_earth",
+      "target": "central_laboratory",
+      "relation": "has",
+      "description": "The underwater laboratory is located on Planet Earth.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "biological_weapons_were_used_in_implanting_biological_weapons_edge",
+      "source": "biological_weapons",
+      "target": "implanting_biological_weapons",
+      "relation": "were used in",
+      "description": "The biological weapons were used in the implanting event.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "biological_weapons_caused_killing_of_scientists_edge",
+      "source": "biological_weapons",
+      "target": "killing_of_scientists",
+      "relation": "caused",
+      "description": "The biological weapons caused the killing of the scientists.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "creation_of_the_laboratory_created_central_laboratory_edge",
+      "source": "creation_of_the_laboratory",
+      "target": "central_laboratory",
+      "relation": "created",
+      "description": "The underwater laboratory was created by the SynD corporation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "creation_of_the_laboratory_occurred_in_year_2132_edge",
+      "source": "creation_of_the_laboratory",
+      "target": "year_2132",
+      "relation": "occurred in",
+      "description": "The creation of the laboratory occurred in the year 2132.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "creation_of_the_laboratory_was_created_by_synd_corporation_edge",
+      "source": "creation_of_the_laboratory",
+      "target": "synd_corporation",
+      "relation": "was created by",
+      "description": "The SynD corporation created the underwater laboratory.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "launching_of_the_digital_genius_program_was_launched_by_synd_corporation_edge",
+      "source": "launching_of_the_digital_genius_program",
+      "target": "synd_corporation",
+      "relation": "was launched by",
+      "description": "The SynD corporation launched the 'Digital Genius' program.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cloning_of_brains_subjects_scientists_edge",
+      "source": "cloning_of_brains",
+      "target": "scientists",
+      "relation": "subjects",
+      "description": "The scientists were subjected to the cloning of their brains.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cloning_of_brains_was_part_of_digital_genius_program_edge",
+      "source": "cloning_of_brains",
+      "target": "digital_genius_program",
+      "relation": "was part of",
+      "description": "The Digital Genius program included the cloning of the scientists' brains.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "implanting_biological_weapons_subjects_scientists_edge",
+      "source": "implanting_biological_weapons",
+      "target": "scientists",
+      "relation": "subjects",
+      "description": "The scientists were subjected to the implanting of biological weapons.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "implanting_biological_weapons_used_biological_weapons_edge",
+      "source": "implanting_biological_weapons",
+      "target": "biological_weapons",
+      "relation": "used",
+      "description": "The biological weapons were used in the implanting event.",
+      "weight": 1.0,
+      "time_start_event": "implanting biological weapons",
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "killing_of_scientists_subjects_scientists_edge",
+      "source": "killing_of_scientists",
+      "target": "scientists",
+      "relation": "subjects",
+      "description": "The scientists were subjected to killing due to the implanted biological weapons.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "killing_of_scientists_was_caused_by_biological_weapons_edge",
+      "source": "killing_of_scientists",
+      "target": "biological_weapons",
+      "relation": "was caused by",
+      "description": "The biological weapons caused the killing of the scientists.",
+      "weight": 1.0,
+      "time_start_event": "killing of scientists",
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "manipulation_by_the_corporation_was_performed_by_synd_corporation_edge",
+      "source": "manipulation_by_the_corporation",
+      "target": "synd_corporation",
+      "relation": "was performed by",
+      "description": "The SynD corporation performed the manipulation to establish a monopoly on science.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "valladium_has_isotope_valladium5_edge",
+      "source": "valladium",
+      "target": "valladium5",
+      "relation": "has isotope",
+      "description": "Valladium-5 is an isotope of Valladium.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "valladium_is_used_by_robots_edge",
+      "source": "valladium",
+      "target": "cyborgs",
+      "relation": "is used by",
+      "description": "Robots use Valladium as an energy source.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "valladium5_is_isotope_of_valladium_edge",
+      "source": "valladium5",
+      "target": "valladium",
+      "relation": "is isotope of",
+      "description": "Valladium-5 is an isotope of Valladium.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "valladium5_is_involved_in_accident_edge",
+      "source": "valladium5",
+      "target": "accident",
+      "relation": "is involved in",
+      "description": "The accident involves the creation and spread of Valladium-5.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "valladium5_is_created_by_accident_edge",
+      "source": "valladium5",
+      "target": "accident",
+      "relation": "is created by",
+      "description": "The accident creates Valladium-5.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "valladium5_could_cause_global_catastrophe_edge",
+      "source": "valladium5",
+      "target": "global_catastrophe",
+      "relation": "could cause",
+      "description": "Valladium-5 could cause a global catastrophe if it escapes.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "valladium5_is_neutralized_by_valladium2_edge",
+      "source": "valladium5",
+      "target": "valladium2",
+      "relation": "is neutralized by",
+      "description": "Alex's mission is to neutralize Valladium-5.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "valladium5_causes_corrosion_edge",
+      "source": "valladium5",
+      "target": "corrosion",
+      "relation": "causes",
+      "description": "Valladium-5 causes corrosion that dissolves materials.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "valladium5_is_attempted_to_be_neutralized_by_protagonist_edge",
+      "source": "valladium5",
+      "target": "protagonist",
+      "relation": "is attempted to be neutralized by",
+      "description": "The protagonist attempts to neutralize Valladium-5.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "accident_involves_valladium5_edge",
+      "source": "accident",
+      "target": "valladium5",
+      "relation": "involves",
+      "description": "The accident involves the creation and spread of Valladium-5.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "accident_creates_valladium5_edge",
+      "source": "accident",
+      "target": "valladium5",
+      "relation": "creates",
+      "description": "The accident creates Valladium-5.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "accident_causes_chaos_in_central_laboratory_edge",
+      "source": "accident",
+      "target": "central_laboratory",
+      "relation": "causes chaos in",
+      "description": "The accident causes chaos in the laboratory.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "accident_causes_loss_of_sanity_in_robots_edge",
+      "source": "accident",
+      "target": "cyborgs",
+      "relation": "causes loss of sanity in",
+      "description": "The accident causes the robots to lose their human sanity.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "epicenter_of_the_disaster_is_entered_by_protagonist_edge",
+      "source": "epicenter_of_the_disaster",
+      "target": "protagonist",
+      "relation": "is entered by",
+      "description": "The protagonist heads into the epicenter to neutralize the isotope.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "global_catastrophe_could_be_caused_by_valladium5_edge",
+      "source": "global_catastrophe",
+      "target": "valladium5",
+      "relation": "could be caused by",
+      "description": "Valladium-5 causes a global catastrophe after escaping.",
+      "weight": 1.0,
+      "time_start_event": "Global Catastrophe",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "global_catastrophe_could_be_caused_by_isotope_particles_break_free_edge",
+      "source": "global_catastrophe",
+      "target": "isotope_particles_break_free",
+      "relation": "could be caused by",
+      "description": "The breaking free of isotope particles could lead to a global catastrophe.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "global_catastrophe_is_triggered_by_isotope_particles_break_free_edge",
+      "source": "global_catastrophe",
+      "target": "isotope_particles_break_free",
+      "relation": "is triggered by",
+      "description": "The global catastrophe is triggered by the isotope particles breaking free.",
+      "weight": 1.0,
+      "time_start_event": "Global Catastrophe",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "main_computer_calculates_time_before_isotope_particles_break_free_edge",
+      "source": "main_computer",
+      "target": "isotope_particles_break_free",
+      "relation": "calculates time before",
+      "description": "The main computer calculates the time before the isotope particles break free.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "isotope_particles_break_free_time_is_calculated_by_main_computer_edge",
+      "source": "isotope_particles_break_free",
+      "target": "main_computer",
+      "relation": "time is calculated by",
+      "description": "The main computer calculates the time before the isotope particles break free.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "isotope_particles_break_free_could_lead_to_global_catastrophe_edge",
+      "source": "isotope_particles_break_free",
+      "target": "global_catastrophe",
+      "relation": "could lead to",
+      "description": "The breaking free of isotope particles leads to a global catastrophe.",
+      "weight": 1.0,
+      "time_start_event": "Isotope particles break free",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "isotope_particles_break_free_triggers_global_catastrophe_edge",
+      "source": "isotope_particles_break_free",
+      "target": "global_catastrophe",
+      "relation": "triggers",
+      "description": "The isotope particles breaking free triggers a global catastrophe.",
+      "weight": 1.0,
+      "time_start_event": "Isotope particles break free",
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "master_involves_testing_the_cannon_edge",
+      "source": "master",
+      "target": "testing_the_cannon",
+      "relation": "involves",
+      "description": "The Master is involved in testing the cannon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "master_involves_naming_the_cannon_edge",
+      "source": "master",
+      "target": "naming_the_cannon",
+      "relation": "involves",
+      "description": "The Master is involved in naming the cannon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "master_prepares_equipment_in_workshop_edge",
+      "source": "master",
+      "target": "workshop",
+      "relation": "prepares equipment in",
+      "description": "Master prepared the equipment in the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "workshop_contains_test_area_edge",
+      "source": "workshop",
+      "target": "test_area",
+      "relation": "contains",
+      "description": "The workshop contains the test area.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "workshop_is_destination_for_valladium2_edge",
+      "source": "workshop",
+      "target": "valladium2",
+      "relation": "is destination for",
+      "description": "Alex heads to the workshop for equipment.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "workshop_contains_valladium2_edge",
+      "source": "workshop",
+      "target": "valladium2",
+      "relation": "contains",
+      "description": "Alex is present in the workshop during the events.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "workshop_is_location_for_alex_heads_to_workshop_edge",
+      "source": "workshop",
+      "target": "alex_heads_to_workshop",
+      "relation": "is location for",
+      "description": "The event occurs at the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "workshop_is_location_for_alex_reaches_workshop_edge",
+      "source": "workshop",
+      "target": "alex_reaches_workshop",
+      "relation": "is location for",
+      "description": "The event of Alex reaching the workshop occurs at the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "workshop_is_location_for_alex_retrieves_equipment_edge",
+      "source": "workshop",
+      "target": "alex_retrieves_equipment",
+      "relation": "is location for",
+      "description": "The event of Alex retrieving equipment occurs at the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "workshop_is_pointed_by_takeshi_ogawa_edge",
+      "source": "workshop",
+      "target": "takeshi_ogawa",
+      "relation": "is pointed by",
+      "description": "Takeshi Ogawa points out the passage to the Workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "workshop_is_pointed_out_by_takeshi_ogawa_edge",
+      "source": "workshop",
+      "target": "takeshi_ogawa",
+      "relation": "is pointed out by",
+      "description": "Takeshi Ogawa points out the passage to the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "workshop_contains_event_heading_to_workshop_edge",
+      "source": "workshop",
+      "target": "heading_to_workshop",
+      "relation": "contains event",
+      "description": "The event of heading to the workshop occurs in the Workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "workshop_is_location_for_testing_the_cannon_edge",
+      "source": "workshop",
+      "target": "testing_the_cannon",
+      "relation": "is location for",
+      "description": "The workshop is the location where the cannon is tested.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "workshop_is_in_residential_sector_edge",
+      "source": "workshop",
+      "target": "residential_sector",
+      "relation": "is in",
+      "description": "The workshop is located within the residential sector.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "workshop_has_equipment_prepared_by_master_edge",
+      "source": "workshop",
+      "target": "master",
+      "relation": "has equipment prepared by",
+      "description": "Master prepared the equipment in the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "test_area_is_contained_by_workshop_edge",
+      "source": "test_area",
+      "target": "workshop",
+      "relation": "is contained by",
+      "description": "The workshop contains the test area.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "test_area_is_location_for_testing_the_cannon_edge",
+      "source": "test_area",
+      "target": "testing_the_cannon",
+      "relation": "is location for",
+      "description": "The test area is the specific location within the workshop where the cannon is tested.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "laboratory_contains_state_of_emergency_edge",
+      "source": "laboratory",
+      "target": "state_of_emergency",
+      "relation": "contains",
+      "description": "The state of emergency occurs in the laboratory.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "residential_sector_is_affected_by_state_of_emergency_edge",
+      "source": "residential_sector",
+      "target": "state_of_emergency",
+      "relation": "is affected by",
+      "description": "The state of emergency affects the residential sector.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "residential_sector_contains_workshop_edge",
+      "source": "residential_sector",
+      "target": "workshop",
+      "relation": "contains",
+      "description": "The workshop is located within the residential sector.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "state_of_emergency_occurs_in_laboratory_edge",
+      "source": "state_of_emergency",
+      "target": "laboratory",
+      "relation": "occurs in",
+      "description": "The state of emergency occurs in the laboratory.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "state_of_emergency_affects_residential_sector_edge",
+      "source": "state_of_emergency",
+      "target": "residential_sector",
+      "relation": "affects",
+      "description": "The state of emergency affects the residential sector.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "testing_the_cannon_is_involved_by_master_edge",
+      "source": "testing_the_cannon",
+      "target": "master",
+      "relation": "is involved by",
+      "description": "The Master is involved in testing the cannon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "testing_the_cannon_is_involved_by_valladium2_edge",
+      "source": "testing_the_cannon",
+      "target": "valladium2",
+      "relation": "is involved by",
+      "description": "Alex is involved in testing the cannon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "testing_the_cannon_occurs_in_workshop_edge",
+      "source": "testing_the_cannon",
+      "target": "workshop",
+      "relation": "occurs in",
+      "description": "The workshop is the location where the cannon is tested.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "testing_the_cannon_occurs_in_test_area_edge",
+      "source": "testing_the_cannon",
+      "target": "test_area",
+      "relation": "occurs in",
+      "description": "The test area is the specific location within the workshop where the cannon is tested.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "naming_the_cannon_is_involved_by_master_edge",
+      "source": "naming_the_cannon",
+      "target": "master",
+      "relation": "is involved by",
+      "description": "The Master is involved in naming the cannon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "naming_the_cannon_is_involved_by_valladium2_edge",
+      "source": "naming_the_cannon",
+      "target": "valladium2",
+      "relation": "is involved by",
+      "description": "Alex is involved in naming the cannon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "finn_mccarthy_knows_about_communication_system_edge",
+      "source": "finn_mccarthy",
+      "target": "communication_system",
+      "relation": "knows about",
+      "description": "Finn McCarthy is knowledgeable about the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "finn_mccarthy_tests_communication_system_edge",
+      "source": "finn_mccarthy",
+      "target": "communication_system",
+      "relation": "tests",
+      "description": "Finn McCarthy tested the communication system over long distances and confirmed it functional.",
+      "weight": 1.0,
+      "time_start_event": "Finn and Takeshi test item",
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "finn_mccarthy_participates_in_testing_communication_system_edge",
+      "source": "finn_mccarthy",
+      "target": "testing_communication_system",
+      "relation": "participates in",
+      "description": "Finn McCarthy participates in testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "finn_mccarthy_mentions_corrosion_edge",
+      "source": "finn_mccarthy",
+      "target": "corrosion",
+      "relation": "mentions",
+      "description": "Finn McCarthy mentions the problem of corrosion.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "finn_mccarthy_interacts_with_valladium2_edge",
+      "source": "finn_mccarthy",
+      "target": "valladium2",
+      "relation": "interacts with",
+      "description": "Alex and Finn McCarthy communicate and support each other.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "finn_mccarthy_helps_valladium2_edge",
+      "source": "finn_mccarthy",
+      "target": "valladium2",
+      "relation": "helps",
+      "description": "Finn McCarthy helps Alex escape from William Rivers.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "finn_mccarthy_shouts_to_valladium2_edge",
+      "source": "finn_mccarthy",
+      "target": "valladium2",
+      "relation": "shouts to",
+      "description": "Finn McCarthy shouts to Alex to run.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "finn_mccarthy_supports_valladium2_edge",
+      "source": "finn_mccarthy",
+      "target": "valladium2",
+      "relation": "supports",
+      "description": "Finn McCarthy supports Alex's mission.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "finn_mccarthy_collaborates_with_takeshi_ogawa_edge",
+      "source": "finn_mccarthy",
+      "target": "takeshi_ogawa",
+      "relation": "collaborates with",
+      "description": "Finn McCarthy and Takeshi Ogawa collaborate and test the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "finn_mccarthy_interacts_with_takeshi_ogawa_edge",
+      "source": "finn_mccarthy",
+      "target": "takeshi_ogawa",
+      "relation": "interacts with",
+      "description": "Finn McCarthy and Takeshi Ogawa interact and support each other.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "finn_mccarthy_participates_in_finn_and_takeshi_test_item_edge",
+      "source": "finn_mccarthy",
+      "target": "finn_and_takeshi_test_item",
+      "relation": "participates in",
+      "description": "Finn McCarthy participates in testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "finn_mccarthy_finds_battery_edge",
+      "source": "finn_mccarthy",
+      "target": "battery",
+      "relation": "finds",
+      "description": "Finn McCarthy finds a battery that fits many things, including door mechanisms.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "finn_mccarthy_describes_battery_edge",
+      "source": "finn_mccarthy",
+      "target": "battery",
+      "relation": "describes",
+      "description": "Finn McCarthy describes the battery's uses.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "finn_mccarthy_provides_information_about_keycard_edge",
+      "source": "finn_mccarthy",
+      "target": "keycard",
+      "relation": "provides information about",
+      "description": "Finn McCarthy provides information about the keycard needed for the door.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "finn_mccarthy_inspects_pneumatic_mail_station_edge",
+      "source": "finn_mccarthy",
+      "target": "pneumatic_mail_station",
+      "relation": "inspects",
+      "description": "Finn McCarthy inspects the Pneumatic Mail Station for the keycard.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "finn_mccarthy_helps_escape_from_william_rivers_edge",
+      "source": "finn_mccarthy",
+      "target": "william_rivers",
+      "relation": "helps escape from",
+      "description": "Finn McCarthy helps Alex escape from William Rivers.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "takeshi_ogawa_prepares_communication_system_edge",
+      "source": "takeshi_ogawa",
+      "target": "communication_system",
+      "relation": "prepares",
+      "description": "Takeshi Ogawa prepared the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "takeshi_ogawa_handcrafts_communication_system_edge",
+      "source": "takeshi_ogawa",
+      "target": "communication_system",
+      "relation": "handcrafts",
+      "description": "Takeshi Ogawa handcrafted the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "takeshi_ogawa_gives_radio_edge",
+      "source": "takeshi_ogawa",
+      "target": "radio",
+      "relation": "gives",
+      "description": "Takeshi Ogawa gives the radio to Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "takeshi_ogawa_participates_in_testing_communication_system_edge",
+      "source": "takeshi_ogawa",
+      "target": "testing_communication_system",
+      "relation": "participates in",
+      "description": "Takeshi Ogawa participates in testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "takeshi_ogawa_interacts_with_valladium2_edge",
+      "source": "takeshi_ogawa",
+      "target": "valladium2",
+      "relation": "interacts with",
+      "description": "Alex and Takeshi Ogawa communicate and provide guidance.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "takeshi_ogawa_supports_valladium2_edge",
+      "source": "takeshi_ogawa",
+      "target": "valladium2",
+      "relation": "supports",
+      "description": "Takeshi Ogawa supports Alex's mission.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "takeshi_ogawa_collaborates_with_finn_mccarthy_edge",
+      "source": "takeshi_ogawa",
+      "target": "finn_mccarthy",
+      "relation": "collaborates with",
+      "description": "Finn McCarthy and Takeshi Ogawa collaborate and test the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "takeshi_ogawa_interacts_with_finn_mccarthy_edge",
+      "source": "takeshi_ogawa",
+      "target": "finn_mccarthy",
+      "relation": "interacts with",
+      "description": "Finn McCarthy and Takeshi Ogawa interact and support each other.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "takeshi_ogawa_participates_in_finn_and_takeshi_test_item_edge",
+      "source": "takeshi_ogawa",
+      "target": "finn_and_takeshi_test_item",
+      "relation": "participates in",
+      "description": "Takeshi Ogawa participates in testing the communication system and confirmed it functional.",
+      "weight": 1.0,
+      "time_start_event": "Finn and Takeshi test item",
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "takeshi_ogawa_points_to_workshop_edge",
+      "source": "takeshi_ogawa",
+      "target": "workshop",
+      "relation": "points to",
+      "description": "Takeshi Ogawa points out the passage to the Workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "takeshi_ogawa_points_out_passage_to_workshop_edge",
+      "source": "takeshi_ogawa",
+      "target": "workshop",
+      "relation": "points out passage to",
+      "description": "Takeshi Ogawa points out the passage to the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "takeshi_ogawa_comments_on_corrosion_effects_edge",
+      "source": "takeshi_ogawa",
+      "target": "corrosion_effects",
+      "relation": "comments on",
+      "description": "Takeshi Ogawa comments on the horrifying effects of corrosion.",
+      "weight": 1.0,
+      "time_start_event": "corrosion_effects",
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "protagonists_room_is_starting_location_for_valladium2_edge",
+      "source": "protagonists_room",
+      "target": "valladium2",
+      "relation": "is starting location for",
+      "description": "Alex starts his journey in the Protagonist’s Room.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "corridor_is_moved_to_by_valladium2_edge",
+      "source": "corridor",
+      "target": "valladium2",
+      "relation": "is moved to by",
+      "description": "Alex moves to the Corridor where he meets Finn McCarthy.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "communication_system_is_known_by_finn_mccarthy_edge",
+      "source": "communication_system",
+      "target": "finn_mccarthy",
+      "relation": "is known by",
+      "description": "Finn McCarthy is knowledgeable about the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "communication_system_is_tested_by_finn_mccarthy_edge",
+      "source": "communication_system",
+      "target": "finn_mccarthy",
+      "relation": "is tested by",
+      "description": "Finn McCarthy tested the communication system over long distances.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "communication_system_is_prepared_by_takeshi_ogawa_edge",
+      "source": "communication_system",
+      "target": "takeshi_ogawa",
+      "relation": "is prepared by",
+      "description": "Takeshi Ogawa prepared the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "communication_system_is_handcrafted_by_takeshi_ogawa_edge",
+      "source": "communication_system",
+      "target": "takeshi_ogawa",
+      "relation": "is handcrafted by",
+      "description": "Takeshi Ogawa handcrafted the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "communication_system_is_involved_in_testing_communication_system_edge",
+      "source": "communication_system",
+      "target": "testing_communication_system",
+      "relation": "is involved in",
+      "description": "The event involves testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "radio_is_given_by_takeshi_ogawa_edge",
+      "source": "radio",
+      "target": "takeshi_ogawa",
+      "relation": "is given by",
+      "description": "Takeshi Ogawa gives the radio to Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "radio_is_used_in_testing_communication_system_edge",
+      "source": "radio",
+      "target": "testing_communication_system",
+      "relation": "is used in",
+      "description": "The event uses the radio for testing.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "radio_is_used_by_valladium2_edge",
+      "source": "radio",
+      "target": "valladium2",
+      "relation": "is used by",
+      "description": "Alex uses the radio for testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "alex_heads_to_workshop_involves_valladium2_edge",
+      "source": "alex_heads_to_workshop",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "The event involves Alex heading to the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "alex_heads_to_workshop_occurs_at_workshop_edge",
+      "source": "alex_heads_to_workshop",
+      "target": "workshop",
+      "relation": "occurs at",
+      "description": "The event occurs at the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "testing_communication_system_is_participated_in_by_valladium2_edge",
+      "source": "testing_communication_system",
+      "target": "valladium2",
+      "relation": "is participated in by",
+      "description": "Alex participates in testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "testing_communication_system_is_participated_in_by_finn_mccarthy_edge",
+      "source": "testing_communication_system",
+      "target": "finn_mccarthy",
+      "relation": "is participated in by",
+      "description": "Finn McCarthy participates in testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "testing_communication_system_is_participated_in_by_takeshi_ogawa_edge",
+      "source": "testing_communication_system",
+      "target": "takeshi_ogawa",
+      "relation": "is participated in by",
+      "description": "Takeshi Ogawa participates in testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "testing_communication_system_involves_communication_system_edge",
+      "source": "testing_communication_system",
+      "target": "communication_system",
+      "relation": "involves",
+      "description": "The event involves testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "testing_communication_system_uses_radio_edge",
+      "source": "testing_communication_system",
+      "target": "radio",
+      "relation": "uses",
+      "description": "The event uses the radio for testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": "Testing communication system",
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "central_laboratory_is_located_on_planet_earth_edge",
+      "source": "central_laboratory",
+      "target": "planet_earth",
+      "relation": "is located on",
+      "description": "The underwater laboratory is located on Planet Earth.",
+      "weight": 1.0,
+      "time_start_event": "creation of the laboratory",
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "central_laboratory_was_created_by_creation_of_the_laboratory_edge",
+      "source": "central_laboratory",
+      "target": "creation_of_the_laboratory",
+      "relation": "was created by",
+      "description": "The underwater laboratory was created by the SynD corporation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "central_laboratory_is_modern_underwater_chemicaltechnological_laboratory_edge",
+      "source": "central_laboratory",
+      "target": "modern_underwater_chemicaltechnological_laboratory",
+      "relation": "is",
+      "description": "The modern underwater chemical-technological laboratory is the underwater laboratory.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "central_laboratory_is_affected_by_accident_edge",
+      "source": "central_laboratory",
+      "target": "accident",
+      "relation": "is affected by",
+      "description": "The accident causes chaos in the laboratory.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "central_laboratory_was_created_by_synd_corporation_edge",
+      "source": "central_laboratory",
+      "target": "synd_corporation",
+      "relation": "was created by",
+      "description": "SynD corporation created the underwater laboratory in 2132.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "central_laboratory_contains_cyborgs_edge",
+      "source": "central_laboratory",
+      "target": "cyborgs",
+      "relation": "contains",
+      "description": "The underwater laboratory contains cyborgs with digitized consciousnesses of the scientists.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "medical_sector_is_first_destination_for_valladium2_edge",
+      "source": "medical_sector",
+      "target": "valladium2",
+      "relation": "is first destination for",
+      "description": "Alex's first destination is the medical sector.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "storage_facility_is_destination_after_protection_valladium2_edge",
+      "source": "storage_facility",
+      "target": "valladium2",
+      "relation": "is destination after protection",
+      "description": "Alex proceeds to the storage facility after obtaining protection.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "storage_facility_is_destination_for_alex_proceeds_to_storage_edge",
+      "source": "storage_facility",
+      "target": "alex_proceeds_to_storage",
+      "relation": "is destination for",
+      "description": "The event of Alex proceeding to the storage facility occurs at the storage facility.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "protective_layer_is_needed_by_valladium2_edge",
+      "source": "protective_layer",
+      "target": "valladium2",
+      "relation": "is needed by",
+      "description": "Alex needs the protective layer to coat his body.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "protective_layer_is_used_in_alex_coats_body_edge",
+      "source": "protective_layer",
+      "target": "alex_coats_body",
+      "relation": "is used in",
+      "description": "The protective layer is used in coating Alex's body.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "protective_layer_protects_against_corrosion_edge",
+      "source": "protective_layer",
+      "target": "corrosion",
+      "relation": "protects against",
+      "description": "The protective layer protects against corrosion.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "finn_and_takeshi_test_item_involves_finn_mccarthy_edge",
+      "source": "finn_and_takeshi_test_item",
+      "target": "finn_mccarthy",
+      "relation": "involves",
+      "description": "Finn McCarthy participates in testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "finn_and_takeshi_test_item_involves_takeshi_ogawa_edge",
+      "source": "finn_and_takeshi_test_item",
+      "target": "takeshi_ogawa",
+      "relation": "involves",
+      "description": "Takeshi Ogawa participates in testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "alex_reaches_workshop_involves_valladium2_edge",
+      "source": "alex_reaches_workshop",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "Alex participates in reaching the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "alex_reaches_workshop_occurs_at_workshop_edge",
+      "source": "alex_reaches_workshop",
+      "target": "workshop",
+      "relation": "occurs at",
+      "description": "The event of Alex reaching the workshop occurs at the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "alex_retrieves_equipment_involves_valladium2_edge",
+      "source": "alex_retrieves_equipment",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "Alex participates in retrieving equipment.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "alex_retrieves_equipment_occurs_at_workshop_edge",
+      "source": "alex_retrieves_equipment",
+      "target": "workshop",
+      "relation": "occurs at",
+      "description": "The event of Alex retrieving equipment occurs at the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "alex_coats_body_involves_valladium2_edge",
+      "source": "alex_coats_body",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "Alex participates in coating his body with a protective layer.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "alex_coats_body_involves_protective_layer_edge",
+      "source": "alex_coats_body",
+      "target": "protective_layer",
+      "relation": "involves",
+      "description": "The protective layer is used in coating Alex's body.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "alex_proceeds_to_storage_involves_valladium2_edge",
+      "source": "alex_proceeds_to_storage",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "Alex participates in proceeding to the storage facility.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "alex_proceeds_to_storage_occurs_at_storage_facility_edge",
+      "source": "alex_proceeds_to_storage",
+      "target": "storage_facility",
+      "relation": "occurs at",
+      "description": "The event of Alex proceeding to the storage facility occurs at the storage facility.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "pneumatic_mail_station_contains_keycard_edge",
+      "source": "pneumatic_mail_station",
+      "target": "keycard",
+      "relation": "contains",
+      "description": "The keycard might be stuck in the pneumatic mail station.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "pneumatic_mail_station_is_inspected_by_finn_mccarthy_edge",
+      "source": "pneumatic_mail_station",
+      "target": "finn_mccarthy",
+      "relation": "is inspected by",
+      "description": "Finn McCarthy inspects the Pneumatic Mail Station for the keycard.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "lounge_used_to_have_fountain_edge",
+      "source": "lounge",
+      "target": "fountain",
+      "relation": "used to have",
+      "description": "The lounge used to have a fountain.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "lounge_had_destruction_of_fountain_edge",
+      "source": "lounge",
+      "target": "fountain",
+      "relation": "had destruction of",
+      "description": "The fountain was destroyed in the Lounge, creating a mess.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "mechanism_requires_battery_edge",
+      "source": "mechanism",
+      "target": "battery",
+      "relation": "requires",
+      "description": "The mechanism doesn't work due to a missing battery.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "mechanism_is_observed_by_valladium2_edge",
+      "source": "mechanism",
+      "target": "valladium2",
+      "relation": "is observed by",
+      "description": "Alex observes that the mechanism doesn't work.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "battery_is_required_by_mechanism_edge",
+      "source": "battery",
+      "target": "mechanism",
+      "relation": "is required by",
+      "description": "The mechanism doesn't work due to a missing battery.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "battery_is_found_by_finn_mccarthy_edge",
+      "source": "battery",
+      "target": "finn_mccarthy",
+      "relation": "is found by",
+      "description": "Finn McCarthy finds a battery that fits many things, including door mechanisms.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "battery_is_described_by_finn_mccarthy_edge",
+      "source": "battery",
+      "target": "finn_mccarthy",
+      "relation": "is described by",
+      "description": "Finn McCarthy describes the battery's uses.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "battery_is_needed_by_valladium2_edge",
+      "source": "battery",
+      "target": "valladium2",
+      "relation": "is needed by",
+      "description": "Alex needs the battery for the mechanism.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "keycard_is_required_by_emergency_protocols_edge",
+      "source": "keycard",
+      "target": "emergency_protocols",
+      "relation": "is required by",
+      "description": "The door requires a keycard from the main administration.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "keycard_is_from_main_administration_edge",
+      "source": "keycard",
+      "target": "main_administration",
+      "relation": "is from",
+      "description": "The keycard is needed from the main administration.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "keycard_is_contained_in_pneumatic_mail_station_edge",
+      "source": "keycard",
+      "target": "pneumatic_mail_station",
+      "relation": "is contained in",
+      "description": "The keycard might be stuck in the pneumatic mail station.",
+      "weight": 0.8,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "keycard_is_informed_by_finn_mccarthy_edge",
+      "source": "keycard",
+      "target": "finn_mccarthy",
+      "relation": "is informed by",
+      "description": "Finn McCarthy provides information about the keycard needed for the door.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "package_is_involved_in_package_was_sent_edge",
+      "source": "package",
+      "target": "package_was_sent",
+      "relation": "is involved in",
+      "description": "A package was sent but its arrival is uncertain.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "fountain_was_in_lounge_edge",
+      "source": "fountain",
+      "target": "lounge",
+      "relation": "was in",
+      "description": "The lounge used to have a fountain.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "fountain_was_destroyed_in_lounge_edge",
+      "source": "fountain",
+      "target": "lounge",
+      "relation": "was destroyed in",
+      "description": "The fountain was destroyed in the Lounge, creating a mess.",
+      "weight": 0.9,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "emergency_protocols_requires_keycard_edge",
+      "source": "emergency_protocols",
+      "target": "keycard",
+      "relation": "requires",
+      "description": "The door requires a keycard from the main administration.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "package_was_sent_involves_package_edge",
+      "source": "package_was_sent",
+      "target": "package",
+      "relation": "involves",
+      "description": "A package was sent but its arrival is uncertain.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "william_rivers_is_encountered_by_valladium2_edge",
+      "source": "william_rivers",
+      "target": "valladium2",
+      "relation": "is encountered by",
+      "description": "Alex encounters William Rivers, who has transformed into the Psycho.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "william_rivers_confronts_valladium2_edge",
+      "source": "william_rivers",
+      "target": "valladium2",
+      "relation": "confronts",
+      "description": "William Rivers is aggressive towards Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "william_rivers_is_involved_in_encounter_with_psycho_edge",
+      "source": "william_rivers",
+      "target": "encounter_with_psycho",
+      "relation": "is involved in",
+      "description": "The encounter with the Psycho involves William Rivers.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "william_rivers_participates_in_returning_stolen_items_edge",
+      "source": "william_rivers",
+      "target": "returning_stolen_items",
+      "relation": "participates in",
+      "description": "William Rivers participates in the event of returning stolen items.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "william_rivers_confronts_at_therapists_office_edge",
+      "source": "william_rivers",
+      "target": "therapists_office",
+      "relation": "confronts at",
+      "description": "William Rivers confronts Alex at the Therapist's Office.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "william_rivers_is_escaped_from_with_help_of_finn_mccarthy_edge",
+      "source": "william_rivers",
+      "target": "finn_mccarthy",
+      "relation": "is escaped from with help of",
+      "description": "Finn McCarthy helps Alex escape from William Rivers.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "valladium2_involves_testing_the_cannon_edge",
+      "source": "valladium2",
+      "target": "testing_the_cannon",
+      "relation": "involves",
+      "description": "Alex is involved in testing the cannon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "valladium2_involves_naming_the_cannon_edge",
+      "source": "valladium2",
+      "target": "naming_the_cannon",
+      "relation": "involves",
+      "description": "Alex is involved in naming the cannon.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "valladium2_starts_in_protagonists_room_edge",
+      "source": "valladium2",
+      "target": "protagonists_room",
+      "relation": "starts in",
+      "description": "Alex starts his journey in the Protagonist’s Room.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "valladium2_moves_to_corridor_edge",
+      "source": "valladium2",
+      "target": "corridor",
+      "relation": "moves to",
+      "description": "Alex moves to the Corridor where he meets Finn McCarthy.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "valladium2_participates_in_testing_communication_system_edge",
+      "source": "valladium2",
+      "target": "testing_communication_system",
+      "relation": "participates in",
+      "description": "Alex participates in testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "valladium2_heads_to_workshop_edge",
+      "source": "valladium2",
+      "target": "workshop",
+      "relation": "heads to",
+      "description": "Alex heads to the workshop for equipment.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "valladium2_is_in_workshop_edge",
+      "source": "valladium2",
+      "target": "workshop",
+      "relation": "is in",
+      "description": "Alex is present in the workshop during the events.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 2
+    },
+    {
+      "id": "valladium2_is_involved_in_alex_heads_to_workshop_edge",
+      "source": "valladium2",
+      "target": "alex_heads_to_workshop",
+      "relation": "is involved in",
+      "description": "The event involves Alex heading to the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "valladium2_interacts_with_finn_mccarthy_edge",
+      "source": "valladium2",
+      "target": "finn_mccarthy",
+      "relation": "interacts with",
+      "description": "Alex and Finn McCarthy communicate and support each other.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "valladium2_is_helped_by_finn_mccarthy_edge",
+      "source": "valladium2",
+      "target": "finn_mccarthy",
+      "relation": "is helped by",
+      "description": "Finn McCarthy helps Alex escape from William Rivers.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "valladium2_is_shouted_to_by_finn_mccarthy_edge",
+      "source": "valladium2",
+      "target": "finn_mccarthy",
+      "relation": "is shouted to by",
+      "description": "Finn McCarthy shouts to Alex to run.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "valladium2_is_supported_by_finn_mccarthy_edge",
+      "source": "valladium2",
+      "target": "finn_mccarthy",
+      "relation": "is supported by",
+      "description": "Finn McCarthy supports Alex's mission.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "valladium2_interacts_with_takeshi_ogawa_edge",
+      "source": "valladium2",
+      "target": "takeshi_ogawa",
+      "relation": "interacts with",
+      "description": "Alex and Takeshi Ogawa communicate and provide guidance.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "valladium2_is_supported_by_takeshi_ogawa_edge",
+      "source": "valladium2",
+      "target": "takeshi_ogawa",
+      "relation": "is supported by",
+      "description": "Takeshi Ogawa supports Alex's mission.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "valladium2_first_destination_medical_sector_edge",
+      "source": "valladium2",
+      "target": "medical_sector",
+      "relation": "first destination",
+      "description": "Alex's first destination is the medical sector.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "valladium2_proceeds_to_storage_facility_edge",
+      "source": "valladium2",
+      "target": "storage_facility",
+      "relation": "proceeds to",
+      "description": "Alex proceeds to the storage facility after obtaining protection.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "valladium2_needs_protective_layer_edge",
+      "source": "valladium2",
+      "target": "protective_layer",
+      "relation": "needs",
+      "description": "Alex needs the protective layer to coat his body.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "valladium2_participates_in_alex_reaches_workshop_edge",
+      "source": "valladium2",
+      "target": "alex_reaches_workshop",
+      "relation": "participates in",
+      "description": "Alex participates in reaching the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "valladium2_participates_in_alex_retrieves_equipment_edge",
+      "source": "valladium2",
+      "target": "alex_retrieves_equipment",
+      "relation": "participates in",
+      "description": "Alex participates in retrieving equipment.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "valladium2_participates_in_alex_coats_body_edge",
+      "source": "valladium2",
+      "target": "alex_coats_body",
+      "relation": "participates in",
+      "description": "Alex participates in coating his body with a protective layer.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "valladium2_participates_in_alex_proceeds_to_storage_edge",
+      "source": "valladium2",
+      "target": "alex_proceeds_to_storage",
+      "relation": "participates in",
+      "description": "Alex participates in proceeding to the storage facility.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "valladium2_encounters_william_rivers_edge",
+      "source": "valladium2",
+      "target": "william_rivers",
+      "relation": "encounters",
+      "description": "Alex encounters William Rivers, who has transformed into the Psycho.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "valladium2_confronted_by_william_rivers_edge",
+      "source": "valladium2",
+      "target": "william_rivers",
+      "relation": "confronted by",
+      "description": "William Rivers is aggressive towards Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "valladium2_returns_to_residential_zone_edge",
+      "source": "valladium2",
+      "target": "residential_zone",
+      "relation": "returns to",
+      "description": "Alex returns to the Residential Zone after escaping from William Rivers.",
+      "weight": 1.0,
+      "time_start_event": "Return to Residential Zone",
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "valladium2_is_involved_in_encounter_with_psycho_edge",
+      "source": "valladium2",
+      "target": "encounter_with_psycho",
+      "relation": "is involved in",
+      "description": "The encounter with the Psycho involves Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "valladium2_is_involved_in_obtaining_valladium2_edge",
+      "source": "valladium2",
+      "target": "obtaining_valladium2",
+      "relation": "is involved in",
+      "description": "The event of obtaining Valladium-2 involves Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "valladium2_is_involved_in_return_to_residential_zone_edge",
+      "source": "valladium2",
+      "target": "return_to_residential_zone",
+      "relation": "is involved in",
+      "description": "The event of returning to the Residential Zone involves Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "valladium2_is_involved_in_install_valladium2_edge",
+      "source": "valladium2",
+      "target": "install_valladium2",
+      "relation": "is involved in",
+      "description": "The event of installing Valladium-2 involves Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "valladium2_neutralizes_valladium5_edge",
+      "source": "valladium2",
+      "target": "valladium5",
+      "relation": "neutralizes",
+      "description": "Alex's mission is to neutralize Valladium-5.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "valladium2_participates_in_repairing_door_edge",
+      "source": "valladium2",
+      "target": "repairing_door",
+      "relation": "participates in",
+      "description": "Alex participates in the event of repairing the door.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "valladium2_participates_in_heading_to_workshop_edge",
+      "source": "valladium2",
+      "target": "heading_to_workshop",
+      "relation": "participates in",
+      "description": "Alex participates in the event of heading to the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "valladium2_participates_in_switching_isotopes_edge",
+      "source": "valladium2",
+      "target": "switching_isotopes",
+      "relation": "participates in",
+      "description": "Alex participates in the event of switching isotopes.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "valladium2_participates_in_going_to_testing_zone_edge",
+      "source": "valladium2",
+      "target": "going_to_testing_zone",
+      "relation": "participates in",
+      "description": "Alex participates in the event of going to the testing zone.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "valladium2_uses_radio_edge",
+      "source": "valladium2",
+      "target": "radio",
+      "relation": "uses",
+      "description": "Alex uses the radio for testing the communication system.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "valladium2_needs_to_handle_corrosion_edge",
+      "source": "valladium2",
+      "target": "corrosion",
+      "relation": "needs to handle",
+      "description": "Alex mentions the need to handle corrosion.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "valladium2_is_affected_by_corrosion_edge",
+      "source": "valladium2",
+      "target": "corrosion",
+      "relation": "is affected by",
+      "description": "Alex is affected by corrosion, which can dissolve him.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "valladium2_observes_mechanism_edge",
+      "source": "valladium2",
+      "target": "mechanism",
+      "relation": "observes",
+      "description": "Alex observes that the mechanism doesn't work.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "valladium2_needs_battery_edge",
+      "source": "valladium2",
+      "target": "battery",
+      "relation": "needs",
+      "description": "Alex needs the battery for the mechanism.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "valladium2_is_invested_in_by_synd_edge",
+      "source": "valladium2",
+      "target": "synd_corporation",
+      "relation": "is invested in by",
+      "description": "SynD poured money into the bodies of the characters, including Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "residential_zone_is_returned_to_by_valladium2_edge",
+      "source": "residential_zone",
+      "target": "valladium2",
+      "relation": "is returned to by",
+      "description": "Alex returns to the Residential Zone after escaping from William Rivers.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "residential_zone_is_the_location_of_return_to_residential_zone_edge",
+      "source": "residential_zone",
+      "target": "return_to_residential_zone",
+      "relation": "is the location of",
+      "description": "The event of returning to the Residential Zone occurs at the Residential Zone.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "encounter_with_psycho_involves_valladium2_edge",
+      "source": "encounter_with_psycho",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "The encounter with the Psycho involves Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "encounter_with_psycho_involves_william_rivers_edge",
+      "source": "encounter_with_psycho",
+      "target": "william_rivers",
+      "relation": "involves",
+      "description": "The encounter with the Psycho involves William Rivers.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "encounter_with_psycho_occurs_at_therapists_office_edge",
+      "source": "encounter_with_psycho",
+      "target": "therapists_office",
+      "relation": "occurs at",
+      "description": "The encounter with the Psycho occurs at the Therapist's Office.",
+      "weight": 1.0,
+      "time_start_event": "Encounter with Psycho",
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "obtaining_valladium2_involves_valladium2_edge",
+      "source": "obtaining_valladium2",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "The event of obtaining Valladium-2 involves Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "return_to_residential_zone_involves_valladium2_edge",
+      "source": "return_to_residential_zone",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "The event of returning to the Residential Zone involves Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "return_to_residential_zone_occurs_at_residential_zone_edge",
+      "source": "return_to_residential_zone",
+      "target": "residential_zone",
+      "relation": "occurs at",
+      "description": "The event of returning to the Residential Zone occurs at the Residential Zone.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "install_valladium2_involves_valladium2_edge",
+      "source": "install_valladium2",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "The event of installing Valladium-2 involves Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "therapists_office_contains_event_returning_stolen_items_edge",
+      "source": "therapists_office",
+      "target": "returning_stolen_items",
+      "relation": "contains event",
+      "description": "The event of returning stolen items occurs in the Therapist's Office.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "therapists_office_is_the_location_of_encounter_with_psycho_edge",
+      "source": "therapists_office",
+      "target": "encounter_with_psycho",
+      "relation": "is the location of",
+      "description": "The encounter with the Psycho occurs at the Therapist's Office.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "therapists_office_is_confronted_by_william_rivers_edge",
+      "source": "therapists_office",
+      "target": "william_rivers",
+      "relation": "is confronted by",
+      "description": "William Rivers confronts Alex at the Therapist's Office.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "isotopes_are_involved_in_switching_isotopes_edge",
+      "source": "isotopes",
+      "target": "switching_isotopes",
+      "relation": "are involved in",
+      "description": "The event of switching isotopes involves isotopes.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "switching_isotopes_involves_valladium2_edge",
+      "source": "switching_isotopes",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "Alex participates in the event of switching isotopes.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "switching_isotopes_involves_isotopes_edge",
+      "source": "switching_isotopes",
+      "target": "isotopes",
+      "relation": "involves",
+      "description": "The event of switching isotopes involves isotopes.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "going_to_testing_zone_involves_valladium2_edge",
+      "source": "going_to_testing_zone",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "Alex participates in the event of going to the testing zone.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "going_to_testing_zone_occurs_in_testing_zone_edge",
+      "source": "going_to_testing_zone",
+      "target": "testing_zone",
+      "relation": "occurs in",
+      "description": "The event of going to the testing zone occurs in the testing zone.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "returning_stolen_items_involves_william_rivers_edge",
+      "source": "returning_stolen_items",
+      "target": "william_rivers",
+      "relation": "involves",
+      "description": "William Rivers participates in the event of returning stolen items.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "returning_stolen_items_occurs_in_therapists_office_edge",
+      "source": "returning_stolen_items",
+      "target": "therapists_office",
+      "relation": "occurs in",
+      "description": "The event of returning stolen items occurs in the Therapist's Office.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "repairing_door_involves_valladium2_edge",
+      "source": "repairing_door",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "Alex participates in the event of repairing the door.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "heading_to_workshop_involves_valladium2_edge",
+      "source": "heading_to_workshop",
+      "target": "valladium2",
+      "relation": "involves",
+      "description": "Alex participates in the event of heading to the workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "heading_to_workshop_occurs_in_workshop_edge",
+      "source": "heading_to_workshop",
+      "target": "workshop",
+      "relation": "occurs in",
+      "description": "The event of heading to the workshop occurs in the Workshop.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "digital_genius_program_involved_scientists_edge",
+      "source": "digital_genius_program",
+      "target": "scientists",
+      "relation": "involved",
+      "description": "The scientists participated in the Digital Genius program.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "digital_genius_program_included_cloning_of_brains_edge",
+      "source": "digital_genius_program",
+      "target": "cloning_of_brains",
+      "relation": "included",
+      "description": "The Digital Genius program included the cloning of the scientists' brains.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "digital_genius_program_was_launched_by_synd_corporation_edge",
+      "source": "digital_genius_program",
+      "target": "synd_corporation",
+      "relation": "was launched by",
+      "description": "The Digital Genius program was launched by the SynD corporation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "modern_underwater_chemicaltechnological_laboratory_is_a_central_laboratory_edge",
+      "source": "modern_underwater_chemicaltechnological_laboratory",
+      "target": "central_laboratory",
+      "relation": "is a",
+      "description": "The modern underwater chemical-technological laboratory is the underwater laboratory.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "corrosion_is_mentioned_by_finn_mccarthy_edge",
+      "source": "corrosion",
+      "target": "finn_mccarthy",
+      "relation": "is mentioned by",
+      "description": "Finn McCarthy mentions the problem of corrosion.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "corrosion_is_handled_by_valladium2_edge",
+      "source": "corrosion",
+      "target": "valladium2",
+      "relation": "is handled by",
+      "description": "Alex mentions the need to handle corrosion.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "corrosion_affects_valladium2_edge",
+      "source": "corrosion",
+      "target": "valladium2",
+      "relation": "affects",
+      "description": "Alex is affected by corrosion, which can dissolve him.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "corrosion_is_caused_by_valladium5_edge",
+      "source": "corrosion",
+      "target": "valladium5",
+      "relation": "is caused by",
+      "description": "Valladium-5 causes corrosion that dissolves materials.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "corrosion_is_protected_against_by_protective_layer_edge",
+      "source": "corrosion",
+      "target": "protective_layer",
+      "relation": "is protected against by",
+      "description": "The protective layer protects against corrosion.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 4
+    },
+    {
+      "id": "main_administration_provides_keycard_edge",
+      "source": "main_administration",
+      "target": "keycard",
+      "relation": "provides",
+      "description": "The keycard is needed from the main administration.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 5
+    },
+    {
+      "id": "year_2132_was_the_year_of_creation_of_the_laboratory_edge",
+      "source": "year_2132",
+      "target": "creation_of_the_laboratory",
+      "relation": "was the year of",
+      "description": "The creation of the laboratory occurred in the year 2132.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "corrosion_effects_is_commented_on_by_takeshi_ogawa_edge",
+      "source": "corrosion_effects",
+      "target": "takeshi_ogawa",
+      "relation": "is commented on by",
+      "description": "Takeshi Ogawa comments on the horrifying effects of corrosion.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 6
+    },
+    {
+      "id": "testing_zone_contains_event_going_to_testing_zone_edge",
+      "source": "testing_zone",
+      "target": "going_to_testing_zone",
+      "relation": "contains event",
+      "description": "The event of going to the testing zone occurs in the testing zone.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 7
+    },
+    {
+      "id": "protagonist_heads_into_epicenter_of_the_disaster_edge",
+      "source": "protagonist",
+      "target": "epicenter_of_the_disaster",
+      "relation": "heads into",
+      "description": "The protagonist heads into the epicenter to neutralize the isotope.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "protagonist_attempts_to_neutralize_valladium5_edge",
+      "source": "protagonist",
+      "target": "valladium5",
+      "relation": "attempts to neutralize",
+      "description": "The protagonist attempts to neutralize Valladium-5.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "synd_corporation_created_creation_of_the_laboratory_edge",
+      "source": "synd_corporation",
+      "target": "creation_of_the_laboratory",
+      "relation": "created",
+      "description": "The SynD corporation created the underwater laboratory.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "synd_corporation_launched_launching_of_the_digital_genius_program_edge",
+      "source": "synd_corporation",
+      "target": "launching_of_the_digital_genius_program",
+      "relation": "launched",
+      "description": "The SynD corporation launched the 'Digital Genius' program.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "synd_corporation_performed_manipulation_by_the_corporation_edge",
+      "source": "synd_corporation",
+      "target": "manipulation_by_the_corporation",
+      "relation": "performed",
+      "description": "The SynD corporation performed the manipulation to establish a monopoly on science.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "synd_corporation_launched_digital_genius_program_edge",
+      "source": "synd_corporation",
+      "target": "digital_genius_program",
+      "relation": "launched",
+      "description": "The Digital Genius program was launched by the SynD corporation.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "synd_corporation_created_central_laboratory_edge",
+      "source": "synd_corporation",
+      "target": "central_laboratory",
+      "relation": "created",
+      "description": "SynD corporation created the underwater laboratory in 2132.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "synd_invests_in_valladium2_edge",
+      "source": "synd_corporation",
+      "target": "valladium2",
+      "relation": "invests in",
+      "description": "SynD poured money into the bodies of the characters, including Alex.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 3
+    },
+    {
+      "id": "cyborgs_contain_brains_of_scientists_edge",
+      "source": "cyborgs",
+      "target": "scientists",
+      "relation": "contain brains of",
+      "description": "The cyborgs contain the digitized brains of the scientists.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "cyborgs_are_contained_in_central_laboratory_edge",
+      "source": "cyborgs",
+      "target": "central_laboratory",
+      "relation": "are contained in",
+      "description": "The underwater laboratory contains cyborgs with digitized consciousnesses of the scientists.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 0
+    },
+    {
+      "id": "robots_are_located_in_central_laboratory_edge",
+      "source": "cyborgs",
+      "target": "central_laboratory",
+      "relation": "are located in",
+      "description": "The underwater laboratory contains robots that work there.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "robots_use_valladium_edge",
+      "source": "cyborgs",
+      "target": "valladium",
+      "relation": "use",
+      "description": "Robots use Valladium as an energy source.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    },
+    {
+      "id": "robots_lose_sanity_due_to_accident_edge",
+      "source": "cyborgs",
+      "target": "accident",
+      "relation": "lose sanity due to",
+      "description": "The accident causes the robots to lose their human sanity.",
+      "weight": 1.0,
+      "time_start_event": null,
+      "time_end_event": null,
+      "chunk_id": 1
+    }
+  ]
+}

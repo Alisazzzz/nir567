@@ -834,7 +834,7 @@ def form_context_with_llm(
             for state in filtered_node.states:
                 text = text + f" {state.current_description}"
         else:
-            text = text + f" {filtered_node.base_description}" + f" ({weight})"
+            text = text + f" {filtered_node.base_description}"
         tokens = estimate_tokens(text)
         result_nodes_dict[node.id] = (text, tokens)
 

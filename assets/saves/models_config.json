@@ -1,5 +1,28 @@
 {
-    "chat_models": {},
+    "chat_models": {
+        "graph_extraction_remote": {
+            "option": "mistralai",
+            "model_name": "mistral-medium-2505",
+            "config": {
+                "model_name": "mistral-medium-2505",
+                "temperature": 0.0,
+                "max_tokens": null,
+                "extra": {}
+            },
+            "api_info": "h6OQzSN4XVNshjRDx7Tj7md01VXSPH4U"
+        },
+        "generation_remote": {
+            "option": "mistralai",
+            "model_name": "mistral-medium-2505",
+            "config": {
+                "model_name": "mistral-medium-2505",
+                "temperature": 0.85,
+                "max_tokens": null,
+                "extra": {}
+            },
+            "api_info": "h6OQzSN4XVNshjRDx7Tj7md01VXSPH4U"
+        }
+    },
     "embedding_models": {
         "embeddings_fast": {
             "option": "hf_local",
