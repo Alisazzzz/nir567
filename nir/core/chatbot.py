@@ -6,6 +6,7 @@
 #---------imports----------
 #--------------------------
 
+from datetime import datetime
 import sys
 import os
 import re
@@ -13,6 +14,7 @@ from pathlib import Path
 import time
 from typing import List, Dict, Optional, Any
 from dataclasses import dataclass
+import platform
 
 from rich.console import Console
 from rich.panel import Panel
@@ -442,6 +444,8 @@ class ChatApplication:
         self.graph: Optional[KnowledgeGraph] = None
         self.chat_model: Optional[BaseLanguageModel] = None
         self.instruct_model: Optional[BaseLanguageModel] = None
+        self.chunk_size: int = 500
+        self.chunk_overlap: int = 50
         self.embedding_model: Optional[Embeddings] = None
         self.chat_model_info: Optional[ModelInfo] = None
         self.instruct_model_info: Optional[ModelInfo] = None
@@ -780,7 +784,9 @@ Let's set up your environment!
         else:
             data = loader.loadTXT(str(text_path))
         
-        chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0, chunk_size=int(result["chunk_size"]), chunk_overlap=int(result["chunk_overlap"]))   
+        self.chunk_size = int(result["chunk_size"])
+        self.chunk_overlap = int(result["chunk_overlap"])
+        chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=0, chunk_size=self.chunk_size, chunk_overlap=self.chunk_overlap)  
         self.graph = extract_graph_from_nodes(chunks=chunks, llm=self.instruct_model, embedding_model=self.embedding_model, graph_class=NetworkXGraph, preserve_all_data=False, language=result["language"]) 
         self.language = result["language"]
         vector_db_info = VectorStoreInfo(
@@ -858,6 +864,41 @@ Let's set up your environment!
             elif selected.action == "exit":
                 if self.exit_app():
                     break
+    
+    def open_text_editor(self, filepath: str):
+        system = platform.system()
+
+        try:
+            if system == "Windows":
+                os.startfile(filepath)
+        except Exception as e:
+            console.print(
+                f"[{ColorTheme.DANGER}]Failed to open editor: {e}[/{ColorTheme.DANGER}]"
+            )
+
+    def save_answer_to_txt(self, text: str):
+        graph_name = Path(self.graph_filepath).stem if self.graph_filepath else "default"
+        elements_dir = Path("assets/elements") / graph_name
+        elements_dir.mkdir(parents=True, exist_ok=True)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filepath = elements_dir / f"edited_element_{timestamp}.txt"
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write(text)
+        return filepath
+
+    def wait_for_file_edit(self, filepath: str):
+        initial_mtime = os.path.getmtime(filepath)
+        console.print(f"[{ColorTheme.INFO}]Waiting for file changes... Save the file after editing.[/{ColorTheme.INFO}]")
+        while True:
+            current_mtime = os.path.getmtime(filepath)
+            if current_mtime != initial_mtime:
+                break
+            time.sleep(1)
+        with open(filepath, "r", encoding="utf-8") as f:
+            edited_text = f.read()
+        return edited_text
+    
+
 
     def run_chat_session(self):
         ConsoleUI.clear()
@@ -875,6 +916,7 @@ Let's set up your environment!
     - [{ColorTheme.INFO}]/history[/{ColorTheme.INFO}] - Toggle add world history to context (think if event sequence of world history is needed)
     - [{ColorTheme.INFO}]/clear[/{ColorTheme.INFO}] - Clear all current chat history, reset topic and start working on new element without any impact of previous messages
     - [{ColorTheme.INFO}]/pipeline[/{ColorTheme.INFO}] - Toggle pipeline between one-staged generation and two-staged generation
+    - [{ColorTheme.INFO}]/edit[/{ColorTheme.INFO}] - Edit last generated answer in txt editor
     
     [bold]Just type your question to chat![/bold]
     """
@@ -898,14 +940,18 @@ Let's set up your environment!
 
         current_query = ""
         last_answer = ""
+        edited_answer = ""
 
         if len(self.current_message_history) > 0:
             for message in self.current_message_history:
                 if message["author"] == "user":
-                    console.print(f"\n[{ColorTheme.INFO}]Your message:[/{ColorTheme.INFO}] {message["text"]}")
-                else:
+                    console.print(f"\n[{ColorTheme.INFO}]Your message:[/{ColorTheme.INFO}] {message['text']}")
+                elif message["author"] == "assistant":
                     ConsoleUI.print_header("Answer")
                     console.print(Panel(Markdown(message["text"]), border_style=ColorTheme.PRIMARY, box=box.SQUARE))
+                elif message["author"] == "assistant_edited":
+                    ConsoleUI.print_header("Edited")
+                    console.print(Panel(Markdown(message["text"]), border_style=ColorTheme.SECONDARY, box=box.SQUARE))
 
         while True:
             query = Prompt.ask(f"\n[{ColorTheme.INFO}]Your message:[/{ColorTheme.INFO}]")
@@ -939,6 +985,30 @@ Let's set up your environment!
                 time.sleep(0.2)
                 self.run_chat_session()
                 break
+            elif query.lower() == '/edit':
+                if last_answer == "":
+                    console.print(f"[{ColorTheme.SECONDARY}]⚠ No answer to edit yet. Ask a question first![/{ColorTheme.SECONDARY}]")
+                    continue
+                try:
+                    filepath = self.save_answer_to_txt(last_answer)
+                    console.print(f"[{ColorTheme.SECONDARY}]Opening editor:[/{ColorTheme.SECONDARY}] {filepath}")
+                    self.open_text_editor(str(filepath))
+                    edited_text = self.wait_for_file_edit(str(filepath))
+                    edited_answer = edited_text
+                    last_answer = edited_text
+                    if self.chat_history:
+                        self.chat_history.add_message_to_history("assistant_edited", edited_text)
+                        self.current_message_history.append({
+                            "author": "assistant_edited", 
+                            "text": edited_text
+                        })
+                        self.chat_history.save()
+                    ConsoleUI.print_header("Edited")
+                    console.print(Panel(Markdown(edited_text), border_style=ColorTheme.SECONDARY, box=box.SQUARE))
+                    console.print("[dim]Tip: Type /update to add edited answer to the graph[/dim]")
+                except Exception as e:
+                    console.print(f"[{ColorTheme.DANGER}]Edit failed: {e}[/{ColorTheme.DANGER}]")
+                continue
             elif '/' in query.lower():
                 console.print(f"[{ColorTheme.SECONDARY}] Unknown command")
                 continue
@@ -1016,7 +1086,7 @@ Let's set up your environment!
     def update_graph_with_response(self, response: str):
         greatest_id = get_next_chunk_id(self.graph)
         data = loader.convertFromString(response)
-        chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=greatest_id)
+        chunks = loader.to_chunk_unique_id(docs=data, start_chunk_id=greatest_id, chunk_size=self.chunk_size, chunk_overlap=self.chunk_overlap)
         update_graph_from_nodes(chunks, self.instruct_model, self.embedding_model, self.graph)
         
         if self.graph.get_vector_db():
@@ -1049,7 +1119,7 @@ Let's set up your environment!
         
         if self.graph and self.graph_filepath:
             self.graph.save(path=self.graph_filepath)
-            ConsoleUI.print_success(" 🖫 Graph saved")
+            ConsoleUI.print_success("- - - > Graph saved")
         
         return True
 

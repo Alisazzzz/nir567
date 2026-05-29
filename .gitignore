@@ -8,6 +8,9 @@
 **/assets/models/**
 !**/assets/models/.gitkeep
 
+**/assets/elements/**
+!**/assets/elements/.gitkeep
+
 **/chroma_langchain_db
 
 __pycache__/

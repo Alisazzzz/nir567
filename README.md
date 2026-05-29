@@ -37,9 +37,7 @@ Context retrieval combines semantic similarity search with graph traversal. The 
 Additionally, since the system is implemented as a chatbot-based tool, conversation history is also included in the context provided to the language model.
 
 ## Installation
-This project was developed and tested on Windows environments. Support for Linux and macOS has not been tested.
-`.exe` file for app installation without python and its dependencies you can find [here](https://drive.google.com/file/d/1t_Tvv_9Tp9zraukooOTvtXImJTF-mVkQ/view?usp=sharing).
-Additionally, it would be very helpful if you could complete the survey: [in english](https://forms.gle/sACmb5cwsVsPrBPD9) | [in russian](https://forms.gle/voY1HXCN5tyBotpB9)
+This project was developed and tested only on Windows environments.
 
 The system also requires a CUDA-compatible GPU for efficient execution of language and embedding models. CPU-only execution is currently not officially supported and may result in significantly reduced performance or unsupported behavior.
 
@@ -54,15 +52,11 @@ Open the folder in a terminal and run:
 git clone https://github.com/Alisazzzz/nir567.git
 ```
 You can also download the repository manually using any other preferred method.
-#### 3. Navigate to the project folder
-```bash
-cd nir567
-```
-#### 4. (Recommended) Create a virtual environment
-```bash
-py -3.13 -m venv .venv
-```
-#### 5. Activate the virtual environment
+#### 3. Run .bat file
+Go inside nir567 folder and launch install.bat file. This will create virtual environment and install all dependencies needed for repository.
+
+#### 4. Activate the virtual environment
+After all dependencies have been installed, you can close window from .bat file and open command line from nir567 folder. In this command line, activate virtual environment.
 ```bash
 .venv/Scripts/activate
 ```
@@ -71,19 +65,11 @@ If you get an execution policy error, run:
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 ```
 Then activate the environment again.
-#### 6. Install required dependencies
-```bash
-pip install -r requirements.txt
-```
-#### 7. Install spaCy language models
-```bash
-python -m spacy download en_core_web_sm
-python -m spacy download ru_core_news_sm
-```
 ### Running the Project
-After everything is installed, run:
+After activating virtual environment, run:
 ```bash
 python main.py
 ```
 
-Detailed descriptions of the next steps can be found in the [project wiki](https://github.com/Alisazzzz/nir567/wiki/NIR567-WIKI).
+Detailed descriptions of the next steps can be found in english in [project wiki](https://github.com/Alisazzzz/nir567/wiki/NIR567-WIKI).
+OR for russian you can find more detailed instuctions [here](https://app.notion.com/p/3611b883cb478010b227eed4a9eb4ba7?source=copy_link)

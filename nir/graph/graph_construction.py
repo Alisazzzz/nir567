@@ -460,12 +460,12 @@ prompt_merging_ru = ChatPromptTemplate.from_messages([
 ]).partial(format_instructions=merged_nodes_parser.get_format_instructions())
 
 prompt_merging_cluster_en = ChatPromptTemplate.from_messages([
-    ("system", "You are an expert at Knowledge Graph deduplication. Merge these similar nodes into a single comprehensive node. {format_instructions}"),
+    ("system", "You are an expert at Knowledge Graph deduplication. Merge these similar nodes into a single comprehensive node. Save as mush information as possible: try to combine it, not overwrite. {format_instructions}"),
     ("human", "Nodes to merge:\n{nodes_json}\n\nContexts:\n{contexts}")
 ]).partial(format_instructions=merged_nodes_parser.get_format_instructions())
 
 prompt_merging_cluster_ru = ChatPromptTemplate.from_messages([
-    ("system", "Ты - эксперт в избавлении от дубликатов вершин для графов знаний. Объедини эти одинаковые вершины в одну вершину, сохранив максимум информации. {format_instructions}"),
+    ("system", "Ты - эксперт в избавлении от дубликатов вершин для графов знаний. Объедини эти одинаковые вершины в одну вершину. Сохрание как можно больше информации: постарайся объединить всю существующую информацию, а не переписать одну другой. {format_instructions}"),
     ("human", "Вершины для объединения:\n{nodes_json}\n\Контексты:\n{contexts}")
 ]).partial(format_instructions=merged_nodes_parser.get_format_instructions())
 
@@ -949,6 +949,7 @@ def merge_similar_nodes(
     ) -> Tuple[Dict[str, Node], Dict[str, Edge]]:  
     
     print("Merging nodes stage.") #DEBUGGING
+
     if not nodes:
         return {}, {}
 

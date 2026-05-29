@@ -23,6 +23,7 @@ SYSTEM_PROMPT_PLAN_BASIC_EN = """
           - Keep reasoning concise.
           - Do not generate the final story/content itself.
           - Focus on actionable planning.
+          - Absolutely do not use xml tags except for <reasoning> </reasoning> <plan> and </plan>
 
      Output format:
 
@@ -161,7 +162,7 @@ SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_PLAN_EN = """
           - Try to insert new element into game world: add details mentioned in context.
           - Keep the response immersive and coherent.
 
-     Output only the XML block below.
+     Output only the XML block below. Absolutely do not use xml tags except for <answer> and </answer>
 
      Output format:
 
@@ -199,6 +200,7 @@ SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_CONTEXT_EN = """
           - Avoid generic ideas and repetition.
           - Try to insert new element into game world: add details mentioned in context.
           - Prefer specific, memorable details over vague descriptions.
+          - Absolutely do not use xml tags except for <reasoning> </reasoning> <answer> and </answer>
 
      Output format:
 
@@ -236,6 +238,7 @@ SYSTEM_PROMPT_PLAN_BASIC_RU = """
           - Рассуждай кратко.
           - Не генерируй итоговую историю / контент самостоятельно.
           - Сосредоточься на практическом планировании.
+          - Не используй xml теги кроме <reasoning> </reasoning> <plan> и </plan>
 
      Формат вывода:
 
@@ -355,7 +358,7 @@ SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_PLAN_RU = """
           - Старайся вписывать новый контент в существующий мир и упоминать элементы из контекста.
           - Сохраняй ответ погружающим (иммерсивным) и связным.
 
-     Выведи только XML-блок ниже.
+     Выведи только XML-блок ниже. Не используй XML-теги кроме <answer> и </answer>.
 
      Формат вывода:
 
@@ -393,6 +396,7 @@ SYSTEM_PROMPT_FINAL_ANSWER_BASED_ON_CONTEXT_RU = """
           - Избегай общих идей и повторений.
           - Старайся вписывать новый контент в существующий мир и упоминать элементы из контекста.
           - Отдавай предпочтение конкретным, запоминающимся деталям, а не расплывчатым описаниям.
+          - Не используй xml теги кроме <reasoning> </reasoning> <answer> и </answer>
 
      Формат вывода:
 
