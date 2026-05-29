@@ -53,7 +53,7 @@ git clone https://github.com/Alisazzzz/nir567.git
 ```
 You can also download the repository manually using any other preferred method.
 #### 3. Run .bat file
-Go inside nir567 folder and launch install.bat file. This will create virtual environment and install all dependencies needed for repository.
+Go inside nir567 folder and launch `install.bat` file. This will create virtual environment and install all dependencies needed for repository.
 
 #### 4. Activate the virtual environment
 After all dependencies have been installed, you can close window from .bat file and open command line from nir567 folder. In this command line, activate virtual environment.
@@ -72,4 +72,5 @@ python main.py
 ```
 
 Detailed descriptions of the next steps can be found in english in [project wiki](https://github.com/Alisazzzz/nir567/wiki/NIR567-WIKI).
-OR for russian you can find more detailed instuctions [here](https://app.notion.com/p/3611b883cb478010b227eed4a9eb4ba7?source=copy_link)
+
+OR for russian you can find more detailed instuctions [here](https://app.notion.com/p/3611b883cb478010b227eed4a9eb4ba7?source=copy_link).
