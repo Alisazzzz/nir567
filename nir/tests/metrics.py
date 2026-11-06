@@ -99,6 +99,7 @@ prompt_template_world_consistency_en = ChatPromptTemplate.from_messages([
     ("system", testing_prompts.SYSTEM_PROMPT_WORLD_CONSISTENCY_EN),
     ("human", (
         "Original game world description:\n{original_context}\n\n"
+        "Task that was given:\n{query}\n\n"
         "Newly created text:\n{generated_text}\n\n" ))
 ])
 
@@ -106,6 +107,7 @@ prompt_template_world_consistency_ru = ChatPromptTemplate.from_messages([
     ("system", testing_prompts.SYSTEM_PROMPT_WORLD_CONSISTENCY_RU),
     ("human", (
         "Описание игрового мира:\n{original_context}\n\n"
+        "Task that was given:\n{query}\n\n"
         "Сгенерированный текст:\n{generated_text}\n\n" ))
 ])
 
@@ -303,6 +305,7 @@ def evaluate_bert_score_vs_reference(generated_text: str, reference_text: str, l
 
 def compute_world_consistency(
     original_context: str,
+    query: str,
     generated_text: str,
     llm: BaseLanguageModel,
     language: str = "en"
@@ -314,6 +317,7 @@ def compute_world_consistency(
     try:
         response = chain.invoke({
             "original_context": original_context,
+            "query": query,
             "generated_text": generated_text
         })
         answer = response.content.strip() if hasattr(response, 'content') else str(response).strip()

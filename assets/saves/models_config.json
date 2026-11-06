@@ -21,6 +21,17 @@
                 "extra": {}
             },
             "api_info": "h6OQzSN4XVNshjRDx7Tj7md01VXSPH4U"
+        },
+        "qwen_3b_evaluation_model_tests": {
+            "option": "ollama",
+            "model_name": "qwen2.5:3b-instruct",
+            "config": {
+                "model_name": "qwen2.5:3b-instruct",
+                "temperature": 0.0,
+                "max_tokens": null,
+                "extra": {}
+            },
+            "api_info": null
         }
     },
     "embedding_models": {
